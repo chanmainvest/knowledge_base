@@ -1,0 +1,806 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+<!-- Google Tag Manager -->
+<script async="" src="https://static.woopra.com/js/w.js"></script><script async="" src="//connect.facebook.net/en_US/fbds.js"></script><script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-MDCXM5H"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MDCXM5H');</script>
+<!-- End Google Tag Manager --> 
+
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=8, IE=9, IE=10, IE=edge">
+<title>信報網站 hkej.com</title>
+<meta name="description" content="信報網站(www.hkej.com)提供全天候即時香港股市、金融、經濟新聞資訊和分析，致力與讀者一起剖釋香港、關注兩岸、放眼全球政經格局。">
+<meta name="keywords" content="信報 信網 信報財經新聞 信报 信网 信报财经新闻 投資 股票 股市 金融 經濟 通告 理財 分析 評論 板塊 即時新聞 免費財經新聞 香港財經 中國財經 信號導航 預託證券 資金流 人民幣 點心債 RQFII ETF 地產霸權 金融海嘯 QE 免費即時股票報價 免費即時港股報價 股票詳情 金融行情 大行報告 大行精選 券商報告 黃金 外匯 交叉盤 財經詞彙 財經術語 林行止 曹仁超 張五常 王迪詩 地產 樓市 住宅 工商舖 信報論壇 論壇 信博 博客 信網智庫 智庫 玄學 健康 LIFE-STYLE 信報財經月刊 信網購物 購物頻道 書店 酒窖 禮樂精選 ">
+<meta name="keywords" content="Hkej, hkej.com ,hong kong economic journal, EJFQ real time free quote, hk stock quote, hang seng index, research reports, economic data, hong kong market,news, financial news, finance, investment, market, stock, business ,money, a share, h share, a+h, China stock, RMB, dim sum bond, commodity, forex, adr, fund flows ,commentary, economic data, ipo, gold, oil , portfolio, hong kong">
+<link rel="SHORTCUT ICON" href="/template/common/images/favicon.ico">
+<link href="//static.hkej.com/hkej/hkej_icon/logo_57x57.png" rel="apple-touch-icon-precomposed" sizes="57x57">
+<link href="//static.hkej.com/hkej/hkej_icon/logo_72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72">
+<link href="//static.hkej.com/hkej/hkej_icon/logo_114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114">
+<link href="//static.hkej.com/hkej/hkej_icon/logo_144x144.png" rel="apple-touch-icon-precomposed" sizes="144x144">
+<link href="/template/landing11/css/reset-min.css" rel="stylesheet" type="text/css">
+<link href="//static.hkej.com/hkej/css/common_2016.css?20260624142340" rel="stylesheet" type="text/css">
+<link href="//static.hkej.com/hkej/css/hkej_landing_2014.css?20260624142340" rel="stylesheet" type="text/css">
+<link href="/template/fulltextsearch/css/registration_v2.css" rel="stylesheet" type="text/css">
+<link href="/css/onlinenews/css/onlinenews.css" rel="stylesheet" type="text/css">
+<link href="/template/fulltextsearch/css/smoothness/jquery-ui-1.10.4.custom.css" rel="stylesheet" type="text/css">
+<script src="/template/fulltextsearch/js/jquery-1.11.0.min.js"></script>
+<script src="/template/fulltextsearch/js/jquery.highlight-4.js"></script>
+<script src="/template/fulltextsearch/js/jquery-ui-1.10.4.custom.min.js"></script>
+<!--DFP script -->
+<script src="//static.hkej.com/hkej/js/asyncad.js?1659607568"></script>
+<!--DFP script end-->
+<script>
+var General = {
+	_logon_on_off:0,
+
+	Init:function(kw){
+		$('#searchForm').submit(function() {
+			q = $('#q').val();
+			q = q.trim();
+			
+			if(q == ""){
+				alert("請輸入搜尋的關鍵字!");
+				return false;
+			}else{
+				if(/^[\.-a-z0-9_ ]{0,49}$/i.test(q)){
+					if (q.length == 1){
+						alert("請輸入多於1個英文字的搜尋關鍵字");
+						return false;
+					}
+				}
+			};
+		});	
+		
+		this.LoginUser();
+		this.HighlightKeywords(kw);				
+		this.GetHotSearch();		
+		// this.LoadContent('editorsChoice', 'geteditorschoice.php #hkej_right_column_editor_choice_2014');
+		this.SetAutoComplete('q');
+	},
+	
+	ShowLoginBox:function(){
+		$("#hkej_logon_menu_container_2014").hover(	 
+		  	function(){
+				General.btn_hover_on();
+				General._logon_on_off=1;
+			}, function() {
+				General.btn_hover_off();
+				General._logon_on_off=0;
+		});
+
+		$(".hkej_upper_registration_logon_2014" ).click(function() {
+			General.btn_hover_off();
+			General._logon_on_off=1;
+		});
+
+		$("#hkej_logon_menu_back_btn" ).click(function() {
+			General.btn_hover_off();
+			General._logon_on_off=0;
+		});
+
+		$( ".hkej_upper_registration_logon_2014" ).click(function() {
+			if (General._logon_on_off==0){
+				General.btn_hover_on();
+				General._logon_on_off=1;
+			} else if (General._logon_on_off==1){ 
+				General.btn_hover_off();
+				General._logon_on_off=0;
+			}
+		});	
+	},
+
+	HighlightKeywords:function(kw){
+		var strarray = kw.split(/\s+/);
+		for (var i=0; i < strarray.length; i++)
+		{
+			$(".result").highlight(strarray[i]);
+		};
+	},
+
+	LoginUser:function(){
+		$.post('login.php', {}, function(rs){
+			if(rs.indexOf('|') > 0){
+				rs = rs.split("|");
+				$('.hkej_funcBar_login_2019').prepend('<!-- login & service_info Btn Start--><div class="hkej_upper_registration_greenstyle_btn_2014">|</div><div id="hkej_logon_menu_container_2014"><div class="hkej_upper_registration_logon_menu_2014"><span style="line-height:23px;text-align:left; float:left; height:24px">歡迎&nbsp;</span>（<a href="//subscribe.hkej.com/register">我的賬戶</a>｜<a href="//subscribe.hkej.com/member/logout">登出</a>）</span></div></div>');
+			}else{
+				$('.hkej_funcBar_login_2019').prepend('<!-- login & service_info Btn Start--><div class="hkej_upper_registration_greenstyle_btn_2014">|</div><div class="hkej_upper_registration_btn_2014"><a href="//subscribe.hkej.com/register">註冊</a></div><div class="hkej_upper_registration_btn_2014"><a href="//subscribe.hkej.com/member/login?forwardURL=//search.hkej.com">登入</a></div>');
+			};
+
+			$('.hkej_funcBar_login_2019').prepend('<div class="hkej_upper_registration_greenstyle_btn_2014"><!-- 訂閱/續訂 --><a href="//subscribe.hkej.com">訂閱 / 續訂</a></div><!-- login & service_info Btn END-->');
+		}); 
+	},
+
+	btn_hover_on:function(){
+		$(".hkej_upper_registration_logon_menu_2014").css("display", "block");
+		$(".hkej_upper_registration_btn_2014").css("display", "none");
+		$(".hkej_upper_registration_greenstyle_btn_2014").css("display", "none");		
+	},
+		
+	btn_hover_off:function(){
+		$(".hkej_upper_registration_logon_menu_2014").css("display", "none");
+		$(".hkej_upper_registration_btn_2014").css("display", "block");
+		$(".hkej_upper_registration_greenstyle_btn_2014").css("display", "block");		
+	},
+
+	GetHotSearch:function(){
+		// JSONP and call back ParseJSONPResults()
+		var s = document.createElement("script");
+		s.type = "text/javascript";
+		s.src = "/template/fulltextsearch/php/embedhotsearchjs.php";
+		$("head").append(s);
+	},
+
+	ParseJSONPResults:function(rs) {
+		if (rs.html != ''){
+			$('#hkej_search_ad_text_01_title').show();
+			$('#hkej_search_ad_text_01').html(rs.html);
+			$('#hkej_search_ad_text_01 a[target="_blank"]').removeAttr('target');			
+		}
+	},
+	
+	SetAutoComplete:function(id) {
+		var delay = (function() {
+			var timer = 0;
+			return function(callback, ms) {
+				clearTimeout(timer);
+				timer = setTimeout(callback, ms);
+			};
+		})();
+		
+		General.GetAutoComplete(id, '');
+		
+		$("#" + id).keyup(function(e) {
+			inputValue = $('#' + id).val();
+			if(inputValue != '' && inputValue >= 0 && parseFloat(inputValue) == parseInt(inputValue,10)) {
+				delay(function() {
+					inputValue = $('#' + id).val();
+					General.GetAutoComplete(id, inputValue);
+				}, 200);
+			};
+		});		
+	},
+	
+	GetAutoComplete:function(id, val) {
+		// JSONP and call back ParseAutoCompleteResults()
+		if (id != '') {
+			var s = document.createElement("script");
+			$("head script[src^='getautocomplete.php']").remove();
+			s.type = "text/javascript";
+			s.src = "getautocomplete.php?id=" + id + "&val=" + val;
+			$("head").append(s);
+		};
+	},
+	
+	ParseAutoCompleteResults:function(id) {
+		$("#" + id).autocomplete({
+			source:availableKeywords,
+			select:function(event, ui) {
+				window.location = ui.item.url;
+			}
+		});	
+		$("#" + id).addClass("ui-autocomplete-input");
+		$("#" + id).autocomplete('search', $("#" + id).val());		
+		$("#" + id).focus();		
+		
+	},
+	
+	LoadContent:function(id, url) {
+		$("#" + id).load(url);
+	}
+	
+};
+
+$(document).ready(function(){
+	General.Init('#AUTHOR__李聲揚#');
+});
+</script>
+<style>
+.highlight {background-color: #FFFF88;}
+#hkej_landing_editor_choice_2014,.hkej_sc-editor_choice_container_2014,.hkej_sc-editor_choice_lv_container_2014{width:200px;
+</style>
+<!-- common dfp script -->
+<script async="" src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+
+
+		<script type="text/javascript">
+		googletag.defineSlot('/79812692/HKEJ_Search_TopBanner', [[728, 90], [970, 90], [970, 160]], 'div-gpt-ad-1389409999255-0').addService(googletag.pubads());
+		googletag.pubads().enableSyncRendering();
+		googletag.enableServices();
+		</script>	
+		
+		<script type="text/javascript">
+		googletag.defineSlot('/79812692/HKEJ_Search_LargeRectangle1', [[300, 250], [300, 600]], 'div-gpt-ad-1389408708449-0').addService(googletag.pubads());
+		googletag.pubads().enableSyncRendering();
+		googletag.enableServices();
+		</script>
+		
+		<script type="text/javascript">
+		googletag.defineSlot('/79812692/HKEJ_Search_LargeRectangle2', [[2, 1], [300, 250]], 'div-gpt-ad-1389409808355-0').addService(googletag.pubads());
+		googletag.pubads().enableSyncRendering();
+		googletag.enableServices();
+		</script>
+		
+		<script type="text/javascript">
+		googletag.defineSlot('/79812692/HKEJ_OnlineNews_LargeRectangle3', [[2, 1], [300, 250]], 'div-gpt-ad-1381910746116-0').addService(googletag.pubads());
+		googletag.pubads().enableSyncRendering();
+		googletag.enableServices();
+		</script>
+	
+<script type="text/javascript">
+googletag.defineSlot('/79812692/HKEJ_Search_PopUp', [3, 3], 'div-gpt-ad-1389412091322-0').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+</script>
+
+<script type="text/javascript">
+googletag.defineSlot('/79812692/HKEJ_Search_Skinner', [2, 2], 'div-gpt-ad-1389412003588-0').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+</script>
+
+<script type="text/javascript">
+googletag.defineSlot('/79812692/HKEJ_Search_Skinner_TIme', [2, 3], 'div-gpt-ad-1393409830649-0').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+</script>
+
+<script type="text/javascript">
+googletag.defineSlot('/79812692/HKEJ_HomePage_Textbox', [220, 30], 'div-gpt-ad-1390448846543-0').addService(googletag.pubads());
+googletag.pubads().enableSyncRendering();
+googletag.enableServices();
+</script>
+
+<script type="text/javascript" src="/template/fulltextsearch/php/embedhotsearchjs.php"></script></head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MDCXM5H"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->    
+
+<!-- skinner banner -->
+<div id="ad_skinner" style="display:none">
+	<!-- HKEJ_Search_Skinner -->
+<div id="div-gpt-ad-1389412003588-0" style="width:2px; height:2px;">
+<script type="text/javascript">
+googletag.display('div-gpt-ad-1389412003588-0');
+</script>
+</div>
+<script src="/template/banner/js/skinner.js"></script>  
+<!-- HKEJ_Search_Skinner_TIme -->
+<div id="div-gpt-ad-1393409830649-0" style="width:2px; height:3px;">
+<script type="text/javascript">
+googletag.display('div-gpt-ad-1393409830649-0');
+</script>
+</div></div>
+<!-- skinner banner -->
+<!-- popup ad -->
+<style>
+.overlay-bg{
+		display: none;
+		position: fixed;
+		z-index:99999;
+		top: 0;
+		left: 0;
+		height:100%;
+		width: 100%;
+		background-image: url(/template/banner/images/ad_popup_bg.png);
+		background-repeat: repeat;
+}
+.overlay-content{
+		width: 680px;
+		position: relative; 
+		margin-top: -260px;
+		margin-right: auto;
+		margin-bottom: 0;
+		margin-left: auto;
+		height: 520px;
+		top: 50%;
+		background-color: #FFF;
+}
+
+.ad-content{
+		position:relative;
+		width:640px;
+		height:480px;
+		margin-bottom:0px;
+		margin-top:0px;
+		margin-left:20px;
+		margin-right:20px;
+}
+.ad-framecontent{
+		position:relative;
+		width:680px;
+		height:500px;
+		float:left;
+}
+#popup_closebtn{
+		width:20px;
+		height:20px;
+		float:right;
+		cursor:pointer;
+}
+</style>
+<div id="ad_popup" class="overlay-bg">
+	<div class="overlay-content">
+		<img id="popup_closebtn" src="/template/banner/images/ad_close_btn.png">
+		<div class="ad-framecontent">
+		<div class="ad-content">
+			<!-- HKEJ_Search_PopUp -->
+<div id="div-gpt-ad-1389412091322-0" style="width:3px; height:3px;">
+<script type="text/javascript">
+googletag.display('div-gpt-ad-1389412091322-0');
+</script>
+</div>		</div>
+		</div>
+	</div>
+</div>
+<!-- popup ad-->
+<!-- top banner -->
+<div class="ad-top">
+	<div id="ad_top_banner">
+		<div class="topbanner_dfp_expand">
+			
+		<!-- HKEJ_Search_TopBanner -->
+		<div id="div-gpt-ad-1389409999255-0">
+		<script type="text/javascript">
+		googletag.display('div-gpt-ad-1389409999255-0');
+		</script>
+		</div>	
+						
+		</div>
+	</div>
+</div>
+<!-- top banner -->
+<!-- 2014 Website Head Start-->
+<div id="hkej_wrapper_siteHeadWrap_2014">
+	<div class="hkej_siteHead_2019_table">
+		<div class="hkej_funcBar_login_2019"><div class="hkej_upper_registration_greenstyle_btn_2014"><!-- 訂閱/續訂 --><a href="//subscribe.hkej.com">訂閱 / 續訂</a></div><!-- login & service_info Btn END--><!-- login & service_info Btn Start--><div class="hkej_upper_registration_greenstyle_btn_2014">|</div><div class="hkej_upper_registration_btn_2014"><a href="//subscribe.hkej.com/register">註冊</a></div><div class="hkej_upper_registration_btn_2014"><a href="//subscribe.hkej.com/member/login?forwardURL=//search.hkej.com">登入</a></div>
+			<script type="text/javascript">
+			$(document).ready(function() {
+				$("#hkej_login_username_2014").each(function() {
+					var hkej_login_username_width = $("#hkej_login_username_2014").width();
+					//Max-width substitution (works for all browsers)
+					if (hkej_login_username_width > 80) {
+						$("#hkej_login_username_2014").css("width", "80px");
+					} else if (hkej_login_username_width < 60) {
+						$("#hkej_login_username_2014").css("padding-right", "20px");  
+					}  
+				});      
+			});      
+			</script>
+		</div>
+		<div class="hkej_siteHead_2019_tr">
+			<div class="hkej_siteHead_2019_td siteHead_2019_one">
+				<!-- HKEJ LOGO Start-->
+				<a href="https://www2.hkej.com/"><img src="https://static.hkej.com/hkej/hkej_icon/2019_hkej-logo.png" border="0"></a>
+				<!-- HKEJ LOGO End-->
+			</div>
+			<div class="hkej_siteHead_2019_td siteHead_2019_two">
+				<div class="hkej_funcBar_2014">
+					<!-- hot tab Start--> 
+					<div class="keywords" id="upper_keywords_search1">
+						<div class="keyword_cat" id="hkej_search_ad_text_01_title" style="display:none">熱門：</div>
+						<div class="hkej_search_ad_text_container" id="hkej_search_ad_text_01"></div>
+						<!-- 搜尋 -->
+				        <div id="HKEJ_Search_Ad_Text_05" class="hkej_search_ad_text_container">				<!-- HKEJ_Search_Ad_Text_05 -->
+							<div id="div-gpt-ad-1390449336153-0" style="display:none;">
+								<script type="text/javascript">
+								desktopviewad('/79812692/HKEJ_Search_Ad_Text_05', [53, 22], 'div-gpt-ad-1390449336153-0');
+								</script>
+							</div>
+						</div>
+
+				        <div id="HKEJ_Search_Ad_Text_06" class="hkej_search_ad_text_container">				<!-- HKEJ_Search_Ad_Text_06 -->
+							<div id="div-gpt-ad-1390449452195-0" style="display:none;">
+								<script type="text/javascript">
+								desktopviewad('/79812692/HKEJ_Search_Ad_Text_06', [165, 22], 'div-gpt-ad-1390449452195-0');
+								</script>
+							</div>
+						</div>
+						<div id="hkej_search_ad_text_07" class="hkej_search_ad_text_container"></div>
+						<div id="hkej_search_ad_text_08" class="hkej_search_ad_text_container"></div>
+						<div id="hkej_search_ad_text_09" class="hkej_search_ad_text_container"></div>
+					</div>
+					<!-- hot tab END-->
+					<div class="hkej_funcBar_2014">   
+	    				<form id="searchForm" action="search.php" onsubmit="return search_submit();" method="get" name="searchForm">
+						<input value="" name="upper_search_submit" id="upper_search_submit_2019" type="submit" style="">
+						<a href="help.php" class="tip"></a>
+						<input name="q" id="q" title="輸入您想要搜尋的關鍵字。" placeholder="搜尋" value="" size="15" maxlength="128" type="text" class="keywords_text " style="">
+						</form>
+	    		    </div><!-- END hkej_funcBar_2014 -->
+				</div> <!-- END hkej_funcBar_2014 -->
+			</div><!-- END hkej_siteHead_2019_td siteHead_2019_two -->
+			<div class="hkej_siteHead_2019_td siteHead_2019_three">
+				<div class="hkej_right_col_media_icon_2019">
+					<a class="mm_fb" href="http://bit.ly/31EC09W" alt="fb" title="fb" target="_blank"></a>
+					<a class="mm_youtube" href="https://www.youtube.com/user/hkejvideo" alt="youtube" title="youtube" target="_blank"></a>
+					<a class="mm_ig" href="https://www.instagram.com/hkej1973" alt="ig" title="ig" target="_blank"></a>
+					<a class="mm_medium" href="http://bit.ly/30gpcWM" alt="medium" title="medium" target="_blank"></a>
+					<a class="mm_weibo" href="http://bit.ly/2KyTG0N" alt="weibo" title="weibo" target="_blank"></a>
+					<a class="mm_wechat" href="javascript:;" alt="wechat" title="wechat" onmouseover="$('img.mm_wechat_qr').toggle();" onmouseout="$('img.mm_wechat_qr').toggle();"></a>
+					<img class="mm_wechat_qr" src="/template/fulltextsearch/images/wechat_QRcode.png">
+				</div>
+				<div class="hkej_right_col_adv_text_2019">
+					<div id="hkej_right_col_adv_text_2014">						
+						<!-- /79812692/HKEJ_HomePage_Subscriber_Textbox1 -->
+						<div id="div-gpt-ad-1390448846543-0"><script type="text/javascript">googletag.display('div-gpt-ad-1390448846543-0');</script></div>	
+					</div>
+				</div>
+			</div><!-- End hkej_siteHead_2019_td siteHead_2019_three -->
+		</div>
+	</div>
+	<!-- 2019 Website Head -->
+</div>
+
+
+
+<!-- 2014 Website Head END-->
+<div id="hkej_sitemenu">
+	<div id="hkej_sitemenu_icon_2014">
+		<span class="hkej_sitemenu_icon_container" id="hkej_sitemenu_icon_ejshop"><a href="//gbb.shop" target="_blank"></a></span>
+		<span class="hkej_sitemenu_icon_container" id="hkej_sitemenu_icon_publishing"><a href="https://hkejpublish.hkej.com/" target="_blank"></a></span>		
+		<span class="hkej_sitemenu_icon_container" id="hkej_sitemenu_icon_iknow"><a href="//iknow.hkej.com" target="_blank"></a></span>   
+		<span class="hkej_sitemenu_icon_container" id="hkej_sitemenu_icon_eji_below"><span id="hkej_sitemenu_icon_eji"><a href="//www.ejinsight.com" target="_blank"></a></span></span>	
+		<span class="hkej_sitemenu_icon_container" id="hkej_sitemenu_icon_lj"><a href="//lj.hkej.com" target="_blank"></a></span>
+		<span class="hkej_sitemenu_icon_container" id="hkej_sitemenu_icon_ejm"><a href="//monthly.hkej.com/" target="_blank"></a></span>
+		<span class="hkej_sitemenu_icon_container" id="hkej_sitemenu_icon_360_below"><span id="hkej_sitemenu_icon_360"><a href="//stock360.hkej.com" target="_blank"></a></span></span>
+		<span class="hkej_sitemenu_icon_container" id="hkej_sitemenu_icon_ejfq"><a href="//www.ejfq.com/home/tc/landing.htm" target="_blank"></a></span>
+		<span class="hkej_sitemenu_icon_container" id="hkej_sitemenu_icon_startupbeat"><a href="//ejtech.hkej.com" target="_blank"></a></span>		
+		<span class="hkej_sitemenu_icon_container" id="hkej_sitemenu_icon_health"><a href="//health.hkej.com" target="_blank"></a></span>		
+	</div>
+</div>
+<!-- 2014 Website navigation bar Start-->
+<div class="hkej_navMenuWrap_2014">
+	<div id="hkej_navMenu_2014">
+		<!-- 2014 Cat Btn Start-->
+		<ul>
+			<li><a href="//www.hkej.com">主頁</a></li>
+			<li><a href="//www2.hkej.com/instantnews">即時新聞</a></li>	
+			<li><a href="//www1.hkej.com/dailynews">今日信報</a></li>	
+			<li><a href="//stock360.hkej.com">港股360</a></li>
+			<li><a href="//www2.hkej.com/property">地產投資</a></li>
+			<li><a href="//www2.hkej.com/wm">財富管理</a></li>
+			<li><a href="//www1.hkej.com/features">專題</a></li>
+			<li><a href="//www2.hkej.com/multimedia">信報視頻</a></li>			
+			<li><a href="//www1.hkej.com/features/topicsp/tag/%E6%BE%B3%E5%8A%A0%E7%A7%BB%E6%B0%91%E5%B0%88%E9%A1%8C?ref=topmenu">移民攻略</a></li>	
+			<li><a href="//www1.hkej.com/features/topicsp/tag/%E7%B2%B5%E6%B8%AF%E6%BE%B3%E5%A4%A7%E7%81%A3%E5%8D%80">大灣區</a></li>		
+		</ul>
+		<!-- 2014 Cat Btn END-->        
+	</div>
+</div>
+<!-- 2014 Website navigation bar END-->
+<div class="wrapper">
+	<div id="contentWrap" style="width:940px;margin:0 auto;padding:20px 10px 0 10px;">
+		<div id="leftCol">
+			<h1 id="srTitle">搜尋結果</h1>
+			<div class="search-result-info-wrappper">
+				<div class="total-result">
+					共 122 個結果
+				</div>
+				<div class="paging-wrapper">
+					<span>頁數：</span><span class="on"><a href="#top">1</a></span>
+<span><a href="search.php?q=&amp;author=%E6%9D%8E%E8%81%B2%E6%8F%9A&amp;page=2#top">2</a></span>
+<span><a href="search.php?q=&amp;author=%E6%9D%8E%E8%81%B2%E6%8F%9A&amp;page=3#top">3</a></span>
+<span><a href="search.php?q=&amp;author=%E6%9D%8E%E8%81%B2%E6%8F%9A&amp;page=4#top">4</a></span>
+<span><a href="search.php?q=&amp;author=%E6%9D%8E%E8%81%B2%E6%8F%9A&amp;page=5#top">5</a></span>
+<span><a href="search.php?q=&amp;author=%E6%9D%8E%E8%81%B2%E6%8F%9A&amp;page=6#top">6</a></span>
+<span><a href="search.php?q=&amp;author=%E6%9D%8E%E8%81%B2%E6%8F%9A&amp;page=7#top">7</a></span>
+				</div>
+			</div>
+			<div class="search-result-wrappper">
+				<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4429669/%E5%86%B7%E7%9C%BC%E6%97%81%E8%A7%80SpaceX%E4%B8%8A%E5%B8%82" border="0"><img src="//static.hkej.com/hkej/images/2026/06/12/4429669_b11d4a1ecc1a1c20948b8b12bafe2fd2_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4429669/%E5%86%B7%E7%9C%BC%E6%97%81%E8%A7%80SpaceX%E4%B8%8A%E5%B8%82" title="冷眼旁觀SpaceX上市">冷眼旁觀SpaceX上市</a></h3>
+	<p class="recap">是日6月12日，萬眾期待的SpaceX（SPCX）上市。是否值博等等，坊間已有討論。筆者就相信公司上市大升是必 ...<a href="//www1.hkej.com/dailynews/investment/article/4429669/%E5%86%B7%E7%9C%BC%E6%97%81%E8%A7%80SpaceX%E4%B8%8A%E5%B8%82">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年06月12日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4423841/%E8%8B%B1%E6%A0%BC%E8%98%AD%E4%B8%96%E7%95%8C%E7%9B%83%E6%96%99%E5%A5%AA%E5%86%A0" border="0"><img src="//static.hkej.com/hkej/images/2026/06/05/4423841_e648a3ad3b51ce25e7f6cdbbe55a221a_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4423841/%E8%8B%B1%E6%A0%BC%E8%98%AD%E4%B8%96%E7%95%8C%E7%9B%83%E6%96%99%E5%A5%AA%E5%86%A0" title="英格蘭世界盃料奪冠">英格蘭世界盃料奪冠</a></h3>
+	<p class="recap">本文表面講足球，實則講投資。絕不模棱兩可，筆者白紙黑字寫明：相信英格蘭將會成為今屆世界盃冠軍，事隔一甲子再封王 ...<a href="//www1.hkej.com/dailynews/investment/article/4423841/%E8%8B%B1%E6%A0%BC%E8%98%AD%E4%B8%96%E7%95%8C%E7%9B%83%E6%96%99%E5%A5%AA%E5%86%A0">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年06月05日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4414431/Tinder%E5%8F%AF%E6%8C%BD%E5%9B%9E%E5%A5%B3%E7%94%A8%E6%88%B6%E6%AD%A1%E5%BF%83%E5%97%8E%3F" border="0"><img src="//static.hkej.com/hkej/images/2026/05/29/4414431_6c79b6d87235ee58e0b793754f94c99c_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4414431/Tinder%E5%8F%AF%E6%8C%BD%E5%9B%9E%E5%A5%B3%E7%94%A8%E6%88%B6%E6%AD%A1%E5%BF%83%E5%97%8E%3F" title="Tinder可挽回女用戶歡心嗎?">Tinder可挽回女用戶歡心嗎?</a></h3>
+	<p class="recap">你有多久沒用過Tinder了？近年Tinder持續流失客戶，收入倒退，母公司Match Group（美：MTC ...<a href="//www1.hkej.com/dailynews/investment/article/4414431/Tinder%E5%8F%AF%E6%8C%BD%E5%9B%9E%E5%A5%B3%E7%94%A8%E6%88%B6%E6%AD%A1%E5%BF%83%E5%97%8E%3F">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年05月29日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4409057/%E8%AD%98%E5%88%A5%E6%B3%A1%E6%B2%AB%3F%E4%B8%8D%E5%A6%82%E6%93%81%E6%8A%B1%E7%A1%AC%E9%A3%9F" border="0"><img src="//static.hkej.com/hkej/images/2026/05/22/4409057_4fde07f4b588ef1bb3378183d182f61c.png" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4409057/%E8%AD%98%E5%88%A5%E6%B3%A1%E6%B2%AB%3F%E4%B8%8D%E5%A6%82%E6%93%81%E6%8A%B1%E7%A1%AC%E9%A3%9F" title="識別泡沫?不如擁抱硬食">識別泡沫?不如擁抱硬食</a></h3>
+	<p class="recap">不睇圖不計數，即時估：假設黑仔又無知的老李，在史詩級的科網泡沫1.0，也就是2000年3月，摸頂all in買 ...<a href="//www1.hkej.com/dailynews/investment/article/4409057/%E8%AD%98%E5%88%A5%E6%B3%A1%E6%B2%AB%3F%E4%B8%8D%E5%A6%82%E6%93%81%E6%8A%B1%E7%A1%AC%E9%A3%9F">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年05月22日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4403797/%E3%80%8C%E5%9C%9F%E8%80%B3%E5%85%B6%E5%B7%B4%E9%83%A1%E3%80%8D%E7%8B%82%E5%8D%87400%E5%80%8D%E4%B9%8B%E8%AC%8E" border="0"><img src="//static.hkej.com/hkej/images/2026/05/15/4403797_12ced050566e64fdd1646e9bf7a8b964_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4403797/%E3%80%8C%E5%9C%9F%E8%80%B3%E5%85%B6%E5%B7%B4%E9%83%A1%E3%80%8D%E7%8B%82%E5%8D%87400%E5%80%8D%E4%B9%8B%E8%AC%8E" title="「土耳其巴郡」狂升400倍之謎">「土耳其巴郡」狂升400倍之謎</a></h3>
+	<p class="recap">南韓「監獄版畢非德」成為近期市場熱話。話說有位南韓男子，2020年3月時把全副身家（約150萬港元）押注在曉星 ...<a href="//www1.hkej.com/dailynews/investment/article/4403797/%E3%80%8C%E5%9C%9F%E8%80%B3%E5%85%B6%E5%B7%B4%E9%83%A1%E3%80%8D%E7%8B%82%E5%8D%87400%E5%80%8D%E4%B9%8B%E8%AC%8E">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年05月15日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4398608/AI%E6%A8%A1%E4%BB%BF%E4%BA%BA%E9%A1%9E+%E7%82%92%E8%82%A1%E8%BC%B8%E9%8C%A2%E5%B1%85%E5%A4%9A" border="0"><img src="//static.hkej.com/hkej/images/2026/05/08/4398608_0a1d2da628c926a9837048a31b5c4e69_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4398608/AI%E6%A8%A1%E4%BB%BF%E4%BA%BA%E9%A1%9E+%E7%82%92%E8%82%A1%E8%BC%B8%E9%8C%A2%E5%B1%85%E5%A4%9A" title="AI模仿人類 炒股輸錢居多">AI模仿人類 炒股輸錢居多</a></h3>
+	<p class="recap">「德國股神」科斯托蘭尼（André Kostolany）離世27年，今人普遍不認識科氏，殊為可惜。科氏妙語連珠 ...<a href="//www1.hkej.com/dailynews/investment/article/4398608/AI%E6%A8%A1%E4%BB%BF%E4%BA%BA%E9%A1%9E+%E7%82%92%E8%82%A1%E8%BC%B8%E9%8C%A2%E5%B1%85%E5%A4%9A">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年05月08日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4391485/%E6%8A%95%E8%B3%87%E5%B8%82%E5%A0%B4%E9%82%A3%E4%BA%9B%E6%89%AE%E7%8D%B5%E4%BA%BA%E7%9A%84%E8%BE%B2%E5%A4%AB" border="0"><img src="//static.hkej.com/hkej/images/2026/05/01/4391485_7281e8490ea4149afc5e0bb6fc102045_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4391485/%E6%8A%95%E8%B3%87%E5%B8%82%E5%A0%B4%E9%82%A3%E4%BA%9B%E6%89%AE%E7%8D%B5%E4%BA%BA%E7%9A%84%E8%BE%B2%E5%A4%AB" title="投資市場那些扮獵人的農夫">投資市場那些扮獵人的農夫</a></h3>
+	<p class="recap">與其問「當獵人好還是農夫好」，不如問自己「你是獵人還是農夫」。
+上星期五《信報》出現小奇景。友欄汪敦敬兄（〈獵 ...<a href="//www1.hkej.com/dailynews/investment/article/4391485/%E6%8A%95%E8%B3%87%E5%B8%82%E5%A0%B4%E9%82%A3%E4%BA%9B%E6%89%AE%E7%8D%B5%E4%BA%BA%E7%9A%84%E8%BE%B2%E5%A4%AB">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年05月01日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4379969/%E8%B6%81%E5%85%AD%E5%90%88%E5%BD%A950%E5%91%A8%E5%B9%B4%E8%B7%9F%E9%A6%AC%E6%9C%83%E8%A8%88%E6%95%B8" border="0"><img src="//static.hkej.com/hkej/images/2026/04/24/4379969_44a6834fee9bbb8bccf9dbdbf37c8252_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4379969/%E8%B6%81%E5%85%AD%E5%90%88%E5%BD%A950%E5%91%A8%E5%B9%B4%E8%B7%9F%E9%A6%AC%E6%9C%83%E8%A8%88%E6%95%B8" title="趁六合彩50周年跟馬會計數">趁六合彩50周年跟馬會計數</a></h3>
+	<p class="recap">六合彩50周年，獎金破紀錄。原本想寫「祝各位讀者都中獎」，寫完都覺搞笑。以前有位老前輩，有歐陽修之風，但凡雀局 ...<a href="//www1.hkej.com/dailynews/investment/article/4379969/%E8%B6%81%E5%85%AD%E5%90%88%E5%BD%A950%E5%91%A8%E5%B9%B4%E8%B7%9F%E9%A6%AC%E6%9C%83%E8%A8%88%E6%95%B8">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年04月24日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4373611/AI%E8%B3%AD%E6%B3%A2%E6%9C%83%E8%BC%B8+%E7%82%92%E8%82%A1%E6%9C%89%E6%9C%9B%E8%B4%8F%E9%8C%A2" border="0"><img src="//static.hkej.com/hkej/images/2026/04/17/4373611_a20c2ae3733587c67075d25ea65f8f91_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4373611/AI%E8%B3%AD%E6%B3%A2%E6%9C%83%E8%BC%B8+%E7%82%92%E8%82%A1%E6%9C%89%E6%9C%9B%E8%B4%8F%E9%8C%A2" title="AI賭波會輸 炒股有望贏錢">AI賭波會輸 炒股有望贏錢</a></h3>
+	<p class="recap">早前本報引述外媒提到〈八模型投注英超 全蝕錢收場〉。AI賭波唔掂，十分正常，AI炒股又得唔得？難講。首先要定義 ...<a href="//www1.hkej.com/dailynews/investment/article/4373611/AI%E8%B3%AD%E6%B3%A2%E6%9C%83%E8%BC%B8+%E7%82%92%E8%82%A1%E6%9C%89%E6%9C%9B%E8%B4%8F%E9%8C%A2">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年04月17日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4368143/ETF%E5%A3%BD%E5%91%BD%E7%B8%AE%E7%9F%AD%E6%9C%89%E5%8E%9F%E5%9B%A0" border="0"><img src="//static.hkej.com/hkej/images/2026/04/10/4368143_da6ac2a1a16f5126b25abd0c9f89cc03.png" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4368143/ETF%E5%A3%BD%E5%91%BD%E7%B8%AE%E7%9F%AD%E6%9C%89%E5%8E%9F%E5%9B%A0" title="ETF壽命縮短有原因">ETF壽命縮短有原因</a></h3>
+	<p class="recap">近年ETF市場發展蓬勃，特別是美股。筆者去年寫過〈ETF多過股票 肥了發行商〉，去年美股超過1000隻全新ET ...<a href="//www1.hkej.com/dailynews/investment/article/4368143/ETF%E5%A3%BD%E5%91%BD%E7%B8%AE%E7%9F%AD%E6%9C%89%E5%8E%9F%E5%9B%A0">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年04月10日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4364650/%E6%84%8F%E5%A4%A7%E5%88%A9%E7%84%A1%E7%B7%A3%E4%B8%96%E7%9B%83%E6%B1%BA%E8%B3%BD%E5%91%A8%E6%AD%BB%E5%9B%A0%E7%A0%94%E7%A9%B6" border="0"><img src="//static.hkej.com/hkej/images/2026/04/03/4364650_ea42a7103b616166d372d60f68a6f366_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4364650/%E6%84%8F%E5%A4%A7%E5%88%A9%E7%84%A1%E7%B7%A3%E4%B8%96%E7%9B%83%E6%B1%BA%E8%B3%BD%E5%91%A8%E6%AD%BB%E5%9B%A0%E7%A0%94%E7%A9%B6" title="意大利無緣世盃決賽周死因研究">意大利無緣世盃決賽周死因研究</a></h3>
+	<p class="recap">假期不談金融，談點輕鬆事。今年足球世界盃擴容，決賽周由32隊擴至48隊。斯人獨憔悴的是意大利球迷，皆因這支曾四 ...<a href="//www1.hkej.com/dailynews/investment/article/4364650/%E6%84%8F%E5%A4%A7%E5%88%A9%E7%84%A1%E7%B7%A3%E4%B8%96%E7%9B%83%E6%B1%BA%E8%B3%BD%E5%91%A8%E6%AD%BB%E5%9B%A0%E7%A0%94%E7%A9%B6">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年04月03日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4352725/3%E9%9A%BB%E6%B8%AF%E8%82%A1%E4%BC%B0%E5%80%BC%E6%AE%98+%E6%9C%89%E6%9C%9B%E9%87%8D%E6%8F%90%E7%A7%81%E6%9C%89%E5%8C%96" border="0"><img src="//static.hkej.com/hkej/images/2026/03/27/4352725_75b5b06978a501b0482b8f82f783dc0f_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4352725/3%E9%9A%BB%E6%B8%AF%E8%82%A1%E4%BC%B0%E5%80%BC%E6%AE%98+%E6%9C%89%E6%9C%9B%E9%87%8D%E6%8F%90%E7%A7%81%E6%9C%89%E5%8C%96" title="3隻港股估值殘 有望重提私有化">3隻港股估值殘 有望重提私有化</a></h3>
+	<p class="recap">戰爭陰霾揮之不去，筆者當下沒有太多心水，最有信心是一些港股小型公司。對，大家又可開始在私有化浪潮中尋寶了。廸生 ...<a href="//www1.hkej.com/dailynews/investment/article/4352725/3%E9%9A%BB%E6%B8%AF%E8%82%A1%E4%BC%B0%E5%80%BC%E6%AE%98+%E6%9C%89%E6%9C%9B%E9%87%8D%E6%8F%90%E7%A7%81%E6%9C%89%E5%8C%96">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年03月27日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4346126/%E6%97%A5%E6%9C%AC%E6%B1%BD%E6%B0%B4%E6%A9%9F%E6%B8%9B%E5%B0%91+%E6%8F%AD%E7%A4%BA%E6%8A%95%E8%B3%87%E6%96%B0%E4%B8%BB%E9%A1%8C" border="0"><img src="//static.hkej.com/hkej/images/2026/03/20/4346126_41bb502bb16af12e5bf7f5c01b8bfae8.png" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4346126/%E6%97%A5%E6%9C%AC%E6%B1%BD%E6%B0%B4%E6%A9%9F%E6%B8%9B%E5%B0%91+%E6%8F%AD%E7%A4%BA%E6%8A%95%E8%B3%87%E6%96%B0%E4%B8%BB%E9%A1%8C" title="日本汽水機減少 揭示投資新主題">日本汽水機減少 揭示投資新主題</a></h3>
+	<p class="recap">德國名導演雲溫達斯（Wim Wenders）早兩年拍了套日本片《新活日常》（Perfect Days），男主角 ...<a href="//www1.hkej.com/dailynews/investment/article/4346126/%E6%97%A5%E6%9C%AC%E6%B1%BD%E6%B0%B4%E6%A9%9F%E6%B8%9B%E5%B0%91+%E6%8F%AD%E7%A4%BA%E6%8A%95%E8%B3%87%E6%96%B0%E4%B8%BB%E9%A1%8C">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年03月20日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4339915/%E5%BC%B7%E7%A9%8D%E9%87%91%E6%87%89%E8%A9%B2%E8%A6%81%E5%A4%9A%E8%87%AA%E7%94%B1%3F" border="0"><img src="//static.hkej.com/hkej/images/2026/03/13/4339915_03aaf5e6bbfcfbf7dfe29b69209ac752_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4339915/%E5%BC%B7%E7%A9%8D%E9%87%91%E6%87%89%E8%A9%B2%E8%A6%81%E5%A4%9A%E8%87%AA%E7%94%B1%3F" title="強積金應該要多自由?">強積金應該要多自由?</a></h3>
+	<p class="recap">筆者早決定今次寫強積金。強積金愈來愈多「花臣」，真的是好事？最新消息是強積金容許投資主動ETF，但只能佔淨資產 ...<a href="//www1.hkej.com/dailynews/investment/article/4339915/%E5%BC%B7%E7%A9%8D%E9%87%91%E6%87%89%E8%A9%B2%E8%A6%81%E5%A4%9A%E8%87%AA%E7%94%B1%3F">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年03月13日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4334644/%E8%B3%AD%E5%93%88%E6%A2%85%E5%85%A7%E4%BC%8A%E5%80%92%E5%8F%B0+%E6%9C%89%E7%84%A1%E5%BE%97%E8%B3%A0%E5%A5%BD%E9%9B%A3%E8%AC%9B" border="0"><img src="//static.hkej.com/hkej/images/2026/03/06/4334644_e4201e8d27ebd6810c6568afb78fd960_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4334644/%E8%B3%AD%E5%93%88%E6%A2%85%E5%85%A7%E4%BC%8A%E5%80%92%E5%8F%B0+%E6%9C%89%E7%84%A1%E5%BE%97%E8%B3%A0%E5%A5%BD%E9%9B%A3%E8%AC%9B" title="賭哈梅內伊倒台 有無得賠好難講">賭哈梅內伊倒台 有無得賠好難講</a></h3>
+	<p class="recap">歌仔有得唱：「生命作賭注，留下了英雄故事。」現實中，不少行為被視為「玩命」或「賭命」，以上種種是賭自己的命，賭 ...<a href="//www1.hkej.com/dailynews/investment/article/4334644/%E8%B3%AD%E5%93%88%E6%A2%85%E5%85%A7%E4%BC%8A%E5%80%92%E5%8F%B0+%E6%9C%89%E7%84%A1%E5%BE%97%E8%B3%A0%E5%A5%BD%E9%9B%A3%E8%AC%9B">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年03月06日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4326739/%E6%B8%AF%E5%BA%9C%E6%87%89%E8%AA%8D%E7%9C%9F%E8%A8%8E%E8%AB%96%E9%96%8B%E5%BE%B5%E9%8A%B7%E5%94%AE%E7%A8%85" border="0"><img src="//static.hkej.com/hkej/images/2026/02/27/4326739_c62c218b420c86e17e8243f7dae41104.png" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4326739/%E6%B8%AF%E5%BA%9C%E6%87%89%E8%AA%8D%E7%9C%9F%E8%A8%8E%E8%AB%96%E9%96%8B%E5%BE%B5%E9%8A%B7%E5%94%AE%E7%A8%85" title="港府應認真討論開徵銷售稅">港府應認真討論開徵銷售稅</a></h3>
+	<p class="recap">開宗明義，筆者認為政府應該認真研究開徵銷售稅，民間也要有更多討論。痛罵筆者不要緊，筆者非稅務或公共財政專家，可 ...<a href="//www1.hkej.com/dailynews/investment/article/4326739/%E6%B8%AF%E5%BA%9C%E6%87%89%E8%AA%8D%E7%9C%9F%E8%A8%8E%E8%AB%96%E9%96%8B%E5%BE%B5%E9%8A%B7%E5%94%AE%E7%A8%85">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年02月27日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4322799/%E3%80%8C%E6%84%9B%E8%82%A1%E5%8D%87%E5%85%AB%E5%80%8D%E5%BE%8C%E8%B7%8C%E5%85%AB%E6%88%90%E3%80%8D%E8%A6%AA%E8%BA%AB%E6%84%9F%E5%8F%97" border="0"><img src="//static.hkej.com/hkej/images/2026/02/20/4322799_d4f9ee3e9b01677294874d97bd587277_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4322799/%E3%80%8C%E6%84%9B%E8%82%A1%E5%8D%87%E5%85%AB%E5%80%8D%E5%BE%8C%E8%B7%8C%E5%85%AB%E6%88%90%E3%80%8D%E8%A6%AA%E8%BA%AB%E6%84%9F%E5%8F%97" title="「愛股升八倍後跌八成」親身感受">「愛股升八倍後跌八成」親身感受</a></h3>
+	<p class="recap">本欄馬年首次見報，祝各位讀者明辨是非，培養媒體素養（media literacy）。只要有大智慧，自然能累積財 ...<a href="//www1.hkej.com/dailynews/investment/article/4322799/%E3%80%8C%E6%84%9B%E8%82%A1%E5%8D%87%E5%85%AB%E5%80%8D%E5%BE%8C%E8%B7%8C%E5%85%AB%E6%88%90%E3%80%8D%E8%A6%AA%E8%BA%AB%E6%84%9F%E5%8F%97">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年02月20日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4320458/%E5%85%AD%E5%90%88%E5%BD%A9%E6%87%89%E5%8A%A0%E5%83%B9+%E4%B9%9F%E9%A0%88%E6%93%B4%E5%AE%B9%E6%B7%BB%E7%8E%A9%E6%B3%95" border="0"><img src="//static.hkej.com/hkej/images/2026/02/13/4320458_b967c65362a563262ffde2a8a15246ee_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4320458/%E5%85%AD%E5%90%88%E5%BD%A9%E6%87%89%E5%8A%A0%E5%83%B9+%E4%B9%9F%E9%A0%88%E6%93%B4%E5%AE%B9%E6%B7%BB%E7%8E%A9%E6%B3%95" title="六合彩應加價 也須擴容添玩法">六合彩應加價 也須擴容添玩法</a></h3>
+	<p class="recap">筆者有幾十年投注六合彩經驗，長期關注此議題。早前同文寧思雋君在〈六合彩「加價」好過減派彩〉一文提到，坊間智庫居 ...<a href="//www1.hkej.com/dailynews/investment/article/4320458/%E5%85%AD%E5%90%88%E5%BD%A9%E6%87%89%E5%8A%A0%E5%83%B9+%E4%B9%9F%E9%A0%88%E6%93%B4%E5%AE%B9%E6%B7%BB%E7%8E%A9%E6%B3%95">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年02月13日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4315608/Sell+America%2C+Buy+These%21" border="0"><img src="//static.hkej.com/hkej/images/2026/02/06/4315608_4d8f2cee46888cb976aaa06bd41e14a3_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4315608/Sell+America%2C+Buy+These%21" title="Sell America, Buy These!">Sell America, Buy These!</a></h3>
+	<p class="recap">拜讀友欄郝承林君文章多年，獲益良多，後來有幸在本報成為「鄰居」，深感榮幸。最記得2014年世界盃，郝君寫過「德 ...<a href="//www1.hkej.com/dailynews/investment/article/4315608/Sell+America%2C+Buy+These%21">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年02月06日</span></p>
+</div>
+<div class="result">
+	<div style="float:right;padding:5px"><a href="//www1.hkej.com/dailynews/investment/article/4307903/AI%E6%9C%83%E5%A6%82%E4%BD%95%E8%A1%9D%E6%93%8A%E8%89%B2%E6%83%85%E7%94%A2%E6%A5%AD%3F" border="0"><img src="//static.hkej.com/hkej/images/2026/01/30/4307903_6ec09701c59422a1a997f22e9e5b3c04_100.jpg" width="80" border="0"></a></div>
+	<h3><a href="//www1.hkej.com/dailynews/investment/article/4307903/AI%E6%9C%83%E5%A6%82%E4%BD%95%E8%A1%9D%E6%93%8A%E8%89%B2%E6%83%85%E7%94%A2%E6%A5%AD%3F" title="AI會如何衝擊色情產業?">AI會如何衝擊色情產業?</a></h3>
+	<p class="recap">人工智能（AI）搶飯碗、取代人類，坊間已討論多時，惟主流媒體較少討論對成人產業的影響。本文主要探討色情內容及媒 ...<a href="//www1.hkej.com/dailynews/investment/article/4307903/AI%E6%9C%83%E5%A6%82%E4%BD%95%E8%A1%9D%E6%93%8A%E8%89%B2%E6%83%85%E7%94%A2%E6%A5%AD%3F">全文</a></p>
+	<p class="info"><span class="section"><a href="//www1.hkej.com/dailynews/" class="sc-online">今日信報</a></span><span class="section"><a href="//www1.hkej.com/dailynews/investment" class="sc-online">理財投資</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?q=%E9%87%91%E8%9E%8D%E7%AC%AC%E5%8D%81%E4%BA%BA" class="sc-online">金融第十人</a></span><span class="section"><a href="//search.hkej.com/template/fulltextsearch/php/search.php?author=%E6%9D%8E%E8%81%B2%E6%8F%9A" class="sc-online">李聲揚</a></span><span class="timeStamp">2026年01月30日</span></p>
+</div>
+			</div>        
+   			<div class="paging-wrapper">
+   				<span>頁數：</span><span class="on"><a href="#top">1</a></span>
+<span><a href="search.php?q=&amp;author=%E6%9D%8E%E8%81%B2%E6%8F%9A&amp;page=2#top">2</a></span>
+<span><a href="search.php?q=&amp;author=%E6%9D%8E%E8%81%B2%E6%8F%9A&amp;page=3#top">3</a></span>
+<span><a href="search.php?q=&amp;author=%E6%9D%8E%E8%81%B2%E6%8F%9A&amp;page=4#top">4</a></span>
+<span><a href="search.php?q=&amp;author=%E6%9D%8E%E8%81%B2%E6%8F%9A&amp;page=5#top">5</a></span>
+<span><a href="search.php?q=&amp;author=%E6%9D%8E%E8%81%B2%E6%8F%9A&amp;page=6#top">6</a></span>
+<span><a href="search.php?q=&amp;author=%E6%9D%8E%E8%81%B2%E6%8F%9A&amp;page=7#top">7</a></span>
+			</div>
+		</div>
+		<div id="rightCol">
+			<div class="ad-300">                                      
+				
+		<!-- HKEJ_Search_LargeRectangle1 -->
+		<div id="div-gpt-ad-1389408708449-0">
+		<script type="text/javascript">
+		googletag.display('div-gpt-ad-1389408708449-0');
+		</script>
+		</div>	
+					</div>
+			<div class="ad-300-2">
+				
+		<!-- HKEJ_Search_LargeRectangle2 -->
+		<div id="div-gpt-ad-1389409808355-0">
+		<script type="text/javascript">
+		googletag.display('div-gpt-ad-1389409808355-0');
+		</script>
+		</div>	
+					</div>
+			<div class="ad-300-3">
+				
+					</div>
+			<div class="ad-300 toprank" style="display:none">
+							</div>			
+			<div id="editorsChoice"></div>
+		</div>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			<!-- log keyword usage -->
+			if (1 == 0 && (document.URL.indexOf('?q=') > 0 || document.URL.indexOf('&q=') > 0) && document.URL.indexOf('&page=') == -1)
+			{
+				$.post('logkeyword.php', {keyword:'#AUTHOR__李聲揚#', rowcount:122, d:0.055, s:0.031, v:'f70b1b4067077e9bc3f052db1a40eb26', v2:'D0m/FSf6LgsdsLdwKvpRIVVGaVY5Uzl6azlzZWFsRnNhdDlVaTZmZldqVXV6eHdRRTNXNE9OdjFpVU1VYjBXUDRDREw3YlR1ZWd2ODEwUmR6c0xXZzVnb0tKdmcxYStDQm1qNjRUcWJROXdURU10cFRRSWZPZFdOa053MnM5S05DLzhEUW1heCtSdy9PRThvMiszNUZkU1RBalkvRzJDWkNadXVWQS9XVktBM1NlMmNVaUYvR09ETC9rV2pmMHErZUVaVzkrdS9iZVVoNUVxRDU1YTlQNW1MaVZWbVdoU1dUUUhCbDZNdnR2SDV4VldRc1o3QmJMYXhxeGFFY0ptKzRITlhRVFlsN01mMXo2ZlNCbDFnbUhEeG0rdnpQcEtOMDRmL1VCaVhOdGtyc0hHWHE4amg1bnAyRWVDRGtXNklBTkVCVnlaWWlaS3o5MUc3dE1CSUhacURmTXBQbFMyYWVFVnJiSGpnYVhWL0o2T3YrZ1VKaDF0cTNXdE8zVENxclVIVGFpMGt4eFFPNndSWG84eG9OOGtGQTJRYTI4UVpNWkVaTlZIR0hFeDdGS2k0Q0RRMlNCek9kaWhYVWhuRnUxcHNPN2Q4L0g0aWxoYm9Td2pxd0tZdlYvY2ZvMGFTSlVhWFlBUkZyMzdWM0FXVStQYU5PVENjWWFxT0JKd1BtVzc0OEd3Qm1pVU9EbGFKY0Exd2IrUCtoUHFWRzV0V1FVdE84VVVFTkhtTkpacDZjOHZMamVGQmdxK3B0ODhpUE5CVDkwQW1tRjhndHVUN3BEUGdDYjFadWNKTVArWUZGVDA4b1lzWEJka0U4MUg0L1JhMFZqKytEbmVIU200ZDI2TXBaVUF2cmx2TnZtKzh1WTU3Y1Iva3FXZTNFcUxQbDhPdDNBPT0='}, function(){})
+			};
+		});
+		</script>
+		<center><iframe src="https://www2.hkej.com/assets/embedsitemap.html" marginwidth="0" marginheight="0" scrolling="No" style="float:none" frameborder="0" width="960" height="450"></iframe></center>
+	</div>
+</div>
+<div class="wrapper">
+	<div id="footerWrap_2014">
+		<p>
+			<a href="https://www2.hkej.com/info/aboutus">信報簡介</a> | 
+			<a href="https://www2.hkej.com/info/memberprovision">服務條款</a> | 
+			<a href="https://www2.hkej.com/info/privacy">私隱條款</a> | 
+			<a href="https://www2.hkej.com/info/disclaimer">免責聲明</a> | 
+			<a href="https://www.hkej.com/ratecard/html/index.html">廣告查詢</a> | 
+			<!--<a href="https://www2.hkej.com/info/conferenceCentre">信報會議中心租賃</a> |-->
+			<a href="https://www2.hkej.com/info/jobs">加入信報</a> | 
+			<a href="https://www2.hkej.com/info/contactus">聯絡信報</a>
+		</p>
+		<div id="disclaimer_2014">
+			<p>股票及指數資料由財經智珠網有限公司提供。期貨指數資料由天滙財經有限公司提供。外滙及黃金報價由路透社提供。</p>
+			<p>本網站的內容概不構成任何投資意見，本網站內容亦並非就任何個別投資者的特定投資目標、財務狀況及個別需要而編製。投資者不應只按本網站內容進行投資。在作出任何投資決定前，投資者應考慮產品的特點、其本身的投資目標、可承受的風險程度及其他因素，並適當地尋求獨立的財務及專業意見。本網站及其資訊供應商竭力提供準確而可靠的資料，但並不保證資料絕對無誤，資料如有錯漏而令閣下蒙受損失，本公司概不負責。</p>
+        </div>
+        <p id="copyright_2014">信報財經新聞有限公司版權所有，不得轉載。<br>Copyright © 2026 Hong Kong Economic Journal Company Limited. All rights reserved.</p>
+        <div id="footerWrap_icon_v2_2014"><p>
+			<span style=" width:102px; height:20px; position:relative;z-index:1;">
+				<span style="font-size:13px; position:absolute; z-index:5; left:0; top:-27px; color:#3f5aa1"><a href="https://zh-hk.facebook.com/hongkongeconomicjournal">信報財經新聞</a></span>
+				<iframe src="//www.facebook.com/plugins/like.php?app_id=160465764053571&amp;href=http%3A%2F%2Fwww.facebook.com%2Fhongkongeconomicjournal&amp;send=false&amp;layout=button_count&amp;width=97&amp;height=20&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20" scrolling="no" frameborder="0" style="border:none;  width:102px; height:20px;padding-right:5px;" allowtransparency="true"></iframe>
+			</span>
+			<iframe src="//platform.twitter.com/widgets/follow_button.html?screen_name=HKEJGROUP" scrolling="no" frameborder="0" width="230" height="24" allowtransparency="true" style="border:none;" data-show-count="true"></iframe>                                
+        </p></div>
+    </div>
+</div>
+<!-- Start Google Analistics -->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-4710049-1']);
+_gaq.push(['_setDomainName', 'hkej.com']);
+_gaq.push(['_addIgnoredRef', 'hkej.com']);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackEvent', 'Search Engine', 'Search', '']);(function() {
+	  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script> 
+<!-- End Google Analistics -->
+
+<!-- Begin comScore Tag -->
+<script>
+    document.write(unescape("%3Cscript src='" + (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js' %3E%3C/script%3E"));
+</script><script src="https://sb.scorecardresearch.com/beacon.js"></script>
+
+<script>
+  COMSCORE.beacon({
+    c1:2,
+    c2:7634239,
+    c3:"",
+    c4:"",
+    c5:"",
+    c6:"",
+    c15:""
+  });
+</script>
+<script>
+	document.write(unescape("%3Cimg src='" + (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/p?c1=2&c2=7634239&c3=&c4=&c5=&c6=&c15=&cj=1' /%3E"));
+</script><img src="https://sb.scorecardresearch.com/p?c1=2&amp;c2=7634239&amp;c3=&amp;c4=&amp;c5=&amp;c6=&amp;c15=&amp;cj=1" m6op6hpi4="">
+<!-- End comScore Tag -->
+
+<!-- Google Code for Remarketing Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 947948851;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/947948851/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<!-- End Google Code for Remarketing Tag -->
+
+<!-- Facebook Custom Audience Pixel -->
+<script>(function() {
+var _fbq = window._fbq || (window._fbq = []);
+if (!_fbq.loaded) {
+var fbds = document.createElement('script');
+fbds.async = true;
+fbds.src = '//connect.facebook.net/en_US/fbds.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(fbds, s);
+_fbq.loaded = true;
+}
+_fbq.push(['addPixelId', '630331880400637']);
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', 'PixelInitialized', {}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=630331880400637&amp;ev=PixelInitialized" /></noscript>
+<!--End Facebook Custom Audience Pixel -->
+
+<!-- Start of Woopra Code -->
+<script>
+  function getDomain4woopra() {
+    var terms = ['dev', 'preview'];
+		var domain = window.location.hostname;    
+    
+    for (var i = 0; i < terms.length; i++) {
+      if (domain.indexOf(terms[i]) !== -1) {
+        return "dev.hkej.com";
+      }
+    }
+    
+    return "hkej.com";
+  }
+
+  !function(){var t,o,c,e=window,n=document,r=arguments,a="script",i=["call","cancelAction","config","identify","push","track","trackClick","trackForm","update","visit"],s=function(){var t,o=this,c=function(t){o[t]=function(){return o._e.push([t].concat(Array.prototype.slice.call(arguments,0))),o}};for(o._e=[],t=0;t<i.length;t++)c(i[t])};for(e.__woo=e.__woo||{},t=0;t<r.length;t++)e.__woo[r[t]]=e[r[t]]=e[r[t]]||new s;(o=n.createElement(a)).async=1,o.src="https://static.woopra.com/js/w.js",(c=n.getElementsByTagName(a)[0]).parentNode.insertBefore(o,c)}("woopra");
+
+  woopra.config({
+    domain: getDomain4woopra(),
+		cookie_domain: ".hkej.com",    
+    outgoing_tracking: true,
+    download_tracking: true,
+    click_tracking: true
+  });
+  
+  woopra.track();
+</script>
+<!-- End of Woopra Code -->
+
+<!-- JavaScript Force HTTPS/HTTP -->
+<script type="text/javascript">
+if (location.protocol != 'https:' && window.location.href.indexOf('search.hkej.com') > 0) {
+	location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+}
+</script>
+<!-- JavaScript Force HTTPS/HTTP -->
+
+
+
+
+
+</body></html>

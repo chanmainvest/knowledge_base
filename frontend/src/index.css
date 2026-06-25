@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body { font-family: theme('fontFamily.sans'); }
+.prose-kb { line-height: 1.65; }
+.prose-kb h1 { @apply text-2xl font-semibold mt-6 mb-3; }
+.prose-kb h2 { @apply text-xl font-semibold mt-5 mb-2; }
+.prose-kb h3 { @apply text-lg font-semibold mt-4 mb-2; }
+.prose-kb p  { @apply my-3; }
+.prose-kb a  { @apply text-accent underline; }
+.prose-kb code { @apply font-mono text-[0.92em] bg-panel px-1 rounded; }
+.prose-kb pre  { @apply font-mono text-[0.9em] bg-panel p-3 rounded overflow-x-auto; }
+.prose-kb ul { @apply list-disc pl-6 my-3; }
+.prose-kb ol { @apply list-decimal pl-6 my-3; }
+.prose-kb blockquote { @apply border-l-2 border-border pl-3 text-mute; }
+.snippet b { color: #ffd55c; font-weight: 600; }
