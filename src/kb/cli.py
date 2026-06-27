@@ -26,11 +26,15 @@ scrape_app = typer.Typer(no_args_is_help=True)
 ext_app = typer.Typer(no_args_is_help=True)
 lb_app = typer.Typer(no_args_is_help=True)
 hkej_app = typer.Typer(no_args_is_help=True, help="HKEJ author management")
+hkej_browser_app = typer.Typer(no_args_is_help=True, help="Persistent browser session")
+patreon_app = typer.Typer(no_args_is_help=True, help="Patreon session helpers")
 app.add_typer(db_app, name="db")
 app.add_typer(scrape_app, name="scrape")
 app.add_typer(ext_app, name="extract")
 app.add_typer(lb_app, name="leaderboard")
 app.add_typer(hkej_app, name="hkej")
+hkej_app.add_typer(hkej_browser_app, name="browser")
+app.add_typer(patreon_app, name="patreon")
 
 log = get_logger("cli")
 
@@ -247,29 +251,142 @@ def hkej_prime_search(
         raise typer.Exit(1)
 
 
+@hkej_browser_app.command("start")
+def hkej_browser_start(
+    login_wait_minutes: int = typer.Option(
+        15, help="Minutes to wait for Cloudflare + login on first open",
+    ),
+) -> None:
+    """Keep one Camoufox window open across scrapes (no repeated Cloudflare)."""
+    from .scrapers.hkej_daemon import (
+        is_daemon_alive,
+        start_daemon_process,
+        wait_for_daemon,
+    )
+
+    if is_daemon_alive():
+        print("[green]Browser daemon already running.[/green]")
+        return
+    print(
+        "\n[bold]Starting HKEJ browser daemon[/bold]\n"
+        "  Complete Cloudflare + login once — the window stays open.\n"
+        "  Later scrapes reuse this session: [bold]kb hkej scrape-author …[/bold]\n"
+    )
+    start_daemon_process(login_wait_minutes=login_wait_minutes)
+    if not asyncio.run(wait_for_daemon(60.0)):
+        print("[yellow]Daemon did not respond in time.[/yellow]")
+        raise typer.Exit(1)
+    print("[green]Browser daemon ready.[/green]")
+
+
+@hkej_browser_app.command("stop")
+def hkej_browser_stop() -> None:
+    """Close the persistent HKEJ browser daemon."""
+    from .scrapers.hkej_daemon import daemon_shutdown, is_daemon_alive
+
+    if not is_daemon_alive():
+        print("Browser daemon is not running.")
+        return
+    if asyncio.run(daemon_shutdown()):
+        print("[green]Browser daemon stopped.[/green]")
+    else:
+        print("[yellow]Could not stop daemon cleanly.[/yellow]")
+
+
+@hkej_browser_app.command("login")
+def hkej_browser_login(
+    wait_minutes: int = typer.Option(15, help="Minutes to wait for manual login"),
+) -> None:
+    """Open subscribe.hkej.com in the daemon browser and wait for you to log in."""
+    from .scrapers.hkej import BROWSER_PROFILE_DIR, HKEJScraper
+    from .scrapers.hkej_daemon import daemon_prime_login, is_daemon_alive
+
+    print(
+        "\n[bold]HKEJ login[/bold]\n"
+        "  1. Stay on Cloudflare until verification completes\n"
+        "  2. Enter email/password and click green [bold]登入[/bold]\n"
+        "  3. Wait for header [bold]歡迎（我的賬戶｜登出）[/bold]\n"
+        f"\nProfile: {BROWSER_PROFILE_DIR}\n"
+    )
+    wait_sec = wait_minutes * 60
+    if is_daemon_alive():
+        resp = asyncio.run(daemon_prime_login(wait_sec=wait_sec))
+        if resp and resp.get("ok"):
+            print("[green]Logged in.[/green]")
+            return
+        print("[yellow]Login not detected in time.[/yellow]")
+        raise typer.Exit(1)
+
+    print("[dim]Daemon not running — opening one-off browser.[/dim]\n")
+    sc = HKEJScraper()
+    ok = asyncio.run(sc.prime_login_session(wait_sec=wait_sec))
+    if ok:
+        print("[green]Logged in.[/green]")
+    else:
+        print("[yellow]Login not detected in time.[/yellow]")
+        raise typer.Exit(1)
+
+
+@hkej_browser_app.command("status")
+def hkej_browser_status() -> None:
+    """Check whether the persistent browser daemon is running."""
+    from .scrapers.hkej_daemon import DAEMON_INFO_PATH, is_daemon_alive
+
+    if is_daemon_alive():
+        print(f"[green]Browser daemon running[/green] ({DAEMON_INFO_PATH})")
+    else:
+        print("[dim]Browser daemon not running[/dim] — start with: kb hkej browser start")
+
+
 @hkej_app.command("scrape-author")
 def hkej_scrape_author(
     handle: str = typer.Argument(..., help="Author handle, e.g. 李聲揚"),
     limit: int = typer.Option(0, help="Max new articles to fetch (0 = all)"),
     keep_browser: bool = typer.Option(
         False,
-        help="Leave browser open after scrape (close window yourself)",
+        help="Leave browser open after scrape (one-off mode only)",
     ),
     login_wait_minutes: int = typer.Option(
         15, help="Minutes to wait for you to log in at the start",
     ),
+    use_daemon: bool = typer.Option(
+        True,
+        "--daemon/--no-daemon",
+        help="Reuse persistent browser (kb hkej browser start)",
+    ),
 ) -> None:
-    """Scrape articles for one author — log in manually when the browser opens."""
+    """Scrape articles for one author — reuses open browser when daemon is running."""
     from .scrapers.hkej import HKEJScraper
+    from .scrapers.hkej_daemon import (
+        is_daemon_alive,
+        start_daemon_process,
+        wait_for_daemon,
+    )
     from . import ingest as ingest_mod
 
-    print(
-        "\n[bold]HKEJ scrape[/bold] — one browser: prime → login → fetch\n"
-        "  1. [bold]search.hkej.com[/bold] — stay on Cloudflare until results load\n"
-        "  2. [bold]subscribe.hkej.com[/bold] — Cloudflare, then log in (green 登入)\n"
-        "  3. Wait for [bold]歡迎（我的賬戶｜登出）[/bold], then scraping continues\n"
-        "  Do not close the browser until scraping finishes.\n"
-    )
+    if use_daemon and not is_daemon_alive():
+        print(
+            "\n[bold]Starting browser daemon[/bold] "
+            "(complete Cloudflare + login once; window stays open)\n"
+        )
+        start_daemon_process(login_wait_minutes=login_wait_minutes)
+        if not asyncio.run(wait_for_daemon(120.0)):
+            print(
+                "[red]Browser daemon did not become ready in 2 minutes.[/red]\n"
+                "  Complete Cloudflare/login in the Camoufox window, then retry.\n"
+                "  Or run: [bold]kb hkej browser start[/bold] first."
+            )
+            raise typer.Exit(1)
+    elif use_daemon:
+        print("\n[dim]Using persistent browser session (no Cloudflare redo).[/dim]\n")
+    else:
+        print(
+            "\n[bold]HKEJ scrape[/bold] — one browser: prime → login → fetch\n"
+            "  1. [bold]search.hkej.com[/bold] — stay on Cloudflare until results load\n"
+            "  2. [bold]subscribe.hkej.com[/bold] — Cloudflare, then log in (green 登入)\n"
+            "  3. Wait for [bold]歡迎（我的賬戶｜登出）[/bold], then scraping continues\n"
+        )
+
     sc = HKEJScraper()
     paths = asyncio.run(
         sc.run(
@@ -277,6 +394,7 @@ def hkej_scrape_author(
             author_handle=handle,
             keep_browser_open=keep_browser,
             login_wait_sec=login_wait_minutes * 60,
+            use_daemon=use_daemon,
         )
     )
     s = sc.last_stats
@@ -390,6 +508,185 @@ def hkej_rm_author(
         print(f"[green]Removed[/green] '{handle}'")
     else:
         print(f"[yellow]Not found:[/yellow] '{handle}'")
+
+
+@patreon_app.command("check-session")
+def patreon_check_session(
+    cookies_from_browser: str = typer.Option(
+        "", "--cookies-from-browser", help="e.g. chrome, edge (if PATREON_SESSION_ID unset)",
+    ),
+) -> None:
+    """Verify PATREON_SESSION_ID cookie against Patreon."""
+    from .scrapers.patreon import PatreonScraper
+
+    sc = PatreonScraper(cookies_from_browser=cookies_from_browser or None)
+    try:
+        info = asyncio.run(sc.check_session())
+    except RuntimeError as exc:
+        print(f"[red]{exc}[/red]")
+        raise typer.Exit(1) from exc
+    except Exception as exc:
+        log.exception("patreon session check failed")
+        print(f"[red]Session check failed:[/red] {exc}")
+        raise typer.Exit(1) from exc
+
+    name = info.get("full_name") or "(unknown)"
+    print(f"[green]OK[/green] — logged in as {name}")
+    if info.get("url"):
+        print(f"  Profile: {info['url']}")
+
+
+@patreon_app.command("resolve")
+def patreon_resolve(
+    vanity: str = typer.Argument(..., help="Patreon vanity slug, e.g. macroalf"),
+    cookies_from_browser: str = typer.Option(
+        "", "--cookies-from-browser", help="e.g. chrome, edge (if PATREON_SESSION_ID unset)",
+    ),
+) -> None:
+    """Resolve a creator vanity slug to campaign_id (requires valid session)."""
+    from .scrapers.patreon import PatreonScraper
+
+    sc = PatreonScraper(cookies_from_browser=cookies_from_browser or None)
+    try:
+        async def _run() -> str:
+            async with await sc.http() as client:
+                return await sc.resolve_campaign_id(client, vanity)
+
+        campaign_id = asyncio.run(_run())
+    except RuntimeError as exc:
+        print(f"[red]{exc}[/red]")
+        raise typer.Exit(1) from exc
+    except ValueError as exc:
+        print(f"[red]{exc}[/red]")
+        raise typer.Exit(1) from exc
+    except Exception as exc:
+        log.exception("patreon resolve failed")
+        print(f"[red]Resolve failed:[/red] {exc}")
+        raise typer.Exit(1) from exc
+
+    print(f"[green]{vanity}[/green] → campaign_id [bold]{campaign_id}[/bold]")
+    print("  Cached in channel.metadata when the handle is registered in DB.")
+
+
+@patreon_app.command("prime-session")
+def patreon_prime_session(
+    creator: str = typer.Option(
+        "aminvest", help="Creator vanity — opens their posts page after login",
+    ),
+    wait_minutes: int = typer.Option(10, help="Minutes to wait for login"),
+) -> None:
+    """Open Patreon in a browser; log in manually, then save session_id for API scraping."""
+    from .scrapers.patreon import PatreonScraper, SESSION_PATH
+
+    sc = PatreonScraper()
+    print(
+        "\n[bold]Patreon login[/bold] — a browser window will open.\n"
+        "Log into patreon.com if needed; leave the window on the creator posts page.\n"
+        f"Session will be saved to [cyan]{SESSION_PATH}[/cyan]\n"
+    )
+    ok = asyncio.run(sc.prime_session(creator, wait_sec=wait_minutes * 60))
+    if ok:
+        print("[green]Session saved.[/green] Run:")
+        print(f'  kb patreon scrape {creator} --limit 3')
+    else:
+        print("[red]Timed out waiting for login.[/red]")
+        raise typer.Exit(1)
+
+
+@patreon_app.command("list-years")
+def patreon_list_years(
+    creator: str = typer.Argument(..., help="Vanity or URL, e.g. aminvest"),
+    cookies_from_browser: str = typer.Option(
+        "", "--cookies-from-browser", help="e.g. chrome, edge (if PATREON_SESSION_ID unset)",
+    ),
+) -> None:
+    """List post counts per year for a creator (scrolls all pages via API)."""
+    from .scrapers.patreon import PatreonScraper, normalize_vanity
+
+    vanity = normalize_vanity(creator)
+    sc = PatreonScraper(
+        filter_handle=vanity,
+        cookies_from_browser=cookies_from_browser or None,
+    )
+    try:
+        years = asyncio.run(sc.list_years(vanity))
+    except Exception as exc:
+        log.exception("patreon list-years failed")
+        print(f"[red]Failed:[/red] {exc}")
+        raise typer.Exit(1) from exc
+
+    if not years:
+        print(f"[yellow]No accessible posts found for {vanity!r}.[/yellow]")
+        return
+    print(f"Posts by year for [bold]{vanity}[/bold]:")
+    for year, count in years.items():
+        print(f"  {year}: {count}")
+
+
+@patreon_app.command("scrape")
+def patreon_scrape(
+    creator: str = typer.Argument(
+        ..., help="Vanity or URL, e.g. aminvest or patreon.com/c/aminvest/posts",
+    ),
+    limit: int = typer.Option(3, help="Max new posts to download (0 = unlimited)"),
+    year: int | None = typer.Option(
+        None, "--year", help="Only posts from this calendar year",
+    ),
+    name: str = typer.Option("", help="Display name (used when not in DB)"),
+    cookies_from_browser: str = typer.Option(
+        "", "--cookies-from-browser", help="e.g. chrome, edge (if PATREON_SESSION_ID unset)",
+    ),
+    register: bool = typer.Option(
+        True, "--register/--no-register",
+        help="Add creator to DB channel table if missing",
+    ),
+    browser: bool = typer.Option(
+        False, "--browser",
+        help="Use Playwright: open posts page, scroll feed, click each post",
+    ),
+) -> None:
+    """Scrape posts for one Patreon creator (paginates + opens each post for full text)."""
+    from .scrapers.patreon import PatreonScraper, normalize_vanity
+
+    vanity = normalize_vanity(creator)
+    display = name or vanity
+
+    if register:
+        with engine().begin() as conn:
+            sid = conn.execute(
+                text("SELECT id FROM source WHERE code='patreon'"),
+            ).scalar_one_or_none()
+            if sid is not None:
+                conn.execute(text(
+                    "INSERT INTO channel(source_id, handle, name) VALUES (:s,:h,:n) "
+                    "ON CONFLICT (source_id, handle) DO UPDATE SET name=EXCLUDED.name"
+                ), {"s": sid, "h": vanity, "n": display})
+
+    sc = PatreonScraper(
+        filter_year=year,
+        filter_handle=vanity,
+        filter_display_name=display,
+        cookies_from_browser=cookies_from_browser or None,
+        use_browser=browser,
+    )
+    mode = "browser" if browser else "api"
+    year_msg = f", year={year}" if year else ""
+    print(f"[bold]Patreon scrape[/bold] {vanity!r} — limit={limit or '∞'}{year_msg} ({mode})")
+
+    try:
+        paths = asyncio.run(sc.run(limit=limit or None))
+    except Exception as exc:
+        log.exception("patreon scrape crashed")
+        print(f"[red]Scrape failed:[/red] {exc}")
+        raise typer.Exit(1) from exc
+
+    print(f"[green]{len(paths)}[/green] new files")
+    for p in paths:
+        print(f"  {p}")
+        try:
+            ingest_mod.ingest_file(p)
+        except Exception as exc:
+            log.exception("ingest failed for %s :: %s", p, exc)
 
 
 def main() -> None:

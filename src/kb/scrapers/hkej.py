@@ -74,6 +74,7 @@ class HKEJScraper(BaseScraper):
         self.limiter = HostRateLimiter(interval, jitter=1.5)
         self._keep_browser_open = False
         self.last_stats: dict = {}
+        self._daemon_mode = False
 
     async def _page_settle(self) -> None:
         await asyncio.sleep(_PAGE_SETTLE_SEC)
@@ -150,14 +151,15 @@ class HKEJScraper(BaseScraper):
         keep_open = self._keep_browser_open if keep_open is None else keep_open
         BROWSER_PROFILE_DIR.mkdir(parents=True, exist_ok=True)
         lock = BROWSER_PROFILE_DIR / "parent.lock"
-        if lock.exists():
+        if lock.exists() and not self._daemon_mode:
             self.log.error(
                 "browser profile locked (%s) — close any HKEJ/Camoufox window, "
-                "or run: Stop-Process -Name camoufox -Force",
+                "or run: kb hkej browser start",
                 lock,
             )
             raise RuntimeError(
-                "HKEJ browser profile is locked. Close other Camoufox windows and retry."
+                "HKEJ browser profile is locked. "
+                "Use [kb hkej browser start] for a persistent session."
             )
         async with AsyncCamoufox(
             headless=False,
@@ -210,6 +212,43 @@ class HKEJScraper(BaseScraper):
             self.log.debug("session check: %s", exc)
 
         return await self._wait_for_manual_login(page, wait_sec=wait_sec)
+
+    async def _is_session_warm(self, page) -> bool:
+        """True when the open browser tab is past Cloudflare and logged in."""
+        try:
+            if page.is_closed():
+                return False
+        except Exception:
+            return False
+        try:
+            await page.goto(
+                f"{BASE}/landing/index",
+                wait_until="domcontentloaded",
+                timeout=30000,
+            )
+            await self._page_settle()
+            html, title = await self._page_html_title(page)
+            if self._is_cloudflare(html, title):
+                return False
+            return await self._is_logged_in(page)
+        except Exception as exc:
+            self.log.debug("session warm check: %s", exc)
+            return False
+
+    async def _prepare_session(
+        self,
+        page,
+        author_handle: str,
+        login_wait_sec: float,
+        *,
+        skip_if_warm: bool = True,
+    ) -> bool:
+        if skip_if_warm and await self._is_session_warm(page):
+            self.log.info("reusing warm browser session — skipping Cloudflare/login")
+            return True
+        if not await self._prime_search_on_page(page, author_handle):
+            return False
+        return await self._wait_for_manual_login(page, wait_sec=login_wait_sec)
 
     async def _prime_search_on_page(
         self, page, author_handle: str, *, timeout_sec: float = 300.0,
@@ -948,16 +987,16 @@ class HKEJScraper(BaseScraper):
         await self._page_settle()
         return await page.content()
 
-    async def run(
+    async def run_on_page(
         self,
+        page,
         limit: int | None = None,
         author_handle: str | None = None,
         *,
-        keep_browser_open: bool = False,
         login_wait_sec: float = 900.0,
-    ) -> list[Path]:
-        """Prime → login → search discover → fetch in one browser session."""
-        self._keep_browser_open = keep_browser_open
+        skip_prime_if_warm: bool = True,
+    ) -> tuple[list[Path], dict]:
+        """Scrape using an already-open browser tab (daemon or shared session)."""
         handle = author_handle or "李聲揚"
         out: list[Path] = []
         stats: dict = {
@@ -969,47 +1008,52 @@ class HKEJScraper(BaseScraper):
             "on_disk_before": self._count_author_articles(handle),
             "on_disk_after": 0,
         }
-        self.last_stats = stats
-        async with self._raw_browser_session(keep_open=keep_browser_open) as page:
-            if not await self._prime_search_on_page(page, handle):
-                self.log.error("search priming failed — scrape aborted")
-                return out
-            if not await self._wait_for_manual_login(page, wait_sec=login_wait_sec):
-                self.log.error("login required — scrape aborted")
-                return out
-            self.log.info("step 3: discovering articles via search.hkej.com")
-            async for d in self._discover_with_page(page, limit, author_handle):
-                stats["discovered"] += 1
-                if self.last_stats.get("search_total") is not None:
-                    stats["search_total"] = self.last_stats["search_total"]
-                if self.already_scraped(d):
-                    stats["skipped"] += 1
-                    self.log.info(
-                        "skip (cached) %s",
-                        d.get("url") or d.get("external_id"),
-                    )
-                    continue
+        if not await self._prepare_session(
+            page, handle, login_wait_sec, skip_if_warm=skip_prime_if_warm,
+        ):
+            self.log.error("session not ready — scrape aborted")
+            stats["aborted"] = True
+            self.last_stats = stats
+            return out, stats
+
+        self.log.info("step 3: discovering articles via search.hkej.com")
+        to_fetch: list[dict] = []
+        async for d in self._discover_with_page(page, limit, author_handle):
+            to_fetch.append(d)
+        stats["discovered"] = len(to_fetch)
+        if self.last_stats.get("search_total") is not None:
+            stats["search_total"] = self.last_stats["search_total"]
+
+        for d in to_fetch:
+            if self.already_scraped(d):
+                stats["skipped"] += 1
                 self.log.info(
-                    "step 4: fetching %s [%d new, %d/%s total]",
-                    d.get("title") or d.get("url"),
-                    stats["fetched"] + 1,
-                    stats["on_disk_before"] + stats["fetched"] + 1,
-                    stats["search_total"] or stats["discovered"],
+                    "skip (cached) %s",
+                    d.get("url") or d.get("external_id"),
                 )
-                try:
-                    item = await self._fetch_with_page(page, d)
-                except Exception as exc:  # noqa: BLE001
-                    stats["failed"] += 1
-                    self.log.exception("fetch failed: %s :: %s", d, exc)
-                    continue
-                if item is None:
-                    stats["failed"] += 1
-                    continue
-                p = self.write_md(item)
-                out.append(p)
-                stats["fetched"] += 1
-                if limit and len(out) >= limit:
-                    break
+                continue
+            self.log.info(
+                "step 4: fetching %s [%d new, %d/%s total]",
+                d.get("title") or d.get("url"),
+                stats["fetched"] + 1,
+                stats["on_disk_before"] + stats["fetched"] + 1,
+                stats["search_total"] or stats["discovered"],
+            )
+            try:
+                item = await self._fetch_with_page(page, d)
+            except Exception as exc:  # noqa: BLE001
+                stats["failed"] += 1
+                self.log.exception("fetch failed: %s :: %s", d, exc)
+                continue
+            if item is None:
+                stats["failed"] += 1
+                continue
+            p = self.write_md(item)
+            out.append(p)
+            stats["fetched"] += 1
+            if limit and len(out) >= limit:
+                break
+
         stats["on_disk_after"] = self._count_author_articles(handle)
         missing = None
         if stats["search_total"]:
@@ -1028,6 +1072,53 @@ class HKEJScraper(BaseScraper):
             f" missing≈{missing}" if missing and missing > 0 else "",
         )
         self.last_stats = stats
+        try:
+            await self._save_page_state(page)
+        except Exception:
+            pass
+        return out, stats
+
+    async def run(
+        self,
+        limit: int | None = None,
+        author_handle: str | None = None,
+        *,
+        keep_browser_open: bool = False,
+        login_wait_sec: float = 900.0,
+        use_daemon: bool = True,
+    ) -> list[Path]:
+        """Prime → login → search discover → fetch. Uses daemon when available."""
+        if use_daemon:
+            from .hkej_daemon import daemon_scrape_author, is_daemon_alive
+
+            if is_daemon_alive():
+                handle = author_handle or "李聲揚"
+                self.log.info("using persistent browser daemon")
+                resp = await daemon_scrape_author(
+                    handle,
+                    limit=limit,
+                    login_wait_sec=login_wait_sec,
+                )
+                if resp and resp.get("ok"):
+                    self.last_stats = resp.get("stats") or {}
+                    return [Path(p) for p in resp.get("paths", [])]
+                err = (resp or {}).get("error", "daemon scrape failed")
+                raise RuntimeError(f"HKEJ daemon scrape failed: {err}")
+            raise RuntimeError(
+                "HKEJ browser daemon is not running. "
+                "Run: kb hkej browser start"
+            )
+
+        self._keep_browser_open = keep_browser_open
+        handle = author_handle or "李聲揚"
+        async with self._raw_browser_session(keep_open=keep_browser_open) as page:
+            out, _stats = await self.run_on_page(
+                page,
+                limit=limit,
+                author_handle=author_handle,
+                login_wait_sec=login_wait_sec,
+                skip_prime_if_warm=False,
+            )
         return out
 
     async def fetch(self, d: dict) -> ScrapedItem | None:
