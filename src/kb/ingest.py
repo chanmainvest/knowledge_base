@@ -75,7 +75,10 @@ def _json(o):
 
 def ingest_all() -> int:
     n = 0
-    for p in DATA_DIR.rglob("content.md"):
+    for p in DATA_DIR.rglob("*.md"):
+        parts = p.relative_to(DATA_DIR).parts
+        if parts[0] == "raw":  # skip data/raw/ hierarchy
+            continue
         try:
             iid = ingest_file(p)
             if iid:

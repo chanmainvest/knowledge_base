@@ -676,7 +676,8 @@ class HKEJScraper(BaseScraper):
         author_dir = DATA_DIR / "hkej" / slugify(author_handle, 80)
         if not author_dir.exists():
             return 0
-        return sum(1 for _ in author_dir.glob("*/content.md"))
+        # New flat layout: data/hkej/<author>/<year>/<date>-<title>.md
+        return sum(1 for _ in author_dir.glob("*/*.md"))
 
     # ------------------------------------------------------------------
     async def _list_articles_from_search(
@@ -963,13 +964,16 @@ class HKEJScraper(BaseScraper):
         author_dir = DATA_DIR / "hkej" / _author_dir_slug(author)
         if not author_dir.exists():
             return False
-        for md_path in author_dir.glob("*/content.md"):
+        # New flat layout: data/hkej/<author>/<year>/<date>-<title>.md
+        for md_path in author_dir.glob("*/*.md"):
             text = md_path.read_text(encoding="utf-8", errors="replace")
             if f"external_id: '{ext_id}'" not in text and f'external_id: "{ext_id}"' not in text:
                 continue
             if not self._cached_is_full(md_path):
                 return False
-            raw = md_path.parent / "raw.html"
+            # Raw HTML lives under data/raw/hkej/<author>/<year>/<date>-<title>.html
+            raw = (DATA_DIR / "raw" / "hkej"
+                   / md_path.relative_to(DATA_DIR / "hkej").with_suffix(".html"))
             if raw.exists() and self._html_is_excerpt(
                 raw.read_text(encoding="utf-8", errors="replace")
             ):
@@ -1238,6 +1242,7 @@ class HKEJScraper(BaseScraper):
             raw_html=html,
             extra=extra,
             folder_name=folder_name,
+            flat_layout=True,
         )
 
     @staticmethod

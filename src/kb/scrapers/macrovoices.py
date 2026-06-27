@@ -78,9 +78,11 @@ class MacroVoicesScraper(BaseScraper):
 
     def already_scraped(self, d: dict) -> bool:
         slug = slugify(d["external_id"], 60)
-        for date_dir in (DATA_DIR / "macrovoices" / "macrovoices").glob("*"):
-            if date_dir.name.endswith(slug) and (date_dir / "content.md").exists():
-                return (date_dir / "content.md").stat().st_size > 500
+        mv_dir = DATA_DIR / "macrovoices"
+        # New flat layout: data/macrovoices/<year>/<date>-<slug>.md
+        for md_path in mv_dir.glob("*/*.md"):
+            if slug in md_path.stem:
+                return md_path.stat().st_size > 500
         return False
 
     async def discover(self, limit: int | None = None) -> AsyncIterator[dict]:
@@ -197,17 +199,19 @@ class MacroVoicesScraper(BaseScraper):
                 else:
                     transcript_pdfs.append(full)
 
-            # Try to download via the authenticated context
-            folder = (DATA_DIR / "macrovoices" / "macrovoices" /
-                      f"{(published_at.date().isoformat() if published_at else 'undated')}"
-                      f"__{slugify(d['external_id'], 60)}")
-            folder.mkdir(parents=True, exist_ok=True)
+            # Save slides / transcripts under data/raw/macrovoices/<year>/
+            date_str = published_at.date().isoformat() if published_at else "undated"
+            year_str = published_at.strftime("%Y") if published_at else "undated"
+            ext_slug = slugify(d["external_id"], 60)
+            stem = f"{date_str}-{ext_slug}"
+            raw_dir = DATA_DIR / "raw" / "macrovoices" / year_str
+            raw_dir.mkdir(parents=True, exist_ok=True)
             for url in slides_pdfs:
                 try:
                     await self.limiter.wait(url)
                     resp = await ctx.request.get(url)
                     if resp.ok:
-                        out = folder / "slides.pdf"
+                        out = raw_dir / f"{stem}.slides.pdf"
                         out.write_bytes(await resp.body())
                         slides_path = str(out)
                         break
@@ -218,13 +222,13 @@ class MacroVoicesScraper(BaseScraper):
                     await self.limiter.wait(url)
                     resp = await ctx.request.get(url)
                     if resp.ok:
-                        (folder / "transcript.pdf").write_bytes(await resp.body())
+                        (raw_dir / f"{stem}.transcript.pdf").write_bytes(await resp.body())
                         # extract text
                         try:
                             import pypdf
-                            r = pypdf.PdfReader(folder / "transcript.pdf")
+                            r = pypdf.PdfReader(raw_dir / f"{stem}.transcript.pdf")
                             text = "\n\n".join((p.extract_text() or "") for p in r.pages)
-                            (folder / "transcript.txt").write_text(text, encoding="utf-8")
+                            (raw_dir / f"{stem}.transcript.txt").write_text(text, encoding="utf-8")
                             body_md += "\n\n## Full Transcript\n\n" + text
                         except Exception as exc:
                             self.log.info("pypdf failed: %s", exc)
@@ -247,4 +251,6 @@ class MacroVoicesScraper(BaseScraper):
             raw_html=html,
             slides_path=slides_path,
             extra={"slides_pdfs": slides_pdfs, "transcript_pdfs": transcript_pdfs},
+            folder_name=stem,
+            flat_layout=True,
         )

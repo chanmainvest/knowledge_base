@@ -175,12 +175,14 @@ class YouTubeScraper(BaseScraper):
                 await asyncio.sleep(0)
 
     def already_scraped(self, d: dict) -> bool:
-        # check disk
         date = d.get("upload_date") or "undated"
         date_fmt = (f"{date[:4]}-{date[4:6]}-{date[6:8]}" if len(date) == 8 else "undated")
-        folder = (DATA_DIR / "youtube" / slugify(d["channel_handle"]) /
-                  f"{date_fmt}__{slugify(d['external_id'], 60)}")
-        return (folder / "content.md").exists() and (folder / "content.md").stat().st_size > 200
+        year = date[:4] if len(date) == 8 else "undated"
+        title = d.get("title") or d["external_id"]
+        stem = f"{date_fmt}-{slugify(title, 80)}"
+        ch = slugify(d["channel_handle"])
+        md_path = DATA_DIR / "youtube" / ch / year / f"{stem}.md"
+        return md_path.exists() and md_path.stat().st_size > 200
 
     # ---- fetch -----------------------------------------------------------
     async def fetch(self, d: dict) -> ScrapedItem | None:
@@ -241,6 +243,8 @@ class YouTubeScraper(BaseScraper):
                         if upload_date else None)
 
         title = info.get("title") or d["title"]
+        date_part = published_at.strftime("%Y-%m-%d") if published_at else "undated"
+        folder_name = f"{date_part}-{slugify(title, 80)}"
         body = (
             f"# {title}\n\n"
             f"- Channel: {d['channel_name']} ({d['channel_handle']})\n"
@@ -262,6 +266,8 @@ class YouTubeScraper(BaseScraper):
             duration_sec=info.get("duration"),
             language=info.get("language") or "en",
             body_md=body,
+            folder_name=folder_name,
+            flat_layout=True,
             extra={
                 "uploader": info.get("uploader"),
                 "uploader_id": info.get("uploader_id"),

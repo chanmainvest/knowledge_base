@@ -31,14 +31,36 @@ class ScrapedItem:
     slides_path: str | None = None
     duration_sec: int | None = None
     language: str | None = None
-    folder_name: str | None = None  # override leaf folder name (default: date__id)
+    folder_name: str | None = None  # override leaf folder/stem name
+    flat_layout: bool = False  # True → flat .md + data/raw/ hierarchy (hkej, macrovoices)
 
     def folder(self) -> Path:
+        """Legacy folder layout (youtube, patreon). Not used when flat_layout=True."""
         date_part = (self.published_at.strftime("%Y-%m-%d")
                      if self.published_at else "undated")
         from ..io_md import slugify
         leaf = self.folder_name or f"{date_part}__{slugify(self.external_id, 60)}"
         return DATA_DIR / self.source / slugify(self.channel) / leaf
+
+    def content_path(self) -> Path:
+        """Flat layout: data/<source>/[<channel>/]<year>/<stem>.md"""
+        date_part = (self.published_at.strftime("%Y-%m-%d")
+                     if self.published_at else "undated")
+        year_part = (self.published_at.strftime("%Y")
+                     if self.published_at else "undated")
+        from ..io_md import slugify
+        stem = self.folder_name or f"{date_part}-{slugify(self.external_id, 60)}"
+        ch = slugify(self.channel)
+        if ch == self.source:
+            # channel == source (e.g. macrovoices): skip redundant channel dir
+            return DATA_DIR / self.source / year_part / f"{stem}.md"
+        return DATA_DIR / self.source / ch / year_part / f"{stem}.md"
+
+    def raw_html_path(self) -> Path:
+        """Flat layout: mirrors content_path() under data/raw/ with .html suffix."""
+        p = self.content_path()
+        rel = p.relative_to(DATA_DIR)
+        return DATA_DIR / "raw" / rel.with_suffix(".html")
 
 
 class BaseScraper(abc.ABC):
@@ -108,8 +130,6 @@ class BaseScraper(abc.ABC):
 
     def write_md(self, item: ScrapedItem) -> Path:
         from ..io_md import MdDoc
-        folder = item.folder()
-        folder.mkdir(parents=True, exist_ok=True)
         front = {
             "source": item.source,
             "channel": item.channel,
@@ -124,9 +144,20 @@ class BaseScraper(abc.ABC):
             "extra": item.extra or {},
         }
         doc = MdDoc(front=front, body=item.body_md)
-        path = folder / "content.md"
-        doc.write(path)
-        if item.raw_html:
-            (folder / "raw.html").write_text(item.raw_html, encoding="utf-8")
+        if item.flat_layout:
+            path = item.content_path()
+            path.parent.mkdir(parents=True, exist_ok=True)
+            doc.write(path)
+            if item.raw_html:
+                raw_path = item.raw_html_path()
+                raw_path.parent.mkdir(parents=True, exist_ok=True)
+                raw_path.write_text(item.raw_html, encoding="utf-8")
+        else:
+            folder = item.folder()
+            folder.mkdir(parents=True, exist_ok=True)
+            path = folder / "content.md"
+            doc.write(path)
+            if item.raw_html:
+                (folder / "raw.html").write_text(item.raw_html, encoding="utf-8")
         self.log.info("wrote %s", path)
         return path
