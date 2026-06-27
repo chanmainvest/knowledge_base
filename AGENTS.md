@@ -17,6 +17,11 @@
   carries `source`, `channel`, `external_id`, `url`, `published_at`, `title`,
   `lang`, plus source-specific fields. The DB row is regenerated from the
   markdown by `kb ingest`.
+- **Flat-file layout** (hkej, macrovoices, youtube): content lives at
+  `data/<source>/[<channel>/]<YYYY>/<YYYY-MM-DD>-<title>.md`; raw HTML at
+  `data/raw/<source>/[<channel>/]<YYYY>/<YYYY-MM-DD>-<title>.html`.
+  Set `flat_layout=True` on `ScrapedItem` to use this layout; `BaseScraper.write_md()`
+  handles both old (patreon) and new layouts automatically.
 - Database: a single Postgres 16 + pgvector container (`docker compose up
   postgres`). Migrations live as plain SQL in `migrations/` and run via
   `kb db migrate`.
@@ -35,11 +40,11 @@ src/kb/
   llm.py               # OpenAI client + JSON-schema extractor
   cli.py               # `kb` command
   scrapers/
-    base.py
+    base.py            # ScrapedItem (flat_layout flag), BaseScraper.write_md()
     macrovoices.py
     youtube.py
     hkej.py
-  ingest.py            # md -> Postgres
+  ingest.py            # md -> Postgres (globs *.md, skips data/raw/)
   extract.py           # LLM structured extraction
   leaderboard.py       # score predictions vs market
   api/
@@ -48,6 +53,23 @@ src/kb/
 frontend/              # Vite + React + Tailwind
 docker/postgres/init.sql
 migrations/
+scripts/
+  migrate_data_layout.py   # one-shot migration to flat-file layout
+```
+
+### Data directory structure
+
+```
+data/
+  hkej/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
+  raw/hkej/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
+
+  macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.md
+  raw/macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.html  [.slides.pdf …]
+
+  youtube/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md
+
+  patreon/<channel>/<YYYY-MM-DD>__<id>/content.md     # legacy folder layout
 ```
 
 ## Adding a new source

@@ -20,7 +20,7 @@ flowchart LR
         S3[hkej.py]
     end
 
-    DISK[("data/&lt;source&gt;/&lt;channel&gt;/&lt;YYYY-MM-DD&gt;__&lt;id&gt;/content.md")]
+    DISK[("data/&lt;source&gt;/[&lt;channel&gt;/]&lt;YYYY&gt;/&lt;YYYY-MM-DD&gt;-&lt;title&gt;.md")]
 
     LLM[["LLM extractor<br/>(views · predictions · tickers)"]]
 
@@ -45,13 +45,28 @@ flowchart LR
 
 ```
 data/
-  macrovoices/<episode_slug>/{episode.md, slides.pdf, raw.html}
-  youtube/<channel_handle>/<YYYY-MM-DD>__<video_id>/{transcript.md, info.json}
-  hkej/<author_slug>/<YYYY-MM-DD>__<article_id>/{article.md, raw.html}
+  hkej/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md        # content
+  raw/hkej/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html  # raw HTML
+
+  macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.md
+  raw/macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.html  [.slides.pdf …]
+
+  youtube/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md
+  patreon/<channel>/<YYYY-MM-DD>__<id>/content.md     # legacy folder layout
 ```
+
+Content files carry YAML front-matter (`source`, `channel`, `external_id`,
+`url`, `published_at`, `title`, …). Raw HTML and supplementary files live
+under `data/raw/` mirroring the same path structure.
 
 `data/**` is git-ignored (only structure committed). The DB is the source of
 truth for search; the markdown files are the canonical raw content.
+
+To migrate an existing checkout to the current layout:
+```pwsh
+uv run python scripts/migrate_data_layout.py   # safe to re-run; no-ops on already-flat files
+uv run kb ingest                                # re-index DB with new paths
+```
 
 ## Quick start
 
