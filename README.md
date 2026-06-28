@@ -1,8 +1,8 @@
 # Knowledge Base
 
-Personal investment knowledge base. Scrapes podcasts, YouTube channels, and HKEJ
-columnists into markdown, extracts structured views/predictions with an LLM,
-and serves a search + leaderboard webapp.
+Personal investment knowledge base. Scrapes podcasts, YouTube channels, HKEJ
+columnists, and Patreon creators into markdown, extracts structured
+views/predictions with an LLM, and serves a search + leaderboard webapp.
 
 ## Architecture
 
@@ -12,12 +12,14 @@ flowchart LR
         MV[MacroVoices podcast]
         YT[YouTube channels]
         HKEJ[HKEJ Wealth Mgmt]
+        PAT[Patreon creators]
     end
 
     subgraph SCRAPE["Scrapers (Python · Playwright · yt-dlp)"]
         S1[macrovoices.py]
         S2[youtube.py]
         S3[hkej.py]
+        S4[patreon.py]
     end
 
     DISK[("data/&lt;source&gt;/[&lt;channel&gt;/]&lt;YYYY&gt;/&lt;YYYY-MM-DD&gt;-&lt;title&gt;.md")]
@@ -32,9 +34,11 @@ flowchart LR
     MV --> S1
     YT --> S2
     HKEJ --> S3
+    PAT --> S4
     S1 --> DISK
     S2 --> DISK
     S3 --> DISK
+    S4 --> DISK
     DISK -->|kb ingest| DB
     DISK -->|kb extract run| LLM --> DB
     DB --> API --> UI
@@ -52,7 +56,9 @@ data/
   raw/macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.html  [.slides.pdf …]
 
   youtube/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md
-  patreon/<channel>/<YYYY-MM-DD>__<id>/content.md     # legacy folder layout
+
+    patreon/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md
+    raw/patreon/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.html
 ```
 
 Content files carry YAML front-matter (`source`, `channel`, `external_id`,
@@ -80,9 +86,10 @@ docker compose up -d postgres
 uv run kb db migrate
 
 # scrape (each runs as its own job; safe in parallel)
-uv run kb scrape youtube  --limit 5
-uv run kb scrape macrovoices --limit 3
-uv run kb scrape hkej --limit 20
+uv run kb youtube scrape --limit 5
+uv run kb scrape run macrovoices --limit 3
+uv run kb scrape run hkej --limit 20
+uv run kb patreon scrape <creator> --limit 3
 
 # extract structure
 uv run kb extract run --limit 50

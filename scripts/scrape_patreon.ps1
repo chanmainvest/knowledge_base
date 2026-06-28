@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-    Unattended Patreon scrape for the knowledge base. No LLM required.
+    Scheduled Patreon creator scrape for the knowledge base. No LLM required.
 
 .DESCRIPTION
-    Activates the project venv and runs `kb patreon auto`, which:
+    Activates the project venv and runs `kb patreon scrape-creator`, which:
       1. ensures the logged-in browser daemon is running,
       2. refreshes + validates the session cookie,
       3. crawls and downloads every registered creator incrementally.
@@ -30,7 +30,7 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 Set-Location $root
 
-$cmd = @('run', 'kb', 'patreon', 'auto')
+$cmd = @('run', 'kb', 'patreon', 'scrape-creator')
 if ($Creators.Count) { $cmd += $Creators }
 if ($Limit -gt 0)    { $cmd += @('--limit', $Limit) }
 if ($Year  -gt 0)    { $cmd += @('--year',  $Year) }

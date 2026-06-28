@@ -8,8 +8,7 @@ Improvements over the previous version:
   several times in recent years.
 - Confirms login by reloading the homepage and looking for the logout link
   (or the absence of the login button).
-- Folder layout on disk uses the *author name* (slugified) instead of the
-  numeric author id, e.g. ``data/hkej/<author_name_slug>/<YYYY-MM-DD>__<id>/``.
+- Folder layout on disk uses the *author name* (slugified).
 """
 from __future__ import annotations
 
@@ -122,7 +121,7 @@ class HKEJScraper(BaseScraper):
         with db_engine().connect() as conn:
             row = conn.execute(
                 sql_text(
-                    "SELECT c.handle, c.name, c.url FROM channel c "
+                    "SELECT c.handle, c.name FROM channel c "
                     "JOIN source s ON c.source_id=s.id "
                     "WHERE s.code='hkej' AND c.handle=:h"
                 ),
@@ -130,12 +129,13 @@ class HKEJScraper(BaseScraper):
             ).fetchone()
         if not row:
             return None
-        handle, name, url = row
-        search_url = url or (
+        handle, name = row
+        author_name = name or handle
+        search_url = (
             f"{SEARCH_BASE}/template/fulltextsearch/php/search.php"
-            f"?author={handle}"
+            f"?author={quote(author_name)}"
         )
-        return name, search_url
+        return author_name, search_url
 
     @staticmethod
     def _normalize_url(href: str) -> str:
@@ -478,7 +478,7 @@ class HKEJScraper(BaseScraper):
         if not await self._wait_login_ready(page, timeout_sec=120.0):
             self.log.warning(
                 "login form did not appear — complete Cloudflare manually "
-                "(kb hkej prime-login)"
+                "(kb hkej prime)"
             )
             return False
 
@@ -1260,50 +1260,6 @@ class HKEJScraper(BaseScraper):
             )
         return urls, stats
 
-    async def _list_articles(self, page, author: dict, limit: int) -> list[dict]:
-        urls: list[dict] = []
-        seen_ids: set[str] = set()
-        for i in range(1, 50):
-            url = f"{author['url']}?page={i}" if i > 1 else author["url"]
-            await self.limiter.wait(url)
-            try:
-                await page.goto(url, wait_until="domcontentloaded", timeout=30000)
-                await self._page_settle()
-            except Exception as exc:
-                self.log.warning("author %s page %d goto failed: %s", author.get('slug'), i, exc)
-                break
-            html = await page.content()
-            from bs4 import BeautifulSoup
-            soup = BeautifulSoup(html, "lxml")
-            anchors = soup.select("a[href*='/wm/article/id/']")
-            fresh = 0
-            for a in anchors:
-                href = a.get("href", "")
-                title = a.get_text(strip=True)
-                m = re.search(r"/wm/article/id/(\d+)", href)
-                if not m:
-                    continue
-                ext_id = m.group(1)
-                if ext_id in seen_ids:
-                    continue
-                seen_ids.add(ext_id)
-                full = self._normalize_url(href.split("?")[0].split("#")[0])
-                if not title or len(title) < 2:
-                    title = f"hkej_{ext_id}"
-                urls.append({
-                    "external_id": ext_id,
-                    "url": full,
-                    "title": title,
-                    "author": author,
-                })
-                fresh += 1
-                if len(urls) >= limit:
-                    return urls
-            if fresh == 0:
-                break
-            await asyncio.sleep(_BETWEEN_PAGES_SEC)
-        return urls
-
     async def _discover_with_page(
         self, page, limit: int | None, author_handle: str | None = None,
     ) -> AsyncIterator[dict]:
@@ -1329,23 +1285,26 @@ class HKEJScraper(BaseScraper):
 
         if not rows:
             self.log.warning(
-                "No HKEJ authors in DB. Add with: kb hkej add-author <name_or_id>"
+                "No HKEJ authors in DB. Add with: kb hkej add-author <author_name>"
             )
             return
 
         authors = []
         for channel_id, handle, name, url, metadata in rows:
             meta = dict(metadata or {})
+            author_name = name or handle
             authors.append({
                 "channel_id": channel_id,
                 "slug": handle,
-                "name": name,
-                "url": url or f"{BASE}/wm/authordetail/id/{handle}",
+                "name": author_name,
+                "url": (
+                    f"{SEARCH_BASE}/template/fulltextsearch/php/search.php"
+                    f"?author={quote(author_name)}"
+                ),
                 "metadata": meta,
             })
 
-        per_author = 10 if limit and limit < 200 else (10 ** 6)
-        yielded = 0
+        per_author = limit or (10 ** 6)
         for author in authors:
             disc_url = author["url"]
             await self.limiter.wait(disc_url)
@@ -1354,15 +1313,23 @@ class HKEJScraper(BaseScraper):
                     page, author, per_author,
                 )
                 self.last_stats.update(disc_stats)
-            else:
-                arts = await self._list_articles(page, author, per_author)
-                self.last_stats["discovered"] = len(arts)
             for a in arts:
                 yield a
-                yielded += 1
-                if limit and yielded >= limit:
-                    return
             await asyncio.sleep(_BETWEEN_AUTHORS_SEC)
+
+    def _registered_author_handles(self) -> list[str]:
+        from ..db import engine as db_engine
+        from sqlalchemy import text as sql_text
+
+        with db_engine().connect() as conn:
+            rows = conn.execute(
+                sql_text(
+                    "SELECT c.handle FROM channel c "
+                    "JOIN source s ON c.source_id=s.id "
+                    "WHERE s.code='hkej' ORDER BY c.name"
+                )
+            ).fetchall()
+        return [str(row[0]) for row in rows]
 
     async def discover(
         self,
@@ -1552,11 +1519,33 @@ class HKEJScraper(BaseScraper):
         use_daemon: bool = True,
     ) -> list[Path]:
         """Prime → login → search discover → fetch. Uses daemon when available."""
+        if author_handle is None:
+            handles = self._registered_author_handles()
+            out: list[Path] = []
+            author_stats: list[dict] = []
+            for handle in handles:
+                author_paths = await self.run(
+                    limit=limit,
+                    author_handle=handle,
+                    keep_browser_open=keep_browser_open,
+                    login_wait_sec=login_wait_sec,
+                    use_daemon=use_daemon,
+                )
+                out.extend(author_paths)
+                author_stats.append({"author": handle, **self.last_stats})
+            self.last_stats = {
+                "authors": author_stats,
+                "author_count": len(handles),
+                "fetched": len(out),
+                "limit_per_author": limit,
+            }
+            return out
+
         if use_daemon:
             from .hkej_daemon import daemon_scrape_author, is_daemon_alive
 
             if is_daemon_alive():
-                handle = author_handle or "李聲揚"
+                handle = author_handle
                 self.log.info("using persistent browser daemon")
                 resp = await daemon_scrape_author(
                     handle,
@@ -1574,7 +1563,6 @@ class HKEJScraper(BaseScraper):
             )
 
         self._keep_browser_open = keep_browser_open
-        handle = author_handle or "李聲揚"
         async with self._raw_browser_session(keep_open=keep_browser_open) as page:
             out, _stats = await self.run_on_page(
                 page,
@@ -1681,7 +1669,7 @@ class HKEJScraper(BaseScraper):
                     break
 
         channel_dir = _author_dir_slug(author)
-        extra: dict = {"hkej_author_id": author.get("slug")}
+        extra: dict = {"hkej_author_name": author.get("name")}
         if column_name:
             extra["column"] = column_name
         header = f"# {title}\n\n*{author.get('name', '')}*"

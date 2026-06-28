@@ -49,6 +49,14 @@ _POST_FIELDS = [
 ]
 _POST_INCLUDES = ["user", "campaign"]
 _CAMPAIGN_FIELDS = ["name", "url", "vanity"]
+_POST_PAGE_CONTENT_SELECTORS = [
+    ".patreon-post-content",
+    '[data-tag="post-content"]',
+    '[data-testid="post-content"]',
+    'article [class*="post-content"]',
+    'article [class*="RichText"]',
+    ".post-content",
+]
 
 _BROWSER_LOADERS: dict[str, str] = {
     "chrome": "chrome",
@@ -142,6 +150,17 @@ def _current_user_url() -> str:
         ("json-api-version", "1.0"),
     ]
     return f"{API_ROOT}/current_user?{urlencode(params)}"
+
+
+def _absolute_patreon_url(url: str | None) -> str:
+    raw = (url or "").strip()
+    if not raw:
+        return ""
+    if raw.startswith("http://") or raw.startswith("https://"):
+        return raw
+    if raw.startswith("/"):
+        return f"{PATREON_ROOT}{raw}"
+    return f"{PATREON_ROOT}/{raw}"
 
 
 def _parse_dt(value: str | None) -> datetime | None:
@@ -482,6 +501,72 @@ class PatreonScraper(BaseScraper):
         post = data.get("data") or {}
         return post.get("attributes") or {}
 
+    async def _fetch_post_page_content(self, post_url: str) -> str:
+        """Render a post page and extract visible rich text when the API omits it."""
+        post_url = _absolute_patreon_url(post_url)
+        if not post_url:
+            return ""
+        self._ensure_session()
+
+        from playwright.async_api import TimeoutError as PlaywrightTimeoutError
+        from playwright.async_api import async_playwright
+
+        self.log.info("fetching rendered post content %s", post_url)
+        async with async_playwright() as pw:
+            browser = await pw.chromium.launch(headless=True)
+            try:
+                context = await browser.new_context(user_agent=settings().scrape_user_agent)
+                try:
+                    sid = self._cookies().get("session_id")
+                    if sid:
+                        await context.add_cookies([{
+                            "name": "session_id",
+                            "value": sid,
+                            "domain": ".patreon.com",
+                            "path": "/",
+                            "secure": True,
+                            "httpOnly": True,
+                            "sameSite": "Lax",
+                        }])
+                    page = await context.new_page()
+                    await self.limiter.wait(post_url)
+                    await page.goto(post_url, wait_until="domcontentloaded", timeout=120_000)
+                    try:
+                        await page.wait_for_load_state("networkidle", timeout=30_000)
+                    except PlaywrightTimeoutError:
+                        pass
+                    await asyncio.sleep(_PAGE_SETTLE_SEC)
+                    html = await page.evaluate("""selectors => {
+                        const norm = (s) => (s || '')
+                            .replace(/\u00a0/g, ' ')
+                            .replace(/[ \t]+/g, ' ')
+                            .trim();
+                        const visible = (el) => {
+                            const style = getComputedStyle(el);
+                            const rect = el.getBoundingClientRect();
+                            return style.visibility !== 'hidden'
+                                && style.display !== 'none'
+                                && rect.width > 0
+                                && rect.height > 0;
+                        };
+                        const candidates = [];
+                        for (const selector of selectors) {
+                            for (const el of document.querySelectorAll(selector)) {
+                                if (!visible(el)) continue;
+                                const text = norm(el.innerText || el.textContent);
+                                if (!text) continue;
+                                candidates.push({html: el.innerHTML, textLength: text.length});
+                            }
+                        }
+                        candidates.sort((a, b) => b.textLength - a.textLength);
+                        return candidates[0]?.html || '';
+                    }""", _POST_PAGE_CONTENT_SELECTORS)
+                    return html.strip() if isinstance(html, str) else ""
+                finally:
+                    await context.close()
+            finally:
+                await browser.close()
+
     def _post_matches_year(self, published_at: datetime | None) -> bool:
         if self.filter_year is None:
             return True
@@ -808,17 +893,30 @@ class PatreonScraper(BaseScraper):
                             skipped_year += 1
                             continue
 
+                        post_url = _absolute_patreon_url(
+                            attrs.get("url") or attrs.get("patreon_url") or ""
+                        )
                         content_html = attrs.get("content") or ""
                         if not content_html.strip():
                             await asyncio.sleep(_BETWEEN_POST_FETCH_SEC)
                             detail_attrs = await self._fetch_post_detail(client, post_id)
                             content_html = detail_attrs.get("content") or content_html
+                            if not post_url:
+                                post_url = _absolute_patreon_url(
+                                    detail_attrs.get("url") or detail_attrs.get("patreon_url") or ""
+                                )
                             if not attrs.get("title"):
                                 attrs["title"] = detail_attrs.get("title")
                             if not attrs.get("teaser_text"):
                                 attrs["teaser_text"] = detail_attrs.get("teaser_text")
+                        if not content_html.strip() and post_url:
+                            try:
+                                content_html = await self._fetch_post_page_content(post_url)
+                            except Exception as exc:  # noqa: BLE001
+                                self.log.warning(
+                                    "rendered post content fetch failed %s: %s", post_id, exc,
+                                )
 
-                        post_url = attrs.get("url") or attrs.get("patreon_url") or ""
                         matched += 1
                         yield {
                             "external_id": post_id,
@@ -1507,11 +1605,22 @@ class PatreonScraper(BaseScraper):
                     stats["failed"] += 1
                     continue
 
+                post_url = _absolute_patreon_url(
+                    d.get("url") or detail.get("url") or detail.get("patreon_url") or ""
+                )
+                d["url"] = post_url or d.get("url") or ""
                 d["content_html"] = detail.get("content") or ""
                 d["teaser_text"] = detail.get("teaser_text") or ""
                 d["post_type"] = detail.get("post_type")
                 d["is_paid"] = detail.get("is_paid")
                 d["patreon_url"] = detail.get("patreon_url") or d["url"]
+                if not d["content_html"].strip() and post_url:
+                    try:
+                        d["content_html"] = await self._fetch_post_page_content(post_url)
+                    except Exception as exc:  # noqa: BLE001
+                        self.log.warning(
+                            "rendered post content fetch failed %s: %s", d["external_id"], exc,
+                        )
 
                 try:
                     item = await self.fetch(d)

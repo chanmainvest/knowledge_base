@@ -13,6 +13,9 @@
   - Prefer official feeds (RSS, YouTube transcripts) over scraping HTML.
 - Idempotent scrapers: skip an item if its markdown file already exists and
   is non-empty. Re-runnable safely.
+- Scrape `--limit` is source-unit scoped where implemented, not necessarily a
+  global output cap. For YouTube, `kb youtube scrape --limit N` inspects up to
+  N videos per registered channel and does not stop after N total new files.
 - Markdown is the canonical raw form. Each item's markdown front-matter
   carries `source`, `channel`, `external_id`, `url`, `published_at`, `title`,
   `lang`, plus source-specific fields. The DB row is regenerated from the

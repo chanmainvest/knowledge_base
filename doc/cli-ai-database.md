@@ -23,19 +23,28 @@ Secrets belong in `.env`. Do not hardcode API keys, database credentials, or sit
 Register sources/channels/authors as needed:
 
 ```pwsh
-uv run kb scrape add-channel youtube @SomeChannel "Some Channel"
+uv run kb youtube add-channel @SomeChannel "Some Channel"
 uv run kb hkej add-author "李聲揚"
-uv run kb hkej add-author 18839
+uv run kb hkej add-author "何啟聰"
+uv run kb hkej add-author "高天佑"
+uv run kb patreon list-creators
 ```
 
 Scrape source material:
 
 ```pwsh
-uv run kb scrape run youtube --limit 20
+uv run kb youtube scrape --limit 20
 uv run kb scrape run macrovoices --limit 20
 uv run kb hkej scrape-author "高天佑"
 uv run kb patreon scrape <creator> --limit 20
 ```
+
+For YouTube, `--limit` is per registered channel, not a total cap across all channels.
+
+For Patreon, verify the saved session first with `uv run kb patreon check-session`.
+If the session needs browser refresh, use `uv run kb patreon browser login` and
+then re-run the scrape. Patreon output uses the same flat Markdown/raw HTML
+layout as other current scrapers.
 
 The scrapers write Markdown plus raw HTML/transcripts. This layer is useful even before database ingest because it is auditable and re-runnable.
 
@@ -101,6 +110,7 @@ For direct SQL access, useful tables are:
 - `entity` and `item_entity`: entity graph.
 - `item_link`: related content.
 - `hkej_article_catalog`: HKEJ discovery/download state.
+- `patreon_post_catalog`: Patreon creator discovery/download state.
 
 For HTTP access, use:
 
@@ -121,3 +131,9 @@ If a run is interrupted:
 4. Check `uv run kb db status` and source-specific catalog tables.
 
 For HKEJ, interrupted search discovery is tracked in `hkej_crawl_run`, `hkej_crawl_page`, and `hkej_article_catalog`. The next run can resume compatible page discovery while avoiding stale page alignment when new articles shift search pages.
+
+For Patreon, interrupted creator discovery/downloads are tracked in
+`patreon_crawl_run`, `patreon_crawl_page`, and `patreon_post_catalog`. Re-run
+`uv run kb patreon scrape <creator>` or the schedulable
+`uv run kb patreon scrape-creator` command; downloaded posts are skipped and remaining catalog entries stay
+pending.

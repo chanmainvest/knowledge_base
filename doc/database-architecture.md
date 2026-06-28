@@ -94,6 +94,51 @@ On every HKEJ run, page 1 is crawled fresh. Previously crawled pages are reused 
 
 If any of those differ, the scraper assumes page alignment may have shifted and crawls fresh pages instead of trusting old page numbers.
 
+## Patreon Crawl Catalog
+
+Patreon has a similar DB-backed catalog because creator feeds can be long and
+downloads may be interrupted.
+
+`patreon_creator_state` stores per-creator crawl state:
+
+- Patreon campaign ID
+- current total post count when available
+- number of cataloged posts
+- last seen timestamp
+- last full crawl timestamp
+
+`patreon_crawl_run` stores one row per creator crawl:
+
+- status: `running`, `partial`, or `finished`
+- total posts observed
+- pages crawled
+- pages reused from a compatible previous run
+
+`patreon_crawl_page` stores each API page:
+
+- run ID
+- channel ID
+- page number
+- post IDs in page order
+- page fingerprint
+- next-page cursor URL
+
+`patreon_post_catalog` stores one row per discovered Patreon post:
+
+- publication date and year
+- title and post URL
+- external post ID
+- first/last seen run
+- last seen page
+- downloaded flag
+- Markdown path
+
+On every Patreon crawl, page 1 is fetched fresh. Previously crawled pages are
+reused only when the page-1 fingerprint and compatible total post count match,
+so new posts do not cause stale page alignment. Downloads first read the
+post-detail API; when API content is empty, the scraper renders the post page
+with Playwright and extracts visible `.patreon-post-content` text.
+
 ## Regenerating Database Content
 
 Markdown remains the canonical raw source. Rebuild item rows from files with:

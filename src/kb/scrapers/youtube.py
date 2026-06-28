@@ -25,7 +25,7 @@ from .base import BaseScraper, ScrapedItem
 
 # Default channel list — used to seed the DB on first run.
 # After seeding, channels are managed exclusively in the DB via
-# `kb scrape add-channel` / `kb scrape list-channels`.
+# `kb youtube add-channel` / `kb youtube list-channels`.
 _DEFAULT_CHANNELS: list[tuple[str, str]] = [
     # (handle_or_url, display_name)
     ("@Fedguy12", "Fed Guy"),
@@ -113,6 +113,22 @@ class YouTubeScraper(BaseScraper):
         cmd += ["--user-agent", settings().scrape_user_agent]
         return subprocess.run(cmd, capture_output=True, text=True,
                               encoding="utf-8", errors="replace", **kw)
+
+    async def run(self, limit: int | None = None) -> list[Path]:
+        out: list[Path] = []
+        async for d in self.discover(limit=limit):
+            if self.already_scraped(d):
+                self.log.info("skip (cached) %s", d.get("url") or d.get("external_id"))
+                continue
+            try:
+                item = await self.fetch(d)
+            except Exception as exc:  # noqa: BLE001
+                self.log.exception("fetch failed: %s :: %s", d, exc)
+                continue
+            if item is None:
+                continue
+            out.append(self.write_md(item))
+        return out
 
     @staticmethod
     def _vtt_to_text(vtt: str) -> str:

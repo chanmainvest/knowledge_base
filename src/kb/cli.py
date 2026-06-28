@@ -25,6 +25,7 @@ db_app = typer.Typer(no_args_is_help=True)
 scrape_app = typer.Typer(no_args_is_help=True)
 ext_app = typer.Typer(no_args_is_help=True)
 lb_app = typer.Typer(no_args_is_help=True)
+youtube_app = typer.Typer(no_args_is_help=True, help="YouTube channel management")
 hkej_app = typer.Typer(no_args_is_help=True, help="HKEJ author management")
 hkej_browser_app = typer.Typer(no_args_is_help=True, help="Persistent browser session")
 patreon_app = typer.Typer(no_args_is_help=True, help="Patreon session helpers")
@@ -33,6 +34,7 @@ app.add_typer(db_app, name="db")
 app.add_typer(scrape_app, name="scrape")
 app.add_typer(ext_app, name="extract")
 app.add_typer(lb_app, name="leaderboard")
+app.add_typer(youtube_app, name="youtube")
 app.add_typer(hkej_app, name="hkej")
 hkej_app.add_typer(hkej_browser_app, name="browser")
 app.add_typer(patreon_app, name="patreon")
@@ -86,6 +88,10 @@ def scrape_list() -> None:
 @scrape_app.command("list-channels")
 def scrape_list_channels(source: str = typer.Argument("youtube")) -> None:
     """List channels registered for a source."""
+    _list_channels(source)
+
+
+def _list_channels(source: str) -> None:
     with engine().connect() as conn:
         rows = conn.execute(text(
             "SELECT c.handle, c.name FROM channel c "
@@ -105,6 +111,15 @@ def scrape_add_channel(
     name: str = typer.Argument(..., help="Display name"),
 ) -> None:
     """Add a new channel to the scrape list (stored in DB)."""
+    _add_channel(source, handle, name)
+
+
+def _add_channel(
+    source: str,
+    handle: str,
+    name: str,
+    run_hint: str | None = None,
+) -> None:
     with engine().begin() as conn:
         sid = conn.execute(text("SELECT id FROM source WHERE code=:c"),
                            {"c": source}).scalar_one_or_none()
@@ -116,8 +131,31 @@ def scrape_add_channel(
             "INSERT INTO channel(source_id, handle, name) VALUES (:s,:h,:n) "
             "ON CONFLICT (source_id, handle) DO UPDATE SET name=EXCLUDED.name"
         ), {"s": sid, "h": handle, "n": name})
-    print(f"[green]Added[/green] {handle!r} ({name}) to {source!r}. "
-          f"Run `kb scrape run {source}` to scrape it.")
+        print(f"[green]Added[/green] {handle!r} ({name}) to {source!r}. "
+            f"Run `{run_hint or f'kb scrape run {source}'}` to scrape it.")
+
+
+@youtube_app.command("list-channels")
+def youtube_list_channels() -> None:
+    """List registered YouTube channels."""
+    _list_channels("youtube")
+
+
+@youtube_app.command("add-channel")
+def youtube_add_channel(
+    handle: str = typer.Argument(..., help="Channel handle or URL, e.g. @MyChannel"),
+    name: str = typer.Argument(..., help="Display name"),
+) -> None:
+    """Add a YouTube channel to the scrape list (stored in DB)."""
+    _add_channel("youtube", handle, name, run_hint="kb youtube scrape")
+
+
+@youtube_app.command("scrape")
+def youtube_scrape(
+    limit: int = typer.Option(0, help="Max videos to inspect per channel (0 = all)"),
+) -> None:
+    """Scrape registered YouTube channels."""
+    scrape_run(code="youtube", limit=limit)
 
 
 @scrape_app.command("run")
@@ -182,17 +220,17 @@ def status() -> None:
 
 @hkej_app.command("prime")
 def hkej_prime(
-    handle: str = typer.Argument("李聲揚", help="Author handle for search priming"),
+    handle: str = typer.Argument("李聲揚", help="Author name used to open a real HKEJ search page"),
     login_wait_minutes: int = typer.Option(15, help="Minutes to wait for manual login"),
 ) -> None:
-    """Prime search + login in one browser (Cloudflare first, then sign in)."""
+    """Prepare one HKEJ browser session for search and subscriber article access."""
     from .scrapers.hkej import BROWSER_PROFILE_DIR, HKEJScraper
 
     print(
-        "\n[bold]HKEJ priming[/bold] — one browser, two steps\n"
-        "  1. [bold]search.hkej.com[/bold] — stay on Cloudflare until it clears\n"
-        "  2. [bold]subscribe.hkej.com[/bold] — Cloudflare again, then log in (green 登入)\n"
-        "  3. Header must show [bold]歡迎（我的賬戶｜登出）[/bold]\n"
+        "\n[bold]HKEJ priming[/bold]\n"
+        "  Opens one real author search page to clear search.hkej.com,\n"
+        "  then opens subscriber login so paid articles can be fetched.\n"
+        "  Header must show [bold]歡迎（我的賬戶｜登出）[/bold] before continuing.\n"
         f"\nProfile: {BROWSER_PROFILE_DIR}\n"
     )
     sc = HKEJScraper()
@@ -204,52 +242,6 @@ def hkej_prime(
         print(f'  kb hkej scrape-author "{handle}" --limit 0')
     else:
         print("[yellow]Priming incomplete.[/yellow] Complete Cloudflare/login in the browser.")
-        raise typer.Exit(1)
-
-
-@hkej_app.command("prime-login")
-def hkej_prime_login(
-    wait_minutes: int = typer.Option(15, help="Minutes to wait for you to finish login"),
-) -> None:
-    """Open subscribe.hkej.com — wait on Cloudflare, then log in manually."""
-    from .scrapers.hkej import BROWSER_PROFILE_DIR, HKEJScraper
-
-    print(
-        "\n[bold]HKEJ login priming[/bold]\n"
-        "  1. Stay on the Cloudflare page until verification completes\n"
-        "  2. Enter your email/password and click the green [bold]登入[/bold] button\n"
-        "  3. Wait until the header shows [bold]歡迎（我的賬戶｜登出）[/bold]\n"
-        f"\nProfile: {BROWSER_PROFILE_DIR}\n"
-    )
-    sc = HKEJScraper()
-    ok = asyncio.run(sc.prime_login_session(wait_sec=wait_minutes * 60))
-    if ok:
-        print("[green]Login primed.[/green] Also run search priming if needed:")
-        print('  kb hkej prime-search "李聲揚"')
-    else:
-        print("[yellow]Login not detected in time.[/yellow]")
-        raise typer.Exit(1)
-
-
-@hkej_app.command("prime-search")
-def hkej_prime_search(
-    handle: str = typer.Argument("李聲揚", help="Author handle to prime search session"),
-) -> None:
-    """Open search.hkej.com — stay on Cloudflare until search results load."""
-    from .scrapers.hkej import BROWSER_PROFILE_DIR, HKEJScraper
-
-    print(
-        "\n[bold]HKEJ search priming[/bold]\n"
-        "  Stay on the Cloudflare page until search results appear.\n"
-        f"  Profile: {BROWSER_PROFILE_DIR}\n"
-    )
-    sc = HKEJScraper()
-    ok = asyncio.run(sc.prime_search_session(handle))
-    if ok:
-        print(f"[green]Search primed[/green] for {handle!r}")
-        print("  Next: kb hkej prime-login  (or kb hkej prime for both in one go)")
-    else:
-        print("[yellow]Search challenge did not clear in time.[/yellow]")
         raise typer.Exit(1)
 
 
@@ -428,25 +420,24 @@ def hkej_scrape_author(
 
 @hkej_app.command("add-author")
 def hkej_add_author(
-    name_or_id: str = typer.Argument(
-        ..., help="Author name (e.g. 李聲揚) or HKEJ numeric author ID (e.g. 18839)"
+    author_name: str = typer.Argument(
+        ..., help="Author name, e.g. 李聲揚"
     ),
 ) -> None:
-    """Register an HKEJ author for scraping (stored in DB)."""
-    is_numeric = name_or_id.strip().isdigit()
-    handle = name_or_id.strip()
+    """Register an HKEJ author name for search-based scraping."""
+    handle = author_name.strip()
+    if not handle:
+        print("[red]Author name cannot be empty.[/red]")
+        raise typer.Exit(1)
+    if handle.isdigit():
+        print("[red]Use the HKEJ author name; numeric identifiers are not supported.[/red]")
+        raise typer.Exit(1)
 
-    if is_numeric:
-        display_name = handle          # placeholder; real name shows after first scrape
-        disc_url = f"https://www.hkej.com/wm/authordetail/id/{handle}"
-        metadata: dict = {"hkej_id": handle, "discovery": "wm"}
-    else:
-        display_name = handle
-        disc_url = (
-            "https://search.hkej.com/template/fulltextsearch/php/search.php?author="
-            + urllib.parse.quote(handle)
-        )
-        metadata = {"discovery": "search"}
+    disc_url = (
+        "https://search.hkej.com/template/fulltextsearch/php/search.php?author="
+        + urllib.parse.quote(handle)
+    )
+    metadata = {"discovery": "search"}
 
     with engine().begin() as conn:
         sid = conn.execute(
@@ -462,11 +453,15 @@ def hkej_add_author(
                 "ON CONFLICT (source_id, handle) "
                 "DO UPDATE SET name=EXCLUDED.name, url=EXCLUDED.url, metadata=EXCLUDED.metadata"
             ),
-            {"s": sid, "h": handle, "n": display_name, "u": disc_url,
-             "m": json.dumps(metadata)},
+            {
+                "s": sid,
+                "h": handle,
+                "n": handle,
+                "u": disc_url,
+                "m": json.dumps(metadata),
+            },
         )
-    label = f"ID {handle}" if is_numeric else f"name '{handle}'"
-    print(f"[green]Added[/green] HKEJ author by {label}")
+    print(f"[green]Added[/green] HKEJ author by name '{handle}'")
     print(f"  Discovery URL: {disc_url}")
     print(f"  Run [bold]kb scrape run hkej[/bold] to fetch their articles.")
 
@@ -477,20 +472,19 @@ def hkej_list_authors() -> None:
     with engine().connect() as conn:
         rows = conn.execute(
             text(
-                "SELECT c.handle, c.name, c.metadata->>'discovery' AS disc, "
-                "c.metadata->>'hkej_id' AS hkej_id "
+                "SELECT c.handle, c.name, c.metadata->>'discovery' AS disc "
                 "FROM channel c JOIN source s ON c.source_id=s.id "
                 "WHERE s.code='hkej' ORDER BY c.name"
             )
         ).fetchall()
     if not rows:
         print("[yellow]No HKEJ authors registered.[/yellow]")
-        print("Add one with: [bold]kb hkej add-author <name_or_id>[/bold]")
+        print("Add one with: [bold]kb hkej add-author <author_name>[/bold]")
         return
-    print(f"{'Handle':<20} {'Name':<20} {'Discovery':<8} {'HKEJ ID'}")
-    print("-" * 60)
-    for handle, name, disc, hkej_id in rows:
-        print(f"  {handle:<18} {name:<20} {(disc or '?'):<8} {hkej_id or ''}")
+    print(f"{'Handle':<20} {'Name':<20} {'Discovery':<8}")
+    print("-" * 50)
+    for handle, name, disc in rows:
+        print(f"  {handle:<18} {name:<20} {(disc or '?'):<8}")
 
 
 @hkej_app.command("rm-author")
@@ -711,38 +705,32 @@ def patreon_browser_login(
         raise typer.Exit(1)
 
 
-@patreon_app.command("list-subscriptions")
-def patreon_list_subscriptions(
-    cookies_from_browser: str = typer.Option(
-        "", "--cookies-from-browser", help="e.g. chrome, edge (if PATREON_SESSION_ID unset)",
+@patreon_app.command("list-creators")
+def patreon_list_creators(
+    all_creators: bool = typer.Option(
+        False, "--all", help="Include registered creators with no catalog entries",
     ),
 ) -> None:
-    """List the creators you are subscribed to (a patron of)."""
-    from .scrapers.patreon import PatreonScraper
-    from .scrapers.patreon_daemon import daemon_sync, is_daemon_alive
-
-    if is_daemon_alive():
-        asyncio.run(daemon_sync())
-
-    sc = PatreonScraper(cookies_from_browser=cookies_from_browser or None)
+    """List Patreon creators in the local scrape catalog."""
     try:
-        subs = asyncio.run(sc.list_subscriptions())
-    except RuntimeError as exc:
-        print(f"[red]{exc}[/red]")
-        raise typer.Exit(1) from exc
+        creators = _registered_patreon_creators(only_crawled=not all_creators)
     except Exception as exc:
-        log.exception("patreon list-subscriptions failed")
+        log.exception("patreon list-creators failed")
         print(f"[red]Failed:[/red] {exc}")
         raise typer.Exit(1) from exc
 
-    if not subs:
-        print("[yellow]No subscriptions found (or session not logged in).[/yellow]")
+    if not creators:
+        print("[yellow]No Patreon creators found in the scrape catalog.[/yellow]")
+        if not all_creators:
+            print("Use [bold]--all[/bold] to include registered creators with no catalog entries.")
+        print("Add one by running: [bold]kb patreon scrape <creator>[/bold]")
         return
-    print(f"[bold]{len(subs)} subscription(s):[/bold]")
+    scope = "registered" if all_creators else "in the scrape catalog"
+    print(f"[bold]{len(creators)} Patreon creator(s) {scope}:[/bold]")
     print(f"  {'Vanity':<24} {'Name'}")
     print("  " + "-" * 50)
-    for s in subs:
-        print(f"  {s['vanity']:<24} {s['name']}")
+    for vanity, name in creators:
+        print(f"  {vanity:<24} {name}")
     print("\nScrape one with: [bold]kb patreon scrape <vanity>[/bold]")
 
 
@@ -898,8 +886,8 @@ def _registered_patreon_creators(only_crawled: bool = False) -> list[tuple[str, 
     return [(r[0], r[1]) for r in rows]
 
 
-@patreon_app.command("auto")
-def patreon_auto(
+@patreon_app.command("scrape-creator")
+def patreon_scrape_creator(
     creators: list[str] = typer.Argument(
         None, help="Creators to scrape (default: all registered in the DB)",
     ),
@@ -918,7 +906,7 @@ def patreon_auto(
         help="Start the browser daemon if it is not already running",
     ),
 ) -> None:
-    """Unattended scrape of every registered creator — no LLM, schedulable.
+    """Scrape registered Patreon creators — no LLM, schedulable.
 
     Ensures the browser daemon is up, refreshes the session cookie, then crawls
     and downloads each creator incrementally (already-downloaded posts skipped).
@@ -971,7 +959,7 @@ def patreon_auto(
         print("[yellow]No creators registered. Run: kb patreon scrape <vanity>[/yellow]")
         raise typer.Exit(1)
 
-    print(f"[bold]Auto-scrape[/bold] {len(targets)} creator(s): "
+    print(f"[bold]Scrape[/bold] {len(targets)} creator(s): "
           f"{', '.join(h for h, _ in targets)}")
 
     totals = {"new": 0, "downloaded": 0, "indexed": 0, "failed": 0, "errors": 0}
@@ -1009,7 +997,7 @@ def patreon_auto(
                     f"(+{idx.get('new', 0)} new) · pending {idx.get('pending', 0)}"
                 )
         except Exception as exc:  # noqa: BLE001
-            log.exception("auto-scrape failed for %s", vanity)
+            log.exception("Patreon creator scrape failed for %s", vanity)
             print(f"  [red]failed: {exc}[/red]")
             totals["errors"] += 1
 

@@ -8,6 +8,7 @@ import pytest
 
 from kb.scrapers.patreon import (
     PatreonScraper,
+    _absolute_patreon_url,
     _campaign_lookup_url,
     _html_to_md,
     _parse_dt,
@@ -42,6 +43,18 @@ def test_posts_list_url_contains_campaign_filter() -> None:
 def test_campaign_lookup_url() -> None:
     url = _campaign_lookup_url("macroalf")
     assert "filter%5Bvanity%5D=macroalf" in url or "filter[vanity]=macroalf" in url
+
+
+def test_absolute_patreon_url() -> None:
+    assert _absolute_patreon_url("/aminvest/posts/example-123") == (
+        "https://www.patreon.com/aminvest/posts/example-123"
+    )
+    assert _absolute_patreon_url("aminvest/posts/example-123") == (
+        "https://www.patreon.com/aminvest/posts/example-123"
+    )
+    assert _absolute_patreon_url("https://www.patreon.com/posts/example-123") == (
+        "https://www.patreon.com/posts/example-123"
+    )
 
 
 def test_parse_dt() -> None:
