@@ -33,6 +33,11 @@ class ScrapedItem:
     language: str | None = None
     folder_name: str | None = None  # override leaf folder/stem name
     flat_layout: bool = False  # True → flat .md + data/raw/ hierarchy (hkej, macrovoices)
+    channel_dir: str | None = None  # override data/<source>/<dir>/ segment (e.g. display name)
+
+    def _storage_channel_slug(self) -> str:
+        from ..io_md import slugify
+        return slugify(self.channel_dir or self.channel)
 
     def folder(self) -> Path:
         """Legacy folder layout (youtube, patreon). Not used when flat_layout=True."""
@@ -40,7 +45,7 @@ class ScrapedItem:
                      if self.published_at else "undated")
         from ..io_md import slugify
         leaf = self.folder_name or f"{date_part}__{slugify(self.external_id, 60)}"
-        return DATA_DIR / self.source / slugify(self.channel) / leaf
+        return DATA_DIR / self.source / self._storage_channel_slug() / leaf
 
     def content_path(self) -> Path:
         """Flat layout: data/<source>/[<channel>/]<year>/<stem>.md"""
@@ -50,7 +55,7 @@ class ScrapedItem:
                      if self.published_at else "undated")
         from ..io_md import slugify
         stem = self.folder_name or f"{date_part}-{slugify(self.external_id, 60)}"
-        ch = slugify(self.channel)
+        ch = self._storage_channel_slug()
         if ch == self.source:
             # channel == source (e.g. macrovoices): skip redundant channel dir
             return DATA_DIR / self.source / year_part / f"{stem}.md"
@@ -109,9 +114,9 @@ class BaseScraper(abc.ABC):
         # default: subclasses can override; based on disk
         return False
 
-    async def run(self, limit: int | None = None) -> list[Path]:
+    async def run(self, limit: int | None = None, **kwargs) -> list[Path]:
         out: list[Path] = []
-        async for d in self.discover(limit=limit):
+        async for d in self.discover(limit=limit, **kwargs):
             if self.already_scraped(d):
                 self.log.info("skip (cached) %s", d.get("url") or d.get("external_id"))
                 continue

@@ -145,11 +145,75 @@ def youtube_list_channels() -> None:
 
 @youtube_app.command("add-channel")
 def youtube_add_channel(
-    handle: str = typer.Argument(..., help="Channel handle or URL, e.g. @MyChannel"),
-    name: str = typer.Argument(..., help="Display name"),
+    handle: str | None = typer.Argument(
+        None,
+        help="Channel handle or URL (@ optional; omit @ on PowerShell)",
+    ),
+    name: str | None = typer.Argument(
+        None, help="Display name (resolved from YouTube via yt-dlp if omitted)"
+    ),
+    handle_flag: str | None = typer.Option(
+        None,
+        "--handle",
+        "-H",
+        help="Channel handle (alternative to positional; omit @ on PowerShell)",
+    ),
 ) -> None:
     """Add a YouTube channel to the scrape list (stored in DB)."""
+    from .scrapers.youtube import YouTubeScraper, normalize_youtube_handle
+
+    raw = handle_flag or handle
+    if not raw:
+        print("[red]Missing channel handle.[/red]")
+        print(
+            "PowerShell treats bare @Handle as splatting — do not pass a leading @ unquoted."
+        )
+        print("  kb youtube add-channel BloorStreetCapital")
+        print("  kb youtube add-channel --handle BloorStreetCapital")
+        print("  kb youtube add-channel '@BloorStreetCapital'")
+        raise typer.Exit(1)
+    handle = normalize_youtube_handle(raw)
+    if name is None:
+        scraper = YouTubeScraper()
+        name = scraper.resolve_channel_display_name(handle)
+        if not name:
+            print(f"[red]Could not resolve channel name for {handle!r}. "
+                  "Pass an explicit NAME or check the handle/URL.[/red]")
+            raise typer.Exit(1)
+        print(f"[dim]Resolved display name:[/dim] {name!r}")
     _add_channel("youtube", handle, name, run_hint="kb youtube scrape")
+
+
+@youtube_app.command("migrate-folders")
+def youtube_migrate_folders(
+    dry_run: bool = typer.Option(
+        False, "--dry-run", help="Show renames without moving directories"
+    ),
+    ingest: bool = typer.Option(
+        False, "--ingest", help="Re-ingest moved markdown to refresh md_path in DB"
+    ),
+) -> None:
+    """Rename data/youtube/<handle-slug>/ to slugified channel display names."""
+    from .scrapers.youtube import migrate_youtube_folders
+
+    moves = migrate_youtube_folders(dry_run=dry_run)
+    if not moves:
+        print("[yellow]No YouTube folder renames needed.[/yellow]")
+        return
+    for old, new in moves:
+        action = "would rename" if dry_run else "renamed"
+        print(f"  {action}: {old.relative_to(DATA_DIR)} -> {new.relative_to(DATA_DIR)}")
+    print(f"[green]{len(moves)}[/green] folder(s) {'planned' if dry_run else 'updated'}.")
+    if ingest and not dry_run:
+        from . import ingest as ingest_mod
+        n = 0
+        for _, new in moves:
+            if not new.is_dir():
+                continue
+            for md in new.rglob("*.md"):
+                if ingest_mod.ingest_file(md):
+                    n += 1
+        print(f"[green]Re-ingested {n}[/green] markdown file(s).")
 
 
 @youtube_app.command("scrape")
@@ -161,10 +225,14 @@ def youtube_scrape(
 
 
 @scrape_app.command("run")
-def scrape_run(code: str, limit: int = typer.Option(0, help="0 = unlimited")) -> None:
+def scrape_run(
+    code: str,
+    limit: int = typer.Option(0, help="0 = unlimited"),
+    source_type: str | None = typer.Option(None, help="Filter by content type (e.g. dcard, facebook for madxcap)"),
+) -> None:
     sc = get_scraper(code)
     try:
-        paths = asyncio.run(sc.run(limit=limit or None))
+        paths = asyncio.run(sc.run(limit=limit or None, source_type=source_type))
     except Exception as exc:  # noqa: BLE001
         log.exception("scrape crashed: %s", exc)
         paths = []

@@ -8,7 +8,11 @@ Source-specific commands are preferred where they exist:
 
 ```pwsh
 uv run kb youtube list-channels
-uv run kb youtube add-channel @SomeChannel "Some Channel"
+uv run kb youtube add-channel BloorStreetCapital                 # @ added automatically
+uv run kb youtube add-channel BloorStreetCapital "Custom Name"   # explicit display name
+uv run kb youtube add-channel --handle BloorStreetCapital        # PowerShell-friendly
+uv run kb youtube migrate-folders --dry-run                 # preview folder renames
+uv run kb youtube migrate-folders --ingest                  # rename + refresh md_path in DB
 uv run kb youtube scrape --limit 5
 
 uv run kb hkej list-authors
@@ -51,6 +55,7 @@ uv run kb youtube scrape --limit 5
 uv run kb scrape run macrovoices --limit 3
 uv run kb scrape run hkej --limit 20
 uv run kb scrape run yahoohk --limit 5
+uv run kb scrape run madxcap --limit 5
 ```
 
 For YouTube, `--limit 5` inspects up to 5 videos per registered channel. Cached videos are skipped, and the scraper does not stop after 5 new files total.
@@ -58,6 +63,8 @@ For YouTube, `--limit 5` inspects up to 5 videos per registered channel. Cached 
 For HKEJ, `uv run kb scrape run hkej --limit 20` applies the limit per registered author. With three HKEJ authors registered, the command attempts up to 20 new articles for each author.
 
 For Yahoo Finance Hong Kong, `uv run kb scrape run yahoohk --limit 5` applies the limit per discovered columnist. Authors are seeded automatically from the contributors index on the first run.
+
+For MadX (狂徒投資), `uv run kb scrape run madxcap --limit 5` applies the limit across both Dcard and Facebook posts. Use `--source-type dcard|facebook` to filter.
 
 Run all registered scrapers with a per-source limit:
 
@@ -227,6 +234,46 @@ with Playwright and extracts visible rich text from `.patreon-post-content`.
 This matters for posts whose `post_type` is `image_file` but which still contain
 article text.
 
+## MadX (狂徒投資) Scraping
+
+MadX is a personal investment blog by 狂徒 at https://madxcap.com/. It contains
+Dcard articles and Facebook posts organized by year. No browser daemon is
+required — articles are fetched over HTTP.
+
+Scrape all posts (Dcard + Facebook):
+
+```pwsh
+uv run kb scrape run madxcap --limit 20
+```
+
+Scrape only Dcard articles:
+
+```pwsh
+uv run kb scrape run madxcap --limit 20 --source-type dcard
+```
+
+Scrape only Facebook posts:
+
+```pwsh
+uv run kb scrape run madxcap --limit 20 --source-type facebook
+```
+
+Output layout (flat file):
+
+```text
+data/madxcap/狂徒/<YYYY>/<YYYY-MM-DD>-<title-slug>.md
+data/raw/madxcap/狂徒/<YYYY>/<YYYY-MM-DD>-<title-slug>.html
+```
+
+The scraper is idempotent — re-running skips already-downloaded Markdown files.
+Each item's front matter includes `content_type` (dcard|facebook) and `tags`.
+
+Re-ingest after scraping:
+
+```pwsh
+uv run kb ingest
+```
+
 ## Scripts Folder
 
 The `scripts/` directory contains maintenance and debugging helpers:
@@ -262,6 +309,9 @@ data/raw/yahoohk/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
 
 data/master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
 data/raw/master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
+
+data/madxcap/狂徒/<YYYY>/<YYYY-MM-DD>-<title>.md
+data/raw/madxcap/狂徒/<YYYY>/<YYYY-MM-DD>-<title>.html
 
 data/macrovoices/<YYYY>/<YYYY-MM-DD>-<episode>-<title>.md
 data/raw/macrovoices/<YYYY>/<YYYY-MM-DD>-<episode>-<title>.html

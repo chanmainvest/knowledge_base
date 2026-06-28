@@ -23,7 +23,11 @@ Secrets belong in `.env`. Do not hardcode API keys, database credentials, or sit
 Register sources/channels/authors as needed:
 
 ```pwsh
-uv run kb youtube add-channel @SomeChannel "Some Channel"
+uv run kb youtube add-channel BloorStreetCapital
+uv run kb youtube add-channel BloorStreetCapital "Custom Name"
+uv run kb youtube add-channel --handle BloorStreetCapital
+uv run kb youtube migrate-folders --dry-run
+uv run kb youtube migrate-folders --ingest
 uv run kb hkej add-author "李聲揚"
 uv run kb hkej add-author "何啟聰"
 uv run kb hkej add-author "高天佑"

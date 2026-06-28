@@ -290,5 +290,12 @@ INSERT INTO source(code,name,url,kind) VALUES
   ('hkej','Hong Kong Economic Journal','https://www.hkej.com/','newspaper'),
   ('patreon','Patreon','https://www.patreon.com/','membership'),
   ('yahoohk','Yahoo Finance Hong Kong','https://hk.finance.yahoo.com/','newspaper'),
-  ('master-insight','Master Insight','https://www.master-insight.com/','newspaper')
+  ('master-insight','Master Insight','https://www.master-insight.com/','newspaper'),
+  ('madxcap','狂徒投資','https://madxcap.com/','blog')
 ON CONFLICT (code) DO NOTHING;
+
+-- Seed channels for single-author sources.
+INSERT INTO channel(source_id, handle, name, url)
+SELECT id, 'kuangtu', '狂徒', 'https://madxcap.com/'
+FROM source WHERE code='madxcap'
+ON CONFLICT (source_id, handle) DO NOTHING;

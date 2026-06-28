@@ -95,7 +95,7 @@ data/
   macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.md
   raw/macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.html  [.slides.pdf …]
 
-  youtube/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md
+  youtube/<channel-name-slug>/<YYYY>/<YYYY-MM-DD>-<title>.md
 
   patreon/<channel>/<YYYY-MM-DD>__<id>/content.md     # legacy folder layout
 ```

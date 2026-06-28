@@ -19,7 +19,7 @@ from typing import AsyncIterator
 from sqlalchemy import text as sa_text
 
 from ..config import DATA_DIR, settings
-from ..io_md import slugify
+from ..io_md import load_md, slugify
 from .base import BaseScraper, ScrapedItem
 
 
@@ -93,6 +93,145 @@ def _seed_default_channels() -> None:
         pass
 
 
+def _channel_videos_url(handle: str) -> str:
+    handle = handle.strip()
+    if handle.startswith("http"):
+        return handle if handle.rstrip("/").endswith("/videos") else f"{handle.rstrip('/')}/videos"
+    return f"https://www.youtube.com/{handle}/videos"
+
+
+def _parse_channel_display_name(stdout: str) -> str | None:
+    """Extract uploader/channel title from yt-dlp playlist JSON output."""
+    for line in stdout.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            j = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        for key in ("uploader", "channel"):
+            val = j.get(key)
+            if isinstance(val, str) and val.strip():
+                return val.strip()
+    return None
+
+
+def channel_dir_slug(channel_name: str) -> str:
+    """Filesystem directory slug for a YouTube channel display name."""
+    return slugify(channel_name)
+
+
+def normalize_youtube_handle(handle: str) -> str:
+    """Return a stored handle/URL; add @ when the user omitted it (PowerShell-friendly)."""
+    handle = handle.strip()
+    if handle.startswith(("http://", "https://", "@")):
+        return handle
+    return f"@{handle}"
+
+
+def _youtube_md_path(
+    channel_slug: str,
+    *,
+    upload_date: str | None,
+    title: str,
+    external_id: str,
+) -> Path:
+    date = upload_date or "undated"
+    date_fmt = (f"{date[:4]}-{date[4:6]}-{date[6:8]}" if len(date) == 8 else "undated")
+    year = date[:4] if len(date) == 8 else "undated"
+    stem = f"{date_fmt}-{slugify(title, 80)}"
+    return DATA_DIR / "youtube" / channel_slug / year / f"{stem}.md"
+
+
+def _merge_dir_into(src: Path, dst: Path) -> None:
+    """Move *src* tree into *dst*, merging when subpaths already exist."""
+    import shutil
+    dst.mkdir(parents=True, exist_ok=True)
+    for item in src.iterdir():
+        target = dst / item.name
+        if item.is_dir():
+            if target.exists():
+                _merge_dir_into(item, target)
+                item.rmdir()
+            else:
+                shutil.move(str(item), str(target))
+        elif target.exists():
+            continue
+        else:
+            shutil.move(str(item), str(target))
+    if src.exists() and not any(src.iterdir()):
+        src.rmdir()
+
+
+def plan_youtube_folder_renames() -> list[tuple[Path, Path]]:
+    """Return (old_dir, new_dir) pairs to align folders with channel display names."""
+    yt_root = DATA_DIR / "youtube"
+    if not yt_root.is_dir():
+        return []
+
+    planned: dict[Path, Path] = {}
+    target_names: set[str] = set()
+
+    for handle, name in _load_channels():
+        old = yt_root / channel_dir_slug(handle)
+        new = yt_root / channel_dir_slug(name)
+        target_names.add(new.name)
+        if old != new:
+            planned[old] = new
+
+    for folder in sorted(yt_root.iterdir()):
+        if not folder.is_dir() or folder in planned or folder.name in target_names:
+            continue
+        sample = next(folder.rglob("*.md"), None)
+        if sample is None:
+            continue
+        name = load_md(sample).front.get("channel_name")
+        if not isinstance(name, str) or not name.strip():
+            continue
+        new = yt_root / channel_dir_slug(name)
+        if folder != new:
+            planned[folder] = new
+
+    return sorted(planned.items())
+
+
+def migrate_youtube_folders(*, dry_run: bool = False) -> list[tuple[Path, Path]]:
+    """Rename data/youtube/<handle-slug>/ dirs to slugified channel display names."""
+    done: list[tuple[Path, Path]] = []
+    for old, new in plan_youtube_folder_renames():
+        if not old.is_dir():
+            continue
+        if dry_run:
+            done.append((old, new))
+            continue
+        if new.exists():
+            _merge_dir_into(old, new)
+        else:
+            new.parent.mkdir(parents=True, exist_ok=True)
+            old.rename(new)
+        done.append((old, new))
+    return done
+
+
+def _update_channel_name(handle: str, name: str) -> None:
+    """Persist a YouTube channel display name resolved from yt-dlp."""
+    try:
+        from ..db import engine as db_engine
+        with db_engine().begin() as conn:
+            sid = conn.execute(
+                sa_text("SELECT id FROM source WHERE code='youtube'")
+            ).scalar_one_or_none()
+            if sid is None:
+                return
+            conn.execute(sa_text(
+                "UPDATE channel SET name = :n "
+                "WHERE source_id = :s AND handle = :h"
+            ), {"s": sid, "h": handle, "n": name})
+    except Exception:
+        pass
+
+
 class YouTubeScraper(BaseScraper):
     code = "youtube"
     name = "YouTube"
@@ -113,6 +252,25 @@ class YouTubeScraper(BaseScraper):
         cmd += ["--user-agent", settings().scrape_user_agent]
         return subprocess.run(cmd, capture_output=True, text=True,
                               encoding="utf-8", errors="replace", **kw)
+
+    def resolve_channel_display_name(self, handle: str) -> str | None:
+        """Return the channel title YouTube reports for *handle* (via yt-dlp)."""
+        url = _channel_videos_url(handle)
+        cp = self._ytdlp(
+            "--no-update",
+            "--dump-single-json",
+            "--flat-playlist",
+            "--playlist-end", "1",
+            "--ignore-errors",
+            url,
+        )
+        if cp.returncode != 0 and not cp.stdout.strip():
+            self.log.warning(
+                "resolve channel name failed for %s :: %s",
+                handle, cp.stderr[-400:],
+            )
+            return None
+        return _parse_channel_display_name(cp.stdout)
 
     async def run(self, limit: int | None = None) -> list[Path]:
         out: list[Path] = []
@@ -155,8 +313,13 @@ class YouTubeScraper(BaseScraper):
     # ---- discover --------------------------------------------------------
     async def discover(self, limit: int | None = None) -> AsyncIterator[dict]:
         for handle, display in _load_channels():
-            url = (handle if handle.startswith("http")
-                   else f"https://www.youtube.com/{handle}/videos")
+            await self.limiter.wait("https://www.youtube.com")
+            resolved = self.resolve_channel_display_name(handle)
+            if resolved:
+                if resolved != display:
+                    _update_channel_name(handle, resolved)
+                display = resolved
+            url = _channel_videos_url(handle)
             self.log.info("discovering %s", url)
             args = ["--flat-playlist", "--dump-json", "--ignore-errors", url]
             # Only cap per-channel when caller explicitly passed a limit.
@@ -164,6 +327,7 @@ class YouTubeScraper(BaseScraper):
                 args = ["--flat-playlist", "--dump-json",
                         "--playlist-end", str(limit),
                         "--ignore-errors", url]
+            await self.limiter.wait("https://www.youtube.com")
             cp = self._ytdlp(*args)
             if cp.returncode != 0:
                 self.log.warning("discover failed for %s :: %s",
@@ -191,14 +355,23 @@ class YouTubeScraper(BaseScraper):
                 await asyncio.sleep(0)
 
     def already_scraped(self, d: dict) -> bool:
-        date = d.get("upload_date") or "undated"
-        date_fmt = (f"{date[:4]}-{date[4:6]}-{date[6:8]}" if len(date) == 8 else "undated")
-        year = date[:4] if len(date) == 8 else "undated"
-        title = d.get("title") or d["external_id"]
-        stem = f"{date_fmt}-{slugify(title, 80)}"
-        ch = slugify(d["channel_handle"])
-        md_path = DATA_DIR / "youtube" / ch / year / f"{stem}.md"
-        return md_path.exists() and md_path.stat().st_size > 200
+        slugs = dict.fromkeys([
+            channel_dir_slug(d["channel_name"]),
+            channel_dir_slug(d["channel_handle"]),
+        ])
+        for ch in slugs:
+            md_path = _youtube_md_path(
+                ch,
+                upload_date=d.get("upload_date"),
+                title=d.get("title") or d["external_id"],
+                external_id=d["external_id"],
+            )
+            if not md_path.exists() or md_path.stat().st_size <= 200:
+                continue
+            doc = load_md(md_path)
+            if doc.front.get("published_at"):
+                return True
+        return False
 
     # ---- fetch -----------------------------------------------------------
     async def fetch(self, d: dict) -> ScrapedItem | None:
@@ -275,6 +448,7 @@ class YouTubeScraper(BaseScraper):
             source="youtube",
             channel=d["channel_handle"],
             channel_name=d["channel_name"],
+            channel_dir=d["channel_name"],
             external_id=d["external_id"],
             title=title,
             url=d["url"],
