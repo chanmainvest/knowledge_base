@@ -20,6 +20,8 @@ frontend/dist/
 frontend/.vite/
 
 # Scraped data: keep folder structure, ignore content
+raw/
+data/raw/
 data/**/*.md
 data/**/*.pdf
 data/**/*.json
