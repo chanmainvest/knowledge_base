@@ -28,6 +28,7 @@ lb_app = typer.Typer(no_args_is_help=True)
 hkej_app = typer.Typer(no_args_is_help=True, help="HKEJ author management")
 hkej_browser_app = typer.Typer(no_args_is_help=True, help="Persistent browser session")
 patreon_app = typer.Typer(no_args_is_help=True, help="Patreon session helpers")
+patreon_browser_app = typer.Typer(no_args_is_help=True, help="Persistent Patreon browser")
 app.add_typer(db_app, name="db")
 app.add_typer(scrape_app, name="scrape")
 app.add_typer(ext_app, name="extract")
@@ -35,6 +36,7 @@ app.add_typer(lb_app, name="leaderboard")
 app.add_typer(hkej_app, name="hkej")
 hkej_app.add_typer(hkej_browser_app, name="browser")
 app.add_typer(patreon_app, name="patreon")
+patreon_app.add_typer(patreon_browser_app, name="browser")
 
 log = get_logger("cli")
 
@@ -400,6 +402,7 @@ def hkej_scrape_author(
     s = sc.last_stats
     print(f"\n[bold]Summary for {handle!r}[/bold]")
     print(f"  Search lists:     {s.get('search_total', '?')} articles")
+    print(f"  Search pages:     {s.get('pages_crawled', 0)} crawled, {s.get('pages_reused', 0)} reused")
     print(f"  URLs discovered:  {s.get('discovered', '?')}")
     print(f"  Skipped (cached): {s.get('skipped', 0)}")
     print(f"  Fetched new:      {s.get('fetched', len(paths))}")
@@ -623,14 +626,136 @@ def patreon_list_years(
         print(f"  {year}: {count}")
 
 
+@patreon_browser_app.command("start")
+def patreon_browser_start() -> None:
+    """Keep one logged-in Patreon browser window open across scrapes."""
+    from .scrapers.patreon_daemon import (
+        is_daemon_alive,
+        start_daemon_process,
+        wait_for_daemon,
+    )
+
+    if is_daemon_alive():
+        print("[green]Patreon browser daemon already running.[/green]")
+        return
+    print(
+        "\n[bold]Starting Patreon browser daemon[/bold]\n"
+        "  A Chromium window opens. Log into patreon.com once if needed —\n"
+        "  the window stays open and later scrapes reuse this session.\n"
+    )
+    start_daemon_process()
+    if not asyncio.run(wait_for_daemon(60.0)):
+        print("[yellow]Daemon did not respond in time.[/yellow]")
+        raise typer.Exit(1)
+    print("[green]Patreon browser daemon ready.[/green]")
+    print("  Next: [bold]kb patreon browser login[/bold] (if not signed in)")
+
+
+@patreon_browser_app.command("stop")
+def patreon_browser_stop() -> None:
+    """Close the persistent Patreon browser daemon."""
+    from .scrapers.patreon_daemon import daemon_shutdown, is_daemon_alive
+
+    if not is_daemon_alive():
+        print("Patreon browser daemon is not running.")
+        return
+    if asyncio.run(daemon_shutdown()):
+        print("[green]Patreon browser daemon stopped.[/green]")
+    else:
+        print("[yellow]Could not stop daemon cleanly.[/yellow]")
+
+
+@patreon_browser_app.command("status")
+def patreon_browser_status() -> None:
+    """Check whether the persistent Patreon browser daemon is running."""
+    from .scrapers.patreon_daemon import DAEMON_INFO_PATH, is_daemon_alive
+
+    if is_daemon_alive():
+        print(f"[green]Patreon browser daemon running[/green] ({DAEMON_INFO_PATH})")
+    else:
+        print(
+            "[dim]Patreon browser daemon not running[/dim] — "
+            "start with: kb patreon browser start"
+        )
+
+
+@patreon_browser_app.command("login")
+def patreon_browser_login(
+    wait_minutes: int = typer.Option(10, help="Minutes to wait for manual login"),
+) -> None:
+    """Sign into patreon.com in the daemon browser and save the session cookie."""
+    from .scrapers.patreon_daemon import (
+        daemon_login,
+        is_daemon_alive,
+        start_daemon_process,
+        wait_for_daemon,
+    )
+
+    if not is_daemon_alive():
+        print("[dim]Daemon not running — starting it.[/dim]")
+        start_daemon_process()
+        if not asyncio.run(wait_for_daemon(60.0)):
+            print("[red]Daemon did not start.[/red]")
+            raise typer.Exit(1)
+
+    print(
+        "\n[bold]Patreon login[/bold] — log into patreon.com in the browser window.\n"
+        "  Waiting for an authenticated session…\n"
+    )
+    resp = asyncio.run(daemon_login(wait_sec=wait_minutes * 60))
+    if resp and resp.get("ok"):
+        print(f"[green]Logged in[/green] as {resp.get('full_name') or '(unknown)'}")
+    else:
+        err = (resp or {}).get("error", "login not detected")
+        print(f"[yellow]{err}[/yellow]")
+        raise typer.Exit(1)
+
+
+@patreon_app.command("list-subscriptions")
+def patreon_list_subscriptions(
+    cookies_from_browser: str = typer.Option(
+        "", "--cookies-from-browser", help="e.g. chrome, edge (if PATREON_SESSION_ID unset)",
+    ),
+) -> None:
+    """List the creators you are subscribed to (a patron of)."""
+    from .scrapers.patreon import PatreonScraper
+    from .scrapers.patreon_daemon import daemon_sync, is_daemon_alive
+
+    if is_daemon_alive():
+        asyncio.run(daemon_sync())
+
+    sc = PatreonScraper(cookies_from_browser=cookies_from_browser or None)
+    try:
+        subs = asyncio.run(sc.list_subscriptions())
+    except RuntimeError as exc:
+        print(f"[red]{exc}[/red]")
+        raise typer.Exit(1) from exc
+    except Exception as exc:
+        log.exception("patreon list-subscriptions failed")
+        print(f"[red]Failed:[/red] {exc}")
+        raise typer.Exit(1) from exc
+
+    if not subs:
+        print("[yellow]No subscriptions found (or session not logged in).[/yellow]")
+        return
+    print(f"[bold]{len(subs)} subscription(s):[/bold]")
+    print(f"  {'Vanity':<24} {'Name'}")
+    print("  " + "-" * 50)
+    for s in subs:
+        print(f"  {s['vanity']:<24} {s['name']}")
+    print("\nScrape one with: [bold]kb patreon scrape <vanity>[/bold]")
+
+
 @patreon_app.command("scrape")
 def patreon_scrape(
     creator: str = typer.Argument(
         ..., help="Vanity or URL, e.g. aminvest or patreon.com/c/aminvest/posts",
     ),
-    limit: int = typer.Option(3, help="Max new posts to download (0 = unlimited)"),
+    limit: int = typer.Option(
+        0, help="Max new posts to download this run (0 = all pending)",
+    ),
     year: int | None = typer.Option(
-        None, "--year", help="Only posts from this calendar year",
+        None, "--year", help="Only download posts published in this calendar year",
     ),
     name: str = typer.Option("", help="Display name (used when not in DB)"),
     cookies_from_browser: str = typer.Option(
@@ -640,13 +765,21 @@ def patreon_scrape(
         True, "--register/--no-register",
         help="Add creator to DB channel table if missing",
     ),
-    browser: bool = typer.Option(
-        False, "--browser",
-        help="Use Playwright: open posts page, scroll feed, click each post",
+    build_index: bool = typer.Option(
+        True, "--index/--no-index",
+        help="Refresh the DB crawl catalog before downloading",
     ),
 ) -> None:
-    """Scrape posts for one Patreon creator (paginates + opens each post for full text)."""
+    """Crawl all posts (this month → back per year) then download pending ones.
+
+    Resumable: a DB catalog (``patreon_post_catalog``) records every post that
+    exists plus a ``downloaded`` flag, and each crawled API page is stored so an
+    interrupted crawl resumes from the next uncrawled page. New posts (which
+    shift page alignment) are detected via a page-1 fingerprint; downloads are
+    skipped when the markdown file is already on disk.
+    """
     from .scrapers.patreon import PatreonScraper, normalize_vanity
+    from .scrapers.patreon_daemon import daemon_sync, is_daemon_alive
 
     vanity = normalize_vanity(creator)
     display = name or vanity
@@ -662,31 +795,260 @@ def patreon_scrape(
                     "ON CONFLICT (source_id, handle) DO UPDATE SET name=EXCLUDED.name"
                 ), {"s": sid, "h": vanity, "n": display})
 
+    # Refresh the cookie from the live browser if the daemon is up.
+    if is_daemon_alive():
+        synced = asyncio.run(daemon_sync())
+        if synced and synced.get("ok"):
+            print(f"[dim]session refreshed for {synced.get('full_name') or 'user'}[/dim]")
+        elif synced:
+            print(f"[yellow]session warning: {synced.get('error')}[/yellow]")
+
     sc = PatreonScraper(
         filter_year=year,
         filter_handle=vanity,
         filter_display_name=display,
         cookies_from_browser=cookies_from_browser or None,
-        use_browser=browser,
     )
-    mode = "browser" if browser else "api"
     year_msg = f", year={year}" if year else ""
-    print(f"[bold]Patreon scrape[/bold] {vanity!r} — limit={limit or '∞'}{year_msg} ({mode})")
+    print(
+        f"[bold]Patreon scrape[/bold] {vanity!r} — "
+        f"limit={limit or '∞'}{year_msg}"
+    )
 
     try:
-        paths = asyncio.run(sc.run(limit=limit or None))
+        paths, stats = asyncio.run(
+            sc.scrape_creator(
+                vanity, display,
+                limit=limit or None,
+                year=year,
+                build=build_index,
+            )
+        )
+    except RuntimeError as exc:
+        print(f"[red]{exc}[/red]")
+        raise typer.Exit(1) from exc
     except Exception as exc:
         log.exception("patreon scrape crashed")
         print(f"[red]Scrape failed:[/red] {exc}")
         raise typer.Exit(1) from exc
 
-    print(f"[green]{len(paths)}[/green] new files")
-    for p in paths:
-        print(f"  {p}")
+    idx = stats.get("index") or {}
+    dl = stats.get("download") or {}
+    years = stats.get("years") or {}
+    print(f"\n[bold]Summary for {vanity!r}[/bold]")
+    if idx:
+        total = idx.get("total_posts", "?")
+        new = idx.get("new", 0)
+        reused = idx.get("pages_reused", 0)
+        line = f"  Catalog:    {total} posts known ({new} new this run"
+        if reused:
+            line += f", {reused} page(s) reused"
+        line += ")"
+        print(line)
+        prior = idx.get("prior_total")
+        if prior is not None and total not in ("?", None) and total > prior:
+            print(
+                f"  [cyan]New posts detected: total rose {prior} → {total}[/cyan]"
+            )
+        if not idx.get("complete", True):
+            print(
+                "  [yellow]Crawl incomplete (interrupted) — re-run to resume "
+                "from the saved cursor[/yellow]"
+            )
+    print(f"  Pending:    {dl.get('pending', 0)}")
+    print(f"  Downloaded: {dl.get('downloaded', 0)}")
+    print(f"  Skipped:    {dl.get('skipped', 0)} (already on disk)")
+    print(f"  Indexed DB: {dl.get('indexed', 0)}")
+    print(f"  Failed:     {dl.get('failed', 0)}")
+    if years:
+        print("  [bold]Per year[/bold] (downloaded/total):")
+        for y in sorted(years, reverse=True):
+            yc = years[y]
+            label = str(y) if y else "undated"
+            print(f"    {label:<8} {yc['downloaded']}/{yc['total']}")
+    remaining = dl.get("pending", 0) - dl.get("downloaded", 0) - dl.get("skipped", 0)
+    if remaining > 0:
+        print(
+            f"  [yellow]~{remaining} still pending — re-run to continue "
+            f"(already-downloaded posts are skipped)[/yellow]"
+        )
+    print(f"\n[green]{len(paths)}[/green] new files written")
+
+
+def _registered_patreon_creators(only_crawled: bool = False) -> list[tuple[str, str]]:
+    """(handle, display name) for creators in the DB channel table.
+
+    With ``only_crawled`` set, restrict to creators that already have catalog
+    entries (i.e. have been scraped at least once) — used for the unattended
+    default so leftover/never-crawled rows are not auto-scraped.
+    """
+    sql = (
+        "SELECT c.handle, COALESCE(c.name, c.handle) "
+        "FROM channel c JOIN source s ON s.id=c.source_id "
+        "WHERE s.code='patreon' "
+    )
+    if only_crawled:
+        sql += (
+            "AND EXISTS (SELECT 1 FROM patreon_post_catalog pc "
+            "WHERE pc.channel_id=c.id) "
+        )
+    sql += "ORDER BY c.handle"
+    with engine().connect() as conn:
+        rows = conn.execute(text(sql)).fetchall()
+    return [(r[0], r[1]) for r in rows]
+
+
+@patreon_app.command("auto")
+def patreon_auto(
+    creators: list[str] = typer.Argument(
+        None, help="Creators to scrape (default: all registered in the DB)",
+    ),
+    limit: int = typer.Option(
+        0, "--limit", help="Max new downloads per creator (0 = all pending)",
+    ),
+    year: int | None = typer.Option(
+        None, "--year", help="Only download posts from this calendar year",
+    ),
+    download: bool = typer.Option(
+        True, "--download/--no-download",
+        help="Download pending posts (off = only refresh the catalog)",
+    ),
+    start_browser: bool = typer.Option(
+        True, "--start-browser/--no-start-browser",
+        help="Start the browser daemon if it is not already running",
+    ),
+) -> None:
+    """Unattended scrape of every registered creator — no LLM, schedulable.
+
+    Ensures the browser daemon is up, refreshes the session cookie, then crawls
+    and downloads each creator incrementally (already-downloaded posts skipped).
+    Exit codes: 0 ok, 1 nothing to do, 2 session/daemon problem (needs login).
+    Schedule it (e.g. Windows Task Scheduler) via scripts/scrape_patreon.ps1.
+    """
+    from .scrapers.patreon import PatreonScraper, normalize_vanity
+    from .scrapers.patreon_daemon import (
+        daemon_sync,
+        is_daemon_alive,
+        start_daemon_process,
+        wait_for_daemon,
+    )
+
+    # 1. Ensure the logged-in browser daemon is running.
+    if not is_daemon_alive():
+        if not start_browser:
+            print("[red]Browser daemon not running (and --no-start-browser).[/red]")
+            raise typer.Exit(2)
+        print("[dim]Starting Patreon browser daemon…[/dim]")
+        start_daemon_process()
+        if not asyncio.run(wait_for_daemon(60.0)):
+            print(
+                "[red]Daemon did not start. Run once interactively: "
+                "kb patreon browser login[/red]"
+            )
+            raise typer.Exit(2)
+
+    # 2. Refresh + validate the session cookie.
+    synced = asyncio.run(daemon_sync())
+    if not (synced and synced.get("ok")):
+        err = (synced or {}).get("error", "no valid session")
+        print(
+            f"[red]Session invalid: {err}.[/red]\n"
+            "  Sign in once: [bold]kb patreon browser login[/bold]"
+        )
+        raise typer.Exit(2)
+    print(f"[green]Session OK[/green] for {synced.get('full_name') or 'user'}")
+
+    # 3. Decide which creators to scrape.
+    if creators:
+        registered = dict(_registered_patreon_creators())
+        targets = [
+            (normalize_vanity(c), registered.get(normalize_vanity(c), normalize_vanity(c)))
+            for c in creators
+        ]
+    else:
+        targets = _registered_patreon_creators(only_crawled=True)
+    if not targets:
+        print("[yellow]No creators registered. Run: kb patreon scrape <vanity>[/yellow]")
+        raise typer.Exit(1)
+
+    print(f"[bold]Auto-scrape[/bold] {len(targets)} creator(s): "
+          f"{', '.join(h for h, _ in targets)}")
+
+    totals = {"new": 0, "downloaded": 0, "indexed": 0, "failed": 0, "errors": 0}
+    for vanity, display in targets:
+        print(f"\n[bold]── {vanity} ──[/bold]")
+        # Re-sync before each creator so long runs don't outlive the cookie.
+        asyncio.run(daemon_sync())
+        sc = PatreonScraper(
+            filter_year=year, filter_handle=vanity, filter_display_name=display,
+        )
         try:
-            ingest_mod.ingest_file(p)
-        except Exception as exc:
-            log.exception("ingest failed for %s :: %s", p, exc)
+            if download:
+                _paths, stats = asyncio.run(
+                    sc.scrape_creator(
+                        vanity, display, limit=limit or None, year=year,
+                        build=True, ingest=True,
+                    )
+                )
+                idx = stats.get("index") or {}
+                dl = stats.get("download") or {}
+                totals["new"] += idx.get("new", 0)
+                totals["downloaded"] += dl.get("downloaded", 0)
+                totals["indexed"] += dl.get("indexed", 0)
+                totals["failed"] += dl.get("failed", 0)
+                print(
+                    f"  catalog {idx.get('catalog_count', '?')} "
+                    f"(+{idx.get('new', 0)} new) · downloaded {dl.get('downloaded', 0)} "
+                    f"· pending {max(dl.get('pending', 0) - dl.get('downloaded', 0) - dl.get('skipped', 0), 0)}"
+                )
+            else:
+                idx = asyncio.run(sc.crawl_index(vanity, display))
+                totals["new"] += idx.get("new", 0)
+                print(
+                    f"  catalog {idx.get('catalog_count', '?')} "
+                    f"(+{idx.get('new', 0)} new) · pending {idx.get('pending', 0)}"
+                )
+        except Exception as exc:  # noqa: BLE001
+            log.exception("auto-scrape failed for %s", vanity)
+            print(f"  [red]failed: {exc}[/red]")
+            totals["errors"] += 1
+
+    print(
+        f"\n[bold]Done.[/bold] new={totals['new']} downloaded={totals['downloaded']} "
+        f"indexed={totals['indexed']} failed={totals['failed']} errors={totals['errors']}"
+    )
+    if totals["errors"]:
+        raise typer.Exit(1)
+
+
+@patreon_app.command("status")
+def patreon_status(
+    creator: str = typer.Argument(..., help="Vanity or URL of the creator"),
+) -> None:
+    """Show the DB catalog for a creator: totals, downloaded/pending, per year."""
+    from .scrapers.patreon import PatreonScraper, normalize_vanity
+
+    vanity = normalize_vanity(creator)
+    sc = PatreonScraper(filter_handle=vanity, filter_display_name=vanity)
+    st = sc.catalog_status(vanity)
+    if not st.get("registered"):
+        print(f"[yellow]{vanity!r} is not registered. Run: kb patreon scrape {vanity}[/yellow]")
+        raise typer.Exit(1)
+
+    print(f"[bold]Catalog for {vanity!r}[/bold]")
+    print(f"  Total posts (site): {st.get('total_posts') if st.get('total_posts') is not None else '?'}")
+    print(f"  Catalogued:         {st.get('catalog_count', 0)}")
+    print(f"  Downloaded:         {st.get('downloaded', 0)}")
+    print(f"  Pending:            {st.get('pending', 0)}")
+    last = st.get("last_full_crawl_at")
+    print(f"  Last full crawl:    {last or 'never'}")
+    years = st.get("years") or {}
+    if years:
+        print("  [bold]Per year[/bold] (downloaded/total):")
+        for y in sorted(years, reverse=True):
+            yc = years[y]
+            label = str(y) if y else "undated"
+            print(f"    {label:<8} {yc['downloaded']}/{yc['total']}")
 
 
 def main() -> None:

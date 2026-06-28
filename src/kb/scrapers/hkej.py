@@ -14,6 +14,8 @@ Improvements over the previous version:
 from __future__ import annotations
 
 import asyncio
+import hashlib
+import json
 import re
 from contextlib import asynccontextmanager
 from datetime import datetime
@@ -679,17 +681,401 @@ class HKEJScraper(BaseScraper):
         # New flat layout: data/hkej/<author>/<year>/<date>-<title>.md
         return sum(1 for _ in author_dir.glob("*/*.md"))
 
+    def _ensure_catalog_schema(self) -> None:
+        from ..db import engine as db_engine
+        from sqlalchemy import text as sql_text
+
+        statements = [
+            """
+            CREATE TABLE IF NOT EXISTS hkej_author_state (
+                channel_id          INT PRIMARY KEY REFERENCES channel(id) ON DELETE CASCADE,
+                search_total        INT,
+                max_page            INT,
+                catalog_count       INT NOT NULL DEFAULT 0,
+                last_seen_at        TIMESTAMPTZ,
+                last_full_crawl_at  TIMESTAMPTZ,
+                metadata            JSONB DEFAULT '{}'::jsonb
+            )
+            """,
+            """
+            CREATE TABLE IF NOT EXISTS hkej_crawl_run (
+                id                  BIGSERIAL PRIMARY KEY,
+                channel_id          INT NOT NULL REFERENCES channel(id) ON DELETE CASCADE,
+                started_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
+                finished_at         TIMESTAMPTZ,
+                status              TEXT NOT NULL DEFAULT 'running',
+                search_total        INT,
+                max_page            INT,
+                pages_crawled       INT NOT NULL DEFAULT 0,
+                pages_reused        INT NOT NULL DEFAULT 0,
+                metadata            JSONB DEFAULT '{}'::jsonb
+            )
+            """,
+            """
+            CREATE TABLE IF NOT EXISTS hkej_crawl_page (
+                id                  BIGSERIAL PRIMARY KEY,
+                run_id              BIGINT NOT NULL REFERENCES hkej_crawl_run(id) ON DELETE CASCADE,
+                channel_id          INT NOT NULL REFERENCES channel(id) ON DELETE CASCADE,
+                page_num            INT NOT NULL,
+                search_total        INT,
+                max_page            INT,
+                url                 TEXT NOT NULL,
+                crawled_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
+                article_count       INT NOT NULL DEFAULT 0,
+                article_ids         JSONB NOT NULL DEFAULT '[]'::jsonb,
+                page_fingerprint    TEXT NOT NULL,
+                UNIQUE (run_id, page_num)
+            )
+            """,
+            """
+            CREATE TABLE IF NOT EXISTS hkej_article_catalog (
+                id                  BIGSERIAL PRIMARY KEY,
+                channel_id          INT NOT NULL REFERENCES channel(id) ON DELETE CASCADE,
+                external_id         TEXT NOT NULL,
+                published_at        TIMESTAMPTZ,
+                title               TEXT NOT NULL,
+                url                 TEXT NOT NULL,
+                first_seen_at       TIMESTAMPTZ NOT NULL DEFAULT now(),
+                last_seen_at        TIMESTAMPTZ NOT NULL DEFAULT now(),
+                first_seen_run_id   BIGINT REFERENCES hkej_crawl_run(id) ON DELETE SET NULL,
+                last_seen_run_id    BIGINT REFERENCES hkej_crawl_run(id) ON DELETE SET NULL,
+                last_seen_page      INT,
+                downloaded          BOOLEAN NOT NULL DEFAULT false,
+                downloaded_at       TIMESTAMPTZ,
+                md_path             TEXT,
+                raw_path            TEXT,
+                metadata            JSONB DEFAULT '{}'::jsonb,
+                UNIQUE (channel_id, external_id)
+            )
+            """,
+            "CREATE INDEX IF NOT EXISTS hkej_crawl_run_channel_idx ON hkej_crawl_run(channel_id, started_at DESC)",
+            """
+            CREATE INDEX IF NOT EXISTS hkej_crawl_page_resume_idx
+                ON hkej_crawl_page(channel_id, search_total, max_page, page_num)
+            """,
+            """
+            CREATE INDEX IF NOT EXISTS hkej_article_catalog_channel_idx
+                ON hkej_article_catalog(channel_id, published_at DESC, id DESC)
+            """,
+            """
+            CREATE INDEX IF NOT EXISTS hkej_article_catalog_downloaded_idx
+                ON hkej_article_catalog(channel_id, downloaded)
+            """,
+        ]
+        with db_engine().begin() as conn:
+            for stmt in statements:
+                conn.execute(sql_text(stmt))
+
+    @staticmethod
+    def _page_fingerprint(article_ids: list[str]) -> str:
+        return hashlib.sha256("\n".join(article_ids).encode("utf-8")).hexdigest()
+
+    def _start_crawl_run(
+        self, author: dict, search_total: int | None, max_page: int,
+    ) -> int | None:
+        channel_id = author.get("channel_id")
+        if not channel_id:
+            return None
+        from ..db import engine as db_engine
+        from sqlalchemy import text as sql_text
+
+        with db_engine().begin() as conn:
+            return conn.execute(
+                sql_text(
+                    "INSERT INTO hkej_crawl_run(channel_id, search_total, max_page) "
+                    "VALUES (:ch, :total, :max_page) RETURNING id"
+                ),
+                {"ch": channel_id, "total": search_total, "max_page": max_page},
+            ).scalar_one()
+
+    def _compatible_resume_pages(
+        self,
+        author: dict,
+        search_total: int | None,
+        max_page: int,
+        page1_fingerprint: str,
+    ) -> dict[int, int]:
+        channel_id = author.get("channel_id")
+        if not channel_id or search_total is None:
+            return {}
+        from ..db import engine as db_engine
+        from sqlalchemy import text as sql_text
+
+        with db_engine().connect() as conn:
+            rows = conn.execute(
+                sql_text(
+                    "WITH compatible_runs AS ("
+                    "  SELECT run_id FROM hkej_crawl_page "
+                    "  WHERE channel_id=:ch AND page_num=1 "
+                    "    AND search_total=:total AND max_page=:max_page "
+                    "    AND page_fingerprint=:fp"
+                    ") "
+                    "SELECT DISTINCT ON (p.page_num) p.page_num, p.run_id "
+                    "FROM hkej_crawl_page p "
+                    "JOIN compatible_runs r ON r.run_id=p.run_id "
+                    "JOIN hkej_crawl_run cr ON cr.id=p.run_id "
+                    "WHERE p.channel_id=:ch AND p.search_total=:total "
+                    "  AND p.max_page=:max_page "
+                    "ORDER BY p.page_num, cr.started_at DESC"
+                ),
+                {
+                    "ch": channel_id,
+                    "total": search_total,
+                    "max_page": max_page,
+                    "fp": page1_fingerprint,
+                },
+            ).fetchall()
+        return {int(page_num): int(run_id) for page_num, run_id in rows}
+
+    def _catalog_descriptors_for_page(
+        self, author: dict, run_id: int, page_num: int,
+    ) -> list[dict]:
+        channel_id = author.get("channel_id")
+        if not channel_id:
+            return []
+        from ..db import engine as db_engine
+        from sqlalchemy import text as sql_text
+
+        with db_engine().connect() as conn:
+            rows = conn.execute(
+                sql_text(
+                    "SELECT c.external_id, c.url, c.title, c.published_at, c.metadata "
+                    "FROM hkej_crawl_page p "
+                    "CROSS JOIN LATERAL jsonb_array_elements_text(p.article_ids) "
+                    "  WITH ORDINALITY AS a(external_id, ord) "
+                    "JOIN hkej_article_catalog c ON c.channel_id=p.channel_id "
+                    "  AND c.external_id=a.external_id "
+                    "WHERE p.run_id=:run AND p.channel_id=:ch AND p.page_num=:page "
+                    "ORDER BY a.ord"
+                ),
+                {"run": run_id, "ch": channel_id, "page": page_num},
+            ).fetchall()
+        out: list[dict] = []
+        for ext_id, url, title, published_at, metadata in rows:
+            meta = dict(metadata or {})
+            out.append({
+                "external_id": ext_id,
+                "url": url,
+                "title": title,
+                "author": author,
+                "published_at": published_at,
+                "search_recap": meta.get("search_recap", ""),
+            })
+        return out
+
+    def _record_catalog_page(
+        self,
+        author: dict,
+        run_id: int | None,
+        page_num: int,
+        url: str,
+        search_total: int | None,
+        max_page: int,
+        articles: list[dict],
+    ) -> str:
+        article_ids = [str(a["external_id"]) for a in articles]
+        fingerprint = self._page_fingerprint(article_ids)
+        channel_id = author.get("channel_id")
+        if not channel_id or run_id is None:
+            return fingerprint
+        from ..db import engine as db_engine
+        from sqlalchemy import text as sql_text
+
+        with db_engine().begin() as conn:
+            conn.execute(
+                sql_text(
+                    "INSERT INTO hkej_crawl_page(run_id, channel_id, page_num, "
+                    "search_total, max_page, url, article_count, article_ids, "
+                    "page_fingerprint) "
+                    "VALUES (:run, :ch, :page, :total, :max_page, :url, :count, "
+                    "CAST(:ids AS jsonb), :fp) "
+                    "ON CONFLICT (run_id, page_num) DO UPDATE SET "
+                    "  search_total=EXCLUDED.search_total, max_page=EXCLUDED.max_page, "
+                    "  url=EXCLUDED.url, crawled_at=now(), "
+                    "  article_count=EXCLUDED.article_count, "
+                    "  article_ids=EXCLUDED.article_ids, "
+                    "  page_fingerprint=EXCLUDED.page_fingerprint"
+                ),
+                {
+                    "run": run_id,
+                    "ch": channel_id,
+                    "page": page_num,
+                    "total": search_total,
+                    "max_page": max_page,
+                    "url": url,
+                    "count": len(articles),
+                    "ids": json.dumps(article_ids, ensure_ascii=False),
+                    "fp": fingerprint,
+                },
+            )
+            for article in articles:
+                meta = {"search_recap": article.get("search_recap", "")}
+                conn.execute(
+                    sql_text(
+                        "INSERT INTO hkej_article_catalog(channel_id, external_id, "
+                        "published_at, title, url, first_seen_run_id, last_seen_run_id, "
+                        "last_seen_page, metadata) "
+                        "VALUES (:ch, :eid, :published_at, :title, :url, :run, :run, "
+                        ":page, CAST(:meta AS jsonb)) "
+                        "ON CONFLICT (channel_id, external_id) DO UPDATE SET "
+                        "  published_at=COALESCE(EXCLUDED.published_at, hkej_article_catalog.published_at), "
+                        "  title=EXCLUDED.title, url=EXCLUDED.url, "
+                        "  last_seen_at=now(), last_seen_run_id=EXCLUDED.last_seen_run_id, "
+                        "  last_seen_page=EXCLUDED.last_seen_page, "
+                        "  metadata=hkej_article_catalog.metadata || EXCLUDED.metadata"
+                    ),
+                    {
+                        "ch": channel_id,
+                        "eid": str(article["external_id"]),
+                        "published_at": article.get("published_at"),
+                        "title": article.get("title") or f"hkej_{article['external_id']}",
+                        "url": article["url"],
+                        "run": run_id,
+                        "page": page_num,
+                        "meta": json.dumps(meta, ensure_ascii=False, default=str),
+                    },
+                )
+        return fingerprint
+
+    def _finish_crawl_run(
+        self,
+        author: dict,
+        run_id: int | None,
+        stats: dict,
+        *,
+        complete: bool,
+    ) -> None:
+        channel_id = author.get("channel_id")
+        if not channel_id:
+            return
+        from ..db import engine as db_engine
+        from sqlalchemy import text as sql_text
+
+        with db_engine().begin() as conn:
+            if run_id is not None:
+                conn.execute(
+                    sql_text(
+                        "UPDATE hkej_crawl_run SET finished_at=now(), "
+                        "status=:status, pages_crawled=:crawled, pages_reused=:reused, "
+                        "search_total=:total, max_page=:max_page "
+                        "WHERE id=:run"
+                    ),
+                    {
+                        "run": run_id,
+                        "status": "finished" if complete else "partial",
+                        "crawled": stats.get("pages_crawled", 0),
+                        "reused": stats.get("pages_reused", 0),
+                        "total": stats.get("search_total"),
+                        "max_page": stats.get("max_page", 1),
+                    },
+                )
+            catalog_count = conn.execute(
+                sql_text(
+                    "SELECT COUNT(*) FROM hkej_article_catalog WHERE channel_id=:ch"
+                ),
+                {"ch": channel_id},
+            ).scalar_one()
+            conn.execute(
+                sql_text(
+                    "INSERT INTO hkej_author_state(channel_id, search_total, max_page, "
+                    "catalog_count, last_seen_at, last_full_crawl_at) "
+                    "VALUES (:ch, :total, :max_page, :count, now(), "
+                    "CASE WHEN :complete THEN now() ELSE NULL END) "
+                    "ON CONFLICT (channel_id) DO UPDATE SET "
+                    "  search_total=EXCLUDED.search_total, max_page=EXCLUDED.max_page, "
+                    "  catalog_count=EXCLUDED.catalog_count, last_seen_at=now(), "
+                    "  last_full_crawl_at=CASE WHEN :complete THEN now() "
+                    "    ELSE hkej_author_state.last_full_crawl_at END"
+                ),
+                {
+                    "ch": channel_id,
+                    "total": stats.get("search_total"),
+                    "max_page": stats.get("max_page", 1),
+                    "count": catalog_count,
+                    "complete": complete,
+                },
+            )
+
+    def _cached_full_md_path(self, d: dict) -> Path | None:
+        ext_id = str(d.get("external_id", ""))
+        author = d.get("author") or {}
+        author_dir = DATA_DIR / "hkej" / _author_dir_slug(author)
+        if not author_dir.exists():
+            return None
+        for md_path in author_dir.glob("*/*.md"):
+            text = md_path.read_text(encoding="utf-8", errors="replace")
+            if f"external_id: '{ext_id}'" not in text and f'external_id: "{ext_id}"' not in text:
+                continue
+            if not self._cached_is_full(md_path):
+                return None
+            raw = (DATA_DIR / "raw" / "hkej"
+                   / md_path.relative_to(DATA_DIR / "hkej").with_suffix(".html"))
+            if raw.exists() and self._html_is_excerpt(
+                raw.read_text(encoding="utf-8", errors="replace")
+            ):
+                return None
+            return md_path
+        return None
+
+    def _cached_full_md_paths(self, author: dict) -> dict[str, Path]:
+        author_dir = DATA_DIR / "hkej" / _author_dir_slug(author)
+        if not author_dir.exists():
+            return {}
+        out: dict[str, Path] = {}
+        for md_path in author_dir.glob("*/*.md"):
+            text = md_path.read_text(encoding="utf-8", errors="replace")
+            m = re.search(r"external_id:\s*['\"]?([^'\"\n]+)['\"]?", text)
+            if not m:
+                continue
+            if not self._cached_is_full(md_path):
+                continue
+            raw = (DATA_DIR / "raw" / "hkej"
+                   / md_path.relative_to(DATA_DIR / "hkej").with_suffix(".html"))
+            if raw.exists() and self._html_is_excerpt(
+                raw.read_text(encoding="utf-8", errors="replace")
+            ):
+                continue
+            out[m.group(1).strip()] = md_path
+        return out
+
+    def _mark_catalog_downloaded(self, d: dict, md_path: Path | None) -> None:
+        author = d.get("author") or {}
+        channel_id = author.get("channel_id")
+        if not channel_id or md_path is None:
+            return
+        raw_path = (DATA_DIR / "raw" / "hkej"
+                    / md_path.relative_to(DATA_DIR / "hkej").with_suffix(".html"))
+        from ..db import engine as db_engine
+        from sqlalchemy import text as sql_text
+
+        with db_engine().begin() as conn:
+            conn.execute(
+                sql_text(
+                    "UPDATE hkej_article_catalog SET downloaded=true, "
+                    "downloaded_at=now(), md_path=:md, raw_path=:raw "
+                    "WHERE channel_id=:ch AND external_id=:eid"
+                ),
+                {
+                    "ch": channel_id,
+                    "eid": str(d.get("external_id", "")),
+                    "md": str(md_path),
+                    "raw": str(raw_path) if raw_path.exists() else None,
+                },
+            )
+
     # ------------------------------------------------------------------
     async def _list_articles_from_search(
         self, page, author: dict, limit: int,
     ) -> tuple[list[dict], dict]:
         """Discover articles via search.hkej.com ?author= endpoint only."""
+        self._ensure_catalog_schema()
         urls: list[dict] = []
         seen_ids: set[str] = set()
         stats: dict = {
             "search_total": None,
             "max_page": 1,
             "pages_crawled": 0,
+            "pages_reused": 0,
             "discovered": 0,
         }
         base_url = author["url"]
@@ -699,10 +1085,94 @@ class HKEJScraper(BaseScraper):
                 f"?author={author.get('slug') or author.get('name', '')}"
             )
         max_page = 1
-        for pg in range(1, 100):
+        run_id = self._start_crawl_run(author, None, max_page)
+        reusable_pages: dict[int, int] = {}
+
+        def add_article(article: dict) -> bool:
+            ext_id = str(article.get("external_id") or "")
+            if not ext_id or ext_id in seen_ids:
+                return False
+            seen_ids.add(ext_id)
+            urls.append(article)
+            return True
+
+        def parse_articles(soup) -> list[dict]:
+            articles: list[dict] = []
+            page_seen: set[str] = set()
+            headline_links = [
+                h3.find("a", href=True)
+                for h3 in soup.select("h3")
+                if h3.find("a", href=True)
+            ]
+            fallback_links = soup.select(
+                "a[href*='/dailynews/'][href*='/article/'], "
+                "a[href*='article?id='], a[href*='/wm/article/id/']"
+            )
+            for a in headline_links + fallback_links:
+                if a is None:
+                    continue
+                href = a.get("href", "")
+                if "/article/" not in href and "article?id=" not in href:
+                    continue
+                ext_id = self._article_id_from_href(href)
+                if not ext_id or ext_id in page_seen:
+                    continue
+                title = (a.get("title") or a.get_text(strip=True) or "").strip()
+                if title in ("全文", "") or len(title) < 2:
+                    continue
+                page_seen.add(ext_id)
+                full = self._normalize_url(href.split("#")[0])
+                published_at = None
+                info = a.find_parent("h3")
+                if info is not None:
+                    info = info.find_next_sibling("p", class_="info")
+                if info:
+                    ts = info.select_one("span.timeStamp")
+                    if ts:
+                        m = re.search(r"(20\d{2})年(\d{1,2})月(\d{1,2})日", ts.get_text(strip=True))
+                        if m:
+                            try:
+                                published_at = datetime(int(m[1]), int(m[2]), int(m[3]))
+                            except ValueError:
+                                pass
+                articles.append({
+                    "external_id": ext_id,
+                    "url": full,
+                    "title": title,
+                    "author": author,
+                    "published_at": published_at,
+                    "search_recap": self._search_recap_for_link(a, soup),
+                })
+            return articles
+
+        complete = False
+        pg = 1
+        while True:
             if pg > max_page:
+                complete = True
                 break
             url = self._search_page_url(base_url, pg)
+
+            if pg > 1 and pg in reusable_pages:
+                fresh = 0
+                for article in self._catalog_descriptors_for_page(
+                    author, reusable_pages[pg], pg,
+                ):
+                    if add_article(article):
+                        fresh += 1
+                        if len(urls) >= limit:
+                            stats["discovered"] = len(urls)
+                            self._finish_crawl_run(author, run_id, stats, complete=False)
+                            return urls, stats
+                stats["pages_reused"] += 1
+                self.log.info(
+                    "search page %d/%d: reused catalog (%d discovered so far)",
+                    pg, max_page, len(urls),
+                )
+                await asyncio.sleep(_BETWEEN_PAGES_SEC)
+                pg += 1
+                continue
+
             await self.limiter.wait(url)
             try:
                 await page.goto(url, wait_until="domcontentloaded", timeout=60000)
@@ -725,79 +1195,54 @@ class HKEJScraper(BaseScraper):
             html = await page.content()
             from bs4 import BeautifulSoup
             soup = BeautifulSoup(html, "lxml")
+            page_articles = parse_articles(soup)
             if pg == 1:
                 stats["search_total"], max_page = self._parse_search_meta(soup)
                 stats["max_page"] = max_page
+                first_fingerprint = self._record_catalog_page(
+                    author, run_id, pg, url, stats["search_total"], max_page,
+                    page_articles,
+                )
+                reusable_pages = self._compatible_resume_pages(
+                    author, stats["search_total"], max_page, first_fingerprint,
+                )
+                reusable_pages.pop(1, None)
                 self.log.info(
                     "search lists %s results across %d page(s) for %s",
                     stats["search_total"] if stats["search_total"] is not None else "?",
                     max_page,
                     author.get("name"),
                 )
+            else:
+                self._record_catalog_page(
+                    author, run_id, pg, url, stats["search_total"], max_page,
+                    page_articles,
+                )
             fresh = 0
-            # Prefer h3 headline links; fall back to any article href.
-            headline_links = [
-                h3.find("a", href=True)
-                for h3 in soup.select("h3")
-                if h3.find("a", href=True)
-            ]
-            fallback_links = soup.select(
-                "a[href*='/dailynews/'][href*='/article/'], "
-                "a[href*='article?id='], a[href*='/wm/article/id/']"
-            )
-            for a in headline_links + fallback_links:
-                if a is None:
-                    continue
-                href = a.get("href", "")
-                if "/article/" not in href and "article?id=" not in href:
-                    continue
-                ext_id = self._article_id_from_href(href)
-                if not ext_id or ext_id in seen_ids:
-                    continue
-                title = (a.get("title") or a.get_text(strip=True) or "").strip()
-                if title in ("全文", "") or len(title) < 2:
-                    continue
-                seen_ids.add(ext_id)
-                full = self._normalize_url(href.split("#")[0])
-                published_at = None
-                info = a.find_parent("h3")
-                if info is not None:
-                    info = info.find_next_sibling("p", class_="info")
-                if info:
-                    ts = info.select_one("span.timeStamp")
-                    if ts:
-                        m = re.search(r"(20\d{2})年(\d{1,2})月(\d{1,2})日", ts.get_text(strip=True))
-                        if m:
-                            try:
-                                published_at = datetime(int(m[1]), int(m[2]), int(m[3]))
-                            except ValueError:
-                                pass
-                urls.append({
-                    "external_id": ext_id,
-                    "url": full,
-                    "title": title,
-                    "author": author,
-                    "published_at": published_at,
-                    "search_recap": self._search_recap_for_link(a, soup),
-                })
-                fresh += 1
+            for article in page_articles:
+                if add_article(article):
+                    fresh += 1
                 if len(urls) >= limit:
-                    stats["pages_crawled"] = pg
+                    stats["pages_crawled"] += 1
                     stats["discovered"] = len(urls)
+                    self._finish_crawl_run(author, run_id, stats, complete=False)
                     return urls, stats
-            stats["pages_crawled"] = pg
+            stats["pages_crawled"] += 1
             self.log.info(
                 "search page %d/%d: +%d new (%d discovered so far)",
                 pg, max_page, fresh, len(urls),
             )
             if fresh == 0 and pg >= max_page:
+                complete = True
                 break
             if fresh == 0:
                 self.log.warning(
                     "search page %d/%d returned no new links", pg, max_page,
                 )
             await asyncio.sleep(_BETWEEN_PAGES_SEC)
+            pg += 1
         stats["discovered"] = len(urls)
+        self._finish_crawl_run(author, run_id, stats, complete=complete)
         listed = stats["search_total"]
         if listed is not None and len(urls) < listed:
             self.log.warning(
@@ -866,7 +1311,7 @@ class HKEJScraper(BaseScraper):
         from sqlalchemy import text as sql_text
 
         sql = (
-            "SELECT c.handle, c.name, c.url, c.metadata FROM channel c "
+            "SELECT c.id, c.handle, c.name, c.url, c.metadata FROM channel c "
             "JOIN source s ON c.source_id=s.id WHERE s.code='hkej'"
         )
         params: dict = {}
@@ -889,9 +1334,10 @@ class HKEJScraper(BaseScraper):
             return
 
         authors = []
-        for handle, name, url, metadata in rows:
+        for channel_id, handle, name, url, metadata in rows:
             meta = dict(metadata or {})
             authors.append({
+                "channel_id": channel_id,
                 "slug": handle,
                 "name": name,
                 "url": url or f"{BASE}/wm/authordetail/id/{handle}",
@@ -1005,6 +1451,9 @@ class HKEJScraper(BaseScraper):
         out: list[Path] = []
         stats: dict = {
             "search_total": None,
+            "max_page": None,
+            "pages_crawled": 0,
+            "pages_reused": 0,
             "discovered": 0,
             "skipped": 0,
             "fetched": 0,
@@ -1025,11 +1474,21 @@ class HKEJScraper(BaseScraper):
         async for d in self._discover_with_page(page, limit, author_handle):
             to_fetch.append(d)
         stats["discovered"] = len(to_fetch)
-        if self.last_stats.get("search_total") is not None:
-            stats["search_total"] = self.last_stats["search_total"]
+        for key in ("search_total", "max_page", "pages_crawled", "pages_reused"):
+            if self.last_stats.get(key) is not None:
+                stats[key] = self.last_stats[key]
+
+        cached_paths: dict[str, Path] = {}
+        for d in to_fetch:
+            author = d.get("author") or {}
+            if author:
+                cached_paths = self._cached_full_md_paths(author)
+                break
 
         for d in to_fetch:
-            if self.already_scraped(d):
+            cached_path = cached_paths.get(str(d.get("external_id", "")))
+            if cached_path is not None:
+                self._mark_catalog_downloaded(d, cached_path)
                 stats["skipped"] += 1
                 self.log.info(
                     "skip (cached) %s",
@@ -1053,6 +1512,7 @@ class HKEJScraper(BaseScraper):
                 stats["failed"] += 1
                 continue
             p = self.write_md(item)
+            self._mark_catalog_downloaded(d, p)
             out.append(p)
             stats["fetched"] += 1
             if limit and len(out) >= limit:

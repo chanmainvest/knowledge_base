@@ -83,14 +83,29 @@ def test_already_scraped(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Non
     d = {
         "external_id": "999",
         "channel_handle": "macroalf",
+        "title": "Weekly Market Update",
         "published_at": datetime(2024, 1, 15, tzinfo=timezone.utc),
     }
     assert sc.already_scraped(d) is False
 
-    folder = tmp_path / "patreon" / "macroalf" / "2024-01-15__999"
-    folder.mkdir(parents=True)
-    (folder / "content.md").write_text(
-        "# cached\n\n" + ("body " * 20),
-        encoding="utf-8",
+    # Flat layout: data/patreon/<vanity>/<year>/<date>-<title>.md
+    path = sc._content_path_for(d)
+    assert path == (
+        tmp_path / "patreon" / "macroalf" / "2024"
+        / "2024-01-15-weekly-market-update.md"
     )
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("# cached\n\n" + ("body " * 20), encoding="utf-8")
     assert sc.already_scraped(d) is True
+
+
+def test_page_fingerprint_detects_shift() -> None:
+    from kb.scrapers.patreon import _page_fingerprint
+
+    # Same post ids in the same order -> identical fingerprint (safe to reuse).
+    assert _page_fingerprint(["3", "2", "1"]) == _page_fingerprint(["3", "2", "1"])
+    # A new post prepended (page alignment shifted) -> different fingerprint.
+    assert _page_fingerprint(["4", "3", "2"]) != _page_fingerprint(["3", "2", "1"])
+    # Order matters.
+    assert _page_fingerprint(["1", "2", "3"]) != _page_fingerprint(["3", "2", "1"])
+

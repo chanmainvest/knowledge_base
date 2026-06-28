@@ -7,6 +7,7 @@ creators.
 from __future__ import annotations
 
 import asyncio
+import hashlib
 import json
 import random
 import re
@@ -120,6 +121,18 @@ def _campaign_lookup_url(vanity: str) -> str:
         ("json-api-version", "1.0"),
     ]
     return f"{API_ROOT}/campaigns?{urlencode(params)}"
+
+
+def _memberships_url() -> str:
+    """current_user with the campaigns the logged-in user is a patron of."""
+    params = [
+        ("include", "memberships.campaign.null"),
+        ("fields[campaign]", "name,url,vanity"),
+        ("fields[member]", "patron_status"),
+        ("json-api-use-default-includes", "false"),
+        ("json-api-version", "1.0"),
+    ]
+    return f"{API_ROOT}/current_user?{urlencode(params)}"
 
 
 def _current_user_url() -> str:
@@ -241,6 +254,102 @@ def _save_campaign_id(handle: str, campaign_id: str, name: str | None = None) ->
         get_logger("scraper.patreon").warning(
             "failed to cache campaign_id for %s: %s", handle, exc,
         )
+
+
+INDEX_FILENAME = ".index.json"  # legacy JSON manifest (superseded by the DB catalog)
+
+
+def _legacy_index_path(vanity: str) -> Path:
+    return DATA_DIR / "patreon" / slugify(vanity) / INDEX_FILENAME
+
+
+# ---------------------------------------------------------------------------
+# DB-backed crawl catalog (mirrors the hkej_* tables).
+#
+# patreon_creator_state  one row per creator: total_posts ("search total"),
+#                        catalog_count, last crawl timestamps.
+# patreon_crawl_run      one row per index/crawl attempt.
+# patreon_crawl_page     one row per API page: ordered post ids + fingerprint +
+#                        the cursor (next_url) needed to resume the next page.
+# patreon_post_catalog   one row per post: date, title, link, downloaded flag.
+# ---------------------------------------------------------------------------
+_CATALOG_DDL: list[str] = [
+    """
+    CREATE TABLE IF NOT EXISTS patreon_creator_state (
+        channel_id          INT PRIMARY KEY REFERENCES channel(id) ON DELETE CASCADE,
+        campaign_id         TEXT,
+        total_posts         INT,
+        catalog_count       INT NOT NULL DEFAULT 0,
+        last_seen_at        TIMESTAMPTZ,
+        last_full_crawl_at  TIMESTAMPTZ,
+        metadata            JSONB DEFAULT '{}'::jsonb
+    )
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS patreon_crawl_run (
+        id                  BIGSERIAL PRIMARY KEY,
+        channel_id          INT NOT NULL REFERENCES channel(id) ON DELETE CASCADE,
+        started_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
+        finished_at         TIMESTAMPTZ,
+        status              TEXT NOT NULL DEFAULT 'running',
+        total_posts         INT,
+        pages_crawled       INT NOT NULL DEFAULT 0,
+        pages_reused        INT NOT NULL DEFAULT 0,
+        metadata            JSONB DEFAULT '{}'::jsonb
+    )
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS patreon_crawl_page (
+        id                  BIGSERIAL PRIMARY KEY,
+        run_id              BIGINT NOT NULL REFERENCES patreon_crawl_run(id) ON DELETE CASCADE,
+        channel_id          INT NOT NULL REFERENCES channel(id) ON DELETE CASCADE,
+        page_num            INT NOT NULL,
+        total_posts         INT,
+        url                 TEXT NOT NULL,
+        next_url            TEXT,
+        crawled_at          TIMESTAMPTZ NOT NULL DEFAULT now(),
+        post_count          INT NOT NULL DEFAULT 0,
+        post_ids            JSONB NOT NULL DEFAULT '[]'::jsonb,
+        page_fingerprint    TEXT NOT NULL,
+        UNIQUE (run_id, page_num)
+    )
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS patreon_post_catalog (
+        id                  BIGSERIAL PRIMARY KEY,
+        channel_id          INT NOT NULL REFERENCES channel(id) ON DELETE CASCADE,
+        external_id         TEXT NOT NULL,
+        published_at        TIMESTAMPTZ,
+        year                INT,
+        title               TEXT NOT NULL,
+        url                 TEXT NOT NULL,
+        first_seen_at       TIMESTAMPTZ NOT NULL DEFAULT now(),
+        last_seen_at        TIMESTAMPTZ NOT NULL DEFAULT now(),
+        first_seen_run_id   BIGINT REFERENCES patreon_crawl_run(id) ON DELETE SET NULL,
+        last_seen_run_id    BIGINT REFERENCES patreon_crawl_run(id) ON DELETE SET NULL,
+        last_seen_page      INT,
+        downloaded          BOOLEAN NOT NULL DEFAULT false,
+        downloaded_at       TIMESTAMPTZ,
+        md_path             TEXT,
+        metadata            JSONB DEFAULT '{}'::jsonb,
+        UNIQUE (channel_id, external_id)
+    )
+    """,
+    "CREATE INDEX IF NOT EXISTS patreon_crawl_run_channel_idx "
+    "ON patreon_crawl_run(channel_id, started_at DESC)",
+    "CREATE INDEX IF NOT EXISTS patreon_crawl_page_resume_idx "
+    "ON patreon_crawl_page(channel_id, total_posts, page_num)",
+    "CREATE INDEX IF NOT EXISTS patreon_post_catalog_channel_idx "
+    "ON patreon_post_catalog(channel_id, published_at DESC, id DESC)",
+    "CREATE INDEX IF NOT EXISTS patreon_post_catalog_downloaded_idx "
+    "ON patreon_post_catalog(channel_id, downloaded)",
+    "CREATE INDEX IF NOT EXISTS patreon_post_catalog_year_idx "
+    "ON patreon_post_catalog(channel_id, year)",
+]
+
+
+def _page_fingerprint(post_ids: list[str]) -> str:
+    return hashlib.sha256("\n".join(post_ids).encode("utf-8")).hexdigest()
 
 
 class PatreonScraper(BaseScraper):
@@ -420,17 +529,23 @@ class PatreonScraper(BaseScraper):
             "url": attrs.get("url"),
         }
 
-    def already_scraped(self, d: dict) -> bool:
+    @staticmethod
+    def _content_path_for(d: dict) -> Path:
+        """Flat layout: data/patreon/<vanity>/<year>/<date>-<title>.md"""
         published = d.get("published_at")
+        if isinstance(published, str):
+            published = _parse_dt(published)
         if isinstance(published, datetime):
+            year = published.strftime("%Y")
             date_fmt = published.strftime("%Y-%m-%d")
         else:
-            date_fmt = "undated"
-        folder = (
-            DATA_DIR / "patreon" / slugify(d["channel_handle"])
-            / f"{date_fmt}__{slugify(d['external_id'], 60)}"
-        )
-        path = folder / "content.md"
+            year = date_fmt = "undated"
+        title = d.get("title") or d["external_id"]
+        stem = f"{date_fmt}-{slugify(title, 80)}"
+        return DATA_DIR / "patreon" / slugify(d["channel_handle"]) / year / f"{stem}.md"
+
+    def already_scraped(self, d: dict) -> bool:
+        path = self._content_path_for(d)
         return path.exists() and path.stat().st_size > 50
 
     @staticmethod
@@ -772,6 +887,11 @@ class PatreonScraper(BaseScraper):
             f"{body_content or '_(no text content)_'}\n"
         )
 
+        date_part = (
+            published_at.strftime("%Y-%m-%d")
+            if isinstance(published_at, datetime) else "undated"
+        )
+        folder_name = f"{date_part}-{slugify(title, 80)}"
         return ScrapedItem(
             source="patreon",
             channel=d["channel_handle"],
@@ -790,6 +910,8 @@ class PatreonScraper(BaseScraper):
                 "patreon_url": d.get("patreon_url"),
                 "year": published_at.year if isinstance(published_at, datetime) else None,
             },
+            folder_name=folder_name,
+            flat_layout=True,
         )
 
     async def prime_session(
@@ -834,3 +956,628 @@ class PatreonScraper(BaseScraper):
 
             await ctx.close()
         return False
+
+    # ------------------------------------------------------------------
+    # Subscriptions
+    # ------------------------------------------------------------------
+    async def list_subscriptions(self) -> list[dict[str, Any]]:
+        """List the creators (campaigns) the logged-in user is a patron of."""
+        self._ensure_session()
+        async with await self.http() as client:
+            data: dict[str, Any] = {}
+            for url in (_memberships_url(), _current_user_url()):
+                try:
+                    data = await self._api_get(client, url)
+                except Exception as exc:
+                    self.log.debug("subscription lookup failed for %s: %s", url, exc)
+                    continue
+                if data.get("included"):
+                    break
+        subs: dict[str, dict[str, Any]] = {}
+        for inc in data.get("included") or []:
+            if inc.get("type") != "campaign":
+                continue
+            attrs = inc.get("attributes") or {}
+            vanity = attrs.get("vanity") or normalize_vanity(attrs.get("url") or "")
+            cid = str(inc.get("id"))
+            subs[cid] = {
+                "campaign_id": cid,
+                "name": attrs.get("name") or vanity,
+                "vanity": vanity,
+                "url": attrs.get("url"),
+            }
+        return sorted(subs.values(), key=lambda s: (s["name"] or "").lower())
+
+    # ------------------------------------------------------------------
+    # Resumable index + download
+    # ------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # DB crawl catalog
+    # ------------------------------------------------------------------
+    def _ensure_catalog_schema(self) -> None:
+        from ..db import engine as db_engine
+
+        with db_engine().begin() as conn:
+            for stmt in _CATALOG_DDL:
+                conn.execute(sa_text(stmt))
+
+    def _resolve_channel_id(self, vanity: str) -> int | None:
+        from ..db import engine as db_engine
+
+        with db_engine().connect() as conn:
+            row = conn.execute(
+                sa_text(
+                    "SELECT c.id FROM channel c JOIN source s ON c.source_id=s.id "
+                    "WHERE s.code='patreon' AND c.handle=:h"
+                ),
+                {"h": vanity},
+            ).fetchone()
+        return int(row[0]) if row else None
+
+    def _creator_state(self, channel_id: int) -> dict[str, Any] | None:
+        from ..db import engine as db_engine
+
+        with db_engine().connect() as conn:
+            row = conn.execute(
+                sa_text(
+                    "SELECT total_posts, catalog_count, campaign_id, "
+                    "last_full_crawl_at FROM patreon_creator_state WHERE channel_id=:ch"
+                ),
+                {"ch": channel_id},
+            ).fetchone()
+        if not row:
+            return None
+        return {
+            "total_posts": row[0],
+            "catalog_count": row[1],
+            "campaign_id": row[2],
+            "last_full_crawl_at": row[3],
+        }
+
+    def _catalog_counts(self, channel_id: int) -> dict[str, int]:
+        from ..db import engine as db_engine
+
+        with db_engine().connect() as conn:
+            row = conn.execute(
+                sa_text(
+                    "SELECT COUNT(*), COUNT(*) FILTER (WHERE downloaded) "
+                    "FROM patreon_post_catalog WHERE channel_id=:ch"
+                ),
+                {"ch": channel_id},
+            ).fetchone()
+        total = int(row[0] or 0)
+        downloaded = int(row[1] or 0)
+        return {"total": total, "downloaded": downloaded, "pending": total - downloaded}
+
+    def catalog_year_counts(self, channel_id: int | None) -> dict[int, dict[str, int]]:
+        """Posts per year with downloaded counts (the 'how many per year' view)."""
+        if channel_id is None:
+            return {}
+        from ..db import engine as db_engine
+
+        with db_engine().connect() as conn:
+            rows = conn.execute(
+                sa_text(
+                    "SELECT year, COUNT(*), COUNT(*) FILTER (WHERE downloaded) "
+                    "FROM patreon_post_catalog WHERE channel_id=:ch "
+                    "GROUP BY year ORDER BY year DESC NULLS LAST"
+                ),
+                {"ch": channel_id},
+            ).fetchall()
+        return {
+            (int(y) if y is not None else 0): {"total": int(t), "downloaded": int(d)}
+            for y, t, d in rows
+        }
+
+    def _start_crawl_run(self, channel_id: int, total_posts: int | None) -> int:
+        from ..db import engine as db_engine
+
+        with db_engine().begin() as conn:
+            return conn.execute(
+                sa_text(
+                    "INSERT INTO patreon_crawl_run(channel_id, total_posts) "
+                    "VALUES (:ch, :t) RETURNING id"
+                ),
+                {"ch": channel_id, "t": total_posts},
+            ).scalar_one()
+
+    def _record_catalog_page(
+        self,
+        channel_id: int,
+        run_id: int,
+        page_num: int,
+        url: str,
+        next_url: str | None,
+        total_posts: int | None,
+        posts: list[dict],
+    ) -> tuple[str, int]:
+        """Persist one API page + upsert its posts. Returns (fingerprint, new_count)."""
+        post_ids = [str(p["external_id"]) for p in posts]
+        fingerprint = _page_fingerprint(post_ids)
+        new = 0
+        from ..db import engine as db_engine
+
+        with db_engine().begin() as conn:
+            conn.execute(
+                sa_text(
+                    "INSERT INTO patreon_crawl_page(run_id, channel_id, page_num, "
+                    "total_posts, url, next_url, post_count, post_ids, page_fingerprint) "
+                    "VALUES (:run,:ch,:page,:total,:url,:next,:count,CAST(:ids AS jsonb),:fp) "
+                    "ON CONFLICT (run_id, page_num) DO UPDATE SET "
+                    "  total_posts=EXCLUDED.total_posts, url=EXCLUDED.url, "
+                    "  next_url=EXCLUDED.next_url, crawled_at=now(), "
+                    "  post_count=EXCLUDED.post_count, post_ids=EXCLUDED.post_ids, "
+                    "  page_fingerprint=EXCLUDED.page_fingerprint"
+                ),
+                {
+                    "run": run_id, "ch": channel_id, "page": page_num,
+                    "total": total_posts, "url": url, "next": next_url,
+                    "count": len(posts),
+                    "ids": json.dumps(post_ids, ensure_ascii=False),
+                    "fp": fingerprint,
+                },
+            )
+            for p in posts:
+                inserted = conn.execute(
+                    sa_text(
+                        "INSERT INTO patreon_post_catalog(channel_id, external_id, "
+                        "published_at, year, title, url, first_seen_run_id, "
+                        "last_seen_run_id, last_seen_page) "
+                        "VALUES (:ch,:eid,:pub,:yr,:title,:url,:run,:run,:page) "
+                        "ON CONFLICT (channel_id, external_id) DO UPDATE SET "
+                        "  published_at=COALESCE(EXCLUDED.published_at, "
+                        "    patreon_post_catalog.published_at), "
+                        "  year=COALESCE(EXCLUDED.year, patreon_post_catalog.year), "
+                        "  title=EXCLUDED.title, url=EXCLUDED.url, last_seen_at=now(), "
+                        "  last_seen_run_id=EXCLUDED.last_seen_run_id, "
+                        "  last_seen_page=EXCLUDED.last_seen_page "
+                        "RETURNING (xmax = 0)"
+                    ),
+                    {
+                        "ch": channel_id, "eid": str(p["external_id"]),
+                        "pub": p.get("published_at"), "yr": p.get("year"),
+                        "title": p.get("title") or str(p["external_id"]),
+                        "url": p.get("url") or "", "run": run_id, "page": page_num,
+                    },
+                ).scalar_one()
+                if inserted:
+                    new += 1
+        return fingerprint, new
+
+    def _find_resume(
+        self, channel_id: int, total_posts: int | None, page1_fp: str,
+    ) -> tuple[list[dict], str | None]:
+        """Find the longest contiguous cached page chain we can safely reuse.
+
+        Reuse is only safe when page 1's fingerprint matches a prior run (and the
+        post total is compatible) — i.e. no new post shifted the page alignment.
+        Returns (pages 2..k to reuse, the cursor URL to fetch page k+1).
+        """
+        from ..db import engine as db_engine
+
+        with db_engine().connect() as conn:
+            run_ids = conn.execute(
+                sa_text(
+                    "SELECT run_id FROM patreon_crawl_page "
+                    "WHERE channel_id=:ch AND page_num=1 AND page_fingerprint=:fp "
+                    "  AND (:total IS NULL OR total_posts IS NULL OR total_posts=:total) "
+                    "ORDER BY run_id DESC"
+                ),
+                {"ch": channel_id, "fp": page1_fp, "total": total_posts},
+            ).fetchall()
+
+            best: list[dict] = []
+            best_next: str | None = None
+            for (rid,) in run_ids:
+                rows = conn.execute(
+                    sa_text(
+                        "SELECT page_num, post_ids, url, next_url, total_posts, "
+                        "page_fingerprint FROM patreon_crawl_page "
+                        "WHERE run_id=:r ORDER BY page_num"
+                    ),
+                    {"r": rid},
+                ).fetchall()
+                chain: list[dict] = []
+                expected = 1
+                last_next: str | None = None
+                for page_num, ids, u, nu, tp, fp in rows:
+                    if page_num != expected:
+                        break
+                    chain.append({
+                        "page_num": page_num,
+                        "post_ids": ids if isinstance(ids, list) else json.loads(ids or "[]"),
+                        "url": u,
+                        "next_url": nu,
+                        "total_posts": tp,
+                        "page_fingerprint": fp,
+                    })
+                    last_next = nu
+                    expected += 1
+                if len(chain) > len(best):
+                    best = chain
+                    best_next = last_next
+        # page 1 is re-fetched fresh; reuse pages 2..k
+        return best[1:], best_next
+
+    def _copy_pages_into_run(
+        self, channel_id: int, run_id: int, pages: list[dict],
+    ) -> None:
+        if not pages:
+            return
+        from ..db import engine as db_engine
+
+        with db_engine().begin() as conn:
+            for pg in pages:
+                conn.execute(
+                    sa_text(
+                        "INSERT INTO patreon_crawl_page(run_id, channel_id, page_num, "
+                        "total_posts, url, next_url, post_count, post_ids, page_fingerprint) "
+                        "VALUES (:run,:ch,:page,:total,:url,:next,:count,CAST(:ids AS jsonb),:fp) "
+                        "ON CONFLICT (run_id, page_num) DO NOTHING"
+                    ),
+                    {
+                        "run": run_id, "ch": channel_id, "page": pg["page_num"],
+                        "total": pg.get("total_posts"), "url": pg.get("url") or "",
+                        "next": pg.get("next_url"),
+                        "count": len(pg["post_ids"]),
+                        "ids": json.dumps(pg["post_ids"], ensure_ascii=False),
+                        "fp": pg["page_fingerprint"],
+                    },
+                )
+
+    def _finish_crawl_run(
+        self,
+        channel_id: int,
+        run_id: int,
+        stats: dict,
+        *,
+        complete: bool,
+    ) -> None:
+        from ..db import engine as db_engine
+
+        with db_engine().begin() as conn:
+            conn.execute(
+                sa_text(
+                    "UPDATE patreon_crawl_run SET finished_at=now(), status=:st, "
+                    "pages_crawled=:c, pages_reused=:r, total_posts=:t WHERE id=:run"
+                ),
+                {
+                    "run": run_id,
+                    "st": "finished" if complete else "partial",
+                    "c": stats.get("pages_crawled", 0),
+                    "r": stats.get("pages_reused", 0),
+                    "t": stats.get("total_posts"),
+                },
+            )
+            catalog_count = conn.execute(
+                sa_text("SELECT COUNT(*) FROM patreon_post_catalog WHERE channel_id=:ch"),
+                {"ch": channel_id},
+            ).scalar_one()
+            conn.execute(
+                sa_text(
+                    "INSERT INTO patreon_creator_state(channel_id, campaign_id, "
+                    "total_posts, catalog_count, last_seen_at, last_full_crawl_at) "
+                    "VALUES (:ch,:cid,:total,:count,now(), "
+                    "  CASE WHEN :complete THEN now() ELSE NULL END) "
+                    "ON CONFLICT (channel_id) DO UPDATE SET "
+                    "  campaign_id=COALESCE(EXCLUDED.campaign_id, patreon_creator_state.campaign_id), "
+                    "  total_posts=EXCLUDED.total_posts, catalog_count=EXCLUDED.catalog_count, "
+                    "  last_seen_at=now(), last_full_crawl_at=CASE WHEN :complete THEN now() "
+                    "    ELSE patreon_creator_state.last_full_crawl_at END"
+                ),
+                {
+                    "ch": channel_id, "cid": stats.get("campaign_id"),
+                    "total": stats.get("total_posts"), "count": catalog_count,
+                    "complete": complete,
+                },
+            )
+
+    def _catalog_pending(self, channel_id: int, year: int | None) -> list[dict]:
+        from ..db import engine as db_engine
+
+        sql = (
+            "SELECT external_id, url, title, published_at FROM patreon_post_catalog "
+            "WHERE channel_id=:ch AND downloaded=false"
+        )
+        params: dict[str, Any] = {"ch": channel_id}
+        if year is not None:
+            sql += " AND year=:yr"
+            params["yr"] = year
+        sql += " ORDER BY published_at DESC NULLS LAST, id DESC"
+        with db_engine().connect() as conn:
+            rows = conn.execute(sa_text(sql), params).fetchall()
+        return [
+            {
+                "external_id": r[0],
+                "url": r[1] or "",
+                "title": r[2] or str(r[0]),
+                "published_at": r[3],
+            }
+            for r in rows
+        ]
+
+    def _mark_catalog_downloaded(
+        self, channel_id: int, external_id: str, md_path: str,
+    ) -> None:
+        from ..db import engine as db_engine
+
+        with db_engine().begin() as conn:
+            conn.execute(
+                sa_text(
+                    "UPDATE patreon_post_catalog SET downloaded=true, downloaded_at=now(), "
+                    "md_path=:md WHERE channel_id=:ch AND external_id=:eid"
+                ),
+                {"md": md_path, "ch": channel_id, "eid": str(external_id)},
+            )
+
+    @staticmethod
+    def _extract_total(page: dict) -> int | None:
+        meta = page.get("meta") or {}
+        pag = meta.get("pagination") or {}
+        if isinstance(pag.get("total"), int):
+            return pag["total"]
+        if isinstance(meta.get("count"), int):
+            return meta["count"]
+        return None
+
+    # ------------------------------------------------------------------
+    # Crawl (index) + download
+    # ------------------------------------------------------------------
+    async def crawl_index(
+        self,
+        vanity: str,
+        display: str,
+        *,
+        metadata: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
+        """Page through all patron-visible posts into the DB catalog.
+
+        Stores each API page (ordered post ids + fingerprint + resume cursor) so
+        an interrupted crawl resumes from the next uncrawled page, and detects
+        new posts (which shift page alignment) via the page-1 fingerprint.
+        """
+        self._ensure_session()
+        self._ensure_catalog_schema()
+        channel_id = self._resolve_channel_id(vanity)
+        if channel_id is None:
+            raise RuntimeError(
+                f"creator {vanity!r} not registered — run: "
+                f"kb patreon scrape {vanity}"
+            )
+        prior = self._creator_state(channel_id) or {}
+        new_posts = 0
+        stats: dict[str, Any] = {"pages_crawled": 0, "pages_reused": 0, "total_posts": None}
+
+        async with await self.http() as client:
+            campaign_id = await self.resolve_campaign_id(client, vanity, metadata)
+            stats["campaign_id"] = campaign_id
+            run_id = self._start_crawl_run(channel_id, None)
+            url: str | None = _posts_list_url(campaign_id)
+            page_num = 0
+            complete = False
+
+            while url:
+                page_num += 1
+                page = await self._api_get(client, url)
+                posts_raw = page.get("data") or []
+                next_url = (page.get("links") or {}).get("next") or None
+                viewable = 0
+                parsed: list[dict] = []
+                for post in posts_raw:
+                    attrs = post.get("attributes") or {}
+                    if not attrs.get("current_user_can_view", True):
+                        continue
+                    viewable += 1
+                    pid = str(post.get("id") or "")
+                    if not pid:
+                        continue
+                    published = _parse_dt(attrs.get("published_at"))
+                    parsed.append({
+                        "external_id": pid,
+                        "title": (attrs.get("title") or "").strip() or pid,
+                        "url": attrs.get("url") or attrs.get("patreon_url") or "",
+                        "published_at": published,
+                        "year": published.year if published else None,
+                    })
+
+                if page_num == 1:
+                    stats["total_posts"] = self._extract_total(page)
+                    fp, added = self._record_catalog_page(
+                        channel_id, run_id, 1, url, next_url,
+                        stats["total_posts"], parsed,
+                    )
+                    new_posts += added
+                    stats["pages_crawled"] += 1
+                    if posts_raw and viewable == 0:
+                        self.log.error(
+                            "no patron-visible posts for %s — not logged in or not "
+                            "subscribed. Run: kb patreon browser login", vanity,
+                        )
+                        break
+                    reuse_pages, resume_next = self._find_resume(
+                        channel_id, stats["total_posts"], fp,
+                    )
+                    if reuse_pages:
+                        self._copy_pages_into_run(channel_id, run_id, reuse_pages)
+                        stats["pages_reused"] += len(reuse_pages)
+                        page_num += len(reuse_pages)
+                        self.log.info(
+                            "resuming %s: reused %d cached page(s) — continuing "
+                            "from saved cursor", vanity, len(reuse_pages),
+                        )
+                        if resume_next:
+                            url = resume_next
+                            await asyncio.sleep(_BETWEEN_PAGES_SEC)
+                            continue
+                        complete = True
+                        break
+                else:
+                    _fp, added = self._record_catalog_page(
+                        channel_id, run_id, page_num, url, next_url,
+                        stats["total_posts"], parsed,
+                    )
+                    new_posts += added
+                    stats["pages_crawled"] += 1
+
+                url = next_url
+                if not url:
+                    complete = True
+                else:
+                    await asyncio.sleep(_BETWEEN_PAGES_SEC)
+
+            self._finish_crawl_run(channel_id, run_id, stats, complete=complete)
+
+        counts = self._catalog_counts(channel_id)
+        total = stats["total_posts"] if stats["total_posts"] is not None else counts["total"]
+        prior_total = prior.get("total_posts")
+        info = {
+            "total_posts": total,
+            "catalog_count": counts["total"],
+            "downloaded": counts["downloaded"],
+            "pending": counts["pending"],
+            "new": new_posts,
+            "pages_reused": stats["pages_reused"],
+            "prior_total": prior_total,
+            "complete": complete,
+        }
+        self.log.info(
+            "index for %s: %d posts known (%d new this run, %d pending, %d pages reused)",
+            vanity, counts["total"], new_posts, counts["pending"], stats["pages_reused"],
+        )
+        return info
+
+    async def download_pending(
+        self,
+        vanity: str,
+        display: str,
+        *,
+        limit: int | None = None,
+        year: int | None = None,
+        ingest: bool = True,
+    ) -> tuple[list[Path], dict[str, int]]:
+        """Download not-yet-saved posts (newest first) from the DB catalog.
+
+        Each post is marked downloaded in the catalog immediately after its file
+        is written, so a shutdown mid-run only leaves the remaining posts pending.
+        """
+        from ..ingest import ingest_file
+
+        self._ensure_session()
+        self._ensure_catalog_schema()
+        channel_id = self._resolve_channel_id(vanity)
+        if channel_id is None:
+            raise RuntimeError(
+                f"creator {vanity!r} not registered — run: kb patreon scrape {vanity}"
+            )
+        pending = self._catalog_pending(channel_id, year)
+        paths: list[Path] = []
+        stats = {
+            "pending": len(pending),
+            "downloaded": 0,
+            "skipped": 0,
+            "failed": 0,
+            "indexed": 0,
+        }
+        async with await self.http() as client:
+            for row in pending:
+                if limit and len(paths) >= limit:
+                    break
+                d = {
+                    "external_id": row["external_id"],
+                    "url": row.get("url") or "",
+                    "title": row.get("title") or row["external_id"],
+                    "published_at": row.get("published_at"),
+                    "channel_handle": vanity,
+                    "channel_name": display,
+                    "campaign_id": None,
+                }
+                if self.already_scraped(d):
+                    self._mark_catalog_downloaded(
+                        channel_id, d["external_id"], str(self._content_path_for(d)),
+                    )
+                    stats["skipped"] += 1
+                    continue
+
+                try:
+                    detail = await self._fetch_post_detail(client, d["external_id"])
+                except Exception as exc:  # noqa: BLE001
+                    self.log.warning(
+                        "post detail fetch failed %s: %s", d["external_id"], exc,
+                    )
+                    stats["failed"] += 1
+                    continue
+
+                d["content_html"] = detail.get("content") or ""
+                d["teaser_text"] = detail.get("teaser_text") or ""
+                d["post_type"] = detail.get("post_type")
+                d["is_paid"] = detail.get("is_paid")
+                d["patreon_url"] = detail.get("patreon_url") or d["url"]
+
+                try:
+                    item = await self.fetch(d)
+                except Exception as exc:  # noqa: BLE001
+                    self.log.exception("fetch failed %s: %s", d["external_id"], exc)
+                    stats["failed"] += 1
+                    continue
+                if item is None:
+                    stats["failed"] += 1
+                    continue
+
+                p = self.write_md(item)
+                self._mark_catalog_downloaded(channel_id, d["external_id"], str(p))
+                paths.append(p)
+                stats["downloaded"] += 1
+                self.log.info(
+                    "downloaded %d/%d: %s",
+                    stats["downloaded"], stats["pending"], item.title,
+                )
+                if ingest:
+                    try:
+                        ingest_file(p)
+                        stats["indexed"] += 1
+                    except Exception as exc:  # noqa: BLE001
+                        self.log.exception("ingest failed %s: %s", p, exc)
+                await asyncio.sleep(_BETWEEN_POST_FETCH_SEC)
+        return paths, stats
+
+    async def scrape_creator(
+        self,
+        vanity: str,
+        display: str,
+        *,
+        limit: int | None = None,
+        year: int | None = None,
+        build: bool = True,
+        ingest: bool = True,
+        metadata: dict[str, Any] | None = None,
+    ) -> tuple[list[Path], dict[str, Any]]:
+        """Crawl the catalog (this month -> back per year) then download pending."""
+        stats: dict[str, Any] = {}
+        if build:
+            stats["index"] = await self.crawl_index(
+                vanity, display, metadata=metadata,
+            )
+        paths, dl = await self.download_pending(
+            vanity, display, limit=limit, year=year, ingest=ingest,
+        )
+        stats["download"] = dl
+        stats["years"] = self.catalog_year_counts(self._resolve_channel_id(vanity))
+        return paths, stats
+
+    def catalog_status(self, vanity: str) -> dict[str, Any]:
+        """Summary of the catalog for a creator: totals + per-year breakdown."""
+        self._ensure_catalog_schema()
+        channel_id = self._resolve_channel_id(vanity)
+        if channel_id is None:
+            return {"registered": False}
+        state = self._creator_state(channel_id) or {}
+        counts = self._catalog_counts(channel_id)
+        return {
+            "registered": True,
+            "total_posts": state.get("total_posts"),
+            "catalog_count": counts["total"],
+            "downloaded": counts["downloaded"],
+            "pending": counts["pending"],
+            "last_full_crawl_at": state.get("last_full_crawl_at"),
+            "years": self.catalog_year_counts(channel_id),
+        }
