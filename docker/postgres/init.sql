@@ -288,5 +288,6 @@ INSERT INTO source(code,name,url,kind) VALUES
   ('macrovoices','MacroVoices','https://www.macrovoices.com/','podcast'),
   ('youtube','YouTube','https://www.youtube.com/','youtube'),
   ('hkej','Hong Kong Economic Journal','https://www.hkej.com/','newspaper'),
-  ('patreon','Patreon','https://www.patreon.com/','membership')
+  ('patreon','Patreon','https://www.patreon.com/','membership'),
+  ('yahoohk','Yahoo Finance Hong Kong','https://hk.finance.yahoo.com/','newspaper')
 ON CONFLICT (code) DO NOTHING;

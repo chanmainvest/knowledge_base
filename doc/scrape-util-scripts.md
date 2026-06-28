@@ -144,6 +144,8 @@ article text.
 The `scripts/` directory contains maintenance and debugging helpers:
 
 - `migrate_data_layout.py`: migrates older source folders to the current flat Markdown/raw layout. Safe to re-run.
+- `build_data_readmes.py`: builds `README.md` indexes for every visible folder under `data/` and supports the static `data/index.html` browser. Safe to re-run.
+- `fix_yahoohk_titles.py`: renames Yahoo HK columnist articles that were saved with the generic `雅虎香港財經` title, trims boilerplate, and re-ingests. Safe to re-run.
 - `scrape_patreon.ps1`: Windows Task Scheduler wrapper for `uv run kb patreon scrape-creator`.
 - `reextract_hkej.py`: re-runs extraction workflows for HKEJ content.
 - `debug_hkej_search.py`: probes HKEJ search result HTML while debugging selectors or Cloudflare behavior.
@@ -155,6 +157,7 @@ Run maintenance scripts through `uv` from the repository root:
 
 ```pwsh
 uv run python scripts/migrate_data_layout.py
+uv run python scripts/build_data_readmes.py
 ```
 
 ## Raw Output Layout

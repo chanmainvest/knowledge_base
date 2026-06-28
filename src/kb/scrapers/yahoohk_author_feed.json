@@ -1,0 +1,25 @@
+{
+  "operationName": "GetAuthorFeed",
+  "query": "query GetAuthorFeed($contentSearchInput: ContentSearchInput!, $clientContext: ClientContext!, $count: Int!, $start: Int!, $authorImageTransforms: [MysterioTransformsInput]! = [], $imageTransforms: [MysterioTransformsInput]! = [], $includeImageTransforms: Boolean! = true) {\n  authorStream: contentSearchStream(\n    contentSearchInput: $contentSearchInput\n    cc: $clientContext\n    count: $count\n    start: $start\n  ) {\n    author: asset {\n      ... on Author {\n        byline\n        description\n        displayName\n        contactInfo {\n          facebookId\n          twitterId: xTwitterId\n        }\n        assetAttributes {\n          images {\n            type: imgType\n            originalUrl: url\n            originalHeight: height\n            originalWidth: width\n            resolutions: mysterioImages(transformInputs: $authorImageTransforms) @include(if: $includeImageTransforms) {\n              ...Resolutions\n            }\n          }\n        }\n        __typename\n      }\n    }\n    stream: assets {\n      ...HydratedStoryOrVideoAsset\n    }\n    pagination {\n      nextPage\n      total\n    }\n  }\n}\nfragment Resolutions on MysterioImage {\n  url\n  height\n  width\n  transformLabel\n}\nfragment Image on Image {\n  type: imgType\n  originalUrl: url\n  originalHeight: height\n  originalWidth: width\n  resolutions: mysterioImages(transformInputs: $imageTransforms) @include(if: $includeImageTransforms) {\n    ...Resolutions\n  }\n}\nfragment ContentAttributes on ContentAttributes {\n  description\n  summary\n  pubDate: publishTime\n  displayTime\n  isHosted\n  canonicalUrl\n  clickthroughUrl\n  provider {\n    displayName\n    url\n    providerContentUrl\n    providerId\n  }\n  thumbnail {\n    ...Image\n  }\n  mabMeta {\n    mabLogString\n  }\n}\nfragment FinanceStockTickers on Finance {\n  stockTickers {\n    symbol\n  }\n}\nfragment StoryData on Story {\n  id: uuid\n  __typename\n  title\n  previewUrl(cc: $clientContext)\n  isPremiumNews\n  isLiveBlog\n  embeddedLiveBlog {\n    status\n  }\n  contentAttributes {\n    ...ContentAttributes\n  }\n  finance {\n    ...FinanceStockTickers\n  }\n}\nfragment VideoData on Video {\n  id: uuid\n  __typename\n  title\n  duration\n  previewUrl(cc: $clientContext)\n  liveEventInfo {\n    scheduledStartTime\n    scheduledStopTime\n    status\n  }\n  contentAttributes {\n    ...ContentAttributes\n  }\n  finance {\n    ...FinanceStockTickers\n  }\n}\nfragment OutlinkData on Outlink {\n  __typename\n  uuid\n  description\n  displayTime\n  headline\n  url\n  provider {\n    displayName\n    url\n    providerContentUrl\n    providerId\n  }\n  thumbnail {\n    ...Image\n  }\n}\nfragment HydratedStoryOrVideoAsset on HydratedAsset {\n  __typename\n  asset {\n    __typename\n    ... on Story {\n      ...StoryData\n    }\n    ... on Video {\n      ...VideoData\n    }\n    ... on Outlink {\n      ...OutlinkData\n    }\n  }\n}",
+  "variables": {
+    "authorImageTransforms": [],
+    "clientContext": {
+      "device": "desktop",
+      "lang": "zh-Hant-HK",
+      "region": "HK",
+      "site": "finance"
+    },
+    "contentSearchInput": {
+      "alias_slug": "author=muddydirtywater",
+      "assetTypes": [
+        "story",
+        "video"
+      ],
+      "enableQueryTimeLicenseCheck": true
+    },
+    "count": 10,
+    "imageTransforms": [],
+    "includeImageTransforms": false,
+    "start": 10
+  }
+}

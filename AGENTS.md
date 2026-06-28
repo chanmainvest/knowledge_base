@@ -20,7 +20,7 @@
   carries `source`, `channel`, `external_id`, `url`, `published_at`, `title`,
   `lang`, plus source-specific fields. The DB row is regenerated from the
   markdown by `kb ingest`.
-- **Flat-file layout** (hkej, macrovoices, youtube): content lives at
+- **Flat-file layout** (hkej, macrovoices, yahoohk, youtube): content lives at
   `data/<source>/[<channel>/]<YYYY>/<YYYY-MM-DD>-<title>.md`; raw HTML at
   `data/raw/<source>/[<channel>/]<YYYY>/<YYYY-MM-DD>-<title>.html`.
   Set `flat_layout=True` on `ScrapedItem` to use this layout; `BaseScraper.write_md()`
@@ -31,6 +31,22 @@
 - LLM calls go through `kb.llm.client` which uses the OpenAI-compatible
   `LLM_BASE_URL` / `LLM_API_KEY` (works with OpenAI, Azure, GitHub Models, or
   Ollama). Always pass `response_format=json_schema` for extraction.
+
+## Documentation
+
+Code changes must keep documentation up to date in the same PR or change set.
+Do not leave docs stale after altering behaviour, CLI flags, layout, or
+architecture.
+
+| Audience | Location | Update when |
+|----------|----------|-------------|
+| Humans (quick start) | `README.md` | setup steps, commands, architecture overview, or data layout change |
+| AI coding agents | `AGENTS.md` | conventions, project layout, scraper/ingest patterns, or agent workflow change |
+| Detailed reference | `doc/` | CLI usage, database design, scrape scripts, frontend usage, or any topic already covered there |
+
+If a change introduces a new concept or workflow, add or extend the relevant
+`doc/` page (and link it from `README.md` when appropriate). Prefer updating
+existing pages over duplicating content across files.
 
 ## Layout
 
@@ -64,8 +80,11 @@ scripts/
 
 ```
 data/
-  hkej/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
-  raw/hkej/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
+ hkej/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
+ raw/hkej/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
+
+ yahoohk/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
+ raw/yahoohk/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
 
   macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.md
   raw/macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.html  [.slides.pdf …]
