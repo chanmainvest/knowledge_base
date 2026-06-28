@@ -1,8 +1,9 @@
 # Knowledge Base
 
 Personal investment knowledge base. Scrapes podcasts, YouTube channels, HKEJ
-columnists, and Patreon creators into markdown, extracts structured
-views/predictions with an LLM, and serves a search + leaderboard webapp.
+columnists, Yahoo Finance Hong Kong columnists, Master Insight columnists, and Patreon creators into
+markdown, extracts structured views/predictions with an LLM, and serves a search
++ leaderboard webapp.
 
 ## Architecture
 
@@ -12,6 +13,8 @@ flowchart LR
         MV[MacroVoices podcast]
         YT[YouTube channels]
         HKEJ[HKEJ Wealth Mgmt]
+        YHK[Yahoo Finance HK]
+        MI[Master Insight]
         PAT[Patreon creators]
     end
 
@@ -19,6 +22,8 @@ flowchart LR
         S1[macrovoices.py]
         S2[youtube.py]
         S3[hkej.py]
+        S5[yahoohk.py]
+        S6[master_insight.py]
         S4[patreon.py]
     end
 
@@ -34,10 +39,14 @@ flowchart LR
     MV --> S1
     YT --> S2
     HKEJ --> S3
+    YHK --> S5
+    MI --> S6
     PAT --> S4
     S1 --> DISK
     S2 --> DISK
     S3 --> DISK
+    S5 --> DISK
+    S6 --> DISK
     S4 --> DISK
     DISK -->|kb ingest| DB
     DISK -->|kb extract run| LLM --> DB
@@ -51,6 +60,12 @@ flowchart LR
 data/
   hkej/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md        # content
   raw/hkej/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html  # raw HTML
+
+  yahoohk/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
+  raw/yahoohk/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
+
+  master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
+  raw/master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
 
   macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.md
   raw/macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.html  [.slides.pdf …]
@@ -89,6 +104,9 @@ uv run kb db migrate
 uv run kb youtube scrape --limit 5
 uv run kb scrape run macrovoices --limit 3
 uv run kb scrape run hkej --limit 20
+uv run kb scrape run yahoohk --limit 5
+uv run kb master-insight add-author tangwenliang
+uv run kb scrape run master-insight --limit 5
 uv run kb patreon scrape <creator> --limit 3
 
 # extract structure
@@ -100,4 +118,5 @@ uv run kb api
 cd frontend && npm install && npm run dev
 ```
 
-See `AGENTS.md` for design notes and conventions.
+See `AGENTS.md` for design notes and conventions. Scraper details live in
+`doc/scrape-util-scripts.md`.

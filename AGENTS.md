@@ -63,6 +63,8 @@ src/kb/
     macrovoices.py
     youtube.py
     hkej.py
+    yahoohk.py         # Yahoo Finance HK columnists (GraphQL feed + article HTML)
+    master_insight.py  # Master Insight columnists (paginated author pages + article HTML)
   ingest.py            # md -> Postgres (globs *.md, skips data/raw/)
   extract.py           # LLM structured extraction
   leaderboard.py       # score predictions vs market
@@ -74,6 +76,7 @@ docker/postgres/init.sql
 migrations/
 scripts/
   migrate_data_layout.py   # one-shot migration to flat-file layout
+  fix_yahoohk_titles.py   # backfill misnamed Yahoo HK columnist files
 ```
 
 ### Data directory structure
@@ -85,6 +88,9 @@ data/
 
  yahoohk/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
  raw/yahoohk/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
+
+  master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
+  raw/master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
 
   macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.md
   raw/macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.html  [.slides.pdf …]
@@ -100,3 +106,13 @@ data/
 2. Register it in `kb.scrapers.registry.SCRAPERS`.
 3. Insert a row into the `source` table (or rely on `init.sql` seed).
 4. Run `uv run kb scrape <code>`.
+
+### Yahoo HK columnist notes
+
+- Authors are discovered from the contributors index; channels are auto-upserted on
+  first scrape. No manual author registration step.
+- The feed often labels items `雅虎香港財經`; `yahoohk.py` takes the article
+  headline from the page/body (second `#` heading when the first is generic) and
+  strips columnist chrome before saving.
+- Older files saved with the generic filename stem can be repaired with
+  `uv run python scripts/fix_yahoohk_titles.py`.

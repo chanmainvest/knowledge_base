@@ -15,6 +15,10 @@ uv run kb hkej list-authors
 uv run kb hkej add-author "高天佑"
 uv run kb hkej scrape-author "高天佑" --limit 5
 
+uv run kb master-insight list-authors
+uv run kb master-insight add-author tangwenliang
+uv run kb scrape run master-insight --limit 5
+
 uv run kb patreon check-session
 uv run kb patreon list-creators
 uv run kb patreon scrape <creator> --limit 3
@@ -46,11 +50,14 @@ Run a source scraper:
 uv run kb youtube scrape --limit 5
 uv run kb scrape run macrovoices --limit 3
 uv run kb scrape run hkej --limit 20
+uv run kb scrape run yahoohk --limit 5
 ```
 
 For YouTube, `--limit 5` inspects up to 5 videos per registered channel. Cached videos are skipped, and the scraper does not stop after 5 new files total.
 
 For HKEJ, `uv run kb scrape run hkej --limit 20` applies the limit per registered author. With three HKEJ authors registered, the command attempts up to 20 new articles for each author.
+
+For Yahoo Finance Hong Kong, `uv run kb scrape run yahoohk --limit 5` applies the limit per discovered columnist. Authors are seeded automatically from the contributors index on the first run.
 
 Run all registered scrapers with a per-source limit:
 
@@ -93,6 +100,87 @@ uv run kb hkej scrape-author "高天佑"
 ```
 
 The HKEJ scraper records search-page discovery in Postgres before downloads. If the machine stops mid-run, rerun the same command. The next run crawls page 1 first, compares the current search total and page-1 fingerprint, and only reuses old page snapshots when the result set has not shifted.
+
+## Yahoo Finance Hong Kong Scraping
+
+Yahoo HK columnist articles are scraped over HTTP (no browser daemon). Discovery uses the public contributors index and each author's Nexus GraphQL feed (`GetAuthorFeed`); article bodies come from the public news HTML.
+
+List auto-registered columnists:
+
+```pwsh
+uv run kb scrape list-channels yahoohk
+```
+
+Scrape all columnists (limit per author):
+
+```pwsh
+uv run kb scrape run yahoohk --limit 5
+uv run kb scrape run yahoohk
+```
+
+Output layout:
+
+```text
+data/yahoohk/<author-slug>/<YYYY>/<YYYY-MM-DD>-<title-slug>.md
+data/raw/yahoohk/<author-slug>/<YYYY>/<YYYY-MM-DD>-<title-slug>.html
+```
+
+The feed API often returns the generic title `雅虎香港財經`. The scraper replaces that with the real article headline from the HTML `<title>` tag or the first substantive `#` heading in the body, and drops columnist boilerplate (site banner, duplicate generic heading, author byline block) before writing markdown.
+
+Re-ingest after scraping:
+
+```pwsh
+uv run kb ingest
+```
+
+### Backfill misnamed Yahoo HK files
+
+Early scrapes may have been saved as `*-雅虎香港財經.md` with the generic title in front matter. Repair them in place:
+
+```pwsh
+uv run python scripts/fix_yahoohk_titles.py --dry-run
+uv run python scripts/fix_yahoohk_titles.py
+```
+
+The script trims boilerplate, renames markdown and raw HTML to the real headline slug, and re-ingests each item. Safe to re-run; it only touches files whose stem still ends with `雅虎香港財經`.
+
+## Master Insight Scraping
+
+Master Insight columnist articles are scraped over HTTP (no browser daemon). Discovery paginates each registered author's article list at `master-insight.com/author/<slug>?page=<n>`; article bodies are parsed from the `.post-body` element.
+
+Register authors by their URL slug (visible in the author URL):
+
+```pwsh
+uv run kb master-insight add-author tangwenliang
+```
+
+The command fetches the author page to resolve the display name (e.g. `湯文亮`) automatically.
+
+List registered authors:
+
+```pwsh
+uv run kb master-insight list-authors
+```
+
+Remove an author:
+
+```pwsh
+uv run kb master-insight rm-author tangwenliang
+```
+
+Scrape all registered authors (limit per author):
+
+```pwsh
+uv run kb scrape run master-insight --limit 5
+uv run kb scrape run master-insight
+```
+
+Output layout:
+
+```text
+data/master-insight/<author-slug>/<YYYY>/<YYYY-MM-DD>-<title-slug>.md
+data/raw/master-insight/<author-slug>/<YYYY>/<YYYY-MM-DD>-<title-slug>.html
+```
 
 ## Patreon Utilities
 
@@ -158,6 +246,7 @@ Run maintenance scripts through `uv` from the repository root:
 ```pwsh
 uv run python scripts/migrate_data_layout.py
 uv run python scripts/build_data_readmes.py
+uv run python scripts/fix_yahoohk_titles.py
 ```
 
 ## Raw Output Layout
@@ -167,6 +256,12 @@ Current flat-file layout:
 ```text
 data/hkej/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
 data/raw/hkej/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
+
+data/yahoohk/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
+data/raw/yahoohk/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
+
+data/master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
+data/raw/master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
 
 data/macrovoices/<YYYY>/<YYYY-MM-DD>-<episode>-<title>.md
 data/raw/macrovoices/<YYYY>/<YYYY-MM-DD>-<episode>-<title>.html

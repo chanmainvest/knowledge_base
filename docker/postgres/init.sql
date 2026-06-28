@@ -289,5 +289,6 @@ INSERT INTO source(code,name,url,kind) VALUES
   ('youtube','YouTube','https://www.youtube.com/','youtube'),
   ('hkej','Hong Kong Economic Journal','https://www.hkej.com/','newspaper'),
   ('patreon','Patreon','https://www.patreon.com/','membership'),
-  ('yahoohk','Yahoo Finance Hong Kong','https://hk.finance.yahoo.com/','newspaper')
+  ('yahoohk','Yahoo Finance Hong Kong','https://hk.finance.yahoo.com/','newspaper'),
+  ('master-insight','Master Insight','https://www.master-insight.com/','newspaper')
 ON CONFLICT (code) DO NOTHING;

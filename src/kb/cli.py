@@ -28,6 +28,7 @@ lb_app = typer.Typer(no_args_is_help=True)
 youtube_app = typer.Typer(no_args_is_help=True, help="YouTube channel management")
 hkej_app = typer.Typer(no_args_is_help=True, help="HKEJ author management")
 hkej_browser_app = typer.Typer(no_args_is_help=True, help="Persistent browser session")
+master_insight_app = typer.Typer(no_args_is_help=True, help="Master Insight author management")
 patreon_app = typer.Typer(no_args_is_help=True, help="Patreon session helpers")
 patreon_browser_app = typer.Typer(no_args_is_help=True, help="Persistent Patreon browser")
 app.add_typer(db_app, name="db")
@@ -37,6 +38,7 @@ app.add_typer(lb_app, name="leaderboard")
 app.add_typer(youtube_app, name="youtube")
 app.add_typer(hkej_app, name="hkej")
 hkej_app.add_typer(hkej_browser_app, name="browser")
+app.add_typer(master_insight_app, name="master-insight")
 app.add_typer(patreon_app, name="patreon")
 patreon_app.add_typer(patreon_browser_app, name="browser")
 
@@ -497,6 +499,126 @@ def hkej_rm_author(
             text(
                 "DELETE FROM channel USING source "
                 "WHERE channel.source_id=source.id AND source.code='hkej' "
+                "AND channel.handle=:h"
+            ),
+            {"h": handle},
+        ).rowcount
+    if n:
+        print(f"[green]Removed[/green] '{handle}'")
+    else:
+        print(f"[yellow]Not found:[/yellow] '{handle}'")
+
+
+@master_insight_app.command("add-author")
+def master_insight_add_author(
+    handle: str = typer.Argument(
+        ..., help="Author slug, e.g. tangwenliang"
+    ),
+) -> None:
+    """Register a Master Insight author by slug."""
+    handle = handle.strip()
+    if not handle:
+        print("[red]Author slug cannot be empty.[/red]")
+        raise typer.Exit(1)
+
+    disc_url = f"https://www.master-insight.com/author/{handle}"
+
+    import httpx
+    from bs4 import BeautifulSoup
+    from .config import settings
+
+    headers = {
+        "User-Agent": settings().scrape_user_agent,
+        "Accept-Language": "zh-HK,zh;q=0.9,en;q=0.8"
+    }
+
+    name = handle
+    try:
+        print(f"Resolving author name for '{handle}' from {disc_url}...")
+        r = httpx.get(disc_url, headers=headers, follow_redirects=True, timeout=15.0, verify=False)
+        if r.status_code == 200:
+            soup = BeautifulSoup(r.text, "lxml")
+            author_a = soup.select_one(".r2-box .author a")
+            if author_a:
+                name = author_a.text.strip()
+            else:
+                top_h1 = soup.select_one(".author-top-box h1")
+                if top_h1:
+                    name = top_h1.text.strip()
+                elif soup.title:
+                    title_parts = soup.title.text.split(" - ")
+                    if title_parts:
+                        name = title_parts[0].strip()
+            print(f"Resolved name: [green]{name}[/green]")
+    except Exception as exc:
+        print(f"[yellow]Could not resolve author name: {exc}. Using handle as name.[/yellow]")
+
+    with engine().begin() as conn:
+        sid = conn.execute(
+            text("SELECT id FROM source WHERE code='master-insight'")
+        ).scalar_one_or_none()
+        if sid is None:
+            conn.execute(
+                text(
+                    "INSERT INTO source(code, name, url, kind) "
+                    "VALUES ('master-insight', 'Master Insight', 'https://www.master-insight.com/', 'newspaper') "
+                    "ON CONFLICT (code) DO NOTHING"
+                )
+            )
+            sid = conn.execute(
+                text("SELECT id FROM source WHERE code='master-insight'")
+            ).scalar_one()
+
+        conn.execute(
+            text(
+                "INSERT INTO channel(source_id, handle, name, url, metadata) "
+                "VALUES (:s,:h,:n,:u,CAST(:m AS jsonb)) "
+                "ON CONFLICT (source_id, handle) "
+                "DO UPDATE SET name=EXCLUDED.name, url=EXCLUDED.url, metadata=EXCLUDED.metadata"
+            ),
+            {
+                "s": sid,
+                "h": handle,
+                "n": name,
+                "u": disc_url,
+                "m": json.dumps({"discovery": "manual"}),
+            },
+        )
+    print(f"[green]Added[/green] Master Insight author '{name}' ({handle})")
+    print(f"  Run [bold]kb scrape run master-insight[/bold] to fetch their articles.")
+
+
+@master_insight_app.command("list-authors")
+def master_insight_list_authors() -> None:
+    """List all registered Master Insight authors."""
+    with engine().connect() as conn:
+        rows = conn.execute(
+            text(
+                "SELECT c.handle, c.name, c.metadata->>'discovery' AS disc "
+                "FROM channel c JOIN source s ON c.source_id=s.id "
+                "WHERE s.code='master-insight' ORDER BY c.name"
+            )
+        ).fetchall()
+    if not rows:
+        print("[yellow]No Master Insight authors registered.[/yellow]")
+        print("Add one with: [bold]kb master-insight add-author <author_slug>[/bold]")
+        return
+    print(f"{'Handle':<20} {'Name':<20} {'Discovery':<8}")
+    print("-" * 50)
+    for handle, name, disc in rows:
+        print(f"  {handle:<18} {name:<20} {(disc or '?'):<8}")
+
+
+@master_insight_app.command("rm-author")
+def master_insight_rm_author(
+    handle: str = typer.Argument(..., help="Handle (slug) to remove"),
+) -> None:
+    """Remove a Master Insight author from the DB."""
+    with engine().begin() as conn:
+        n = conn.execute(
+            text(
+                "DELETE FROM channel USING source "
+                "WHERE channel.source_id=source.id AND source.code='master-insight' "
                 "AND channel.handle=:h"
             ),
             {"h": handle},

@@ -7,6 +7,7 @@ from .patreon import PatreonScraper
 from .youtube import YouTubeScraper
 from .hkej import HKEJScraper
 from .yahoohk import YahooHKScraper
+from .master_insight import MasterInsightScraper
 
 SCRAPERS: dict[str, type[BaseScraper]] = {
     MacroVoicesScraper.code: MacroVoicesScraper,
@@ -14,6 +15,7 @@ SCRAPERS: dict[str, type[BaseScraper]] = {
     HKEJScraper.code: HKEJScraper,
     PatreonScraper.code: PatreonScraper,
     YahooHKScraper.code: YahooHKScraper,
+    MasterInsightScraper.code: MasterInsightScraper,
 }
 
 

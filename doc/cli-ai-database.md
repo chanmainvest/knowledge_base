@@ -35,11 +35,14 @@ Scrape source material:
 ```pwsh
 uv run kb youtube scrape --limit 20
 uv run kb scrape run macrovoices --limit 20
+uv run kb scrape run yahoohk --limit 20
 uv run kb hkej scrape-author "高天佑"
 uv run kb patreon scrape <creator> --limit 20
 ```
 
 For YouTube, `--limit` is per registered channel, not a total cap across all channels.
+
+For Yahoo Finance Hong Kong, authors are discovered automatically; `kb scrape run yahoohk --limit N` applies `N` per columnist. No separate author-registration command.
 
 For Patreon, verify the saved session first with `uv run kb patreon check-session`.
 If the session needs browser refresh, use `uv run kb patreon browser login` and

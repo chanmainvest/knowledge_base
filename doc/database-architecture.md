@@ -9,7 +9,7 @@ uv run kb db migrate
 
 ## Core Tables
 
-`source` stores source definitions such as `macrovoices`, `youtube`, `hkej`, and `patreon`.
+`source` stores source definitions such as `macrovoices`, `youtube`, `hkej`, `yahoohk`, and `patreon`.
 
 `channel` stores channels, creators, or authors inside each source. Examples include YouTube handles, Patreon creators, and HKEJ author handles.
 
