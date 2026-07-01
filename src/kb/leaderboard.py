@@ -117,3 +117,46 @@ def rebuild() -> None:
           WHERE i.channel_id IS NOT NULL AND p.made_at IS NOT NULL
           GROUP BY i.channel_id, wk
         """))
+
+    rebuild_provider_model_leaderboard()
+
+
+def rebuild_provider_model_leaderboard() -> None:
+    """Roll up prediction scores by (provider, model) — and, separately, by
+    (provider, model, channel) — so accuracy can be cross-referenced across
+    the LLMs used to extract the same underlying articles. See
+    `doc/llm-extraction.md` for how to read this.
+    """
+    with engine().begin() as conn:
+        conn.execute(text("DELETE FROM provider_model_leaderboard"))
+        # Per channel: "which model is most accurate at reading *this* author?"
+        conn.execute(text("""
+          INSERT INTO provider_model_leaderboard (provider, model, channel_id,
+                                                   n_calls, n_scored, avg_score, hit_rate)
+          SELECT er.provider, er.model, i.channel_id,
+                 COUNT(*) AS n_calls,
+                 COUNT(p.score) AS n_scored,
+                 AVG(p.score) AS avg_score,
+                 AVG(CASE WHEN p.score > 0 THEN 1.0
+                          WHEN p.score < 0 THEN 0.0 END) AS hit_rate
+          FROM prediction p
+          JOIN extraction_run er ON er.id = p.extraction_run_id
+          JOIN item i ON i.id = p.item_id
+          WHERE p.made_at IS NOT NULL AND i.channel_id IS NOT NULL
+          GROUP BY er.provider, er.model, i.channel_id
+        """))
+        # Overall (channel_id NULL): "which model is most accurate overall?"
+        conn.execute(text("""
+          INSERT INTO provider_model_leaderboard (provider, model, channel_id,
+                                                   n_calls, n_scored, avg_score, hit_rate)
+          SELECT er.provider, er.model, NULL,
+                 COUNT(*) AS n_calls,
+                 COUNT(p.score) AS n_scored,
+                 AVG(p.score) AS avg_score,
+                 AVG(CASE WHEN p.score > 0 THEN 1.0
+                          WHEN p.score < 0 THEN 0.0 END) AS hit_rate
+          FROM prediction p
+          JOIN extraction_run er ON er.id = p.extraction_run_id
+          WHERE p.made_at IS NOT NULL
+          GROUP BY er.provider, er.model
+        """))

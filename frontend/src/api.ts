@@ -6,21 +6,44 @@ async function get<T>(path: string): Promise<T> {
   return r.json() as Promise<T>;
 }
 
+// Shared query shape for /api/search and /api/items: an optional keyword `q`
+// (omit it to just browse the latest items), multi-select `source`/`channel_id`,
+// an inclusive published_at date range, a with/without-prediction-extraction
+// filter, and pagination.
+export interface ListQuery {
+  q?: string;
+  source?: string[];
+  channel_id?: number[];
+  date_from?: string;
+  date_to?: string;
+  has_predictions?: boolean;
+  limit?: number;
+  offset?: number;
+}
+
+function listParams(q: ListQuery): URLSearchParams {
+  const p = new URLSearchParams();
+  if (q.q) p.set("q", q.q);
+  for (const s of q.source ?? []) p.append("source", s);
+  for (const c of q.channel_id ?? []) p.append("channel_id", String(c));
+  if (q.date_from) p.set("date_from", q.date_from);
+  if (q.date_to) p.set("date_to", q.date_to);
+  if (q.has_predictions !== undefined) p.set("has_predictions", String(q.has_predictions));
+  if (q.limit !== undefined) p.set("limit", String(q.limit));
+  if (q.offset !== undefined) p.set("offset", String(q.offset));
+  return p;
+}
+
 export const api = {
-  search: (q: string, source?: string, channel_id?: number) => {
-    const p = new URLSearchParams({ q });
-    if (source) p.set("source", source);
-    if (channel_id) p.set("channel_id", String(channel_id));
-    return get<SearchHit[]>(`/api/search?${p}`);
-  },
+  search: (q: ListQuery = {}) => get<SearchResult>(`/api/search?${listParams(q)}`),
   sources: () => get<Source[]>("/api/sources"),
-  channels: (source?: string) => get<Channel[]>(`/api/channels${source ? `?source=${source}` : ""}`),
-  item: (id: number) => get<Item>(`/api/items/${id}`),
-  items: (q: { source?: string; channel_id?: number; limit?: number; offset?: number } = {}) => {
+  channels: (source?: string[]) => {
     const p = new URLSearchParams();
-    Object.entries(q).forEach(([k, v]) => v !== undefined && p.set(k, String(v)));
-    return get<Item[]>(`/api/items?${p}`);
+    for (const s of source ?? []) p.append("source", s);
+    return get<Channel[]>(`/api/channels?${p}`);
   },
+  item: (id: number) => get<Item>(`/api/items/${id}`),
+  items: (q: ListQuery = {}) => get<SearchResult>(`/api/items?${listParams(q)}`),
   predictions: (q: { ticker?: string; channel_id?: number; limit?: number } = {}) => {
     const p = new URLSearchParams();
     Object.entries(q).forEach(([k, v]) => v !== undefined && p.set(k, String(v)));
@@ -30,12 +53,17 @@ export const api = {
 };
 
 export interface Source { id: number; code: string; name: string; kind: string; n_items: number; }
-export interface Channel { id: number; handle: string; name: string; source: string; n_items: number; }
+export interface Channel {
+  id: number; handle: string; name: string; source: string; n_items: number;
+  n_calls: number; n_scored: number; avg_score: number | null; hit_rate: number | null;
+}
 export interface SearchHit {
   id: number; title: string; url: string; published_at: string | null;
   summary: string | null; source: string; channel: string | null;
-  channel_name: string | null; snippet: string; rank: number;
+  channel_name: string | null; has_predictions: boolean;
+  snippet: string | null; rank: number | null;
 }
+export interface SearchResult { items: SearchHit[]; total: number; limit: number; offset: number; }
 export interface Prediction {
   id: number; speaker: string | null; ticker: string | null; asset_name: string | null;
   action: string | null; direction: string | null; target_price: number | null;

@@ -46,6 +46,7 @@ dependencies = [
   "numpy>=2.0",
   "camoufox>=0.4.11",
   "browser-cookie3>=0.20.1",
+  "anthropic>=0.115.0",
 ]
 
 [project.optional-dependencies]

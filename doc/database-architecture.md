@@ -9,9 +9,9 @@ uv run kb db migrate
 
 ## Core Tables
 
-`source` stores source definitions such as `macrovoices`, `youtube`, `hkej`, `yahoohk`, and `patreon`.
+`source` stores source definitions such as `macrovoices`, `youtube`, `hkej`, `yahoohk`, `patreon`, and `substack`.
 
-`channel` stores channels, creators, or authors inside each source. Examples include YouTube handles, Patreon creators, and HKEJ author handles.
+`channel` stores channels, creators, or authors inside each source. Examples include YouTube handles, Patreon creators, Substack publications, and HKEJ author handles.
 
 `item` stores ingested content. Each item points to a source and optionally a channel, and carries the external ID, title, URL, publication date, Markdown path, raw path, content, summary, and extraction status.
 
@@ -35,15 +35,37 @@ Important indexes:
 
 ## Extraction Tables
 
-`view_market` stores extracted market views: speaker, asset class, region, direction, horizon, confidence, rationale, and quote.
+`extraction_run` stores one row per (item, LLM provider, model,
+prompt_version) extraction attempt: status (`running`/`done`/`error`),
+error message, summary, full raw aggregated response (JSONB), and timing.
+Running the same item through several providers keeps every provider's rows
+side by side instead of one overwriting another. See `doc/llm-extraction.md`
+for the full design and why it exists.
 
-`prediction` stores extracted calls with ticker, asset, action, target, stop, timeframe, direction, quote, and scoring fields.
+`item.primary_extraction_run_id` points at the `extraction_run` considered
+canonical for that item — the one the API/frontend/per-channel leaderboard
+use by default. Ordinary `kb extract run` calls always promote their result
+to primary; `kb extract compare` never does.
 
-`entity` and `item_entity` store people, companies, countries, themes, and their links to items.
+`view_market` stores extracted market views: speaker, asset class, region,
+direction, horizon, confidence, rationale, and quote — each tagged with the
+`extraction_run_id` that produced it.
+
+`prediction` stores extracted calls with ticker, asset, action, target,
+stop, timeframe, direction, quote, and scoring fields — also tagged with
+`extraction_run_id`.
+
+`entity` and `item_entity` store people, companies, countries, themes, and
+their links to items.
 
 `item_link` stores similarity links between items.
 
 `leaderboard_weekly` stores weekly channel scoring rollups.
+
+`provider_model_leaderboard` stores accuracy rollups grouped by
+`(provider, model)` and, separately, by `(provider, model, channel_id)` —
+lets you cross-reference which LLM provider/model is the most accurate
+reader of a given source. Rebuilt by `uv run kb leaderboard rebuild`.
 
 ## HKEJ Crawl Catalog
 
@@ -154,3 +176,7 @@ uv run kb extract run --limit 50
 uv run kb links --k 10
 uv run kb leaderboard rebuild
 ```
+
+See `doc/llm-extraction.md` for exactly how extraction turns Markdown into
+`view_market`/`prediction` rows, how those are scored, and how to run/compare
+multiple LLM providers against the same items.

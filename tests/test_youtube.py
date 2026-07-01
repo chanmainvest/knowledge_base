@@ -129,8 +129,8 @@ async def test_discover_uses_resolved_channel_name(
     )
     monkeypatch.setattr(
         scraper,
-        "resolve_channel_display_name",
-        lambda handle: "Resolved Name",
+        "resolve_channel_display_name_async",
+        lambda handle: asyncio.sleep(0, result="Resolved Name"),
     )
     updated: list[tuple[str, str]] = []
     monkeypatch.setattr(
@@ -150,6 +150,34 @@ async def test_discover_uses_resolved_channel_name(
     items = [item async for item in scraper.discover()]
     assert items[0]["channel_name"] == "Resolved Name"
     assert updated == [("@foo", "Resolved Name")]
+
+
+@pytest.mark.asyncio
+async def test_polite_ytdlp_waits_before_call(monkeypatch: pytest.MonkeyPatch) -> None:
+    scraper = YouTubeScraper()
+    calls: list[tuple[str, str]] = []
+
+    async def fake_wait(url: str) -> None:
+        calls.append(("wait", url))
+
+    def fake_ytdlp(*args: str, **kwargs: object) -> object:
+        import subprocess
+        calls.append(("ytdlp", args[-1]))
+        return subprocess.CompletedProcess(args, 0, "{}", "")
+
+    monkeypatch.setattr(scraper.limiter, "wait", fake_wait)
+    monkeypatch.setattr(scraper, "_ytdlp", fake_ytdlp)
+
+    await scraper._polite_ytdlp(
+        "https://www.youtube.com/watch?v=abc",
+        "--dump-json",
+        "https://www.youtube.com/watch?v=abc",
+    )
+
+    assert calls == [
+        ("wait", "https://www.youtube.com/watch?v=abc"),
+        ("ytdlp", "https://www.youtube.com/watch?v=abc"),
+    ]
 
 
 def test_scraped_item_uses_channel_name_for_directory() -> None:

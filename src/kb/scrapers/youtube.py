@@ -253,10 +253,24 @@ class YouTubeScraper(BaseScraper):
         return subprocess.run(cmd, capture_output=True, text=True,
                               encoding="utf-8", errors="replace", **kw)
 
+    async def _polite_ytdlp(
+        self,
+        url: str,
+        *args: str,
+        **kw,
+    ) -> subprocess.CompletedProcess:
+        await self.limiter.wait(url)
+        return self._ytdlp(*args, **kw)
+
     def resolve_channel_display_name(self, handle: str) -> str | None:
         """Return the channel title YouTube reports for *handle* (via yt-dlp)."""
+        return asyncio.run(self.resolve_channel_display_name_async(handle))
+
+    async def resolve_channel_display_name_async(self, handle: str) -> str | None:
+        """Return the channel title YouTube reports for *handle* (via yt-dlp)."""
         url = _channel_videos_url(handle)
-        cp = self._ytdlp(
+        cp = await self._polite_ytdlp(
+            url,
             "--no-update",
             "--dump-single-json",
             "--flat-playlist",
@@ -313,8 +327,7 @@ class YouTubeScraper(BaseScraper):
     # ---- discover --------------------------------------------------------
     async def discover(self, limit: int | None = None) -> AsyncIterator[dict]:
         for handle, display in _load_channels():
-            await self.limiter.wait("https://www.youtube.com")
-            resolved = self.resolve_channel_display_name(handle)
+            resolved = await self.resolve_channel_display_name_async(handle)
             if resolved:
                 if resolved != display:
                     _update_channel_name(handle, resolved)
@@ -327,8 +340,7 @@ class YouTubeScraper(BaseScraper):
                 args = ["--flat-playlist", "--dump-json",
                         "--playlist-end", str(limit),
                         "--ignore-errors", url]
-            await self.limiter.wait("https://www.youtube.com")
-            cp = self._ytdlp(*args)
+            cp = await self._polite_ytdlp(url, *args)
             if cp.returncode != 0:
                 self.log.warning("discover failed for %s :: %s",
                                  handle, cp.stderr[-400:])
@@ -375,10 +387,10 @@ class YouTubeScraper(BaseScraper):
 
     # ---- fetch -----------------------------------------------------------
     async def fetch(self, d: dict) -> ScrapedItem | None:
-        await self.limiter.wait("https://www.youtube.com")
         with tempfile.TemporaryDirectory() as td:
             tmp = Path(td)
-            cp = self._ytdlp(
+            cp = await self._polite_ytdlp(
+                d["url"],
                 "--skip-download",
                 "--write-info-json",
                 "--write-auto-subs", "--write-subs",
@@ -395,8 +407,9 @@ class YouTubeScraper(BaseScraper):
             info_path = tmp / f"{d['external_id']}.info.json"
             if not info_path.exists():
                 # fallback: just dump metadata
-                cp2 = self._ytdlp("--skip-download", "--dump-json",
-                                  "--no-warnings", d["url"])
+                cp2 = await self._polite_ytdlp(
+                    d["url"], "--skip-download", "--dump-json",
+                    "--no-warnings", d["url"])
                 if cp2.returncode == 0 and cp2.stdout.strip():
                     try:
                         info = json.loads(cp2.stdout.splitlines()[0])
@@ -415,6 +428,7 @@ class YouTubeScraper(BaseScraper):
         if not transcript_text:
             # Last-ditch: youtube-transcript-api (supports both old + new API)
             try:
+                await self.limiter.wait(d["url"])
                 from youtube_transcript_api import YouTubeTranscriptApi
                 langs = ["en", "zh-Hant", "zh-Hans", "zh"]
                 if hasattr(YouTubeTranscriptApi, "get_transcript"):

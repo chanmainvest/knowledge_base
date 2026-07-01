@@ -1,7 +1,8 @@
 # Knowledge Base
 
 Personal investment knowledge base. Scrapes podcasts, YouTube channels, HKEJ
-columnists, Yahoo Finance Hong Kong columnists, Master Insight columnists, and Patreon creators into
+columnists, Yahoo Finance Hong Kong columnists, Master Insight columnists, Patreon
+creators, and Substack publications into
 markdown, extracts structured views/predictions with an LLM, and serves a search
 + leaderboard webapp.
 
@@ -16,6 +17,7 @@ flowchart LR
         YHK[Yahoo Finance HK]
         MI[Master Insight]
         PAT[Patreon creators]
+        SUB[Substack publications]
     end
 
     subgraph SCRAPE["Scrapers (Python · Playwright · yt-dlp)"]
@@ -25,6 +27,7 @@ flowchart LR
         S5[yahoohk.py]
         S6[master_insight.py]
         S4[patreon.py]
+        S7[substack.py]
     end
 
     DISK[("data/&lt;source&gt;/[&lt;channel&gt;/]&lt;YYYY&gt;/&lt;YYYY-MM-DD&gt;-&lt;title&gt;.md")]
@@ -42,12 +45,14 @@ flowchart LR
     YHK --> S5
     MI --> S6
     PAT --> S4
+    SUB --> S7
     S1 --> DISK
     S2 --> DISK
     S3 --> DISK
     S5 --> DISK
     S6 --> DISK
     S4 --> DISK
+    S7 --> DISK
     DISK -->|kb ingest| DB
     DISK -->|kb extract run| LLM --> DB
     DB --> API --> UI
@@ -71,6 +76,9 @@ data/
   raw/macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.html  [.slides.pdf …]
 
   youtube/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md
+
+  substack/<handle>/<YYYY>/<YYYY-MM-DD>-<title>.md
+  raw/substack/<handle>/<YYYY>/<YYYY-MM-DD>-<title>.html
 
     patreon/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md
     raw/patreon/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.html
@@ -108,6 +116,8 @@ uv run kb scrape run yahoohk --limit 5
 uv run kb master-insight add-author tangwenliang
 uv run kb scrape run master-insight --limit 5
 uv run kb patreon scrape <creator> --limit 3
+uv run kb substack prime-session          # log in once, interactively (headed browser)
+uv run kb substack scrape <handle> --limit 3
 
 # extract structure
 uv run kb extract run --limit 50
@@ -119,4 +129,6 @@ cd frontend && npm install && npm run dev
 ```
 
 See `AGENTS.md` for design notes and conventions. Scraper details live in
-`doc/scrape-util-scripts.md`.
+`doc/scrape-util-scripts.md`. For exactly how extraction turns Markdown into
+scored predictions, how to judge which channels are worth following, and how
+to run/compare multiple LLM providers, see `doc/llm-extraction.md`.

@@ -31,6 +31,7 @@ hkej_browser_app = typer.Typer(no_args_is_help=True, help="Persistent browser se
 master_insight_app = typer.Typer(no_args_is_help=True, help="Master Insight author management")
 patreon_app = typer.Typer(no_args_is_help=True, help="Patreon session helpers")
 patreon_browser_app = typer.Typer(no_args_is_help=True, help="Persistent Patreon browser")
+substack_app = typer.Typer(no_args_is_help=True, help="Substack session helpers")
 app.add_typer(db_app, name="db")
 app.add_typer(scrape_app, name="scrape")
 app.add_typer(ext_app, name="extract")
@@ -41,6 +42,7 @@ hkej_app.add_typer(hkej_browser_app, name="browser")
 app.add_typer(master_insight_app, name="master-insight")
 app.add_typer(patreon_app, name="patreon")
 patreon_app.add_typer(patreon_browser_app, name="browser")
+app.add_typer(substack_app, name="substack")
 
 log = get_logger("cli")
 
@@ -62,10 +64,11 @@ def db_migrate() -> None:
 @db_app.command("status")
 def db_status() -> None:
     with engine().connect() as c:
-        for tbl in ("source", "channel", "item", "prediction",
-                    "view_market", "chunk", "entity", "leaderboard_weekly"):
+        for tbl in ("source", "channel", "item", "extraction_run", "prediction",
+                    "view_market", "chunk", "entity", "leaderboard_weekly",
+                    "provider_model_leaderboard"):
             n = c.execute(text(f"SELECT COUNT(*) FROM {tbl}")).scalar()
-            print(f"  {tbl:22s} {n}")
+            print(f"  {tbl:26s} {n}")
 
 
 def _split_sql(s: str) -> list[str]:
@@ -82,9 +85,34 @@ def _split_sql(s: str) -> list[str]:
 
 
 @scrape_app.command("list")
-def scrape_list() -> None:
+def scrape_list(
+    kind: str | None = typer.Option(
+        None, "--kind",
+        help="Filter by source category, e.g. blog, newspaper, youtube, membership"
+    ),
+) -> None:
+    """List registered scrapers, grouped by source category (`source.kind`).
+
+    'blog' groups one-off, homepage-discovery website scrapers with no
+    per-author crawl/catalog state (macrovoices, madxcap). 'newspaper' groups
+    resumable multi-author crawlers that track discovery state in their own
+    catalog tables (hkej, yahoohk, master-insight).
+    """
+    with engine().connect() as conn:
+        kinds = dict(conn.execute(text("SELECT code, kind FROM source")).fetchall())
+    groups: dict[str, list[tuple[str, str]]] = {}
     for code, cls in SCRAPERS.items():
-        print(f"  {code:14s} {cls.name}")
+        k = kinds.get(code, "unknown")
+        if kind and k != kind:
+            continue
+        groups.setdefault(k, []).append((code, cls.name))
+    if not groups:
+        print(f"[yellow]No scrapers found for kind={kind!r}.[/yellow]")
+        return
+    for k in sorted(groups):
+        print(f"[bold]{k}[/bold]")
+        for code, name in sorted(groups[k]):
+            print(f"  {code:14s} {name}")
 
 
 @scrape_app.command("list-channels")
@@ -232,7 +260,10 @@ def scrape_run(
 ) -> None:
     sc = get_scraper(code)
     try:
-        paths = asyncio.run(sc.run(limit=limit or None, source_type=source_type))
+        kwargs = {"limit": limit or None}
+        if isinstance(source_type, str):
+            kwargs["source_type"] = source_type
+        paths = asyncio.run(sc.run(**kwargs))
     except Exception as exc:  # noqa: BLE001
         log.exception("scrape crashed: %s", exc)
         paths = []
@@ -260,9 +291,45 @@ def ingest_all() -> None:
 
 
 @ext_app.command("run")
-def extract_run(limit: int = 50) -> None:
-    n = extract_mod.run(limit)
+def extract_run(
+    limit: int = 50,
+    provider: str | None = typer.Option(
+        None, help="Override LLM_PROVIDER for this run (openai|github|anthropic|zai)"),
+    model: str | None = typer.Option(None, help="Override the provider's default model"),
+) -> None:
+    n = extract_mod.run(limit, provider=provider, model=model)
     print(f"[green]extracted[/green] {n}")
+
+
+@ext_app.command("compare")
+def extract_compare(
+    item_id: int,
+    providers: str = typer.Option(
+        "openai,github,anthropic,zai",
+        help="Comma-separated providers to run on this item, e.g. 'openai,anthropic'"),
+) -> None:
+    """Extract one item with several LLM providers side by side, without
+    disturbing the item's existing primary (canonical) extraction. Useful for
+    judging which provider/model reads a given author most reliably before
+    committing to it as LLM_PROVIDER."""
+    provider_list = [p.strip() for p in providers.split(",") if p.strip()]
+    results = extract_mod.compare_item(item_id, provider_list)
+    for p, stats in results.items():
+        print(f"[bold]{p}[/bold]: {stats}")
+
+
+@ext_app.command("runs")
+def extract_runs(item_id: int) -> None:
+    """List every extraction_run recorded for an item (one per provider/model/prompt_version)."""
+    rows = extract_mod.list_runs(item_id)
+    if not rows:
+        print(f"[yellow]no extraction runs for item {item_id}[/yellow]")
+        return
+    for r in rows:
+        marker = "[green]primary[/green]" if r.get("is_primary") else "       "
+        print(f"{marker} run={r['id']:<6} {r['provider']:<10} {(r['model'] or '(default)'):<28} "
+              f"status={r['status']:<7} views={r['n_market_views']} preds={r['n_predictions']} "
+              f"{r['duration_ms'] or '-'}ms")
 
 
 @lb_app.command("rebuild")
@@ -1227,6 +1294,159 @@ def patreon_status(
             yc = years[y]
             label = str(y) if y else "undated"
             print(f"    {label:<8} {yc['downloaded']}/{yc['total']}")
+
+
+@substack_app.command("prime-session")
+def substack_prime_session(
+    wait_minutes: int = typer.Option(10, help="Minutes to wait for login"),
+) -> None:
+    """Open substack.com in a browser; log in manually, then save the session cookie."""
+    from .scrapers.substack import SESSION_PATH, SubstackScraper
+
+    sc = SubstackScraper()
+    print(
+        "\n[bold]Substack login[/bold] — a browser window will open.\n"
+        "Log into substack.com if needed.\n"
+        f"Session will be saved to [cyan]{SESSION_PATH}[/cyan]\n"
+    )
+    ok = asyncio.run(sc.prime_session(wait_sec=wait_minutes * 60))
+    if ok:
+        print("[green]Session saved.[/green] Run:")
+        print('  kb substack scrape <handle> --limit 3')
+    else:
+        print("[red]Timed out waiting for login.[/red]")
+        raise typer.Exit(1)
+
+
+@substack_app.command("check-session")
+def substack_check_session(
+    cookies_from_browser: str = typer.Option(
+        "", "--cookies-from-browser", help="e.g. chrome, edge (if SUBSTACK_SESSION_COOKIE unset)",
+    ),
+) -> None:
+    """Verify the saved substack.sid cookie against Substack."""
+    from .scrapers.substack import SubstackScraper
+
+    sc = SubstackScraper(cookies_from_browser=cookies_from_browser or None)
+    try:
+        info = asyncio.run(sc.check_session())
+    except RuntimeError as exc:
+        print(f"[red]{exc}[/red]")
+        raise typer.Exit(1) from exc
+    except Exception as exc:
+        log.exception("substack session check failed")
+        print(f"[red]Session check failed:[/red] {exc}")
+        raise typer.Exit(1) from exc
+
+    print(f"[green]OK[/green] — session valid ({info.get('count', 0)} subscription(s))")
+    for name in info.get("publications") or []:
+        print(f"  - {name}")
+
+
+@substack_app.command("resolve")
+def substack_resolve(
+    handle: str = typer.Argument(
+        ..., help="Writer handle or profile URL, e.g. michaelwgreen or substack.com/@michaelwgreen",
+    ),
+) -> None:
+    """Resolve a Substack writer handle to their publication subdomain (no login needed)."""
+    from .scrapers.substack import SubstackScraper, normalize_handle
+
+    h = normalize_handle(handle)
+    sc = SubstackScraper()
+
+    async def _run() -> dict:
+        async with await sc.http() as client:
+            return await sc.resolve_publication(client, h)
+
+    try:
+        pub = asyncio.run(_run())
+    except Exception as exc:
+        log.exception("substack resolve failed")
+        print(f"[red]Resolve failed:[/red] {exc}")
+        raise typer.Exit(1) from exc
+
+    print(f"[green]{h}[/green] → subdomain [bold]{pub['subdomain']}[/bold]")
+    if pub.get("custom_domain"):
+        forced = "" if pub.get("custom_domain_optional", True) else " [yellow](forced redirect)[/yellow]"
+        print(f"  Custom domain: {pub['custom_domain']}{forced}")
+    if pub.get("publication_name"):
+        print(f"  Name: {pub['publication_name']}")
+    print("  Cached in channel.metadata when the handle is registered in DB.")
+
+
+@substack_app.command("list-channels")
+def substack_list_channels() -> None:
+    """List Substack publications registered in the DB."""
+    _list_channels("substack")
+
+
+@substack_app.command("scrape")
+def substack_scrape(
+    handle: str = typer.Argument(
+        ..., help="Writer handle or profile URL, e.g. michaelwgreen or substack.com/@michaelwgreen",
+    ),
+    limit: int = typer.Option(0, help="Max new posts to download this run (0 = all pending)"),
+    year: int | None = typer.Option(
+        None, "--year", help="Only download posts published in this calendar year",
+    ),
+    name: str = typer.Option("", help="Display name (used when not in DB)"),
+    cookies_from_browser: str = typer.Option(
+        "", "--cookies-from-browser", help="e.g. chrome, edge (if SUBSTACK_SESSION_COOKIE unset)",
+    ),
+    register: bool = typer.Option(
+        True, "--register/--no-register", help="Add publication to DB channel table if missing",
+    ),
+) -> None:
+    """Scrape a Substack publication's posts (newest first) and ingest them.
+
+    Free posts (and paid posts a creator has opened up as a free preview) are
+    read straight from Substack's public archive/post API — no login needed.
+    Paid posts that come back truncated fall back to a logged-in, headless
+    browser render; run `kb substack prime-session` once first if you have a
+    paid subscription you want the full text of.
+    """
+    from .scrapers.substack import SubstackScraper, normalize_handle
+
+    h = normalize_handle(handle)
+    display = name or h
+
+    if register:
+        with engine().begin() as conn:
+            sid = conn.execute(
+                text("SELECT id FROM source WHERE code='substack'"),
+            ).scalar_one_or_none()
+            if sid is not None:
+                conn.execute(text(
+                    "INSERT INTO channel(source_id, handle, name) VALUES (:s,:h,:n) "
+                    "ON CONFLICT (source_id, handle) DO UPDATE SET name=EXCLUDED.name"
+                ), {"s": sid, "h": h, "n": display})
+
+    sc = SubstackScraper(
+        filter_year=year,
+        filter_handle=h,
+        filter_display_name=display,
+        cookies_from_browser=cookies_from_browser or None,
+    )
+    year_msg = f", year={year}" if year else ""
+    print(f"[bold]Substack scrape[/bold] {h!r} — limit={limit or '∞'}{year_msg}")
+
+    try:
+        paths = asyncio.run(sc.run(limit=limit or None))
+    except RuntimeError as exc:
+        print(f"[red]{exc}[/red]")
+        raise typer.Exit(1) from exc
+    except Exception as exc:
+        log.exception("substack scrape crashed")
+        print(f"[red]Scrape failed:[/red] {exc}")
+        raise typer.Exit(1) from exc
+
+    print(f"[green]{len(paths)}[/green] new file(s) written")
+    for p in paths:
+        try:
+            ingest_mod.ingest_file(p)
+        except Exception as exc:  # noqa: BLE001
+            log.exception("ingest failed for %s :: %s", p, exc)
 
 
 def main() -> None:

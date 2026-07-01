@@ -26,13 +26,25 @@ uv run kb scrape run master-insight --limit 5
 uv run kb patreon check-session
 uv run kb patreon list-creators
 uv run kb patreon scrape <creator> --limit 3
+
+uv run kb substack check-session
+uv run kb substack resolve <handle>
+uv run kb substack scrape <handle> --limit 3
 ```
 
-List available scrapers:
+List available scrapers, grouped by source category (`source.kind`):
 
 ```pwsh
 uv run kb scrape list
+uv run kb scrape list --kind blog       # macrovoices, madxcap
+uv run kb scrape list --kind newspaper  # hkej, yahoohk, master-insight
 ```
+
+`kind` distinguishes one-off, homepage-discovery website scrapers with no
+per-author crawl/catalog state (`blog`: macrovoices, madxcap) from resumable
+multi-author crawlers that track discovery state in their own catalog tables
+(`newspaper`: hkej, yahoohk, master-insight). YouTube and Patreon/Substack
+keep their own `youtube`/`membership` kinds.
 
 List registered channels for a source:
 
@@ -40,6 +52,7 @@ List registered channels for a source:
 uv run kb youtube list-channels
 uv run kb hkej list-authors
 uv run kb patreon list-creators
+uv run kb substack list-channels
 ```
 
 The generic form also works for any channel-based source:
@@ -234,6 +247,46 @@ with Playwright and extracts visible rich text from `.patreon-post-content`.
 This matters for posts whose `post_type` is `image_file` but which still contain
 article text.
 
+## Substack Utilities
+
+Substack posts are discovered from a publication's own public archive/post API
+(resolved once from a writer's public profile handle, e.g. `michaelwgreen` from
+`https://substack.com/@michaelwgreen`) — no login is needed for free posts.
+
+```pwsh
+uv run kb substack resolve <handle>
+uv run kb substack list-channels
+uv run kb substack scrape <handle> --limit 3
+uv run kb substack scrape <handle> --year 2024
+```
+
+For paid subscriptions, a session is needed to read full post text (otherwise
+only what the anonymous API returns — often a free preview — is saved):
+
+```pwsh
+uv run kb substack prime-session            # opens a real browser; log in manually
+uv run kb substack check-session
+```
+
+`prime-session` saves the `substack.sid` cookie to `data/substack/.session.json`
+after you log in (headed browser window, `--wait-minutes` to change the
+timeout). `SUBSTACK_SESSION_COOKIE` or `SUBSTACK_COOKIES_FROM_BROWSER` in `.env`
+are alternatives to pasting/loading the cookie without running `prime-session`.
+
+When a paid post's anonymous-API body looks truncated relative to its own
+`wordcount`, the scraper renders the post with a cookie-authenticated headless
+browser instead — this is also how the scraper handles publications that force
+a custom domain (e.g. `michaelwgreen` → `www.yesigiveafig.com`), since
+Substack's auth cookie does not otherwise carry across domains for a plain
+HTTP client.
+
+Output layout:
+
+```text
+data/substack/<handle>/<YYYY>/<YYYY-MM-DD>-<title-slug>.md
+data/raw/substack/<handle>/<YYYY>/<YYYY-MM-DD>-<title-slug>.html
+```
+
 ## MadX (狂徒投資) Scraping
 
 MadX is a personal investment blog by 狂徒 at https://madxcap.com/. It contains
@@ -320,6 +373,9 @@ data/youtube/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md
 
 data/patreon/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md
 data/raw/patreon/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.html
+
+data/substack/<handle>/<YYYY>/<YYYY-MM-DD>-<title>.md
+data/raw/substack/<handle>/<YYYY>/<YYYY-MM-DD>-<title>.html
 ```
 
 Markdown front matter is the canonical scrape metadata. Database rows can be regenerated from Markdown by running `uv run kb ingest`.
