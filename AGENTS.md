@@ -106,6 +106,11 @@ scripts/
 
 ### Data directory structure
 
+`data/` is a separate local git repo (scraped markdown + raw files). This
+repository tracks a `data` gitlink for convenience but does not vendor the
+content. Public releases go in the `data_public/` submodule
+(`git@github.com:chanmainvest/data_knowledge_base.git`).
+
 ```
 data/
  hkej/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md

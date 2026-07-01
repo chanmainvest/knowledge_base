@@ -88,8 +88,11 @@ Content files carry YAML front-matter (`source`, `channel`, `external_id`,
 `url`, `published_at`, `title`, …). Raw HTML and supplementary files live
 under `data/raw/` mirroring the same path structure.
 
-`data/**` is git-ignored (only structure committed). The DB is the source of
-truth for search; the markdown files are the canonical raw content.
+Scraped content lives in `data/` (local git repo; not part of this
+repository). A public subset can be published in the `data_public/` git
+submodule ([`chanmainvest/data_knowledge_base`](https://github.com/chanmainvest/data_knowledge_base)).
+The DB is the source of truth for search; the markdown files are the canonical
+raw content.
 
 To migrate an existing checkout to the current layout:
 ```pwsh
@@ -100,6 +103,7 @@ uv run kb ingest                                # re-index DB with new paths
 ## Quick start
 
 ```pwsh
+git clone --recurse-submodules git@github.com:chanmainvest/knowledge_base.git
 cd knowledge_base
 copy .env.example .env   # fill in your secrets
 uv sync
