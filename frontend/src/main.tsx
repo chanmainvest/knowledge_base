@@ -1,12 +1,16 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes, NavLink, Navigate } from "react-router-dom";
 import "./index.css";
-import { SearchPage } from "./pages/Search";
-import { ItemPage } from "./pages/Item";
-import { LeaderboardPage } from "./pages/Leaderboard";
-import { ChannelsPage } from "./pages/Channels";
-import { PredictionsPage } from "./pages/Predictions";
+
+// Route-based code splitting: each page (and its heavy deps — recharts on
+// Leaderboard, react-markdown on Item) is split into its own chunk that only
+// loads when the route is visited. This keeps the initial Search bundle small.
+const SearchPage = lazy(() => import("./pages/Search").then(m => ({ default: m.SearchPage })));
+const ItemPage = lazy(() => import("./pages/Item").then(m => ({ default: m.ItemPage })));
+const LeaderboardPage = lazy(() => import("./pages/Leaderboard").then(m => ({ default: m.LeaderboardPage })));
+const ChannelsPage = lazy(() => import("./pages/Channels").then(m => ({ default: m.ChannelsPage })));
+const PredictionsPage = lazy(() => import("./pages/Predictions").then(m => ({ default: m.PredictionsPage })));
 
 function Shell() {
   const linkCls = ({ isActive }: { isActive: boolean }) =>
@@ -26,14 +30,16 @@ function Shell() {
       </header>
       <main className="flex-1">
         <div className="max-w-6xl mx-auto px-4 py-6">
-          <Routes>
-            <Route path="/" element={<Navigate to="/search" replace />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/items/:id" element={<ItemPage />} />
-            <Route path="/channels" element={<ChannelsPage />} />
-            <Route path="/predictions" element={<PredictionsPage />} />
-            <Route path="/leaderboard" element={<LeaderboardPage />} />
-          </Routes>
+          <Suspense fallback={<div className="text-mute">Loading…</div>}>
+            <Routes>
+              <Route path="/" element={<Navigate to="/search" replace />} />
+              <Route path="/search" element={<SearchPage />} />
+              <Route path="/items/:id" element={<ItemPage />} />
+              <Route path="/channels" element={<ChannelsPage />} />
+              <Route path="/predictions" element={<PredictionsPage />} />
+              <Route path="/leaderboard" element={<LeaderboardPage />} />
+            </Routes>
+          </Suspense>
         </div>
       </main>
     </div>

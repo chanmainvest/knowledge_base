@@ -9,7 +9,7 @@ uv run kb db migrate
 
 ## Core Tables
 
-`source` stores source definitions such as `macrovoices`, `youtube`, `hkej`, `yahoohk`, `patreon`, and `substack`.
+`source` stores source definitions such as `blog`, `youtube`, `hkej`, `yahoohk`, `patreon`, and `substack`.
 
 `channel` stores channels, creators, or authors inside each source. Examples include YouTube handles, Patreon creators, Substack publications, and HKEJ author handles.
 
@@ -54,6 +54,17 @@ direction, horizon, confidence, rationale, and quote — each tagged with the
 `prediction` stores extracted calls with ticker, asset, action, target,
 stop, timeframe, direction, quote, and scoring fields — also tagged with
 `extraction_run_id`.
+
+> **Read-time consolidation.** The LLM extracts per chunk, so the same ticker
+> can appear as several flat `prediction` rows within one item (one per
+> quote). The flat rows are the source of truth for scoring and the
+> leaderboard and are left untouched. The item-detail endpoint
+> (`GET /api/items/<id>`) groups those rows at read time via
+> `_consolidate_predictions()` in `src/kb/api/main.py` into one entry per
+> ticker with a `quotes[]` array, a consensus `direction`, and a `conflict`
+> flag that is set when the same ticker has both a bullish and a bearish call
+> in the same article. No schema change or re-extraction is involved; the flat
+> `/api/predictions` list endpoint still returns raw rows.
 
 `entity` and `item_entity` store people, companies, countries, themes, and
 their links to items.

@@ -15,4 +15,10 @@ body { font-family: theme('fontFamily.sans'); }
 .prose-kb ul { @apply list-disc pl-6 my-3; }
 .prose-kb ol { @apply list-decimal pl-6 my-3; }
 .prose-kb blockquote { @apply border-l-2 border-border pl-3 text-mute; }
+.kb-quote-flash {
+  background: rgba(250, 204, 21, 0.35);
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.25);
+  transition: background 0.3s;
+}
 .snippet b { color: #ffd55c; font-weight: 600; }

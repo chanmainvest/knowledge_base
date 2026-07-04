@@ -47,6 +47,7 @@ def _parse_date(text: str) -> datetime | None:
 class MadxcapScraper(BaseScraper):
     code = "madxcap"
     name = "MadX 狂徒投資"
+    source_code = "blog"
 
     def __init__(self) -> None:
         super().__init__()
@@ -142,7 +143,7 @@ class MadxcapScraper(BaseScraper):
 
     def already_scraped(self, d: dict) -> bool:
         ext_id = str(d.get("external_id", ""))
-        author_dir = DATA_DIR / self.code / slugify("狂徒", 80)
+        author_dir = DATA_DIR / self.effective_source_code / slugify("狂徒", 80)
         if not author_dir.exists():
             return False
         for md_path in author_dir.glob("*/*.md"):
@@ -231,7 +232,7 @@ class MadxcapScraper(BaseScraper):
         folder_name = f"{date_part}-{slugify(title, 80)}"
 
         return ScrapedItem(
-            source=self.code,
+            source=self.effective_source_code,
             channel="狂徒",
             channel_name="狂徒投資",
             external_id=ext_id,

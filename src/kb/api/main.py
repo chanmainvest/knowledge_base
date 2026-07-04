@@ -65,6 +65,93 @@ def _list_filters(
     return clauses, params, expanding
 
 
+# --- prediction consolidation ------------------------------------------------
+#
+# Predictions are extracted per-chunk by the LLM, so the same ticker can show
+# up as several flat `prediction` rows for one item -- each with its own quote.
+# The item-detail endpoint groups those rows into a single entry per ticker
+# that exposes every quote, so the UI isn't littered with duplicates. Scoring
+# and the leaderboard still read the underlying flat rows, so this is purely a
+# read-time view; nothing in the DB changes.
+
+_BULLISH_ACTIONS = {"buy", "long", "cover"}
+_BEARISH_ACTIONS = {"sell", "short", "avoid"}
+
+
+def _stance(action: str | None, direction: str | None) -> str:
+    """Classify a single quote's directional stance.
+
+    Returns 'bullish', 'bearish', or 'neutral'. A quote counts as bullish if
+    its action or direction points up, bearish if either points down; hold /
+    watch / flat / unspecified quotes are neutral and never cause a conflict.
+    """
+    a = (action or "").strip().lower()
+    d = (direction or "").strip().lower()
+    if a in _BULLISH_ACTIONS or d == "up":
+        return "bullish"
+    if a in _BEARISH_ACTIONS or d == "down":
+        return "bearish"
+    return "neutral"
+
+
+def _consolidate_predictions(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Group flat prediction rows for one item by ticker into one entry with
+    a ``quotes[]`` array. Sets ``conflict`` when the same ticker has at least
+    one bullish and one bearish quote, and ``direction`` to the consensus.
+    """
+    groups: dict[str, list[dict[str, Any]]] = {}
+    order: list[str] = []
+    for r in rows:
+        tk = (r.get("ticker") or "").strip().upper()
+        # Rows without a ticker are each their own group (keyed on the row id)
+        # so untickered predictions aren't all lumped together.
+        key = tk or f"__noticker__:{r['id']}"
+        if key not in groups:
+            groups[key] = []
+            order.append(key)
+        groups[key].append(r)
+
+    out: list[dict[str, Any]] = []
+    for key in order:
+        grp = groups[key]
+        stances = [_stance(r.get("action"), r.get("direction")) for r in grp]
+        has_bull = any(s == "bullish" for s in stances)
+        has_bear = any(s == "bearish" for s in stances)
+        if has_bull and has_bear:
+            direction = "mixed"
+            conflict = True
+        elif has_bull:
+            direction = "up"
+            conflict = False
+        elif has_bear:
+            direction = "down"
+            conflict = False
+        else:
+            direction = "neutral"
+            conflict = False
+
+        first = grp[0]
+        out.append({
+            "ticker": first.get("ticker"),
+            "asset_name": first.get("asset_name"),
+            "speaker": first.get("speaker"),
+            "direction": direction,
+            "conflict": conflict,
+            "quotes": [{
+                "id": r["id"],
+                "action": r.get("action"),
+                "direction": r.get("direction"),
+                "target_price": r.get("target_price"),
+                "stop_price": r.get("stop_price"),
+                "timeframe": r.get("timeframe"),
+                "quote": r.get("quote"),
+                "score": r.get("score"),
+                "made_at": r.get("made_at"),
+            } for r in grp],
+        })
+    return out
+
+
 @app.get("/api/health")
 def health() -> dict[str, Any]:
     return {"ok": True}
@@ -193,9 +280,10 @@ def get_item(item_id: int, run_id: int | None = None) -> dict[str, Any]:
         item["market_views"] = [dict(r) for r in conn.execute(text(
             "SELECT * FROM view_market WHERE item_id=:i AND extraction_run_id=:r"),
             {"i": item_id, "r": effective_run_id}).mappings()]
-        item["predictions"] = [dict(r) for r in conn.execute(text(
-            "SELECT * FROM prediction WHERE item_id=:i AND extraction_run_id=:r ORDER BY id"),
-            {"i": item_id, "r": effective_run_id}).mappings()]
+        item["predictions"] = _consolidate_predictions(
+            [dict(r) for r in conn.execute(text(
+                "SELECT * FROM prediction WHERE item_id=:i AND extraction_run_id=:r ORDER BY id"),
+                {"i": item_id, "r": effective_run_id}).mappings()])
         item["extraction_runs"] = [dict(r) for r in conn.execute(text("""
             SELECT id, provider, model, status, duration_ms
             FROM extraction_run WHERE item_id=:i ORDER BY id DESC
@@ -289,31 +377,75 @@ def predictions(ticker: str | None = None,
 
 
 @app.get("/api/leaderboard")
-def leaderboard(weeks: int = 12) -> dict[str, Any]:
+def leaderboard(weeks: int = 12,
+                date_from: str | None = Query(None, description="YYYY-MM-DD, inclusive"),
+                date_to: str | None = Query(None, description="YYYY-MM-DD, inclusive")) -> dict[str, Any]:
+    """Weekly + overall channel scoring. By default `weeks` limits the weekly
+    series to the last N weeks (the overall table is all-time). Supplying
+    `date_from` and/or `date_to` overrides the weeks window with an explicit
+    inclusive range: applied to `leaderboard_weekly.week_start` for the weekly
+    series and to `item.published_at` for the overall aggregate."""
+    has_range = bool(date_from or date_to)
     with engine().connect() as conn:
-        weekly = [dict(r) for r in conn.execute(text("""
-            SELECT lw.channel_id, c.handle, c.name, s.code AS source,
-                   lw.week_start, lw.n_calls, lw.n_scored,
-                   lw.avg_score, lw.hit_rate
-            FROM leaderboard_weekly lw
-            JOIN channel c ON c.id=lw.channel_id
-            JOIN source s ON s.id=c.source_id
-            WHERE lw.week_start >= (CURRENT_DATE - (:w * INTERVAL '7 day'))
-            ORDER BY lw.week_start, lw.avg_score DESC
-        """), {"w": weeks}).mappings()]
-        overall = [dict(r) for r in conn.execute(text("""
-            SELECT c.id AS channel_id, c.handle, c.name, s.code AS source,
-                   COUNT(p.id) AS n_calls,
-                   COUNT(p.score) AS n_scored,
-                   AVG(p.score) AS avg_score,
-                   AVG(CASE WHEN p.score>0 THEN 1.0 WHEN p.score<0 THEN 0.0 END) AS hit_rate
-            FROM channel c JOIN source s ON s.id=c.source_id
-            LEFT JOIN item i ON i.channel_id=c.id
-            LEFT JOIN prediction p ON p.item_id=i.id
-            GROUP BY c.id, s.code
-            HAVING COUNT(p.id) > 0
-            ORDER BY avg_score DESC NULLS LAST
-        """)).mappings()]
+        if has_range:
+            wclauses: list[str] = []
+            wparams: dict[str, Any] = {}
+            if date_from:
+                wclauses.append("lw.week_start >= :date_from")
+                wparams["date_from"] = date_from
+            if date_to:
+                wclauses.append("lw.week_start < (CAST(:date_to AS date) + INTERVAL '1 day')")
+                wparams["date_to"] = date_to
+            weekly = [dict(r) for r in conn.execute(text(
+                "SELECT lw.channel_id, c.handle, c.name, s.code AS source, "
+                "lw.week_start, lw.n_calls, lw.n_scored, lw.avg_score, lw.hit_rate "
+                "FROM leaderboard_weekly lw "
+                "JOIN channel c ON c.id=lw.channel_id "
+                "JOIN source s ON s.id=c.source_id "
+                "WHERE " + " AND ".join(wclauses) + " "
+                "ORDER BY lw.week_start, lw.avg_score DESC"
+            ), wparams).mappings()]
+        else:
+            weekly = [dict(r) for r in conn.execute(text("""
+                SELECT lw.channel_id, c.handle, c.name, s.code AS source,
+                       lw.week_start, lw.n_calls, lw.n_scored,
+                       lw.avg_score, lw.hit_rate
+                FROM leaderboard_weekly lw
+                JOIN channel c ON c.id=lw.channel_id
+                JOIN source s ON s.id=c.source_id
+                WHERE lw.week_start >= (CURRENT_DATE - (:w * INTERVAL '7 day'))
+                ORDER BY lw.week_start, lw.avg_score DESC
+            """), {"w": weeks}).mappings()]
+
+        overall_base = (
+            "SELECT c.id AS channel_id, c.handle, c.name, s.code AS source, "
+            "COUNT(p.id) AS n_calls, COUNT(p.score) AS n_scored, "
+            "AVG(p.score) AS avg_score, "
+            "AVG(CASE WHEN p.score>0 THEN 1.0 WHEN p.score<0 THEN 0.0 END) AS hit_rate "
+            "FROM channel c JOIN source s ON s.id=c.source_id "
+            "LEFT JOIN item i ON i.channel_id=c.id "
+            "LEFT JOIN prediction p ON p.item_id=i.id "
+        )
+        overall_tail = (
+            " GROUP BY c.id, s.code "
+            "HAVING COUNT(p.id) > 0 "
+            "ORDER BY avg_score DESC NULLS LAST"
+        )
+        if has_range:
+            oclauses: list[str] = []
+            oparams: dict[str, Any] = {}
+            if date_from:
+                oclauses.append("i.published_at >= :date_from")
+                oparams["date_from"] = date_from
+            if date_to:
+                oclauses.append("i.published_at < (CAST(:date_to AS date) + INTERVAL '1 day')")
+                oparams["date_to"] = date_to
+            overall = [dict(r) for r in conn.execute(
+                text(overall_base + "WHERE " + " AND ".join(oclauses) + overall_tail),
+                oparams).mappings()]
+        else:
+            overall = [dict(r) for r in conn.execute(
+                text(overall_base + overall_tail)).mappings()]
     return {"weekly": weekly, "overall": overall}
 
 

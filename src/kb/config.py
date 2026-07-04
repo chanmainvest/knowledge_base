@@ -8,8 +8,17 @@ from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 ROOT = Path(__file__).resolve().parents[2]
-DATA_DIR = ROOT / "data"
 LOG_DIR = ROOT / "logs"
+
+
+def _resolve_data_dir(raw: str) -> Path:
+    """Resolve a data-dir string into an absolute ``Path``.
+
+    Relative paths resolve against the repo root; absolute paths are used
+    as-is. Tilde (``~``) is expanded to the user home.
+    """
+    p = Path(raw).expanduser()
+    return p if p.is_absolute() else (ROOT / p).resolve()
 
 
 class Settings(BaseSettings):
@@ -76,6 +85,9 @@ class Settings(BaseSettings):
     postgres_password: str = "kb_local_dev"
     postgres_db: str = "kb"
 
+    # Data layout
+    data_dir: str = "data"  # relative to repo root, or an absolute path
+
     # API
     api_host: str = "127.0.0.1"
     api_port: int = 8088
@@ -93,6 +105,17 @@ class Settings(BaseSettings):
             f"postgresql+asyncpg://{self.postgres_user}:{self.postgres_password}"
             f"@{self.postgres_host}:{self.postgres_port}/{self.postgres_db}"
         )
+
+    @property
+    def data_path(self) -> Path:
+        """Resolved data directory as an absolute ``Path``."""
+        return _resolve_data_dir(self.data_dir)
+
+
+# Module-level constant — reads the setting once at import time so that all
+# `from ..config import DATA_DIR` sites (scrapers, ingest, etc.) pick up the
+# configured value without needing a runtime lookup.
+DATA_DIR = Settings().data_path
 
 
 @lru_cache(maxsize=1)

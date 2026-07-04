@@ -49,7 +49,13 @@ export const api = {
     Object.entries(q).forEach(([k, v]) => v !== undefined && p.set(k, String(v)));
     return get<Prediction[]>(`/api/predictions?${p}`);
   },
-  leaderboard: (weeks = 12) => get<LB>(`/api/leaderboard?weeks=${weeks}`),
+  leaderboard: (weeks = 12, dateFrom?: string, dateTo?: string) => {
+    const p = new URLSearchParams();
+    p.set("weeks", String(weeks));
+    if (dateFrom) p.set("date_from", dateFrom);
+    if (dateTo) p.set("date_to", dateTo);
+    return get<LB>(`/api/leaderboard?${p}`);
+  },
 };
 
 export interface Source { id: number; code: string; name: string; kind: string; n_items: number; }
@@ -72,6 +78,20 @@ export interface Prediction {
   score: number | null; item_title: string; item_url: string;
   channel: string | null; channel_name: string | null;
 }
+// A single quote within a consolidated prediction (one ticker can reference
+// several quotes from the same article).
+export interface PredictionQuote {
+  id: number; action: string | null; direction: string | null;
+  target_price: number | null; stop_price: number | null;
+  timeframe: string | null; quote: string | null;
+  score: number | null; made_at: string | null;
+}
+// One entry per ticker on the item page, grouping every quote extracted for
+// it. `conflict` is true when the same ticker has opposing directional calls.
+export interface ConsolidatedPrediction {
+  ticker: string | null; asset_name: string | null; speaker: string | null;
+  direction: string; conflict: boolean; quotes: PredictionQuote[];
+}
 export interface MarketView {
   id: number; speaker: string | null; asset_class: string | null; region: string | null;
   direction: string | null; horizon: string | null; confidence: number | null;
@@ -81,7 +101,7 @@ export interface Item {
   id: number; title: string; url: string; published_at: string | null;
   summary: string | null; content: string; source: string;
   channel: string | null; channel_name: string | null;
-  market_views: MarketView[]; predictions: Prediction[];
+  market_views: MarketView[]; predictions: ConsolidatedPrediction[];
   entities: { id: number; kind: string; name: string; ticker: string | null; weight: number }[];
   related: { id: number; title: string; published_at: string | null;
              channel_name: string | null; similarity: number }[];

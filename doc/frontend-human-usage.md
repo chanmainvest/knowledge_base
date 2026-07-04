@@ -22,6 +22,27 @@ VS Code tasks are also available:
 - `Run KB API`
 - `Run KB Frontend`
 
+## Build / Production
+
+```pwsh
+npm --prefix frontend run build
+```
+
+Outputs static files to `frontend/dist/`. Vite is configured to code-split so
+the initial page load stays small (~180 kB JS gzipped for the default
+`/search` route instead of a single 730 kB bundle):
+
+- **Route-based lazy loading** — `frontend/src/main.tsx` wraps every page in
+  `React.lazy()` + `<Suspense>`, so each route is its own chunk.
+- **`build.rollupOptions.output.manualChunks`** (in `vite.config.ts`) splits
+  stable third-party libs into long-cacheable vendor chunks (`react`,
+  `react-dom`, `router`) and isolates heavy page-specific libs into their own
+  chunks (`recharts` for `/leaderboard`, `markdown` for `/items/:id`) that only
+  download when the corresponding route is visited.
+
+When adding a new page or heavy dependency, prefer keeping it within a
+lazily-loaded route so it does not bloat the initial bundle.
+
 ## Main Views
 
 The React shell routes to these pages:
@@ -32,6 +53,20 @@ The React shell routes to these pages:
 - `/predictions`: extracted prediction/call browser.
 - `/leaderboard`: weekly and overall channel scoring.
 
+### Item detail (`/items/:id`)
+
+The Predictions panel shows **one card per ticker**, not one per flat row.
+The backend groups same-ticker predictions for an item into a single entry
+with a `quotes[]` array (see "Within-article consolidation" in
+`doc/llm-extraction.md`), so multiple quotes on the same asset in the same
+article appear together rather than as duplicate cards. Each card shows the
+ticker, asset name, a consensus `direction` (color-coded), an amber
+**conflict** badge when the same ticker has both bullish and bearish calls in
+the article, and the list of underlying quotes. Clicking a quote smooth-scrolls
+to and briefly highlights that text inside the article body (matching is
+whitespace-normalized; if the LLM excerpt doesn't appear verbatim in the
+markdown, nothing happens).
+
 ## API Calls Used By The UI
 
 The frontend API client calls:
@@ -41,10 +76,10 @@ GET /api/sources
 GET /api/channels?source=<source>&source=<source2>...
 GET /api/search?q=<query>&source=<source>&channel_id=<id>&date_from=<yyyy-mm-dd>&date_to=<yyyy-mm-dd>&has_predictions=<true|false>&limit=<n>&offset=<n>
 GET /api/items?source=<source>&channel_id=<id>&date_from=<yyyy-mm-dd>&date_to=<yyyy-mm-dd>&has_predictions=<true|false>&limit=<n>&offset=<n>
-GET /api/items/<id>
+GET /api/items/<id>              # predictions consolidated per ticker (quotes[] + conflict flag)
 GET /api/items/<id>/raw
 GET /api/predictions?ticker=<ticker>&channel_id=<id>&limit=<n>
-GET /api/leaderboard?weeks=<n>
+GET /api/leaderboard?weeks=<n>&date_from=<yyyy-mm-dd>&date_to=<yyyy-mm-dd>
 ```
 
 `source` and `channel_id` are repeatable for multi-select (e.g.
@@ -53,6 +88,9 @@ omitted (or blank) it behaves like `/api/items` and browses the latest items
 by `published_at DESC` instead of ranking by text relevance. `date_from`/
 `date_to` filter by `published_at` inclusively. `has_predictions` filters to
 items that do/don't have a canonical extraction with at least one prediction.
+On `/api/leaderboard`, `date_from`/`date_to` override the `weeks` window with
+an explicit inclusive range — applied to `leaderboard_weekly.week_start` for
+the weekly series and to `item.published_at` for the overall aggregate.
 `/api/search` and `/api/items` both return
 `{"items": [...], "total": <n>, "limit": <n>, "offset": <n>}` so the UI can
 paginate; `limit` defaults to 25 for search and 50 for items, capped at 200.
@@ -73,6 +111,14 @@ with a search box once there are more than a handful) plus "All"/"None"
 shortcuts that apply immediately but deliberately leave the dropdown open so
 the selection can be fine-tuned. See `frontend/src/components/ColumnFilter.tsx`
 for the reusable filter component.
+
+The Leaderboard page (`/leaderboard`) offers the same interactive table
+(sortable column headers with Excel-style Channel/Source filters) for the
+overall ranking. At the top, a channel-name search box sits beside an
+inclusive "Date range" (From/To); the text query filters channel names
+client-side while the date range overrides the "Window" selector
+(4/12/26/52 weeks) and is applied to both the weekly chart series and the
+overall aggregate — greying out the weeks buttons until cleared.
 
 The API additionally exposes two routes not yet wired into the React UI, for
 inspecting/cross-referencing multi-provider extraction (see

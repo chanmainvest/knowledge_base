@@ -69,8 +69,16 @@ class ScrapedItem:
 
 
 class BaseScraper(abc.ABC):
-    code: str = ""           # e.g. 'macrovoices'
+    code: str = ""           # registry key / site name, e.g. 'macrovoices'
     name: str = ""
+    source_code: str = ""    # DB source code; empty → same as `code` (e.g. 'blog')
+
+    @property
+    def effective_source_code(self) -> str:
+        """The source code written to markdown front-matter and resolved by
+        ingest. Blog scrapers override ``source_code`` so multiple sites share
+        one ``blog`` source row while keeping distinct scraper classes."""
+        return self.source_code or self.code
 
     def __init__(self) -> None:
         self.log = get_logger(f"scraper.{self.code}")

@@ -52,6 +52,7 @@ def _parse_mv_date(html: str) -> datetime | None:
 class MacroVoicesScraper(BaseScraper):
     code = "macrovoices"
     name = "MacroVoices"
+    source_code = "blog"
 
     async def _login(self, page) -> None:
         s = settings()
@@ -78,8 +79,8 @@ class MacroVoicesScraper(BaseScraper):
 
     def already_scraped(self, d: dict) -> bool:
         slug = slugify(d["external_id"], 60)
-        mv_dir = DATA_DIR / "macrovoices"
-        # New flat layout: data/macrovoices/<year>/<date>-<slug>.md
+        mv_dir = DATA_DIR / "blog" / "macrovoices"
+        # Flat layout: data/blog/macrovoices/<year>/<date>-<slug>.md
         for md_path in mv_dir.glob("*/*.md"):
             if slug in md_path.stem:
                 return md_path.stat().st_size > 500
@@ -199,12 +200,12 @@ class MacroVoicesScraper(BaseScraper):
                 else:
                     transcript_pdfs.append(full)
 
-            # Save slides / transcripts under data/raw/macrovoices/<year>/
+            # Save slides / transcripts under data/raw/blog/macrovoices/<year>/
             date_str = published_at.date().isoformat() if published_at else "undated"
             year_str = published_at.strftime("%Y") if published_at else "undated"
             ext_slug = slugify(d["external_id"], 60)
             stem = f"{date_str}-{ext_slug}"
-            raw_dir = DATA_DIR / "raw" / "macrovoices" / year_str
+            raw_dir = DATA_DIR / "raw" / "blog" / "macrovoices" / year_str
             raw_dir.mkdir(parents=True, exist_ok=True)
             for url in slides_pdfs:
                 try:
@@ -239,7 +240,7 @@ class MacroVoicesScraper(BaseScraper):
             await browser.close()
 
         return ScrapedItem(
-            source="macrovoices",
+            source=self.effective_source_code,
             channel="macrovoices",
             channel_name="MacroVoices",
             external_id=d["external_id"],

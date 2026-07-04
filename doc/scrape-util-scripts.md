@@ -30,21 +30,26 @@ uv run kb patreon scrape <creator> --limit 3
 uv run kb substack check-session
 uv run kb substack resolve <handle>
 uv run kb substack scrape <handle> --limit 3
+
+uv run kb blog list-sites
+uv run kb blog scrape macrovoices --limit 3
+uv run kb blog scrape madxcap --limit 5 --source-type dcard
 ```
 
 List available scrapers, grouped by source category (`source.kind`):
 
 ```pwsh
 uv run kb scrape list
-uv run kb scrape list --kind blog       # macrovoices, madxcap
+uv run kb scrape list --kind blog       # blog source (macrovoices, madxcap)
 uv run kb scrape list --kind newspaper  # hkej, yahoohk, master-insight
 ```
 
 `kind` distinguishes one-off, homepage-discovery website scrapers with no
-per-author crawl/catalog state (`blog`: macrovoices, madxcap) from resumable
-multi-author crawlers that track discovery state in their own catalog tables
-(`newspaper`: hkej, yahoohk, master-insight). YouTube and Patreon/Substack
-keep their own `youtube`/`membership` kinds.
+per-author crawl/catalog state (`blog`: macrovoices, madxcap — both channels
+under a single `blog` source) from resumable multi-author crawlers that track
+discovery state in their own catalog tables (`newspaper`: hkej, yahoohk,
+master-insight). YouTube and Patreon/Substack keep their own
+`youtube`/`membership` kinds.
 
 List registered channels for a source:
 
@@ -65,11 +70,14 @@ Run a source scraper:
 
 ```pwsh
 uv run kb youtube scrape --limit 5
-uv run kb scrape run macrovoices --limit 3
+uv run kb blog scrape macrovoices --limit 3
+uv run kb blog scrape madxcap --limit 5
 uv run kb scrape run hkej --limit 20
 uv run kb scrape run yahoohk --limit 5
-uv run kb scrape run madxcap --limit 5
 ```
+
+The generic `kb scrape run <code>` form also works for blog sites (e.g.
+`kb scrape run macrovoices`), but `kb blog scrape <site>` is preferred.
 
 For YouTube, `--limit 5` inspects up to 5 videos per registered channel. Cached videos are skipped, and the scraper does not stop after 5 new files total.
 
@@ -77,7 +85,7 @@ For HKEJ, `uv run kb scrape run hkej --limit 20` applies the limit per registere
 
 For Yahoo Finance Hong Kong, `uv run kb scrape run yahoohk --limit 5` applies the limit per discovered columnist. Authors are seeded automatically from the contributors index on the first run.
 
-For MadX (狂徒投資), `uv run kb scrape run madxcap --limit 5` applies the limit across both Dcard and Facebook posts. Use `--source-type dcard|facebook` to filter.
+For MadX (狂徒投資), `uv run kb blog scrape madxcap --limit 5` applies the limit across both Dcard and Facebook posts. Use `--source-type dcard|facebook` to filter.
 
 Run all registered scrapers with a per-source limit:
 
@@ -296,26 +304,26 @@ required — articles are fetched over HTTP.
 Scrape all posts (Dcard + Facebook):
 
 ```pwsh
-uv run kb scrape run madxcap --limit 20
+uv run kb blog scrape madxcap --limit 20
 ```
 
 Scrape only Dcard articles:
 
 ```pwsh
-uv run kb scrape run madxcap --limit 20 --source-type dcard
+uv run kb blog scrape madxcap --limit 20 --source-type dcard
 ```
 
 Scrape only Facebook posts:
 
 ```pwsh
-uv run kb scrape run madxcap --limit 20 --source-type facebook
+uv run kb blog scrape madxcap --limit 20 --source-type facebook
 ```
 
-Output layout (flat file):
+Output layout (flat file, under the consolidated `blog` source):
 
 ```text
-data/madxcap/狂徒/<YYYY>/<YYYY-MM-DD>-<title-slug>.md
-data/raw/madxcap/狂徒/<YYYY>/<YYYY-MM-DD>-<title-slug>.html
+data/blog/狂徒/<YYYY>/<YYYY-MM-DD>-<title-slug>.md
+data/raw/blog/狂徒/<YYYY>/<YYYY-MM-DD>-<title-slug>.html
 ```
 
 The scraper is idempotent — re-running skips already-downloaded Markdown files.
@@ -332,7 +340,9 @@ uv run kb ingest
 The `scripts/` directory contains maintenance and debugging helpers:
 
 - `migrate_data_layout.py`: migrates older source folders to the current flat Markdown/raw layout. Safe to re-run.
+- `migrate_to_blog_source.py`: consolidates `data/macrovoices/` and `data/madxcap/` under `data/blog/<channel>/` and rewrites `source:` front-matter to `blog`. One-shot; run before `kb db migrate` + `kb ingest`.
 - `build_data_readmes.py`: builds `README.md` indexes for every visible folder under `data/` and supports the static `data/index.html` browser. Safe to re-run.
+- `copy_to_data_public.py`: copies a configured subset of `data/` markdown into the `data_public/` submodule (see `scripts/data_public_config.json`). Defaults to the last 365 days, skips unchanged files, then rebuilds `data_public/` README indexes via `build_data_readmes.py`. Safe to re-run.
 - `fix_yahoohk_titles.py`: renames Yahoo HK columnist articles that were saved with the generic `雅虎香港財經` title, trims boilerplate, and re-ingests. Safe to re-run.
 - `scrape_patreon.ps1`: Windows Task Scheduler wrapper for `uv run kb patreon scrape-creator`.
 - `reextract_hkej.py`: re-runs extraction workflows for HKEJ content.
@@ -345,8 +355,26 @@ Run maintenance scripts through `uv` from the repository root:
 
 ```pwsh
 uv run python scripts/migrate_data_layout.py
+uv run python scripts/migrate_to_blog_source.py --dry-run
 uv run python scripts/build_data_readmes.py
+uv run python scripts/copy_to_data_public.py
 uv run python scripts/fix_yahoohk_titles.py
+```
+
+Publish a public markdown subset into `data_public/` (git submodule):
+
+```pwsh
+# default: last 365 days, channels from scripts/data_public_config.json
+uv run python scripts/copy_to_data_public.py
+
+# explicit date window
+uv run python scripts/copy_to_data_public.py --start-date 2025-01-01 --end-date 2025-12-31
+
+# override channels at runtime (replaces the file config entirely)
+uv run python scripts/copy_to_data_public.py --config-json '{"sources":{"youtube":["cpm-group"]}}'
+
+# preview without writing
+uv run python scripts/copy_to_data_public.py --dry-run
 ```
 
 ## Raw Output Layout
@@ -363,11 +391,8 @@ data/raw/yahoohk/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
 data/master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
 data/raw/master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
 
-data/madxcap/狂徒/<YYYY>/<YYYY-MM-DD>-<title>.md
-data/raw/madxcap/狂徒/<YYYY>/<YYYY-MM-DD>-<title>.html
-
-data/macrovoices/<YYYY>/<YYYY-MM-DD>-<episode>-<title>.md
-data/raw/macrovoices/<YYYY>/<YYYY-MM-DD>-<episode>-<title>.html
+data/blog/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md        # MacroVoices, 狂徒, …
+data/raw/blog/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.html   # [.slides.pdf …]
 
 data/youtube/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md
 

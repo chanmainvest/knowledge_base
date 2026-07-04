@@ -23,7 +23,7 @@ It is in three parts:
 `item.content` — plain text produced by `kb ingest` from a scraped Markdown
 file (front matter stripped). One `item` row = one article, video transcript,
 or podcast episode, each linked to a `channel` (the author/creator) and a
-`source` (hkej, youtube, macrovoices, yahoohk, master-insight, patreon, substack, ...).
+`source` (hkej, youtube, blog, yahoohk, master-insight, patreon, substack, ...).
 
 ### Chunking
 
@@ -65,6 +65,9 @@ The LLM must return one JSON object matching a fixed schema (`extract.SCHEMA`):
 
 Chunk results are naively concatenated (`aggregate[k].extend(...)`) — there
 is no de-duplication across chunks, and only chunk 0's `summary` survives.
+This means the same ticker can show up as several flat `prediction` rows for
+one item (one per quote, possibly one per chunk). Those duplicate rows are
+consolidated at read time — see "Within-article consolidation" below.
 
 ### Persistence
 
@@ -78,6 +81,35 @@ is no de-duplication across chunks, and only chunk 0's `summary` survives.
   was **never updated** — the item stayed `'pending'` forever with no
   visible error, indistinguishable from "not yet processed". *(Fixed as part
   of the multi-provider rewrite — see Part 3.)*
+
+### Within-article consolidation (read time)
+
+Because chunk results are concatenated with no de-duplication, the same ticker
+commonly appears as several flat `prediction` rows for one item — once per
+quote, and potentially once per chunk that mentions it. The flat rows are the
+source of truth for scoring and the leaderboard and are **not** merged in the
+DB. Instead the item-detail endpoint collapses them at read time via
+`_consolidate_predictions()` in `src/kb/api/main.py`:
+
+- Rows are grouped by normalized ticker (uppercase, stripped). Rows without a
+  ticker each stay as their own one-off entry, so untickered predictions
+  aren't all lumped together.
+- Each group becomes one object: `{ticker, asset_name, speaker, direction,
+  conflict, quotes[]}`, where `quotes[]` carries the original `action`,
+  `direction`, `target_price`, `stop_price`, `timeframe`, `quote`, `score`,
+  and `made_at` of every row in the group.
+- **Conflict detection** is purely directional. A quote is *bullish* if its
+  `action ∈ {buy, long, cover}` or `direction == 'up'`; *bearish* if
+  `action ∈ {sell, short, avoid}` or `direction == 'down'`; neutral otherwise
+  (`hold`/`watch`/`avoid`/`none`/`flat`/`unspecified`). `conflict` is set when
+  the same ticker has at least one bullish and at least one bearish quote, and
+  the consensus `direction` becomes `mixed` in that case (otherwise `up`,
+  `down`, or `neutral`).
+
+This is a read-only view: no schema change, no re-extraction, and the flat
+`GET /api/predictions` list (used by the `/predictions` page) still returns
+raw rows. This is distinct from Part 2 proposal #6, which concerns
+*cross-time* reversals on the same ticker by the same channel.
 
 ### Scoring — turning a call into a number
 
@@ -347,7 +379,11 @@ uv run kb leaderboard rebuild
 GET /api/items/<id>              # ?run_id=<n> to view a specific (non-primary)
                                   # run's market_views/predictions instead of
                                   # the item's canonical one; also now returns
-                                  # an `extraction_runs` summary array
+                                  # an `extraction_runs` summary array.
+                                  # `predictions` here are consolidated per
+                                  # ticker (see "Within-article consolidation"
+                                  # in Part 1) — one entry with quotes[] and a
+                                  # conflict flag, not flat rows.
 GET /api/items/<id>/runs         # every extraction_run for an item, with is_primary
 GET /api/models/leaderboard      # provider/model accuracy, overall + per channel
 ```

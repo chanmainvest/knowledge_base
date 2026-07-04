@@ -6,6 +6,12 @@
   `pyproject.toml` and re-run pip.
 - All secrets in `.env` (gitignored). Load via `kb.config.settings`. Never
   hardcode user/password.
+- The data directory is configurable via `DATA_DIR` in `.env` (or the
+  `DATA_DIR` env var). Relative paths resolve against the repo root; absolute
+  paths are used as-is. `kb.config.DATA_DIR` is a module-level `Path` computed
+  at import time from the setting, so all `from ..config import DATA_DIR`
+  sites pick up the configured value automatically. Changing `DATA_DIR`
+  requires re-running `kb ingest` to refresh `item.md_path` in the database.
 - Be polite to upstream sites:
   - Per-host rate limit ≥ `SCRAPE_RATE_LIMIT_SEC` (default 3 s).
   - Random jitter; honour `Retry-After` and 429s.
@@ -20,7 +26,7 @@
   carries `source`, `channel`, `external_id`, `url`, `published_at`, `title`,
   `lang`, plus source-specific fields. The DB row is regenerated from the
   markdown by `kb ingest`.
-- **Flat-file layout** (hkej, macrovoices, yahoohk, youtube, substack): content lives at
+- **Flat-file layout** (blog, hkej, yahoohk, youtube, substack): content lives at
   `data/<source>/[<channel>/]<YYYY>/<YYYY-MM-DD>-<title>.md`; raw HTML at
   `data/raw/<source>/[<channel>/]<YYYY>/<YYYY-MM-DD>-<title>.html`.
   Set `flat_layout=True` on `ScrapedItem` to use this layout; `BaseScraper.write_md()`
@@ -36,9 +42,16 @@
 - `source.kind` groups sources by scraping/discovery shape, and drives `kb
   scrape list --kind` and the Search page's source list: `blog` = one-off,
   homepage-discovery scrapers with no per-author crawl/catalog state
-  (macrovoices, madxcap/狂徒); `newspaper` = resumable multi-author crawlers
-  with their own catalog tables (hkej, yahoohk, master-insight); `youtube` and
-  `membership` (patreon, substack) are their own kinds.
+  (macrovoices, madxcap/狂徒 are channels under a single `blog` source — each
+  site keeps its own scraper class but they share the `blog` source code and
+  `source_code = "blog"` on the scraper); `newspaper` = resumable multi-author
+  crawlers with their own catalog tables (hkej, yahoohk, master-insight);
+  `youtube` and `membership` (patreon, substack) are their own kinds.
+- Blog scrapers set `source_code = "blog"` on the scraper class; the
+  `effective_source_code` property returns the DB source code to write to
+  markdown front-matter. The registry still keys by the unique scraper `code`
+  (e.g. `macrovoices`, `madxcap`). Use `kb blog scrape <site>` to scrape a
+  specific blog, or the generic `kb scrape run <code>`.
 - LLM calls go through `kb.llm.chat_json(system, user, schema, provider,
   model)`, which supports four providers: `openai` (or any OpenAI-compatible
   endpoint via `LLM_BASE_URL`, e.g. Azure OpenAI, GitHub Models, Ollama),
@@ -82,7 +95,9 @@ src/kb/
   cli.py               # `kb` command
   scrapers/
     base.py            # ScrapedItem (flat_layout flag), BaseScraper.write_md()
-    macrovoices.py
+                       # BaseScraper.source_code / effective_source_code
+    macrovoices.py     # MacroVoices podcast (source_code='blog')
+    madxcap.py         # MadX 狂徒投資 blog (source_code='blog')
     youtube.py
     hkej.py
     yahoohk.py         # Yahoo Finance HK columnists (GraphQL feed + article HTML)
@@ -101,6 +116,9 @@ docker/postgres/init.sql
 migrations/
 scripts/
   migrate_data_layout.py   # one-shot migration to flat-file layout
+  migrate_to_blog_source.py   # consolidate macrovoices+madxcap into data/blog/
+  copy_to_data_public.py   # publish configured data/ subset to data_public/
+  build_data_readmes.py    # README indexes for data/ or data_public/
   fix_yahoohk_titles.py   # backfill misnamed Yahoo HK columnist files
 ```
 
@@ -122,8 +140,8 @@ data/
   master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
   raw/master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
 
-  macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.md
-  raw/macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.html  [.slides.pdf …]
+  blog/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md        # MacroVoices, 狂徒, …
+  raw/blog/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.html   # [.slides.pdf …]
 
   youtube/<channel-name-slug>/<YYYY>/<YYYY-MM-DD>-<title>.md
 

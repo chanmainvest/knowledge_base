@@ -4,13 +4,13 @@ CREATE EXTENSION IF NOT EXISTS pg_trgm;
 CREATE EXTENSION IF NOT EXISTS btree_gin;
 CREATE EXTENSION IF NOT EXISTS unaccent;
 
--- Sources: macrovoices, youtube, hkej, etc.
+-- Sources: blog, youtube, hkej, etc.
 CREATE TABLE IF NOT EXISTS source (
     id          SERIAL PRIMARY KEY,
-    code        TEXT UNIQUE NOT NULL,           -- 'macrovoices' | 'youtube' | 'hkej'
+    code        TEXT UNIQUE NOT NULL,           -- 'blog' | 'youtube' | 'hkej' | 'patreon' …
     name        TEXT NOT NULL,
     url         TEXT,
-    kind        TEXT NOT NULL                   -- 'podcast' | 'youtube' | 'newspaper'
+    kind        TEXT NOT NULL                   -- 'blog' | 'youtube' | 'newspaper' | 'membership'
 );
 
 -- Channels / authors within a source.
@@ -373,29 +373,74 @@ CREATE TABLE IF NOT EXISTS provider_model_leaderboard (
 CREATE INDEX IF NOT EXISTS provider_model_leaderboard_pm_idx
     ON provider_model_leaderboard(provider, model);
 
--- Seed sources. `kind` groups sources for filtering in the UI/CLI:
--- 'blog' is used for simple, single-page/homepage-discovery scrapers with no
--- per-author crawl/catalog state (macrovoices, madxcap); 'newspaper' is used
--- for multi-author, resumable crawlers that track discovery state in their
--- own *_crawl_run/*_article_catalog tables (hkej, yahoohk, master-insight).
+-- Seed sources. The `blog` source consolidates one-off, homepage-discovery
+-- website scrapers (macrovoices, madxcap) that share no per-author crawl/
+-- catalog state; each site is a separate channel under the single `blog`
+-- source, just as individual creators are channels under `patreon` or
+-- `substack`. 'newspaper' is used for multi-author, resumable crawlers that
+-- track discovery state in their own *_crawl_run/*_article_catalog tables
+-- (hkej, yahoohk, master-insight).
 INSERT INTO source(code,name,url,kind) VALUES
-  ('macrovoices','MacroVoices','https://www.macrovoices.com/','blog'),
+  ('blog','Blogs',NULL,'blog'),
   ('youtube','YouTube','https://www.youtube.com/','youtube'),
   ('hkej','Hong Kong Economic Journal','https://www.hkej.com/','newspaper'),
   ('patreon','Patreon','https://www.patreon.com/','membership'),
   ('substack','Substack','https://substack.com/','membership'),
   ('yahoohk','Yahoo Finance Hong Kong','https://hk.finance.yahoo.com/','newspaper'),
-  ('master-insight','Master Insight','https://www.master-insight.com/','newspaper'),
-  ('madxcap','狂徒投資','https://madxcap.com/','blog')
+  ('master-insight','Master Insight','https://www.master-insight.com/','newspaper')
 ON CONFLICT (code) DO NOTHING;
 
--- Re-classify macrovoices as 'blog' for databases seeded before this change
--- (the INSERT above is a no-op on existing rows because of ON CONFLICT DO
--- NOTHING, so existing 'podcast' rows need an explicit UPDATE here).
-UPDATE source SET kind='blog' WHERE code='macrovoices' AND kind<>'blog';
-
--- Seed channels for single-author sources.
+-- Seed channels for the consolidated `blog` source (one per site/author).
+INSERT INTO channel(source_id, handle, name, url)
+SELECT id, 'macrovoices', 'MacroVoices', 'https://www.macrovoices.com/'
+FROM source WHERE code='blog'
+ON CONFLICT (source_id, handle) DO NOTHING;
 INSERT INTO channel(source_id, handle, name, url)
 SELECT id, 'kuangtu', '狂徒', 'https://madxcap.com/'
-FROM source WHERE code='madxcap'
+FROM source WHERE code='blog'
 ON CONFLICT (source_id, handle) DO NOTHING;
+
+-- --- Blog consolidation (macrovoices + madxcap → blog) ---------------------
+-- This block re-points any items/channels from the old separate 'macrovoices'
+-- and 'madxcap' source rows into the consolidated 'blog' source, then removes
+-- those old source rows. No-op on databases already migrated (the old source
+-- rows no longer exist). Idempotent: safe to replay.
+
+-- Move any surviving old channels under blog (handle-based upsert).
+INSERT INTO channel(source_id, handle, name, url)
+SELECT (SELECT id FROM source WHERE code='blog'), c.handle, c.name, c.url
+FROM channel c
+JOIN source s ON s.id = c.source_id
+WHERE s.code IN ('macrovoices', 'madxcap')
+ON CONFLICT (source_id, handle) DO UPDATE SET
+    name = EXCLUDED.name, url = EXCLUDED.url;
+
+-- Re-point macrovoices items to blog/macrovoices.
+UPDATE item i
+SET source_id = (SELECT id FROM source WHERE code='blog'),
+    channel_id = (
+        SELECT c2.id FROM channel c2
+        JOIN source s2 ON s2.id = c2.source_id
+        WHERE s2.code = 'blog' AND c2.handle = 'macrovoices'
+    )
+FROM source old_s
+WHERE i.source_id = old_s.id AND old_s.code = 'macrovoices';
+
+-- Re-point madxcap items to blog/<matching-handle>.
+UPDATE item i
+SET source_id = (SELECT id FROM source WHERE code='blog'),
+    channel_id = (
+        SELECT c2.id FROM channel c2
+        JOIN source s2 ON s2.id = c2.source_id
+        JOIN channel old_c ON old_c.id = i.channel_id
+        WHERE s2.code = 'blog' AND c2.handle = old_c.handle
+    )
+FROM source old_s
+WHERE i.source_id = old_s.id AND old_s.code = 'madxcap';
+
+-- Drop old channels + source rows now that items are moved.
+DELETE FROM channel
+WHERE source_id IN (
+    SELECT id FROM source WHERE code IN ('macrovoices', 'madxcap')
+);
+DELETE FROM source WHERE code IN ('macrovoices', 'madxcap');

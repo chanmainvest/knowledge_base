@@ -115,18 +115,28 @@ def build_all(data_root: Path) -> int:
     return len(directories)
 
 
+def _default_data_root() -> Path:
+    """Return the configured data directory, falling back to repo data/."""
+    try:
+        from kb.config import DATA_DIR  # respects DATA_DIR env/.env setting
+        return DATA_DIR
+    except Exception:  # pragma: no cover — fallback if kb not importable
+        return Path(__file__).resolve().parents[1] / "data"
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build README.md indexes under data/.")
     parser.add_argument(
         "data_root",
         nargs="?",
-        default=Path(__file__).resolve().parents[1] / "data",
+        default=None,
         type=Path,
-        help="Path to the data directory. Defaults to the repository data/ folder.",
+        help="Path to the data directory. Defaults to DATA_DIR from .env (or the repository data/ folder).",
     )
     args = parser.parse_args()
-    count = build_all(args.data_root)
-    print(f"Wrote README.md files for {count} folders under {args.data_root}")
+    data_root = args.data_root or _default_data_root()
+    count = build_all(data_root)
+    print(f"Wrote README.md files for {count} folders under {data_root}")
 
 
 if __name__ == "__main__":

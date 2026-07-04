@@ -42,7 +42,7 @@ import yaml
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-DATA_DIR = Path(__file__).parent.parent / "data"
+from kb.config import DATA_DIR  # noqa: E402 — respects DATA_DIR env/.env setting
 
 _CONTENT = "content.md"
 _RAW_HTML = "raw.html"

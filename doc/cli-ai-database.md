@@ -18,6 +18,11 @@ uv run kb db status
 
 Secrets belong in `.env`. Do not hardcode API keys, database credentials, or site passwords in scripts.
 
+The data directory defaults to `data/` (relative to the repo root). Override
+it by setting `DATA_DIR` in `.env` or the `DATA_DIR` environment variable
+(relative or absolute path). After changing `DATA_DIR`, re-run
+`uv run kb ingest` to refresh `item.md_path` in the database.
+
 ## Build Raw Knowledge
 
 Register sources/channels/authors as needed:
@@ -38,7 +43,7 @@ Scrape source material:
 
 ```pwsh
 uv run kb youtube scrape --limit 20
-uv run kb scrape run macrovoices --limit 20
+uv run kb blog scrape macrovoices --limit 20
 uv run kb scrape run yahoohk --limit 20
 uv run kb hkej scrape-author "高天佑"
 uv run kb patreon scrape <creator> --limit 20

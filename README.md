@@ -1,8 +1,8 @@
 # Knowledge Base
 
-Personal investment knowledge base. Scrapes podcasts, YouTube channels, HKEJ
-columnists, Yahoo Finance Hong Kong columnists, Master Insight columnists, Patreon
-creators, and Substack publications into
+Personal investment knowledge base. Scrapes blogs (MacroVoices, MadX), YouTube
+channels, HKEJ columnists, Yahoo Finance Hong Kong columnists, Master Insight
+columnists, Patreon creators, and Substack publications into
 markdown, extracts structured views/predictions with an LLM, and serves a search
 + leaderboard webapp.
 
@@ -11,7 +11,7 @@ markdown, extracts structured views/predictions with an LLM, and serves a search
 ```mermaid
 flowchart LR
     subgraph SRC["Sources"]
-        MV[MacroVoices podcast]
+        BLOG[Blogs<br/>(MacroVoices · MadX)]
         YT[YouTube channels]
         HKEJ[HKEJ Wealth Mgmt]
         YHK[Yahoo Finance HK]
@@ -21,7 +21,7 @@ flowchart LR
     end
 
     subgraph SCRAPE["Scrapers (Python · Playwright · yt-dlp)"]
-        S1[macrovoices.py]
+        S1[macrovoices.py · madxcap.py]
         S2[youtube.py]
         S3[hkej.py]
         S5[yahoohk.py]
@@ -39,7 +39,7 @@ flowchart LR
     API[FastAPI / uvicorn]
     UI[React + Vite + Tailwind]
 
-    MV --> S1
+    BLOG --> S1
     YT --> S2
     HKEJ --> S3
     YHK --> S5
@@ -72,8 +72,8 @@ data/
   master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
   raw/master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
 
-  macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.md
-  raw/macrovoices/<YYYY>/<YYYY-MM-DD>-<ep_id>-<title>.html  [.slides.pdf …]
+  blog/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md           # MacroVoices, MadX, …
+  raw/blog/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.html     # [.slides.pdf …]
 
   youtube/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md
 
@@ -90,9 +90,26 @@ under `data/raw/` mirroring the same path structure.
 
 Scraped content lives in `data/` (local git repo; not part of this
 repository). A public subset can be published in the `data_public/` git
-submodule ([`chanmainvest/data_knowledge_base`](https://github.com/chanmainvest/data_knowledge_base)).
+submodule ([`chanmainvest/data_knowledge_base`](https://github.com/chanmainvest/data_knowledge_base))
+with `uv run python scripts/copy_to_data_public.py` (see
+`doc/scrape-util-scripts.md`).
 The DB is the source of truth for search; the markdown files are the canonical
 raw content.
+
+The data directory defaults to `data/` but can be changed by setting `DATA_DIR`
+in `.env` (or the `DATA_DIR` environment variable). Relative paths resolve
+against the repo root; absolute paths are used as-is. For example:
+
+```pwsh
+# .env
+DATA_DIR=data
+
+# one-off override (PowerShell)
+$env:DATA_DIR = "D:\my_scrape_data"; uv run kb youtube scrape --limit 5
+
+# after changing DATA_DIR, re-index the database so item.md_path is refreshed:
+uv run kb ingest
+```
 
 To migrate an existing checkout to the current layout:
 ```pwsh
@@ -114,7 +131,8 @@ uv run kb db migrate
 
 # scrape (each runs as its own job; safe in parallel)
 uv run kb youtube scrape --limit 5
-uv run kb scrape run macrovoices --limit 3
+uv run kb blog scrape macrovoices --limit 3
+uv run kb blog scrape madxcap --limit 5
 uv run kb scrape run hkej --limit 20
 uv run kb scrape run yahoohk --limit 5
 uv run kb master-insight add-author tangwenliang

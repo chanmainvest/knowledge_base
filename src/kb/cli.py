@@ -32,6 +32,7 @@ master_insight_app = typer.Typer(no_args_is_help=True, help="Master Insight auth
 patreon_app = typer.Typer(no_args_is_help=True, help="Patreon session helpers")
 patreon_browser_app = typer.Typer(no_args_is_help=True, help="Persistent Patreon browser")
 substack_app = typer.Typer(no_args_is_help=True, help="Substack session helpers")
+blog_app = typer.Typer(no_args_is_help=True, help="Blog site scrapers (macrovoices, madxcap, …)")
 app.add_typer(db_app, name="db")
 app.add_typer(scrape_app, name="scrape")
 app.add_typer(ext_app, name="extract")
@@ -43,6 +44,7 @@ app.add_typer(master_insight_app, name="master-insight")
 app.add_typer(patreon_app, name="patreon")
 patreon_app.add_typer(patreon_browser_app, name="browser")
 app.add_typer(substack_app, name="substack")
+app.add_typer(blog_app, name="blog")
 
 log = get_logger("cli")
 
@@ -1442,6 +1444,63 @@ def substack_scrape(
         raise typer.Exit(1) from exc
 
     print(f"[green]{len(paths)}[/green] new file(s) written")
+    for p in paths:
+        try:
+            ingest_mod.ingest_file(p)
+        except Exception as exc:  # noqa: BLE001
+            log.exception("ingest failed for %s :: %s", p, exc)
+
+
+# --- Blog sub-app -------------------------------------------------------
+# Blog scrapers (macrovoices, madxcap) share one `blog` source row in the DB
+# but each keeps its own scraper class. `kb blog list-sites` shows them; the
+# generic `kb blog scrape <site>` dispatches to the right scraper and ingests.
+
+
+@blog_app.command("list-sites")
+def blog_list_sites() -> None:
+    """List registered blog scrapers (macrovoices, madxcap, …)."""
+    from .scrapers.base import BaseScraper
+
+    sites: list[tuple[str, str]] = []
+    for code, cls in SCRAPERS.items():
+        # Only scrapers that write to the blog source
+        if getattr(cls, "source_code", "") == "blog":
+            sites.append((code, cls.name))
+    if not sites:
+        print("[yellow]No blog scrapers registered.[/yellow]")
+        return
+    print(f"[bold]{len(sites)} blog site(s):[/bold]")
+    print(f"  {'code':<14} {'name'}")
+    print("  " + "-" * 40)
+    for code, name in sorted(sites):
+        print(f"  {code:<14} {name}")
+    print("\nScrape one with: [bold]kb blog scrape <site>[/bold]")
+
+
+@blog_app.command("scrape")
+def blog_scrape(
+    site: str = typer.Argument(..., help="Blog site code, e.g. macrovoices or madxcap"),
+    limit: int = typer.Option(0, help="0 = unlimited"),
+    source_type: str | None = typer.Option(
+        None, help="Filter by content type (e.g. dcard, facebook for madxcap)"
+    ),
+) -> None:
+    """Scrape one blog site and ingest the new markdown files."""
+    sc = get_scraper(site)
+    if getattr(type(sc), "source_code", "") != "blog":
+        print(f"[red]{site!r} is not a blog site (source_code != 'blog').[/red]")
+        print("Use `kb blog list-sites` to see blog scrapers.")
+        raise typer.Exit(1)
+    try:
+        kwargs: dict = {"limit": limit or None}
+        if isinstance(source_type, str):
+            kwargs["source_type"] = source_type
+        paths = asyncio.run(sc.run(**kwargs))
+    except Exception as exc:  # noqa: BLE001
+        log.exception("blog scrape crashed: %s", exc)
+        paths = []
+    print(f"[green]{len(paths)}[/green] new files for blog/{site}")
     for p in paths:
         try:
             ingest_mod.ingest_file(p)
