@@ -65,6 +65,44 @@
   clobbering each other — see `doc/llm-extraction.md` for the full design,
   including how `kb extract compare`/`provider_model_leaderboard` let you
   cross-reference which provider/model is most accurate.
+- **Per-ticker prediction consolidation (read-time).** The LLM extracts per
+  chunk, so the same ticker can appear as several flat `prediction` rows for
+  one item (one per quote). Those rows are the source of truth for scoring
+  and the leaderboard and are **not** merged in the DB. The item-detail
+  endpoint collapses them at read time via `_consolidate_predictions()` in
+  `src/kb/api/main.py` into one entry per ticker with a `quotes[]` array, a
+  consensus `direction`, and a `conflict` flag set when the same ticker has
+  both a bullish and a bearish call in the same article. The flat
+  `/api/predictions` list still returns raw rows. The frontend item page
+  renders one card per ticker (with an amber **conflict** badge) and makes
+  each quote clickable to jump to and highlight it in the article body.
+- **Pipeline progress tracking.** The scrape → ingest → extract pipeline
+  records its progress in two places: per-item stage timestamps
+  (`item.ingested_at`, `item.extracted_at`) and a per-source rollup table
+  `source_progress` (one row per source: `n_downloaded`, `n_ingested`,
+  `n_extracted`, `n_extract_pending`, `n_extract_error`, plus last-run
+  timestamps). The boundary functions in `src/kb/progress.py`
+  (`mark_downloaded` / `mark_ingested` / `mark_extracted`) are called from
+  `scrapers.base.write_md`, `ingest.ingest_file`, and the extract success /
+  error paths respectively, so all sources are tracked from one instrumented
+  boundary each. `recompute()` does an authoritative full recount from the
+  `item` table and is called at the end of every `kb extract run` batch and
+  on demand via `kb progress recompute` (which also re-derives
+  `n_downloaded` from the hkej/patreon catalog tables). `n_downloaded` is
+  best-effort for the filesystem-discovery sources (no historical catalog to
+  reconstruct from) — it accrues from when the feature shipped forward.
+- **Discovery catalog.** Every item a filesystem-discovery scraper sees during
+  `discover()` is upserted into a generic `discovery_catalog` table (one row
+  per `(source_id, external_id)`, with a `downloaded` flag and the full
+  original discovery `descriptor` stored as JSONB) via the
+  `_recording_discover()` wrapper in `scrapers/base.py`. `write_md()` flips
+  the row to `downloaded=true`. So "discovered but not downloaded" (a scrape
+  that died halfway) is queryable, and `kb scrape resume <code>` re-attempts
+  just those items without re-discovering the whole source. hkej and patreon
+  keep their richer native catalogs (`hkej_article_catalog` /
+  `patreon_post_catalog`) with run/page fingerprinting + resume cursors and do
+  NOT use the generic table; their pending counts are unioned in at read time
+  by `catalog.pending_counts()`. `src/kb/catalog.py` is the module.
 
 ## Documentation
 
@@ -104,14 +142,24 @@ src/kb/
     master_insight.py  # Master Insight columnists (paginated author pages + article HTML)
     patreon.py         # Patreon posts (session cookie + browser fallback + DB crawl catalog)
     substack.py        # Substack posts (public archive/post API + browser fallback for paid content)
-  ingest.py            # md -> Postgres (globs *.md, skips data/raw/)
+  ingest.py            # md -> Postgres (globs *.md, skips data/raw/); stamps
+                       # item.ingested_at and bumps source_progress
   extract.py           # LLM structured extraction; extraction_run tracking,
-                       # primary-run promotion, multi-provider compare
+                       # primary-run promotion, multi-provider compare;
+                       # stamps item.extracted_at and bumps source_progress
+  progress.py          # pipeline progress tracking — boundary counters
+                       # (mark_downloaded/ingested/extracted) + recompute();
+                       # backs /api/dashboard and `kb progress status`
+  catalog.py           # discovery catalog — records every discovered item so
+                       # "discovered but not downloaded" is queryable and
+                       # `kb scrape resume` can re-fetch pending items
   leaderboard.py       # score predictions vs market; provider/model rollup
   api/
-    main.py            # FastAPI app
+    main.py            # FastAPI app (search, items, predictions, leaderboard,
+                       # dashboard, sources, channels)
     routes_*.py
 frontend/              # Vite + React + Tailwind
+  src/pages/Dashboard.tsx   # pipeline progress overview (landing page)
 docker/postgres/init.sql
 migrations/
 scripts/

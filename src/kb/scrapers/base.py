@@ -16,6 +16,16 @@ from ..logging_setup import get_logger
 from ..ratelimit import HostRateLimiter
 
 
+def _iso(v) -> str | None:
+    """ISO-format a datetime-or-string (or None), tolerating scrapers that
+    return ``published_at`` as a pre-formatted string rather than a datetime."""
+    if not v:
+        return None
+    if isinstance(v, datetime):
+        return v.isoformat()
+    return str(v)
+
+
 @dataclass
 class ScrapedItem:
     source: str
@@ -122,9 +132,22 @@ class BaseScraper(abc.ABC):
         # default: subclasses can override; based on disk
         return False
 
+    async def _recording_discover(self, limit: int | None = None, **kwargs):
+        """Wrap :meth:`discover`, recording every yielded descriptor into the
+        generic ``discovery_catalog`` so "discovered but not downloaded" is
+        queryable and a half-dead scrape can be resumed. hkej/patreon keep
+        their own richer catalogs and should NOT route through this wrapper."""
+        async for d in self.discover(limit=limit, **kwargs):
+            try:
+                from .. import catalog
+                catalog.record_discovery(self.effective_source_code, d)
+            except Exception:  # noqa: BLE001
+                self.log.debug("catalog.record_discovery failed", exc_info=True)
+            yield d
+
     async def run(self, limit: int | None = None, **kwargs) -> list[Path]:
         out: list[Path] = []
-        async for d in self.discover(limit=limit, **kwargs):
+        async for d in self._recording_discover(limit=limit, **kwargs):
             if self.already_scraped(d):
                 self.log.info("skip (cached) %s", d.get("url") or d.get("external_id"))
                 continue
@@ -141,6 +164,47 @@ class BaseScraper(abc.ABC):
                 break
         return out
 
+    async def resume(self, limit: int | None = None) -> list[Path]:
+        """Re-attempt items discovered but never downloaded.
+
+        Reads pending rows (``downloaded=false``) from
+        ``discovery_catalog`` for this source, reconstructs the original
+        discovery descriptor, and re-runs ``fetch`` + ``write_md`` for each.
+        Items that now pass :meth:`already_scraped` (downloaded out-of-band)
+        are reconciled to ``downloaded=true``. Override in scrapers that keep
+        a native catalog (hkej/patreon).
+        """
+        from .. import catalog
+        out: list[Path] = []
+        for row in catalog.pending(self.effective_source_code, limit=limit):
+            d = row["descriptor"]
+            if self.already_scraped(d):
+                try:
+                    catalog.mark_downloaded(self.effective_source_code,
+                                            str(d.get("external_id", "")),
+                                            str(self._md_path_for(d) or ""))
+                except Exception:  # noqa: BLE001
+                    pass
+                continue
+            try:
+                item = await self.fetch(d)
+            except Exception as exc:  # noqa: BLE001
+                self.log.exception("resume fetch failed: %s :: %s", d, exc)
+                continue
+            if item is None:
+                continue
+            p = self.write_md(item)  # write_md marks the catalog row downloaded
+            out.append(p)
+            if limit and len(out) >= limit:
+                break
+        return out
+
+    def _md_path_for(self, descriptor: dict) -> Path | None:
+        """Best-effort on-disk md path for a descriptor, used only by resume
+        to reconcile an already-downloaded row. Subclasses with a custom
+        path scheme may override; default returns None (no reconciliation)."""
+        return None
+
     def write_md(self, item: ScrapedItem) -> Path:
         from ..io_md import MdDoc
         front = {
@@ -150,7 +214,7 @@ class BaseScraper(abc.ABC):
             "external_id": item.external_id,
             "url": item.url,
             "title": item.title,
-            "published_at": item.published_at.isoformat() if item.published_at else None,
+            "published_at": _iso(item.published_at),
             "language": item.language,
             "duration_sec": item.duration_sec,
             "scraped_at": datetime.utcnow().isoformat() + "Z",
@@ -173,4 +237,18 @@ class BaseScraper(abc.ABC):
             if item.raw_html:
                 (folder / "raw.html").write_text(item.raw_html, encoding="utf-8")
         self.log.info("wrote %s", path)
+        # Record this download against the source's progress counter and the
+        # discovery catalog. Wrapped so a tracking failure never aborts the
+        # scrape itself.
+        try:
+            from .. import progress
+            progress.mark_downloaded(self.effective_source_code)
+        except Exception:  # noqa: BLE001
+            self.log.debug("progress.mark_downloaded failed", exc_info=True)
+        try:
+            from .. import catalog
+            catalog.mark_downloaded(self.effective_source_code,
+                                    item.external_id, str(path))
+        except Exception:  # noqa: BLE001
+            self.log.debug("catalog.mark_downloaded failed", exc_info=True)
         return path

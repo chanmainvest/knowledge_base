@@ -33,6 +33,7 @@ patreon_app = typer.Typer(no_args_is_help=True, help="Patreon session helpers")
 patreon_browser_app = typer.Typer(no_args_is_help=True, help="Persistent Patreon browser")
 substack_app = typer.Typer(no_args_is_help=True, help="Substack session helpers")
 blog_app = typer.Typer(no_args_is_help=True, help="Blog site scrapers (macrovoices, madxcap, …)")
+progress_app = typer.Typer(no_args_is_help=True, help="Pipeline progress tracking (dashboard data)")
 app.add_typer(db_app, name="db")
 app.add_typer(scrape_app, name="scrape")
 app.add_typer(ext_app, name="extract")
@@ -45,6 +46,7 @@ app.add_typer(patreon_app, name="patreon")
 patreon_app.add_typer(patreon_browser_app, name="browser")
 app.add_typer(substack_app, name="substack")
 app.add_typer(blog_app, name="blog")
+app.add_typer(progress_app, name="progress")
 
 log = get_logger("cli")
 
@@ -68,9 +70,47 @@ def db_status() -> None:
     with engine().connect() as c:
         for tbl in ("source", "channel", "item", "extraction_run", "prediction",
                     "view_market", "chunk", "entity", "leaderboard_weekly",
-                    "provider_model_leaderboard"):
+                    "provider_model_leaderboard", "source_progress"):
             n = c.execute(text(f"SELECT COUNT(*) FROM {tbl}")).scalar()
             print(f"  {tbl:26s} {n}")
+
+
+@progress_app.command("recompute")
+def progress_recompute() -> None:
+    """Recompute per-source pipeline counters from authoritative sources.
+
+    `n_ingested`/`n_extracted`/`n_extract_pending`/`n_extract_error` are
+    recounted from the `item` table; `n_downloaded` is set from an actual
+    filesystem scan of `DATA_DIR/<source>/**/*.md`. Safe to run any time —
+    use to seed correct values or recover from drift.
+    """
+    from . import progress as prog
+    prog.recompute()
+    print("[green]recomputed[/green]")
+
+
+@progress_app.command("status")
+def progress_status() -> None:
+    """Print the per-source pipeline progress table."""
+    from . import progress as prog
+    rows = prog.snapshot()
+    if not rows:
+        print("[yellow]no sources[/yellow]")
+        return
+    print(f"{'source':16s} {'dl':>6s} {'ingest':>7s} {'extr':>6s} {'pend':>6s} "
+          f"{'err':>5s}  last_scrape          last_ingest         last_extract")
+    for r in rows:
+        def _ts(v):
+            return v.strftime("%Y-%m-%d %H:%M") if v else "—"
+        print(f"{(r['code'] or ''):16s} "
+              f"{(r.get('n_downloaded') or 0):>6d} "
+              f"{(r.get('n_ingested') or 0):>7d} "
+              f"{(r.get('n_extracted') or 0):>6d} "
+              f"{(r.get('n_extract_pending') or 0):>6d} "
+              f"{(r.get('n_extract_error') or 0):>5d}  "
+              f"{_ts(r.get('last_scrape_at')):19s}  "
+              f"{_ts(r.get('last_ingest_at')):19s}  "
+              f"{_ts(r.get('last_extract_at'))}")
 
 
 def _split_sql(s: str) -> list[str]:
@@ -284,6 +324,32 @@ def scrape_all(limit: int = 5) -> None:
             scrape_run(code=code, limit=limit)
         except Exception as exc:  # noqa: BLE001
             log.exception("scrape %s failed: %s", code, exc)
+
+
+@scrape_app.command("resume")
+def scrape_resume(
+    code: str = typer.Argument(..., help="Scraper code (e.g. youtube, blog, hkej)"),
+    limit: int = typer.Option(0, help="0 = unlimited"),
+) -> None:
+    """Re-attempt items a scraper discovered but never finished downloading.
+
+    Reads pending catalog rows (``downloaded=false``) and re-runs fetch+write
+    for each, so a scrape that died halfway can continue without re-discovering
+    the whole source. Already-downloaded items found on disk are reconciled to
+    ``downloaded=true``.
+    """
+    sc = get_scraper(code)
+    try:
+        paths = asyncio.run(sc.resume(limit=limit or None))
+    except Exception as exc:  # noqa: BLE001
+        log.exception("resume crashed: %s", exc)
+        paths = []
+    print(f"[green]{len(paths)}[/green] files resumed for {code}")
+    for p in paths:
+        try:
+            ingest_mod.ingest_file(p)
+        except Exception as exc:  # noqa: BLE001
+            log.exception("ingest failed for %s: %s", p, exc)
 
 
 @app.command("ingest")

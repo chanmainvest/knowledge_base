@@ -47,6 +47,7 @@ lazily-loaded route so it does not bloat the initial bundle.
 
 The React shell routes to these pages:
 
+- `/dashboard`: per-source pipeline progress overview — discovered / pending-download / downloaded / ingested / extracted / pending-extraction / error counts (the latter two flag amber/red when > 0), plus last-run timestamps and an upstream total where the source API exposes one. The landing route (`/`) redirects here. "Pending download" = items the scraper discovered but never finished fetching; re-attempt with `kb scrape resume <code>`.
 - `/search`: full-text search across ingested Markdown content.
 - `/channels`: sortable/filterable source/channel browser with item counts and prediction stats.
 - `/items/:id`: item detail view with content, extracted market views, predictions, entities, and related items.
@@ -73,6 +74,7 @@ The frontend API client calls:
 
 ```text
 GET /api/sources
+GET /api/dashboard               # per-source pipeline progress + global totals
 GET /api/channels?source=<source>&source=<source2>...
 GET /api/search?q=<query>&source=<source>&channel_id=<id>&date_from=<yyyy-mm-dd>&date_to=<yyyy-mm-dd>&has_predictions=<true|false>&limit=<n>&offset=<n>
 GET /api/items?source=<source>&channel_id=<id>&date_from=<yyyy-mm-dd>&date_to=<yyyy-mm-dd>&has_predictions=<true|false>&limit=<n>&offset=<n>

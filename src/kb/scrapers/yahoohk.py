@@ -298,6 +298,20 @@ class YahooHKScraper(BaseScraper):
                             return
                     pagination = stream.get("pagination") or {}
                     total = int(pagination.get("total") or 0)
+                    if total > 0:
+                        try:
+                            from sqlalchemy import text as _t
+                            from ..db import engine as _eng
+                            with _eng().begin() as _c:
+                                _c.execute(_t("""
+                                    UPDATE channel SET metadata =
+                                        jsonb_set(COALESCE(metadata, '{}'::jsonb),
+                                                  '{total_seen}', to_jsonb(:n))
+                                    WHERE source_id = (SELECT id FROM source WHERE code='yahoohk')
+                                      AND handle = :h
+                                """), {"n": total, "h": slug})
+                        except Exception:  # noqa: BLE001
+                            self.log.debug("store total_seen failed", exc_info=True)
                     start += len(items)
                     if not pagination.get("nextPage") or start >= total:
                         break
@@ -396,7 +410,7 @@ class YahooHKScraper(BaseScraper):
             return out
 
         out: list = []
-        async for d in self.discover(limit=limit, author_handle=author_handle):
+        async for d in self._recording_discover(limit=limit, author_handle=author_handle):
             if self.already_scraped(d):
                 self.log.info("skip (cached) %s", d.get("url") or d.get("external_id"))
                 continue

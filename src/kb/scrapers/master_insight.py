@@ -239,7 +239,7 @@ class MasterInsightScraper(BaseScraper):
             return out
 
         out: list[Path] = []
-        async for d in self.discover(limit=limit, author_handle=author_handle):
+        async for d in self._recording_discover(limit=limit, author_handle=author_handle):
             if self.already_scraped(d):
                 self.log.info("skip (cached) %s", d.get("url") or d.get("external_id"))
                 continue

@@ -71,6 +71,44 @@ their links to items.
 
 `item_link` stores similarity links between items.
 
+## Pipeline Tracking
+
+The scrape → ingest → extract pipeline records its progress in two places:
+
+- **Per-item stage timestamps** on `item`: `ingested_at` and `extracted_at`
+  (nullable). `ingested_at` is stamped by `kb ingest` on insert and re-ingest;
+  `extracted_at` is stamped when an extraction run is promoted to primary.
+  They let the item detail / future views show when each item moved through
+  each stage, and they back the per-source rollup.
+
+- **`source_progress`** — one row per `source`, holding aggregate counters and
+  last-run timestamps the dashboard reads in O(sources): `n_downloaded`,
+  `n_ingested`, `n_extracted`, `n_extract_pending`, `n_extract_error`, plus
+  `last_scrape_at` / `last_ingest_at` / `last_extract_at`. Counters are
+  incremented at the pipeline boundaries (`scrapers.base.write_md`,
+  `ingest.ingest_file`, `extract._promote_primary` and the error paths) via
+  `src/kb/progress.py`, and reconciled from the `item` table by
+  `kb progress recompute` and at the end of every `kb extract run` batch.
+  `n_downloaded` is best-effort: it tracks scrape write events from when the
+  feature shipped forward and is reconciled against the hkej/patreon catalog
+  tables where they exist (filesystem-discovery sources have no historical
+  catalog to reconstruct it from).
+
+`discovery_catalog` records every item a scraper **discovers** (before fetch),
+so "discovered but not downloaded" is queryable and a half-dead scrape can be
+resumed. One row per `(source_id, external_id)`, carrying `channel_ref`,
+`title`, `url`, `published_at`, `discovered_at`/`last_seen_at`, a `downloaded`
+flag (+ `downloaded_at`, `md_path`), and the full original discovery
+`descriptor` (JSONB) used to reconstruct a fetchable descriptor for resume.
+Used by the 5 filesystem-discovery sources (youtube, blog/macrovoices/madxcap,
+substack, yahoohk, master-insight) via the `_recording_discover` wrapper in
+`scrapers/base.py` and `catalog.mark_downloaded` in `write_md`. hkej and
+patreon keep their richer native catalogs
+(`hkej_article_catalog`/`patreon_post_catalog`) with run/page fingerprinting
+and resume cursors; their pending counts are unioned in at read time by
+`catalog.pending_counts()`. Re-attempt pending items with
+`kb scrape resume <code>`.
+
 `leaderboard_weekly` stores weekly channel scoring rollups.
 
 `provider_model_leaderboard` stores accuracy rollups grouped by

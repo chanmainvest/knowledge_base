@@ -288,7 +288,7 @@ class YouTubeScraper(BaseScraper):
 
     async def run(self, limit: int | None = None) -> list[Path]:
         out: list[Path] = []
-        async for d in self.discover(limit=limit):
+        async for d in self._recording_discover(limit=limit):
             if self.already_scraped(d):
                 self.log.info("skip (cached) %s", d.get("url") or d.get("external_id"))
                 continue

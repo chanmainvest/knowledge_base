@@ -168,6 +168,49 @@ def sources() -> list[dict[str, Any]]:
     return [dict(r) for r in rows]
 
 
+@app.get("/api/dashboard")
+def dashboard() -> dict[str, Any]:
+    """Per-source pipeline progress (download → ingest → extract) and global
+    totals. Reads the precomputed `source_progress` table so this is O(sources)
+    regardless of item volume. Counters are kept accurate by the scrape/ingest/
+    extract boundary hooks and reconciled by `kb progress recompute`.
+
+    `n_pending_download` (discovered but not yet downloaded) and
+    `total_known` (upstream total where the source API exposes one) come from
+    the discovery catalog helpers."""
+    from .. import catalog
+    pending_dl = catalog.pending_counts()
+    totals_known = catalog.known_totals()
+    with engine().connect() as c:
+        rows = c.execute(text("""
+            SELECT s.code, s.name, s.kind,
+                   COALESCE(sp.n_downloaded, 0)      AS n_downloaded,
+                   COALESCE(sp.n_ingested, 0)        AS n_ingested,
+                   COALESCE(sp.n_extracted, 0)       AS n_extracted,
+                   COALESCE(sp.n_extract_pending, 0) AS n_extract_pending,
+                   COALESCE(sp.n_extract_error, 0)   AS n_extract_error,
+                   sp.last_scrape_at, sp.last_ingest_at, sp.last_extract_at
+            FROM source s
+            LEFT JOIN source_progress sp ON sp.source_id = s.id
+            ORDER BY s.name
+        """)).mappings().all()
+    sources_list = []
+    for r in rows:
+        d = dict(r)
+        d["n_pending_download"] = pending_dl.get(d["code"], 0)
+        d["total_known"] = totals_known.get(d["code"])
+        sources_list.append(d)
+    totals = {
+        "n_downloaded":       sum(r["n_downloaded"] for r in sources_list),
+        "n_ingested":         sum(r["n_ingested"] for r in sources_list),
+        "n_extracted":        sum(r["n_extracted"] for r in sources_list),
+        "n_extract_pending":  sum(r["n_extract_pending"] for r in sources_list),
+        "n_extract_error":    sum(r["n_extract_error"] for r in sources_list),
+        "n_pending_download": sum(r["n_pending_download"] for r in sources_list),
+    }
+    return {"sources": sources_list, "totals": totals}
+
+
 @app.get("/api/channels")
 def channels(source: list[str] | None = Query(None)) -> list[dict[str, Any]]:
     """Channels, optionally filtered to one or more source codes (multi-select).

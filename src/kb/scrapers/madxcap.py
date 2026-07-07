@@ -257,7 +257,7 @@ class MadxcapScraper(BaseScraper):
         source_type: str | None = None,
     ) -> list[Path]:
         out: list[Path] = []
-        async for d in self.discover(limit=limit, source_type=source_type):
+        async for d in self._recording_discover(limit=limit, source_type=source_type):
             if self.already_scraped(d):
                 self.log.info("skip (cached) %s", d.get("url") or d.get("external_id"))
                 continue

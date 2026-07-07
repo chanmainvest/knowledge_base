@@ -11,6 +11,7 @@ const ItemPage = lazy(() => import("./pages/Item").then(m => ({ default: m.ItemP
 const LeaderboardPage = lazy(() => import("./pages/Leaderboard").then(m => ({ default: m.LeaderboardPage })));
 const ChannelsPage = lazy(() => import("./pages/Channels").then(m => ({ default: m.ChannelsPage })));
 const PredictionsPage = lazy(() => import("./pages/Predictions").then(m => ({ default: m.PredictionsPage })));
+const DashboardPage = lazy(() => import("./pages/Dashboard").then(m => ({ default: m.DashboardPage })));
 
 function Shell() {
   const linkCls = ({ isActive }: { isActive: boolean }) =>
@@ -21,6 +22,7 @@ function Shell() {
         <div className="max-w-6xl mx-auto px-4 py-3 flex gap-2 items-center">
           <div className="font-semibold text-accent mr-4">KB</div>
           <nav className="flex gap-1 text-sm">
+            <NavLink to="/dashboard" className={linkCls}>Dashboard</NavLink>
             <NavLink to="/search" className={linkCls}>Search</NavLink>
             <NavLink to="/channels" className={linkCls}>Channels</NavLink>
             <NavLink to="/predictions" className={linkCls}>Predictions</NavLink>
@@ -32,7 +34,8 @@ function Shell() {
         <div className="max-w-6xl mx-auto px-4 py-6">
           <Suspense fallback={<div className="text-mute">Loading…</div>}>
             <Routes>
-              <Route path="/" element={<Navigate to="/search" replace />} />
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/items/:id" element={<ItemPage />} />
               <Route path="/channels" element={<ChannelsPage />} />

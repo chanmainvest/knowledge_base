@@ -1062,6 +1062,12 @@ class HKEJScraper(BaseScraper):
                     "raw": str(raw_path) if raw_path.exists() else None,
                 },
             )
+        # Record against the unified per-source progress counter.
+        try:
+            from .. import progress
+            progress.mark_downloaded(self.effective_source_code)
+        except Exception:  # noqa: BLE001
+            self.log.debug("progress.mark_downloaded failed", exc_info=True)
 
     # ------------------------------------------------------------------
     async def _list_articles_from_search(

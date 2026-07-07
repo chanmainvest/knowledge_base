@@ -37,6 +37,7 @@ function listParams(q: ListQuery): URLSearchParams {
 export const api = {
   search: (q: ListQuery = {}) => get<SearchResult>(`/api/search?${listParams(q)}`),
   sources: () => get<Source[]>("/api/sources"),
+  dashboard: () => get<Dashboard>("/api/dashboard"),
   channels: (source?: string[]) => {
     const p = new URLSearchParams();
     for (const s of source ?? []) p.append("source", s);
@@ -112,3 +113,17 @@ export interface LBRow {
   week_start?: string;
 }
 export interface LB { weekly: LBRow[]; overall: LBRow[]; }
+
+// Dashboard: per-source pipeline progress (download → ingest → extract).
+export interface DashboardSource {
+  code: string; name: string; kind: string;
+  n_downloaded: number; n_ingested: number; n_extracted: number;
+  n_extract_pending: number; n_extract_error: number;
+  n_pending_download: number; total_known: number | null;
+  last_scrape_at: string | null; last_ingest_at: string | null; last_extract_at: string | null;
+}
+export interface DashboardTotals {
+  n_downloaded: number; n_ingested: number; n_extracted: number;
+  n_extract_pending: number; n_extract_error: number; n_pending_download: number;
+}
+export interface Dashboard { sources: DashboardSource[]; totals: DashboardTotals; }

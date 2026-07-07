@@ -193,7 +193,7 @@ def extract_item(item_id: int, provider: str | None = None, model: str | None = 
 
     with engine().begin() as conn:
         row = conn.execute(text(
-            "SELECT id, title, content, language, published_at, channel_id "
+            "SELECT id, title, content, language, published_at, channel_id, source_id "
             "FROM item WHERE id=:i"), {"i": item_id}).mappings().first()
     if not row or not row["content"]:
         log.info("skip empty item %s", item_id)
@@ -225,8 +225,14 @@ def extract_item(item_id: int, provider: str | None = None, model: str | None = 
             # forever with no record of why. Now it's surfaced as 'error'.
             with engine().begin() as conn:
                 conn.execute(text(
-                    "UPDATE item SET extraction_status='error', extraction_error=:e WHERE id=:i"),
+                    "UPDATE item SET extraction_status='error', extraction_error=:e "
+                    "WHERE id=:i"),
                     {"e": err[:500], "i": item_id})
+            try:
+                from . import progress
+                progress.mark_extracted(row["source_id"], "error")
+            except Exception:  # noqa: BLE001
+                log.debug("progress.mark_extracted(error) failed", exc_info=True)
         return None
 
     duration_ms = int((time.monotonic() - started) * 1000)
@@ -235,6 +241,16 @@ def extract_item(item_id: int, provider: str | None = None, model: str | None = 
     _persist(run_id, item_id, row, aggregate)
     if make_primary:
         _promote_primary(item_id, run_id, aggregate)
+        # Stamp the item's extraction timestamp and bump the per-source
+        # progress counter. Best-effort: never abort a successful extract.
+        try:
+            from . import progress
+            with engine().begin() as conn:
+                conn.execute(text("UPDATE item SET extracted_at=now() WHERE id=:i"),
+                             {"i": item_id})
+            progress.mark_extracted(row["source_id"], "done")
+        except Exception:  # noqa: BLE001
+            log.debug("progress.mark_extracted(done) failed", exc_info=True)
     return aggregate
 
 
@@ -407,5 +423,13 @@ def run(limit: int = 50, provider: str | None = None, model: str | None = None) 
                                   "extraction_error=:e WHERE id=:i"),
                              {"e": str(exc)[:500], "i": iid})
     log.info("extracted %d items", n)
+    # Reconcile per-source progress counters from the item table as a safety
+    # net against any increment drift during the batch. Cheap (one query per
+    # source) and authoritative.
+    try:
+        from . import progress
+        progress.recompute()
+    except Exception:  # noqa: BLE001
+        log.debug("progress.recompute after batch failed", exc_info=True)
     return n
 

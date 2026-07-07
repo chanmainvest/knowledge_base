@@ -1407,6 +1407,12 @@ class PatreonScraper(BaseScraper):
                 ),
                 {"md": md_path, "ch": channel_id, "eid": str(external_id)},
             )
+        # Record against the unified per-source progress counter.
+        try:
+            from .. import progress
+            progress.mark_downloaded(self.effective_source_code)
+        except Exception:  # noqa: BLE001
+            self.log.debug("progress.mark_downloaded failed", exc_info=True)
 
     @staticmethod
     def _extract_total(page: dict) -> int | None:
