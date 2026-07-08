@@ -240,8 +240,19 @@ class YouTubeScraper(BaseScraper):
         super().__init__()
         if not shutil.which("yt-dlp"):
             self.log.warning("yt-dlp not on PATH; will try via 'python -m yt_dlp'")
+        # Optional round-robin proxy pool (SSH SOCKS5 tunnels). Set by the CLI
+        # before run(); None = direct connection.
+        self.proxy_pool = None  # type: ignore[assignment]
 
     # ---- helpers ---------------------------------------------------------
+    def _next_proxy(self) -> str | None:
+        """The proxy URL for the next yt-dlp call: round-robin across the
+        pool if set, else the static ``YT_DLP_PROXY`` env setting, else None."""
+        if self.proxy_pool is not None:
+            return self.proxy_pool.next()
+        p = settings().yt_dlp_proxy
+        return p or None
+
     def _ytdlp(self, *args: str, **kw) -> subprocess.CompletedProcess:
         import sys
         cmd = (["yt-dlp"] if shutil.which("yt-dlp")
@@ -249,6 +260,9 @@ class YouTubeScraper(BaseScraper):
         cb = settings().yt_dlp_cookies_from_browser
         if cb:
             cmd += ["--cookies-from-browser", cb]
+        proxy = self._next_proxy()
+        if proxy:
+            cmd += ["--proxy", proxy, "--force-ipv4"]
         cmd += ["--user-agent", settings().scrape_user_agent]
         return subprocess.run(cmd, capture_output=True, text=True,
                               encoding="utf-8", errors="replace", **kw)
@@ -261,6 +275,46 @@ class YouTubeScraper(BaseScraper):
     ) -> subprocess.CompletedProcess:
         await self.limiter.wait(url)
         return self._ytdlp(*args, **kw)
+
+    def _fetch_transcript_api(self, video_id: str) -> str:
+        """Fetch a transcript via the youtube-transcript-api library, routing
+        through the current proxy (round-robin) and carrying the local
+        browser's YouTube cookies — the same cookies yt-dlp gets via
+        ``--cookies-from-browser``. Returns the transcript text, or empty
+        string if unavailable."""
+        import requests
+        session = requests.Session()
+        # Proxy: round-robin pool → static env → none.
+        proxy = self._next_proxy()
+        if proxy:
+            session.proxies.update({"http": proxy, "https": proxy})
+        # Cookies: mirror yt-dlp's --cookies-from-browser so the in-process
+        # library is authenticated the same way the subprocess is.
+        cb = settings().yt_dlp_cookies_from_browser
+        if cb:
+            try:
+                import browser_cookie3
+                # browser_cookie3 exposes chrome/firefox/edge/... loaders by name.
+                loader = getattr(browser_cookie3, cb, None)
+                if loader is None:
+                    # Support "chrome:Profile" style specs like substack does.
+                    loader = getattr(browser_cookie3, cb.split(":")[0], None)
+                if loader is not None:
+                    session.cookies.update(loader(domain_name=".youtube.com"))
+            except Exception:  # noqa: BLE001
+                self.log.debug("browser cookie load failed for transcript-api",
+                               exc_info=True)
+        from youtube_transcript_api import YouTubeTranscriptApi
+        langs = ["en", "zh-Hant", "zh-Hans", "zh"]
+        # New API (v1.0+): constructor takes http_client; .fetch() per video.
+        # Old API: classmethod .get_transcript(video_id, languages=...).
+        if hasattr(YouTubeTranscriptApi, "get_transcript"):
+            tx = YouTubeTranscriptApi.get_transcript(video_id, languages=langs,
+                                                      cookies=session.cookies)
+            return "\n".join(seg["text"] for seg in tx)
+        api = YouTubeTranscriptApi(http_client=session)
+        fetched = api.fetch(video_id, languages=langs)
+        return "\n".join(s.text for s in fetched)
 
     def resolve_channel_display_name(self, handle: str) -> str | None:
         """Return the channel title YouTube reports for *handle* (via yt-dlp)."""
@@ -426,18 +480,15 @@ class YouTubeScraper(BaseScraper):
             transcript_text = self._vtt_to_text(vtt.read_text("utf-8")) if vtt else ""
 
         if not transcript_text:
-            # Last-ditch: youtube-transcript-api (supports both old + new API)
+            # Last-ditch: youtube-transcript-api. This library uses requests
+            # in-process, so it does NOT pick up yt-dlp's --proxy flag or its
+            # --cookies-from-browser. Build a requests.Session carrying both
+            # the proxy (round-robin from the pool, or the static env setting)
+            # and the YouTube cookie jar from the local browser, then pass it
+            # as the library's http_client.
+            await self.limiter.wait(d["url"])
             try:
-                await self.limiter.wait(d["url"])
-                from youtube_transcript_api import YouTubeTranscriptApi
-                langs = ["en", "zh-Hant", "zh-Hans", "zh"]
-                if hasattr(YouTubeTranscriptApi, "get_transcript"):
-                    tx = YouTubeTranscriptApi.get_transcript(d["external_id"], languages=langs)
-                    transcript_text = "\n".join(seg["text"] for seg in tx)
-                else:
-                    api = YouTubeTranscriptApi()
-                    fetched = api.fetch(d["external_id"], languages=langs)
-                    transcript_text = "\n".join(s.text for s in fetched)
+                transcript_text = self._fetch_transcript_api(d["external_id"])
             except Exception as exc:  # noqa: BLE001
                 self.log.info("no transcript for %s :: %s", d["external_id"], exc)
 

@@ -15,7 +15,7 @@ from . import ingest as ingest_mod
 from . import leaderboard as lb_mod
 from . import links as links_mod
 from .api.main import main as api_main
-from .config import DATA_DIR, ROOT
+from .config import DATA_DIR, ROOT, settings
 from .db import engine
 from .logging_setup import get_logger
 from .scrapers import SCRAPERS, get as get_scraper
@@ -289,18 +289,39 @@ def youtube_migrate_folders(
 @youtube_app.command("scrape")
 def youtube_scrape(
     limit: int = typer.Option(0, help="Max videos to inspect per channel (0 = all)"),
+    proxy_hosts: str = typer.Option(
+        "", help="Comma-separated SSH host aliases to open SOCKS5 tunnels to, "
+                 "distributing requests round-robin (e.g. oc1.hevangel.com,serv00). "
+                 "Falls back to YT_DLP_PROXY_HOSTS env var."),
 ) -> None:
     """Scrape registered YouTube channels."""
-    scrape_run(code="youtube", limit=limit)
+    scrape_run(code="youtube", limit=limit, proxy_hosts=proxy_hosts)
 
 
 @scrape_app.command("run")
 def scrape_run(
     code: str,
     limit: int = typer.Option(0, help="0 = unlimited"),
-    source_type: str | None = typer.Option(None, help="Filter by content type (e.g. dcard, facebook for madxcap)"),
+    source_type: str = typer.Option(None, help="Filter by content type (e.g. dcard, facebook for madxcap)"),
+    proxy_hosts: str = typer.Option(
+        "", help="Comma-separated SSH host aliases for SOCKS5 round-robin proxying "
+                 "(YouTube only). Falls back to YT_DLP_PROXY_HOSTS env var."),
 ) -> None:
     sc = get_scraper(code)
+    # Resolve the proxy host list: CLI flag → env default → none (direct).
+    hosts_raw = proxy_hosts or settings().yt_dlp_proxy_hosts
+    hosts = [h.strip() for h in hosts_raw.split(",") if h.strip()] if hosts_raw else []
+    pool_cm = None
+    if hosts:
+        from .scrapers.proxy import ProxyPool
+        pool_cm = ProxyPool(hosts)
+        pool_cm.start()
+        if pool_cm.urls:
+            sc.proxy_pool = pool_cm  # type: ignore[attr-defined]
+            print(f"[cyan]proxy[/cyan] round-robin across {len(pool_cm.urls)} tunnel(s): "
+                  + ", ".join(pool_cm.urls))
+        else:
+            print("[yellow]proxy[/yellow] no tunnels came up; continuing direct")
     try:
         kwargs = {"limit": limit or None}
         if isinstance(source_type, str):
@@ -309,6 +330,9 @@ def scrape_run(
     except Exception as exc:  # noqa: BLE001
         log.exception("scrape crashed: %s", exc)
         paths = []
+    finally:
+        if pool_cm is not None:
+            pool_cm.stop()
     print(f"[green]{len(paths)}[/green] new files for {code}")
     for p in paths:
         try:
@@ -728,7 +752,6 @@ def master_insight_add_author(
 
     import httpx
     from bs4 import BeautifulSoup
-    from .config import settings
 
     headers = {
         "User-Agent": settings().scrape_user_agent,

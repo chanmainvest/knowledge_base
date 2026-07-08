@@ -22,6 +22,18 @@
 - Scrape `--limit` is source-unit scoped where implemented, not necessarily a
   global output cap. For YouTube, `kb youtube scrape --limit N` inspects up to
   N videos per registered channel and does not stop after N total new files.
+- **YouTube proxy** (optional): to avoid YouTube's per-IP rate limiting (HTTP
+  429), yt-dlp can route through SOCKS5 tunnels over SSH. `--proxy-hosts
+  oc1.hevangel.com,serv00` opens one `ssh -D` tunnel per host (ports 1081+)
+  and round-robins each yt-dlp call across them; falls back to the
+  `YT_DLP_PROXY_HOSTS` env var if the flag is omitted, and to a direct
+  connection if neither is set. A single manual tunnel is also supported via
+  `YT_DLP_PROXY=socks5://127.0.0.1:1080`. The proxy covers both yt-dlp calls
+  (via `--proxy`) and the `youtube-transcript-api` fallback (via
+  `HTTPS_PROXY`/`ALL_PROXY` env vars set around the call). Available SSH host
+  aliases (configured in `~/.ssh/config`): `hevangel.com`,
+  `oc1/2/3/4.hevangel.com`, `horace.org`, `serv00`. The `ProxyPool` tunnel
+  manager lives in `src/kb/scrapers/proxy.py`.
 - Markdown is the canonical raw form. Each item's markdown front-matter
   carries `source`, `channel`, `external_id`, `url`, `published_at`, `title`,
   `lang`, plus source-specific fields. The DB row is regenerated from the

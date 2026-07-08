@@ -44,6 +44,8 @@ class Settings(BaseSettings):
     scrape_user_agent: str = "Mozilla/5.0 KB-Personal/0.1"
     scrape_max_retries: int = 3
     yt_dlp_cookies_from_browser: str = ""
+    yt_dlp_proxy: str = ""        # single proxy URL, e.g. socks5://127.0.0.1:1080 (manual tunnel)
+    yt_dlp_proxy_hosts: str = ""  # comma-separated SSH aliases, e.g. oc1.hevangel.com,serv00 (auto tunnels)
     patreon_cookies_from_browser: str = ""  # e.g. chrome, edge — reads session_id if PATREON_SESSION_ID unset
     substack_cookies_from_browser: str = ""  # e.g. chrome, edge — reads substack.sid if SUBSTACK_SESSION_COOKIE unset
 
