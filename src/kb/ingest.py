@@ -48,13 +48,14 @@ def ingest_file(md_path: Path) -> int | None:
         item_id = conn.execute(text("""
             INSERT INTO item(source_id, channel_id, external_id, title, url,
                              published_at, language, duration_sec, md_path,
-                             content, metadata, ingested_at)
-            VALUES (:s,:ch,:eid,:t,:u,:p,:l,:d,:mp,:c,:m, now())
+                             content, metadata, has_transcript, ingested_at)
+            VALUES (:s,:ch,:eid,:t,:u,:p,:l,:d,:mp,:c,:m,:ht, now())
             ON CONFLICT (source_id, external_id) DO UPDATE SET
               title=EXCLUDED.title, url=EXCLUDED.url, published_at=EXCLUDED.published_at,
               language=EXCLUDED.language, duration_sec=EXCLUDED.duration_sec,
               md_path=EXCLUDED.md_path, content=EXCLUDED.content,
-              metadata=EXCLUDED.metadata, ingested_at=now()
+              metadata=EXCLUDED.metadata, has_transcript=EXCLUDED.has_transcript,
+              ingested_at=now()
             RETURNING id
         """), {
             "s": sid, "ch": cid, "eid": fm["external_id"],
@@ -64,6 +65,7 @@ def ingest_file(md_path: Path) -> int | None:
             "mp": str(md_path),
             "c": doc.body,
             "m": _json(fm.get("extra") or {}),
+            "ht": bool(fm.get("has_transcript", True)),
         }).scalar_one()
     # Bump the per-source progress counter (best-effort; never abort ingest).
     try:

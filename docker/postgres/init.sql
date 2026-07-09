@@ -454,6 +454,17 @@ ALTER TABLE item ADD COLUMN IF NOT EXISTS extracted_at TIMESTAMPTZ;
 CREATE INDEX IF NOT EXISTS item_ingested_at_idx  ON item(ingested_at);
 CREATE INDEX IF NOT EXISTS item_extracted_at_idx ON item(extracted_at);
 
+-- YouTube transcript availability. True by default: only YouTube videos whose
+-- markdown body carries the "_(no transcript available)_" marker are false.
+-- The backfill block below sets the value for pre-existing rows; ingest and
+-- the scraper keep it current for new rows. Non-YouTube sources are always
+-- true (they always have body content).
+ALTER TABLE item ADD COLUMN IF NOT EXISTS has_transcript BOOLEAN NOT NULL DEFAULT true;
+-- Partial index: only the (relatively few) rows missing a transcript, so the
+-- dashboard's "videos without transcript" query stays cheap.
+CREATE INDEX IF NOT EXISTS item_has_transcript_idx
+    ON item (source_id) WHERE has_transcript = false;
+
 CREATE TABLE IF NOT EXISTS source_progress (
     source_id         INT PRIMARY KEY REFERENCES source(id) ON DELETE CASCADE,
     n_downloaded      INT NOT NULL DEFAULT 0,   -- files written under data/ (best-effort, tracked forward)
@@ -488,6 +499,23 @@ BEGIN
         WHERE er.id = i.primary_extraction_run_id
           AND i.extraction_status = 'done'
           AND i.extracted_at IS NULL;
+    END IF;
+END $$;
+
+-- One-shot backfill of has_transcript for pre-existing YouTube items. Guarded
+-- by a sentinel so it only fires when there are still-defaulted rows that are
+-- actually missing a transcript (avoids re-scanning content on every replay).
+-- Detection: the markdown body's "## Transcript" section is exactly the
+-- placeholder "_(no transcript available)_". Non-YouTube rows stay true.
+DO $$
+BEGIN
+    IF EXISTS (SELECT 1 FROM item
+               WHERE has_transcript = true
+                 AND content LIKE '%## Transcript%_(no transcript available)_%'
+               LIMIT 1) THEN
+        UPDATE item SET has_transcript = false
+        WHERE has_transcript = true
+          AND content LIKE '%## Transcript%_(no transcript available)_%';
     END IF;
 END $$;
 

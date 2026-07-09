@@ -24,16 +24,41 @@
   N videos per registered channel and does not stop after N total new files.
 - **YouTube proxy** (optional): to avoid YouTube's per-IP rate limiting (HTTP
   429), yt-dlp can route through SOCKS5 tunnels over SSH. `--proxy-hosts
-  oc1.hevangel.com,serv00` opens one `ssh -D` tunnel per host (ports 1081+)
-  and round-robins each yt-dlp call across them; falls back to the
+  oc1.hevangel.com,horace.org` opens one `ssh -D` tunnel per host and
+  round-robins each yt-dlp call across them; falls back to the
   `YT_DLP_PROXY_HOSTS` env var if the flag is omitted, and to a direct
   connection if neither is set. A single manual tunnel is also supported via
-  `YT_DLP_PROXY=socks5://127.0.0.1:1080`. The proxy covers both yt-dlp calls
-  (via `--proxy`) and the `youtube-transcript-api` fallback (via
-  `HTTPS_PROXY`/`ALL_PROXY` env vars set around the call). Available SSH host
-  aliases (configured in `~/.ssh/config`): `hevangel.com`,
-  `oc1/2/3/4.hevangel.com`, `horace.org`, `serv00`. The `ProxyPool` tunnel
-  manager lives in `src/kb/scrapers/proxy.py`.
+  `YT_DLP_PROXY=socks5://127.0.0.1:1080`. yt-dlp calls get `--proxy` (also
+  `--force-ipv4` + `--retries 8 --socket-timeout 30` to survive a tunnel
+  dropping mid-transfer). The `youtube-transcript-api` fallback deliberately
+  goes **direct** (residential IP), not through the proxy — see the split
+  below. Available SSH host aliases (configured in `~/.ssh/config`):
+  `hevangel.com`, `oc1/2/3/4.hevangel.com`, `horace.org`, `serv00`. The
+  `ProxyPool` tunnel manager lives in `src/kb/scrapers/proxy.py`.
+- **Proxy vs transcript split** (important): yt-dlp routes through the SOCKS5
+  pool because it uses the innertube API, which tolerates cloud IPs. But
+  `youtube-transcript-api` scrapes the `/watch` page, which YouTube blocks
+  from cloud-provider IP ranges (Oracle Cloud / AWS / GCP / Azure) with
+  `RequestBlocked`. So the transcript fallback goes direct from the
+  residential IP, where it works (verified: 16k-char transcript fetched
+  direct vs `RequestBlocked` through every proxy egress). Do NOT add the
+  proxy to `_fetch_transcript_api`.
+- **serv00 excluded from proxy pool**: `serv00` accepts the SSH connection
+  and binds the SOCKS port (tunnel appears "up"), but its SOCKS forwarding
+  fails for actual requests (curl rc=97 / connection refused). It is omitted
+  from the default `YT_DLP_PROXY_HOSTS`; the working hosts are
+  `oc1/2/3/4.hevangel.com` and `horace.org`.
+- **ProxyPool port & process hygiene** (Windows-specific gotcha): each tunnel
+  binds the first *free* port at or above 1081, not a fixed `base_port+i`, and
+  `stop()` kills ssh via `taskkill /F /T` (not `terminate()`, which ssh.exe on
+  Windows routinely ignores). This matters because: (1) orphaned ssh
+  processes from a prior run hold their port, and `ExitOnForwardFailure=yes`
+  then kills the new ssh silently — the symptom is every tunnel "dying within
+  seconds", which was previously misdiagnosed as host-side instability. (2)
+  Without `taskkill`, torn-down tunnels orphan and squat ports, breaking the
+  next run. `next()` also calls `_reap()` to skip any tunnel whose ssh has
+  exited, so a dead connection is never handed to yt-dlp (the cause of its
+  `4 bytes missing` SOCKS5 EOFError).
 - Markdown is the canonical raw form. Each item's markdown front-matter
   carries `source`, `channel`, `external_id`, `url`, `published_at`, `title`,
   `lang`, plus source-specific fields. The DB row is regenerated from the

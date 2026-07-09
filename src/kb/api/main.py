@@ -171,32 +171,46 @@ def sources() -> list[dict[str, Any]]:
 @app.get("/api/dashboard")
 def dashboard() -> dict[str, Any]:
     """Per-source pipeline progress (download → ingest → extract) and global
-    totals. Reads the precomputed `source_progress` table so this is O(sources)
-    regardless of item volume. Counters are kept accurate by the scrape/ingest/
-    extract boundary hooks and reconciled by `kb progress recompute`.
+    totals.
 
-    `n_pending_download` (discovered but not yet downloaded) and
-    `total_known` (upstream total where the source API exposes one) come from
-    the discovery catalog helpers."""
+    Counters are computed **live** from the `item` table (a single GROUP BY),
+    so they are always authoritative and can never drift the way the
+    incrementally-maintained `source_progress` cache did — `n_extract_pending`
+    is exactly `n_ingested - n_extracted - n_extract_error` by construction.
+    Two fields still need the cache/helpers: `n_downloaded` (from a disk scan,
+    since not every downloaded file has an `item` row yet) and `last_scrape_at`
+    (not derivable from items). `n_pending_download` (discovered but not yet
+    downloaded) and `total_known` (upstream total where the source API exposes
+    one) come from the discovery catalog helpers."""
     from .. import catalog
+    from ..progress import count_downloaded_on_disk
     pending_dl = catalog.pending_counts()
     totals_known = catalog.known_totals()
+    disk = count_downloaded_on_disk()
     with engine().connect() as c:
         rows = c.execute(text("""
-            SELECT s.code, s.name, s.kind,
-                   COALESCE(sp.n_downloaded, 0)      AS n_downloaded,
-                   COALESCE(sp.n_ingested, 0)        AS n_ingested,
-                   COALESCE(sp.n_extracted, 0)       AS n_extracted,
-                   COALESCE(sp.n_extract_pending, 0) AS n_extract_pending,
-                   COALESCE(sp.n_extract_error, 0)   AS n_extract_error,
-                   sp.last_scrape_at, sp.last_ingest_at, sp.last_extract_at
+            SELECT s.id, s.code, s.name, s.kind,
+                   COUNT(i.id)                                                    AS n_ingested,
+                   COUNT(i.id) FILTER (WHERE i.extraction_status = 'done')        AS n_extracted,
+                   COUNT(i.id) FILTER (WHERE i.extraction_status = 'pending')     AS n_extract_pending,
+                   COUNT(i.id) FILTER (WHERE i.extraction_status = 'error')       AS n_extract_error,
+                   COUNT(i.id) FILTER (WHERE i.has_transcript = false)            AS n_no_transcript,
+                   MAX(i.ingested_at)                                             AS last_ingest_at,
+                   MAX(i.extracted_at)                                            AS last_extract_at,
+                   sp.last_scrape_at
             FROM source s
+            LEFT JOIN item i ON i.source_id = s.id
             LEFT JOIN source_progress sp ON sp.source_id = s.id
+            GROUP BY s.id, s.code, s.name, s.kind, sp.last_scrape_at
             ORDER BY s.name
         """)).mappings().all()
     sources_list = []
     for r in rows:
         d = dict(r)
+        # n_downloaded is the only count not derivable from the item table:
+        # downloaded-but-not-yet-ingested files have no item row, and the disk
+        # is the ground truth for what's been scraped.
+        d["n_downloaded"] = disk.get(d["code"], 0)
         d["n_pending_download"] = pending_dl.get(d["code"], 0)
         d["total_known"] = totals_known.get(d["code"])
         sources_list.append(d)
@@ -207,6 +221,7 @@ def dashboard() -> dict[str, Any]:
         "n_extract_pending":  sum(r["n_extract_pending"] for r in sources_list),
         "n_extract_error":    sum(r["n_extract_error"] for r in sources_list),
         "n_pending_download": sum(r["n_pending_download"] for r in sources_list),
+        "n_no_transcript":    sum(r["n_no_transcript"] for r in sources_list),
     }
     return {"sources": sources_list, "totals": totals}
 

@@ -307,9 +307,19 @@ def scrape_run(
         "", help="Comma-separated SSH host aliases for SOCKS5 round-robin proxying "
                  "(YouTube only). Falls back to YT_DLP_PROXY_HOSTS env var."),
 ) -> None:
+    # When called directly (e.g. from scrape_all) rather than via the Typer CLI,
+    # unset Option/Argument params keep Typer's OptionInfo/ArgumentInfo sentinel
+    # instead of their declared default — and that object is truthy, which would
+    # break the str ops below. Coerce them to the documented defaults.
+    if not isinstance(proxy_hosts, str):
+        proxy_hosts = ""
+    if not isinstance(source_type, str):
+        source_type = None
     sc = get_scraper(code)
     # Resolve the proxy host list: CLI flag → env default → none (direct).
-    hosts_raw = proxy_hosts or settings().yt_dlp_proxy_hosts
+    # The SOCKS5 pool is YouTube-only (it's what hits yt-dlp's per-IP rate
+    # limits); don't pay the SSH-tunnel setup cost for the other sources.
+    hosts_raw = proxy_hosts or (settings().yt_dlp_proxy_hosts if code == "youtube" else "")
     hosts = [h.strip() for h in hosts_raw.split(",") if h.strip()] if hosts_raw else []
     pool_cm = None
     if hosts:

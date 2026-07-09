@@ -44,6 +44,7 @@ class ScrapedItem:
     folder_name: str | None = None  # override leaf folder/stem name
     flat_layout: bool = False  # True → flat .md + data/raw/ hierarchy (hkej, macrovoices)
     channel_dir: str | None = None  # override data/<source>/<dir>/ segment (e.g. display name)
+    has_transcript: bool = True  # False when no subtitle/transcript could be fetched (YouTube)
 
     def _storage_channel_slug(self) -> str:
         from ..io_md import slugify
@@ -219,6 +220,7 @@ class BaseScraper(abc.ABC):
             "duration_sec": item.duration_sec,
             "scraped_at": datetime.utcnow().isoformat() + "Z",
             "extra": item.extra or {},
+            "has_transcript": item.has_transcript,
         }
         doc = MdDoc(front=front, body=item.body_md)
         if item.flat_layout:

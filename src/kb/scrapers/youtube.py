@@ -22,6 +22,26 @@ from ..config import DATA_DIR, settings
 from ..io_md import load_md, slugify
 from .base import BaseScraper, ScrapedItem
 
+# Written into the markdown body (and detected by ingest/backfill) when neither
+# yt-dlp subtitles nor the youtube-transcript-api fallback produced any text.
+NO_TRANSCRIPT_MARKER = "_(no transcript available)_"
+
+
+def _find_deno() -> str | None:
+    """Locate the deno binary if installed. YouTube now requires a JS runtime
+    for full extraction (subtitle downloads fail without it). Checks PATH then
+    the default install location on Windows."""
+    p = shutil.which("deno")
+    if p:
+        return p
+    # Windows default install path from the official installer.
+    import sys
+    if sys.platform == "win32":
+        candidate = Path.home() / ".deno" / "bin" / "deno.exe"
+        if candidate.exists():
+            return str(candidate)
+    return None
+
 
 # Default channel list — used to seed the DB on first run.
 # After seeding, channels are managed exclusively in the DB via
@@ -260,9 +280,25 @@ class YouTubeScraper(BaseScraper):
         cb = settings().yt_dlp_cookies_from_browser
         if cb:
             cmd += ["--cookies-from-browser", cb]
+        # Deno JS runtime: YouTube now requires JavaScript execution for proper
+        # extraction; without it yt-dlp warns "extraction deprecated, formats
+        # may be missing" and subtitle downloads fail. Auto-detected if present.
+        deno = _find_deno()
+        if deno:
+            cmd += ["--js-runtimes", f"deno:{deno}"]
         proxy = self._next_proxy()
         if proxy:
-            cmd += ["--proxy", proxy, "--force-ipv4"]
+            # --force-ipv4 avoids SOCKS5 "4 bytes missing" chunking errors.
+            # Retries + socket timeout let yt-dlp recover when a tunnel drops
+            # mid-transfer (it will reconnect over a fresh proxy connection).
+            cmd += ["--proxy", proxy, "--force-ipv4",
+                    "--retries", "8", "--fragment-retries", "8",
+                    "--socket-timeout", "30"]
+        else:
+            # Even without a proxy, retries help recover from the timedtext
+            # endpoint's intermittent 429 rate-limiting during heavy scrapes.
+            cmd += ["--retries", "8", "--fragment-retries", "8",
+                    "--socket-timeout", "30"]
         cmd += ["--user-agent", settings().scrape_user_agent]
         return subprocess.run(cmd, capture_output=True, text=True,
                               encoding="utf-8", errors="replace", **kw)
@@ -277,17 +313,19 @@ class YouTubeScraper(BaseScraper):
         return self._ytdlp(*args, **kw)
 
     def _fetch_transcript_api(self, video_id: str) -> str:
-        """Fetch a transcript via the youtube-transcript-api library, routing
-        through the current proxy (round-robin) and carrying the local
-        browser's YouTube cookies — the same cookies yt-dlp gets via
-        ``--cookies-from-browser``. Returns the transcript text, or empty
-        string if unavailable."""
+        """Fetch a transcript via the youtube-transcript-api library, going
+        **direct** (residential IP) and carrying the local browser's YouTube
+        cookies — the same cookies yt-dlp gets via ``--cookies-from-browser``.
+        Returns the transcript text, or empty string if unavailable.
+
+        Note on proxies: yt-dlp (the primary fetcher) routes through the SOCKS5
+        pool because it hits the innertube API, which tolerates cloud IPs. But
+        youtube-transcript-api scrapes the ``/watch`` page, which YouTube
+        blocks from cloud-provider IP ranges (Oracle/AWS/GCP/Azure). So this
+        fallback deliberately does NOT use the proxy — a residential IP works
+        where every proxy egress gets ``RequestBlocked``."""
         import requests
         session = requests.Session()
-        # Proxy: round-robin pool → static env → none.
-        proxy = self._next_proxy()
-        if proxy:
-            session.proxies.update({"http": proxy, "https": proxy})
         # Cookies: mirror yt-dlp's --cookies-from-browser so the in-process
         # library is authenticated the same way the subprocess is.
         cb = settings().yt_dlp_cookies_from_browser
@@ -305,16 +343,32 @@ class YouTubeScraper(BaseScraper):
                 self.log.debug("browser cookie load failed for transcript-api",
                                exc_info=True)
         from youtube_transcript_api import YouTubeTranscriptApi
-        langs = ["en", "zh-Hant", "zh-Hans", "zh"]
+        # Try preferred languages first (English + Chinese), then fall back to
+        # any language. Many videos have auto-captions only in their original
+        # language (e.g. a Dutch video has Dutch captions, not English), so a
+        # narrow filter would miss them. The video's own language is always
+        # the most accurate transcript anyway.
+        preferred = ["en", "zh-Hant", "zh-Hans", "zh"]
         # New API (v1.0+): constructor takes http_client; .fetch() per video.
         # Old API: classmethod .get_transcript(video_id, languages=...).
-        if hasattr(YouTubeTranscriptApi, "get_transcript"):
-            tx = YouTubeTranscriptApi.get_transcript(video_id, languages=langs,
-                                                      cookies=session.cookies)
-            return "\n".join(seg["text"] for seg in tx)
-        api = YouTubeTranscriptApi(http_client=session)
-        fetched = api.fetch(video_id, languages=langs)
-        return "\n".join(s.text for s in fetched)
+        old_api = hasattr(YouTubeTranscriptApi, "get_transcript")
+        for langs in (preferred, None):  # None = accept any language
+            try:
+                if old_api:
+                    kw = {"languages": langs} if langs else {}
+                    tx = YouTubeTranscriptApi.get_transcript(video_id,
+                                                              cookies=session.cookies,
+                                                              **kw)
+                    return "\n".join(seg["text"] for seg in tx)
+                api = YouTubeTranscriptApi(http_client=session)
+                kw = {"languages": langs} if langs else {}
+                fetched = api.fetch(video_id, **kw)
+                return "\n".join(s.text for s in fetched)
+            except Exception:
+                if langs is None:
+                    raise  # last attempt failed — let caller handle
+                continue  # preferred langs failed, try any
+        return ""
 
     def resolve_channel_display_name(self, handle: str) -> str | None:
         """Return the channel title YouTube reports for *handle* (via yt-dlp)."""
@@ -506,7 +560,7 @@ class YouTubeScraper(BaseScraper):
             f"- Published: {published_at.date() if published_at else 'unknown'}\n"
             f"- Duration: {info.get('duration')} sec\n\n"
             f"## Description\n\n{(info.get('description') or '').strip()}\n\n"
-            f"## Transcript\n\n{transcript_text or '_(no transcript available)_'}\n"
+            f"## Transcript\n\n{transcript_text or NO_TRANSCRIPT_MARKER}\n"
         )
 
         return ScrapedItem(
@@ -523,6 +577,7 @@ class YouTubeScraper(BaseScraper):
             body_md=body,
             folder_name=folder_name,
             flat_layout=True,
+            has_transcript=bool(transcript_text and transcript_text.strip()),
             extra={
                 "uploader": info.get("uploader"),
                 "uploader_id": info.get("uploader_id"),
