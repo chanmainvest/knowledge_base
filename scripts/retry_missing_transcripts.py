@@ -111,8 +111,9 @@ def main() -> None:
     ap.add_argument("--limit", type=int, default=0, help="Max items to retry (0=all)")
     ap.add_argument("--channel", default=None, help="Only retry this channel handle/name")
     ap.add_argument("--dry-run", action="store_true", help="Don't modify files/DB")
-    ap.add_argument("--delay", type=float, default=2.0,
-                    help="Seconds between videos to avoid 429. Default 2.")
+    ap.add_argument("--delay", type=float, default=5.0,
+                    help="Seconds between videos to avoid 429. Default 5 (the "
+                         "scraper's own limiter also backs off reactively on 429).")
     args = ap.parse_args()
 
     targets = gather_targets(args.limit, args.channel)

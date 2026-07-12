@@ -41,6 +41,7 @@ class Settings(BaseSettings):
     hkej_rate_limit_sec: float = 5.0  # browser loads; keep ≥ global default
     patreon_rate_limit_sec: float = 5.0  # internal API; keep ≥ global default
     substack_rate_limit_sec: float = 3.0  # public archive/post API; keep ≥ global default
+    youtube_rate_limit_sec: float = 5.0  # subtitle/timedtext endpoint 429s hard; keep generous
     scrape_user_agent: str = "Mozilla/5.0 KB-Personal/0.1"
     scrape_max_retries: int = 3
     yt_dlp_cookies_from_browser: str = ""
@@ -89,6 +90,15 @@ class Settings(BaseSettings):
 
     # Data layout
     data_dir: str = "data"  # relative to repo root, or an absolute path
+
+    # Whisper / ASR transcription (faster-whisper + large-v3 on GPU)
+    whisper_model: str = "large-v3"        # faster-whisper model size
+    whisper_device: str = "cuda"           # cuda | cpu
+    whisper_compute_type: str = "float16"  # float16 (GPU), int8 (CPU)
+    whisper_beam_size: int = 5             # beam search width
+    whisper_language: str = ""             # empty = auto-detect, or "en"/"yue"/etc.
+    whisper_max_duration_sec: int = 0      # 0 = no limit; otherwise skip videos longer than this
+    whisper_tmp_dir: str = "tmp/audio"     # relative to repo root, gitignored
 
     # API
     api_host: str = "127.0.0.1"

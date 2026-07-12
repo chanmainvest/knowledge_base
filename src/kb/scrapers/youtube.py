@@ -21,6 +21,7 @@ from sqlalchemy import text as sa_text
 from ..config import DATA_DIR, settings
 from ..io_md import load_md, slugify
 from .base import BaseScraper, ScrapedItem
+from ..ratelimit import HostRateLimiter
 
 # Written into the markdown body (and detected by ingest/backfill) when neither
 # yt-dlp subtitles nor the youtube-transcript-api fallback produced any text.
@@ -260,6 +261,12 @@ class YouTubeScraper(BaseScraper):
         super().__init__()
         if not shutil.which("yt-dlp"):
             self.log.warning("yt-dlp not on PATH; will try via 'python -m yt_dlp'")
+        # YouTube's timedtext/subtitle endpoint rate-limits hard (HTTP 429),
+        # so use a more generous interval than the global default.
+        s = settings()
+        interval = max(s.youtube_rate_limit_sec, s.scrape_rate_limit_sec)
+        self.limiter = HostRateLimiter(interval, jitter=1.5,
+                                       max_backoff=180.0, backoff_step=15.0)
         # Optional round-robin proxy pool (SSH SOCKS5 tunnels). Set by the CLI
         # before run(); None = direct connection.
         self.proxy_pool = None  # type: ignore[assignment]
@@ -344,30 +351,46 @@ class YouTubeScraper(BaseScraper):
                                exc_info=True)
         from youtube_transcript_api import YouTubeTranscriptApi
         # Try preferred languages first (English + Chinese), then fall back to
-        # any language. Many videos have auto-captions only in their original
-        # language (e.g. a Dutch video has Dutch captions, not English), so a
-        # narrow filter would miss them. The video's own language is always
-        # the most accurate transcript anyway.
+        # whatever the video actually has. Many videos have auto-captions only
+        # in their original language (e.g. a Dutch video has Dutch captions,
+        # a Korean video has Korean), so a narrow filter would miss them.
         preferred = ["en", "zh-Hant", "zh-Hans", "zh"]
         # New API (v1.0+): constructor takes http_client; .fetch() per video.
         # Old API: classmethod .get_transcript(video_id, languages=...).
         old_api = hasattr(YouTubeTranscriptApi, "get_transcript")
-        for langs in (preferred, None):  # None = accept any language
-            try:
-                if old_api:
-                    kw = {"languages": langs} if langs else {}
-                    tx = YouTubeTranscriptApi.get_transcript(video_id,
-                                                              cookies=session.cookies,
-                                                              **kw)
-                    return "\n".join(seg["text"] for seg in tx)
-                api = YouTubeTranscriptApi(http_client=session)
-                kw = {"languages": langs} if langs else {}
-                fetched = api.fetch(video_id, **kw)
+
+        # Attempt 1: preferred languages.
+        try:
+            if old_api:
+                tx = YouTubeTranscriptApi.get_transcript(video_id,
+                                                          languages=preferred,
+                                                          cookies=session.cookies)
+                return "\n".join(seg["text"] for seg in tx)
+            api = YouTubeTranscriptApi(http_client=session)
+            fetched = api.fetch(video_id, languages=preferred)
+            return "\n".join(s.text for s in fetched)
+        except Exception:
+            pass  # preferred langs not available — discover what IS available
+
+        # Attempt 2: list available transcripts and fetch whichever exists
+        # (manual > auto-generated), in any language. This catches the Korean-
+        # only / Dutch-only / etc. videos that the preferred-language filter
+        # would otherwise skip.
+        try:
+            if old_api:
+                # Old API has no list(); just call without language filter.
+                tx = YouTubeTranscriptApi.get_transcript(video_id,
+                                                          cookies=session.cookies)
+                return "\n".join(seg["text"] for seg in tx)
+            api = YouTubeTranscriptApi(http_client=session)
+            transcript_list = api.list(video_id)
+            # Find the best available: manually-created first, then generated.
+            best = next(iter(transcript_list), None)
+            if best is not None:
+                fetched = best.fetch()
                 return "\n".join(s.text for s in fetched)
-            except Exception:
-                if langs is None:
-                    raise  # last attempt failed — let caller handle
-                continue  # preferred langs failed, try any
+        except Exception:
+            pass
         return ""
 
     def resolve_channel_display_name(self, handle: str) -> str | None:
@@ -512,6 +535,12 @@ class YouTubeScraper(BaseScraper):
             if cp.returncode != 0:
                 self.log.warning("yt-dlp fetch err %s :: %s",
                                  d["external_id"], cp.stderr[-300:])
+                # Detect 429 in yt-dlp's stderr and back off so the next
+                # request waits longer (exponential, set in HostRateLimiter).
+                if "429" in cp.stderr:
+                    new_int = self.limiter.report_429(d["url"])
+                    self.log.info("429 detected for %s; backing off → %.0fs interval",
+                                  d["external_id"], new_int)
             info_path = tmp / f"{d['external_id']}.info.json"
             if not info_path.exists():
                 # fallback: just dump metadata
@@ -545,6 +574,14 @@ class YouTubeScraper(BaseScraper):
                 transcript_text = self._fetch_transcript_api(d["external_id"])
             except Exception as exc:  # noqa: BLE001
                 self.log.info("no transcript for %s :: %s", d["external_id"], exc)
+                # If the transcript-api hit a rate-limit or IP block, back off
+                # so subsequent videos aren't hammered.
+                estr = str(exc).lower()
+                if "429" in estr or "rate" in estr or "blocked" in estr:
+                    new_int = self.limiter.report_429(d["url"])
+                    self.log.info("transcript-api rate-limited for %s; "
+                                  "backing off → %.0fs interval",
+                                  d["external_id"], new_int)
 
         upload_date = info.get("upload_date")
         published_at = (datetime.strptime(upload_date, "%Y%m%d").replace(tzinfo=timezone.utc)

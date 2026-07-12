@@ -465,6 +465,22 @@ ALTER TABLE item ADD COLUMN IF NOT EXISTS has_transcript BOOLEAN NOT NULL DEFAUL
 CREATE INDEX IF NOT EXISTS item_has_transcript_idx
     ON item (source_id) WHERE has_transcript = false;
 
+-- Whisper ASR transcription pipeline. For YouTube videos where no subtitle/
+-- transcript could be fetched (has_transcript=false), the transcription script
+-- downloads the audio, runs faster-whisper on GPU, and writes the generated
+-- transcript back into the .md file + DB. These columns track that lifecycle.
+--   NULL              → not a transcription candidate (has_transcript=true or non-YouTube)
+--   'pending'         → queued for ASR
+--   'audio_downloaded'→ audio file downloaded to tmp/, ready to transcribe
+--   'transcribing'    → whisper currently running on this item
+--   'done'            → transcript generated, written to .md + DB, has_transcript=true
+--   'failed'          → could not download audio or transcription failed
+ALTER TABLE item ADD COLUMN IF NOT EXISTS transcription_status   TEXT;      -- pending|audio_downloaded|transcribing|done|failed
+ALTER TABLE item ADD COLUMN IF NOT EXISTS transcription_error    TEXT;      -- error message on failure
+ALTER TABLE item ADD COLUMN IF NOT EXISTS transcription_language TEXT;      -- whisper-detected language code (en, yue, etc.)
+ALTER TABLE item ADD COLUMN IF NOT EXISTS transcribed_at         TIMESTAMPTZ;
+CREATE INDEX IF NOT EXISTS item_transcription_status_idx ON item (transcription_status);
+
 CREATE TABLE IF NOT EXISTS source_progress (
     source_id         INT PRIMARY KEY REFERENCES source(id) ON DELETE CASCADE,
     n_downloaded      INT NOT NULL DEFAULT 0,   -- files written under data/ (best-effort, tracked forward)
@@ -516,6 +532,29 @@ BEGIN
         UPDATE item SET has_transcript = false
         WHERE has_transcript = true
           AND content LIKE '%## Transcript%_(no transcript available)_%';
+    END IF;
+END $$;
+
+-- One-shot backfill of transcription_status for YouTube items missing a
+-- transcript. Guarded by a sentinel so it only fires when there are rows that
+-- need transcription but haven't been queued yet. Non-YouTube sources and
+-- videos that already have a transcript are left NULL (not candidates).
+DO $$
+BEGIN
+    IF EXISTS (SELECT 1 FROM item i
+               JOIN source s ON s.id = i.source_id
+               WHERE s.code = 'youtube'
+                 AND i.has_transcript = false
+                 AND i.transcription_status IS NULL
+               LIMIT 1) THEN
+        UPDATE item SET transcription_status = 'pending'
+        WHERE id IN (
+            SELECT i.id FROM item i
+            JOIN source s ON s.id = i.source_id
+            WHERE s.code = 'youtube'
+              AND i.has_transcript = false
+              AND i.transcription_status IS NULL
+        );
     END IF;
 END $$;
 

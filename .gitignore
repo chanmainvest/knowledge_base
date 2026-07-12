@@ -49,3 +49,6 @@ Thumbs.db
 
 # Graphify output
 graphify-out/
+
+# Whisper audio downloads (ephemeral — deleted after transcription)
+tmp/

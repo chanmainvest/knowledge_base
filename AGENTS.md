@@ -140,6 +140,20 @@
   `patreon_post_catalog`) with run/page fingerprinting + resume cursors and do
   NOT use the generic table; their pending counts are unioned in at read time
   by `catalog.pending_counts()`. `src/kb/catalog.py` is the module.
+- **Whisper ASR transcription.** YouTube videos where no subtitle/transcript
+  could be fetched (`has_transcript=false`) can be transcribed locally with
+  `scripts/transcribe_missing.py` using faster-whisper + large-v3 on GPU (RTX
+  3060 Ti). The script runs **one video at a time** (sequential — no parallel
+  GPU load) and downloads audio to `tmp/audio/` (gitignored, deleted after
+  each item). Language is auto-detected by Whisper (Cantonese → `yue`,
+  English → `en`, etc.) when `WHISPER_LANGUAGE` is empty. The full lifecycle
+  is tracked in `item.transcription_status`: `NULL` → `pending` →
+  `audio_downloaded` → `transcribing` → `done` (or `failed` with
+  `transcription_error`). On success, `has_transcript` is flipped to `true`,
+  the transcript replaces the `_(no transcript available)_` marker in the
+  `.md` file, and `ingest_file()` updates the DB. Use `--reset-stuck` to clear
+  stale `transcribing` rows after a crash, `--retry-failed` to re-attempt
+  failed items, and `--list` to preview candidates without transcribing.
 
 ## Documentation
 
