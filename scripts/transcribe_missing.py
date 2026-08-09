@@ -84,7 +84,7 @@ def gather_candidates(
     if channel:
         sql += " AND (ch.handle ILIKE :ch OR ch.name ILIKE :ch)"
         params["ch"] = f"%{channel}%"
-    sql += " ORDER BY i.id"
+    sql += " ORDER BY COALESCE(i.duration_sec, 999999999) ASC, i.id"
     if limit:
         sql += f" LIMIT {limit}"
     with engine().connect() as conn:

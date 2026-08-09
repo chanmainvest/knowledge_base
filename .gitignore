@@ -47,6 +47,10 @@ logs/
 .DS_Store
 Thumbs.db
 
+# zcode local state
+.zcode/
+.mimosa/
+
 # Graphify output
 graphify-out/
 

@@ -152,6 +152,66 @@ class MacroVoicesScraper(BaseScraper):
                 await asyncio.sleep(2)
             await browser.close()
 
+    @staticmethod
+    def _strip_pagination_nav(soup) -> None:
+        """Remove Joomla's multi-page navigation in-place.
+
+        When an article is split via the pagebreak plugin, every page renders an
+        "Article Index" TOC (a <ul class="pagination"> of ?start=N links) plus
+        per-item Print/Email actions. These leak into the markdown body as bare
+        links ("Page 2", "Page 3", ...) with no transcript value, so strip them
+        before converting the body to markdown.
+        """
+        from bs4 import Tag
+        # Drop the pagination list and any "Article Index" heading that titles it.
+        for ul in soup.find_all("ul", class_="pagination"):
+            ul.decompose()
+        # Some templates wrap the TOC in a div with a known id/class.
+        for div in soup.find_all(
+            "div", id=re.compile(r"article-index|articleIndex", re.I)
+        ):
+            div.decompose()
+        for div in soup.find_all("div", class_=re.compile(r"pagination|article-index", re.I)):
+            div.decompose()
+        # Remove the literal "Article Index" heading(s) left behind.
+        for tag in soup.find_all(["h3", "h2", "h4"]):
+            if tag.get_text(strip=True).lower() == "article index":
+                tag.decompose()
+
+    def _article_body_md(self, soup) -> str:
+        """Pick the main article element, strip nav chrome, return as markdown."""
+        from markdownify import markdownify as md_of
+        self._strip_pagination_nav(soup)
+        article = soup.find("div", id=re.compile("itemFullText|item-content|content")) or soup.body
+        return md_of(str(article), heading_style="ATX") if article else ""
+
+    async def _fetch_remaining_pages(self, ctx, base_url: str) -> str:
+        """Walk ?start=1,2,... and concatenate each page's article body.
+
+        Used only as a fallback when ?showall=1 did not collapse a multi-page
+        article. Stops at the first page that yields no fresh body or after a
+        hard cap (50) to bound the walk.
+        """
+        from bs4 import BeautifulSoup
+        parts: list[str] = []
+        for n in range(1, 51):
+            url = f"{base_url}?start={n}"
+            await self.limiter.wait(url)
+            try:
+                resp = await ctx.request.get(url)
+                if not resp.ok:
+                    break
+                html = await resp.text()
+            except Exception as exc:  # noqa: BLE001
+                self.log.warning("page walk fetch fail %s: %s", url, exc)
+                break
+            soup = BeautifulSoup(html, "lxml")
+            chunk = self._article_body_md(soup)
+            if not chunk.strip() or chunk.strip() in {p.strip() for p in parts}:
+                break
+            parts.append(chunk)
+        return "\n\n".join(parts)
+
     async def fetch(self, d: dict) -> ScrapedItem | None:
         from playwright.async_api import async_playwright
         await self.limiter.wait(d["url"])
@@ -162,11 +222,15 @@ class MacroVoicesScraper(BaseScraper):
                 accept_downloads=True,
             )
             page = await ctx.new_page()
-            # Skip login since /login returns 404 on this site; transcript text is public
+            # Skip login since /login returns 404 on this site; transcript text is public.
+            # Joomla splits long articles across pages via a pagebreak plugin; the
+            # bare URL returns only page 1 (+ an "Article Index" table of contents).
+            # `?showall=1` makes Joomla render the entire article on one page.
+            fetch_url = f"{d['url']}?showall=1"
             try:
-                await page.goto(d["url"], wait_until="domcontentloaded", timeout=60000)
+                await page.goto(fetch_url, wait_until="domcontentloaded", timeout=60000)
             except Exception as exc:
-                self.log.warning("goto failed for %s: %s", d["url"], exc)
+                self.log.warning("goto failed for %s: %s", fetch_url, exc)
                 await browser.close()
                 return None
             try:
@@ -176,16 +240,27 @@ class MacroVoicesScraper(BaseScraper):
             html = await page.content()
 
             # Extract publish date and download links
-            from bs4 import BeautifulSoup
+            from bs4 import BeautifulSoup, Tag
             soup = BeautifulSoup(html, "lxml")
             title = (soup.find("h1") or soup.find("h2"))
             title_text = title.get_text(strip=True) if title else d["title"]
             published_at = _parse_mv_date(html)
 
-            # Convert main article body to markdown
-            from markdownify import markdownify as md_of
-            article = soup.find("div", id=re.compile("itemFullText|item-content|content")) or soup.body
-            body_md = md_of(str(article), heading_style="ATX") if article else ""
+            body_md = self._article_body_md(soup)
+
+            # Defensive fallback: if ?showall=1 didn't actually concatenate (site
+            # changed, or the episode has no pagebreaks but is short), and the
+            # rendered body still carries ?start= page links, walk them and stitch
+            # the per-page bodies together. `showall` is verified to work as of
+            # 2026-08, but this guards against Joomla config / template changes.
+            if "?start=" in body_md and len(body_md) < 8000:
+                self.log.info("showall produced paginated body for %s; walking pages", d["url"])
+                extra = await self._fetch_remaining_pages(ctx, d["url"])
+                if extra:
+                    body_md = body_md + "\n\n" + extra
+                    # Re-strip any nav that the stitched pages reintroduced.
+                    soup2 = BeautifulSoup(f"<div>{body_md}</div>", "lxml")
+                    body_md = self._article_body_md(soup2)
 
             # Find PDF transcript + slide deck links
             pdfs = [a["href"] for a in soup.find_all("a", href=True)

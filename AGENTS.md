@@ -19,6 +19,15 @@
   - Prefer official feeds (RSS, YouTube transcripts) over scraping HTML.
 - Idempotent scrapers: skip an item if its markdown file already exists and
   is non-empty. Re-runnable safely.
+- **Multi-page articles (Joomla pagebreak).** Some sources split a single
+  article across several pages via Joomla's pagebreak plugin (an "Article
+  Index" TOC of `?start=N` links). The bare URL returns only page 1 + the
+  TOC, so a naive fetch saves nav chrome instead of the body. `?showall=1`
+  collapses the whole article onto one page — MacroVoices' `fetch()` uses
+  it, strips the pagination nav (`_strip_pagination_nav`) before
+  markdownify, and falls back to walking `?start=1..N` if `showall` ever
+  fails to concatenate. When adding a Joomla-ish source, check for an
+  Article Index and prefer `?showall=1` over per-page walking.
 - Scrape `--limit` is source-unit scoped where implemented, not necessarily a
   global output cap. For YouTube, `kb youtube scrape --limit N` inspects up to
   N videos per registered channel and does not stop after N total new files.
