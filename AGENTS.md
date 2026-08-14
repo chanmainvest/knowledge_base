@@ -28,9 +28,78 @@
   markdownify, and falls back to walking `?start=1..N` if `showall` ever
   fails to concatenate. When adding a Joomla-ish source, check for an
   Article Index and prefer `?showall=1` over per-page walking.
+- **MacroVoices two-index discovery (cross-index dedup gotcha).** The site
+  has two episode indices whose coverage differs, and they assign **different
+  article IDs to the same episode** (e.g. Lyn Alden ep538 = article 1538 on
+  the legacy index, 1537 on the live one). Discovery walks the **live**
+  `/podcasts-collection/macrovoices-podcasts` index (20/page, item-offset
+  `?start=N`, ~29 pages, spans the whole archive back to 2016); the legacy
+  `/podcast-transcripts` index is **frozen at episode 1538 (25 June 2026)**
+  and no longer receives new episodes, so it cannot be the discovery source.
+  `already_scraped()` must dedup by **episode slug text** (guest+title), not
+  article id — it uses a 24-char slug prefix plus a ≥3-guest-token overlap
+  fallback to survive diacritic transliteration (`stöferle`→`stoeferle` vs
+  `sto-ferle`) and guest-name reordering. Episode links are root-level
+  `/<artid>-macrovoices-<NNN>-<slug>`; the `<NNN>` episode number is the
+  stable cross-index key and is encoded in the canonical `external_id`
+  (`mv-<NNN>-<slug>`).
+- **MacroVoices transcript source differs by page format.** Post-redesign
+  episode pages (`/<id>-macrovoices-<NNN>-…`) carry **no inline transcript** —
+  the body is a "Download the podcast transcript [Click Here]" link to a PDF
+  at `/guest-content/list-guest-transcripts/<id>/file`; `fetch()` downloads
+  that PDF and text-extracts it with pypdf. Old-format pages
+  (`/podcast-transcripts/<id>`) still serve inline text via `?showall=1`.
+  `fetch()` branches on URL shape (`_is_new_format`). The live index also
+  carries a few dangling links that resolve to the site 404 or homepage
+  chrome (title `404Error` / `Welcome to Macro Voices` with no transcript) —
+  these are detected and skipped. New-format page titles live in `<h2>` (the
+  `<h1>` is the generic site banner), so title extraction prefers `<h2>`.
+- **Gorozen (Goehring & Rozencwajg) two-stream scraper.** `gorozen.py`
+  scrapes two content streams under one `blog` source, selected by the shared
+  `--source-type` flag (same mechanism madxcap uses for dcard/facebook):
+  - `blog` — static HTML at `blog.gorozen.com/blog`, paginated
+    `/blog/page/N` (page 1 = `/blog`; the bare host root 404s). `discover()`
+    increments `N` until a page 404s or yields no new posts. Posts are plain
+    server-rendered HTML, so httpx + BeautifulSoup suffices (no JS). The
+    article body lives in `div.custom-post-body-content`; the fixed "Want to
+    learn more…" CTA line and SEC disclaimer are stripped by text pattern
+    (`_strip_blog_chrome`) since they share the body with no markup. Title
+    comes from og:title (the on-page `<h1>` is often a sub-headline).
+  - `commentary` — quarterly commentaries at
+    `gorozen.com/commentaries/<slug>` whose PDF is **form-gated** behind a
+    HubSpot embedded form. The form refuses to render its fields under
+    automated browsers (Playwright/Camoufox — bot detection), so `fetch()`
+    submits it directly via HubSpot's **public form API** instead: it reads
+    the per-commentary `portalId`/`formId` (each commentary has its own form)
+    from the page's embed config, POSTs to
+    `api.hsforms.com/submissions/v3/integration/submit/<portal>/<form>` with
+    firstname/lastname/email/category (hard-coded non-secret values at the top
+    of `gorozen.py`), and the response either carries a `redirectUri` (→ a
+    thank-you page hosting the PDF link) or an `inlineMessage` (→ HTML with the
+    PDF link). Required fields differ by form version, so `_submit_hs_form`
+    iteratively discovers them from the API's `REQUIRED_FIELD` errors. The PDF
+    itself is publicly fetchable once revealed; it's saved to
+    `data/raw/blog/gorozen/<year>/` and its text extracted with `pypdf`.
+    Commentary slugs come in two shapes: newer `YYYY-q#` (`2026-q1`) and older
+    `#qYYYY` (`2q2024`) — `_COMMENTARY_SLUG` matches both. If the form/PDF
+    can't be reached the scraper degrades gracefully to the page teaser.
 - Scrape `--limit` is source-unit scoped where implemented, not necessarily a
   global output cap. For YouTube, `kb youtube scrape --limit N` inspects up to
   N videos per registered channel and does not stop after N total new files.
+- **YouTube folder stability + cross-name dedup.** Channel folders are named
+  from the slugified display name, which YouTube can change (``MacroVoices``
+  → ``Macro Voices``), historically forking channels into two folders and
+  re-downloading everything. Two guards prevent this: (1) the folder slug is
+  **pinned** in `channel.metadata['dir_slug']` on first discovery
+  (`_channel_dir_slugs`/`_pin_channel_dir` in `youtube.py`) and reused even
+  if the display name later changes; (2) `already_scraped()` first consults
+  the `item` table by `external_id` (cached per run in
+  `_known_video_ids()`, filtered to items whose md file still exists so
+  vanished files get re-fetched instead of skipped) — the DB key is immune
+  to name drift, unlike the disk-path check. If duplicate folders already
+  exist, `scripts/fix_youtube_dup_folders.py` merges them into the canonical
+  folder (slug of the current DB name), also deduping same-folder
+  `undated/` vs dated copies, and re-points stale `md_path` rows.
 - **YouTube proxy** (optional): to avoid YouTube's per-IP rate limiting (HTTP
   429), yt-dlp can route through SOCKS5 tunnels over SSH. `--proxy-hosts
   oc1.hevangel.com,horace.org` opens one `ssh -D` tunnel per host and
@@ -77,6 +146,23 @@
   `data/raw/<source>/[<channel>/]<YYYY>/<YYYY-MM-DD>-<title>.html`.
   Set `flat_layout=True` on `ScrapedItem` to use this layout; `BaseScraper.write_md()`
   handles both old (patreon) and new layouts automatically.
+- **HKEJ browser + session model.** HKEJ is behind Cloudflare, so it drives a
+  real anti-detect browser (Camoufox). Two launch modes via
+  `HKEJ_BROWSER_MODE`: `docker` (default) runs Camoufox in a container exposing
+  a Playwright WS endpoint (`ws://127.0.0.1:9222/hkej`); the scraper connects
+  over WS, restores login cookies from `data/hkej/.browser_state.json`
+  (Playwright `storage_state`, so you log in once — same model as the
+  substack/patreon `.session.json` cookie files), scrapes, and disconnects.
+  `local` falls back to an on-host Camoufox kept warm by the daemon
+  (`kb hkej browser start`). Docker mode bypasses the local daemon entirely
+  (the container *is* the persistent browser). Build/run the container:
+  `docker compose build camoufox` then `kb hkej docker up`. The container's
+  noVNC web UI (`http://localhost:7900`) lets a human solve interactive
+  Cloudflare challenges / log in. Login is auto-filled from `HKEJ_USER`/
+  `HKEJ_PASS` (`HKEJ_LOGIN_MODE=auto`, default); set `manual` to force a
+  human wait. Override per-run with `--browser-mode`/`--login` on
+  `kb hkej scrape-author`. See `hkej.py:_docker_session` /
+  `_browser_context` for the dispatch.
 - Database: a single Postgres 16 + pgvector container (`docker compose up
   postgres`). Schema lives in `docker/postgres/init.sql`, which is idempotent
   and is what `kb db migrate` actually replays — that's the real source of
@@ -88,7 +174,7 @@
 - `source.kind` groups sources by scraping/discovery shape, and drives `kb
   scrape list --kind` and the Search page's source list: `blog` = one-off,
   homepage-discovery scrapers with no per-author crawl/catalog state
-  (macrovoices, madxcap/狂徒 are channels under a single `blog` source — each
+  (macrovoices, madxcap/狂徒, gorozen are channels under a single `blog` source — each
   site keeps its own scraper class but they share the `blog` source code and
   `source_code = "blog"` on the scraper); `newspaper` = resumable multi-author
   crawlers with their own catalog tables (hkej, yahoohk, master-insight);
@@ -149,20 +235,44 @@
   `patreon_post_catalog`) with run/page fingerprinting + resume cursors and do
   NOT use the generic table; their pending counts are unioned in at read time
   by `catalog.pending_counts()`. `src/kb/catalog.py` is the module.
-- **Whisper ASR transcription.** YouTube videos where no subtitle/transcript
-  could be fetched (`has_transcript=false`) can be transcribed locally with
-  `scripts/transcribe_missing.py` using faster-whisper + large-v3 on GPU (RTX
-  3060 Ti). The script runs **one video at a time** (sequential — no parallel
-  GPU load) and downloads audio to `tmp/audio/` (gitignored, deleted after
-  each item). Language is auto-detected by Whisper (Cantonese → `yue`,
+- **Whisper ASR transcription (`src/kb/transcribe.py`, opt-in).** YouTube
+  videos where no subtitle/transcript could be fetched
+  (`has_transcript=false`) can be transcribed locally with
+  `kb youtube transcribe` using faster-whisper + large-v3 on GPU (RTX
+  3060 Ti). The pipeline is **disabled by default**: it only runs via the
+  dedicated command, or after `kb youtube scrape --transcribe` (which
+  transcribes only the videos that scrape just fetched; `--no-transcribe`
+  or unset `WHISPER_ENABLED` keeps scrape transcript-free). It runs **one
+  video at a time** (sequential — no parallel GPU load) and downloads audio
+  to `data/raw/youtube/tmp/` (`WHISPER_TMP_DIR`, resolved against
+  `DATA_DIR` to match the `data/raw/<source>/` layout; gitignored, deleted
+  after each item). Language is auto-detected by Whisper (Cantonese → `yue`,
   English → `en`, etc.) when `WHISPER_LANGUAGE` is empty. The full lifecycle
   is tracked in `item.transcription_status`: `NULL` → `pending` →
   `audio_downloaded` → `transcribing` → `done` (or `failed` with
   `transcription_error`). On success, `has_transcript` is flipped to `true`,
   the transcript replaces the `_(no transcript available)_` marker in the
-  `.md` file, and `ingest_file()` updates the DB. Use `--reset-stuck` to clear
-  stale `transcribing` rows after a crash, `--retry-failed` to re-attempt
-  failed items, and `--list` to preview candidates without transcribing.
+  `.md` file, and `ingest_file()` updates the DB. Use
+  `kb youtube transcribe --reset-stuck` to clear stale `transcribing` rows
+  after a crash, `--retry-failed` to re-attempt failed items, and `--list`
+  to preview candidates without transcribing.
+- **Nightly Jenkins pipeline (`Jenkinsfile`).** A declarative pipeline runs
+  every source as its own stage at 03:00 daily, then a catch-up `kb ingest`,
+  `kb extract run`, and `kb progress recompute`. The Jenkins controller has no
+  Python/uv/Playwright/yt-dlp, so each stage does
+  `docker compose run --rm kb <cmd>` against the self-contained `kb` image
+  (root `Dockerfile`, `kb` service in `docker-compose.yml`). The container
+  mounts the host `data/` dir (so scraped content + HKEJ/Patreon/Substack
+  session-cookie files are shared with the local `uv run kb` workflow) and
+  reaches the host Postgres via `POSTGRES_HOST_DOCKER=host.docker.internal`
+  (the host-side `POSTGRES_HOST` stays `localhost`). It also mounts `~/.ssh`
+  read-only for the YouTube SOCKS5 proxy pool. `failFast` is off; login-gated
+  stages (HKEJ/Patreon/Substack) are wrapped in `catchError` and downgrade to
+  UNSTABLE (session expired → re-prime interactively), while the core
+  scrape/ingest/extract stages stay red. Secrets come from the Jenkins
+  Credentials store (IDs in the `environment{}` block) or fall back to `.env`
+  via the service's `env_file`. See `doc/jenkins-pipeline.md` for the full
+  setup (build, one-time session priming, job creation).
 
 ## Documentation
 
@@ -196,6 +306,7 @@ src/kb/
                        # BaseScraper.source_code / effective_source_code
     macrovoices.py     # MacroVoices podcast (source_code='blog')
     madxcap.py         # MadX 狂徒投資 blog (source_code='blog')
+    gorozen.py         # Goehring & Rozencwajg blog + commentary PDFs (source_code='blog')
     youtube.py
     hkej.py
     yahoohk.py         # Yahoo Finance HK columnists (GraphQL feed + article HTML)
@@ -214,6 +325,8 @@ src/kb/
                        # "discovered but not downloaded" is queryable and
                        # `kb scrape resume` can re-fetch pending items
   leaderboard.py       # score predictions vs market; provider/model rollup
+  transcribe.py        # Whisper ASR for YouTube items without subtitles
+                       # (opt-in; `kb youtube transcribe` / scrape --transcribe)
   api/
     main.py            # FastAPI app (search, items, predictions, leaderboard,
                        # dashboard, sources, channels)
@@ -221,6 +334,15 @@ src/kb/
 frontend/              # Vite + React + Tailwind
   src/pages/Dashboard.tsx   # pipeline progress overview (landing page)
 docker/postgres/init.sql
+docker/camoufox/        # Dockerfile + entrypoint.sh for the Camoufox browser
+                        # container (HKEJ default browser mode; exposes a
+                        # Playwright WS endpoint + noVNC web UI)
+Dockerfile              # kb runtime image for the Jenkins pipeline (Python 3.12,
+                        # uv, yt-dlp, Playwright chromium, ssh); `kb` service in
+                        # docker-compose.yml builds this. Also runnable locally
+                        # via `docker compose run --rm kb <cmd>`.
+Jenkinsfile             # nightly 03:00 pipeline — one stage per source category,
+                        # shells out to the kb image; see doc/jenkins-pipeline.md
 migrations/
 scripts/
   migrate_data_layout.py   # one-shot migration to flat-file layout
@@ -228,6 +350,24 @@ scripts/
   copy_to_data_public.py   # publish configured data/ subset to data_public/
   build_data_readmes.py    # README indexes for data/ or data_public/
   fix_yahoohk_titles.py   # backfill misnamed Yahoo HK columnist files
+  fix_youtube_dup_folders.py  # merge duplicate data/youtube/ channel folders
+                        # (display-name drift) + undated/dated dupes; re-point
+                        # stale item.md_path
+  build_llm_wiki.py       # regenerate `llm-wiki/` (Karpathy-style synthesized
+                        # wiki) from the DB — read-only against Postgres,
+                        # clears and rewrites llm-wiki/; sections: People/
+                        # (interview guests + hosts + solo authors merged
+                        # across shows, opinions per topic over time with
+                        # stance-flip detection, GLM-generated bios cached in
+                        # scripts/llm_wiki_bios.json — `--no-bios` skips),
+                        # Tickers/ (incl. rates/bond-yield backdrop),
+                        # Analysts/, Themes/ (14 keyword buckets, CJK-aware),
+                        # Syntheses/ (opinion shifts, cross-person
+                        # disagreements, global timeline). Re-run after each
+                        # scrape/extract batch to refresh. NOTE: the Mimosa
+                        # write hook flags single-line `text("SELECT …")`
+                        # calls as SQL-injection — keep all inline SQL in the
+                        # multi-line triple-quoted form inside execute().
 ```
 
 ### Data directory structure

@@ -1,4 +1,4 @@
-# Monetary Matters
+# The Monetary Matters Network
 
 `@Monetary-Matters` — source: `youtube`  ·  channel id: `7843`
 
@@ -6,10 +6,23 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 4
-- **Items with predictions**: 4
-- **Predictions**: 72
-- **Market views**: 97
+- **Extracted items**: 9
+- **Items with predictions**: 6
+- **Predictions**: 79
+- **Market views**: 102
+
+## People on this channel
+
+(hosts, guests and solo authors — each person's appearances across all shows are merged on their own People page)
+
+- [Jack Farley](../People/jack-farley.md) — 3 appearance(s) as guest
+- [Chris Semenuk](../People/chris-semenuk.md) — 1 appearance(s) as guest
+- [David Woo](../People/david-woo.md) — 1 appearance(s) as guest
+- [Ed Zitron](../People/ed-zitron.md) — 1 appearance(s) as guest
+- [Jim Chanos](../People/jim-chanos.md) — 1 appearance(s) as guest
+- [Max Sweaty](../People/max-sweaty.md) — 1 appearance(s) as guest
+- [Max Wiethe](../People/max-wiethe.md) — 1 appearance(s) as guest
+- [Val Zlatev](../People/val-zlatev.md) — 1 appearance(s) as guest
 
 **Most-called tickers:**
 
@@ -30,7 +43,7 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 38 |
 | Bearish | 19 |
-| Neutral / watch | 15 |
+| Neutral / watch | 22 |
 
 ## Market-view direction
 
@@ -43,26 +56,31 @@ _No URL / bio in DB channel metadata._
 
 ## Recent notable calls
 
-- `(no ticker)`: [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, Ed Zitron: "Do you think the AI bubble pops this year 2027 or 2028? >> I think 2027's the safe bet."
-- `(no ticker)`: [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, Ed Zitron: "I think 2026 could be possible if SpaceX starts tanking for example. If SpaceX, it's been kind of trundling down."
-- [NVDA](../Tickers/NVDA.md): [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, Ed Zitron: "Nvidia's got two, three more earnings calls. if their guidance doesn't make the markets rock hard every three months."
-- [MSFT](../Tickers/MSFT.md): [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, Ed Zitron: "Now, $527 million of their sales and marketing costs went through Microsoft."
-- `(no ticker)`: [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alp…](https://www.youtube.com/watch?v=NlIsoPhQePs) — 2026-06-20, Host (Monetary Matters): "being outright short semiconductors right now might not be a risk worth taking."
-- [META](../Tickers/META.md): [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alp…](https://www.youtube.com/watch?v=NlIsoPhQePs) — 2026-06-20, Host (Monetary Matters): "Meta's AI strategy makes no sense to me whatsoever and while I'm not short Meta currently, definitely consider me a bear on the stock."
-- `TER`: [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alp…](https://www.youtube.com/watch?v=NlIsoPhQePs) — 2026-06-20, Host (Monetary Matters): "I've had some success in owning call options on Marvell and Teradyne"
-- `MRVL`: [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alp…](https://www.youtube.com/watch?v=NlIsoPhQePs) — 2026-06-20, Host (Monetary Matters): "I've had some success in owning call options on Marvell and Teradyne"
+- `(no ticker)`: [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
+- `(no ticker)`: [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
+- [GC=F](../Tickers/GC=F.md): [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
+- [BTC-USD](../Tickers/BTC-USD.md): [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
+- [SOXX](../Tickers/SOXX.md): [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
+- [DX-Y.NYB](../Tickers/DX-Y.NYB.md): [Why Yield Curve Control is the Only Way to Stop a Global Bond Crisis \| Luke Gro…](https://www.youtube.com/watch?v=lS67XZP81Tc) — 2026-07-28, The Monetary Matters Network
+- [^TNX](../Tickers/^TNX.md): [Why Yield Curve Control is the Only Way to Stop a Global Bond Crisis \| Luke Gro…](https://www.youtube.com/watch?v=lS67XZP81Tc) — 2026-07-28, The Monetary Matters Network
+- `(no ticker)`: [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, [Ed Zitron](../People/ed-zitron.md): "Do you think the AI bubble pops this year 2027 or 2028? >> I think 2027's the safe bet."
 
 ## Recent market views
 
-- _AI / Technology — bearish_: [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, Ed Zitron: "the sheer size of the losses by the large language model (LLM) companies are unsustainable and the operational costs of training and running LLMs far exceeds the revenue customers are willing to pay"
-- _AI / Technology — bearish_: [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, Ed Zitron: "AI Bubble Will Pop In 2027? "A Safe Bet""
-- _equities — bearish_: [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, Ed Zitron: "Now they're just plumbed full of these bloody GPUs. These bloody GPUs that aren't useful for anything outside of AI."
-- _equities — bearish_: [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, Ed Zitron: "Nvidia better bloody hope they have a trillion dollars of sales through 2027 because if they don't think the markets will fall apart"
-- _credit/debt — bearish_: [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, Ed Zitron: "I think they see that and think that that is demand for AI. And what that is is a demand for speculative debt."
-- _Equities — bearish_: [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, Ed Zitron: "these companies have entered into lease commitments of hundreds of billions of dollars that are going to appear as costs that I don't think many people are considering that."
+- _? — ?_: [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
+- _? — ?_: [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
+- _? — ?_: [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
+- _? — ?_: [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
+- _? — ?_: [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
+- _AI / Technology (Anthropic) — bearish_: [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, [Ed Zitron](../People/ed-zitron.md): "Wall Street Journal story came out about a month ago that said, "Oh, they're profitable in this quarter." And it was because Elon Musk sold them Colossus's Compute and gave them a discount for the exact two months that…"
 
 ## Source items (extracted)
 
+- 2026-08-04 — [Who Killed The Random Walk? \| Victor Haghani on Momentum, Passive Investing, and LTCM](https://www.youtube.com/watch?v=Kg6rRfvGqdY)
+- 2026-08-02 — [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stocks \| Tian Y…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8)
+- 2026-07-29 — [Mum’s The Word: Kathryn Rooney Vera on Fed’s Second Meeting under Kevin Warsh (Live Repla…](https://www.youtube.com/watch?v=fMNSCF1bW0w)
+- 2026-07-28 — [Why Yield Curve Control is the Only Way to Stop a Global Bond Crisis \| Luke Gromen](https://www.youtube.com/watch?v=lS67XZP81Tc)
+- 2026-07-26 — [Next Financial Crisis Unlikely To Start in Private Markets (Fundamentals Solid!) \| Nichol…](https://www.youtube.com/watch?v=wM0_rexOj_w)
 - 2026-06-21 — [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc)
 - 2026-06-20 — [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alpha in AI &…](https://www.youtube.com/watch?v=NlIsoPhQePs)
 - 2026-06-18 — [The Longest US Manufacturing Recession in History is Finally Over \| Chris Semenuk](https://www.youtube.com/watch?v=aS6W2GJ2AzA)

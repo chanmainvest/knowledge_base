@@ -133,7 +133,10 @@ uv run kb db migrate
 uv run kb youtube scrape --limit 5
 uv run kb blog scrape macrovoices --limit 3
 uv run kb blog scrape madxcap --limit 5
-uv run kb scrape run hkej --limit 20
+# HKEJ is behind Cloudflare → needs the Camoufox browser container (default mode).
+docker compose build camoufox
+uv run kb hkej docker up        # then scrape; open http://localhost:7900 if Cloudflare needs a human
+uv run kb hkej scrape-author 高天佑 --limit 1
 uv run kb scrape run yahoohk --limit 5
 uv run kb master-insight add-author tangwenliang
 uv run kb scrape run master-insight --limit 5
@@ -145,12 +148,34 @@ uv run kb substack scrape <handle> --limit 3
 uv run kb extract run --limit 50
 uv run kb leaderboard rebuild
 
+# regenerate the synthesized wiki (people, tickers, themes, syntheses)
+uv run python scripts/build_llm_wiki.py
+
 # serve api + frontend
 uv run kb api
 cd frontend && npm install && npm run dev
 ```
 
+The `llm-wiki/` directory is a generated, Karpathy-style synthesized wiki
+built from the extracted data: one page per **person** (interview guests,
+hosts and solo authors, merged across every show they appear on, with their
+opinions per topic over time and stance-change detection), per **ticker**
+(with a rates/bond-yield backdrop), per **channel**, per **theme**, plus
+**Syntheses** pages (same-person opinion shifts, cross-person
+disagreements, and a global timeline of calls). See `llm-wiki/README.md`.
+
 See `AGENTS.md` for design notes and conventions. Scraper details live in
 `doc/scrape-util-scripts.md`. For exactly how extraction turns Markdown into
 scored predictions, how to judge which channels are worth following, and how
 to run/compare multiple LLM providers, see `doc/llm-extraction.md`.
+
+## Nightly Jenkins pipeline
+
+A [`Jenkinsfile`](Jenkinsfile) runs the full scrape → ingest → extract pipeline
+nightly at 03:00, one stage per source category. Jenkins shells out to a
+self-contained `kb` Docker image (`docker compose build kb`) rather than
+installing Python/uv/yt-dlp itself; the container mounts `data/` and reaches the
+host Postgres, so it shares your existing items. Secrets come from the Jenkins
+Credentials store (or the gitignored `.env`). See
+[`doc/jenkins-pipeline.md`](doc/jenkins-pipeline.md) for build, one-time session
+priming (HKEJ/Patreon/Substack), and job-creation steps.

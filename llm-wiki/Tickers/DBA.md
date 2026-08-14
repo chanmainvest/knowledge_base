@@ -4,7 +4,7 @@
 
 ## Themes
 
-_Not bucketed into any theme (single-name / idiosyncratic)._
+- [Agriculture & Softs](../Themes/agriculture-food.md)
 
 ## Stance breakdown
 
@@ -14,15 +14,32 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 | Bearish | 0 |
 | Neutral / watch | 0 |
 
+## Voices on this ticker
+
+- [Patrick Ceresna](../People/patrick-ceresna.md)
+
 ## Notable calls
 
-- **Patrick Ceresna** (action=`buy`, dir=`up`, target=`30`, tf=`through January 15, 2027 (~211 days)`) — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, Patrick Ceresna: "buy the $27 strike call option for $1.70 and sell the $30 strike call for $0.80, which creates a 27 by 30 bull call spread for a $0.90 net debit"
-- **Patrick Ceresna** (action=`buy`, dir=`up`, target=`30`, tf=`January 15, 2027 (~211 days out)`) — [Trade of The Week - MacroVoices #537](https://www.youtube.com/watch?v=oqHNNzR9WNc) — 2026-06-18, Patrick Ceresna: "With DBA trading at $26.84, I'm looking at the January 15th, 2027 expiration, which is about 211 days out. The trade is to buy the $27 strike call option for $1.70 and sell the $30 strike call for 80 cents, which create…"
-- **Patrick Ceresna** (action=`buy`, dir=`up`, target=`30`, tf=`January 15th, 2027 (about 211 days out)`) — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=N7mX2NJ3nxQ) — 2026-06-18, Patrick Ceresna: "The trade is to buy the $27 strike call option for $1.70 and sell the $30 strike call for 80, which creates a 27 by30 bull call spread for a 90 net debit."
+- **Patrick Ceresna** (action=`buy`, dir=`up`, target=`30`, tf=`through January 15, 2027 (~211 days)`) — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Patrick Ceresna](../People/patrick-ceresna.md): "buy the $27 strike call option for $1.70 and sell the $30 strike call for $0.80, which creates a 27 by 30 bull call spread for a $0.90 net debit"
+- **Patrick Ceresna** (action=`buy`, dir=`up`, target=`30`, tf=`January 15, 2027 (~211 days out)`) — [Trade of The Week - MacroVoices #537](https://www.youtube.com/watch?v=oqHNNzR9WNc) — 2026-06-18, [Patrick Ceresna](../People/patrick-ceresna.md): "With DBA trading at $26.84, I'm looking at the January 15th, 2027 expiration, which is about 211 days out. The trade is to buy the $27 strike call option for $1.70 and sell the $30 strike call for 80 cents, which create…"
+- **Patrick Ceresna** (action=`buy`, dir=`up`, target=`30`, tf=`January 15th, 2027 (about 211 days out)`) — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=N7mX2NJ3nxQ) — 2026-06-18, [Patrick Ceresna](../People/patrick-ceresna.md): "The trade is to buy the $27 strike call option for $1.70 and sell the $30 strike call for 80, which creates a 27 by30 bull call spread for a 90 net debit."
 
 ## Analysts covering this ticker
 
 - [Macro Voices](../Analysts/macrovoices7508.md) (`@macrovoices7508`)
+
+## Rates & bond-yield backdrop
+
+What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
+
+- 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _bullish_ [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
+- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+
+_See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 

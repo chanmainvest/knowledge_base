@@ -14,19 +14,37 @@
 | Bearish | 1 |
 | Neutral / watch | 1 |
 
+## Voices on this ticker
+
+- [Ed Zitron](../People/ed-zitron.md)
+- [何啟聰](../People/person-001.md)
+
 ## Notable calls
 
-- **Ed Zitron** (action=`watch`, dir=`unspecified`, tf=`unspecified`) — [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, Ed Zitron: "Now, $527 million of their sales and marketing costs went through Microsoft."
+- **Ed Zitron** (action=`watch`, dir=`unspecified`, tf=`unspecified`) — [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, [Ed Zitron](../People/ed-zitron.md): "Now, $527 million of their sales and marketing costs went through Microsoft."
 - **何啟聰** (action=`watch`, dir=`down`, tf=`year to date`) — [AI硬件漲價逼聯儲局入死角](https://www1.hkej.com/dailynews/investment/article/4435475/AI%E7%A1%AC%E4%BB%B6%E6%BC%B2%E5%83%B9%E9%80%BC%E8%81%AF%E5%84%B2%E5%B1%80%E5%85%A5%E6%AD%BB%E8%A7%92) — 2026-06-19, 何啟聰: "年初以來，大型科企股價表現不濟，美國有微軟（Microsoft）及Meta為代表"
 
 ## Analysts covering this ticker
 
-- [Monetary Matters](../Analysts/monetary-matters.md) (`@Monetary-Matters`)
+- [The Monetary Matters Network](../Analysts/monetary-matters.md) (`@Monetary-Matters`)
 - [何啟聰](../Analysts/ch-102369.md) (`何啟聰`)
+
+## Rates & bond-yield backdrop
+
+What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
+
+- 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _bullish_ [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
+- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+
+_See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
-- 2026-06-21 — [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) (Monetary Matters)
+- 2026-06-21 — [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) (The Monetary Matters Network)
 - 2026-06-19 — [AI硬件漲價逼聯儲局入死角](https://www1.hkej.com/dailynews/investment/article/4435475/AI%E7%A1%AC%E4%BB%B6%E6%BC%B2%E5%83%B9%E9%80%BC%E8%81%AF%E5%84%B2%E5%B1%80%E5%85%A5%E6%AD%BB%E8%A7%92) (何啟聰)
 
 ---

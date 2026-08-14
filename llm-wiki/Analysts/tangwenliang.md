@@ -6,7 +6,7 @@
 
 ## Coverage profile
 
-- **Extracted items**: 2
+- **Extracted items**: 3
 - **Items with predictions**: 0
 - **Predictions**: 0
 - **Market views**: 3
@@ -25,6 +25,7 @@
 
 ## Source items (extracted)
 
+- 2026-08-05 — [留學香港是內地女仔最好嫁妝](https://www.master-insight.com/article/49532)
 - 2026-06-24 — [樓價愈升 愈多購買力](https://www.master-insight.com/article/48919)
 - 2026-06-17 — [富二代肯當嘢  被人話敗家仔](https://www.master-insight.com/article/48829)
 

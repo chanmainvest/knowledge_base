@@ -4,70 +4,77 @@
 
 ## What this is
 
-This wiki is generated directly from the `knowledge_base` Postgres database: every quote, target price, and stance below is pulled from an LLM extraction (currently the `github` / Copilot CLI provider) of a real scraped item (YouTube transcript, HKEJ/Master Insight column, Substack/Patreon post, or blog). Each claim cites its source item by title, date, channel, and external URL.
+This wiki is generated directly from the `knowledge_base` Postgres database: every quote, target price, and stance below is pulled from an LLM extraction of a real scraped item (YouTube transcript, HKEJ/Master Insight column, Substack/Patreon post, or blog). Each claim cites its source item by title, date, channel, and external URL.
 
 ## Database at a glance
 
 | | |
 |---|---|
-| Total items ingested | **26,370** |
-| Items extracted (LLM) | **74** (of 26,370; 26,295 pending) |
-| Predictions extracted | **207** |
-| Market views extracted | **474** |
-| Distinct tickers with calls | **75** |
-| Distinct speakers | **30** |
-| Channels (analysts) | **76** |
-| Published-date range | **2004-05-06 → 2026-08-02** |
+| Total items ingested | **34,332** |
+| Items extracted (LLM) | **207** (of 34,332; 34,123 pending) |
+| Predictions extracted | **392** |
+| Market views extracted | **543** |
+| Distinct tickers with calls | **108** |
+| People with pages | **53** |
+| Channels (analysts) | **77** |
+| Published-date range | **2004-05-06 → 2026-08-13** |
 
 ### Sources (by item volume)
 
 | Source | Kind | Items | Extracted |
 |---|---|---:|---:|
-| YouTube (`youtube`) | youtube | 13,206 | 31 |
-| Hong Kong Economic Journal (`hkej`) | newspaper | 5,506 | 19 |
-| Master Insight (`master-insight`) | newspaper | 2,796 | 11 |
-| Patreon (`patreon`) | membership | 2,349 | 12 |
+| YouTube (`youtube`) | youtube | 20,284 | 112 |
+| Hong Kong Economic Journal (`hkej`) | newspaper | 5,536 | 32 |
+| Master Insight (`master-insight`) | newspaper | 2,804 | 26 |
+| Patreon (`patreon`) | membership | 2,349 | 21 |
+| Blogs (`blog`) | blog | 1,672 | 10 |
 | Yahoo Finance Hong Kong (`yahoohk`) | newspaper | 1,407 | 0 |
-| Blogs (`blog`) | blog | 826 | 1 |
-| Substack (`substack`) | membership | 280 | 0 |
+| Substack (`substack`) | membership | 280 | 6 |
 
 ### Languages represented
-`en` (11,881), `zh-Hant` (5,512), `zh-Hant-HK` (4,203), `en-US` (3,123), `yue` (1,040), `zh-TW` (557), `ko` (19), `vi` (13)
+`en` (18,574), `zh-Hant` (5,542), `zh-Hant-HK` (4,211), `en-US` (3,882), `yue` (1,102), `zh-TW` (559), `vi` (261), `th` (114)
 
 ## How to read this wiki
 
-- **[Tickers/](Tickers)** — one page per asset with enough analyst mentions. Consensus direction, conflict flags, notable quotes, and every source item.
-- **[Analysts/](Analysts)** — one page per channel that has extracted content: who they are, what they cover, their stance distribution, recent calls.
-- **[Themes/](Themes)** — cross-cutting theses inferred from the predictions (AI-semis, gold, oil, rates, electrification, etc.).
+- **[People/](People)** — one page per *person*: interview guests, show hosts and solo authors, merged across every show they appear on. Each page tracks their opinions per topic **over time** and flags where they changed their mind.
+- **[Tickers/](Tickers)** — one page per asset with enough mentions. Consensus direction, conflict flags, the people on each side, a rates/bond-yield backdrop, and every source item.
+- **[Themes/](Themes)** — cross-cutting theses inferred from the predictions (AI-semis, gold, oil, rates, electrification, …).
+- **[Syntheses/](Syntheses)** — the multi-dimensional views: where the *same person* flipped stance, where *different people* disagree on the same topic, and a global timeline of calls.
+- **[Analysts/](Analysts)** — one page per channel that has extracted content, with the people who appear on it.
 - **[_Index](_Index)** — flat alphabetical index of every page.
 
 ## ⚠️ Important caveats — read before drawing conclusions
 
-1. **Extraction coverage is very thin.** Only **74** of **26,370** ingested items have been LLM-extracted so far (0.28%). Everything below reflects that small slice — it is **not** a representative sample of the full corpus. Treat consensus counts as directional, not authoritative.
+1. **Extraction coverage is very thin.** Only **207** of **34,332** ingested items have been LLM-extracted so far (0.60%). Everything below reflects that small slice — it is **not** a representative sample of the full corpus. Treat consensus counts as directional, not authoritative.
 2. **No scores yet.** Predictions in this DB carry `score` fields, but none have been evaluated against market prices (`n_scored=0`). There is no track record / hit-rate data to report — only stated calls.
-3. **All extractions are from one provider** (`github`, Copilot CLI). The DB supports multi-provider comparison but only one has run.
+3. **People bios are LLM-written** (from public knowledge + this DB's context) and can be wrong. Stances/timelines, by contrast, are strictly DB-derived from extracted quotes.
 4. **Channel metadata is sparse.** Most channels have no bio/url in the DB; analyst pages say so rather than invent.
 5. **Re-run to refresh.** After new scrapes/extraction, regenerate with `uv run python scripts/build_llm_wiki.py` (see [README](README)).
 
 ## Marquee pages
 
-- [Tickers/CL=F](Tickers/CL=F.md) — 23 analyst mentions
-- [Tickers/GC=F](Tickers/GC=F.md) — 18 analyst mentions
-- [Tickers/^TNX](Tickers/^TNX.md) — 7 analyst mentions
-- [Tickers/SI=F](Tickers/SI=F.md) — 6 analyst mentions
-- [Tickers/CAT](Tickers/CAT.md) — 5 analyst mentions
+- [aminvest](People/aminvest.md) — 11 appearance(s), 36 extracted call(s)
+- [高天佑](People/person-008.md) — 10 appearance(s), 16 extracted call(s)
+- [Jeff Snider](People/jeff-snider.md) — 9 appearance(s), 61 extracted call(s)
+- [何啟聰](People/person-001.md) — 4 appearance(s), 24 extracted call(s)
+- [梁天卓](People/person-005.md) — 4 appearance(s), 2 extracted call(s)
+- [Tickers/GC=F](Tickers/GC=F.md) — 38 analyst mentions
+- [Tickers/CL=F](Tickers/CL=F.md) — 33 analyst mentions
+- [Tickers/^GSPC](Tickers/^GSPC.md) — 13 analyst mentions
+- [Tickers/^TNX](Tickers/^TNX.md) — 13 analyst mentions
+- [Tickers/BTC-USD](Tickers/BTC-USD.md) — 12 analyst mentions
 
 ## Recently extracted items
 
-- 2026-06-28 — 零售末日 京東迫爆 (徐家健, `master-insight`)
-- 2026-06-27 — 藉文字分析 看《施政》內容演變 (梁天卓, `hkej`)
-- 2026-06-26 — 美股市況短評 (20260626) (aminvest, `patreon`)
-- 2026-06-26 — C朗玩風投 美斯愛磚頭 (高天佑, `hkej`)
-- 2026-06-26 — 宏觀交易過五關 AI落場都輸錢 (李聲揚, `hkej`)
-- 2026-06-26 — 海力士槓桿ETF威脅韓股 (何啟聰, `hkej`)
-- 2026-06-25 — 拆解伊強弱底牌 對美博弈佔上風 (雷鼎鳴, `master-insight`)
-- 2026-06-25 — 美股市況短評 (20260625) (aminvest, `patreon`)
-- 2026-06-25 — 毒尿片觸發的消費信任危機 (胡孟青, `master-insight`)
-- 2026-06-25 — AI敍事亟需「再驗證」 (高天佑, `hkej`)
-- 2026-06-25 — 自駕合法化 有限度先導計劃可取 (梁天卓, `hkej`)
-- 2026-06-24 — 美股市況短評 (20260624) (aminvest, `patreon`)
+- 2026-08-13 — 日軍國幽靈重現 保釣風雲再起？ (雷鼎鳴, `master-insight`)
+- 2026-08-13 — 跨界算力的機遇 (胡孟青, `master-insight`)
+- 2026-08-13 — A Big Move Is Right Around The Corner (Figuring Out Money, `youtube`)
+- 2026-08-13 — When And How Does The Iran War End? Expert Reveals The Endgame \| Trita Parsi (David Lin, `youtube`)
+- 2026-08-13 — MacroVoices #545 Michael Howell: Warsh vs. The Markets (MacroVoices, `blog`)
+- 2026-08-13 — Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers (David Lin, `youtube`)
+- 2026-08-12 — These Markets To Double Next, Gold To $9,000: The Debasement Trade Is Exploding \| Jim Tho… (David Lin, `youtube`)
+- 2026-08-12 — Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes (David Lin, `youtube`)
+- 2026-08-11 — 全民AI 不如利民AI？ (徐家健, `master-insight`)
+- 2026-08-11 — Michael Howell: Liquidity Has Turned, Low Quality Returns Ahead for Stocks, and Real Driv… (The Julia La Roche Show, `youtube`)
+- 2026-08-11 — Christopher Whalen: The Fed Has Lost Control of Interest Rates (VRIC Media, `youtube`)
+- 2026-08-11 — Biggest Market Shift Now: ‘You’re Making A Mistake’ Ignoring These Assets \| Ted Oakley (David Lin, `youtube`)

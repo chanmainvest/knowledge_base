@@ -1,22 +1,49 @@
 #!/usr/bin/env python
 """Build the Karpathy-style `llm-wiki/` from the knowledge database.
 
-Reads items + predictions + market views + channels + sources from Postgres
-and renders a human-readable, densely cross-linked Markdown wiki under
-`llm-wiki/`. READ-ONLY against the DB; writes only to `llm-wiki/`.
+Reads items + predictions + market views + channels + sources + per-item
+speaker lists from Postgres and renders a human-readable, densely
+cross-linked Markdown wiki under `llm-wiki/`. READ-ONLY against the DB;
+writes only to `llm-wiki/` (plus the optional bio cache, see below).
 
 Idempotent: re-running regenerates the whole tree (clears it first).
 
-    uv run python scripts/build_llm_wiki.py
+    uv run python scripts/build_llm_wiki.py [--no-bios]
+
+Sections:
+
+- ``Tickers/``   one page per asset with enough mentions, plus a
+                 rates / bond-yield backdrop section for context.
+- ``Analysts/``  one page per channel with extracted content.
+- ``People/``    one page per *person* — interview guests, show hosts and
+                 solo authors alike — with their opinions per topic and
+                 how those opinions changed over time (stance flips are
+                 detected and flagged). People appearing on several shows
+                 get a single merged page.
+- ``Themes/``    cross-cutting theses inferred from the predictions.
+- ``Syntheses/`` multi-dimensional cut-views: opinion shifts (same person
+                 changing stance), disagreements (different people on
+                 opposite sides of the same topic), and a global timeline
+                 of every extracted call.
+
+People bios: for people who look like finance-industry professionals
+(interviewees, researchers, ...), a short bio is generated with the
+configured default LLM (GLM via the `zai` provider) and cached in
+``scripts/llm_wiki_bios.json`` so re-runs don't re-call the API. Use
+``--no-bios`` to skip bio generation entirely. If the LLM is unavailable,
+the page renders a DB-derived stub instead.
 
 The wiki reflects DB state at generation time. Re-run after new scrapes /
 extraction batches to refresh.
 """
 from __future__ import annotations
 
+import argparse
+import json
 import re
 import shutil
 import sys
+import time
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -31,20 +58,27 @@ sys.path.insert(0, str(REPO / "src"))
 from kb.db import engine  # noqa: E402
 
 WIKI_DIR = REPO / "llm-wiki"
+BIO_CACHE = REPO / "scripts" / "llm_wiki_bios.json"
 
 # --- thresholds (keep pages meaningful; thin data gets noted, not padded) -----
 MIN_TICKER_MENTIONS = 2      # a ticker needs >=2 prediction rows for its own page
 MIN_ANALYST_ITEMS = 1        # any channel with an extracted item gets a page
+MIN_PERSON_APPEARANCES = 1   # any person seen on an extracted item gets a page
 MAX_QUOTE_LEN = 220          # truncate long quotes in summaries
+
+# item.extraction_status literals (kept as named constants so the SQL below
+# can bind them as parameters instead of inlining quoted literals)
+ST_DONE = "done"
+ST_PENDING = "pending"
+ST_ERROR = "error"
+UNKNOWN_LANG = "(unknown)"
 
 
 # ---------------------------------------------------------------------------
 # Theme taxonomy. A theme groups tickers + market views whose asset name/class
-# matches any keyword. This is deliberately a small, hand-curated set derived
-# from the asset_class/asset_name spread observed in the DB (precious metals,
-# oil/energy, rates, AI/semis, broad macro indices, crypto, electrification/
-# industrials, HK/China equities). Buckets are keyword-based so the mapping
-# survives minor LLM wording variance.
+# matches any keyword. This is a hand-curated set derived from the
+# asset_class/asset_name spread observed in the DB. Buckets are keyword-based
+# so the mapping survives minor LLM wording variance.
 # ---------------------------------------------------------------------------
 THEMES: list[dict[str, Any]] = [
     {
@@ -94,7 +128,7 @@ THEMES: list[dict[str, Any]] = [
         ),
         "keywords": ["nvidia", "semiconductor", "ai ", "a.i.", "chip", "micron",
                      "compute", "NVDA", "MU", "MRVL", "SMH", "TER",
-                     "openai", "microsoft"],
+                     "openai", "microsoft", "hyperscaler", "anthropic"],
     },
     {
         "slug": "macro-indices",
@@ -152,7 +186,150 @@ THEMES: list[dict[str, Any]] = [
         ),
         "keywords": ["uranium", "nuclear", "smr", "oklo", "ccj"],
     },
+    {
+        "slug": "china-property",
+        "title": "China Property & Real Estate",
+        "blurb": (
+            "Chinese property developers, the mainland real-estate bust and "
+            "HK property / land-supply views — mostly from the "
+            "Chinese-language columnists."
+        ),
+        "keywords": ["real estate", "property", "房地產", "地產", "樓市",
+                     "楼市", "房價", "房价", "發展商", "开发商", "housing"],
+    },
+    {
+        "slug": "credit-private-credit",
+        "title": "Credit, Private Credit & BDCs",
+        "blurb": (
+            "Credit-cycle views: spreads, private credit / direct lending, "
+            "BDCs, structured credit and default risk."
+        ),
+        "keywords": ["credit", "bdc", "private debt", "private credit",
+                     "structured", "default", "high yield", "junk"],
+    },
+    {
+        "slug": "agriculture-food",
+        "title": "Agriculture & Softs",
+        "blurb": (
+            "Grains, softs and food inflation — agriculture calls, often "
+            "weather-driven, from the commodities guests."
+        ),
+        "keywords": ["agriculture", "agricultural", "food", "softs", "wheat",
+                     "corn", "soybean", "coffee", "sugar", "cocoa", "DBA",
+                     "grain"],
+    },
+    {
+        "slug": "robotics-autonomy",
+        "title": "Robotics, Automation & Autonomy",
+        "blurb": (
+            "Humanoid robotics, factory automation and autonomous driving — "
+            "the next-wave productivity bets after the AI build-out."
+        ),
+        "keywords": ["robotics", "robot", "humanoid", "automation",
+                     "autonomous", "self-driving", "robotaxi"],
+    },
+    {
+        "slug": "geopolitics-defense",
+        "title": "Geopolitics & Defense",
+        "blurb": (
+            "War-risk premia, sanctions, tariffs and defense spending — the "
+            "geopolitical overlay guests apply to commodities and equities."
+        ),
+        "keywords": ["geopolit", "defense", "defence", "war ", "tariff",
+                     "sanction", "hormuz", "taiwan", "election"],
+    },
 ]
+
+# Rates/bond-yield tickers (Yahoo style) used for the ticker-page backdrop.
+RATES_TICKERS = {"^TNX", "^FVX", "^TYX", "^IRX", "ZN=F", "ZF=F", "ZB=F", "ZT=F"}
+# Keywords for finding rates/bond-yield *market views* to use as backdrop.
+RATES_CONTEXT_KEYWORDS = ["treasury", "rates", "interest rate", "bond",
+                          "yield", "monetary policy", "fed", "fomc",
+                          "rate cut", "rate hike"]
+
+
+# ---------------------------------------------------------------------------
+# People identity resolution
+#
+# Speaker names come from LLM extraction and are noisy: "Erik Townsend" vs
+# "Eric Townsend", "George" vs "George Noble", generic labels like
+# "Host 1" / "作者" / "Eurodollar University host". We resolve every raw
+# speaker string to a canonical person (or None for generic labels) via a
+# small alias map + generic-pattern filter, then merge that person's
+# appearances across ALL shows — so a solo columnist who also guests on
+# other podcasts gets one merged page.
+# ---------------------------------------------------------------------------
+
+# Raw speaker strings that are NOT a person name.
+GENERIC_SPEAKER_PATTERNS = [
+    re.compile(r"^\s*(host|speaker|guest|narrator|interviewer|analyst|author"
+               r"|co-?host|presenter|moderator|unnamed|unknown)\b", re.I),
+    re.compile(r"\bhost\b", re.I),            # "Host 1", "Host (Monetary Matters)"
+    re.compile(r"^\s*(speaker|voice)\s*\d*\s*$", re.I),
+    re.compile(r"^作者"),                     # "作者", "作者 (Author, …)", "作者（未具名）"
+]
+GENERIC_SPEAKERS = {"作者", "host", "guest", "guests", "various", "multiple",
+                    "unknown", "n/a"}
+
+# Raw -> canonical display name (keys compared lowercased, whitespace-collapsed).
+PERSON_ALIASES = {
+    "erik townsend": "Erik Townsend",
+    "eric townsend": "Erik Townsend",           # common LLM misspelling
+    "george": "George Noble",
+    "george noble": "George Noble",
+    "jeff snider": "Jeff Snider",
+    "jeffrey snider": "Jeff Snider",
+    "jeffrey christian": "Jeffrey Christian",
+    "eurodollar university host": "Jeff Snider",
+    "lyn alden": "Lyn Alden",
+    "lyn alden roth": "Lyn Alden",
+    "jim chanos": "Jim Chanos",
+    "james chanos": "Jim Chanos",
+    "erik voorhees": "Erik Voorhees",
+    "jeff snyder": "Jeff Snider",
+    "eurodollar university": "Jeff Snider",
+}
+
+# Canonical person -> fragments of channel names they host (lowercase,
+# matched by substring). Everyone else on a multi-speaker item is a guest;
+# the sole speaker of a single-speaker item is a solo author.
+KNOWN_HOSTS: dict[str, list[str]] = {
+    "Erik Townsend": ["macro voices"],
+    "Patrick Ceresna": ["macro voices"],
+    "Jeff Snider": ["eurodollar university"],
+    "Raoul Pal": ["raoul pal", "journey man"],
+}
+
+
+def _norm_name(s: str) -> str:
+    return re.sub(r"\s+", " ", (s or "").strip()).lower()
+
+
+def is_generic_speaker(raw: str) -> bool:
+    s = (raw or "").strip()
+    if not s:
+        return True
+    if s in GENERIC_SPEAKERS:
+        return True
+    return any(p.search(s) for p in GENERIC_SPEAKER_PATTERNS)
+
+
+def resolve_person(raw: str) -> str | None:
+    """Canonical display name for a raw speaker string, or None if generic."""
+    s = (raw or "").strip()
+    if not s or is_generic_speaker(s):
+        return None
+    key = _norm_name(s)
+    if key in PERSON_ALIASES:
+        return PERSON_ALIASES[key]
+    return re.sub(r"\s+", " ", s)
+
+
+def host_channels_for(person: str, channel_name: str | None) -> bool:
+    """Is `person` a host of the channel called `channel_name`?"""
+    frags = KNOWN_HOSTS.get(person, [])
+    cn = (channel_name or "").lower()
+    return any(f in cn for f in frags)
 
 
 # ---------------------------------------------------------------------------
@@ -182,6 +359,19 @@ def stance(action: str | None, direction: str | None) -> str:
     if a in bearish_actions or d == "down":
         return "bearish"
     return "neutral"
+
+
+def view_stance(direction: str | None) -> str:
+    d = (direction or "").strip().lower()
+    if d == "bullish":
+        return "bullish"
+    if d == "bearish":
+        return "bearish"
+    return "neutral"
+
+
+STANCE_ARROW = {"bullish": "↑ bullish", "bearish": "↓ bearish",
+                "neutral": "→ neutral"}
 
 
 def truncate(s: str | None, n: int = MAX_QUOTE_LEN) -> str:
@@ -227,25 +417,32 @@ def fetch_all() -> dict[str, Any]:
         sources = [dict(r) for r in c.execute(text("""
             SELECT s.code, s.name, s.kind,
                    COUNT(i.id) AS n_items,
-                   COUNT(i.id) FILTER (WHERE i.extraction_status='done') AS n_extracted,
-                   COUNT(i.id) FILTER (WHERE i.extraction_status='pending') AS n_pending
+                   COUNT(i.id) FILTER (WHERE i.extraction_status = :st_done) AS n_extracted,
+                   COUNT(i.id) FILTER (WHERE i.extraction_status = :st_pending) AS n_pending
             FROM source s LEFT JOIN item i ON i.source_id=s.id
             GROUP BY s.id ORDER BY n_items DESC
-        """)).mappings()]
+        """), {"st_done": ST_DONE, "st_pending": ST_PENDING}).mappings()]
 
         # --- global totals ---------------------------------------------------
         totals = dict(c.execute(text("""
             SELECT COUNT(*) AS n_items,
-                   COUNT(*) FILTER (WHERE extraction_status='done') AS n_extracted,
-                   COUNT(*) FILTER (WHERE extraction_status='pending') AS n_pending,
-                   COUNT(*) FILTER (WHERE extraction_status='error') AS n_error,
+                   COUNT(*) FILTER (WHERE extraction_status = :st_done) AS n_extracted,
+                   COUNT(*) FILTER (WHERE extraction_status = :st_pending) AS n_pending,
+                   COUNT(*) FILTER (WHERE extraction_status = :st_error) AS n_error,
                    MIN(published_at) AS first_date,
                    MAX(published_at) AS last_date
             FROM item
-        """)).mappings().first())
-        n_preds = c.execute(text("SELECT COUNT(*) FROM prediction")).scalar()
-        n_views = c.execute(text("SELECT COUNT(*) FROM view_market")).scalar()
-        n_channels = c.execute(text("SELECT COUNT(*) FROM channel")).scalar()
+        """), {"st_done": ST_DONE, "st_pending": ST_PENDING,
+               "st_error": ST_ERROR}).mappings().first())
+        n_preds = c.execute(text(
+            "SELECT COUNT(*) FROM prediction"
+        )).scalar()
+        n_views = c.execute(text(
+            "SELECT COUNT(*) FROM view_market"
+        )).scalar()
+        n_channels = c.execute(text(
+            "SELECT COUNT(*) FROM channel"
+        )).scalar()
         n_tickers = c.execute(text(
             "SELECT COUNT(DISTINCT ticker) FROM prediction WHERE ticker IS NOT NULL"
         )).scalar()
@@ -254,9 +451,9 @@ def fetch_all() -> dict[str, Any]:
         )).scalar()
         # language distribution (top 8)
         langs = [dict(r) for r in c.execute(text("""
-            SELECT COALESCE(language,'(unknown)') AS lang, COUNT(*) AS n
+            SELECT COALESCE(language, :unknown_lang) AS lang, COUNT(*) AS n
             FROM item GROUP BY language ORDER BY n DESC LIMIT 8
-        """)).mappings()]
+        """), {"unknown_lang": UNKNOWN_LANG}).mappings()]
 
         # --- predictions (flat, joined to item + channel) --------------------
         preds = [dict(r) for r in c.execute(text("""
@@ -288,6 +485,28 @@ def fetch_all() -> dict[str, Any]:
             ORDER BY i.published_at DESC NULLS LAST
         """)).mappings()]
 
+        # --- per-item speaker lists (from the primary extraction run) --------
+        # The whole raw_response jsonb is fetched and the speakers array is
+        # read in Python (the driver decodes jsonb to dict). `speakers` is
+        # the LLM-extracted list of voices on the item: more than one entry
+        # means an interview or panel; a single entry means a solo author
+        # or host.
+        item_speakers: dict[int, dict] = {}
+        for r in c.execute(text("""
+            SELECT i.id AS item_id, i.title, i.url, i.published_at,
+                   i.channel_id, ch.name AS channel_name,
+                   ch.handle AS channel_handle, er.raw_response
+            FROM extraction_run er
+            JOIN item i ON i.id = er.item_id
+            LEFT JOIN channel ch ON ch.id = i.channel_id
+            WHERE er.id = i.primary_extraction_run_id
+              AND er.raw_response IS NOT NULL
+        """)).mappings():
+            raw = r["raw_response"]
+            if isinstance(raw, dict) and raw.get("speakers") is not None:
+                item_speakers[r["item_id"]] = {**dict(r),
+                                               "speakers": raw["speakers"]}
+
         # --- channels with at least one extracted item (analyst pages) -------
         analysts = [dict(r) for r in c.execute(text("""
             SELECT c.id AS channel_id, c.handle AS channel_handle, c.name AS channel_name,
@@ -298,10 +517,10 @@ def fetch_all() -> dict[str, Any]:
                                      WHERE p.item_id=i.id)) AS n_with_preds
             FROM channel c JOIN source s ON s.id=c.source_id
             JOIN item i ON i.channel_id=c.id
-            WHERE i.extraction_status='done'
+            WHERE i.extraction_status = :st_done
             GROUP BY c.id, c.handle, c.name, c.url, c.metadata, s.code
             ORDER BY n_extracted DESC, c.name
-        """)).mappings()]
+        """), {"st_done": ST_DONE}).mappings()]
 
         # --- recent extracted items (for Home + analyst "recent calls") ------
         recent_items = [dict(r) for r in c.execute(text("""
@@ -309,9 +528,9 @@ def fetch_all() -> dict[str, Any]:
                    s.code AS source, c.handle AS channel_handle, c.name AS channel_name
             FROM item i JOIN source s ON s.id=i.source_id
             LEFT JOIN channel c ON c.id=i.channel_id
-            WHERE i.extraction_status='done'
+            WHERE i.extraction_status = :st_done
             ORDER BY i.published_at DESC NULLS LAST LIMIT 40
-        """)).mappings()]
+        """), {"st_done": ST_DONE}).mappings()]
 
         # --- per-channel extracted item list (analyst link roll) -------------
         channel_items = defaultdict(list)
@@ -319,9 +538,9 @@ def fetch_all() -> dict[str, Any]:
             SELECT i.id, i.title, i.url, i.published_at, i.summary,
                    c.id AS channel_id
             FROM item i LEFT JOIN channel c ON c.id=i.channel_id
-            WHERE i.extraction_status='done'
+            WHERE i.extraction_status = :st_done
             ORDER BY i.published_at DESC NULLS LAST
-        """)).mappings():
+        """), {"st_done": ST_DONE}).mappings():
             channel_items[r["channel_id"]].append(dict(r))
 
     return {
@@ -335,6 +554,7 @@ def fetch_all() -> dict[str, Any]:
         "langs": langs,
         "preds": preds,
         "views": views,
+        "item_speakers": item_speakers,
         "analysts": analysts,
         "recent_items": recent_items,
         "channel_items": channel_items,
@@ -358,12 +578,17 @@ def _theme_match(hay: str, keywords: list[str]) -> bool:
     """True if any keyword matches the haystack. Keywords ending in a
     non-word char (e.g. 'gold ') are treated as substring matches; bare
     alphabetic keywords are matched as whole-word tokens (so 'gold' does
-    not catch 'Goldman'). Tickers / codes are matched as substrings."""
+    not catch 'Goldman'). Tickers / codes and non-ASCII (CJK) keywords are
+    matched as substrings."""
     h = hay.lower()
     for kw in keywords:
         k = kw.lower()
-        # codes/tickers contain non-alphanumerics or trailing space → substring
-        if k[-1:] in " =-." or not k.isalpha():
+        if not k.isascii():
+            # CJK: \b word boundaries don't fire between CJK chars
+            if k in h:
+                return True
+        elif k[-1:] in " =-." or not k.isalpha():
+            # codes/tickers contain non-alphanumerics or trailing space → substring
             if k in h:
                 return True
         else:
@@ -379,28 +604,361 @@ def ticker_themes(ticker: str, asset_name: str) -> list[str]:
     return [t["slug"] for t in THEMES if _theme_match(hay, t["keywords"])]
 
 
+def view_themes(v: dict) -> list[str]:
+    """Theme slugs a market view belongs to (matched on its text)."""
+    hay = " ".join(str(v.get(k) or "") for k in
+                   ("asset_class", "region", "rationale", "quote"))
+    return [t["slug"] for t in THEMES if _theme_match(hay, t["keywords"])]
+
+
 def views_for_theme(theme_slug: str) -> list[dict]:
-    theme = next(t for t in THEMES if t["slug"] == theme_slug)
-    out = []
-    for v in DATA["views"]:
-        hay = f"{v.get('asset_class','')} {v.get('region','')} {v.get('rationale','')}"
-        if _theme_match(hay, theme["keywords"]):
-            out.append(v)
-    return out
+    return [v for v in DATA["views"] if theme_slug in view_themes(v)]
 
 
 def preds_for_theme(theme_slug: str) -> list[dict]:
-    theme = next(t for t in THEMES if t["slug"] == theme_slug)
     out = []
     for p in DATA["preds"]:
         hay = f"{p.get('ticker','')} {p.get('asset_name','')}"
-        if _theme_match(hay, theme["keywords"]):
+        if _theme_match(hay, next(t["keywords"] for t in THEMES
+                                  if t["slug"] == theme_slug)):
             out.append(p)
     return out
 
 
 # Shared data loaded once (module global so render helpers can reach it).
 DATA: dict[str, Any] = {}
+# People registry, filled by build_people(): canonical name -> person dict.
+PEOPLE: dict[str, dict] = {}
+# Global topic x person matrix (built once in main).
+TOPICS: dict[str, dict] = {}
+
+
+# ---------------------------------------------------------------------------
+# People pipeline
+# ---------------------------------------------------------------------------
+
+def _effective_speakers(item_id: int) -> list[str]:
+    """Resolved canonical speakers on an item (deduped, generics dropped)."""
+    rec = DATA["item_speakers"].get(item_id)
+    if not rec:
+        return []
+    out: list[str] = []
+    for raw in (rec.get("speakers") or []):
+        p = resolve_person(raw)
+        if p and p not in out:
+            out.append(p)
+    return out
+
+
+def _attributed_speaker(raw_speaker: str | None, item_id: int) -> str | None:
+    """Resolve a prediction/view row's speaker to a person. If the row's
+    speaker is a generic label, fall back to the item's sole speaker (a
+    'Host 1' prediction on a solo-author item belongs to that author)."""
+    p = resolve_person(raw_speaker or "")
+    if p:
+        return p
+    eff = _effective_speakers(item_id)
+    return eff[0] if len(eff) == 1 else None
+
+
+def _pred_stance(p: dict) -> str:
+    return stance(p.get("action"), p.get("direction"))
+
+
+def _view_event(v: dict) -> dict:
+    return {
+        "kind": "view",
+        "topic_label": (v.get("asset_class") or "macro").strip(),
+        "stance": view_stance(v.get("direction")),
+        "date": fmt_date(v.get("published_at")),
+        "quote": v.get("quote") or v.get("rationale") or "",
+        "ref": v,
+    }
+
+
+def _pred_event(p: dict) -> dict:
+    return {
+        "kind": "pred",
+        "topic_label": p.get("ticker") or (p.get("asset_name") or "?").strip(),
+        "stance": _pred_stance(p),
+        "date": fmt_date(p.get("made_at") or p.get("published_at")),
+        "quote": p.get("quote") or "",
+        "ref": p,
+    }
+
+
+def build_people() -> dict[str, dict]:
+    """Build the PEOPLE registry: canonical name -> person record with
+    appearances (merged across shows), attributed predictions and views."""
+    people: dict[str, dict] = {}
+
+    def _get(name: str) -> dict:
+        return people.setdefault(name, {
+            "name": name,
+            "appearances": [],       # {item, role, date, channel info}
+            "preds": [],             # attributed prediction rows
+            "views": [],             # attributed view rows
+        })
+
+    # appearances from per-item speaker lists
+    for item_id, rec in DATA["item_speakers"].items():
+        eff = _effective_speakers(item_id)
+        if not eff:
+            continue
+        multi = len(eff) > 1
+        ch_name = rec.get("channel_name")
+        for name in eff:
+            role = ("host" if host_channels_for(name, ch_name)
+                    else "guest" if multi else "solo")
+            _get(name)["appearances"].append({
+                "item_id": item_id,
+                "role": role,
+                "title": rec.get("title"),
+                "url": rec.get("url"),
+                "published_at": rec.get("published_at"),
+                "channel_name": ch_name,
+                "channel_handle": rec.get("channel_handle"),
+            })
+
+    # attributed predictions / views
+    for p in DATA["preds"]:
+        name = _attributed_speaker(p.get("speaker"), p.get("item_id"))
+        if name:
+            _get(name)["preds"].append(p)
+    for v in DATA["views"]:
+        name = _attributed_speaker(v.get("speaker"), v.get("item_id"))
+        if name:
+            _get(name)["views"].append(v)
+
+    # stable slugs: latin slug from the name when possible, else a
+    # deterministic person-NNN fallback (CJK-only names slugify to empty).
+    cjk_idx = 0
+    for name in sorted(people):
+        sl = slugify(name)
+        if sl and sl != "untitled":
+            people[name]["slug"] = sl
+        else:
+            cjk_idx += 1
+            people[name]["slug"] = f"person-{cjk_idx:03d}"
+
+    # rollups used by renderers
+    for p in people.values():
+        p["n_events"] = len(p["preds"]) + len(p["views"])
+        p["roles"] = Counter(a["role"] for a in p["appearances"])
+        p["channels"] = sorted({a["channel_name"] or a["channel_handle"] or "?"
+                                for a in p["appearances"]})
+    return people
+
+
+def person_slug(name: str) -> str | None:
+    p = PEOPLE.get(name)
+    return p["slug"] if p else None
+
+
+def _person_has_page(name: str) -> bool:
+    """A person gets a page if they have at least one appearance (seen in
+    an item's speaker list) or at least one attributed extracted call."""
+    p = PEOPLE.get(name)
+    return bool(p) and bool(p.get("appearances") or p.get("n_events"))
+
+
+def person_link(path: Path, name: str) -> str:
+    """Markdown link to a person's page (or plain text if no page)."""
+    if _person_has_page(name):
+        return rel_link(path, f"People/{PEOPLE[name]['slug']}", name)
+    return md_escape(name)
+
+
+# ---------------------------------------------------------------------------
+# People bios (LLM-generated, cached)
+# ---------------------------------------------------------------------------
+
+BIO_SYSTEM = """You are an encyclopedia editor writing brief, factual bios of
+finance-industry people (investors, analysts, economists, newsletter and
+research authors, podcast hosts and guests). Output strict JSON per the
+schema. Write from general knowledge — being brief is fine and minor
+imprecision is acceptable; only leave the fields empty if you genuinely do
+not recognize the name at all."""
+
+BIO_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "additionalProperties": False,
+    "required": ["role", "bio"],
+    "properties": {
+        "role": {"type": "string"},   # short descriptor, e.g. "Macro strategist, Lyn Alden Investment Strategy"
+        "bio": {"type": "string"},    # 2-4 sentences; empty if not identifiable
+        "sells_research": {"type": "boolean"},
+    },
+}
+
+
+def _bio_context(person: dict) -> str:
+    """Compact DB-derived context about the person for the bio prompt."""
+    topics = Counter()
+    for p in person["preds"]:
+        if p.get("ticker"):
+            topics[p["ticker"]] += 1
+    shows = Counter(a["channel_name"] or "?" for a in person["appearances"])
+    sample_quotes = [truncate(p.get("quote"), 140)
+                     for p in person["preds"][:3] if p.get("quote")]
+    lines = [f"NAME: {person['name']}"]
+    if shows:
+        lines.append("APPEARED ON: " +
+                     ", ".join(f"{s} (x{n})" for s, n in shows.most_common(5)))
+    roles = person.get("roles") or {}
+    if roles:
+        lines.append("ROLES ON SHOWS: " +
+                     ", ".join(f"{r} x{n}" for r, n in roles.most_common()))
+    if topics:
+        lines.append("MOST-DISCUSSED ASSETS: " +
+                     ", ".join(f"{t} ({n})" for t, n in topics.most_common(8)))
+    if sample_quotes:
+        lines.append("SAMPLE QUOTES:")
+        lines += [f'  - "{q}"' for q in sample_quotes]
+    return "\n".join(lines)
+
+
+def ensure_bios(no_llm: bool = False) -> dict[str, dict]:
+    """Return the bio cache (canonical name -> bio record), generating any
+    missing entries with the configured default LLM. Failures are not
+    cached (retried next run); if the LLM is rate-limited/unavailable the
+    whole generation pass aborts after the first failure."""
+    cache: dict[str, dict] = {}
+    if BIO_CACHE.exists():
+        try:
+            cache = json.loads(BIO_CACHE.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001 — corrupt cache is regenerable
+            cache = {}
+    if no_llm:
+        return cache
+
+    from kb import llm
+    from kb.llm import chat_json
+    from kb.config import settings
+    s = settings()
+    provider = s.llm_provider
+    if not llm.has_credentials(provider):
+        print(f"  bios: no credentials for provider '{provider}' — skipped")
+        return cache
+
+    todo = [n for n in sorted(PEOPLE) if n not in cache]
+    if not todo:
+        return cache
+    print(f"  bios: generating {len(todo)} via {provider} …")
+    for i, name in enumerate(todo, 1):
+        person = PEOPLE[name]
+        try:
+            out = chat_json(BIO_SYSTEM, _bio_context(person), BIO_SCHEMA,
+                            provider=provider, model=llm.default_model(provider))
+            # Some models answer with a list of bio objects (e.g. for a
+            # multi-person name like "X and Y"); take the first object.
+            if isinstance(out, list):
+                out = next((x for x in out if isinstance(x, dict)), {})
+            if not isinstance(out, dict):
+                out = {}
+            role = (out.get("role") or " — ".join(
+                str(x) for x in (out.get("title"), out.get("affiliation"))
+                if x) or "").strip()
+            cache[name] = {
+                "sells_research": bool(out.get("sells_research")),
+                "role": role,
+                "bio": (out.get("bio") or "").strip(),
+                "provider": provider,
+            }
+        except Exception as exc:  # noqa: BLE001
+            print(f"  bios: LLM unavailable ({type(exc).__name__}) — "
+                  f"stopping after {i-1}/{len(todo)}; stubs will be used")
+            break
+        if i % 10 == 0:
+            print(f"    … {i}/{len(todo)}")
+            BIO_CACHE.write_text(json.dumps(cache, ensure_ascii=False, indent=1),
+                                 encoding="utf-8")
+        time.sleep(0.3)
+    BIO_CACHE.write_text(json.dumps(cache, ensure_ascii=False, indent=1),
+                         encoding="utf-8")
+    return cache
+
+
+# ---------------------------------------------------------------------------
+# Opinion timelines (per person, per topic)
+# ---------------------------------------------------------------------------
+
+def person_topics(person: dict) -> list[dict]:
+    """Group a person's attributed predictions + views into topics with a
+    chronologically ordered event list (oldest first). Prediction topics
+    are tickers; view topics are theme slugs (with a display label)."""
+    topics: dict[str, dict] = {}
+
+    def _topic(key: str, label: str, is_ticker: bool) -> dict:
+        return topics.setdefault(key, {
+            "key": key, "label": label, "is_ticker": is_ticker, "events": []})
+
+    for p in person["preds"]:
+        tk = (p.get("ticker") or "").strip().upper()
+        if not tk:
+            continue
+        ev = _pred_event(p)
+        ev["topic_label"] = tk
+        _topic(tk, tk, True)["events"].append(ev)
+    for v in person["views"]:
+        for slug in view_themes(v):
+            theme = next(t for t in THEMES if t["slug"] == slug)
+            ev = _view_event(v)
+            ev["topic_label"] = slug
+            _topic(slug, theme["title"], False)["events"].append(ev)
+
+    for t in topics.values():
+        t["events"].sort(key=lambda e: (e["date"] or "", e["ref"].get("id") or 0))
+        t["flips"] = detect_flips(t["events"])
+        # current stance = most recent directional stance, else last event
+        dir_events = [e for e in t["events"] if e["stance"] != "neutral"]
+        t["current"] = (dir_events or t["events"])[-1]["stance"] if t["events"] else "neutral"
+    return sorted(topics.values(),
+                  key=lambda t: (-len(t["events"]), t["label"]))
+
+
+def detect_flips(events: list[dict]) -> list[tuple[dict, dict]]:
+    """Consecutive directional events on a topic whose stance flips between
+    bullish and bearish. Returns (before, after) pairs. Only flips that
+    span *different days* count — several quotes from the same episode can
+    legitimately disagree (hedged language, LLM noise) and are not a
+    change of mind over time."""
+    flips: list[tuple[dict, dict]] = []
+    prev: dict | None = None
+    for e in events:
+        if e["stance"] == "neutral":
+            continue
+        if (prev
+                and {prev["stance"], e["stance"]} == {"bullish", "bearish"}
+                and (e["date"] or "") > (prev["date"] or "")):
+            flips.append((prev, e))
+        prev = e
+    return flips
+
+
+def build_topic_matrix() -> dict[str, dict]:
+    """Topic key -> {label, is_ticker, per_person: name -> events}."""
+    for name, person in PEOPLE.items():
+        for t in person_topics(person):
+            rec = TOPICS.setdefault(t["key"], {
+                "key": t["key"], "label": t["label"],
+                "is_ticker": t["is_ticker"], "per_person": {}})
+            rec["per_person"].setdefault(name, []).extend(t["events"])
+    for t in TOPICS.values():
+        for evs in t["per_person"].values():
+            evs.sort(key=lambda e: (e["date"] or "", e["ref"].get("id") or 0))
+    return TOPICS
+
+
+def topic_link(path: Path, topic: dict) -> str:
+    if topic["is_ticker"]:
+        # only link tickers that actually have their own page (>= threshold
+        # predictions); otherwise render as inline code
+        n = len(group_predictions_by_ticker(DATA["preds"]).get(topic["key"], []))
+        if n >= MIN_TICKER_MENTIONS:
+            return rel_link(path, f"Tickers/{topic['key']}", topic["key"])
+        return f"`{topic['key']}`"
+    return rel_link(path, f"Themes/{topic['key']}", topic["label"])
 
 
 # ---------------------------------------------------------------------------
@@ -417,9 +975,10 @@ def item_citation(path: Path, p: dict, *, with_quote: bool = True) -> str:
     channel = p.get("channel_name") or p.get("channel_handle") or "?"
     speaker = p.get("speaker")
     by = speaker if speaker and speaker != channel else channel
+    by_link = person_link(path, by) if by != channel else md_escape(channel)
     label = title if len(title) <= 80 else title[:79] + "…"
     link = f"[{md_escape(label)}]({url})" if url else md_escape(label)
-    cite = f"{link} — {date}, {md_escape(by)}"
+    cite = f"{link} — {date}, {by_link}"
     if with_quote and p.get("quote"):
         cite += f': "{truncate(p["quote"])}"'
     return cite
@@ -459,7 +1018,7 @@ def write_page(rel_path: str, body: str) -> Path:
     return p
 
 
-def render_home(inv: dict) -> Path:
+def render_home(inv: dict, people_counts: dict[str, int]) -> Path:
     t = inv["totals"]
     lines = [
         "# Knowledge Base Wiki",
@@ -473,10 +1032,10 @@ def render_home(inv: dict) -> Path:
         "",
         "This wiki is generated directly from the `knowledge_base` Postgres "
         "database: every quote, target price, and stance below is pulled from "
-        "an LLM extraction (currently the `github` / Copilot CLI provider) of "
-        "a real scraped item (YouTube transcript, HKEJ/Master Insight column, "
-        "Substack/Patreon post, or blog). Each claim cites its source item by "
-        "title, date, channel, and external URL.",
+        "an LLM extraction of a real scraped item (YouTube transcript, "
+        "HKEJ/Master Insight column, Substack/Patreon post, or blog). Each "
+        "claim cites its source item by title, date, channel, and external "
+        "URL.",
         "",
         "## Database at a glance",
         "",
@@ -488,7 +1047,7 @@ def render_home(inv: dict) -> Path:
         f"| Predictions extracted | **{inv['n_preds']:,}** |",
         f"| Market views extracted | **{inv['n_views']:,}** |",
         f"| Distinct tickers with calls | **{inv['n_tickers']}** |",
-        f"| Distinct speakers | **{inv['n_speakers']}** |",
+        f"| People with pages | **{people_counts.get('People', 0)}** |",
         f"| Channels (analysts) | **{inv['n_channels']}** |",
         f"| Published-date range | **{fmt_date(t['first_date'])} → {fmt_date(t['last_date'])}** |",
         "",
@@ -509,14 +1068,20 @@ def render_home(inv: dict) -> Path:
         "",
         "## How to read this wiki",
         "",
-        "- **[Tickers/](Tickers)** — one page per asset with enough analyst "
-        "mentions. Consensus direction, conflict flags, notable quotes, and "
-        "every source item.",
-        "- **[Analysts/](Analysts)** — one page per channel that has extracted "
-        "content: who they are, what they cover, their stance distribution, "
-        "recent calls.",
+        "- **[People/](People)** — one page per *person*: interview guests, "
+        "show hosts and solo authors, merged across every show they appear "
+        "on. Each page tracks their opinions per topic **over time** and "
+        "flags where they changed their mind.",
+        "- **[Tickers/](Tickers)** — one page per asset with enough mentions. "
+        "Consensus direction, conflict flags, the people on each side, a "
+        "rates/bond-yield backdrop, and every source item.",
         "- **[Themes/](Themes)** — cross-cutting theses inferred from the "
-        "predictions (AI-semis, gold, oil, rates, electrification, etc.).",
+        "predictions (AI-semis, gold, oil, rates, electrification, …).",
+        "- **[Syntheses/](Syntheses)** — the multi-dimensional views: where "
+        "the *same person* flipped stance, where *different people* "
+        "disagree on the same topic, and a global timeline of calls.",
+        "- **[Analysts/](Analysts)** — one page per channel that has "
+        "extracted content, with the people who appear on it.",
         "- **[_Index](_Index)** — flat alphabetical index of every page.",
         "",
         "## ⚠️ Important caveats — read before drawing conclusions",
@@ -531,8 +1096,9 @@ def render_home(inv: dict) -> Path:
         "but none have been evaluated against market prices (`n_scored=0`). "
         "There is no track record / hit-rate data to report — only stated "
         "calls.",
-        "3. **All extractions are from one provider** (`github`, Copilot CLI). "
-        "The DB supports multi-provider comparison but only one has run.",
+        "3. **People bios are LLM-written** (from public knowledge + this "
+        "DB's context) and can be wrong. Stances/timelines, by contrast, are "
+        "strictly DB-derived from extracted quotes.",
         "4. **Channel metadata is sparse.** Most channels have no bio/url in "
         "the DB; analyst pages say so rather than invent.",
         "5. **Re-run to refresh.** After new scrapes/extraction, regenerate "
@@ -542,7 +1108,15 @@ def render_home(inv: dict) -> Path:
         "## Marquee pages",
         "",
     ]
-    # pick a few marquee ticker pages (most mentions)
+    # marquee: top people by appearances + top tickers
+    by_app = sorted(PEOPLE.values(),
+                    key=lambda p: (len(p["appearances"]), p["n_events"]),
+                    reverse=True)[:5]
+    home = WIKI_DIR / "Home.md"
+    for p in by_app:
+        lines.append(f"- {rel_link(home, 'People/' + p['slug'], p['name'])}"
+                     f" — {len(p['appearances'])} appearance(s), "
+                     f"{p['n_events']} extracted call(s)")
     by_tk = group_predictions_by_ticker(inv["preds"])
     top_tk = sorted(by_tk.items(), key=lambda kv: len(kv[1]), reverse=True)[:5]
     for tk, plist in top_tk:
@@ -565,6 +1139,41 @@ def render_home(inv: dict) -> Path:
     return write_page("Home.md", "\n".join(lines))
 
 
+def _rates_backdrop(path: Path, ticker: str, limit: int = 6) -> list[str]:
+    """Lines for the 'rates & bond-yield backdrop' section on a ticker page.
+    Returns [] (no section) for rates tickers themselves."""
+    if ticker in RATES_TICKERS or "rates-bonds" in ticker_themes(ticker, ""):
+        return []
+    rows: list[dict] = []
+    for v in DATA["views"]:
+        hay = " ".join(str(v.get(k) or "") for k in
+                       ("asset_class", "region", "rationale"))
+        if _theme_match(hay, RATES_CONTEXT_KEYWORDS):
+            rows.append(v)
+    rows.sort(key=lambda v: fmt_date(v.get("published_at"))
+              if v.get("published_at") else "0000-00-00", reverse=True)
+    if not rows:
+        return []
+    lines = [
+        "## Rates & bond-yield backdrop",
+        "",
+        "What the same extracted corpus says about rates / yields — context "
+        "for the calls above (most recent first):",
+        "",
+    ]
+    for v in rows[:limit]:
+        sp = v.get("speaker") or ""
+        sp_l = person_link(path, sp) if sp else ""
+        who = sp_l or md_escape(v.get("channel_name") or "?")
+        d = v.get("direction") or "?"
+        lines.append(f"- {fmt_date(v.get('published_at'))} "
+                     f"_{md_escape(d)}_ {who}: "
+                     f"\"{truncate(v.get('quote') or v.get('rationale'), 180)}\"")
+    lines += ["", f"_See also the "
+                  f"{rel_link(path, 'Themes/rates-bonds', 'rates-bonds theme')}._"]
+    return lines
+
+
 def render_ticker(ticker: str, plist: list[dict]) -> Path | None:
     if len(plist) < MIN_TICKER_MENTIONS:
         return None
@@ -584,6 +1193,8 @@ def render_ticker(ticker: str, plist: list[dict]) -> Path | None:
         consensus = "neutral / watch"
 
     themes = sorted(set(ticker_themes(ticker, asset_name)))
+    speakers = sorted({resolve_person(p.get("speaker") or "") or p.get("speaker")
+                       for p in plist if p.get("speaker")})
     channels = sorted({(p.get("channel_handle"), p.get("channel_name"))
                        for p in plist if p.get("channel_handle")})
 
@@ -616,6 +1227,14 @@ def render_ticker(ticker: str, plist: list[dict]) -> Path | None:
         f"| Bearish | {n_bear} |",
         f"| Neutral / watch | {n_neut} |",
         "",
+        "## Voices on this ticker",
+        "",
+    ]
+    for sp in speakers:
+        lines.append(f"- {person_link(path, sp)}" if sp in PEOPLE
+                     else f"- {md_escape(sp)}")
+    lines += [
+        "",
         "## Notable calls",
         "",
     ]
@@ -646,6 +1265,8 @@ def render_ticker(ticker: str, plist: list[dict]) -> Path | None:
             lines.append(f"- {rel_link(path, f'Analysts/{slug}', name or handle)} (`{handle}`)")
         else:
             lines.append(f"- {md_escape(name)} (`{handle}`)")
+    # rates / bond-yield backdrop (not on rates tickers themselves)
+    lines += ["", *_rates_backdrop(path, ticker)]
     lines += [
         "",
         "## Source items",
@@ -692,6 +1313,16 @@ def render_analyst(a: dict) -> Path:
     n_bear = sum(1 for s in stances if s == "bearish")
     n_neut = sum(1 for s in stances if s == "neutral")
 
+    # people who appear on this channel (hosts + guests + solo authors)
+    channel_people: list[tuple[str, int, str]] = []
+    for pname, p in PEOPLE.items():
+        apps = [x for x in p["appearances"]
+                if x.get("channel_name") == name or x.get("channel_handle") == handle]
+        if apps:
+            roles = "/".join(sorted({x["role"] for x in apps}))
+            channel_people.append((pname, len(apps), roles))
+    channel_people.sort(key=lambda x: (-x[1], x[0]))
+
     # market-view stance (asset_class level)
     mv_dirs = Counter((v.get("direction") for v in views if v.get("direction")))
 
@@ -717,14 +1348,24 @@ def render_analyst(a: dict) -> Path:
         f"- **Market views**: {len(views)}",
         "",
     ]
+    if channel_people:
+        lines += [
+            "## People on this channel",
+            "",
+            "(hosts, guests and solo authors — each person's appearances "
+            "across all shows are merged on their own People page)",
+            "",
+        ]
+        for pname, n, roles in channel_people[:20]:
+            lines.append(f"- {person_link(path, pname)} — {n} appearance(s) "
+                         f"as {roles}")
+        lines.append("")
     if top_tickers:
         lines += ["**Most-called tickers:**", ""]
         for tk, n in top_tickers:
             ticker_link = (rel_link(path, f"Tickers/{tk}", tk)
-                           if any(p for p in DATA["preds"]
-                                  if p.get("ticker") == tk
-                                  and len([x for x in DATA["preds"]
-                                           if x.get("ticker") == tk]) >= MIN_TICKER_MENTIONS)
+                           if tk in group_predictions_by_ticker(DATA["preds"])
+                           and len(group_predictions_by_ticker(DATA["preds"])[tk]) >= MIN_TICKER_MENTIONS
                            else f"`{tk}`")
             lines.append(f"- {ticker_link} ({n})")
         lines.append("")
@@ -795,6 +1436,159 @@ def render_analyst(a: dict) -> Path:
     return write_page(rel, "\n".join(lines))
 
 
+def render_person(person: dict, bios: dict[str, dict]) -> Path:
+    name = person["name"]
+    slug = person["slug"]
+    rel = f"People/{slug}.md"
+    path = WIKI_DIR / rel
+    apps = sorted(person["appearances"],
+                  key=lambda a: fmt_date(a.get("published_at")), reverse=True)
+    topics = person_topics(person)
+    all_flips = [(t, f) for t in topics for f in t["flips"]]
+    n_stances = Counter(e["stance"] for t in topics for e in t["events"])
+
+    lines = [
+        f"# {md_escape(name)}",
+        "",
+    ]
+
+    # --- bio ---------------------------------------------------------------
+    bio = bios.get(name) or {}
+    hosted = [ch for ch in person["channels"]
+              if host_channels_for(name, ch)]
+    role_bits = []
+    if hosted:
+        role_bits.append(f"host of {', '.join(md_escape(h) for h in hosted)}")
+    r = person["roles"]
+    if r.get("guest"):
+        role_bits.append(f"interview guest ({r['guest']}x)")
+    if r.get("solo"):
+        role_bits.append(f"solo author/host ({r['solo']}x)")
+    if role_bits:
+        lines.append("**" + " · ".join(role_bits) + "**")
+        lines.append("")
+    if bio.get("bio") or bio.get("role"):
+        if bio.get("role"):
+            role_line = f"**Role:** {md_escape(bio['role'])}"
+            if bio.get("sells_research"):
+                role_line += " — *publishes/sells research*"
+            lines += [role_line, ""]
+        if bio.get("bio"):
+            lines += [f"> {md_escape(bio['bio'])}", "",
+                      "_Bio LLM-generated from public knowledge + this DB's "
+                      "context — verify before relying on it. Everything "
+                      "below the bio is strictly DB-derived._", ""]
+    else:
+        lines += ["_No finance-industry bio established (LLM bio unavailable "
+                  "or not a finance professional); the page below is "
+                  "DB-derived only._", ""]
+
+    # --- at a glance -------------------------------------------------------
+    dates = [fmt_date(a.get("published_at")) for a in apps if a.get("published_at")]
+    lines += [
+        "## At a glance",
+        "",
+        f"- **Appearances**: {len(apps)}"
+        + (f" ({dates[-1]} → {dates[0]})" if dates else ""),
+        f"- **Shows**: {', '.join(md_escape(c) for c in person['channels'])}",
+        f"- **Extracted calls**: {len(person['preds'])} predictions, "
+        f"{len(person['views'])} market views",
+    ]
+    if topics:
+        lines.append(f"- **Topics with opinions**: {len(topics)}"
+                     + (f", **{len(all_flips)} stance flip(s)** ⚠️"
+                        if all_flips else ""))
+        lines.append(f"- **Stance split**: "
+                     f"{n_stances.get('bullish',0)} bullish / "
+                     f"{n_stances.get('bearish',0)} bearish / "
+                     f"{n_stances.get('neutral',0)} neutral")
+    lines.append("")
+
+    # --- appearances -------------------------------------------------------
+    if apps:
+        lines += ["## Appearances", "",
+                  "| Date | Show | Role | Item |", "|---|---|---|---|"]
+        for a in apps:
+            title = (a.get("title") or "untitled").strip()
+            label = title if len(title) <= 60 else title[:59] + "…"
+            link = f"[{md_escape(label)}]({a['url']})" if a.get("url") \
+                else md_escape(label)
+            lines.append(f"| {fmt_date(a.get('published_at'))} | "
+                         f"{md_escape(a.get('channel_name') or '?')} | "
+                         f"{a['role']} | {link} |")
+        lines.append("")
+
+    # --- opinions by topic, over time ---------------------------------------
+    if topics:
+        lines += [
+            "## Opinions by topic, over time",
+            "",
+            "_Oldest → newest within each topic. Arrows show each call's "
+            "stance; ⚠️ marks a detected change of mind._",
+            "",
+        ]
+        for t in topics:
+            flip_dates = {f[1]["date"] for f in t["flips"]}
+            head = (f"### {topic_link(path, t)}"
+                    + f" — now **{t['current']}** ({len(t['events'])} call(s))"
+                    + (" ⚠️ stance flipped" if t["flips"] else ""))
+            lines += [head, ""]
+            for e in t["events"]:
+                mark = " ⚠️ **flip**" if e["date"] in flip_dates else ""
+                lines.append(f"- `{e['date']}` {STANCE_ARROW[e['stance']]}"
+                             f"{mark} — {truncate(e['quote'], 180) or '_(no quote)'}")
+            lines.append("")
+
+    # --- opinion shifts -----------------------------------------------------
+    if all_flips:
+        lines += [
+            "## Opinion shifts",
+            "",
+            "Where this person changed their stance on the same topic:",
+            "",
+        ]
+        for t, (before, after) in all_flips:
+            lines.append(f"- **{topic_link(path, t)}**: "
+                         f"`{before['date']}` {STANCE_ARROW[before['stance']]} "
+                         f"\"{truncate(before['quote'], 120)}\" → "
+                         f"`{after['date']}` {STANCE_ARROW[after['stance']]} "
+                         f"\"{truncate(after['quote'], 120)}\"")
+        lines += ["", f"_See all people's shifts in "
+                  f"{rel_link(path, 'Syntheses/Opinion-Shifts', 'Syntheses/Opinion Shifts')}._", ""]
+
+    # --- disagreements with others ------------------------------------------
+    others = []
+    for t in topics:
+        rec = TOPICS.get(t["key"])
+        if not rec:
+            continue
+        opposing = [n for n, evs in rec["per_person"].items()
+                    if n != name and evs
+                    and {evs[-1]["stance"], t["current"]} == {"bullish", "bearish"}]
+        if opposing:
+            others.append((t, opposing))
+    if others:
+        lines += [
+            "## Where others disagree",
+            "",
+            "Topics where this person's current stance conflicts with "
+            "another person's:",
+            "",
+        ]
+        for t, opposing in others:
+            who = ", ".join(person_link(path, n) for n in opposing[:6])
+            lines.append(f"- {topic_link(path, t)} — opposite: {who}")
+        lines += ["", f"_Full both-sides breakdown: "
+                  f"{rel_link(path, 'Syntheses/Disagreements', 'Syntheses/Disagreements')}._", ""]
+
+    lines += [
+        "---",
+        f"_Page reflects DB state at generation time. Regenerate via "
+        "`uv run python scripts/build_llm_wiki.py`._",
+    ]
+    return write_page(rel, "\n".join(lines))
+
+
 def render_theme(theme: dict) -> Path:
     slug = theme["slug"]
     rel = f"Themes/{slug}.md"
@@ -805,6 +1599,17 @@ def render_theme(theme: dict) -> Path:
     # constituent tickers (from preds)
     tk_counter = Counter((p.get("ticker") for p in preds if p.get("ticker")))
     tickers = tk_counter.most_common()
+
+    # key voices: people with the most events in this theme
+    voice_counter: Counter[str] = Counter()
+    for p in preds:
+        nm = resolve_person(p.get("speaker") or "")
+        if nm:
+            voice_counter[nm] += 1
+    for v in views:
+        nm = resolve_person(v.get("speaker") or "")
+        if nm:
+            voice_counter[nm] += 1
 
     lines = [
         f"# Theme: {theme['title']}",
@@ -830,6 +1635,11 @@ def render_theme(theme: dict) -> Path:
     else:
         lines += ["_No tickered predictions fall in this theme yet (signal "
                   "comes from market-view asset_class text only)._", ""]
+    if voice_counter:
+        lines += ["## Key voices", ""]
+        for nm, n in voice_counter.most_common(10):
+            lines.append(f"- {person_link(path, nm)} ({n})")
+        lines.append("")
     # consensus across predictions
     if preds:
         stances = [stance(p.get("action"), p.get("direction")) for p in preds]
@@ -872,6 +1682,130 @@ def render_theme(theme: dict) -> Path:
     return write_page(rel, "\n".join(lines))
 
 
+# ---------------------------------------------------------------------------
+# Syntheses — the multi-dimensional views
+# ---------------------------------------------------------------------------
+
+def render_opinion_shifts() -> Path:
+    """Same person, same topic, opposite stances at different times."""
+    path = WIKI_DIR / "Syntheses" / "Opinion-Shifts.md"
+    entries: list[tuple[str, dict, tuple[dict, dict]]] = []
+    for name, person in sorted(PEOPLE.items()):
+        for t in person_topics(person):
+            for f in t["flips"]:
+                entries.append((name, t, f))
+    entries.sort(key=lambda x: x[2][1]["date"], reverse=True)
+    lines = [
+        "# Synthesis: Opinion Shifts",
+        "",
+        "Where the **same person** has taken opposite stances on the same "
+        "topic at different times — the corpus's clearest evidence of "
+        "changing minds. Newest flip first.",
+        "",
+    ]
+    if not entries:
+        lines.append("_No stance flips detected in the current extraction "
+                     "(this will populate as more items are extracted)._")
+    else:
+        for name, t, (before, after) in entries:
+            lines += [
+                f"## {person_link(path, name)} — {topic_link(path, t)}",
+                "",
+                f"- **Before** (`{before['date']}`, {STANCE_ARROW[before['stance']]}): "
+                f"\"{truncate(before['quote'], 200) or '_(no quote)'}\"",
+                f"- **After** (`{after['date']}`, {STANCE_ARROW[after['stance']]}): "
+                f"\"{truncate(after['quote'], 200) or '_(no quote)'}\"",
+                "",
+            ]
+    lines += [
+        "---",
+        "_Derived from per-person topic timelines. Regenerate via "
+        "`uv run python scripts/build_llm_wiki.py`._",
+    ]
+    return write_page("Syntheses/Opinion-Shifts.md", "\n".join(lines))
+
+
+def render_disagreements() -> Path:
+    """Different people on opposite sides of the same topic."""
+    path = WIKI_DIR / "Syntheses" / "Disagreements.md"
+    sections: list[tuple[dict, list[tuple[str, str, dict]]]] = []
+    for key, t in TOPICS.items():
+        # each person's latest directional stance on the topic
+        latest: dict[str, tuple[str, dict]] = {}
+        for n, evs in t["per_person"].items():
+            for e in reversed(evs):
+                if e["stance"] != "neutral":
+                    latest[n] = (e["stance"], e)
+                    break
+        bulls = [(n, e) for n, (s, e) in latest.items() if s == "bullish"]
+        bears = [(n, e) for n, (s, e) in latest.items() if s == "bearish"]
+        if bulls and bears:
+            rows = ([(n, "bullish", e) for n, e in bulls]
+                    + [(n, "bearish", e) for n, e in bears])
+            sections.append((t, rows))
+    sections.sort(key=lambda x: -len(x[1]))
+
+    lines = [
+        "# Synthesis: Disagreements",
+        "",
+        "Topics where **different people** currently hold opposite stances "
+        "(each person's latest directional call on the topic). Sorted by "
+        "how many voices are in the fight.",
+        "",
+    ]
+    if not sections:
+        lines.append("_No cross-person conflicts detected in the current "
+                     "extraction._")
+    for t, rows in sections:
+        lines += [f"## {topic_link(path, t)}", ""]
+        for n, s, e in rows:
+            lines.append(f"- {person_link(path, n)} — {STANCE_ARROW[s]} "
+                         f"(`{e['date']}`): "
+                         f"\"{truncate(e['quote'], 160) or '_(no quote)'}\"")
+        lines.append("")
+    lines += [
+        "---",
+        "_'Current' = each person's most recent non-neutral extracted call. "
+        "Regenerate via `uv run python scripts/build_llm_wiki.py`._",
+    ]
+    return write_page("Syntheses/Disagreements.md", "\n".join(lines))
+
+
+def render_timeline() -> Path:
+    """Every extracted call, chronological — the time dimension."""
+    events: list[tuple[str, str, dict]] = []
+    for name, person in PEOPLE.items():
+        for t in person_topics(person):
+            for e in t["events"]:
+                events.append((e["date"] or "9999", name, e))
+    events.sort(key=lambda x: x[0])
+
+    lines = [
+        "# Synthesis: Timeline of Calls",
+        "",
+        f"Every attributed extracted call ({len(events)} events, oldest → "
+        "newest), grouped by year. Use this to read any topic with the "
+        "time dimension in view.",
+        "",
+    ]
+    cur_year = None
+    for date, name, e in events:
+        y = date[:4]
+        if y != cur_year:
+            cur_year = y
+            lines += [f"## {y}", ""]
+        arrow = STANCE_ARROW[e["stance"]].split(" ")[0]
+        lines.append(f"- `{date}` **{md_escape(name)}** {arrow} "
+                     f"{md_escape(e['topic_label'])} — "
+                     f"{truncate(e['quote'], 140) or '_(no quote)'}")
+    lines += [
+        "",
+        "---",
+        "_Regenerate via `uv run python scripts/build_llm_wiki.py`._",
+    ]
+    return write_page("Syntheses/Timeline.md", "\n".join(lines))
+
+
 def render_index(pages: dict[str, list[tuple[str, str]]]) -> Path:
     """pages[section] is a list of (slug, display_label)."""
     lines = [
@@ -880,17 +1814,23 @@ def render_index(pages: dict[str, list[tuple[str, str]]]) -> Path:
         "Every page in the wiki, alphabetical by display label within each "
         "section.",
         "",
-        "## Tickers",
+        "## People",
         "",
     ]
+    for slug, label in sorted(pages.get("People", []), key=lambda x: x[1].lower()):
+        lines.append(f"- [{md_escape(label)}](People/{slug}.md)")
+    lines += ["", "## Tickers", ""]
     for slug, label in sorted(pages.get("Tickers", []), key=lambda x: x[1].lower()):
         lines.append(f"- [{md_escape(label)}](Tickers/{slug}.md)")
-    lines += ["", "## Analysts", ""]
-    for slug, label in sorted(pages.get("Analysts", []), key=lambda x: x[1].lower()):
-        lines.append(f"- [{md_escape(label)}](Analysts/{slug}.md)")
     lines += ["", "## Themes", ""]
     for slug, label in sorted(pages.get("Themes", []), key=lambda x: x[1].lower()):
         lines.append(f"- [{md_escape(label)}](Themes/{slug}.md)")
+    lines += ["", "## Syntheses", ""]
+    for slug, label in sorted(pages.get("Syntheses", []), key=lambda x: x[1].lower()):
+        lines.append(f"- [{md_escape(label)}](Syntheses/{slug}.md)")
+    lines += ["", "## Analysts", ""]
+    for slug, label in sorted(pages.get("Analysts", []), key=lambda x: x[1].lower()):
+        lines.append(f"- [{md_escape(label)}](Analysts/{slug}.md)")
     lines += ["", "[← Back to Home](Home.md)", ""]
     return write_page("_Index.md", "\n".join(lines))
 
@@ -904,18 +1844,21 @@ def render_readme(inv: dict, counts: dict[str, int]) -> Path:
         "A Karpathy-style synthesized wiki generated **from** the "
         "`knowledge_base` Postgres database. Not hand-written — every page is "
         "rendered by `scripts/build_llm_wiki.py` from the `item`, `prediction`, "
-        "`view_market`, `channel`, and `source` tables.",
+        "`view_market`, `channel`, `source` tables and the per-item speaker "
+        "lists in `extraction_run`.",
         "",
         "## Regenerate",
         "",
         "```bash",
         "# from the repo root, with the postgres container running",
         "uv run python scripts/build_llm_wiki.py",
+        "# add --no-bios to skip LLM bio generation for People pages",
         "```",
         "",
         "The script is **read-only** against the DB and only writes under "
-        "`llm-wiki/`. It clears the directory first, so it is fully "
-        "idempotent.",
+        "`llm-wiki/` (plus the bio cache `scripts/llm_wiki_bios.json`, so "
+        "bios are only generated once per person). It clears the directory "
+        "first, so it is fully idempotent.",
         "",
         "## What it produces",
         "",
@@ -924,9 +1867,14 @@ def render_readme(inv: dict, counts: dict[str, int]) -> Path:
         "  Home.md             # overview + DB stats + caveats + marquee pages",
         "  _Index.md           # alphabetical index",
         "  README.md           # this file",
-        f"  Tickers/   ({counts.get('Tickers',0)} pages)   # one per ticker >= {MIN_TICKER_MENTIONS} mentions",
+        f"  People/    ({counts.get('People',0)} pages)   # one per person (guests, hosts,",
+        "                        #   solo authors merged across shows) — opinions",
+        "                        #   per topic over time, flips flagged, LLM bios",
+        f"  Tickers/   ({counts.get('Tickers',0)} pages)   # one per ticker >= {MIN_TICKER_MENTIONS} mentions,",
+        "                        #   incl. rates/bond-yield backdrop",
         f"  Analysts/  ({counts.get('Analysts',0)} pages)   # one per channel with extracted items",
         f"  Themes/    ({counts.get('Themes',0)} pages)   # cross-cutting theses (gold, AI-semis, …)",
+        f"  Syntheses/ ({counts.get('Syntheses',0)} pages)   # opinion shifts · disagreements · timeline",
         "```",
         "",
         "## Data snapshot at generation time",
@@ -935,7 +1883,7 @@ def render_readme(inv: dict, counts: dict[str, int]) -> Path:
         f"- Items in DB: **{t['n_items']:,}** (extracted: **{t['n_extracted']:,}**, "
         f"pending: **{t['n_pending']:,}**)",
         f"- Predictions: **{inv['n_preds']:,}** · Market views: **{inv['n_views']:,}**",
-        f"- Distinct tickers with calls: **{inv['n_tickers']}** · Speakers: **{inv['n_speakers']}**",
+        f"- Distinct tickers with calls: **{inv['n_tickers']}** · People pages: **{counts.get('People',0)}**",
         f"- Published-date range: **{fmt_date(t['first_date'])} → {fmt_date(t['last_date'])}**",
         "",
         "## Important caveats",
@@ -947,9 +1895,10 @@ def render_readme(inv: dict, counts: dict[str, int]) -> Path:
         "2. **No performance scores.** Predictions carry `score` columns but "
         "none are evaluated yet (`n_scored=0`). There is no hit-rate / "
         "track-record data — only stated calls.",
-        "3. **Single extraction provider.** All extractions currently come "
-        "from the `github` (Copilot CLI) provider. The DB supports "
-        "multi-provider comparison but only one has run.",
+        "3. **People bios are LLM-generated** (default provider: GLM via "
+        "`zai`) from public knowledge + DB context, and cached. Stances, "
+        "timelines, shifts and disagreements are strictly DB-derived from "
+        "extracted quotes.",
         "4. **Themes are keyword-bucketed**, not semantically clustered — "
         "approximate by design.",
         "5. **Quotes are LLM-extracted**, not curated. They can misattribute "
@@ -961,7 +1910,7 @@ def render_readme(inv: dict, counts: dict[str, int]) -> Path:
         "- the item **title** (linked to its external URL — YouTube watch "
         "link, HKEJ article, Substack post, etc.),",
         "- the **published date**,",
-        "- the **channel/analyst** name,",
+        "- the **channel/analyst** name (and, where attributed, the person),",
         "- and where relevant, the extracted **quote**.",
         "",
         "The `external_id` (e.g. a YouTube video id) is the item's stable key "
@@ -981,11 +1930,29 @@ def render_readme(inv: dict, counts: dict[str, int]) -> Path:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    global DATA
+    global DATA, PEOPLE, TOPICS
+    ap = argparse.ArgumentParser(
+        description="Build the llm-wiki from the knowledge database.")
+    ap.add_argument("--no-bios", action="store_true",
+                    help="skip LLM bio generation for People pages")
+    args = ap.parse_args()
+
     print("loading data from DB …")
     DATA = fetch_all()
     print(f"  {len(DATA['preds'])} predictions, {len(DATA['views'])} views, "
-          f"{len(DATA['analysts'])} channels with extractions")
+          f"{len(DATA['analysts'])} channels with extractions, "
+          f"{len(DATA['item_speakers'])} items with speaker lists")
+
+    print("building people registry …")
+    PEOPLE = build_people()
+    n_multi = sum(1 for p in PEOPLE.values() if len(p["channels"]) > 1)
+    print(f"  {len(PEOPLE)} people "
+          f"({n_multi} appearing on more than one show)")
+
+    bios = ensure_bios(no_llm=args.no_bios)
+    print(f"  bios cached/generated: {len(bios)}")
+
+    TOPICS = build_topic_matrix()
 
     # clear + recreate the wiki dir
     if WIKI_DIR.exists():
@@ -993,7 +1960,16 @@ def main() -> None:
     WIKI_DIR.mkdir(parents=True, exist_ok=True)
 
     pages: dict[str, list[tuple[str, str]]] = {
-        "Tickers": [], "Analysts": [], "Themes": []}
+        "People": [], "Tickers": [], "Analysts": [], "Themes": [],
+        "Syntheses": []}
+
+    # --- People ---
+    for name in sorted(PEOPLE):
+        person = PEOPLE[name]
+        if not (person["appearances"] or person["n_events"]):
+            continue
+        render_person(person, bios)
+        pages["People"].append((person["slug"], name))
 
     # --- Tickers ---
     by_tk = group_predictions_by_ticker(DATA["preds"])
@@ -1017,17 +1993,26 @@ def main() -> None:
             render_theme(theme)
             pages["Themes"].append((theme["slug"], theme["title"]))
 
+    # --- Syntheses ---
+    render_opinion_shifts()
+    pages["Syntheses"].append(
+        ("Opinion-Shifts", "Opinion Shifts (same person changes mind)"))
+    render_disagreements()
+    pages["Syntheses"].append(
+        ("Disagreements", "Disagreements (people vs people)"))
+    render_timeline()
+    pages["Syntheses"].append(("Timeline", "Timeline of Calls (global)"))
+
     # --- Home, Index, README ---
-    render_home(DATA)
-    render_index(pages)
     counts = {k: len(v) for k, v in pages.items()}
+    render_home(DATA, counts)
+    render_index(pages)
     render_readme(DATA, counts)
 
     print(f"\nwiki written to {WIKI_DIR}")
-    print(f"  Tickers:  {counts['Tickers']}")
-    print(f"  Analysts: {counts['Analysts']}")
-    print(f"  Themes:   {counts['Themes']}")
-    total = counts["Tickers"] + counts["Analysts"] + counts["Themes"] + 3
+    for k in ("People", "Tickers", "Analysts", "Themes", "Syntheses"):
+        print(f"  {k:<10} {counts[k]}")
+    total = sum(counts.values()) + 3
     print(f"  + Home.md, _Index.md, README.md  (total {total} pages)")
 
 

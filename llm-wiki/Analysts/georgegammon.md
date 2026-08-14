@@ -11,6 +11,13 @@ _No URL / bio in DB channel metadata._
 - **Predictions**: 6
 - **Market views**: 13
 
+## People on this channel
+
+(hosts, guests and solo authors — each person's appearances across all shows are merged on their own People page)
+
+- [George Gammon](../People/george-gammon.md) — 2 appearance(s) as guest/solo
+- [George Noble](../People/george-noble.md) — 1 appearance(s) as guest
+
 **Most-called tickers:**
 
 - [^GSPC](../Tickers/^GSPC.md) (2)

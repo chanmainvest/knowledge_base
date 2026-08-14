@@ -42,6 +42,11 @@ class Settings(BaseSettings):
     patreon_rate_limit_sec: float = 5.0  # internal API; keep ≥ global default
     substack_rate_limit_sec: float = 3.0  # public archive/post API; keep ≥ global default
     youtube_rate_limit_sec: float = 5.0  # subtitle/timedtext endpoint 429s hard; keep generous
+    # When the SOCKS5 proxy pool is down and yt-dlp falls back to a *direct*
+    # connection, YouTube throttles the single residential IP far harder than a
+    # round-robined egress pool. Use this larger base interval proactively (not
+    # reactively after a 429) so direct scrapes don't get rate-limited at all.
+    youtube_direct_rate_limit_sec: float = 15.0
     scrape_user_agent: str = "Mozilla/5.0 KB-Personal/0.1"
     scrape_max_retries: int = 3
     yt_dlp_cookies_from_browser: str = ""
@@ -50,11 +55,22 @@ class Settings(BaseSettings):
     patreon_cookies_from_browser: str = ""  # e.g. chrome, edge — reads session_id if PATREON_SESSION_ID unset
     substack_cookies_from_browser: str = ""  # e.g. chrome, edge — reads substack.sid if SUBSTACK_SESSION_COOKIE unset
 
+    # HKEJ browser / Camoufox — Docker is the default launch mode; the browser
+    # runs in a container exposing a Playwright WS endpoint. "local" falls back
+    # to an on-host Camoufox (the historical daemon path).
+    hkej_browser_mode: str = "docker"  # docker | local
+    hkej_login_mode: str = "auto"      # auto (creds→auto-fill, else manual) | manual
+    hkej_camoufox_endpoint: str = "ws://127.0.0.1:9222/hkej"  # container Playwright WS endpoint
+    hkej_docker_image: str = "kb-camoufox:latest"             # built from docker/camoufox
+    hkej_docker_container: str = "kb_camoufox"                # container name for kb hkej docker
+    hkej_camoufox_port: int = 9222       # host port mapped to the container's WS endpoint
+    hkej_docker_novnc_port: int = 7900   # host port mapped to the container's noVNC web UI
+
     # LLM — which provider `kb extract run` uses by default, and which
     # provider embeddings use (embeddings need an OpenAI-wire-compatible
     # endpoint; only "openai" and "zai" support them today).
-    llm_provider: str = "openai"            # openai | github | anthropic | zai
-    llm_embedding_provider: str = "openai"  # openai | zai
+    llm_provider: str = "zai"                # openai | github | anthropic | zai
+    llm_embedding_provider: str = "zai"      # openai | zai
 
     # ---- openai (also the default for any OpenAI-compatible endpoint you
     # point LLM_BASE_URL at, e.g. Azure OpenAI or a local Ollama server) ----
@@ -81,6 +97,15 @@ class Settings(BaseSettings):
     zai_model: str = "glm-4.6"
     zai_embedding_model: str = "embedding-3"
 
+    # ---- LLM retry / rate-limit backoff ----
+    # Providers (esp. OpenRouter free tier) return HTTP 429 under sustained load.
+    # chat_json()/embed() retry with a quiet period: honour the server's
+    # Retry-After header when present, otherwise pause llm_rate_limit_pause_sec
+    # for a 429 and use exponential backoff (2..llm_rate_limit_pause_sec) for
+    # other transient errors, up to llm_max_retries attempts.
+    llm_max_retries: int = 8
+    llm_rate_limit_pause_sec: int = 20
+
     # Postgres
     postgres_host: str = "localhost"
     postgres_port: int = 5544
@@ -91,14 +116,19 @@ class Settings(BaseSettings):
     # Data layout
     data_dir: str = "data"  # relative to repo root, or an absolute path
 
-    # Whisper / ASR transcription (faster-whisper + large-v3 on GPU)
+    # Whisper / ASR transcription (faster-whisper + large-v3 on GPU).
+    # Disabled by default — enable per run with `kb youtube scrape --transcribe`
+    # or use the dedicated `kb youtube transcribe` command.
+    whisper_enabled: bool = False
     whisper_model: str = "large-v3"        # faster-whisper model size
     whisper_device: str = "cuda"           # cuda | cpu
     whisper_compute_type: str = "float16"  # float16 (GPU), int8 (CPU)
     whisper_beam_size: int = 5             # beam search width
     whisper_language: str = ""             # empty = auto-detect, or "en"/"yue"/etc.
     whisper_max_duration_sec: int = 0      # 0 = no limit; otherwise skip videos longer than this
-    whisper_tmp_dir: str = "tmp/audio"     # relative to repo root, gitignored
+    # Transient audio download dir. Relative paths resolve against DATA_DIR,
+    # matching the data/raw/<source>/ layout; absolute paths are used as-is.
+    whisper_tmp_dir: str = "raw/youtube/tmp"
 
     # API
     api_host: str = "127.0.0.1"
