@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 3
+- **Extracted items**: 4
 - **Items with predictions**: 1
 - **Predictions**: 7
 - **Market views**: 0
@@ -34,6 +34,7 @@ _No URL / bio in DB channel metadata._
 - 2026-07-31 — [Hedge Fund Financing of Open-Source Projects While Shorting Public Competitors](https://hevangel.substack.com/p/hedge-fund-financing-of-open-source)
 - 2026-07-30 — [Silver Shortage](https://hevangel.substack.com/p/silver-shortage)
 - 2026-07-28 — [Interest Rates and the Future of Gold, Precious Metals, Oil, and Royalty and Streaming Co…](https://hevangel.substack.com/p/interest-rates-and-the-future-of)
+- 2026-07-21 — [Capital Cycle Theory](https://hevangel.substack.com/p/capital-cycle-theory)
 
 ---
 _Page reflects DB state at generation time._

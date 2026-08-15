@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 19
+- **Extracted items**: 22
 - **Items with predictions**: 7
 - **Predictions**: 21
 - **Market views**: 96
@@ -29,7 +29,7 @@ _No URL / bio in DB channel metadata._
 - [GOOGL](../Tickers/GOOGL.md) (1)
 - `BLK` (1)
 - [AMZN](../Tickers/AMZN.md) (1)
-- `ORCL` (1)
+- [ORCL](../Tickers/ORCL.md) (1)
 - `^NDX` (1)
 - `INR=X` (1)
 - `OWL` (1)
@@ -58,19 +58,19 @@ _No URL / bio in DB channel metadata._
 - `BLK`: [ALERT: AI Credit Spreads Are Suddenly Blowing Out... Just Like 2008?](https://www.youtube.com/watch?v=KgZ2j6yI16A) — 2026-07-30, Eurodollar University: "ultimately priced at a yield of 7.53%, which is one of the highest yields for a blue chip data center financing since the current AA borrowing binge began."
 - [AMZN](../Tickers/AMZN.md): [ALERT: AI Credit Spreads Are Suddenly Blowing Out... Just Like 2008?](https://www.youtube.com/watch?v=KgZ2j6yI16A) — 2026-07-30, Eurodollar University: "investors required more compensation and provided much less enthusiastic demand than the market had come to expect, suggesting something has changed."
 - `(no ticker)`: [ALERT: AI Credit Spreads Are Suddenly Blowing Out... Just Like 2008?](https://www.youtube.com/watch?v=KgZ2j6yI16A) — 2026-07-30, Eurodollar University: "Its swaps reached approximately 185 basis points, rising by more than half since trading began just last month."
-- `ORCL`: [ALERT: AI Credit Spreads Are Suddenly Blowing Out... Just Like 2008?](https://www.youtube.com/watch?v=KgZ2j6yI16A) — 2026-07-30, Eurodollar University: "CDS spread reached approximately 215 basis points this week, up from about 145 basis points at the end of last year. And this is the highest it's seen in several years."
+- [ORCL](../Tickers/ORCL.md): [ALERT: AI Credit Spreads Are Suddenly Blowing Out... Just Like 2008?](https://www.youtube.com/watch?v=KgZ2j6yI16A) — 2026-07-30, Eurodollar University: "CDS spread reached approximately 215 basis points this week, up from about 145 basis points at the end of last year. And this is the highest it's seen in several years."
 - `^NDX`: [ALERT: AI Credit Spreads Are Suddenly Blowing Out... Just Like 2008?](https://www.youtube.com/watch?v=KgZ2j6yI16A) — 2026-07-30, Eurodollar University: "flirting with correction territory"
 - `(no ticker)`: [The “Safest” Companies Are Warning the Consumer Is Breaking](https://www.youtube.com/watch?v=I475w6xb8LI) — 2026-07-26, Eurodollar University: "what we're going to see is another wave of layoffs at some point"
 - [^TNX](../Tickers/^TNX.md): [The “Safest” Companies Are Warning the Consumer Is Breaking](https://www.youtube.com/watch?v=I475w6xb8LI) — 2026-07-26, Eurodollar University: "rates end up going down by quite a bit"
 
 ## Recent market views
 
-- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "the eurodollar today is in much worse shape than it was 30 years back"
 - _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "Today's immediate catalyst isn't real estate, it's oil"
 - _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "The eurodollar transformed its view of Asia from tigers to toxic waste"
 - _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "India's demand for dollars has repeatedly exceeded the private supply available at prevailing exchange rates"
 - _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "The danger is that central banks react to the temporary inflationary impact of oil while the underlying economy is already weakening."
-- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "Swap spreads are also leaning heavily toward balance sheet caution rather than accelerating consumer prices."
+- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "Today, after 2008, global banks operate with tighter balance sheet constraints. Dollar funding has increasingly migrated into swap, securities financing, non-bank structures or shadow banks that become unstable when col…"
+- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "Across the region, other interventions have produced the same pattern, a temporary rally followed by renewed depreciation. That tells us private dollar conditions remain stronger than official defenses."
 
 ## Source items (extracted)
 
@@ -83,6 +83,9 @@ _No URL / bio in DB channel metadata._
 - 2026-07-25 — [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ)
 - 2026-07-23 — [Google Issues a Dire Warning About the “AI Boom”](https://www.youtube.com/watch?v=3JjkvLAvS9w)
 - 2026-07-22 — [Europe’s 20-Year Economic Collapse Is Finally Impossible to Hide](https://www.youtube.com/watch?v=WhNvNwxV_qA)
+- 2026-07-21 — [BREAKING: The Private Credit Crisis Just Reached Amazon](https://www.youtube.com/watch?v=lSLkb3BB_0M)
+- 2026-07-19 — [The Oil Market and Yield Curve Just Did Something Really Strange](https://www.youtube.com/watch?v=Rl_wTYKfiyg)
+- 2026-07-18 — [The Fed Hasn’t Done This in Over 40 Years!! Here’s What You Must Know](https://www.youtube.com/watch?v=7idqcCBZBMQ)
 - 2026-06-23 — [Private Credit Default Rates Just Hit The Point Of No Return](https://www.youtube.com/watch?v=SibAV9HRe1I)
 - 2026-06-22 — [The U.K. Has Fallen: Here's What It Means for the World](https://www.youtube.com/watch?v=wL63-KdtuEE)
 - 2026-06-21 — [Swiss Bond Market Just Gave A Dire Warning to the World](https://www.youtube.com/watch?v=c2LzapdRuT4)

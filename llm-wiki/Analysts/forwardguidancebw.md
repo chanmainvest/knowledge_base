@@ -38,11 +38,11 @@ _No URL / bio in DB channel metadata._
 ## Recent market views
 
 - _? — ?_: [Washington Is Suppressing Volatility To Keep The AI Boom Alive \| Weekly Roundup](https://www.youtube.com/watch?v=L_g9MNO2tvE) — 2026-08-07, Forward Guidance: "Washington is shifting from monetary management toward state-directed capitalism"
-- _? — ?_: [Washington Is Suppressing Volatility To Keep The AI Boom Alive \| Weekly Roundup](https://www.youtube.com/watch?v=L_g9MNO2tvE) — 2026-08-07, Forward Guidance: "Treasury Takes Control Of Volatility"
-- _? — ?_: [Washington Is Suppressing Volatility To Keep The AI Boom Alive \| Weekly Roundup](https://www.youtube.com/watch?v=L_g9MNO2tvE) — 2026-08-07, Forward Guidance: "Backstopping The Global Short Vol Trade"
 - _? — ?_: [Washington Is Suppressing Volatility To Keep The AI Boom Alive \| Weekly Roundup](https://www.youtube.com/watch?v=L_g9MNO2tvE) — 2026-08-07, Forward Guidance: "The AI Capex Boom Becomes Statecraft"
-- _? — ?_: [AI Efficiency Is Repricing The Compute Market \| Steve Hou](https://www.youtube.com/watch?v=CJE3YWA4LLk) — 2026-07-22, Forward Guidance: "even the A100 chip rental rate is going up and has been has stayed up has not come down at all. Right? That just tells you just how robust you know inference demand is."
-- _? — ?_: [AI Efficiency Is Repricing The Compute Market \| Steve Hou](https://www.youtube.com/watch?v=CJE3YWA4LLk) — 2026-07-22, Forward Guidance: "the entire entire curve has actually moved upward right in other words every maturity every length of the contract per GPU hour price has gone up not only that the curve has also become like on the long end almost seemi…"
+- _? — ?_: [Washington Is Suppressing Volatility To Keep The AI Boom Alive \| Weekly Roundup](https://www.youtube.com/watch?v=L_g9MNO2tvE) — 2026-08-07, Forward Guidance: "Backstopping The Global Short Vol Trade"
+- _? — ?_: [Washington Is Suppressing Volatility To Keep The AI Boom Alive \| Weekly Roundup](https://www.youtube.com/watch?v=L_g9MNO2tvE) — 2026-08-07, Forward Guidance: "Treasury Takes Control Of Volatility"
+- _? — ?_: [AI Efficiency Is Repricing The Compute Market \| Steve Hou](https://www.youtube.com/watch?v=CJE3YWA4LLk) — 2026-07-22, Forward Guidance: "the way I think about it is almost a bit like you know the Tesla BYD situation right you know sort of the Chinese EVs they they ostensibly we don't see them here right but they are apparently very good and they dominate…"
+- _? — ?_: [AI Efficiency Is Repricing The Compute Market \| Steve Hou](https://www.youtube.com/watch?v=CJE3YWA4LLk) — 2026-07-22, Forward Guidance: "cloud providers renters the landlords of AI you know clouds are feeling comfortable not you know giving these long-term contract discounts and just letting short-term contracts roll over as so that they have an opportun…"
 
 ## Source items (extracted)
 

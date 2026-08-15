@@ -1,12 +1,12 @@
-# Pan Operating Complex
+# DRAM
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
 ## The debate
 
-The record on Pan Operating Complex is, for now, nearly empty. The corpus contains just two entries, both dated July 23, 2026, and both attributed to unidentified speakers with no stated position and no quoted language. Nothing in the digest identifies who was speaking, what they said, or whether they leaned bullish or bearish — the source extraction appears to have captured the events without their substance.
+Coverage of DRAM in this corpus is strikingly thin, and the "debate" as such barely exists yet: the record holds no named bulls, no named bears, and a consensus tag of neutral / watch. The only voice on file is an unnamed commentator speaking on July 20, 2026, and even that intervention is hedged rather than a directional call. Their two statements amount to a view about the shape of the move rather than its direction: after the steep decline DRAM had already suffered, any rebound "could be quite sharp," but at the same time they doubted prices would fall to the lows others apparently feared — "I don't think DRAM will fall that low."
 
-That means there is no bull case or bear case to reconstruct here: no named analyst has gone on record for or against the asset, and no speaker shows a documented change of mind. The "neutral / watch" consensus tag should be read accordingly — it is not the product of analysts deliberating and landing in the middle, but a placeholder resting on two contentless data points. Anyone hoping to write the actual debate around Pan Operating Complex will need richer sourcing; on the current evidence, the honest summary is that the market conversation has not yet been captured, not that it has been weighed and found evenly split.
+Read together, that is an asymmetry argument dressed as neutrality: limited further downside, potentially violent upside, and no commitment on timing. It is consistent with the neutral/watch consensus, but it is a single anonymous data point on a single day — not enough to construct a timeline of calls, identify who changed their mind, or characterize a bull camp versus a bear camp. Until named analysts with dated, opposing positions enter the record, any account of a DRAM debate here would be invention rather than summary.
 
 ## Themes
 
@@ -25,12 +25,12 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 ## Notable calls
 
-- **Resource Talks** — [North American Gold Producer, But Can They Execute on Growth? \| Mining Americas…](https://www.youtube.com/watch?v=_MgHzkEAbYQ) — 2026-07-23, Resource Talks
-- **Resource Talks** — [North American Gold Producer, But Can They Execute on Growth? \| Mining Americas…](https://www.youtube.com/watch?v=_MgHzkEAbYQ) — 2026-07-23, Resource Talks
+- **aminvest** — [美股市況短評 (20260720)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164345791) — 2026-07-20, aminvest: "在經歷大跌之後，DRAM若出現反彈，升勢有機會相當急。"
+- **aminvest** — [美股市況短評 (20260720)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164345791) — 2026-07-20, aminvest: "不過我認為，DRAM未必會跌到那麼低。"
 
 ## Analysts covering this ticker
 
-- [Resource Talks](../Analysts/resourcetalks.md) (`@ResourceTalks`)
+- [aminvest](../Analysts/aminvest.md) (`aminvest`)
 
 ## Rates & bond-yield backdrop
 
@@ -47,7 +47,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
-- 2026-07-23 — [North American Gold Producer, But Can They Execute on Growth? \| Mining Americas CEO Inter…](https://www.youtube.com/watch?v=_MgHzkEAbYQ) (Resource Talks)
+- 2026-07-20 — [美股市況短評 (20260720)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164345791) (aminvest)
 
 ---
 _Page reflects DB state at generation time. Regenerate via `uv run python scripts/build_llm_wiki.py`._

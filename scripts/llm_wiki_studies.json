@@ -1,0 +1,3500 @@
+{
+ "CPM Group": {
+  "deep": {
+   "8165": {
+    "hash": "e2fdec07b5768f91",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Historical Oil Price Drivers",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "the first big increase in oil prices came in 1973",
+         "what_changed": "Oil prices ratcheted up sharply"
+        },
+        {
+         "quote": "institutional hot money... hadn't really occurred in the previous two things",
+         "what_changed": "Institutional money entered the market"
+        }
+       ]
+      },
+      {
+       "name": "Supply and Demand Dynamics",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "people expect that the supply increases to continue",
+         "what_changed": "Supply is expected to increase"
+        },
+        {
+         "quote": "advent of LED lighting for example",
+         "what_changed": "Lighting technology changed"
+        },
+        {
+         "quote": "demand reduction due to the higher prices",
+         "what_changed": "Demand has reduced"
+        }
+       ]
+      },
+      {
+       "name": "OPEC Strategy and Geopolitics",
+       "is_recurring": true,
+       "what_is_new": "Saudi Arabia's policy to maintain high production",
+       "change_signals": [
+        {
+         "quote": "it has lost some of its market power over the last 10 years",
+         "what_changed": "OPEC market power declined"
+        },
+        {
+         "quote": "Saudi Arabia has said to OPEC we will keep our production hi",
+         "what_changed": "Production policy shifted to high output"
+        }
+       ]
+      },
+      {
+       "name": "Gold and Dollar Correlations",
+       "is_recurring": true,
+       "what_is_new": "Impact of US energy independence on correlations",
+       "change_signals": [
+        {
+         "quote": "that ratio has spiked up in light of the the decrease in oil prices",
+         "what_changed": "Gold-Oil ratio spiked"
+        },
+        {
+         "quote": "gold prices have fallen pretty sharply since 2012 well ahead of the appreciation of the dollar",
+         "what_changed": "Gold prices fell before dollar appreciation"
+        },
+        {
+         "quote": "the United States has gone from being a net importer of oil to being basically self-sufficient",
+         "what_changed": "US shifted to energy self-sufficiency"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8183": {
+    "hash": "465e1ad81e17a2fd",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold Price Forecasts",
+       "is_recurring": true,
+       "what_is_new": "Short-term target of 1720 and a 1-3 month range of 1600-1800",
+       "change_signals": [
+        {
+         "quote": "gold price had been showing some weakness over the last few weeks",
+         "what_changed": "price showed weakness"
+        },
+        {
+         "quote": "it started to rise yesterday",
+         "what_changed": "price began rising"
+        },
+        {
+         "quote": "got up as high as 1,750",
+         "what_changed": "price reached 1750"
+        }
+       ]
+      },
+      {
+       "name": "Precious Metals Market Liquidity",
+       "is_recurring": true,
+       "what_is_new": "Trading companies are closing and liquidity is contracting",
+       "change_signals": [
+        {
+         "quote": "major long-term trading companies that have provided financial services to these markets disappearing",
+         "what_changed": "companies are closing shops"
+        },
+        {
+         "quote": "caused a a contraction and the breadth and the depth of the liquidity",
+         "what_changed": "liquidity contracted"
+        }
+       ]
+      },
+      {
+       "name": "Regional Market Activity",
+       "is_recurring": true,
+       "what_is_new": "China is reopening while Indian imports are down 99%",
+       "change_signals": [
+        {
+         "quote": "China opening up",
+         "what_changed": "China is opening"
+        },
+        {
+         "quote": "imports in India are off 99% in the first out of the last couple months",
+         "what_changed": "imports dropped 99%"
+        }
+       ]
+      },
+      {
+       "name": "CPM Group Consulting Services",
+       "is_recurring": true,
+       "what_is_new": "Demand for consulting has increased",
+       "change_signals": [
+        {
+         "quote": "we found ourselves providing increased volumes of consulting",
+         "what_changed": "consulting demand increased"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8193": {
+    "hash": "fa2c3d379d2d47e0",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold and Silver Price Outlook",
+       "is_recurring": true,
+       "what_is_new": "expectations for high and volatile prices",
+       "change_signals": []
+      },
+      {
+       "name": "Investment Strategies",
+       "is_recurring": true,
+       "what_is_new": "strategies to lock in profits while remaining long",
+       "change_signals": []
+      }
+     ]
+    }
+   },
+   "8203": {
+    "hash": "58c36c1e5e9cd222",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Precious Metals Market Outlook",
+       "is_recurring": true,
+       "what_is_new": "Current price levels and December open interest data",
+       "change_signals": [
+        {
+         "quote": "it's treading water",
+         "what_changed": "prices have stabilized"
+        },
+        {
+         "quote": "we're seeing a sharp increase in infection rates",
+         "what_changed": "COVID cases are rising"
+        },
+        {
+         "quote": "things are slowing down",
+         "what_changed": "economic rebound is slowing"
+        },
+        {
+         "quote": "economic stimulus package coming from the united states is highly unlikely to be seen for the next several months",
+         "what_changed": "stimulus is delayed"
+        }
+       ]
+      },
+      {
+       "name": "Statistical Methodology and ETF Flows",
+       "is_recurring": true,
+       "what_is_new": "Analysis of a recent silver vs. ETF chart",
+       "change_signals": [
+        {
+         "quote": "about 300 million ounces into silver etfs this year",
+         "what_changed": "silver ETF holdings increased"
+        },
+        {
+         "quote": "actually represents the declining liquidity",
+         "what_changed": "market liquidity is declining"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8213": {
+    "hash": "60b8c47a029b0113",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Precious Metals Price Forecast",
+       "is_recurring": true,
+       "what_is_new": "Price reached 1946, expectation that prices will retreat after hitting 2000",
+       "change_signals": [
+        {
+         "quote": "gold price rose of 50 today",
+         "what_changed": "current market movement"
+        },
+        {
+         "quote": "we don't think that prices would stay there we think they'd come back off",
+         "what_changed": "revised price expectation"
+        }
+       ]
+      },
+      {
+       "name": "Critique of Conspiracy Theories",
+       "is_recurring": true,
+       "what_is_new": "Author's 9/11 experience, Greta Thunberg t-shirt anecdote",
+       "change_signals": [
+        {
+         "quote": "i've taken the last 12 days off to sort of try to detox from 2020",
+         "what_changed": "author's recent sabbatical"
+        },
+        {
+         "quote": "i saw greta thurnberg turned 18 the other day and she had a flat mars uh society t-shirt on",
+         "what_changed": "new anecdotal example"
+        }
+       ]
+      },
+      {
+       "name": "COVID-19 Vaccine Impact Timeline",
+       "is_recurring": false,
+       "what_is_new": "Six-month estimate for public health benefit",
+       "change_signals": [
+        {
+         "quote": "it's going to take at least six months for a significant enough portion of the population... to be vaccinated for this to have a public health benefit",
+         "what_changed": "vaccination timeline"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8223": {
+    "hash": "55fe69e39b660cf7",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "COMEX Futures Delivery Mechanics",
+       "is_recurring": true,
+       "what_is_new": "specific estimate that March contract roll might spike prices to $30 or $32 before correcting",
+       "change_signals": [
+        {
+         "quote": "now all of a sudden uh there are people saying no this is it",
+         "what_changed": "the market narrative has shifted to treating the standard contract roll as a potential crisis"
+        }
+       ]
+      },
+      {
+       "name": "SLV Fund Operations and Prospectus",
+       "is_recurring": true,
+       "what_is_new": "details regarding the SLV prospectus change to allow unallocated metal",
+       "change_signals": [
+        {
+         "quote": "they changed their prospectus",
+         "what_changed": "the fund can now hold up to 1,000 ounces of unallocated metal to handle paperwork delays"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8231": {
+    "hash": "3b269a7becd60cfd",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Misconceptions about Gold Prices and Inflation",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": []
+      },
+      {
+       "name": "The Definition of Safe Haven Assets",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": []
+      },
+      {
+       "name": "2021-2022 Gold Market Outlook",
+       "is_recurring": true,
+       "what_is_new": "Current assessment of the six investment demand factors for 2021 and 2022",
+       "change_signals": [
+        {
+         "quote": "things are looking better than they were in 2019 2020 when that was green so now it's yellow",
+         "what_changed": "Safe haven status downgraded from green to yellow due to improving conditions"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8241": {
+    "hash": "e2e6bb21311e1f57",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold vs. Inflation Correlation",
+       "is_recurring": true,
+       "what_is_new": "Explanation of why gold prices fell despite recent higher inflation numbers",
+       "change_signals": [
+        {
+         "quote": "the statistical correlation between changes in inflation and changes in real gold prices is nine percent",
+         "what_changed": "historical correlation is low"
+        },
+        {
+         "quote": "so when inflation numbers popped up this gold prices actually didn't rise they fell",
+         "what_changed": "gold prices fell despite rising inflation"
+        }
+       ]
+      },
+      {
+       "name": "Transitory Inflation Data",
+       "is_recurring": false,
+       "what_is_new": "Analysis of the April 2021 CPI/PPI release compared to 2020 lockdown lows",
+       "change_signals": [
+        {
+         "quote": "you're measuring it against april 2020 which was the beginning of the lockdown",
+         "what_changed": "the comparison base is the 2020 lockdown"
+        },
+        {
+         "quote": "the core inflation figures were actually higher than the headline figures which is unusual",
+         "what_changed": "core inflation exceeded headline inflation"
+        }
+       ]
+      },
+      {
+       "name": "Silver Inventory and LBMA Error",
+       "is_recurring": true,
+       "what_is_new": "Discussion of the specific LBMA clerical error regarding inventory levels",
+       "change_signals": [
+        {
+         "quote": "london inventories are 116 million ounces less than somebody mistakenly said they were at the end of march",
+         "what_changed": "LBMA overstated inventories"
+        },
+        {
+         "quote": "the mistake as egregious as it was... is actually not important to the real silver market",
+         "what_changed": "the error is irrelevant to the real market"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8249": {
+    "hash": "9859c334eaa8f61f",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "The distinction between Fabrication Demand and Investment Demand",
+       "is_recurring": true,
+       "what_is_new": "he gave interviews to Kitco and Soar Financial this week to reiterate these points",
+       "change_signals": [
+        {
+         "quote": "some people now call that a primary deficit",
+         "what_changed": "terminology used by other market analysts has changed"
+        }
+       ]
+      },
+      {
+       "name": "The \"Fundamentals Still Apply\" philosophy vs. marketing hype",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "over the last several months we've had many investors say you know what's a good primer for me to read about commodities investing",
+         "what_changed": "recent increase in investors asking for introductory commodity reading materials"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8259": {
+    "hash": "3ce8cf6944bd3f55",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold and Silver Market Analysis",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "我們認為黃金可能會在本月再次測試1680美元",
+         "what_changed": "price outlook updated"
+        },
+        {
+         "quote": "我們認為白銀的初步技術目標價位是22美元",
+         "what_changed": "specific price target given"
+        }
+       ]
+      },
+      {
+       "name": "Criticism of Conspiracy Theories",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "上週五晚上，我去紐約的一個公園參加了一場免費音樂會",
+         "what_changed": "personal event occurred"
+        },
+        {
+         "quote": "其中一位白銀專家發了一篇很有趣的帖子，他批評我們",
+         "what_changed": "received new criticism"
+        }
+       ]
+      },
+      {
+       "name": "Federal Reserve and Economic Volatility",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "我們看到聯準會的逆回購交易量創下歷史新高",
+         "what_changed": "market data updated"
+        },
+        {
+         "quote": "加里·根斯勒說，不不不，我們真的應該挺身而出，履行我們作為金融監管機構的職責",
+         "what_changed": "regulatory stance shifted"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8269": {
+    "hash": "017d7cde3d07561b",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold and Silver Bull Market Structure",
+       "is_recurring": true,
+       "what_is_new": "specific projection of a five-quarter consolidation phase and price range of 1740-2000",
+       "change_signals": [
+        {
+         "quote": "the gold price dropped 27 today",
+         "what_changed": "gold price dropped sharply"
+        },
+        {
+         "quote": "our expectation is the consolidation will last for probably five quarters",
+         "what_changed": "consolidation timeline estimate"
+        }
+       ]
+      },
+      {
+       "name": "Inflation Trends and CPI Data",
+       "is_recurring": true,
+       "what_is_new": "August CPI analysis showing month-over-month moderation outside of energy",
+       "change_signals": [
+        {
+         "quote": "the only component of the cpi that was up more than two percent was petroleum-based energy",
+         "what_changed": "inflation components narrowed"
+        },
+        {
+         "quote": "autos used autos ... actually was down about one and a half percent",
+         "what_changed": "used car prices fell"
+        }
+       ]
+      },
+      {
+       "name": "Federal Reserve Policy",
+       "is_recurring": true,
+       "what_is_new": "interpretation of the latest FOMC meeting and dot plot forecasts",
+       "change_signals": [
+        {
+         "quote": "the fed ... in its fomc meetings this week basically agreed with that",
+         "what_changed": "Fed confirmed transitory inflation view"
+        },
+        {
+         "quote": "they expect interest rates to rise up to about two percent by 2023",
+         "what_changed": "projected interest rate path"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8278": {
+    "hash": "25536ca6538820d8",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "CPM Group Research History",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": []
+      },
+      {
+       "name": "Long-term PGM and Auto Projections",
+       "is_recurring": true,
+       "what_is_new": "CPM is updating its platinum group metals and auto projections to 2050",
+       "change_signals": [
+        {
+         "quote": "we used to we for most medals we take our long-term projections out ten years... but because of the uncertainties... we're taking the projections... out to twenty [years]",
+         "what_changed": "CPM extended the time horizon for its auto market projections beyond the standard ten years"
+        }
+       ]
+      },
+      {
+       "name": "EV Market Outlook and Environmental Impact",
+       "is_recurring": true,
+       "what_is_new": "IEA released its 2021 Global Energy Outlook",
+       "change_signals": [
+        {
+         "quote": "International Energy Agency... came out last week with their 2021... global international and energy outlook",
+         "what_changed": "The IEA published its updated annual energy report"
+        }
+       ]
+      },
+      {
+       "name": "Battery Metal Demand Trends",
+       "is_recurring": true,
+       "what_is_new": "Major automakers are pivoting battery chemistry to manganese",
+       "change_signals": [
+        {
+         "quote": "Tesla and Volkswagen and celantis have all come out and said they're they're pivoting away from cobalt into manganese",
+         "what_changed": "Automakers are shifting battery preferences away from cobalt toward manganese"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8291": {
+    "hash": "4b50d9b33716c82d",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold and Silver Annual Performance",
+       "is_recurring": true,
+       "what_is_new": "2021 gold price is a record annual average and silver is up 61% over three years",
+       "change_signals": [
+        {
+         "quote": "this year it's been higher throughout the year so the annual average price is actually higher",
+         "what_changed": "Annual average gold price reached a record high"
+        }
+       ]
+      },
+      {
+       "name": "Market Reaction to PPI Data",
+       "is_recurring": true,
+       "what_is_new": "The market's specific interpretation of the latest PPI report",
+       "change_signals": [
+        {
+         "quote": "the producer price index data came out for the united states and it was very high",
+         "what_changed": "PPI data came in very high"
+        },
+        {
+         "quote": "gold and silver fell and they fell significantly",
+         "what_changed": "Metals prices dropped significantly"
+        },
+        {
+         "quote": "silver broke below 22",
+         "what_changed": "Silver price fell below support"
+        },
+        {
+         "quote": "gold broke below 1780 and got down to 1770",
+         "what_changed": "Gold price dropped to 1770"
+        }
+       ]
+      },
+      {
+       "name": "Money Supply vs. Inflation",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "now we're up here around 65 percent",
+         "what_changed": "Money supply growth is currently at 65%"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8306": {
+    "hash": "8f76836487417585",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Historical Silver Market Analysis (Berkshire Hathaway)",
+       "is_recurring": false,
+       "what_is_new": "Comparison of the 1998 Berkshire Hathaway silver purchase to modern \"drain the swamp\" theories",
+       "change_signals": []
+      },
+      {
+       "name": "Comparative Investment Performance",
+       "is_recurring": true,
+       "what_is_new": "Analysis of 2021 returns showing silver as the worst performing asset and gold ranked eighth",
+       "change_signals": [
+        {
+         "quote": "2020 silver was the top performing asset class",
+         "what_changed": "2021 silver was the worst"
+        },
+        {
+         "quote": "gold was the second uh from from best",
+         "what_changed": "2021... gold was number eight out of 11 assets"
+        }
+       ]
+      },
+      {
+       "name": "Portfolio Allocation Strategy",
+       "is_recurring": true,
+       "what_is_new": "2022 update on the optimal role of gold and silver for balancing capital appreciation and volatility",
+       "change_signals": []
+      }
+     ]
+    }
+   },
+   "8319": {
+    "hash": "f6b38e100bcdcb50",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold Intermarket Relationships",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "correlations become even less important",
+         "what_changed": "correlations becoming less important"
+        }
+       ]
+      },
+      {
+       "name": "Interest Rates and Inflation",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "the feds said hey we're going to be even more aggressive fighting inflation than everybody thought",
+         "what_changed": "Fed becoming more aggressive"
+        },
+        {
+         "quote": "we think we're going to have six uh interest rate hikes",
+         "what_changed": "expectation of six interest rate hikes"
+        }
+       ]
+      },
+      {
+       "name": "Russia and Geopolitics",
+       "is_recurring": false,
+       "what_is_new": "assessment of Russia's military and global stature",
+       "change_signals": [
+        {
+         "quote": "we are in a wartime market",
+         "what_changed": "market becoming a wartime market"
+        },
+        {
+         "quote": "he has destroyed russia's stature on the world plate stage",
+         "what_changed": "Russia's stature being destroyed"
+        },
+        {
+         "quote": "demonstrated that there are numerous problems with their much vaulted uh military restructuring",
+         "what_changed": "demonstration of military problems"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8329": {
+    "hash": "1b36e114dcc72de5",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Short-term Precious Metals Outlook",
+       "is_recurring": true,
+       "what_is_new": "Forecast that prices will remain high until June through August; issued recommendation to stay long.",
+       "change_signals": [
+        {
+         "quote": "gold... has shot up over two thousand dollars it's come back off it's about 1970 right now",
+         "what_changed": "Gold recently surpassed $2000 before pulling back."
+        },
+        {
+         "quote": "silver... has shot up it's broken over 26 dollars",
+         "what_changed": "Silver recently broke above $26."
+        },
+        {
+         "quote": "we do expect prices to subside but probably not until june through july or august",
+         "what_changed": "The forecast predicts prices will not drop until summer."
+        },
+        {
+         "quote": "yesterday monday the 18th we issued new short-term gold and silver trade recommendations... stay long",
+         "what_changed": "New trade recommendations were issued advising clients to stay long."
+        }
+       ]
+      },
+      {
+       "name": "Silver Bar Premiums vs. Spot Price",
+       "is_recurring": true,
+       "what_is_new": "Specific rebuttal to a promoter selling 1,000 oz bars at $31-$33, noting market availability at $29.",
+       "change_signals": [
+        {
+         "quote": "now he's touting thousand ounce bars",
+         "what_changed": "A specific internet promoter has shifted focus to selling 1,000 oz bars."
+        },
+        {
+         "quote": "charging like 31 or 32 or 33 dollars an ounce for a thousand ounce bar",
+         "what_changed": "Promoters are asking $31-$33 per ounce for 1,000 oz bars."
+        },
+        {
+         "quote": "our clients were buying silver thousand ounce bars... at 29 not at 31 or 32 or 33",
+         "what_changed": "Actual market prices for 1,000 oz bars are around $29."
+        }
+       ]
+      },
+      {
+       "name": "Comex Futures Roll and 2011 Comparison",
+       "is_recurring": true,
+       "what_is_new": "Analysis of May 2022 open interest (333 million oz) versus 2011, concluding a 2011-style spike is improbable due to higher inventories.",
+       "change_signals": [
+        {
+         "quote": "2022 is not 2011. it's a radically different situation",
+         "what_changed": "Current market conditions differ significantly from April 2011."
+        },
+        {
+         "quote": "we have more than three times as much silver in the comics as we have elsewhere",
+         "what_changed": "Silver inventories are currently more than three times higher than in the past comparison."
+        },
+        {
+         "quote": "such a spike is highly improbable given current market conditions",
+         "what_changed": "The probability of a 2011-style price spike during the roll is very low."
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8338": {
+    "hash": "0316a39c9cd351e5",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold and Silver Market Performance",
+       "is_recurring": true,
+       "what_is_new": "Specific price action details (Gold dropping from 2000 to 1800, Silver from 26 to 20.50) and observation that investors are \"calmer\" and less prone to extreme \"doom and gloom\" predictions.",
+       "change_signals": [
+        {
+         "quote": "they've come back, and they've shown more resilience than equities and bonds have",
+         "what_changed": "markets showed more resilience than equities and bonds."
+        }
+       ]
+      },
+      {
+       "name": "Short-term Trading Strategy",
+       "is_recurring": true,
+       "what_is_new": "Shift from long positions to a \"stand aside\" recommendation for clients.",
+       "change_signals": [
+        {
+         "quote": "we issued a stand aside recommendation today",
+         "what_changed": "released a stand aside recommendation."
+        },
+        {
+         "quote": "We had previously suggested being long gold and silver",
+         "what_changed": "previous stance was being long gold and silver."
+        }
+       ]
+      },
+      {
+       "name": "Macroeconomic Drivers and Inflation",
+       "is_recurring": true,
+       "what_is_new": "Assertion that inflation data has peaked and is turning down, and that the Ukraine situation may lower war premiums.",
+       "change_signals": [
+        {
+         "quote": "inflation data has started to peak and turn down",
+         "what_changed": "inflation data has peaked and is declining."
+        },
+        {
+         "quote": "it may develop in a way that further reduces the war premium",
+         "what_changed": "Ukraine invasion may reduce the war premium."
+        }
+       ]
+      },
+      {
+       "name": "Recession Probability and 1987 Comparison",
+       "is_recurring": true,
+       "what_is_new": "Using the 1987 stock market crash analogy to argue that current stock volatility does not signal an immediate recession.",
+       "change_signals": [
+        {
+         "quote": "recession is obviously coming, but it could be two years away",
+         "what_changed": "recession might be two years away."
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8346": {
+    "hash": "dfcea231328b90d1",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Manganese Market Fundamentals",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": []
+      },
+      {
+       "name": "High Purity Product Definitions",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "new application in the last several years it can also be used for electric vehicles batteries",
+         "what_changed": "EMM usage has expanded to EVs"
+        }
+       ]
+      },
+      {
+       "name": "Battery Chemistry Applications",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": []
+      },
+      {
+       "name": "The High Purity Supply Shortage",
+       "is_recurring": true,
+       "what_is_new": "The 2023 PDAC outlook on a looming supply 'drought'",
+       "change_signals": [
+        {
+         "quote": "certain parts of the manganese industry are facing severe drought in the next several years",
+         "what_changed": "Availability of high purity manganese will tighten"
+        },
+        {
+         "quote": "production capacity is severely restricted",
+         "what_changed": "Processing capacity is insufficient for demand"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8360": {
+    "hash": "0858a45faa88cca8",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Short-Term Gold and Silver Market Outlook",
+       "is_recurring": true,
+       "what_is_new": "August prices showing unexpected strength",
+       "change_signals": [
+        {
+         "quote": "Gold and silver are a little bit stronger than we had expected right now",
+         "what_changed": "prices exceeded prior forecasts"
+        },
+        {
+         "quote": "China's belligerence... backing off now",
+         "what_changed": "geopolitical risks have subsided"
+        }
+       ]
+      },
+      {
+       "name": "CPM Group Business Model",
+       "is_recurring": true,
+       "what_is_new": "Account of a meeting with Wall Street Silver",
+       "change_signals": [
+        {
+         "quote": "I met with Jim Lewis of Wall Street Silver",
+         "what_changed": "author engaged with a critic"
+        }
+       ]
+      },
+      {
+       "name": "Prepaid Forward Financing",
+       "is_recurring": false,
+       "what_is_new": "Detailed explanation of structure and benefits",
+       "change_signals": []
+      }
+     ]
+    }
+   },
+   "8372": {
+    "hash": "b76503476b595754",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Risk-Free Gold Price",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "1997年第二季度，金价跌破了每盎司320美元",
+         "what_changed": "gold price fell below $320"
+        },
+        {
+         "quote": "2011年，价格在日内一度飙升至1600至1900美元",
+         "what_changed": "price spiked to 1600-1900 USD"
+        },
+        {
+         "quote": "我们重新计算了我们认为的无风险金价，当时是…… 今天金价在700美元左右，我们认为无风险金价更接近1200美元",
+         "what_changed": "risk-free price recalculated to be closer to $1200"
+        }
+       ]
+      },
+      {
+       "name": "Mining Costs and Sustainability",
+       "is_recurring": true,
+       "what_is_new": "costs rising back to $1200 after 2019",
+       "change_signals": [
+        {
+         "quote": "从2018年至2019年，金价开始上涨，随着金价上涨，矿业也松了一口气，允许成本增加到几乎回到之前的水平",
+         "what_changed": "gold price rise allowed costs to return to previous levels"
+        },
+        {
+         "quote": "2012年之后，随着金价下跌，生产商削减了成本",
+         "what_changed": "producers cut costs after gold prices fell"
+        }
+       ]
+      },
+      {
+       "name": "Gold Supply and Reserves",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "2020年（我们掌握数据的最近一年）的矿产储量为亿盎司，相当于按当前速度开采20年的产量",
+         "what_changed": "mineral reserves equal 20 years of current production"
+        },
+        {
+         "quote": "从2018年至2019年，金价开始上涨... 部分原因在于采矿业实际上已经发现了大量的高品位矿石储量",
+         "what_changed": "mining industry discovered large high-grade ore reserves"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8387": {
+    "hash": "04d18806761b3502",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Precious Metals Price Outlook",
+       "is_recurring": true,
+       "what_is_new": "gold and silver prices have risen sharply out of their consolidation period in early November",
+       "change_signals": [
+        {
+         "quote": "prices have risen sharply over the last few trading days",
+         "what_changed": "gold and silver prices increased"
+        },
+        {
+         "quote": "they're starting to show signs of increases",
+         "what_changed": "upward price movement is beginning"
+        }
+       ]
+      },
+      {
+       "name": "Federal Reserve Policy and Interest Rates",
+       "is_recurring": true,
+       "what_is_new": "market expectations for a 50 basis point hike in December followed by 25 basis point hikes in February and March",
+       "change_signals": [
+        {
+         "quote": "the most probable expectation of the broader Financial Market is another 50 basis point increase",
+         "what_changed": "market anticipates a larger December rate hike"
+        },
+        {
+         "quote": "inflation data that came out yesterday",
+         "what_changed": "new inflation figures were released"
+        },
+        {
+         "quote": "signs of peaking inflation",
+         "what_changed": "inflation appears to be reaching its maximum level"
+        }
+       ]
+      },
+      {
+       "name": "Geopolitical Risks (Russia and China)",
+       "is_recurring": true,
+       "what_is_new": "assessment that Russia is moving toward losing the war and showing signs of internal dissent while China's political line has hardened further",
+       "change_signals": [
+        {
+         "quote": "Russia's marching toward losing the war",
+         "what_changed": "Russia's military position is deteriorating"
+        },
+        {
+         "quote": "China's harder uh hard line has become even harder",
+         "what_changed": "China's political stance has become stricter"
+        },
+        {
+         "quote": "signs of internal dissent and Terror uh bombings",
+         "what_changed": "internal instability is emerging in Russia"
+        }
+       ]
+      },
+      {
+       "name": "Economic Recession Forecast",
+       "is_recurring": true,
+       "what_is_new": "recession risks for 2023 have diminished with the likelihood pushed back to 2024 or 2025",
+       "change_signals": [
+        {
+         "quote": "it is most likely uh that it would be 2024 2025",
+         "what_changed": "the expected start of the recession is later than previously thought"
+        },
+        {
+         "quote": "we've seen various banks mark down their probabilities of a recession starting in 2023",
+         "what_changed": "financial institutions reduced the likelihood of an imminent recession"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8400": {
+    "hash": "e1b1470282eea444",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Employment Data Impact",
+       "is_recurring": true,
+       "what_is_new": "December report figures showing 223,000 jobs",
+       "change_signals": [
+        {
+         "quote": "they showed a strong economy 223 new thousand new jobs created",
+         "what_changed": "Release of jobs report"
+        },
+        {
+         "quote": "markets didn't necessarily take it that way they said oh this is kind of weak",
+         "what_changed": "Market perception of data"
+        }
+       ]
+      },
+      {
+       "name": "Federal Reserve Policy",
+       "is_recurring": true,
+       "what_is_new": "Nothing",
+       "change_signals": [
+        {
+         "quote": "the FED has made it clear that it sees inflation as a problem it doesn't see the inflation going away anytime soon",
+         "what_changed": "Fed's persistent inflation concern"
+        },
+        {
+         "quote": "the FED has made it clear that it... probably thinking that they'll be lucky if they get down to about five percent by the end of this year",
+         "what_changed": "Inflation target expectations"
+        }
+       ]
+      },
+      {
+       "name": "US Dollar Valuation",
+       "is_recurring": true,
+       "what_is_new": "Comparison of current levels to 2020 and 2021",
+       "change_signals": [
+        {
+         "quote": "Dollars not crashing yet sorry for those who were impatient for it",
+         "what_changed": "Continued dollar strength"
+        }
+       ]
+      },
+      {
+       "name": "Gold Promoters and Geopolitics",
+       "is_recurring": true,
+       "what_is_new": "Specific rebuttal regarding the Russian Ruble",
+       "change_signals": [
+        {
+         "quote": "we saw a comment the other day... about hey the ruble was our record high actually it's not",
+         "what_changed": "Correction of false Ruble claim"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8413": {
+    "hash": "59949f7bf22d950d",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold and Silver Price Outlook",
+       "is_recurring": true,
+       "what_is_new": "Specific 2023 price targets (1780-1950 range) and a forecast for a Q2/Q3 plateau",
+       "change_signals": [
+        {
+         "quote": "prices have been weaker than some people expected they've been weaker than CPM group expected actually",
+         "what_changed": "Recent price performance was weaker than expected"
+        },
+        {
+         "quote": "gold price probably will trade between... 1780 on the low side... on the high side 1920 1950",
+         "what_changed": "Projected trading range for 2023 is set"
+        },
+        {
+         "quote": "price kind of plateaus over the SEC from now through the third quarter of this year",
+         "what_changed": "Expected trend is a plateau through Q3"
+        }
+       ]
+      },
+      {
+       "name": "Investment Demand and Economic Drivers",
+       "is_recurring": true,
+       "what_is_new": "2022 data showing Chinese demand weakness and investor shift to larger ETFs",
+       "change_signals": [
+        {
+         "quote": "investors have backed away from their fear of recession",
+         "what_changed": "Investor fear of recession has subsided"
+        },
+        {
+         "quote": "inflation has started to decompress and uh in great increases and prices have have been coming down for seven months now",
+         "what_changed": "Inflation rates have been decreasing"
+        },
+        {
+         "quote": "investors were shifting in ETFs away from smaller ETFs to the larger more liquid ETS",
+         "what_changed": "Preference is shifting toward more liquid ETFs"
+        }
+       ]
+      },
+      {
+       "name": "Central Bank Activity and Misinformation",
+       "is_recurring": true,
+       "what_is_new": "Rebuttal to recent misinformation about central banks \"dumping\" the dollar",
+       "change_signals": [
+        {
+         "quote": "there's a tremendous amount of misinformation about Central Bank activity both with the dollar and with gold uh circulating by gold promoters right now",
+         "what_changed": "Narrative surrounding central banks has become misinformation-heavy"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "8425": {
+    "hash": "fbe9814071260c3b",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Battery Chemistry Innovation",
+       "is_recurring": true,
+       "what_is_new": "Commercialization of LMFP and Umicore HLM technology",
+       "change_signals": [
+        {
+         "quote": "recently we saw an emergence of nmc 451",
+         "what_changed": "emergence of NMC 451"
+        },
+        {
+         "quote": "new abbreviation entering the battery vocabulary which is HLM",
+         "what_changed": "HLM enters battery vocabulary"
+        },
+        {
+         "quote": "beginning of commercialization of lmfps",
+         "what_changed": "LMFP commercialization begins"
+        }
+       ]
+      },
+      {
+       "name": "Supply Side Production",
+       "is_recurring": true,
+       "what_is_new": "Static Chinese production and slow supply response",
+       "change_signals": [
+        {
+         "quote": "only one small project started production in Indonesia",
+         "what_changed": "one small project started in Indonesia"
+        },
+        {
+         "quote": "Chinese production in 2022 seems to have been static",
+         "what_changed": "2022 Chinese production static"
+        }
+       ]
+      },
+      {
+       "name": "Battery Passports and Regulation",
+       "is_recurring": true,
+       "what_is_new": "Official introduction and EU 2026 mandate",
+       "change_signals": [
+        {
+         "quote": "in January 2023 they became a reality",
+         "what_changed": "battery passports became a reality"
+        },
+        {
+         "quote": "European Union has a plan to make them compulsory on their territory from 2026",
+         "what_changed": "EU plans compulsory passports from 2026"
+        }
+       ]
+      },
+      {
+       "name": "Manganese vs. Cobalt Fundamentals",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": []
+      }
+     ]
+    }
+   },
+   "8440": {
+    "hash": "7c38624439ef52c6",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Critique of Financial Pundits",
+       "is_recurring": true,
+       "what_is_new": "Specific examples of fear-mongering ads and $30,000/oz gold predictions from late May 2023",
+       "change_signals": []
+      },
+      {
+       "name": "US Economic Outlook",
+       "is_recurring": true,
+       "what_is_new": "Current data shows M2 money supply contraction and CPI returning to historical ranges",
+       "change_signals": [
+        {
+         "quote": "it's never been negative before but now it is",
+         "what_changed": "M2 percent change turned negative"
+        },
+        {
+         "quote": "month-to-month changes in uscpi are back in the range that's held for most of the time from into February 2021",
+         "what_changed": "US CPI inflation returned to historical range"
+        },
+        {
+         "quote": "the unemployment rate is the lowest that it's been since like the 1960s",
+         "what_changed": "Unemployment rate reached a multi-decade low"
+        }
+       ]
+      },
+      {
+       "name": "Gold Market Fundamentals",
+       "is_recurring": true,
+       "what_is_new": "Current observation of lower investment demand due to shifting recession timelines",
+       "change_signals": [
+        {
+         "quote": "one of the things that's going on in the gold and silver markets right now is lower investment demand",
+         "what_changed": "Gold and silver investment demand decreased"
+        },
+        {
+         "quote": "a lot of other people who were convinced that we're going to have a recession in 2022 or maybe it was 2023 or now saying well maybe it's going to be 2024",
+         "what_changed": "Market consensus for recession shifted to 2024"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "3994": {
+    "hash": "36e891781453991c",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Long-term Precious Metals Strategy",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": []
+      },
+      {
+       "name": "Economic Probability Analysis",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": []
+      },
+      {
+       "name": "Current US Economic Health",
+       "is_recurring": true,
+       "what_is_new": "Fed stress test results showing banks can sustain $540B loss; Q1 GDP at 2%",
+       "change_signals": [
+        {
+         "quote": "the feds uh review of the major systemically important Banks say like 23 of them uh was released this week and it shows that all of them are in better shape to face a crisis",
+         "what_changed": "Fed released bank stress test results"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "3979": {
+    "hash": "4d62d6d1aad1bfb7",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "COMEX Open Interest and Price Mechanics",
+       "is_recurring": true,
+       "what_is_new": "Specific data showing September open interest dropped from over 600 million to 110 million ounces without driving prices higher",
+       "change_signals": [
+        {
+         "quote": "9月份期貨未平倉合約從6月初的不到1億盎司上升到7月底的超過6億盎司",
+         "what_changed": "Open interest rose to over 600 million ounces in July"
+        },
+        {
+         "quote": "截至昨天開盤，我們看到9月未平倉合約從超過6億盎司下降到1.1億盎司",
+         "what_changed": "September open interest fell to 110 million ounces"
+        },
+        {
+         "quote": "12月未平倉合約已升至5.15億盎司",
+         "what_changed": "December open interest rose to 515 million ounces"
+        }
+       ]
+      },
+      {
+       "name": "COMEX Inventory Movements at JPMorgan",
+       "is_recurring": true,
+       "what_is_new": "Explanation that the 14.2 million ounce eligible-to-registered transfer was likely client-driven",
+       "change_signals": [
+        {
+         "quote": "註冊庫存目前為4,200萬盎司，先前已降至約2,800萬盎司",
+         "what_changed": "Registered inventory increased to 42 million ounces"
+        },
+        {
+         "quote": "總共…今天的交割量為1420萬盎司",
+         "what_changed": "Total delivery volume was 14.2 million ounces"
+        }
+       ]
+      },
+      {
+       "name": "Short-term Gold and Silver Forecasts",
+       "is_recurring": true,
+       "what_is_new": "Prediction that gold prices will recover starting in mid-September",
+       "change_signals": [
+        {
+         "quote": "我們預計疲軟態勢可能會持續到九月份，但我們認為從長遠來看，金價可能會在九月中旬開始回升",
+         "what_changed": "Gold price expected to recover in mid-September"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "3964": {
+    "hash": "85b83098aa0126c0",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Economic Outlook",
+       "is_recurring": true,
+       "what_is_new": "Expectation of a recession in 2024 or 2025",
+       "change_signals": [
+        {
+         "quote": "Global growth slowing",
+         "what_changed": "Global growth is slowing."
+        },
+        {
+         "quote": "industrial production has slowed",
+         "what_changed": "Industrial production has slowed."
+        }
+       ]
+      },
+      {
+       "name": "Precious Metals Strategy",
+       "is_recurring": true,
+       "what_is_new": "Recommendation to \"winterize your wealth\" again",
+       "change_signals": [
+        {
+         "quote": "this year we're saying it's time to winterize your wealth again",
+         "what_changed": "The firm is advising clients to prepare for a recession now."
+        }
+       ]
+      },
+      {
+       "name": "Financial Market Health",
+       "is_recurring": true,
+       "what_is_new": "Data showing demand for US Treasuries has risen to record levels",
+       "change_signals": [
+        {
+         "quote": "interest rates have risen bond prices have fallen",
+         "what_changed": "Interest rates have risen and bond prices have fallen."
+        },
+        {
+         "quote": "demand for the US Treasury Securities bonds and notes and t- bills has not declined it's actually risen",
+         "what_changed": "Demand for US Treasuries has increased."
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "3953": {
+    "hash": "7d0d1bcf6736cee6",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Recent Interest Rate Movements",
+       "is_recurring": true,
+       "what_is_new": "10-year yields dropping from nearly 5% to 4.2%",
+       "change_signals": [
+        {
+         "quote": "what's happened interest rates have fallen",
+         "what_changed": "rates have declined"
+        },
+        {
+         "quote": "now they're down to about 4.2%",
+         "what_changed": "10-year notes dropped to 4.2%"
+        },
+        {
+         "quote": "long rates have come down much more sharply than the sharp rates",
+         "what_changed": "long-term rates fell faster than short-term rates"
+        }
+       ]
+      },
+      {
+       "name": "Shifting Economic and Recession Consensus",
+       "is_recurring": true,
+       "what_is_new": "Market consensus shifting back to predicting a 2024 recession",
+       "change_signals": [
+        {
+         "quote": "market consensus shifted from oh we're about to fall into a recession... to this this posture oh there's not going to be a recession",
+         "what_changed": "sentiment moved from expecting recession to expecting none"
+        },
+        {
+         "quote": "now we're starting to see Market consensus shift back to well there could be a recession in 2024",
+         "what_changed": "sentiment is shifting back to recession expectations"
+        }
+       ]
+      },
+      {
+       "name": "Federal Reserve Policy and Rate Cuts",
+       "is_recurring": true,
+       "what_is_new": "Market expectation of rate cuts starting between March and May",
+       "change_signals": [
+        {
+         "quote": "The FED has stopped raising interest rates",
+         "what_changed": "the Fed has paused rate hikes"
+        },
+        {
+         "quote": "interest rates do look like they're Peak they peaked",
+         "what_changed": "rates appear to have peaked"
+        },
+        {
+         "quote": "rates might start falling sometime in the march to May period of time",
+         "what_changed": "market anticipates cuts in spring"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "3942": {
+    "hash": "3dcca8cb754bb1ec",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "2023 Central Bank Gold Activity",
+       "is_recurring": true,
+       "what_is_new": "China bought 7.3 million ounces in 2023; Turkey, Kazakhstan, and Uzbekistan sold gold",
+       "change_signals": [
+        {
+         "quote": "China has reported December and they bought another 290,000... so they their purchases uh are about 7.2 7.3 million ounces",
+         "what_changed": "2023 purchase totals increased"
+        },
+        {
+         "quote": "2022 did not see 20 million ounces that was a mistake... our view was it was about 10.2 million ounces",
+         "what_changed": "Previous year data was corrected"
+        }
+       ]
+      },
+      {
+       "name": "2024 Market Forecast",
+       "is_recurring": true,
+       "what_is_new": "Expectation of reduced central bank gold sales and purchases in 2024",
+       "change_signals": [
+        {
+         "quote": "we think that you'll see a significant reduction in the amount of gross Gold saled by central banks",
+         "what_changed": "Gross sales expected to fall"
+        },
+        {
+         "quote": "we're also looking for lower gross purchases too",
+         "what_changed": "Gross purchases expected to fall"
+        }
+       ]
+      },
+      {
+       "name": "Central Bank Philosophy and Trends",
+       "is_recurring": true,
+       "what_is_new": "Clarification that no central banks are planning a return to the gold standard",
+       "change_signals": [
+        {
+         "quote": "there's been a great increase in uh transparency on the part of central banks over the last 20 or 30 years",
+         "what_changed": "Transparency has increased"
+        },
+        {
+         "quote": "China... made an announcement of changing their attitudes toward gold",
+         "what_changed": "Chinese policy on gold changed"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "2940": {
+    "hash": "8c406cfdae2b0369",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Physical Silver Investment",
+       "is_recurring": true,
+       "what_is_new": "Preference for Canadian Maple Leafs over US Eagles in certain jurisdictions",
+       "change_signals": []
+      },
+      {
+       "name": "Silver Price Forecasts",
+       "is_recurring": true,
+       "what_is_new": "Updated average price projections due to a less hostile economic view",
+       "change_signals": [
+        {
+         "quote": "I told you that we lowered that because our economic view is less hostile",
+         "what_changed": "average price projections were lowered"
+        }
+       ]
+      },
+      {
+       "name": "Central Bank Reserves",
+       "is_recurring": true,
+       "what_is_new": "Explanation of why silver is excluded from central bank reserves due to market size",
+       "change_signals": []
+      }
+     ]
+    }
+   },
+   "2950": {
+    "hash": "9736a6243b236954",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Silver deficit/shortage myth",
+       "is_recurring": true,
+       "what_is_new": "Comparison of current surplus trends to 1980s market structure",
+       "change_signals": [
+        {
+         "quote": "the price of silver has risen about 32% in the last 6 weeks",
+         "what_changed": "silver price increased recently"
+        },
+        {
+         "quote": "gold jumped up to about $2,433... silver got over $29 briefly",
+         "what_changed": "gold and silver prices hit specific recent highs"
+        },
+        {
+         "quote": "they spiked up on the news that Israel had done some bombing in Iran",
+         "what_changed": "prices spiked on specific geopolitical news"
+        }
+       ]
+      },
+      {
+       "name": "Silver supply/demand accounting methodology",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": []
+      },
+      {
+       "name": "Silver mining profitability",
+       "is_recurring": true,
+       "what_is_new": "Comparison of producer margins to Goldman Sachs",
+       "change_signals": [
+        {
+         "quote": "the profit margin on primary silver producers last year was about 29%",
+         "what_changed": "producer margins were 29% last year"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "2960": {
+    "hash": "261eb70d966ef84b",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "贵金属价格展望",
+       "is_recurring": true,
+       "what_is_new": "specific short-term trading range of 2280-2450 USD for gold",
+       "change_signals": [
+        {
+         "quote": "黄金、 贵金属和铜价 今天早上大幅下跌。",
+         "what_changed": "Prices dropped sharply this morning"
+        },
+        {
+         "quote": "未来几周和几个月内，金价将在2280美元至2450美元之间波动。",
+         "what_changed": "Predicted price range for coming weeks"
+        }
+       ]
+      },
+      {
+       "name": "经济与政治局势分析",
+       "is_recurring": true,
+       "what_is_new": "Reuters survey showing central banks increasing USD holdings",
+       "change_signals": [
+        {
+         "quote": "我们 开始看到 通胀率有所放缓。",
+         "what_changed": "Inflation is slowing"
+        },
+        {
+         "quote": "18%的 央行储备经理表示，他们 预计在 未来12到24个月内增加美元持有量",
+         "what_changed": "Central banks plan to increase USD exposure"
+        }
+       ]
+      },
+      {
+       "name": "批驳市场误导信息",
+       "is_recurring": true,
+       "what_is_new": "specific argument against user Mike Marowski regarding economic data",
+       "change_signals": [
+        {
+         "quote": "你不是在反对 我，你是在反对数据。",
+         "what_changed": "Critics are arguing against data"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "2970": {
+    "hash": "afbc780fda42d7c9",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Futures Delivery Mechanics",
+       "is_recurring": false,
+       "what_is_new": "July Comex contract delivery data and inventory levels",
+       "change_signals": [
+        {
+         "quote": "5月底，7月份合约的 未平仓合约为7.33亿盎司。而 今天，7月份的COMEX期货合约有5.36亿盎司",
+         "what_changed": "Open interest in July contracts dropped from 733 million to 536 million ounces"
+        },
+        {
+         "quote": "截至 周五，注册白银库存为6998万盎司",
+         "what_changed": "Registered silver inventory increased to 69.98 million ounces"
+        }
+       ]
+      },
+      {
+       "name": "Portfolio Allocation Strategy",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": []
+      },
+      {
+       "name": "Gold and Silver Price Outlook",
+       "is_recurring": true,
+       "what_is_new": "Increased probability of rising price scenario and raised long-term forecasts",
+       "change_signals": [
+        {
+         "quote": "我们 提高了另一种预测情景的概率，即 金价 上涨",
+         "what_changed": "Increased the probability of a scenario where gold prices rise"
+        },
+        {
+         "quote": "导致 我们模型中未来10年的价格预测也相应 提高",
+         "what_changed": "Raised price forecasts for the next 10 years accordingly"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "2979": {
+    "hash": "91723570a4c07761",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "中央银行黄金购买趋势",
+       "is_recurring": true,
+       "what_is_new": "Analysis of the discrepancy between central bank 'wishes' in surveys and actual purchases due to foreign exchange needs; specific data refuting the narrative that African nations are currently large-scale gold buyers.",
+       "change_signals": [
+        {
+         "quote": "过去一年，尤其是自四月以来几个月的高金价，改变了央行的黄金买卖活动",
+         "what_changed": "High gold prices altered central bank buying and selling activities."
+        },
+        {
+         "quote": "有一家银行... 在2010年决定... 然而，它至今仍未开始购买黄金",
+         "what_changed": "A bank planned to buy gold in 2010 but has not yet started."
+        }
+       ]
+      },
+      {
+       "name": "黄金市场谣言与透明度",
+       "is_recurring": true,
+       "what_is_new": "Specific rebuttal of current rumors claiming China is secretly buying gold; correction of the market's interpretation of recent World Gold Council surveys regarding emerging economies.",
+       "change_signals": [
+        {
+         "quote": "几乎可以肯定，这些猜测是不真实的，它们与中国人民银行的实际运作和目标不符",
+         "what_changed": "Rumors of China secretly buying gold are false."
+        },
+        {
+         "quote": "人们会不遗余力地去相信这些事情... 他们不信任任何权威人士的话",
+         "what_changed": "Observing the psychological tendency to believe conspiracy theories over authority."
+        }
+       ]
+      },
+      {
+       "name": "俄罗斯黄金储备与地缘政治",
+       "is_recurring": true,
+       "what_is_new": "Documentation of Russia using gold reserves to fund government expenses and the war in Ukraine since 2022, amidst sanctions.",
+       "change_signals": [
+        {
+         "quote": "俄罗斯一直在用黄金为其政府、国家和战争提供资金",
+         "what_changed": "Russia is using gold to fund the war effort."
+        },
+        {
+         "quote": "俄罗斯央行尽可能避免使用美元和欧元作为资金",
+         "what_changed": "Avoiding the use of US dollars and euros."
+        }
+       ]
+      },
+      {
+       "name": "非洲央行活动与支付困境",
+       "is_recurring": false,
+       "what_is_new": "The revelation that nations like Ghana are selling or swapping gold for essential imports like diesel due to a lack of foreign currency, rather than accumulating reserves.",
+       "change_signals": [
+        {
+         "quote": "加纳... 找到柴油进口商，表示如果进口商愿意，可以用黄金而不是美元支付柴油货款",
+         "what_changed": "Ghana attempted to pay for diesel imports with gold."
+        },
+        {
+         "quote": "不，实际上，大多数中央银行的黄金储备都非常低",
+         "what_changed": "Rejecting the narrative that African central banks are buying heavily."
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "2993": {
+    "hash": "d821d532a721f131",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Options Strategy Performance",
+       "is_recurring": true,
+       "what_is_new": "A butterfly call spread structured for clients doubled in value over two weeks",
+       "change_signals": [
+        {
+         "quote": "the cost of putting that butterfly in place on September 5th was $11.10 yesterday the price was around $22",
+         "what_changed": "the value of the options strategy doubled"
+        }
+       ]
+      },
+      {
+       "name": "US Dollar Reality",
+       "is_recurring": true,
+       "what_is_new": "Trade-weighted dollar is up 1.7% from January and 2.9% from September 2023",
+       "change_signals": [
+        {
+         "quote": "it was up 1.7% last Friday from where it had been in January",
+         "what_changed": "trade-weighted dollar increased since January"
+        },
+        {
+         "quote": "it was up 2.9% from where it had been a year ago September 20th of 2023",
+         "what_changed": "trade-weighted dollar increased year-over-year"
+        }
+       ]
+      },
+      {
+       "name": "Silver Manipulation Claims",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": []
+      },
+      {
+       "name": "Precious Metals Price Updates",
+       "is_recurring": true,
+       "what_is_new": "Gold briefly traded above $2,700 and silver topped $33",
+       "change_signals": [
+        {
+         "quote": "gold did go above $2,700 earlier this week",
+         "what_changed": "gold price reached a record high"
+        },
+        {
+         "quote": "having gotten over $33 in the last couple of days",
+         "what_changed": "silver price rose above $33"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "3006": {
+    "hash": "4f41834dc6e9e1d6",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "US Treasury Holdings",
+       "is_recurring": true,
+       "what_is_new": "Updated foreign holdings data to September",
+       "change_signals": [
+        {
+         "quote": "9月底，海外持有的美国国债为8.67万亿美元",
+         "what_changed": "Overseas holdings reached $8.67 trillion"
+        },
+        {
+         "quote": "仅9月份就增长了1700亿美元",
+         "what_changed": "Holdings grew by $170 billion in September"
+        }
+       ]
+      },
+      {
+       "name": "Political Uncertainty and Government Policy",
+       "is_recurring": true,
+       "what_is_new": "Analysis of the unified Republican government and election outcome",
+       "change_signals": [
+        {
+         "quote": "我们消除了一个不确定因素——总统人选确定",
+         "what_changed": "Uncertainty regarding the president has been removed"
+        }
+       ]
+      },
+      {
+       "name": "Gold and Silver Price Outlook",
+       "is_recurring": true,
+       "what_is_new": "Forecast of price rebound and explanation of recent market decline",
+       "change_signals": [
+        {
+         "quote": "下跌始于10月31日",
+         "what_changed": "Prices started falling on October 31"
+        },
+        {
+         "quote": "选举无疑加速了这一跌势",
+         "what_changed": "The election accelerated the decline"
+        },
+        {
+         "quote": "我们预计金价将反弹，并可能在\\n未来三个月内...创下新高",
+         "what_changed": "Expecting new highs in the next three months"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "3016": {
+    "hash": "7219a2712af82c3c",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Macroeconomic Drivers and Political Risks",
+       "is_recurring": true,
+       "what_is_new": "Reaction to January employment data and Elon Musk's comments regarding the feasibility of federal budget cuts.",
+       "change_signals": [
+        {
+         "quote": "the employment data and it came in very good",
+         "what_changed": "job creation significantly exceeded expectations."
+        },
+        {
+         "quote": "interest rates have been rising over the last week or so",
+         "what_changed": "bond markets anticipate larger federal deficits and rising government spending."
+        }
+       ]
+      },
+      {
+       "name": "Gold and Silver Price Outlook",
+       "is_recurring": true,
+       "what_is_new": "Assessment of whether recent price action constitutes a breakout from the post-October consolidation phase.",
+       "change_signals": [
+        {
+         "quote": "on today we've broken above that",
+         "what_changed": "gold price moved above the 2600-2700 trading channel."
+        },
+        {
+         "quote": "we're not quite sure that this is the breakout that we have been expecting",
+         "what_changed": "it is uncertain if the price increase is the start of a sustained trend."
+        }
+       ]
+      },
+      {
+       "name": "Hedging Strategies for Producers and Investors",
+       "is_recurring": true,
+       "what_is_new": "Framing the current price level above $2,500 as a unique historical window for locking in minimum prices.",
+       "change_signals": [
+        {
+         "quote": "Gold prices above $2,500 are unique",
+         "what_changed": "the market has not sustained these levels prior to August 2024."
+        },
+        {
+         "quote": "I'll run through some examples of what we priced over the last couple of days",
+         "what_changed": "specific recent market transactions illustrate current hedging opportunities."
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "3026": {
+    "hash": "ddeb5569d975bff8",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold Price Behavior and Recessions",
+       "is_recurring": true,
+       "what_is_new": "Contextualization for 2025 recession risks",
+       "change_signals": []
+      },
+      {
+       "name": "Current Economic Outlook",
+       "is_recurring": true,
+       "what_is_new": "February 2025 assessment",
+       "change_signals": [
+        {
+         "quote": "the potential for a recession in the next 12 to 24 months has the probability has increased over the last n months",
+         "what_changed": "recession probability increased"
+        },
+        {
+         "quote": "pressures that are are indicative of potential recession sooner rather than later have grown more prominent over the last nine months of of 2024",
+         "what_changed": "recessionary pressures grew more prominent"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "3036": {
+    "hash": "46c49333118edc5e",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Market Drivers and Economic Data",
+       "is_recurring": true,
+       "what_is_new": "Specific PCE data release and gold price reaching $3,124",
+       "change_signals": [
+        {
+         "quote": "Gold and silver, platinum and platium prices have risen sharply really starting yesterday",
+         "what_changed": "Precious metals prices increased sharply recently"
+        },
+        {
+         "quote": "It showed uh weaker economic activity and higher inflation",
+         "what_changed": "Recent economic data indicated weaker growth and rising inflation"
+        }
+       ]
+      },
+      {
+       "name": "Physical Supply and Inventory Levels",
+       "is_recurring": true,
+       "what_is_new": "Record Comex inventories of 40 million ounces and reports of central banks moving gold to the NY Fed",
+       "change_signals": [
+        {
+         "quote": "we have 40 million ounces of record gold uh inventories",
+         "what_changed": "Gold inventories at Comex reached record levels"
+        },
+        {
+         "quote": "we've seen some central banks starting to move gold into the New York Fed",
+         "what_changed": "Central banks began relocating gold to the New York Fed"
+        }
+       ]
+      },
+      {
+       "name": "Central Bank and Investor Demand",
+       "is_recurring": true,
+       "what_is_new": "Data showing a 40% decline in central bank gold purchases in 2024",
+       "change_signals": [
+        {
+         "quote": "That's a 40% decline in the volume of gold being purchased",
+         "what_changed": "Central bank gold buying volume fell by 40%"
+        },
+        {
+         "quote": "It's been investment demand, strong investment demand that has driven the gold price",
+         "what_changed": "Investment demand became the primary driver of gold prices"
+        }
+       ]
+      },
+      {
+       "name": "Political Misinformation",
+       "is_recurring": false,
+       "what_is_new": "Allegations that the EPA hid $20 billion in gold bars",
+       "change_signals": [
+        {
+         "quote": "The Trump administration accuses the EPA of squirreling away $20 billion dollar in gold bars",
+         "what_changed": "The EPA was accused of hiding gold bars"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "3046": {
+    "hash": "aa014d6954a64264",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "US Economic Outlook",
+       "is_recurring": true,
+       "what_is_new": "Q1 GDP data showed contraction and the firm deepened its recession forecast",
+       "change_signals": [
+        {
+         "quote": "We have increased the depths of the recession that we are projecting",
+         "what_changed": "Recession projections are now more severe"
+        }
+       ]
+      },
+      {
+       "name": "Consumer Spending Trends",
+       "is_recurring": true,
+       "what_is_new": "Data shows consumers and businesses front-loaded purchases in Q1",
+       "change_signals": [
+        {
+         "quote": "demand was brought forward into the first quarter and into March by investors buying automobiles and other goods in advance of expected tariffs",
+         "what_changed": "Buying patterns shifted earlier to avoid tariffs"
+        }
+       ]
+      },
+      {
+       "name": "Gold and Silver Prices",
+       "is_recurring": true,
+       "what_is_new": "Prices fell sharply following political and legal developments",
+       "change_signals": [
+        {
+         "quote": "gold prices and silver prices fell sharply earlier this week",
+         "what_changed": "Metal prices dropped significantly"
+        },
+        {
+         "quote": "gold fell uh to around $3,200",
+         "what_changed": "Gold reached a new record price level"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "3060": {
+    "hash": "30e6c3b5f204c5b9",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold Price Trends",
+       "is_recurring": true,
+       "what_is_new": "Gold approaching $3,500 following Israel's attack on Iran",
+       "change_signals": [
+        {
+         "quote": "the longawwaited attack of Iran by Israel... the price of gold... shot up",
+         "what_changed": "Geopolitical event caused price surge"
+        },
+        {
+         "quote": "we would not be surprised to see $3,500 within the next week or two",
+         "what_changed": "Short-term price target increased"
+        }
+       ]
+      },
+      {
+       "name": "Platinum Market Speculation",
+       "is_recurring": true,
+       "what_is_new": "Price spike to $1,214 driven by NYMEX rolls and marketing hype",
+       "change_signals": [
+        {
+         "quote": "it's $1,214 an ounce",
+         "what_changed": "Prices spiked recently"
+        },
+        {
+         "quote": "expectation is that at the right point... you'll see platinum prices come off",
+         "what_changed": "Forecasting a price correction"
+        }
+       ]
+      },
+      {
+       "name": "US-China Trade Relations",
+       "is_recurring": true,
+       "what_is_new": "London meeting resulted in agreement to talk only, contrary to government claims",
+       "change_signals": [
+        {
+         "quote": "agreement was that they would continue to talk... yet you see the US government saying that the tariff trade war... has uh been resolved",
+         "what_changed": "US government misrepresented negotiation outcome"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "3075": {
+    "hash": "477ef200683b55ad",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold and Silver Market Update",
+       "is_recurring": true,
+       "what_is_new": "Gold hitting $3,432 and silver trading near $37.59 amid geopolitical anxiety, with liquidity shifting to the December contract",
+       "change_signals": [
+        {
+         "quote": "Gold prices when we were preparing this half an hour ago were around $3,46. They've risen a little bit more since then and 3,432",
+         "what_changed": "Gold prices increased during the 30 minutes before the presentation"
+        },
+        {
+         "quote": "Silver prices... have lagged gold a little bit",
+         "what_changed": "Silver prices are underperforming gold compared to recent trends"
+        }
+       ]
+      },
+      {
+       "name": "Platinum and Palladium Price Correction",
+       "is_recurring": true,
+       "what_is_new": "Platinum falling from $1,540 to $1,319 as speculative buying unwinds",
+       "change_signals": [
+        {
+         "quote": "Platinum prices have been coming off... they're down to $1,319",
+         "what_changed": "Platinum prices have declined from recent highs"
+        },
+        {
+         "quote": "They are off from $1,54 a couple weeks ago",
+         "what_changed": "Prices have dropped significantly over the last two weeks"
+        }
+       ]
+      },
+      {
+       "name": "Treasury Gold Price Reset Theory",
+       "is_recurring": false,
+       "what_is_new": "The specific market rumor that the U.S. Treasury plans to reset the gold price to $10,000 or $18,000",
+       "change_signals": []
+      },
+      {
+       "name": "CPM Group Track Record Defense",
+       "is_recurring": true,
+       "what_is_new": "Rebuttal to a specific critic in the comments who claimed a silver promoter knows more than CPM Group",
+       "change_signals": []
+      }
+     ]
+    }
+   },
+   "3090": {
+    "hash": "791091413cc574ba",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold Market Outlook",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "Gold prices right now are trading around $3,794",
+         "what_changed": "Gold price near $3,800"
+        },
+        {
+         "quote": "Our expectation is that all of those conditions will remain hostile for years to come",
+         "what_changed": "Conditions expected to stay hostile for years"
+        }
+       ]
+      },
+      {
+       "name": "Silver Supply and Demand",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "They got up to $45.90 some odd cents earlier this morning",
+         "what_changed": "Silver price spiked"
+        },
+        {
+         "quote": "we're not particularly seeing tight supplies... the supply is really not that tight",
+         "what_changed": "Supply is not tight"
+        }
+       ]
+      },
+      {
+       "name": "Platinum and Palladium Trends",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "Platinum prices have risen very sharply and they've reached new cyclical highs",
+         "what_changed": "Prices reached new cyclical highs"
+        },
+        {
+         "quote": "The increase which started in June has been primarily driven by investor demand... and inventory building",
+         "what_changed": "Rise driven by investors and inventory building"
+        }
+       ]
+      },
+      {
+       "name": "Long-term Economic Projections",
+       "is_recurring": true,
+       "what_is_new": "Projection of extended economic problems",
+       "change_signals": [
+        {
+         "quote": "we do see problems continuing and we see them continuing for a longer period of time than we had been have been projecting up until now",
+         "what_changed": "Problems expected to last longer than previously forecasted"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "3101": {
+    "hash": "b8daebaad7039348",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Precious Metals Price Consolidation",
+       "is_recurring": true,
+       "what_is_new": "current price levels and potential downside from US government resolution",
+       "change_signals": [
+        {
+         "quote": "Gold prices are trading around $4,100 today",
+         "what_changed": "gold price updated to $4,100"
+        },
+        {
+         "quote": "It is consolidating... after the big run up through September and the first half of October",
+         "what_changed": "market phase shifted to consolidation after rally"
+        }
+       ]
+      },
+      {
+       "name": "Silver Investment Demand and Narratives",
+       "is_recurring": true,
+       "what_is_new": "2025 net investment demand estimate of 135 million ounces",
+       "change_signals": [
+        {
+         "quote": "This year we're looking at about 135 million ounces of investment demand on a net basis",
+         "what_changed": "2025 net investment demand estimated at 135 million ounces"
+        },
+        {
+         "quote": "The silver market for the smaller investment products has been gutted by sales",
+         "what_changed": "retail silver inventory depleted by investor selling"
+        }
+       ]
+      },
+      {
+       "name": "Silver Supply Fundamentals",
+       "is_recurring": true,
+       "what_is_new": "nothing",
+       "change_signals": [
+        {
+         "quote": "Newly refined silver production from mine production and from secondary recovery from scrap continues to outstrip fabrication demand",
+         "what_changed": "physical supply continues to exceed fabrication demand"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "377117": {
+    "hash": "2db76ffa2c2b564b",
+    "out": {
+     "one_line": "",
+     "topics": [
+      {
+       "name": "Gold Price Outlook",
+       "is_recurring": true,
+       "what_is_new": "August trading range expected between $3,800 and $4,200",
+       "change_signals": [
+        {
+         "quote": "Those three factors that we were looking at for supporting higher prices 2 weeks ago really haven't materialized.",
+         "what_changed": "expected support factors failed to appear"
+        },
+        {
+         "quote": "And the gold price went from $5,000 to $4,000 in about 2 days.",
+         "what_changed": "price dropped sharply in March"
+        }
+       ]
+      },
+      {
+       "name": "Silver and PGM Market Analysis",
+       "is_recurring": true,
+       "what_is_new": "Silver testing $60 with potential dip below $56; PGMs expected to remain weak due to auto industry pressures",
+       "change_signals": []
+      },
+      {
+       "name": "COMEX Delivery Analysis",
+       "is_recurring": true,
+       "what_is_new": "August delivery process is normal with 1.4 million oz delivered in the first three days; unlikely to boost prices",
+       "change_signals": []
+      },
+      {
+       "name": "Fraud and Auditing Risks",
+       "is_recurring": false,
+       "what_is_new": "Focus on the rising incidence of fraud and the critical need for independent audits in storage programs",
+       "change_signals": [
+        {
+         "quote": "increased incidences of what we're seeing",
+         "what_changed": "frequency of fraud is rising"
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "titles": {
+   "f6f3f6653fd1d629": {
+    "0": [
+     "Macroeconomic Outlook"
+    ],
+    "1": [
+     "CPM Group",
+     "Gold Market Fundamentals"
+    ],
+    "2": [
+     "CPM Group",
+     "Silver Supply and Demand"
+    ],
+    "3": [
+     "CPM Group",
+     "Gold Market Fundamentals"
+    ],
+    "4": [
+     "Gold Market Fundamentals",
+     "Market Misinformation and Myths"
+    ],
+    "5": [
+     "CPM Group",
+     "Investment and Trading Strategies"
+    ],
+    "6": [
+     "CPM Group",
+     "Investment and Trading Strategies"
+    ],
+    "7": [
+     "CPM Group",
+     "Precious Metals Price Outlook"
+    ],
+    "8": [
+     "CPM Group",
+     "Investment and Trading Strategies"
+    ],
+    "9": [
+     "CPM Group",
+     "Gold Market Fundamentals",
+     "Market Misinformation and Myths"
+    ],
+    "10": [
+     "CPM Group",
+     "Gold Market Fundamentals",
+     "Precious Metals Price Outlook"
+    ],
+    "11": [
+     "CPM Group",
+     "Investment and Trading Strategies"
+    ],
+    "12": [
+     "CPM Group",
+     "Precious Metals Price Outlook"
+    ],
+    "13": [
+     "CPM Group"
+    ],
+    "14": [
+     "CPM Group",
+     "Precious Metals Price Outlook"
+    ],
+    "15": [
+     "CPM Group",
+     "Investment and Trading Strategies"
+    ],
+    "16": [
+     "CPM Group",
+     "Futures and ETF Mechanics"
+    ],
+    "17": [
+     "CPM Group",
+     "Precious Metals Price Outlook"
+    ],
+    "18": [
+     "CPM Group",
+     "Gold Market Fundamentals",
+     "Silver Supply and Demand"
+    ],
+    "19": [
+     "CPM Group",
+     "Precious Metals Price Outlook"
+    ],
+    "20": [
+     "CPM Group",
+     "Precious Metals Price Outlook",
+     "Geopolitics and Political Risks"
+    ],
+    "21": [
+     "CPM Group",
+     "Investment and Trading Strategies"
+    ],
+    "22": [
+     "CPM Group",
+     "Geopolitics and Political Risks"
+    ],
+    "23": [
+     "CPM Group",
+     "Precious Metals Price Outlook",
+     "Macroeconomic Outlook"
+    ],
+    "24": [
+     "CPM Group",
+     "Gold Market Fundamentals",
+     "Precious Metals Price Outlook"
+    ],
+    "25": [
+     "CPM Group",
+     "Monetary Policy and Inflation",
+     "Gold Market Fundamentals"
+    ],
+    "26": [
+     "CPM Group",
+     "Investment and Trading Strategies"
+    ],
+    "27": [
+     "CPM Group",
+     "Silver Supply and Demand",
+     "Market Misinformation and Myths"
+    ],
+    "28": [
+     "Precious Metals Price Outlook",
+     "Market Misinformation and Myths"
+    ],
+    "29": [
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ]
+   },
+   "57ba6b9afa2fc0b8": {
+    "0": [
+     "CPM Group",
+     "Futures and ETF Mechanics"
+    ],
+    "1": [
+     "CPM Group",
+     "Market Misinformation and Myths"
+    ],
+    "2": [
+     "CPM Group",
+     "Market Misinformation and Myths"
+    ],
+    "3": [
+     "CPM Group",
+     "Precious Metals Price Outlook"
+    ],
+    "4": [
+     "CPM Group",
+     "Investment and Trading Strategies"
+    ],
+    "5": [
+     "CPM Group",
+     "Gold Market Fundamentals"
+    ],
+    "6": [
+     "CPM Group",
+     "Gold Market Fundamentals"
+    ],
+    "7": [
+     "Central Bank Gold Activity",
+     "Gold Market Fundamentals"
+    ],
+    "8": [
+     "CPM Group",
+     "Investment and Trading Strategies"
+    ],
+    "9": [
+     "Investment and Trading Strategies"
+    ],
+    "10": [
+     "Market Misinformation and Myths"
+    ],
+    "11": [
+     "CPM Group",
+     "Silver Supply and Demand"
+    ],
+    "12": [
+     "CPM Group",
+     "Investment and Trading Strategies"
+    ],
+    "13": [
+     "CPM Group",
+     "Market Misinformation and Myths"
+    ],
+    "14": [
+     "CPM Group",
+     "Silver Supply and Demand"
+    ],
+    "15": [
+     "Investment and Trading Strategies"
+    ],
+    "16": [
+     "Central Bank Gold Activity",
+     "Macroeconomic Outlook"
+    ],
+    "17": [
+     "CPM Group",
+     "Precious Metals Price Outlook"
+    ],
+    "18": [
+     "Gold Market Fundamentals"
+    ],
+    "19": [
+     "Gold Market Fundamentals",
+     "Silver Supply and Demand"
+    ],
+    "20": [
+     "Investment and Trading Strategies",
+     "Macroeconomic Outlook"
+    ],
+    "21": [
+     "CPM Group",
+     "Silver Supply and Demand"
+    ],
+    "22": [
+     "CPM Group",
+     "Gold Market Fundamentals"
+    ],
+    "23": [
+     "Precious Metals Price Outlook"
+    ],
+    "24": [
+     "Market Misinformation and Myths"
+    ],
+    "25": [
+     "Monetary Policy and Inflation",
+     "Gold Market Fundamentals"
+    ],
+    "26": [
+     "Monetary Policy and Inflation",
+     "Market Misinformation and Myths"
+    ],
+    "27": [
+     "Macroeconomic Outlook",
+     "Precious Metals Price Outlook"
+    ],
+    "28": [
+     "Geopolitics and Political Risks"
+    ],
+    "29": [
+     "Monetary Policy and Inflation",
+     "Market Misinformation and Myths"
+    ]
+   },
+   "8c708ce45c17385a": {
+    "0": [
+     "Precious Metals Price Outlook"
+    ],
+    "1": [
+     "Monetary Policy and Inflation"
+    ],
+    "2": [
+     "Investment and Trading Strategies"
+    ],
+    "3": [
+     "Monetary Policy and Inflation"
+    ],
+    "4": [
+     "Central Bank Gold Activity"
+    ],
+    "5": [
+     "Macroeconomic Outlook",
+     "Precious Metals Price Outlook"
+    ],
+    "6": [
+     "Market Misinformation and Myths"
+    ],
+    "7": [
+     "Monetary Policy and Inflation",
+     "Precious Metals Price Outlook"
+    ],
+    "8": [
+     "Gold Market Fundamentals",
+     "Futures and ETF Mechanics"
+    ],
+    "9": [
+     "Monetary Policy and Inflation",
+     "Futures and ETF Mechanics"
+    ],
+    "10": [
+     "CPM Group",
+     "Precious Metals Price Outlook"
+    ],
+    "11": [
+     "CPM Group",
+     "Market Misinformation and Myths",
+     "Investment and Trading Strategies"
+    ],
+    "12": [
+     "Monetary Policy and Inflation",
+     "Precious Metals Price Outlook"
+    ],
+    "13": [
+     "CPM Group",
+     "Gold Market Fundamentals"
+    ],
+    "14": [
+     "CPM Group",
+     "Precious Metals Price Outlook"
+    ],
+    "15": [
+     "Monetary Policy and Inflation",
+     "Precious Metals Price Outlook"
+    ],
+    "16": [
+     "CPM Group",
+     "Precious Metals Price Outlook"
+    ],
+    "17": [
+     "Macroeconomic Outlook",
+     "Precious Metals Price Outlook"
+    ],
+    "18": [
+     "Investment and Trading Strategies"
+    ],
+    "19": [
+     "Gold Market Fundamentals"
+    ],
+    "20": [
+     "Monetary Policy and Inflation",
+     "Gold Market Fundamentals"
+    ],
+    "21": [
+     "Investment and Trading Strategies"
+    ],
+    "22": [
+     "Geopolitics and Political Risks",
+     "Precious Metals Price Outlook"
+    ],
+    "23": [
+     "Geopolitics and Political Risks",
+     "Battery Metals and EV Market",
+     "Precious Metals Price Outlook"
+    ],
+    "24": [
+     "Geopolitics and Political Risks",
+     "Gold Market Fundamentals"
+    ],
+    "25": [
+     "Geopolitics and Political Risks",
+     "Precious Metals Price Outlook"
+    ],
+    "26": [
+     "CPM Group",
+     "Investment and Trading Strategies"
+    ],
+    "27": [
+     "Geopolitics and Political Risks",
+     "Gold Market Fundamentals"
+    ],
+    "28": [
+     "Precious Metals Price Outlook",
+     "Geopolitics and Political Risks"
+    ],
+    "29": [
+     "Monetary Policy and Inflation",
+     "Geopolitics and Political Risks",
+     "Precious Metals Price Outlook"
+    ]
+   },
+   "ed16266f68ad7d76": {
+    "0": [
+     "Precious Metals Price Outlook"
+    ],
+    "1": [
+     "Investment and Trading Strategies"
+    ],
+    "2": [
+     "Precious Metals Price Outlook"
+    ],
+    "3": [
+     "Market Misinformation and Myths"
+    ],
+    "4": [
+     "Precious Metals Price Outlook"
+    ],
+    "5": [
+     "Monetary Policy and Inflation"
+    ],
+    "6": [
+     "Precious Metals Price Outlook"
+    ],
+    "7": [
+     "Silver Supply and Demand",
+     "Market Misinformation and Myths"
+    ],
+    "8": [
+     "Monetary Policy and Inflation",
+     "Precious Metals Price Outlook"
+    ],
+    "9": [
+     "Monetary Policy and Inflation",
+     "Precious Metals Price Outlook"
+    ],
+    "10": [
+     "Market Misinformation and Myths"
+    ],
+    "11": [
+     "Central Bank Gold Activity"
+    ],
+    "12": [
+     "Battery Metals and EV Market"
+    ],
+    "13": [
+     "Macroeconomic Outlook",
+     "Monetary Policy and Inflation"
+    ],
+    "14": [
+     "Investment and Trading Strategies",
+     "Precious Metals Price Outlook"
+    ],
+    "15": [
+     "CPM Group"
+    ],
+    "16": [
+     "Precious Metals Price Outlook"
+    ],
+    "17": [
+     "Macroeconomic Outlook",
+     "Precious Metals Price Outlook"
+    ],
+    "18": [
+     "Gold Market Fundamentals"
+    ],
+    "19": [
+     "Macroeconomic Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "20": [
+     "Gold Market Fundamentals",
+     "Monetary Policy and Inflation"
+    ],
+    "21": [
+     "Investment and Trading Strategies"
+    ],
+    "22": [
+     "Gold Market Fundamentals",
+     "Precious Metals Price Outlook"
+    ],
+    "23": [
+     "Monetary Policy and Inflation",
+     "Gold Market Fundamentals"
+    ],
+    "24": [
+     "Precious Metals Price Outlook"
+    ],
+    "25": [
+     "Silver Supply and Demand",
+     "Futures and ETF Mechanics"
+    ],
+    "26": [
+     "Macroeconomic Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "27": [
+     "Geopolitics and Political Risks",
+     "Market Misinformation and Myths"
+    ],
+    "28": [
+     "Investment and Trading Strategies"
+    ],
+    "29": [
+     "Market Misinformation and Myths",
+     "Silver Supply and Demand"
+    ]
+   },
+   "f4491734f47bc7d5": {
+    "0": [
+     "Precious Metals Price Outlook"
+    ],
+    "1": [
+     "Market Misinformation and Myths",
+     "Gold Market Fundamentals"
+    ],
+    "2": [
+     "Market Misinformation and Myths"
+    ],
+    "3": [
+     "Precious Metals Price Outlook"
+    ],
+    "4": [
+     "Monetary Policy and Inflation",
+     "Precious Metals Price Outlook"
+    ],
+    "5": [
+     "Precious Metals Price Outlook"
+    ],
+    "6": [
+     "Precious Metals Price Outlook",
+     "Macroeconomic Outlook"
+    ],
+    "7": [
+     "Investment and Trading Strategies"
+    ],
+    "8": [
+     "Silver Supply and Demand",
+     "Investment and Trading Strategies"
+    ],
+    "9": [
+     "Central Bank Gold Activity",
+     "Silver Supply and Demand"
+    ],
+    "10": [
+     "Investment and Trading Strategies"
+    ],
+    "11": [
+     "Monetary Policy and Inflation",
+     "Market Misinformation and Myths"
+    ],
+    "12": [
+     "Precious Metals Price Outlook"
+    ],
+    "13": [
+     "Precious Metals Price Outlook"
+    ],
+    "14": [
+     "Precious Metals Price Outlook",
+     "Macroeconomic Outlook"
+    ],
+    "15": [
+     "Monetary Policy and Inflation",
+     "Precious Metals Price Outlook"
+    ],
+    "16": [
+     "CPM Group",
+     "Precious Metals Price Outlook"
+    ],
+    "17": [
+     "Precious Metals Price Outlook"
+    ],
+    "18": [
+     "Battery Metals and EV Market"
+    ],
+    "19": [
+     "Investment and Trading Strategies"
+    ],
+    "20": [
+     "Gold Market Fundamentals",
+     "Investment and Trading Strategies"
+    ],
+    "21": [
+     "Precious Metals Price Outlook"
+    ],
+    "22": [
+     "Silver Supply and Demand",
+     "Market Misinformation and Myths"
+    ],
+    "23": [
+     "Precious Metals Price Outlook"
+    ],
+    "24": [
+     "CPM Group",
+     "Macroeconomic Outlook",
+     "Market Misinformation and Myths"
+    ],
+    "25": [
+     "Macroeconomic Outlook",
+     "Precious Metals Price Outlook",
+     "Market Misinformation and Myths"
+    ],
+    "26": [
+     "Precious Metals Price Outlook"
+    ],
+    "27": [
+     "Gold Market Fundamentals",
+     "Market Misinformation and Myths"
+    ],
+    "28": [
+     "Precious Metals Price Outlook",
+     "Macroeconomic Outlook"
+    ],
+    "29": [
+     "Geopolitics and Political Risks",
+     "Precious Metals Price Outlook"
+    ]
+   },
+   "a1ab807391a5e47e": {
+    "0": [
+     "Investment and Trading Strategies",
+     "Precious Metals Price Outlook"
+    ],
+    "1": [
+     "Gold Market Fundamentals",
+     "Precious Metals Price Outlook"
+    ],
+    "2": [
+     "CPM Group"
+    ],
+    "3": [
+     "Gold Market Fundamentals",
+     "Precious Metals Price Outlook"
+    ],
+    "4": [
+     "Market Misinformation and Myths",
+     "Silver Supply and Demand"
+    ],
+    "5": [
+     "Gold Market Fundamentals",
+     "Precious Metals Price Outlook"
+    ],
+    "6": [
+     "Futures and ETF Mechanics",
+     "Silver Supply and Demand"
+    ],
+    "7": [
+     "Central Bank Gold Activity"
+    ],
+    "8": [
+     "Silver Supply and Demand"
+    ],
+    "9": [
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "10": [
+     "Geopolitics and Political Risks",
+     "Gold Market Fundamentals"
+    ],
+    "11": [
+     "Geopolitics and Political Risks",
+     "Monetary Policy and Inflation",
+     "Precious Metals Price Outlook"
+    ],
+    "12": [
+     "Macroeconomic Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "13": [
+     "Investment and Trading Strategies"
+    ],
+    "14": [
+     "Macroeconomic Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "15": [
+     "Monetary Policy and Inflation",
+     "Gold Market Fundamentals"
+    ],
+    "16": [
+     "Gold Market Fundamentals",
+     "Investment and Trading Strategies"
+    ],
+    "17": [
+     "Geopolitics and Political Risks",
+     "Gold Market Fundamentals"
+    ],
+    "18": [
+     "Monetary Policy and Inflation",
+     "Precious Metals Price Outlook"
+    ],
+    "19": [
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "20": [
+     "Geopolitics and Political Risks",
+     "Silver Supply and Demand"
+    ],
+    "21": [
+     "Precious Metals Price Outlook"
+    ],
+    "22": [
+     "Market Misinformation and Myths"
+    ],
+    "23": [
+     "Silver Supply and Demand"
+    ],
+    "24": [
+     "Central Bank Gold Activity",
+     "Gold Market Fundamentals"
+    ],
+    "25": [
+     "Battery Metals and EV Market"
+    ],
+    "26": [
+     "Silver Supply and Demand",
+     "Market Misinformation and Myths"
+    ],
+    "27": [
+     "Market Misinformation and Myths",
+     "Precious Metals Price Outlook"
+    ],
+    "28": [
+     "Silver Supply and Demand",
+     "Market Misinformation and Myths"
+    ],
+    "29": [
+     "Investment and Trading Strategies",
+     "Battery Metals and EV Market"
+    ]
+   },
+   "a6b316fcbf2b386d": {
+    "0": [
+     "Silver Supply and Demand",
+     "Market Misinformation and Myths"
+    ],
+    "1": [
+     "Investment and Trading Strategies",
+     "Market Misinformation and Myths"
+    ],
+    "2": [
+     "Precious Metals Price Outlook"
+    ],
+    "3": [
+     "Investment and Trading Strategies",
+     "Gold Market Fundamentals"
+    ],
+    "4": [
+     "Macroeconomic Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "5": [
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "6": [
+     "Market Misinformation and Myths",
+     "Silver Supply and Demand"
+    ],
+    "7": [
+     "Market Misinformation and Myths"
+    ],
+    "8": [
+     "Precious Metals Price Outlook",
+     "Monetary Policy and Inflation",
+     "Investment and Trading Strategies"
+    ],
+    "9": [
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "10": [
+     "Precious Metals Price Outlook"
+    ],
+    "11": [
+     "Precious Metals Price Outlook",
+     "Silver Supply and Demand"
+    ],
+    "12": [
+     "Precious Metals Price Outlook"
+    ],
+    "13": [
+     "Geopolitics and Political Risks",
+     "Investment and Trading Strategies"
+    ],
+    "14": [
+     "Precious Metals Price Outlook"
+    ],
+    "15": [
+     "Precious Metals Price Outlook"
+    ],
+    "16": [
+     "Geopolitics and Political Risks",
+     "Precious Metals Price Outlook"
+    ],
+    "17": [
+     "Geopolitics and Political Risks"
+    ],
+    "18": [
+     "Precious Metals Price Outlook",
+     "Futures and ETF Mechanics",
+     "Investment and Trading Strategies"
+    ],
+    "19": [
+     "Precious Metals Price Outlook"
+    ],
+    "20": [
+     "Investment and Trading Strategies"
+    ],
+    "21": [
+     "Macroeconomic Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "22": [
+     "Precious Metals Price Outlook",
+     "Silver Supply and Demand",
+     "Market Misinformation and Myths"
+    ],
+    "23": [
+     "Precious Metals Price Outlook",
+     "Macroeconomic Outlook"
+    ],
+    "24": [
+     "Central Bank Gold Activity"
+    ],
+    "25": [
+     "Investment and Trading Strategies",
+     "Silver Supply and Demand"
+    ],
+    "26": [
+     "Central Bank Gold Activity",
+     "Investment and Trading Strategies"
+    ],
+    "27": [
+     "Monetary Policy and Inflation"
+    ],
+    "28": [
+     "Central Bank Gold Activity",
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "29": [
+     "Precious Metals Price Outlook",
+     "Market Misinformation and Myths"
+    ]
+   },
+   "89bd73819be40dcc": {
+    "0": [
+     "Market Misinformation and Myths",
+     "Gold Market Fundamentals"
+    ],
+    "1": [
+     "Geopolitics and Political Risks",
+     "Precious Metals Price Outlook"
+    ],
+    "2": [
+     "Geopolitics and Political Risks",
+     "Precious Metals Price Outlook"
+    ],
+    "3": [
+     "Investment and Trading Strategies"
+    ],
+    "4": [
+     "Central Bank Gold Activity"
+    ],
+    "5": [
+     "Geopolitics and Political Risks",
+     "Precious Metals Price Outlook"
+    ],
+    "6": [
+     "Precious Metals Price Outlook",
+     "Macroeconomic Outlook"
+    ],
+    "7": [
+     "Investment and Trading Strategies",
+     "Precious Metals Price Outlook"
+    ],
+    "8": [
+     "Market Misinformation and Myths",
+     "Silver Supply and Demand"
+    ],
+    "9": [
+     "Macroeconomic Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "10": [
+     "Precious Metals Price Outlook"
+    ],
+    "11": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "12": [
+     "Investment and Trading Strategies",
+     "Macroeconomic Outlook"
+    ],
+    "13": [
+     "Macroeconomic Outlook",
+     "Precious Metals Price Outlook"
+    ],
+    "14": [
+     "Precious Metals Price Outlook",
+     "Market Misinformation and Myths"
+    ],
+    "15": [
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "16": [
+     "Precious Metals Price Outlook"
+    ],
+    "17": [
+     "Precious Metals Price Outlook",
+     "Silver Supply and Demand"
+    ],
+    "18": [
+     "Macroeconomic Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "19": [
+     "Investment and Trading Strategies"
+    ],
+    "20": [
+     "Silver Supply and Demand",
+     "Gold Market Fundamentals"
+    ],
+    "21": [
+     "Precious Metals Price Outlook",
+     "Market Misinformation and Myths"
+    ],
+    "22": [
+     "CPM Group",
+     "Silver Supply and Demand",
+     "Market Misinformation and Myths"
+    ],
+    "23": [
+     "Precious Metals Price Outlook",
+     "Market Misinformation and Myths"
+    ],
+    "24": [
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "25": [
+     "Geopolitics and Political Risks",
+     "Precious Metals Price Outlook"
+    ],
+    "26": [
+     "Monetary Policy and Inflation",
+     "Macroeconomic Outlook",
+     "Precious Metals Price Outlook"
+    ],
+    "27": [
+     "Futures and ETF Mechanics",
+     "Precious Metals Price Outlook"
+    ],
+    "28": [
+     "Market Misinformation and Myths",
+     "Precious Metals Price Outlook"
+    ],
+    "29": [
+     "Precious Metals Price Outlook",
+     "Silver Supply and Demand"
+    ]
+   },
+   "1c43f39eb6178a33": {
+    "0": [
+     "Macroeconomic Outlook",
+     "Precious Metals Price Outlook"
+    ],
+    "1": [
+     "Silver Supply and Demand",
+     "Market Misinformation and Myths"
+    ],
+    "2": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "3": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "4": [
+     "Macroeconomic Outlook",
+     "CPM Group"
+    ],
+    "5": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "6": [
+     "Geopolitics and Political Risks",
+     "Macroeconomic Outlook",
+     "Precious Metals Price Outlook"
+    ],
+    "7": [
+     "Market Misinformation and Myths",
+     "Gold Market Fundamentals"
+    ],
+    "8": [
+     "Precious Metals Price Outlook",
+     "Market Misinformation and Myths"
+    ],
+    "9": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "10": [
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "11": [
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "12": [
+     "Market Misinformation and Myths",
+     "Precious Metals Price Outlook"
+    ],
+    "13": [
+     "Silver Supply and Demand",
+     "Market Misinformation and Myths"
+    ],
+    "14": [
+     "Precious Metals Price Outlook",
+     "Market Misinformation and Myths"
+    ],
+    "15": [
+     "Macroeconomic Outlook",
+     "Precious Metals Price Outlook"
+    ],
+    "16": [
+     "Silver Supply and Demand",
+     "Precious Metals Price Outlook"
+    ],
+    "17": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "18": [
+     "Precious Metals Price Outlook"
+    ],
+    "19": [
+     "Gold Market Fundamentals",
+     "Investment and Trading Strategies"
+    ],
+    "20": [
+     "Precious Metals Price Outlook"
+    ],
+    "21": [
+     "Precious Metals Price Outlook",
+     "Macroeconomic Outlook"
+    ],
+    "22": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "23": [
+     "Monetary Policy and Inflation",
+     "Macroeconomic Outlook"
+    ],
+    "24": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "25": [
+     "Central Bank Gold Activity",
+     "Market Misinformation and Myths"
+    ],
+    "26": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "27": [
+     "Precious Metals Price Outlook",
+     "Market Misinformation and Myths"
+    ],
+    "28": [
+     "Precious Metals Price Outlook"
+    ],
+    "29": [
+     "Precious Metals Price Outlook",
+     "Market Misinformation and Myths"
+    ]
+   },
+   "eb2e2d69be3c07d1": {
+    "0": [
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "1": [
+     "Precious Metals Price Outlook",
+     "Silver Supply and Demand"
+    ],
+    "2": [
+     "Market Misinformation and Myths",
+     "Precious Metals Price Outlook"
+    ],
+    "3": [
+     "Central Bank Gold Activity",
+     "Gold Market Fundamentals"
+    ],
+    "4": [
+     "Futures and ETF Mechanics",
+     "Market Misinformation and Myths",
+     "Precious Metals Price Outlook"
+    ],
+    "5": [
+     "Precious Metals Price Outlook",
+     "Silver Supply and Demand"
+    ],
+    "6": [
+     "Geopolitics and Political Risks",
+     "Precious Metals Price Outlook"
+    ],
+    "7": [
+     "Geopolitics and Political Risks",
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "8": [
+     "Silver Supply and Demand",
+     "Market Misinformation and Myths"
+    ],
+    "9": [
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "10": [
+     "Market Misinformation and Myths",
+     "Investment and Trading Strategies"
+    ],
+    "11": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "12": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "13": [
+     "Precious Metals Price Outlook"
+    ],
+    "14": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "15": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "16": [
+     "Geopolitics and Political Risks",
+     "Gold Market Fundamentals"
+    ],
+    "17": [
+     "Geopolitics and Political Risks",
+     "Macroeconomic Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "18": [
+     "Precious Metals Price Outlook",
+     "Battery Metals and EV Market"
+    ],
+    "19": [
+     "Precious Metals Price Outlook",
+     "Silver Supply and Demand"
+    ],
+    "20": [
+     "Geopolitics and Political Risks",
+     "Battery Metals and EV Market",
+     "Silver Supply and Demand"
+    ],
+    "21": [
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "22": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "23": [
+     "Precious Metals Price Outlook",
+     "Geopolitics and Political Risks"
+    ],
+    "24": [
+     "Monetary Policy and Inflation",
+     "Market Misinformation and Myths",
+     "Precious Metals Price Outlook"
+    ],
+    "25": [
+     "Market Misinformation and Myths",
+     "Investment and Trading Strategies"
+    ],
+    "26": [
+     "Precious Metals Price Outlook",
+     "Gold Market Fundamentals"
+    ],
+    "27": [
+     "CPM Group",
+     "Precious Metals Price Outlook"
+    ],
+    "28": [
+     "Precious Metals Price Outlook"
+    ],
+    "29": [
+     "Geopolitics and Political Risks",
+     "Precious Metals Price Outlook"
+    ]
+   },
+   "749d141ee07453ea": {
+    "0": [
+     "Precious Metals Price Outlook",
+     "Investment and Trading Strategies"
+    ],
+    "1": [
+     "Futures and ETF Mechanics",
+     "Market Misinformation and Myths"
+    ]
+   }
+  }
+ }
+}

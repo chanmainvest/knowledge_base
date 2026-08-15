@@ -1,16 +1,16 @@
 # CL=F — Crude Oil
 
-**33 extracted prediction(s)** across 7 channel(s). Consensus: **bullish** (15 bullish / 5 bearish / 13 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
+**34 extracted prediction(s)** across 7 channel(s). Consensus: **bullish** (15 bullish / 5 bearish / 14 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
 ## The debate
 
-Crude oil's 2026 debate opened with a flush: after collapsing from the $90 level to the $73 handle — a near-20% decline that [Patrick Ceresna](../People/patrick-ceresna.md) flagged as "the most notable move" of the period — the commentariat split between dip-buyers and curve-watchers, and the headcount tilted heavily bullish, with fifteen bullish calls against five bearish and thirteen neutral through mid-August. In other words, the bears were always a minority arguing against a consensus that treated the drop as a correction inside a geopolitical bull market rather than the start of something uglier.
+The crude oil debate in this corpus leans decisively bullish — fifteen bullish calls against five bearish and fourteen neutral — and nearly all of it clusters in mid-June 2026, right after crude collapsed from the $90 level to the $73 handle, a close-to-20% slide that [Patrick Ceresna](../People/patrick-ceresna.md) called "the most notable move" of the moment. The core bull thesis was technical and tightly bunched: [Erik Townsend](../People/erik-townsend.md) pointed to a "great big glaring gap in the chart" running up to roughly 84 and a half and said he expected it filled, with prices settling "back above 80 at some point here and maybe even as high as 90," while [Brent Johnson](../People/brent-johnson.md) stretched the target, saying he "wouldn't be surprised if we're back over 100 before the year is out." Worth flagging on the shape of the debate: the 85-to-100 framing appears nearly verbatim under both Townsend and Johnson on June 18–19, and Ceresna's "above 80, maybe 90" call echoes it word-for-word — this reads less like independent convergence than one conversation's numbers repeated across speakers on the same panel.
 
-The mainstream bull case was staked out in a tight cluster on June 18–19. [Erik Townsend](../People/erik-townsend.md) called for prices to "settle back above 80 at some point here and maybe even as high as 90," pointed to "a great big glaring gap in the chart" running up to roughly 84.5 that he expected to be filled, and stretched further with "I wouldn't be surprised if we're back over 100 before the year is out." [Brent Johnson](../People/brent-johnson.md) is on record with the identical gap-fill-to-85, back-over-100 language on the same dates, and Ceresna echoed the 80–90 target; the verbatim overlap suggests shared appearances rather than independent convergence, but the cluster is unmistakable. [George Noble](../People/george-noble.md) ran the tail scenario — "oil at 150, 170, who knows, maybe even 200" within a couple of months, on the theory that a delayed supply shock was coming because "there ain't nothing left in the SPR" — and on June 23 compressed it to four words: "I would bet higher." [David Woo](../People/david-woo.md) made the bullish case explicitly conditional on the war: if the Strait of Hormuz was still closed by end of July, oil was "going to be $150," a position he held while candidly admitting that although he had made money being long oil early in the war, his current long was actually down.
+The tail of the bull distribution belongs to [George Noble](../People/george-noble.md), who on June 18 argued "you could see within the next couple months oil at 150, 170, who knows, maybe even 200," premised on a delayed supply shock — "there ain't nothing left in the SPR," so supply would "absolutely plummet." He was still leaning long on June 23: "I would bet higher." [David Woo](../People/david-woo.md) anchored his spike scenario to a hard condition — if the Strait of Hormuz was still closed by end of July, "oil price is going to be $150" — and he was unusually candid about positioning: he had "made money being long oil early in the war" and was still long, though "actually… down" on the position as of June 15.
 
-The bear bench is thin and notably process-driven rather than price-assertive. [Jeff (Jeoff)](../People/jeff-jeoff.md) laid out the downside path on June 14 — "So that's how you get to $50 a barrel" — while directing attention to how the WTI futures curve reshapes rather than the spot price itself. The Eurodollar University host, who carries no link in this record, took a similar signal-based stance: a short-run WTI bounce "wouldn't be surprising — in fact, we expect a bounce," but the real tell would be the front of the curve flipping into contango. Even the bulls' own technical read carried a cautionary note: Townsend flagged that the market had tested the 200-day moving average at 73.50 on the August continuation chart, a reminder that these bullish calls were all made into a falling tape.
+The bear case is thin and only partly articulated. [Jeff (Jeoff)](../People/jeff-jeoff.md) is the lone named voice with a downside path — "that's how you get to $50 a barrel" — and even he framed it as conditional on watching how the WTI futures curve reshaped. The neutral camp shares that same tell: the Eurodollar University host expected a short-run WTI bounce but told listeners to "watch for that contango," warning that a flip into contango at the front of the curve would change the picture. By late July and August the record thins to an unnamed speaker making what is essentially a floor argument rather than a bearish one — US average cost of production around $55 a barrel, "I don't think we're going to see $40 oil" — and by August 13, a flat assertion that oil "也会变得更贵" — will also get more expensive.
 
-By late July and August the debate drifted away from named commentators into unattributed floor-talk, which is where the record gets thin. On July 30 an unidentified speaker argued that the world's largest producer faces an average cost of production "around $55 a barrel" — a structural-floor argument — and on August 3 an unnamed voice insisted "I don't think we're going to see $40 oil." By August 13 the strongest remaining statement is a Chinese-language aside, "石油也会变得更贵" ("oil will also get more expensive"). Notably, nobody in the digest visibly reversed course; the closest thing to a change of mind is the tape itself, which traveled from $90 to $73 between the camps staking out $50 and $200, leaving the middle of that range — the bulls' 80–90 recovery zone — as the unresolved question the record never answers.
+Two honest caveats about the data itself. The up/down tags are noisy: the "down" entries under Townsend and Ceresna describe the realized move — testing the 200-day moving average near 73.50 on the August continuation contract — rather than bearish calls, so the true bear count is smaller than the headline five. And the digest is front-loaded: coverage is dense for two weeks in June around the war-driven spike and collapse, then goes nearly silent, with nothing to say on whether Hormuz reopened, whether the gaps to 84–85 got filled, or who ended up right.
 
 ## Themes
 
@@ -22,7 +22,7 @@ By late July and August the debate drifted away from named commentators into una
 |---|---:|
 | Bullish | 15 |
 | Bearish | 5 |
-| Neutral / watch | 13 |
+| Neutral / watch | 14 |
 
 ## Voices on this ticker
 
@@ -49,6 +49,7 @@ By late July and August the debate drifted away from named commentators into una
 - **Eurodollar University** — [The “Safest” Companies Are Warning the Consumer Is Breaking](https://www.youtube.com/watch?v=I475w6xb8LI) — 2026-07-26, Eurodollar University: "oil prices are going to be substantially lower than where they are now"
 - **Eurodollar University** — [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "doesn't seem to want to get much cheaper anytime soon"
 - **Resource Talks** — [1M Ounces of Gold in Idaho, But Can the Grade Support Good Margins? \| Freeman G…](https://www.youtube.com/watch?v=gXgvIhQTUI0) — 2026-07-24, Resource Talks: "I saw an article today that said something about you know it's headed to 120."
+- **David Lin** — [Biggest Bubble In History ‘Unwinding’ Now: 17x Worse Than 2000 Crash \| George N…](https://www.youtube.com/watch?v=_XC8leI9eCY) — 2026-07-20, David Lin
 - **Tony** (action=`buy`, dir=`up`, tf=`unspecified`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [Tony](../People/tony.md): "I'm a buyer down here of oil as well."
 - **JD** (action=`buy`, dir=`up`, tf=`unspecified`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "I'm actually I'm with you guys."
 - **George Noble** (action=`buy`, dir=`up`, tf=`next $10-15 move`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "I would bet higher."
@@ -88,11 +89,11 @@ By late July and August the debate drifted away from named commentators into una
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
 - 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
 - 2026-06-23 _bullish_ [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
 - 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
 - 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
 - 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
@@ -107,6 +108,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 - 2026-07-26 — [The “Safest” Companies Are Warning the Consumer Is Breaking](https://www.youtube.com/watch?v=I475w6xb8LI) (Eurodollar University)
 - 2026-07-25 — [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) (Eurodollar University)
 - 2026-07-24 — [1M Ounces of Gold in Idaho, But Can the Grade Support Good Margins? \| Freeman Gold CEO In…](https://www.youtube.com/watch?v=gXgvIhQTUI0) (Resource Talks)
+- 2026-07-20 — [Biggest Bubble In History ‘Unwinding’ Now: 17x Worse Than 2000 Crash \| George Noble](https://www.youtube.com/watch?v=_XC8leI9eCY) (David Lin)
 - 2026-06-23 — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) (The Macro Dirt Podcast)
 - 2026-06-19 — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) (Macro Voices)
 - 2026-06-18 — [Trade of The Week - MacroVoices #537](https://www.youtube.com/watch?v=oqHNNzR9WNc) (Macro Voices)

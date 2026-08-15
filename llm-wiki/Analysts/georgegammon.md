@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 2
+- **Extracted items**: 3
 - **Items with predictions**: 1
 - **Predictions**: 6
 - **Market views**: 13
@@ -57,11 +57,12 @@ _No URL / bio in DB channel metadata._
 - _rates — neutral_: [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everyth…](https://www.youtube.com/watch?v=8QKGzMIhuh0) — 2026-06-20, George Gammon: "Do they really control the interest rate? No, not in my view, just like I didn't control the weather."
 - _rates — mixed_: [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everyth…](https://www.youtube.com/watch?v=8QKGzMIhuh0) — 2026-06-20, George Gammon: "This is really the key. And we can see it's right around 30 basis points, which relatively speaking is very low, usually right around 100, maybe even 150 basis points."
 - _interest rates — bearish_: [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everyth…](https://www.youtube.com/watch?v=8QKGzMIhuh0) — 2026-06-20, speaker: "So, with your portfolio or with your analysis of the overall US economy, I would expect lower rates in the future, not higher rates."
-- _macro/economy — bearish_: [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everyth…](https://www.youtube.com/watch?v=8QKGzMIhuh0) — 2026-06-20, speaker: "But, then what you have to do is you have to realize what lower rates tells us about the overall economy. And that usually means the economy is getting worse. It's not getting better."
 - _interest rates — mixed_: [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everyth…](https://www.youtube.com/watch?v=8QKGzMIhuh0) — 2026-06-20, speaker: "So he's going to go from a dove to a hawk and then straight back to a dove again, which would make a lot of sense."
+- _macro/economy — bearish_: [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everyth…](https://www.youtube.com/watch?v=8QKGzMIhuh0) — 2026-06-20, speaker: "But, then what you have to do is you have to realize what lower rates tells us about the overall economy. And that usually means the economy is getting worse. It's not getting better."
 
 ## Source items (extracted)
 
+- 2026-07-18 — [WARNING: This Is An Economic Sign That Can't Be Ignored](https://www.youtube.com/watch?v=YD5IrExMPVk)
 - 2026-06-20 — [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everything)](https://www.youtube.com/watch?v=8QKGzMIhuh0)
 - 2026-06-18 — [SpaceX, Iran, OpenAI IPO...Here's My Controversial Stock Strategy For 2026](https://www.youtube.com/watch?v=QxR6yvf8ueU)
 

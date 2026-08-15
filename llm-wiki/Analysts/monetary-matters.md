@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 10
-- **Items with predictions**: 7
-- **Predictions**: 83
-- **Market views**: 102
+- **Extracted items**: 11
+- **Items with predictions**: 8
+- **Predictions**: 88
+- **Market views**: 110
 
 ## People on this channel
 
@@ -31,11 +31,11 @@ _No URL / bio in DB channel metadata._
 - [TKR](../Tickers/TKR.md) (3)
 - [CL=F](../Tickers/CL=F.md) (3)
 - [TSLA](../Tickers/TSLA.md) (2)
+- [ARCC](../Tickers/ARCC.md) (2)
 - [PWR](../Tickers/PWR.md) (2)
 - [POWL](../Tickers/POWL.md) (2)
 - [NEE](../Tickers/NEE.md) (2)
 - [ETN](../Tickers/ETN.md) (2)
-- [GEV](../Tickers/GEV.md) (2)
 
 ## Stance distribution (predictions)
 
@@ -43,7 +43,7 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 38 |
 | Bearish | 19 |
-| Neutral / watch | 26 |
+| Neutral / watch | 31 |
 
 ## Market-view direction
 
@@ -72,7 +72,7 @@ _No URL / bio in DB channel metadata._
 - _? — ?_: [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
 - _? — ?_: [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
 - _? — ?_: [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
-- _AI/Technology sector — bearish_: [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, [Ed Zitron](../People/ed-zitron.md): "back in October last year, Broadcom and Open AI said that they were going to do 10 gigawatts of AI data centers together. I don't think OpenAI's ordered a single chip from them yet."
+- _? — ?_: [The Next Financial Crisis Isn’t In Banks. It’s In Insurance & Private Credit \| …](https://www.youtube.com/watch?v=5qkNpMxD9kw) — 2026-07-20, The Monetary Matters Network: "I'm worried that people will lose trust in the system in a way that the Fed has to, you know, starts with a trillion, goes to two and a half and then ultimately 10 and then you have to worry about the dollar something."
 
 ## Source items (extracted)
 
@@ -82,6 +82,7 @@ _No URL / bio in DB channel metadata._
 - 2026-07-28 — [Why Yield Curve Control is the Only Way to Stop a Global Bond Crisis \| Luke Gromen](https://www.youtube.com/watch?v=lS67XZP81Tc)
 - 2026-07-26 — [Next Financial Crisis Unlikely To Start in Private Markets (Fundamentals Solid!) \| Nichol…](https://www.youtube.com/watch?v=wM0_rexOj_w)
 - 2026-07-22 — [The Next Financial Crisis Isn't In AI, It's In US Treasuries \| Russell Clark](https://www.youtube.com/watch?v=wS4MV0FbVm8)
+- 2026-07-20 — [The Next Financial Crisis Isn’t In Banks. It’s In Insurance & Private Credit \| Nick Nemeth](https://www.youtube.com/watch?v=5qkNpMxD9kw)
 - 2026-06-21 — [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc)
 - 2026-06-20 — [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alpha in AI &…](https://www.youtube.com/watch?v=NlIsoPhQePs)
 - 2026-06-18 — [The Longest US Manufacturing Recession in History is Finally Over \| Chris Semenuk](https://www.youtube.com/watch?v=aS6W2GJ2AzA)

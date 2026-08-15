@@ -2,24 +2,24 @@
 
 Calls on the four precious metals — dominated by gold (GC=F), with silver (SI=F), platinum (PL=F) and palladium (PA=F). Gold is the single most-predicted asset in the DB.
 
-**56 prediction(s)** and **53 market view(s)** match this theme in the current extraction.
+**61 prediction(s)** and **57 market view(s)** match this theme in the current extraction.
 
 ## What the corpus says
 
-Strip the label off this theme page and it is, for practical purposes, a gold file. Of 56 tickered calls in the corpus, 39 sit on gold futures, against eight on silver, three apiece on platinum and palladium, and three on the small producer Gold Rock Mine — for which the digest captures no actual view at all. The market under argument has already moved: by early August 2026 one commentator described gold as having "taken a tremendous leap," with a "sudden rebound in stocks and gold" noted on August 9, and the argument now stretches from the low $3,000s on the downside to a headline asking, in all seriousness, whether "$8,000 Possible?" on the top side.
+Precious metals coverage in this corpus is, in practice, a gold page with a silver garnish. Of 61 tickered calls, 42 sit on gold futures (GC=F) against 10 on silver, while platinum and palladium manage three calls each — barely a footnote — alongside a smattering of interest in a small mining name, Gold Rock Mine. The action is compressed into roughly two months, mid-June through mid-August 2026, and the attribution is unusually thin: nearly every call and quote arrives without a named speaker, which makes Jeffrey Christian, the veteran CPM Group analyst, the only voice here you can actually pin to a masthead. His late-June framing set the cautious baseline, arguing that gold testing $4,100 mattered because "a break lower could point toward $3,800," while silver was busy testing support in the low $60s ([Jeffrey Christian](../People/jeffrey-christian.md), [Jeffrey Christian](../People/jeffrey-christian.md)).
 
-The August record splits cleanly into breakout believers and exhaustion-watchers. The bulls get their say on August 9 — a "Gold Breakout and $4,600 Target" call, and a buyer announcing "Now I'm getting back into gold as I'm hoping it's going to continue going up" — plus an August 13 view that "if they keep running, which I suspect they probably will, then gold continues to get a bid." Against them sits an August 10 cluster of technician caution: "I think we're getting close to a near-term high in gold," an Elliott-flavored call that "there'll be a C-wave that takes gold below 3945," and Fibonacci bounce math holding that a ".382 retracement of the $1650 decline in gold gets you to like $4575" — telling in itself, since even the chartists were mapping a pop toward the mid-$4,500s inside a corrective frame. The $8,000 chatter is its own signal: on August 13 alone, one English-language headline posed the question while a Chinese-language commentator dismissed the frenzy, seeing "only a pause" and arguing the metal is "more likely to bend first, then decline." When the corpus is asking eight-thousand-dollar questions in two languages on the same day, the froth is part of the story.
+The tape then roughly followed his script, at least for a stretch. By July 18, gold had dipped below $4,000 — briefly back above it, but still down 2.5% for the week — while silver sat at $56, off 6.5%, a proper washout in both metals. Three days later the mood flipped: a July 21 piece declared "Gold's Crash Is Over," and the same day another voice was enthusiastically pitching a major gold-producing belt (rendered in the transcript as the "Quinnow Trough," almost certainly a garbling of a well-known district) as "the number one gold producing" region. That whipsaw — crash fears on Friday, all-clear by Monday — is the defining rhythm of this coverage.
 
-The only named voice in the file is [Jeffrey Christian](../People/jeffrey-christian.md), and his June 23 appearance is its most layered take. He was tactically bearish — gold "testing $4,100, why a break lower could point toward $3,800," and a forecast of "a sideward movement with a downward emphasis over the summer period" ([Jeffrey Christian](../People/jeffrey-christian.md)) — yet strategically constructive, insisting "these risks may be negative for the broader economy but supportive for gold and silver over time" and that "these are good times for long-term investors to buy gold and silver" because prices had ratcheted upward ([Jeffrey Christian](../People/jeffrey-christian.md)). He also splits the complex in a way nobody else in the corpus does: watching silver "testing support near the low $60s" while flatly flagging "platinum and palladium weakness" ([Jeffrey Christian](../People/jeffrey-christian.md)). That gold-and-silver-over-PGMs structure is the one clean cross-metal view on the page.
+August brought the breakout chorus and, with it, the sharpest internal disagreement. On August 7 and 9, commentators noted gold had "taken a tremendous leap" within a broader resource rally and a "sudden rebound in stocks and gold"; one admitted "Now I'm getting back into gold as I'm hoping it's going to continue going up," and a piece titled "Gold Breakout and $4,600 Target" captured the bullish case. But August 10's technical work cut the other way: one analyst thought "we're getting close to a near-term high in gold," sketched a C-wave that "takes gold below 3945," and ran the Fibonacci arithmetic — a 38.2% retracement of the $1,650 decline "gets you to like $4575," with $4,750 floated in the same session. By August 13 the debate had stretched to the absurd end: a headline asked "Gold Rally: Is $8,000 Possible?", one voice said that if the runners keep running, "which I suspect they probably will, then gold continues to get a bid," while another, writing in Chinese, saw only "a pause" and judged gold "more likely to bend first, then decline" before any fresh charge at 8,000.
 
-Read in sequence, the tone migrates from Christian's June restraint — sideways-to-down into summer, $3,800 as the risk case — to an August market that has evidently leapt and is now fighting over whether $4,600 is a target or a trap, with $8,000 circulating as ambient hype. The caveats matter here: nearly every August call is unattributed in the digest, so the bull/bear split is a shape rather than a roster of names; platinum, palladium and the Gold Rock Mine exposure rest on fragments; and nothing is captured after August 13, so whether the breakout or the C-wave won is a question this file honestly cannot answer.
+The tone shift across the window is real and worth naming: defined-risk caution in June (Christian's $3,800 downside), genuine fear in mid-July, then rebound euphoria in August with the bear case driven underground into chart math rather than abandoned. What the corpus doesn't give you is accountability — with almost no named speakers, nobody's $8,000 or sub-$3,945 call can be tracked to a person, and the platinum and palladium legs of the "precious metals" theme are so sparsely covered that no meaningful debate exists there at all. Read this page as a snapshot of sentiment at a gold top-versus-consolidation inflection, anchored by one credible name and a lot of anonymous conviction in both directions.
 
 ## Constituent tickers
 
 | Ticker | Mentions |
 |---|---:|
-| [GC=F](../Tickers/GC=F.md) | 39 |
-| [SI=F](../Tickers/SI=F.md) | 8 |
+| [GC=F](../Tickers/GC=F.md) | 42 |
+| [SI=F](../Tickers/SI=F.md) | 10 |
 | [Gold Rock Mine](../Tickers/gold-rock-mine.md) | 3 |
 | [PA=F](../Tickers/PA=F.md) | 3 |
 | [PL=F](../Tickers/PL=F.md) | 3 |
@@ -39,7 +39,7 @@ Read in sequence, the tone migrates from Christian's June restraint — sideways
 
 ## Consensus across analysts
 
-Of 56 tickered calls: **9 bullish**, **14 bearish**.
+Of 61 tickered calls: **9 bullish**, **14 bearish**.
 
 ## Notable calls & quotes
 
@@ -60,14 +60,14 @@ Of 56 tickered calls: **9 bullish**, **14 bearish**.
 
 - _? (?)_: [Markets Surge: Where's The Top? Trader On Next Levels For Stocks, Gold \| Kevin …](https://www.youtube.com/watch?v=kmOsTT2grwk) — 2026-08-09, David Lin: "sudden rebound in stocks and gold"
 - _? (?)_: [Gold Project Next to a Major Mine, But Is the Geology Really the Same? \| Galact…](https://www.youtube.com/watch?v=D8YzCqyL6CI) — 2026-08-07, Resource Talks: "right now in the resource sector, you've got gold that, uh, you know, has taken a tremendous, uh, leap"
+- _? (?)_: [New Porphyry Copper Target in BC, But Why Was it Abandoned? \| North Valley Reso…](https://www.youtube.com/watch?v=HaOpyROsd3A) — 2026-07-21, Resource Talks: "I definitely am a huge fan of the Quinnow Trough. Uh just cuz like you look at and it is like the the number one gold producing region of of all of Canada. Um, I don't know the exact numbers, but uh, but you've got a lo…"
+- _? (?)_: [Gold's Crash Is Over: CEO Reveals New Floor \| Mike Allen](https://www.youtube.com/watch?v=AfX_ZBF53HQ) — 2026-07-21, David Lin: "Gold's Crash Is Over"
+- _? (?)_: [Rio Tinto Might Invest $21M in a Copper Junior + 6 Stocks on The Move \| Mining …](https://www.youtube.com/watch?v=YElviHEcLw0) — 2026-07-18, Resource Talks: "Gold uh dipped below 4,000, although it is back above that now, but it's still down 2 and a half% for the week"
+- _? (?)_: [Rio Tinto Might Invest $21M in a Copper Junior + 6 Stocks on The Move \| Mining …](https://www.youtube.com/watch?v=YElviHEcLw0) — 2026-07-18, Resource Talks: "Silver is at $56, down 6.5% for the week"
 - _gold (mixed)_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "why gold is testing $4,100, why a break lower could point toward $3,800"
 - _silver (mixed)_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "why silver is testing support near the low $60s"
 - _precious metals (bullish)_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
 - _platinum and palladium (bearish)_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "platinum and palladium weakness"
-- _precious metals (bearish)_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "it's in line with what we've been expecting in terms of a sideward movement with a downward uh emphasis over the summer period"
-- _precious metals (bullish)_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "these are good times for long-term investors to buy gold and silver because the prices have ratcheted upward"
-- _platinum group metals (bearish)_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "we do see downside uh pressure on both platinum and on palladium"
-- _precious metals (bullish)_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [CPM Group speaker](../People/cpm-group-speaker.md): "And that all put together is good for gold and silver."
 
 ---
 _Theme buckets are keyword-based and approximate; an LLM-tagged taxonomy would be more precise. Regenerate via `uv run python scripts/build_llm_wiki.py`._

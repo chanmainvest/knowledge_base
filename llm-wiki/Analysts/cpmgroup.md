@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 7
+- **Extracted items**: 9
 - **Items with predictions**: 4
 - **Predictions**: 26
 - **Market views**: 30
@@ -70,6 +70,8 @@ _No URL / bio in DB channel metadata._
 - 2026-08-04 — [Gold And Silver WARNING: Is Your Metal Really There?](https://www.youtube.com/watch?v=qLZ381lQiFQ)
 - 2026-07-28 — [Gold And Silver Price WARNING: Breakout or Breakdown Before August?](https://www.youtube.com/watch?v=Y44xymVXMOg)
 - 2026-07-24 — [Gold Price WARNING: China’s July 24 “Shock” Or Not?](https://www.youtube.com/watch?v=u9jx89f0P3I)
+- 2026-07-21 — [The 2026 Platinum Group Metals Market Outlook: What Comes Next?](https://www.youtube.com/watch?v=QmW6AantbdU)
+- 2026-07-17 — [Gold And Silver Just Hit CPM’s Targets: Why Further Declines May Be Next](https://www.youtube.com/watch?v=npwugboj_Pw)
 - 2026-06-23 — [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o)
 - 2026-06-19 — [Why Gold and Silver Prices Are Falling: Is Now The Time To Buy?](https://www.youtube.com/watch?v=z1btQrMgRwo)
 - 2026-06-16 — [Gold And Silver Market Update: How Low Before Buyers Return](https://www.youtube.com/watch?v=W1jdQOS8Lu8)

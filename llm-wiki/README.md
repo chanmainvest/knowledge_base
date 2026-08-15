@@ -23,19 +23,21 @@ llm-wiki/
   People/    (53 pages)   # one per person (guests, hosts,
                         #   solo authors merged across shows) — opinions
                         #   per topic over time, flips flagged, LLM bios
-  Tickers/   (52 pages)   # one per ticker >= 2 mentions,
+  Tickers/   (56 pages)   # one per ticker >= 2 mentions,
                         #   incl. rates/bond-yield backdrop
-  Analysts/  (37 pages)   # one per channel with extracted items
+  Analysts/  (38 pages)   # one per channel with extracted items
   Themes/    (14 pages)   # cross-cutting theses (gold, AI-semis, …)
   Syntheses/ (3 pages)   # opinion shifts · disagreements · timeline
+  Studies/   (1 pages)   # deep dives (e.g. how a channel
+                        #   recycles its own material over time)
 ```
 
 ## Data snapshot at generation time
 
-- Generated: **2026-08-15 07:56 UTC**
-- Items in DB: **31,932** (extracted: **228**, pending: **31,701**)
-- Predictions: **420** · Market views: **556**
-- Distinct tickers with calls: **110** · People pages: **53**
+- Generated: **2026-08-15 23:52 UTC**
+- Items in DB: **31,932** (extracted: **266**, pending: **31,661**)
+- Predictions: **459** · Market views: **588**
+- Distinct tickers with calls: **118** · People pages: **53**
 - Published-date range: **2004-05-06 → 2026-08-13**
 
 ## Important caveats

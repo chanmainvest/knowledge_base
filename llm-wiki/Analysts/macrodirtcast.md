@@ -6,9 +6,9 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 4
-- **Items with predictions**: 3
-- **Predictions**: 40
+- **Extracted items**: 5
+- **Items with predictions**: 4
+- **Predictions**: 44
 - **Market views**: 36
 
 ## People on this channel
@@ -24,15 +24,15 @@ _No URL / bio in DB channel metadata._
 **Most-called tickers:**
 
 - [SpaceX](../Tickers/spacex.md) (9)
-- [GC=F](../Tickers/GC=F.md) (5)
+- [GC=F](../Tickers/GC=F.md) (7)
 - [CL=F](../Tickers/CL=F.md) (4)
+- [SI=F](../Tickers/SI=F.md) (2)
 - [SMH](../Tickers/SMH.md) (2)
 - [^GSPC](../Tickers/^GSPC.md) (2)
 - [BTC-USD](../Tickers/BTC-USD.md) (2)
 - [DX-Y.NYB](../Tickers/DX-Y.NYB.md) (2)
 - [^TNX](../Tickers/^TNX.md) (2)
 - `Bonds` (1)
-- `Small cap value` (1)
 
 ## Stance distribution (predictions)
 
@@ -40,7 +40,7 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 16 |
 | Bearish | 14 |
-| Neutral / watch | 10 |
+| Neutral / watch | 14 |
 
 ## Market-view direction
 
@@ -53,18 +53,18 @@ _No URL / bio in DB channel metadata._
 
 ## Recent notable calls
 
+- [SI=F](../Tickers/SI=F.md): [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "200 is on the table and possibly even more than that"
+- [SI=F](../Tickers/SI=F.md): [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "In silver, we get to 200"
+- [GC=F](../Tickers/GC=F.md): [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "I think gold's going to 10,000"
+- [GC=F](../Tickers/GC=F.md): [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "My first target is 8,000"
 - `(no ticker)`: [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
 - `(no ticker)`: [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
 - [SMH](../Tickers/SMH.md): [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
 - [^GSPC](../Tickers/^GSPC.md): [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
-- [GC=F](../Tickers/GC=F.md): [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
-- `Bonds`: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "I'm putting it all in bonds."
-- `Small cap value`: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "I'm keeping small cap value."
-- `Brazil`: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "I'm keeping Brazil."
 
 ## Recent market views
 
-- _equities — bearish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "the S&P is now 22% semiconductors, all-time high... I am I have a strong opinion on the index. I'm very bearish on the index."
+- _bonds — mixed_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
 - _currency/commodity — bullish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "I think all fiat currencies a waste of time. Dollar's not going away. Last year, dollar was down 9%. gold was up 60 some odd percent."
 - _commodity — bullish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "I think the safer way to look at this is if I had to make a bet on the next 10 or even $15 in crude oil, I would bet higher."
 - _commodity — bullish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "Stochastics are a nine right now. So that's as oversold as it gets on stochastics. RSI 29. Usually below 30, you got to be looking to buy stuff."
@@ -73,6 +73,7 @@ _No URL / bio in DB channel metadata._
 
 ## Source items (extracted)
 
+- 2026-08-01 — [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk)
 - 2026-07-30 — [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY)
 - 2026-07-23 — [Macro Dirt and Fast Money](https://www.youtube.com/watch?v=OfmDNcA0Tlc)
 - 2026-06-23 — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4)

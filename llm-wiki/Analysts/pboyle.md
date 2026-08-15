@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 2
+- **Extracted items**: 4
 - **Items with predictions**: 0
 - **Predictions**: 0
 - **Market views**: 4
@@ -33,7 +33,9 @@ _No URL / bio in DB channel metadata._
 
 ## Source items (extracted)
 
+- 2026-08-04 — [Why Wall Street is Ignoring Big Tech's Debt](https://www.youtube.com/watch?v=NufJ7g63KSY)
 - 2026-07-25 — [Where is Venezuela’s oil money?](https://www.youtube.com/watch?v=EzvdGKs05Rc)
+- 2026-07-18 — [How to Be Right and Lose Everything](https://www.youtube.com/watch?v=nJtL9MBVj48)
 - 2026-06-20 — [How to Lose a Global AI Monopoly in One Afternoon](https://www.youtube.com/watch?v=0RxMj0L0-fY)
 
 ---

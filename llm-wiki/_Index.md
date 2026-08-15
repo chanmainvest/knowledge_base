@@ -65,6 +65,7 @@ Every page in the wiki, alphabetical by display label within each section.
 - [^TNX — US 10-Year Treasury Yield](Tickers/^TNX.md)
 - [AAPL — Apple Inc.](Tickers/AAPL.md)
 - [AMZN](Tickers/AMZN.md)
+- [ARCC](Tickers/ARCC.md)
 - [ARK.V](Tickers/ARK.V.md)
 - [ARS](Tickers/ARS.md)
 - [AVGO — Broadcom](Tickers/AVGO.md)
@@ -76,6 +77,7 @@ Every page in the wiki, alphabetical by display label within each section.
 - [DC](Tickers/DC.md)
 - [DCGL](Tickers/DCGL.md)
 - [DEO](Tickers/DEO.md)
+- [DRAM](Tickers/DRAM.md)
 - [DX-Y.NYB — US Dollar Index](Tickers/DX-Y.NYB.md)
 - [ENKG](Tickers/ENKG.md)
 - [ETN — Eaton](Tickers/ETN.md)
@@ -95,6 +97,7 @@ Every page in the wiki, alphabetical by display label within each section.
 - [MU — Micron](Tickers/MU.md)
 - [NEE — NextEra Energy](Tickers/NEE.md)
 - [NVDA — Nvidia](Tickers/NVDA.md)
+- [ORCL](Tickers/ORCL.md)
 - [PA=F — Palladium](Tickers/PA=F.md)
 - [Pan Mine](Tickers/pan-mine.md)
 - [Pan Operating Complex](Tickers/pan-operating-complex.md)
@@ -102,6 +105,7 @@ Every page in the wiki, alphabetical by display label within each section.
 - [PL=F — Platinum](Tickers/PL=F.md)
 - [POWL — Powell Industries](Tickers/POWL.md)
 - [PWR — Quanta Services](Tickers/PWR.md)
+- [Rackla Metals (Lentang)](Tickers/rackla-metals-lentang.md)
 - [SAG.V](Tickers/SAG.V.md)
 - [SI=F — Silver](Tickers/SI=F.md)
 - [SMH — Semiconductors](Tickers/SMH.md)
@@ -136,6 +140,10 @@ Every page in the wiki, alphabetical by display label within each section.
 - [Opinion Shifts (same person changes mind)](Syntheses/Opinion-Shifts.md)
 - [Timeline of Calls (global)](Syntheses/Timeline.md)
 
+## Studies
+
+- [CPM Group — material recycling study](Studies/cpm-group-recycling.md)
+
 ## Analysts
 
 - [aminvest](Analysts/aminvest.md)
@@ -149,6 +157,7 @@ Every page in the wiki, alphabetical by display label within each section.
 - [George Gammon](Analysts/georgegammon.md)
 - [Goehring & Rozencwajg](Analysts/gorozen.md)
 - [hevangel](Analysts/hevangel.md)
+- [Jimmy Connor](Analysts/bloorstreetcapital.md)
 - [Joseph Wang](Analysts/fedguy12.md)
 - [Macro Voices](Analysts/macrovoices7508.md)
 - [MacroVoices](Analysts/macrovoices.md)

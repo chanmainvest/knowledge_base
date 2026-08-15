@@ -1,16 +1,16 @@
 # GC=F — Gold
 
-**39 extracted prediction(s)** across 9 channel(s). Consensus: **bullish** (8 bullish / 5 bearish / 26 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
+**42 extracted prediction(s)** across 9 channel(s). Consensus: **bullish** (8 bullish / 5 bearish / 29 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
 ## The debate
 
-The recorded debate on gold (GC=F) leans bullish — eight bullish calls against five bearish and twenty-six neutral in this corpus — though the heavy neutral count suggests more watching than betting. Nearly all the conviction is compressed into one week in mid-June 2026, when gold traded in the low-to-mid $4,000s and the argument reduced to two numbers: $4,100 as the support everyone watched, and $4,400 as the ceiling where the declining 50-day and the 200-day moving averages sat. A second, thinner round of commentary surfaced in mid-August around the question of a run to $8,000.
+The gold debate in this corpus is less a fight over direction than a standoff over two price levels: $4,100 on the downside and $4,400 on the top. By mid-June 2026 the metal had been through a meaningful selloff — a guest analyst noted on June 17 that "gold sold off pretty significantly" — and was grinding sideways in the low $4,300s, with [Patrick Ceresna](../People/patrick-ceresna.md) clocking a 4.5% push to 4,321 and an unattributed host describing gold as "steady sideways, holding its value." The headline consensus reads bullish (8 bullish vs. 5 bearish), but with 29 neutral calls the honest characterization is that most watchers were waiting to see which level broke first.
 
-The bears had the most specific work. [Jeffrey Christian](../People/jeffrey-christian.md), speaking June 19, 2026, said prices "are subject to be tested again at the 4,100 level" and that "we do expect that level to be tested," warning a break below could come on a shorter-term spike "with a target of 3,800 or 3,500." He doubled down on June 23: "a break below 4,100 would have a technical target of around $3,800." A guest analyst on June 17 simply observed that "gold sold off pretty significantly." And in August, an unattributed voice — in a segment titled "Gold Rally: Is $8,000 Possible?" — captured the bearish temperament even while entertaining the headline number: what he saw was "just a pause," and he judged it "more likely to bend first, then go down" (the remarks are in Chinese in the source; the speaker isn't identified, so treat that leg of the timeline with care).
+The bear case rests almost entirely on [Jeffrey Christian](../People/jeffrey-christian.md), who was consistent and specific across June 19 and 23: he expects the $4,100 level to be tested ("we do expect that level to be tested"), and if it gives way, a technical target of around $3,800 — or $3,500 on a short-term spike. He's scenario-mapping more than pounding the table, but the digest tags all four of his calls as down. The only other outright bearish note came from that same June 17 guest analyst, and by August an unidentified commentator was openly skeptical of the "$8,000" chatter — arguing that what looked like a pause was "more likely to bend first, then decline" — even while conceding that if prices keep running, "gold continues to get a bid." That's a hedge, not a thesis.
 
-The bulls were louder and clustered around the Iran oil dislocation. [Erik Townsend](../People/erik-townsend.md) wrote on June 18 that "gold is set to rally spectacularly after the Iran oil dislocation and associated knock-on inflation effects," and the next day mapped the bounce back "to like the 4,400 level," with the declining 50-day average just above. [Patrick Ceresna](../People/patrick-ceresna.md) sang the same tune on June 18 — the bounce is "certainly coming back to like the 4,400 level" — and logged gold "up about 4.5% to 4321" as the risk-off bid unwound. Host 1 spent June 17 telling listeners to "upsize your gold position here and or buy gold miners," with resistance at the 200-day "about 4400-ish" and a move to "45 and change" in mind before the tape cuts off. [George Noble](../People/george-noble.md), on June 23, framed $4,200 gold as a vote against paper money — "down with fiat currency, broadly speaking." The longest view came from [Jeffrey Kushin](../People/jeffrey-kushin.md) on June 16: when gold fell to 1,211 in 2014, "we said buy. We were a few years early," with five sideways years before the payoff.
+The bull side is louder. [Erik Townsend](../People/erik-townsend.md) called gold "set to rally spectacularly" once the Iran oil dislocation and its knock-on inflation effects work through, and he and [Patrick Ceresna](../People/patrick-ceresna.md) both saw the bounce extending to the $4,400 area, where a declining 50-day moving average sits just overhead. [George Noble](../People/george-noble.md) framed $4,200 gold as part of a broader "down with fiat currency" trade. The June 17 host told listeners to "upsize your gold position here and or buy gold miners," targeting "45 and change" before resistance bites, with the 200-day around 4,400-ish. Most interesting is [Jeffrey Kushin](../People/jeffrey-kushin.md), who anchored his bullishness in CPM Group's 2014 call to buy at $1,211 — "we were a few years early" — while simultaneously relaying CPM's own view that $4,100 would be tested again over the next two and a half months. In other words, even the bull was channeling Christian's levels.
 
-The interesting wrinkles are internal. Kushin — whose "we said buy" and his citation of CPM Group's outlook place him in Christian's shop — also relayed on June 16 that "CPM Group expects that $4,100 level to be tested again over the next two and a half months," adding "it may well hold," with more support below (the transcript cuts off mid-number). So even a bull conceded the bear's trigger level. Host 1 hedged within a single June 17 show, calling gold's action "steady sideways, holding its value" while urging upsizing. Nobody in the digest demonstrably flipped; the closest to a genuine internal argument is the unattributed August voice, pairing "if they keep running, which I suspect they probably will, then gold continues to get a bid" against "bend first, then go down." The August entries are thinly sourced — one is blank — and the corpus is silent on whether the June $4,100 test ever happened or who won the call.
+The timeline itself is compressed and a little ragged: nearly everything clusters in a single week (June 16–23, 2026), with Christian's bearish notes and Noble's bullish one landing the same day, and then a two-month gap to the unattributed August 13 commentary about $8,000. There are same-day contradictions worth flagging — the June 17 host was tagged both flat and up within one session, and Ceresna's stance wobbled between unspecified and up on June 18. Coverage is also thin in places: the August quotes carry no attribution, one entry is blank, and several quotes are truncated mid-sentence. What the record does show clearly is a market staring at $4,100 versus $4,400 with conviction concentrated in a handful of named voices — Christian on one side, Townsend, Noble and Kushin on the other — and everyone else on the fence.
 
 ## Themes
 
@@ -22,7 +22,7 @@ The interesting wrinkles are internal. Kushin — whose "we said buy" and his ci
 |---|---:|
 | Bullish | 8 |
 | Bearish | 5 |
-| Neutral / watch | 26 |
+| Neutral / watch | 29 |
 
 ## Voices on this ticker
 
@@ -49,6 +49,8 @@ The interesting wrinkles are internal. Kushin — whose "we said buy" and his ci
 - **David Lin** — [Markets To Surge 20% Until 'Global Financial Reset' Kills Everything \| Chris Ve…](https://www.youtube.com/watch?v=7bqs3hKc-fk) — 2026-08-06, David Lin: "do think we're going to see another 20, 30, 40% haircut potentially in these during the next reset."
 - **David Lin** — [Markets To Surge 20% Until 'Global Financial Reset' Kills Everything \| Chris Ve…](https://www.youtube.com/watch?v=7bqs3hKc-fk) — 2026-08-06, David Lin: "even though I do think it will go to 12,000 at some point, I do think we're going to see another 20, 30, 40% haircut potentially in these during the next reset."
 - **The Monetary Matters Network** — [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
+- **The Macro Dirt Podcast** — [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "I think gold's going to 10,000"
+- **The Macro Dirt Podcast** — [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "My first target is 8,000"
 - **Resource Talks** — [Large Oxide Gold Deposit in the USA, But Can They Really Build a Mine? \| Dakota…](https://www.youtube.com/watch?v=8upClaqiJ_I) — 2026-07-30, Resource Talks: "There's also an economic study on this dating back to last summer done at 2350 gold"
 - **The Macro Dirt Podcast** — [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
 - **CPM Group** — [Gold Price WARNING: China’s July 24 “Shock” Or Not?](https://www.youtube.com/watch?v=u9jx89f0P3I) — 2026-07-24, CPM Group: "That activity could support prices during the next week or two."
@@ -56,6 +58,7 @@ The interesting wrinkles are internal. Kushin — whose "we said buy" and his ci
 - **CPM Group** — [Gold Price WARNING: China’s July 24 “Shock” Or Not?](https://www.youtube.com/watch?v=u9jx89f0P3I) — 2026-07-24, CPM Group: "A break above the declining trendline could produce a short-term spike."
 - **CPM Group** — [Gold Price WARNING: China’s July 24 “Shock” Or Not?](https://www.youtube.com/watch?v=u9jx89f0P3I) — 2026-07-24, CPM Group: "Support is near $3,800."
 - **CPM Group** — [Gold Price WARNING: China’s July 24 “Shock” Or Not?](https://www.youtube.com/watch?v=u9jx89f0P3I) — 2026-07-24, CPM Group: "Gold is trading near $4,068 and is caught between two important technical trendlines."
+- **David Lin** — [Why Tech Stocks Are Blowing Up Now: Expert Reveals Bottom \| Clem Chambers](https://www.youtube.com/watch?v=12GGEIB4Tco) — 2026-07-20, David Lin
 - **George Noble** (action=`buy`, dir=`up`, target=`4200`, tf=`unspecified`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "$4,200 gold. You're saying up there, down with fiat currency, broadly speaking."
 - **Jeffrey Christian** (action=`watch`, dir=`down`, target=`3800`, tf=`summer 2026`) — [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "A break below 4,100 would have a technical target of around $3,800."
 - **Jeffrey Christian** (action=`watch`, dir=`down`, target=`3800`, tf=`unspecified`) — [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "why gold is testing $4,100, why a break lower could point toward $3,800"
@@ -93,11 +96,11 @@ The interesting wrinkles are internal. Kushin — whose "we said buy" and his ci
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
 - 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
 - 2026-06-23 _bullish_ [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
 - 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
 - 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
 - 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
@@ -110,9 +113,11 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 - 2026-08-09 — [Markets Surge: Where's The Top? Trader On Next Levels For Stocks, Gold \| Kevin Steuer](https://www.youtube.com/watch?v=kmOsTT2grwk) (David Lin)
 - 2026-08-06 — [Markets To Surge 20% Until 'Global Financial Reset' Kills Everything \| Chris Vermeulen](https://www.youtube.com/watch?v=7bqs3hKc-fk) (David Lin)
 - 2026-08-02 — [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stocks \| Tian Y…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) (The Monetary Matters Network)
+- 2026-08-01 — [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) (The Macro Dirt Podcast)
 - 2026-07-30 — [Large Oxide Gold Deposit in the USA, But Can They Really Build a Mine? \| Dakota Gold Inte…](https://www.youtube.com/watch?v=8upClaqiJ_I) (Resource Talks)
 - 2026-07-30 — [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) (The Macro Dirt Podcast)
 - 2026-07-24 — [Gold Price WARNING: China’s July 24 “Shock” Or Not?](https://www.youtube.com/watch?v=u9jx89f0P3I) (CPM Group)
+- 2026-07-20 — [Why Tech Stocks Are Blowing Up Now: Expert Reveals Bottom \| Clem Chambers](https://www.youtube.com/watch?v=12GGEIB4Tco) (David Lin)
 - 2026-06-23 — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) (The Macro Dirt Podcast)
 - 2026-06-23 — [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) (CPM Group)
 - 2026-06-19 — [Why Gold and Silver Prices Are Falling: Is Now The Time To Buy?](https://www.youtube.com/watch?v=z1btQrMgRwo) (CPM Group)

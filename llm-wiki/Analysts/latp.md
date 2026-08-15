@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 8
+- **Extracted items**: 11
 - **Items with predictions**: 0
 - **Predictions**: 0
 - **Market views**: 0
@@ -21,6 +21,9 @@ _No URL / bio in DB channel metadata._
 - 2026-07-25 — [大鑊❗️老舖黃金暴跌67%蒸發千億市值❗️中央行卻連買黃金20個月❓香港黃金清算中心正下緊一盤大棋❓｜26 Jul2026](https://www.youtube.com/watch?v=6iaBj14yT1Y)
 - 2026-07-24 — [五招突破香港零售寒冬⋯李小龍「截拳道」⁉️｜24Jul 2025](https://www.youtube.com/watch?v=1nqKWbJUmBk)
 - 2026-07-22 — [日本將會係亞洲未來主角❗️為何唔係中國同美國⁉️｜4 Dec 2025《淺見回顧》](https://www.youtube.com/watch?v=dITwuBL2iss)
+- 2026-07-20 — [小心被誤導「銀行向金管局借錢＝金融海嘯」❗️盯緊5大警號就唔會俾奸人呃❓｜21 Jul2026](https://www.youtube.com/watch?v=kFVTy5Hg39Y)
+- 2026-07-19 — [恒指夜期炒錯市❓美國突撤銷香港制裁真正意思曝光❗️港股真正訊號，市場仍未睇懂⁉️](https://www.youtube.com/watch?v=omIETdmfYsM)
+- 2026-07-17 — [內外夾攻❗️香港點頂「上海成為『人民幣資產全球配置中心』⁉️」｜4 May 2025《淺見回顧》](https://www.youtube.com/watch?v=hDeOOnrvBvU)
 
 _This channel has extracted items but no predictions or market views surfaced yet (the extraction may have found none, or the content is non-marketable commentary)._
 

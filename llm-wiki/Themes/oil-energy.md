@@ -2,23 +2,23 @@
 
 Crude oil (CL=F, RB=F), the Strategic Petroleum Reserve, and broader energy-sector views. Often tied to geopolitics (Strait of Hormuz, Iran).
 
-**41 prediction(s)** and **84 market view(s)** match this theme in the current extraction.
+**42 prediction(s)** and **84 market view(s)** match this theme in the current extraction.
 
 ## What the corpus says
 
-Oil and energy coverage in this corpus is, for practical purposes, a crude oil debate with a thin utilities fringe. Of the 41 tickered calls logged, 33 sit on WTI (CL=F), with single appearances for Brent (BZ=F), gasoline (RB=F) and a token handful of power names — two on NextEra (NEE) and one each on Talen (TLN), Constellation (CEG) and Dominion (D). Nobody here is running an energy-sector allocation argument; they are arguing about the price of a barrel, and the argument does not resolve.
+The Oil & Energy corpus is, in practice, a crude-oil corpus. Of the 42 tickered calls logged here, 34 sit on CL=F, with a single Brent print, one RBOB reference, and a scattered tail of power names — NextEra, Talen, Constellation, Dominion, one generic energy-sector call — that barely gets argued at all. That tail is worth flagging: for a page nominally about "oil & energy," the electrification and utility side of the debate is essentially undocumented in this digest. So is attribution. Most of the tickered calls come from unidentified speakers, which means the page rests on a handful of named voices plus a dated chorus of anonymous commentary between June and August 2026.
 
-The corpus opens on a confident bullish note in late June. On June 23, [George Noble](../People/george-noble.md) framed it as an asymmetry play — "if I had to make a bet on the next 10 or even $15 in crude oil, I would bet higher" — while [JD](../People/jd.md) made the technical case the same day, citing stochastics at nine and RSI at 29, about as oversold as the tape gets, and [Tony](../People/tony.md) simply said he was "a buyer down here of oil as well." Two days later, a Chinese-language commentary added a political scaffold to the bullish case: with US elections this year and two years out, Iran could push oil prices higher and threaten American politicians at the ballot box — leverage, in effect, priced into crude. That was the June consensus: oversold, geopolitically underpriced, buy it.
+The named voices cluster on June 23, and they are uniformly bullish. [George Noble](../People/george-noble.md) framed it as a straightforward asymmetry: "if I had to make a bet on the next 10 or even $15 in crude oil, I would bet higher." [JD](../People/jd.md) made the technical case for a bottom — stochastics at nine, RSI at 29, "as oversold as it gets" — while [Tony](../People/tony.md) simply said he was "a buyer down here of oil as well." Two days later, on June 25, an unnamed Chinese-language author added a geopolitical overlay, arguing that Iran could push oil prices higher as explicit electoral leverage against US politicians, with American elections looming both that year and two years out. In other words, June's case for crude was a blend of oversold charts and oil-as-weapon — tactical and political at the same time.
 
-July and August break that consensus apart, and the corpus is honest enough to record the split in real time. On July 26, two calls landed on the same day pointing in opposite directions — one insisting "prices are going to go up," the other that oil "is going to be substantially lower than where they are now." The bear case had a specific anchor: a July 30 caller still standing by an earlier call for $40 crude ("I called for 40 in the low, it was like 55. I think I'm still calling that"), while a same-day voice argued the floor sits near $55 on US average cost of production. By August 3 someone was dismissing the low end entirely — "I don't think we're going to see $40 oil" — even as a July 24 caller passed along a headline circulating a $120 target, and a July 28 voice treated Middle East conflict as "basically a permanent feature," implying a persistent risk premium. A Chinese-language call on August 13 that oil "will also get more expensive" rounds out the bullish tail. The frustration for a reader: nearly all of these July–August calls are unattributed in the corpus, so the strongest price-level arguments — $40, $55, $120 — belong to voices the record declines to name.
+July and August fracture that consensus, sometimes within the same day. On July 24 someone was relaying chatter that crude was "headed to 120"; by July 25 another voice conceded oil "doesn't seem to want to get much cheaper anytime soon"; and on July 26 the corpus contains a head-on collision — one call that "prices are going to go up" against another that oil is "going to be substantially lower than where they are now." The bear side found its anchor on July 30, when one speaker, referencing America's position as the world's largest producer and net exporter, put average US production cost "around $55 a barrel" — even as a second speaker that same day doubled down on a prior call for $40 crude. The $40-versus-$55 argument was still live on August 3 ("I don't think we're going to see $40 oil"), layered over a July 28 view that war in the relevant region is "basically a permanent feature" — a standing geopolitical risk premium the market supposedly has to price.
 
-Around the price fight sits a macro overlay that is arguably the more interesting layer. On July 25, one view held that "today's immediate catalyst isn't real estate, it's oil," paired with a sharp warning that the real danger is central banks reacting to the temporary inflationary impact of oil while the underlying economy is already weakening — a policy-mistake thesis, not a demand thesis. By August 9 the tone had curdled into outright hedging ("it's really a mixed bag right now on the energy front"), and an August 13 take cast liquidity and energy demand as forces "reshaping global markets" rather than settling anything. The arc, then, is legible: a unified bullish camp in June built on oversold technicals and geopolitics, dissolving by late July into a genuine floor-versus-ceiling argument — $40 bears against $55 cost-curve realists and $120 headline bulls — with nobody in the corpus owning a verdict the tape has confirmed.
+What shifts over the period is less the direction of the calls than their register. June's bulls were making chart-level bottom calls; by late July and August the debate had escalated to cost curves, permanent war, and macro transmission — one July 25 view insisted "today's immediate catalyst isn't real estate, it's oil," and warned that the real danger is central banks reacting to oil's "temporary inflationary impact" while the underlying economy is already weakening. That policy-error framing is arguably the most analytically interesting thread in the corpus. Yet conviction seems to have thinned even as the framing got grander: by August 9 the summary judgment was that it's "really a mixed bag right now on the energy front," before a final August 13 pairing of "liquidity and energy demand reshaping global markets" with a blunt Chinese-language call that oil "will also get more expensive." The shape, then, is a page that starts with confident dip-buyers, passes through an unusually clean same-day contradiction, and ends hedged — macro-aware but unwilling to land.
 
 ## Constituent tickers
 
 | Ticker | Mentions |
 |---|---:|
-| [CL=F](../Tickers/CL=F.md) | 33 |
+| [CL=F](../Tickers/CL=F.md) | 34 |
 | [NEE](../Tickers/NEE.md) | 2 |
 | `Energy sector` | 1 |
 | `BZ=F` | 1 |
@@ -42,7 +42,7 @@ Around the price fight sits a macro overlay that is arguably the more interestin
 
 ## Consensus across analysts
 
-Of 41 tickered calls: **17 bullish**, **9 bearish**.
+Of 42 tickered calls: **17 bullish**, **9 bearish**.
 
 ## Notable calls & quotes
 
@@ -56,8 +56,8 @@ Of 41 tickered calls: **17 bullish**, **9 bearish**.
 - [The “Safest” Companies Are Warning the Consumer Is Breaking](https://www.youtube.com/watch?v=I475w6xb8LI) — 2026-07-26, Eurodollar University: "oil prices are going to be substantially lower than where they are now"
 - [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "doesn't seem to want to get much cheaper anytime soon"
 - [1M Ounces of Gold in Idaho, But Can the Grade Support Good Margins? \| Freeman G…](https://www.youtube.com/watch?v=gXgvIhQTUI0) — 2026-07-24, Resource Talks: "I saw an article today that said something about you know it's headed to 120."
+- [Biggest Bubble In History ‘Unwinding’ Now: 17x Worse Than 2000 Crash \| George N…](https://www.youtube.com/watch?v=_XC8leI9eCY) — 2026-07-20, David Lin
 - [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "I'm keeping energy."
-- [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [Tony](../People/tony.md): "I'm a buyer down here of oil as well."
 
 ## Broad market views
 

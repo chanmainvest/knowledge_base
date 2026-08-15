@@ -1,16 +1,14 @@
 # SMH — Semiconductors
 
-**5 extracted prediction(s)** across 2 channel(s). Consensus: **bearish** (0 bullish / 1 bearish / 4 neutral).
+**6 extracted prediction(s)** across 2 channel(s). Consensus: **bearish** (0 bullish / 1 bearish / 5 neutral).
 
 ## The debate
 
-The debate around the VanEck Semiconductor ETF (SMH) in this corpus is thin but pointed: of the five tracked calls, not one is bullish, one is explicitly bearish, and four are neutral — a consensus that leans bearish mostly by default rather than conviction. The substance of the disagreement, such as it is, boils down to a range: 503 on the downside, the site of the recent low, versus roughly 650 on the top, the prior high, with a 590 target floating in between.
+The bear case on SMH in this corpus rests almost entirely on one clean technical call. On June 17, 2026, Host 1 flagged that the ETF had "just retested the high in SMH at around 650," briefly poked above that level, and then printed "an outside day down" in the semis — textbook failed-breakout behavior that he treated as reason to turn down on the group. That remains the only explicitly directional call from a named participant in the record. The consensus tally (zero bullish, one bearish, five neutral) says less about deep conviction that semis are heading lower and more about the absence of anyone willing to argue for upside after the rejection at 650.
 
-The bear case starts with the host. On June 17, 2026, Host 1 flagged a textbook failed breakout: SMH had "just retested the high... at around 650," poked its head above, and then printed "an outside day down" — a reversal signal at resistance that this speaker read as the semi trade rolling over. That technical call set the bearish anchor for the summer. It got an echo on August 10, 2026, from an unidentified voice arguing that "there's a decent probability we're going to see SMH roll over again and take out the recent low at 503" — that is, not just a pullback but a break of support.
+By August, the debate had narrowed to a coin-flip framed around two specific levels. On August 10, 2026, an unattributed voice laid out both tails of the distribution: "there's a decent probability we're going to see SMH roll over again and take out the recent low at 503," while a companion comment on the same date was "calling for a move up to 590." Neither remark carries a name in the digest, and the two entries in between — August 6 and July 30, 2026 — are blank quotes with no stance attached, so the middle of the timeline is essentially a hole. Read together, the August comments sketch the range everyone is watching: a ceiling near 650 that already failed, a floor at 503 that bears want to see broken, and a 590 midpoint that would count as a meaningful bounce without challenging the old high.
 
-The bull side is harder to pin down, and the digest's attribution is a problem here. On that same August 10 date, an unidentified speaker is recorded "calling for a move up to 590." Whether this is a genuine counterpoint from a different guest in the same segment or a garled attribution of one hedging speaker isn't clear from the source material — the digest lists both quotes under a single unnamed speaker, so read it as a same-day bull-versus-bear exchange rather than one person contradicting themselves. Worth noting, though: even the bullish target of 590 sits well below the 650 high, so the optimist's case here is a rebound within a damaged range, not a run at new highs. Nobody in this corpus is calling for semis to reclaim their peak.
-
-Honest caveats: this is sparse coverage. Two entries (July 30 and August 6, 2026) carry no quotes and no stance, the only named participant is the host, and the bearish consensus rests on a single explicit downside call. The shape of the debate — failed breakout at 650, support at 503, bounce target at 590 — is legible, but the corpus gives no way to judge who, if anyone, was proven right.
+The honest read is that coverage here is thin, and it should be flagged as such. There is one named bearish call (Host 1 on June 17), one anonymous same-day argument with itself between 503 and 590, and nothing else of substance. No participant in the digest is on record as bullish, but nobody doubled down on the bear case either — the five neutrals dominate. What the record genuinely establishes is the market structure rather than a verdict: a failed test of 650 in mid-June, and by mid-August a debate reduced to whether 503 breaks or 590 gets tagged first. Anyone citing a strong consensus one way or the other from this material would be overstating it.
 
 ## Themes
 
@@ -22,7 +20,7 @@ Honest caveats: this is sparse coverage. Two entries (July 30 and August 6, 2026
 |---|---:|
 | Bullish | 0 |
 | Bearish | 1 |
-| Neutral / watch | 4 |
+| Neutral / watch | 5 |
 
 ## Voices on this ticker
 
@@ -34,6 +32,7 @@ Honest caveats: this is sparse coverage. Two entries (July 30 and August 6, 2026
 - **David Lin** — [Investor Called Chips Crash, Now Warns ‘We’re Nearing The End’ Of Stock Rally \|…](https://www.youtube.com/watch?v=G9peC5ZZMuo) — 2026-08-10, David Lin: "calling for a move up to 590"
 - **David Lin** — [Markets To Surge 20% Until 'Global Financial Reset' Kills Everything \| Chris Ve…](https://www.youtube.com/watch?v=7bqs3hKc-fk) — 2026-08-06, David Lin
 - **The Macro Dirt Podcast** — [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
+- **David Lin** — [Why Tech Stocks Are Blowing Up Now: Expert Reveals Bottom \| Clem Chambers](https://www.youtube.com/watch?v=12GGEIB4Tco) — 2026-07-20, David Lin
 - **Host 1** (action=`avoid`, dir=`down`, tf=`next quarter`) — [Nobody Owns Bonds](https://www.youtube.com/watch?v=H-mvJ6poUk4) — 2026-06-17, Host 1: "we've just retested the high in SMH at around 650. We poked our head above there and now had an outside day down today in semi."
 
 ## Analysts covering this ticker
@@ -46,11 +45,11 @@ Honest caveats: this is sparse coverage. Two entries (July 30 and August 6, 2026
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
 - 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
 - 2026-06-23 _bullish_ [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
 - 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
 - 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
 - 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
@@ -59,6 +58,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 - n/d — [Investor Called Chips Crash, Now Warns ‘We’re Nearing The End’ Of Stock Rally \| Jim Welsh](https://www.youtube.com/watch?v=G9peC5ZZMuo) (David Lin)
 - 2026-08-06 — [Markets To Surge 20% Until 'Global Financial Reset' Kills Everything \| Chris Vermeulen](https://www.youtube.com/watch?v=7bqs3hKc-fk) (David Lin)
 - 2026-07-30 — [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) (The Macro Dirt Podcast)
+- 2026-07-20 — [Why Tech Stocks Are Blowing Up Now: Expert Reveals Bottom \| Clem Chambers](https://www.youtube.com/watch?v=12GGEIB4Tco) (David Lin)
 - 2026-06-17 — [Nobody Owns Bonds](https://www.youtube.com/watch?v=H-mvJ6poUk4) (The Macro Dirt Podcast)
 
 ---

@@ -1032,21 +1032,31 @@ def llm_prose(key: str, instruction: str, digest: str, path: Path) -> str:
         return ""
     from kb import llm
     from kb.llm import chat_text
-    try:
-        provider = PROSE_PROVIDER or _prose_settings().llm_provider
-        model = PROSE_MODEL
-        if model is None:
-            model = (WIKI_ZAI_MODEL if provider == "zai"
-                     else llm.default_model(provider))
-        text = chat_text(
-            WRITER_SYSTEM,
-            f"TASK: {instruction}\n\nDIGEST:\n{digest}",
-            provider=provider, model=model)
-    except Exception as exc:  # noqa: BLE001
-        print(f"  prose: LLM unavailable for '{key}' "
-              f"({type(exc).__name__}) — later pages render without prose")
-        PROSE_FAILED = True
-        return ""
+    text = ""
+    for attempt in range(3):
+        try:
+            provider = PROSE_PROVIDER or _prose_settings().llm_provider
+            model = PROSE_MODEL
+            if model is None:
+                model = (WIKI_ZAI_MODEL if provider == "zai"
+                         else llm.default_model(provider))
+            text = chat_text(
+                WRITER_SYSTEM,
+                f"TASK: {instruction}\n\nDIGEST:\n{digest}",
+                provider=provider, model=model)
+            break
+        except Exception as exc:  # noqa: BLE001
+            if attempt < 2:
+                print(f"  prose: {type(exc).__name__} on '{key}' — "
+                      f"backing off 60s (attempt {attempt+1}/3)")
+                time.sleep(60)
+            else:
+                print(f"  prose: LLM unavailable for '{key}' "
+                      f"({type(exc).__name__}) — later pages render without "
+                      "prose")
+                PROSE_FAILED = True
+                return ""
+    time.sleep(2)   # pacing: stay clear of the coding-plan rate limit
     if not text:
         return ""
     PROSE[key] = {"hash": h, "text": text}
@@ -1063,6 +1073,412 @@ def save_prose_cache() -> None:
         PROSE_CACHE.write_text(
             json.dumps(PROSE, ensure_ascii=False, indent=1),
             encoding="utf-8")
+
+
+# ---------------------------------------------------------------------------
+# Studies — deep single-subject analyses (e.g. how one channel recycles its
+# own material over time). Per-item LLM topic inventories for a
+# chronologically spread sample of full transcripts, LLM classification of
+# every item title into the derived taxonomy, then narrative synthesis.
+# Everything cached in scripts/llm_wiki_studies.json.
+# ---------------------------------------------------------------------------
+
+STUDY_CHANNELS = ["CPM Group"]
+STUDY_DEEP_N = 45          # transcripts deep-read per studied channel
+STUDY_ITEM_CHARS = 9000    # content head fed to the inventory pass
+STUDY_CACHE = REPO / "scripts" / "llm_wiki_studies.json"
+STUDY_MAX_TOPICS = 10      # topic sections rendered per study
+
+DEEP_SYSTEM = """You are a media analyst studying how a finance publisher
+reuses its own material. You get ONE article/transcript. Identify the 2-5
+distinct topics the author covers. For each topic output a block in EXACTLY
+this format (no markdown, no other text):
+
+TOPIC: <short topic name> | RECURRING: <yes if it sounds like the author's
+standard pitch, no if genuinely one-off> | NEW: <what is genuinely new in
+this piece, or 'nothing'>
+
+Below each TOPIC line, output zero or more CHANGE lines, one per explicit
+signal that something HAS CHANGED, quoting the author verbatim:
+
+CHANGE: "<exact quote>" -> <what changed, one short clause>
+
+Use the author's own words in quotes. Do not invent quotes or changes."""
+
+_DEEP_TOPIC_RE = re.compile(r"^TOPIC:\s*(.+?)\s*\|\s*RECURRING:\s*(\S+)"
+                            r"\s*\|\s*NEW:\s*(.*)$", re.I)
+_DEEP_CHANGE_RE = re.compile(r'^CHANGE:\s*"(.*?)"\s*->\s*(.*)$', re.I)
+
+
+def _deep_inventory(channel_name: str, it: dict) -> dict:
+    """Per-transcript topic inventory via plain-text output (the strict-JSON
+    path silently truncates the nested change-signal arrays on the
+    coding-plan endpoint). Returns the shape the old JSON schema produced:
+    {one_line, topics:[{name, is_recurring, what_is_new, change_signals:
+    [{quote, what_changed}]}]}."""
+    from kb.llm import chat_text
+    raw = chat_text(
+        DEEP_SYSTEM,
+        f"AUTHOR/CHANNEL: {channel_name}\n"
+        f"DATE: {fmt_date(it['published_at'])}\n"
+        f"TITLE: {it.get('title')}\n\n"
+        f"TRANSCRIPT (head):\n{(it.get('content') or '')[:STUDY_ITEM_CHARS]}")
+    topics: list[dict] = []
+    for ln in raw.splitlines():
+        m = _DEEP_TOPIC_RE.match(ln.strip())
+        if m:
+            topics.append({
+                "name": m.group(1).strip(),
+                "is_recurring": m.group(2).lower().startswith("y"),
+                "what_is_new": m.group(3).strip(),
+                "change_signals": [],
+            })
+            continue
+        c = _DEEP_CHANGE_RE.match(ln.strip())
+        if c and topics:
+            topics[-1]["change_signals"].append({
+                "quote": c.group(1).strip(),
+                "what_changed": c.group(2).strip(),
+            })
+    return {"one_line": "", "topics": topics}
+
+
+TITLE_SYSTEM = """You classify finance-video titles into a fixed topic
+taxonomy. You get numbered 'date | title' lines and the taxonomy. Assign
+each line the 1-3 taxonomy topics it covers. Output EXACTLY one line per
+input line, in the same order, formatted as:
+
+i | topic; topic
+
+where i is the input line number. No other text, no markdown.'"""
+
+_TITLE_LINE_RE = re.compile(r"^\s*(\d+)\s*\|\s*(.+?)\s*$")
+
+
+def _classify_titles_text(lines: list[str], taxonomy: list[str]
+                          ) -> dict[int, list[str]]:
+    """Classify numbered title lines via plain-text output (the strict-JSON
+    path truncates at this size on the coding-plan endpoint). Returns
+    {line_index: [topics]}."""
+    from kb.llm import chat_text
+    raw = chat_text(
+        TITLE_SYSTEM,
+        f"TAXONOMY: {', '.join(taxonomy)}\n\nLINES:\n" + "\n".join(lines))
+    out: dict[int, list[str]] = {}
+    for ln in raw.splitlines():
+        m = _TITLE_LINE_RE.match(ln)
+        if not m:
+            continue
+        i = int(m.group(1))
+        tops = [t.strip() for t in re.split(r"[;,]", m.group(2))
+                if t.strip()]
+        if 0 <= i < len(lines) and tops:
+            out[i] = tops
+    return out
+
+
+def _load_studies_cache() -> dict:
+    if STUDY_CACHE.exists():
+        try:
+            return json.loads(STUDY_CACHE.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001
+            return {}
+    return {}
+
+
+def _save_studies_cache(cache: dict) -> None:
+    STUDY_CACHE.write_text(json.dumps(cache, ensure_ascii=False, indent=1),
+                           encoding="utf-8")
+
+
+def _study_llm(provider: str, model: str):
+    from kb.llm import chat_json
+    return lambda sys, user, schema: chat_json(sys, user, schema,
+                                               provider=provider,
+                                               model=model)
+
+
+def _item_link(it: dict) -> str:
+    title = (it.get("title") or "untitled").strip()
+    label = title if len(title) <= 70 else title[:69] + "…"
+    url = it.get("url")
+    return f"[{label}]({url})" if url else label
+
+
+def render_study(channel_name: str, items: list[dict], cache: dict,
+                 provider: str, model: str) -> Path | None:
+    """One recycling-study page for a channel. `items` carry id/title/url/
+    published_at/content. Deep inventories + title classification are cached
+    per item; narratives via the digest-hash prose cache."""
+    items = [it for it in items if it.get("published_at")]
+    items.sort(key=lambda it: it["published_at"])
+    if len(items) < 10:
+        return None
+    slug = slugify(channel_name)
+    rel = f"Studies/{slug}-recycling.md"
+    path = WIKI_DIR / rel
+    ch_cache = cache.setdefault(channel_name, {"deep": {}, "titles": {}})
+
+    llm = _study_llm(provider, model)
+
+    # --- deep inventories for a chronologically spread sample --------------
+    step = max(1, len(items) // STUDY_DEEP_N)
+    sample = items[::step][:STUDY_DEEP_N]
+    if items[-1] not in sample:
+        sample.append(items[-1])
+    for it in sample:
+        h = hashlib.sha256((it.get("content") or "")[:STUDY_ITEM_CHARS]
+                           .encode("utf-8")).hexdigest()[:16]
+        got = ch_cache["deep"].get(str(it["id"]))
+        if got and got.get("hash") == h:
+            continue
+        try:
+            out = _deep_inventory(channel_name, it)
+        except Exception as exc:  # noqa: BLE001 — rate limit etc.
+            print(f"  study: deep read failed for item {it['id']} "
+                  f"({type(exc).__name__}) — skipping it this run")
+            continue
+        if not out.get("topics"):
+            print(f"  study: deep read produced no topics for item "
+                  f"{it['id']} — skipping it this run")
+            continue
+        ch_cache["deep"][str(it["id"])] = {"hash": h, "out": out}
+        _save_studies_cache(cache)
+        time.sleep(2)   # stay clear of the coding-plan rate limit
+
+    # --- topic taxonomy from the inventories -------------------------------
+    raw_names: Counter = Counter()
+    for rec in ch_cache["deep"].values():
+        for t in (rec["out"].get("topics") or []):
+            if isinstance(t, dict) and t.get("name"):
+                raw_names[t["name"].strip()] += 1
+    canon: dict[str, str] = {}
+    names = sorted(raw_names)
+    if raw_names:
+        try:
+            merge = llm(
+                "You merge near-duplicate topic names into a small canonical "
+                "taxonomy (max 12 topics). Output strict JSON: "
+                '{"mapping": {"raw name": "canonical name", ...}} covering every '
+                "input name. Canonical names are short (2-5 words).",
+                "TOPIC NAMES (count):\n" +
+                "\n".join(f"- {n} ({c})" for n, c in raw_names.most_common()),
+                {"type": "object", "required": ["mapping"],
+                 "properties": {"mapping": {"type": "object"}}})
+            canon = {str(k): str(v)
+                     for k, v in (merge.get("mapping") or {}).items()}
+        except Exception as exc:  # noqa: BLE001
+            print(f"  study: taxonomy merge failed ({type(exc).__name__}) "
+                  "— using raw names")
+    for n in names:
+        canon.setdefault(n, n)
+
+    # --- classify every item title into the taxonomy (batched) -------------
+    taxonomy = sorted(set(canon.values()))
+    assignments: dict[int, list[str]] = {}
+    BATCH = 30   # small batches: long outputs truncate on this endpoint
+    for start in range(0, len(items), BATCH):
+        batch = items[start:start + BATCH]
+        batch_key = hashlib.sha256(
+            "|".join(f"{it['id']}:{it.get('title')}" for it in batch)
+            .encode("utf-8")).hexdigest()[:16]
+        norm = {int(k): v for k, v in
+                (ch_cache["titles"].get(batch_key) or {}).items()}
+        if len(norm) < len(batch) // 2:
+            lines = [f"{i}. {fmt_date(it['published_at'])} | {it.get('title')}"
+                     for i, it in enumerate(batch)]
+            norm = {}
+            for attempt in range(3):
+                try:
+                    norm = _classify_titles_text(lines, taxonomy)
+                except Exception as exc:  # noqa: BLE001
+                    print(f"  study: title batch {start//BATCH} attempt "
+                          f"{attempt+1} failed ({type(exc).__name__})")
+                    norm = {}
+                if len(norm) >= len(batch) // 2:
+                    break
+                time.sleep(15)
+            if not norm:
+                print(f"  study: title batch {start//BATCH} gave no usable "
+                      "output — those items go unclassified this run")
+                continue
+            ch_cache["titles"][batch_key] = {str(k): v for k, v in norm.items()}
+            _save_studies_cache(cache)
+            time.sleep(2)   # stay clear of the coding-plan rate limit
+        for i, tops in norm.items():
+            if 0 <= i < len(batch):
+                assignments[batch[i]["id"]] = [canon.get(t, t) for t in tops]
+
+    # --- per-topic timelines -------------------------------------------------
+    topic_items: dict[str, list[dict]] = defaultdict(list)
+    for it in items:
+        for t in assignments.get(it["id"], []):
+            topic_items[t].append(it)
+    top_topics = [t for t, _ in Counter(
+        {t: len(v) for t, v in topic_items.items()}).most_common(
+        STUDY_MAX_TOPICS)]
+
+    deep_by_topic: dict[str, list[tuple[dict, dict]]] = defaultdict(list)
+    for it in sample:
+        rec = ch_cache["deep"].get(str(it["id"]))
+        if not rec:
+            continue
+        for t in (rec["out"].get("topics") or []):
+            if isinstance(t, dict) and t.get("name"):
+                deep_by_topic[canon.get(t["name"], t["name"])].append((it, t))
+
+    def _norm_topic(s: str) -> str:
+        return re.sub(r"[^a-z0-9]+", "", (s or "").lower())
+
+    _deep_index: dict[str, list[tuple[dict, dict]]] = defaultdict(list)
+    for k, v in deep_by_topic.items():
+        _deep_index[_norm_topic(k)].extend(v)
+
+    def _deep_for(topic: str) -> list[tuple[dict, dict]]:
+        """Deep-read evidence for a topic, tolerating name drift between
+        the title classifier ('Silver') and the inventories ('Silver
+        market analysis'): exact normalized key, then substring either
+        way."""
+        k = _norm_topic(topic)
+        if not k:
+            return []
+        if k in _deep_index:
+            return _deep_index[k]
+        out: list[tuple[dict, dict]] = []
+        for key, v in _deep_index.items():
+            if k in key or key in k:
+                out.extend(v)
+        return out
+
+    # --- render ---------------------------------------------------------------
+    lines = [
+        f"# Study: How {channel_name} recycles its own material",
+        "",
+        f"A deep read of **{len(sample)} transcripts** (of {len(items)} "
+        f"items, {fmt_date(items[0]['published_at'])} → "
+        f"{fmt_date(items[-1]['published_at'])}) mapping the recurring "
+        "topics, what gets reused, when new material enters, and when the "
+        "author says something has changed. Titles are classified across "
+        "the full archive; the recycling evidence comes from the deep-read "
+        "sample.",
+        "",
+    ]
+
+    # overview narrative
+    digest = [f"CHANNEL: {channel_name}",
+              f"ARCHIVE: {len(items)} items, "
+              f"{fmt_date(items[0]['published_at'])} → "
+              f"{fmt_date(items[-1]['published_at'])}",
+              "TOPICS BY TITLE FREQUENCY: " +
+              ", ".join(f"{t} ({len(topic_items[t])})"
+                        for t in top_topics),
+              "DEEP-READ EVIDENCE:"]
+    for t in top_topics:
+        digest.append(f"- {t}:")
+        for it, inv in _deep_for(t)[:8]:
+            d = fmt_date(it["published_at"])
+            digest.append(f"  * {d} ({(it.get('title') or '')[:60]}): "
+                          f"recurring={inv.get('is_recurring')}, "
+                          f"new=\"{truncate(inv.get('what_is_new'), 110)}\"")
+            for cs in (inv.get("change_signals") or [])[:2]:
+                if isinstance(cs, dict):
+                    digest.append(f"    CHANGE: \"{truncate(cs.get('quote'), 110)}\" "
+                                  f"-> {truncate(cs.get('what_changed'), 90)}")
+    overview = llm_prose(
+        f"study/{slug}/overview",
+        "Write the overview essay for a study of how this channel recycles "
+        "its own material: the recurring topic engine, the cadence, what "
+        "gets reused vs refreshed, and where the author signals genuine "
+        "changes of view. Cite dates inline.",
+        "\n".join(digest), path)
+    if overview:
+        lines += ["## The recycling machine", "", overview, ""]
+
+    for t in top_topics:
+        tl = topic_items[t]
+        ev = _deep_for(t)
+        lines += [f"## {t}", "",
+                  f"**{len(tl)} item(s) in the archive.**", ""]
+        tdigest = [f"TOPIC: {t}",
+                   f"ARCHIVE TIMELINE ({len(tl)} items, chronological):"] + [
+            f"- {fmt_date(it['published_at'])} — {_item_link(it)}"
+            for it in tl[:30]]
+        if ev:
+            tdigest.append("DEEP-READ EVIDENCE (chronological):")
+            for it, inv in ev:
+                tdigest.append(
+                    f"- {fmt_date(it['published_at'])} "
+                    f"(recurring={inv.get('is_recurring')}): "
+                    f"new=\"{truncate(inv.get('what_is_new'), 130)}\"")
+                for cs in (inv.get("change_signals") or [])[:3]:
+                    if isinstance(cs, dict):
+                        tdigest.append(
+                            f"  CHANGE: \"{truncate(cs.get('quote'), 130)}\" "
+                            f"-> {truncate(cs.get('what_changed'), 100)}")
+        tn = llm_prose(
+            f"study/{slug}/topic/{slugify(t)}",
+            "Write this topic's recycling timeline: what material repeats "
+            "(with dates), when genuinely new information or arguments "
+            "enter, and each moment the author says something HAS changed "
+            "(quote them). Note the cadence of reuse.",
+            "\n".join(tdigest), path)
+        if tn:
+            lines += [tn, ""]
+        lines += ["Archive appearances (oldest → newest):", ""]
+        for it in tl[:40]:
+            lines.append(f"- {fmt_date(it['published_at'])} — {_item_link(it)}")
+        if len(tl) > 40:
+            lines.append(f"_…and {len(tl)-40} more._")
+        lines.append("")
+
+    lines += [
+        "---",
+        "_Deep-read inventories and title classifications are LLM-extracted "
+        "from the transcripts; quotes are verbatim from the source. "
+        "Regenerate via `uv run python scripts/build_llm_wiki.py`._",
+    ]
+    return write_page(rel, "\n".join(lines))
+
+
+def run_studies(provider: str | None, model: str | None
+                ) -> list[tuple[str, str]]:
+    """Run every configured channel study; returns [(slug, label)] pages."""
+    if not PROSE_ENABLED:
+        return []
+    from kb import llm as _llm
+    from kb.config import settings as _settings
+    s = _settings()
+    provider = provider or s.llm_provider
+    if not _llm.has_credentials(provider):
+        return []
+    if model is None:
+        model = (WIKI_ZAI_MODEL if provider == "zai"
+                 else _llm.default_model(provider))
+
+    cache = _load_studies_cache()
+    pages: list[tuple[str, str]] = []
+    # fetch study channel items (full content) in one connection
+    with engine().connect() as c:
+        rows = [dict(r) for r in c.execute(text("""
+            SELECT ch.name AS channel, i.id, i.title, i.url,
+                   i.published_at, i.content
+            FROM item i JOIN channel ch ON ch.id = i.channel_id
+            WHERE ch.name = ANY(:names)
+              AND i.content IS NOT NULL AND length(i.content) > 2000
+            ORDER BY i.published_at
+        """), {"names": STUDY_CHANNELS}).mappings()]
+    by_channel: dict[str, list[dict]] = defaultdict(list)
+    for r in rows:
+        by_channel[r["channel"]].append(r)
+    for ch, items in by_channel.items():
+        print(f"  study: {ch} ({len(items)} items with transcripts) …")
+        p = render_study(ch, items, cache, provider, model)
+        if p:
+            slug = slugify(ch)
+            pages.append((f"{slug}-recycling",
+                          f"{ch} — material recycling study"))
+    _save_studies_cache(cache)
+    return pages
 
 
 def _quote_ref(path: Path, e: dict) -> str:
@@ -1315,6 +1731,8 @@ def render_home(inv: dict, people_counts: dict[str, int]) -> Path:
         "- **[Syntheses/](Syntheses)** — the multi-dimensional views: where "
         "the *same person* flipped stance, where *different people* "
         "disagree on the same topic, and a global timeline of calls.",
+        "- **[Studies/](Studies)** — deep single-subject dives, e.g. how "
+        "one channel recycles its own material over years.",
         "- **[Analysts/](Analysts)** — one page per channel that has "
         "extracted content, with the people who appear on it.",
         "- **[_Index](_Index)** — flat alphabetical index of every page.",
@@ -2200,6 +2618,9 @@ def render_index(pages: dict[str, list[tuple[str, str]]]) -> Path:
     lines += ["", "## Syntheses", ""]
     for slug, label in sorted(pages.get("Syntheses", []), key=lambda x: x[1].lower()):
         lines.append(f"- [{md_escape(label)}](Syntheses/{slug}.md)")
+    lines += ["", "## Studies", ""]
+    for slug, label in sorted(pages.get("Studies", []), key=lambda x: x[1].lower()):
+        lines.append(f"- [{md_escape(label)}](Studies/{slug}.md)")
     lines += ["", "## Analysts", ""]
     for slug, label in sorted(pages.get("Analysts", []), key=lambda x: x[1].lower()):
         lines.append(f"- [{md_escape(label)}](Analysts/{slug}.md)")
@@ -2250,6 +2671,8 @@ def render_readme(inv: dict, counts: dict[str, int]) -> Path:
         f"  Analysts/  ({counts.get('Analysts',0)} pages)   # one per channel with extracted items",
         f"  Themes/    ({counts.get('Themes',0)} pages)   # cross-cutting theses (gold, AI-semis, …)",
         f"  Syntheses/ ({counts.get('Syntheses',0)} pages)   # opinion shifts · disagreements · timeline",
+        f"  Studies/   ({counts.get('Studies',0)} pages)   # deep dives (e.g. how a channel",
+        "                        #   recycles its own material over time)",
         "```",
         "",
         "## Data snapshot at generation time",
@@ -2413,7 +2836,7 @@ def main() -> None:
 
     pages: dict[str, list[tuple[str, str]]] = {
         "People": [], "Tickers": [], "Analysts": [], "Themes": [],
-        "Syntheses": []}
+        "Syntheses": [], "Studies": []}
 
     # --- People ---
     for name in sorted(PEOPLE):
@@ -2457,6 +2880,9 @@ def main() -> None:
     render_timeline()
     pages["Syntheses"].append(("Timeline", "Timeline of Calls (global)"))
 
+    # --- Studies (deep single-subject analyses; LLM + cache heavy) ---------
+    pages["Studies"] = run_studies(args.provider, args.model)
+
     # --- Home, Index, README, AGENTS ---
     counts = {k: len(v) for k, v in pages.items()}
     render_home(DATA, counts)
@@ -2491,8 +2917,10 @@ def main() -> None:
 
     print(f"\nwiki written to {WIKI_DIR} "
           f"({len(WRITTEN)} pages, {removed} stale removed)")
-    for k in ("People", "Tickers", "Analysts", "Themes", "Syntheses"):
-        print(f"  {k:<10} {counts[k]}")
+    for k in ("People", "Tickers", "Analysts", "Themes", "Syntheses",
+              "Studies"):
+        if k in counts:
+            print(f"  {k:<10} {counts[k]}")
 
 
 if __name__ == "__main__":

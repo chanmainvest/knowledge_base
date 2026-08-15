@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 2
+- **Extracted items**: 3
 - **Items with predictions**: 2
 - **Predictions**: 4
 - **Market views**: 25
@@ -51,15 +51,16 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _geopolitics — bullish_: [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80) — n/d, [Joseph](../People/joseph.md): "this is a ceasefire that is probably going to hold and honestly it seems like maybe the Iran war is going to mark the twilight of the influence of the Israeli lobby in the US"
-- _macro/trade — bearish_: [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80) — n/d, Unnamed narrator: "a big reason, according to their analysis, why German growth hasn't been good over the past few years, is because German exports have been declining in their contribution to growth"
+- _rates — neutral_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Guest: "At the moment, they're they've really scaled down those reserve management uh purchases. I think it's like to 10 billion a month now."
+- _rates — bearish_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Guest: "So, my full expectation is he would have a big committee, all these people sign off... Having a smaller Fed balance sheet, great idea... we should have it be a Treasury-only balance sheet."
+- _rates — mixed_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Guest: "Governor Bowman for example is like we should have more of a vault. This is great... I think that having some volatility would actually probably be not as good for speculators but could make the markets more resilient."
+- _rates — mixed_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Guest: "I think what could happen with the change in communication is you could actually have a significant chair... There would be more rate volatility, but uh as a Fed chair, that is probably not super popular."
 - _equities — bearish_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Joseph Wang: "if you look at the equity market reaction, uh there's some possibility that equity markets could have, you know, a bit of a correction."
 - _commodities — bearish_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Joseph Wang: "energy prices are coming down. Uh they're going to come down maybe rapidly, and so that is going to have a disinflationary tailwind coming forward."
-- _rates — neutral_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Joseph Wang: "No, I don't think we'll hike this year. ... my base case is that we just hold rates throughout this year."
-- _rates — bearish_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Joseph Wang: "So he he didn't have to actually hike. He did tighten financial conditions and raise rates just by his communication."
 
 ## Source items (extracted)
 
+- 2026-08-01 — [Markets Weekly August 1, 2026](https://www.youtube.com/watch?v=fIY6Bm88VGs)
 - n/d — [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80)
 - n/d — [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI)
 
