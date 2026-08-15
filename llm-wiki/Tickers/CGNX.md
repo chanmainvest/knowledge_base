@@ -2,6 +2,12 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 0 neutral).
 
+## The debate
+
+The recorded debate around Cognex in this corpus is, frankly, barely a debate at all. The only documented voice is Chris Semenuk, who on June 18, 2026 made the bullish case in essentially one breath, twice — naming CGNX as his way of playing machine vision, per [Chris Semenuk](../People/chris-semenuk.md) ("It means things like machine vision, which is Cognex" and, again, "machine vision like Cognex"). Both logged calls are bullish, both land on the same day, and both hang on the same thesis: that Cognex is the cleanest expression of the machine-vision theme. That's a reasonable framing for a company whose entire business is machine vision, but it's a theme-level endorsement rather than a company-specific argument about earnings, valuation, or end-market exposure.
+
+What the corpus lacks is any counterweight. There are zero bearish calls and zero neutral takes logged, so there's no skeptic case to reconstruct and no one who visibly changed their mind — the timeline is a single speaker on a single day in June 2026, and nothing before or since. Coverage this thin means the consensus reads 2-0-0 bullish more as an artifact of one enthusiastic mention than as a genuine conviction spread across analysts. Anyone using this page to gauge the real shape of the CGNX debate should treat it accordingly: the bull case here is on record, and the bear case simply hasn't shown up yet.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

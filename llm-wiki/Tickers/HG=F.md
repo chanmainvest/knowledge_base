@@ -2,6 +2,14 @@
 
 **4 extracted prediction(s)** across 2 channel(s). Consensus: **bullish** (1 bullish / 0 bearish / 3 neutral).
 
+## The debate
+
+The copper debate in this corpus is thin and almost entirely one-sided: one explicit bullish call, three neutral marks, and not a single bear on record. The clearest bull is George Noble, who on June 23, 2026 called copper "higher," grounding it in the supply-demand math — "you look at all the numbers, you know, doomberg and everything, all the rest and the supply demand higher" ([George Noble](../People/george-noble.md)). The nod to Doomberg, the analysis outlet best known for its work on chronic commodity supply shortfalls, places Noble squarely in the structural-deficit camp: copper goes up because the mine supply isn't there.
+
+The rest of the record comes from a single unattributed speaker on August 13, 2026, and it is oddly coded. Despite being tagged neutral, the comments are the most aggressive in the file: the speaker described copper's chart as a "hockey stick" trajectory and said that after looking at it, copper is "definitely going to double next year," while separately making the case that copper could outperform gold. A doubling call in twelve months is not a neutral statement, so either the stance classifier hedged or the corpus simply failed to capture a named, committed voice behind it. Either way, the boldest copper argument here carries no attribution, which limits how much weight it can bear.
+
+What's conspicuously absent is any bear case — no demand-destruction argument, no China-slowdown skeptic, no recession call on the metal. And no one in the digest changed their mind: Noble's June position stands unamended, and the August comments don't reference any prior stance to walk back. The full timeline runs a mere six weeks — Noble's supply-demand bull case in late June 2026, then an anonymous doubling call and a copper-over-gold argument in mid-August. Coverage this thin means the "debate" is really a bull thesis waiting for a counterparty; readers should treat the consensus-bullish tag as resting on one named investor and a set of quotes without a name attached.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

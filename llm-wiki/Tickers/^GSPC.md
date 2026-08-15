@@ -2,6 +2,16 @@
 
 **13 extracted prediction(s)** across 6 channel(s). Consensus: **bearish** (1 bullish / 2 bearish / 10 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
+## The debate
+
+The recorded debate on the S&P 500 is tagged bearish, but the label flatters the bears: of thirteen tracked calls, ten sit in the neutral bucket, two are bearish, and just one is bullish. In practice the bearish case is carried almost entirely by [George Noble](../People/george-noble.md), and even he didn't stay loud for long. On June 18, 2026 he was categorical — "there is absolutely no way that I would go outright long the S&P 500 right now as we speak" — describing a "hysteria mania" environment with "more and more and more capital" flooding into markets. Five days later, on June 23, the heat had dissipated into a shrug: "The S&P relatively speaking is not of interest to me." That is the only change of mind in the record, and it reads as a cooling from active bearishness toward indifference rather than a capitulation to the bulls.
+
+The bull side of the ledger is thinner still — a single, unidentified voice from the August 2026 calls, which makes it hard to weigh but easy to quote. On August 7 they laid out aggressive targets: "I'm shooting for 8,250 on the S&P 500 by the end of the year and 10,000 by the end of the decade," while noting that intervention had started "way preemptively" when the index was off just 2.5% — an implicit put under the market that seems central to their thesis. By August 10 they saw catalysts to "provide the juice for the S&P to get above 7620," and on August 13 they conceded the setup looked too bullish even by their own standards, yet still expected a breakout and another sharp leg up like the preceding days. That last hedge is worth flagging: even the lone bull sounds a little nervous about crowding.
+
+Between the poles sits [Patrick Ceresna](../People/patrick-ceresna.md), whose June 18 call is tagged bullish ("up") but reads more like a market recap than a position: equities rallied on deescalation, with "the S&P 500 climbing over 2% to 7420." It is nonetheless the only hard price level from the June snapshot, and it frames the ambition of the August targets — the anonymous bull is asking for roughly an eleven percent move to 8,250 in under six months, with 7,620 as the nearer checkpoint.
+
+The honest summary is that this is thin coverage: two named speakers and one anonymous voice over a two-month window, with the ten neutral calls unattributed in the record. But the timeline does have a shape — emphatic bearishness in mid-June (Noble), a rally to 7,420 that same day (Ceresna), and a shift to loud, hedged bullishness by August — which sits awkwardly against the "bearish" consensus tag. If anything, the direction of travel in the calls themselves runs the other way.
+
 ## Themes
 
 - [Broad Market & Macro Indices](../Themes/macro-indices.md)

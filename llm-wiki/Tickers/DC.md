@@ -2,6 +2,14 @@
 
 **6 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 6 neutral).
 
+## The debate
+
+The record on DC is thin, and it's worth saying so up front: everything in this corpus comes from a single unidentified speaker on July 30, 2026, with no named analysts, no citation links attached, and no documented position changes. The tracker shows six neutral "watch" stances and not a single bullish or bearish call, so there is no genuine bull-versus-bear debate to reconstruct — what exists instead is essentially one management-style telling of the equity story, and the neutral consensus appears to reflect that nobody in the coverage has yet taken a hard side on it.
+
+What the speaker laid out is a classic developer's timeline: a capex estimate of 384 — presumably millions, described as "based on 2025" costs — with first production targeted "by 2029." The framing of the current stretch is telling: "I've termed it the year of derisking," the speaker said, which concedes that execution risk, not the commodity, is the dominant variable right now. The thesis itself is explicitly a re-rate-on-delivery argument: "the greater potential reward is by executing on building a mine getting that rerate to being a producer and seeing the equity price go up." That's a bet on the company crossing from developer to producer, not on a market call.
+
+The honest read is that the debate hasn't started yet. One voice, one date, no bears on record, no converts either way — and a "year of derisking" narrative that gives watchers every reason to sit on the fence until the capex number hardens and 2029 gets closer or slips. As of this writing, the neutral consensus isn't hedging so much as an admission of thin coverage.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

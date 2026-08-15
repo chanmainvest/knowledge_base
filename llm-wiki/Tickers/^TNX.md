@@ -2,6 +2,16 @@
 
 **13 extracted prediction(s)** across 6 channel(s). Consensus: **bearish** (1 bullish / 4 bearish / 8 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
+## The debate
+
+For most of 2026 the debate around the 10-year Treasury yield has been less a fight over direction than an argument about whether a top is actually forming — and whether anyone should act on it. The anchor call belongs to [Patrick Ceresna](../People/patrick-ceresna.md), who argued on June 18 that yields near 4.70% "will be a key high," while immediately hedging that this "doesn't make it an immediate opportunity to go long bonds." He repeated the 4.70% framing on June 19, and his technical read was characteristically noncommittal: with the yield under 4.5%, the market had knocked on the door of a downtrend but was "still not officially breaking into a new downtrend in yields." In other words, a top in yield, on his telling, without a trade attached.
+
+The sharpest — and really the only clean — directional clash came on June 23, when [George Noble](../People/george-noble.md) and [JD](../People/jd.md) were put head-to-head. Noble's answer was blunt: "game on… I'm higher." JD was just as flat-footed the other way: "Oh, yeah. I'm definitely lower." It's the kind of coin-flip exchange that tells you the bull/bear split on this asset runs right down the middle among the people willing to state a view at all.
+
+What gives the tape its shape is the late-summer turn. Across late July and early August, an unattributed voice on the recording flipped outright bearish on bonds — "bond markets suffering. In other words, yields going up" (August 11), and "I think bond yields are going to move higher" (August 3) — the lone clear bullish call on the yield itself in the sample. The same speaker sketched the endgame on July 28: an "excellent chance that the Fed will be forced to engage in yield curve control either implicitly or explicitly and cap" long yields. That's a notably different regime argument than Ceresna's chart-watching — less about where 4.70% sits on a graph, more about the Fed being dragged into the long end. Unfortunately the digest doesn't attribute these quotes to a named speaker, so who actually made the call can't be confirmed here.
+
+Taken together, the consensus skews bearish on the yield (one bullish, four bearish, eight neutral), but the conviction behind that tilt is thin: it rests mostly on Ceresna's hedged "key high" thesis and JD's one-liner, set against Noble and the unattributed August voice on the other side. Everyone agrees the Treasury curve matters — the Eurodollar University host insisted on June 18 that you should "start with the Treasury curve" — but almost nobody in this sample was willing to say, without qualification, which way it breaks.
+
 ## Themes
 
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md)

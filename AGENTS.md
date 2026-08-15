@@ -364,10 +364,13 @@ scripts/
                         # INCREMENTAL: never wipes llm-wiki/, rewrites pages
                         # only when content changes, GCs stale generated
                         # pages via scripts/.llm_wiki_manifest.json, leaves
-                        # any other files in llm-wiki/ untouched. Re-run
-                        # after each scrape/extract batch. Structure,
-                        # provenance rules and section details live in
-                        # `llm-wiki/AGENTS.md`.
+                        # any other files in llm-wiki/ untouched. Pages open
+                        # with GLM-5.3-written narrative (portrait/debate/
+                        # essay) from a digest of DB facts, cached in
+                        # scripts/llm_wiki_prose.json by digest hash
+                        # (--no-prose skips; --no-bios, --provider/--model
+                        # also available). Re-run after each scrape/extract
+                        # batch. Details: `llm-wiki/AGENTS.md`.
                         # NOTE: the Mimosa write hook flags single-line
                         # `text("SELECT …")` calls as SQL-injection — keep
                         # all inline SQL in the multi-line triple-quoted

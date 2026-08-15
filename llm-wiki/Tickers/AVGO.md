@@ -2,6 +2,12 @@
 
 **2 extracted prediction(s)** across 2 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
+## The debate
+
+The record on Broadcom in this corpus is thin, and it's better to say so plainly than to manufacture a debate that isn't there: two observations, both logged neutral/watch, zero explicitly bullish or zero bearish calls. The earlier entry comes from [Jim Chanos](../People/jim-chanos.md) on June 20, 2026, who noted that "Broadcom, after the decline this morning, is at 12 times 2028 EPS." That is a valuation marker, not a stated call — the digest records his stance as unspecified, and given Chanos's standing as a short seller, readers could reasonably read the quote either as "still expensive on out-year earnings" or as an acknowledgment that the multiple has compressed to something interesting. The source material doesn't resolve that ambiguity, and this page shouldn't pretend it does.
+
+The second entry, dated August 13, 2026, comes from a speaker the corpus leaves unidentified, and it is pure tape-watching rather than a fundamental case: "If we want to see continued sellside here, just watch that lower week weekly implied move." In plain terms, the tell for further downside was to be found in near-term weekly options pricing, not in earnings models. What's notable about the shape of the coverage is that both remarks were made against a weak tape — Chanos explicitly anchors to "the decline this morning," and the August comment presumes selling pressure already in motion — yet neither speaker committed to a directional call. Nobody in the record flipped their view, and no bull case exists to be argued against. The honest takeaway is that the "neutral / watch" consensus tag here reflects sparse coverage more than a studied standoff, with the only tension on file being Chanos's long-horizon earnings math versus an unnamed trader's focus on short-dated implied moves.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

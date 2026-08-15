@@ -2,6 +2,14 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **bullish** (1 bullish / 0 bearish / 1 neutral).
 
+## The debate
+
+The debate around NextEra Energy, at least as captured in this corpus, is less a debate than a monologue. The only named voice on record is [Chris Semenuk](../People/chris-semenuk.md), who on June 18, 2026 made a squarely bullish case built on two legs: NextEra's positioning as the incumbent clean-power developer of choice for hyperscalers — "NextEra is basically Google's go-to power developer," as he put it — and the company's own long-dated financial framework, which he cited as 8 to 9% EPS growth plus a 4% dividend yield extending out to 2035. That combination, in his telling, makes the stock a buyable compounder rather than a mere utility holding.
+
+What's conspicuously absent is a bear case with a face. The tally shows one bullish call, zero bearish and one neutral, but no speaker attached to the neutral position appears in the record, so we can't say who holds it or on what grounds. The usual bear arguments against NEE — rate sensitivity, renewable development risk, balance-sheet stretch — simply aren't documented here, and we won't manufacture them. Likewise, there's no evidence of anyone changing their mind: Semenuk's two same-day comments point in the same direction, and no reversal or hedging shows up anywhere in the digest.
+
+The honest read on the timeline is that it's a single data point. Everything dates to June 18, 2026, from one speaker, which means this page currently reflects one analyst's conviction rather than a genuine two-sided argument. Anyone using this corpus to gauge the state of play on NEE should treat the "bullish consensus" label accordingly — it rests on Semenuk's hyperscaler-demand thesis and the 2035 growth-plus-yield framework, untested so far by any recorded skeptic. More coverage, ideally with a named bear or neutral case and calls spread across time, would be needed before this reads as a real debate.
+
 ## Themes
 
 - [Electrification, Power & Industrials](../Themes/electrification-industrials.md)

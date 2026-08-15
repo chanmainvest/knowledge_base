@@ -2,6 +2,14 @@
 
 **3 extracted prediction(s)** across 2 channel(s). Consensus: **mixed (conflict)** (1 bullish / 1 bearish / 1 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
+## The debate
+
+The Micron debate in this corpus is thin — three logged calls, one of them unattributed and one truncated mid-sentence — but it splits cleanly along the classic memory-cycle fault line. The bear case belongs to [David Woo](../People/david-woo.md), who on June 15, 2026 went short the stock even while conceding the single most bullish fact on the table: "all the chips that Micron are making right now as we speak are sold out into 2028 for forward sales." His counterargument — the digest cuts him off at "but once capacity co…" — is the supply-response case every memory investor knows by heart: today's sold-out order book is precisely what incentivizes the industry to build capacity, and the eventual flood of new supply is what crushes pricing. It's a bet on the cycle, not on the quarter.
+
+The bull side, ten days later, is more visceral than analytical. [aminvest](../People/aminvest.md) on June 25, 2026 rated MU a buy on the grounds that it "can be said to be one stock lifting half the stock market" — a claim about index leadership and momentum rather than about DRAM supply curves, and notably the kind of statement that gets made when a single name has become so heavy in sentiment that it drags the tape with it. Whether it was a direct rebuttal to Woo or independent enthusiasm is impossible to tell from the record.
+
+The only subsequent data point technically favors the bulls: on July 24, 2026, an unattributed commentary observed that the market's strongest stocks, Micron included, had "broken out of their downtrend channel" — no directional call was logged, but price action at least vindicated the momentum crowd over that window. The honest verdict is that the sample is too small to declare a winner. Woo's capacity thesis is a 2027-2028 argument that no dated follow-up in this corpus has tested, aminvest's call is a single sentence of breadth enthusiasm, and the lone confirming note is anonymous. Consensus is logged as mixed — one up, one down, one neutral — and that's exactly what the evidence supports.
+
 ## Themes
 
 - [AI & Semiconductors](../Themes/ai-semiconductors.md)

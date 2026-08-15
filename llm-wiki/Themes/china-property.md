@@ -4,6 +4,16 @@ Chinese property developers, the mainland real-estate bust and HK property / lan
 
 **0 prediction(s)** and **18 market view(s)** match this theme in the current extraction.
 
+## What the corpus says
+
+The corpus on China property is thin — eighteen broad views and not a single tickered call — and what it actually captures is less a debate about the sector itself than an argument over whether Chinese and Hong Kong assets deserve renewed faith. The clearest bearish anchor is [高天佑](../People/person-008.md), who on June 24, 2026 framed the mainland market in pure damage terms: since the 2021 blowup, "全國房價累瀉三成以上" — national home prices have cumulatively plunged more than 30 percent. That same day, an unnamed columnist was making the opposite case for Hong Kong property, and the way the argument runs matters: "樓價愈升，便會出現愈多購買力" (the more prices rise, the more purchasing power appears), therefore "樓宇是極具投資價值" — property becomes extremely investable. That asymmetry, bearish on the mainland, reflexively bullish on Hong Kong, is the real shape of the debate here, and the bullish leg is notably a momentum case dressed up as analysis: no affordability math, no policy read, just the observation that rising prices draw in buyers.
+
+Against that stands a cluster of cooler voices from June 20. A speaker quoted that day argued the Hang Seng "is looking at all of this and not behaving like a market convinced by the recovery" — a pointed bearish tell, since if the recovery narrative were solid, Hong Kong equities should be confirming it. An unnamed author the same day was nominally neutral but distinctly lukewarm, describing 2026's gains in Hong Kong property and US stocks as merely "溫和" (modest) while noting Hong Kong stocks had stopped manufacturing wealth for investors the way they had in the prior two years. The Eurodollar University host, on June 22, pulled the camera back furthest: "It is the economy, stupid. It is the single biggest lesson from Starmer's fall." The quote is about political economy rather than property per se, but its placement in this cluster is telling — it treats economic performance as the thing that quietly sinks governments and market narratives alike, which is precisely the stake in whether China's property drag ever ends.
+
+The most interesting movement is temporal. In late June, property is a live question — is the bottom in, is Hong Kong residential investable, does the Hang Seng believe the recovery. By July 25, one voice flatly declares that "today's immediate catalyst isn't real estate, it's oil." Within roughly a month, property went from candidate catalyst to afterthought, displaced by energy. That drift, more than any argument, may be the honest verdict the corpus offers.
+
+A caveat is warranted: several of these contributions are anonymous ("作者," "speaker," one with no attribution at all), one quote survives only truncated mid-sentence, and only 高天佑 is tied to a citable page. The corpus documents a genuine clash between reflexive Hong Kong bulls and damage-counting mainland bears, but it does not show who won.
+
 ## Constituent tickers
 
 _No tickered predictions fall in this theme yet (signal comes from market-view asset_class text only)._

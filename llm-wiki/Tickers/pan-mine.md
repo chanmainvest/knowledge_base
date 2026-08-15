@@ -2,6 +2,12 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
+## The debate
+
+The record on Pan Mine is unusually thin, and it would be dishonest to pretend otherwise. The corpus contains exactly two logged entries, both dated July 23, 2026, and neither carries an attributed speaker, a directional stance, or any quoted language. The aggregator scores the consensus as "neutral / watch," but that label rests on two empty records rather than on any articulable position — nobody on file argues the bull case, nobody argues the bear case, and no participant is documented changing their mind.
+
+What that means for this page is that the debate, as of now, has no documented shape. There is no timeline of calls to reconstruct beyond a single date with no content attached, no hedging language to weigh, and no tension between commentators to characterize. Whether Pan Mine is genuinely under-the-radar or simply under-covered by the sources feeding this corpus is impossible to distinguish from the available material. Until a named speaker takes a position — in either direction — this entry should be treated as a placeholder, and readers should not read the "neutral" tag as informed caution when it is more accurately described as an absence of evidence.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

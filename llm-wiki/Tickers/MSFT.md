@@ -2,6 +2,12 @@
 
 **2 extracted prediction(s)** across 2 channel(s). Consensus: **bearish** (0 bullish / 1 bearish / 1 neutral).
 
+## The debate
+
+The bear case on Microsoft in this corpus is really a single data point, and it's worth being upfront about that. The only explicit directional call on record is from [何啟聰](../People/person-001.md), who on June 19, 2026 flagged that mega-cap tech had performed poorly since the start of the year, naming Microsoft and Meta as the representative US examples. That's a momentum-driven observation about year-to-date underperformance rather than a developed fundamental thesis — no valuation argument, no cloud or AI capex critique attached to it in what we have.
+
+The other entry in the digest barely qualifies as a call at all. [Ed Zitron](../People/ed-zitron.md), on June 21, 2026, noted that "$527 million of their sales and marketing costs went through Microsoft" — a cost-flow observation that fits his well-known skeptical beat on Big Tech economics, but the digest records no explicit stance on the stock itself from him. So the tally stands at zero bullish, one bearish, one unspecified, with no recorded reversals or mind-changes, and a "timeline" that spans exactly two entries in a single week of June 2026. There is no bull argument captured here to weigh against, and anyone reading this page should treat the consensus bearish label as an artifact of thin coverage, not a settled verdict.
+
 ## Themes
 
 - [AI & Semiconductors](../Themes/ai-semiconductors.md)

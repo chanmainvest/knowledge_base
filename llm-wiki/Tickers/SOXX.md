@@ -2,6 +2,12 @@
 
 **2 extracted prediction(s)** across 2 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
+## The debate
+
+Coverage of SOXX in this corpus is thin to the point of being skeletal, and the wiki should say so plainly rather than manufacture a debate that isn't documented. The iShares Semiconductor ETF registers exactly two data points, both in early August 2026 and both attributed to an unidentified speaker, with no recorded bullish or bearish calls on either side. The sole substantive marker is a August 9, 2026 entry tagged "AI Bubble and Chip Crash" — a headline that gestures at the familiar bull-bear fault line in semiconductors (AI-driven demand versus valuation excess), but the digest provides no named analyst, no explicit stance, and no quotable argument behind it. A companion entry dated August 2, 2026 is blank. No citation links accompany either item, so nothing here can be attributed with confidence.
+
+What can be said is the shape of the record, not the debate itself: the machine-readable consensus sits at neutral/watch, driven by two neutral-tagged observations and zero committed calls in either direction. That is best read as an absence of evidence about how commentators actually line up on SOXX — no bull case from named investors, no bear case, no documented mind-changes, and no call timeline beyond the two anonymous August 2026 entries. Readers should treat this section as a placeholder; until the corpus captures attributed commentary on the chip sector, any fuller narrative about who is long or short the AI trade in semis would be invention, not research.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

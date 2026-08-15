@@ -4,6 +4,10 @@
 
 _No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
 
+This entry is thin. The corpus shows only that a guest identified as Eric has appeared twice on Macro Voices, but the digest contains no extracted stances, dated calls, quotes, or topic timelines for him — no bullish or bearish positions, no chronological shifts, nothing to anchor a portrait of his views. The stance mix is empty across the board, and no citation links were provided to support even those bare appearances.
+
+As it stands, there is not enough verified material to characterize what Eric argues for or how his positioning may have evolved. Rather than speculate about which "Eric" he might be or what he may have said on air, this page should be treated as a stub pending fuller extraction from his two Macro Voices interviews.
+
 ## At a glance
 
 - **Appearances**: 2 (2026-06-18 → 2026-06-19)

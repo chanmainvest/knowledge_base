@@ -2,6 +2,14 @@
 
 **2 extracted prediction(s)** across 2 channel(s). Consensus: **bullish** (1 bullish / 0 bearish / 1 neutral).
 
+## The debate
+
+The AAPL file in this corpus is thin — two dated calls, one bullish, one neutral, and no bear on record — so any account of "the debate" has to start with that caveat. What exists is a June bullish call and an August non-call, with nobody documented changing their mind in between.
+
+The bull case here belongs to [何啟聰](../People/person-001.md), who on June 19, 2026 flagged Apple's just-announced price increases — "蘋果公司剛宣布將會加價，以反映晶片及內存（記憶體）的價格上升" (Apple announced it will raise prices to reflect rising chip and memory costs) — and marked the stance "up." The implicit logic is straightforward pricing power: if Apple can pass memory and silicon cost inflation through to customers, the margin narrative stays intact. Whether demand absorbs those hikes is exactly the question a bear would press, but no bear in this corpus does.
+
+The only subsequent entry is an unattributed comment on August 13, 2026, staked to no direction: "Wouldn't be shocked to see it come back to the upper weekly or the lower weekly implied move." That's an options-framed, deliberately hedged read — price revisiting either band of the weekly implied move is treated as unremarkable — and it's a useful reminder that the sole "neutral" voice here isn't bearish so much as agnostic on timing and direction. So the timeline runs: a concrete bullish call in June tied to pricing news, then two months of silence punctuated by a shrug. The consensus label "bullish" rests on a single position, and the bear side of the ledger is simply empty rather than argued — anyone citing a genuine two-sided dispute on AAPL from this corpus would be overstating what's on the page.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

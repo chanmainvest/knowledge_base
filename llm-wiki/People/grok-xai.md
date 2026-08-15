@@ -6,6 +6,12 @@
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
+Grok is an oddity in this corpus because it is not a person at all. It is the AI chatbot built by xAI, the artificial intelligence company Elon Musk founded in 2023, positioned as a real-time, irreverent rival to ChatGPT and wired into the X platform. It has no fund, no track record, and no career in markets — yet it has begun appearing on podcasts and media programs as a "guest," with hosts reading out or featuring its AI-generated analysis. Its sole entry here comes from exactly that setup: a featured appearance on the Chinese-language economics and finance podcast of Hong Kong economist 徐家健 (Eric Tsang Ka-kin), offering commentary on hot IPOs.
+
+That single appearance, dated June 16, 2026, produced its only logged call — a studiedly neutral one on SpaceX. While the surrounding commentary ran hot (the hosting article frames the debate around a Nobel laureate blasting SpaceX as a Ponzi scheme), Grok split the difference. It cautioned that historically, large first-day "pop" IPOs in heated markets tend to show weak three-year post-adjustment returns, weighed down by profit-taking, lockup-expiry selling pressure, and mean reversion, and argued investors should treat the listing as high-volatility growth exposure whose outcome hinges on Starlink profitability and Starship execution rather than first-day enthusiasm ([SpaceX市值一飛沖天 諾獎得主狠批龐氏騙局](https://www.master-insight.com/article/48758)). The framing is textbook risk-factor language — closer to a synthesized literature review than a positioned call, which is arguably the honest way to describe what a chatbot's "view" is.
+
+The record here is thin and should be read as such: one appearance, one topic, one neutral stance, with zero bullish or bearish entries, so there is no timeline along which its views could be said to have moved. Whether an AI's outputs belong in an analyst corpus at all is a fair question the data cannot answer; for now, Grok's profile amounts to a single, hedged, sensible-sounding IPO warning delivered secondhand through a podcast host.
+
 ## At a glance
 
 - **Appearances**: 1 (2026-06-16 → 2026-06-16)

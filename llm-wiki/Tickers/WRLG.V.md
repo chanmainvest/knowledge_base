@@ -2,6 +2,14 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
+## The debate
+
+Coverage on WRLG.V is thin, and the honest way to open this page is to say so: the record as captured contains no bullish calls, no bearish calls, and no named analyst willing to plant a flag. The consensus tag sits at neutral/watch purely by default — two neutral data points against zero in either direction — which means the "debate" around this name hasn't actually started yet, at least not in the material logged here.
+
+What does exist is a single dated cluster of commentary from July 22, 2026, from an unidentified speaker whose phrasing ("we will move up," rates stepping up "over the rest of the year") reads like company management talking about its own trajectory rather than an outside analyst making a call. The substance is a beta-to-gold argument: the speaker expects the company to move at "the same sort of rate of change" as the gold market and anticipates "a good step up" in those rates through the remainder of the year. That's an optimistic framing from someone close to the business, but it's hedged — it's conditional on the gold market moving up, and it came from a voice the record doesn't even name, so it can't be treated as an independent bull case.
+
+For now, the timeline of calls on WRLG.V is a single day with two fragments from one anonymous source. There's no documented mind-changing, no opposing camp, and nothing to anchor a bull-versus-bear narrative. Anyone relying on this corpus for a view on the stock is, at this point, working from management-adjacent optimism and silence everywhere else — a gap future entries will need to fill before this page can say anything useful about where the real disagreement lies.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

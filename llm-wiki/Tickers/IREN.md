@@ -2,6 +2,14 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
+## The debate
+
+The recorded debate around IREN is less a debate than a single hedged monologue. The corpus logs a consensus of neutral / watch — zero bullish calls, zero bearish calls, two neutral entries — and exactly one voice: Mike Alfred, both statements dated June 21, 2026. There is no visible bull camp, no visible bear camp, and no analyst on record reversing course. Anything resembling a two-sided argument has to be inferred from what Alfred declined to say as much as what he said.
+
+Alfred's position is complicated by his own disclosure: by his account he sits on the board, which is why he told his audience he can't advise anyone to buy the stock and doesn't know of any specific reason it would move ([Mike Alfred](../People/mike-alfred.md)). That's a compliance hedge, not a thesis. The closest thing to a stated view is his personal track record: "I've never sold a share of Iron, even though it's gone from 28 to 1 to 75 to 28 to to 60" ([Mike Alfred](../People/mike-alfred.md)). Read plainly, that's a holder who rode a brutal round trip — roughly $28 down to a dollar, up to $75, back to $28, then to around $60 in his telling — without exiting. Behaviorally that's the most bullish datapoint in the entire record; verbally, he committed to nothing.
+
+The honest summary of the timeline is that it's a single point. June 21, 2026, one speaker, two comments, both filed as neutral. If a bull/bear fight over IREN exists — over its bitcoin mining core, its data-center pivot, or anything else — it isn't captured here, and this page shouldn't pretend otherwise. The only firm conclusions available are narrow: the corpus's sole contributor is constrained by a board seat, and his demonstrated stance is holding through drawdowns rather than trading them.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

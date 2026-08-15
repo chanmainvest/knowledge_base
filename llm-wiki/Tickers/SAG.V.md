@@ -2,6 +2,14 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
+## The debate
+
+The debate file on SAG.V is unusually thin, and it's worth saying so plainly: as of this writing there are no attributable bullish or bearish calls on record, no analyst who publicly changed their mind, and no timeline of stances to chart. The consensus tag sits at neutral/watch, resting on two neutral data points rather than a genuine clash of views.
+
+Everything substantive in the record comes from a single, unidentified speaker on a single day, July 23, 2026, and both quotes are about scale and catalysts rather than direction. On the question of what the asset could become, the speaker sketched an ambitious production picture: "Something where you're, you know, you're producing, say, upwards of a a million tons a year, maybe maybe more" (speaker unidentified, 2026-07-23). The near-term catalyst mentioned was a revised resource estimate — "expected for this year. So Q3 of this year relatively soon" (speaker unidentified, 2026-07-23). In other words, the bull case here is implicit and unclaimed: if the Q3 resource revision lands well, the tonnage target becomes credible; if it disappoints, there's no recorded bear argument to fall back on, only silence.
+
+For a wiki reader, the honest takeaway is that SAG.V is a watch-list name with an unattributed scale thesis and one dated catalyst, not a contested asset. Anyone looking for a real bull-versus-bear narrative — or for who flipped and when — will need coverage that simply doesn't exist in this digest yet.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

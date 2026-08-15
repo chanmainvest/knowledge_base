@@ -4,6 +4,14 @@ Credit-cycle views: spreads, private credit / direct lending, BDCs, structured c
 
 **1 prediction(s)** and **32 market view(s)** match this theme in the current extraction.
 
+## What the corpus says
+
+On private credit and business development companies, this corpus speaks with one voice, and it is grim. The theme's only tickered call is bearish: on June 23, 2026, coverage flagged Apollo Debt Solutions' non-traded BDC after investors submitted repurchase requests equal to approximately 16.8% of outstanding shares — a wave that, in a vehicle where liquidity is rationed through periodic repurchase windows, reads as a run rather than noise. The same segment noted that BDCs more broadly are trading at even deeper discounts to net asset value, and the narration did not bother hedging: "the assets are likely rotten or enough of them anyway and people know it." That is less analysis than indictment, and nothing in the digest pushes back against it.
+
+The named voices reinforce the pattern. [Jeff Snider](../People/jeff-snider.md) put the sharpest edge on it that day, arguing "This is not fading or stabilizing. The bust is accelerating." The Chinese-language commentator [aminvest](../People/aminvest.md) tracked the same deterioration from the default side — noting on June 23 that the corporate credit market "已經開始惡化" (has begun to deteriorate), then by June 25 escalating to the default ratios themselves ("企業債務違約比率，已經開始惡化。"). A [CPM Group speaker](../People/cpm-group-speaker.md) located the rot in structure rather than cycle, describing private credit as "loans that are disguised so that they're not loans so that they don't have to show up on balance sheets," while framing the picture as bearish for equities broadly — the United States "is half of what it was 25 years ago" — and drawing the natural precious-metals conclusion: "And that all put together is good for gold and silver."
+
+What the corpus does not contain is a debate. There is no bull case for private credit here, no argument that BDC discounts are a buying opportunity, no voice suggesting the ADS redemption figure is contained. The scale claims 32 broad views, but only a handful surface in the digest, and every one clusters inside a 48-hour window from June 23 to June 25, 2026 — more likely a single news cycle around the Apollo repurchase news than a sustained drumbeat. The tone looks panicked partly because the sampling is narrow; whether this chorus held, softened, or found a dissenter in the weeks afterward is something this slice of the corpus simply does not show.
+
 ## Constituent tickers
 
 | Ticker | Mentions |

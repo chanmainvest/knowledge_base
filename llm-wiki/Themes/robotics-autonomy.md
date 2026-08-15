@@ -4,6 +4,18 @@ Humanoid robotics, factory automation and autonomous driving — the next-wave p
 
 **2 prediction(s)** and **3 market view(s)** match this theme in the current extraction.
 
+## What the corpus says
+
+Robotics, automation and autonomy get surprisingly little direct airtime in this corpus — two tickered calls and three broader views, all of it compressed into a ten-day window in June 2026 — but what's there sketches a recognizable debate: a supply-chain bull, an execution skeptic mocking the flagship demo, and two Hong Kong columnists worrying about how autonomy gets regulated and who absorbs its labor costs. It's a capex story, a reliability story and a policy story sitting uneasily next to each other.
+
+The most concrete bullish case comes from [Chris Semenuk](../People/chris-semenuk.md), who on June 18, 2026 went up on Rockwell Automation, framing the trade as a picks-and-shovels play on the automation build-out — "companies that are benefiting like Rockwell, Emerson, machine vision" and the rest of the equipment stack ([Chris Semenuk](../People/chris-semenuk.md)). In the same appearance he extended the thesis to humanoids: "the whole humanoid thing is early, but when I speak to companies that are in the supply chain, they say it's going to come a lot…" The transcript cuts off mid-sentence, but the framing is clear — early, yes, yet arriving with more force than the "it's early" label implies, at least by his telling. Notably, even the corpus's one outright robotics bull hedges.
+
+The skeptic counterweight is [David Woo](../People/david-woo.md), who three days earlier trained his fire on the autonomy poster child: "Tesla's latest robo taxi went into whatever trial in Texas and it was it was literally like creating traffic incidents" ([David Woo](../People/david-woo.md)). The corpus records no formal direction or target on TSLA for that call, but the derision needs no decoding. The clash with Semenuk is really a clash of vantage points: Semenuk's optimism lives upstream, in components and industrial capex, while Woo's skepticism lives at the point of demonstration — the gap between the press release and the traffic incident.
+
+The Chinese-language contributions round out the debate's other two axes. [梁天卓](../People/person-005.md), writing on June 25, 2026, is constructive on autonomous driving but only via what he calls the more reasonable "middle route": limited pilot programs, only systems that pass vetting, confined to designated areas or routes, with operators required to file mileage, takeover, incident, near-miss and complaint data — and scope expanded or narrowed based on that evidence ([梁天卓](../People/person-005.md)). It's essentially the same evidentiary standard a Woo would demand, formalized into policy. Meanwhile [高天佑](../People/person-008.md), on June 23, is bearish on the labor backdrop: mainland China's slowdown and worsening employment, with workers over 35 already treated as middle-aged, outcompeted by younger "小鮮肉" and prime layoff targets ([高天佑](../People/person-008.md)). His column doesn't mention automation directly — the link to this theme is the corpus's tagging — but it supplies the human-cost backdrop that makes labor-saving technology simultaneously attractive to employers and politically fraught.
+
+On tone over time, the corpus honestly can't support much: everything lands between June 15 and June 25, 2026, too narrow a slice to chart any evolution. What the snapshot does show is a debate where nobody is unconditional — the bull concedes it's early, the policy sympathist wants proof, and the skeptic has incidents to point at. Coverage here is thin, and any stronger claim about consensus or momentum would be inventing one.
+
 ## Constituent tickers
 
 | Ticker | Mentions |

@@ -2,6 +2,12 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 0 neutral).
 
+## The debate
+
+The documented debate around Parker Hannifin in this corpus is, frankly, thin to the point of being a monologue. The only analyst on record is [Chris Semenuk](../People/chris-semenuk.md), who made his case on June 18, 2026 and sits firmly in the bull camp. His argument that day rested on two planks: valuation and M&A-driven scale. He argued the stock remains cheap — "I still think Parker's cheap. They have a whole new business" — tying the thesis directly to the company's recent acquisition of Filtration Group ([Chris Semenuk](../People/chris-semenuk.md)). On the same date he framed the deal as transformative for the franchise, claiming Parker "is now the largest filter maker in the world" off the back of the purchase ([Chris Semenuk](../People/chris-semenuk.md)).
+
+What's notably absent is any counterparty. There are no bearish voices, no neutral holds, and no documented changes of heart — the tally reads two bullish calls, zero against, and both entries come from the same speaker on the same day. The phrasing "I still think" suggests Semenuk had been pounding the table on Parker before that June 2026 appearance, so his stance reads as continuity rather than a fresh conversion, but the corpus contains no earlier dated calls to trace when the position began. The bull case, as recorded, is essentially a one-man thesis: a legacy industrial that has bought itself a new leg in filtration and, in his view, hasn't been repriced for it. Whether the bears have a serious answer — on deal integration, filtration margins, or what "cheap" means against the post-acquisition multiple — is something this record simply doesn't capture yet.
+
 ## Themes
 
 - [Electrification, Power & Industrials](../Themes/electrification-industrials.md)

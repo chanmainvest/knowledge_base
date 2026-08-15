@@ -2,6 +2,14 @@
 
 **4 extracted prediction(s)** across 2 channel(s). Consensus: **mixed (conflict)** (1 bullish / 1 bearish / 2 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
+## The debate
+
+The NASDAQ debate captured in this corpus is thin — a handful of appearances, only one name attached — but the fault line is familiar: a genuine bear leaning against an AI-led advance that refuses to quit. The only identified voice is [David Woo](../People/david-woo.md), who on June 15, 2026 admitted he had been short the index "for a while" and that it had "been very painful." That's not a fresh call so much as a confession of a position that's been run over. The same day, he put a number on what he was fighting: "Since then NASDAQ has added $5 trillion to this market capitalization because people saying Claw Methus is amazing" — the garbled transcription evidently pointing at AI-model enthusiasm as the engine of the rally. Notably, the corpus logged that second quote as a bullish data point and the short as bearish, which is how one man's single appearance ended up supplying both sides of the consensus tally.
+
+The rest of the timeline is sparser and more hedged. On July 30, 2026, an unidentified speaker offered a conditional risk rather than a directional view: "if they find that the interest rates are going to increase significantly, Nasdaq-oriented stocks get hit." That's a duration-and-rates framing — rate-sensitive tech as the first casualty of a hawkish surprise — but it stops well short of predicting that outcome, and the digest records no stance either way. A follow-up appearance by that same unnamed speaker on August 6, 2026 came with no position or quote attached at all.
+
+Nobody here changed their mind. Woo was still short and still hurting as of mid-June, his conviction intact even as the tape punished it; the unnamed voice never committed to a side. The mixed consensus — one bullish, one bearish, two neutral — is therefore less a clash of analyst camps than one conflicted bear plus silence, and the page should be read accordingly: the coverage is simply too thin to establish a real debate.
+
 ## Themes
 
 - [Broad Market & Macro Indices](../Themes/macro-indices.md)

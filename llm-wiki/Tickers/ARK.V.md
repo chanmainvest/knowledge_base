@@ -2,6 +2,14 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
+## The debate
+
+Coverage of ARK.V in the corpus is thin to the point of near-silence, and the wiki should be honest about that. There are no named bulls, no named bears, and no recorded changes of heart among tracked speakers; the consensus tag is neutral/watch on the strength of two neutral datapoints and nothing else. Whatever debate exists around this name, it is not happening in the material gathered here.
+
+The only substantive commentary comes from an unidentified speaker on August 5, 2026, and even that is promotional in tone rather than analytical. The speaker claimed "we're finding a lot of metal um, you know, throughout that entire area" and added "I think we're really just getting started here" — language that sounds like an exploration-stage narrative, likely from someone close to the company rather than an independent voice, though the digest does not attribute the remarks to a named individual. Nothing in the record supports treating these quotes as a bullish street call; they are color, not conviction, and the consensus tag of neutral reflects that ambiguity.
+
+For now, the honest read is that ARK.V has no documented bull-bear tug-of-war, no timeline of analyst calls, and no mind-changers to chronicle. If the underlying asset is an exploration story, the August 2026 remarks hint at where a future debate could form — around whether the "metal" being found amounts to an economic deposit — but that argument has yet to appear in the tracked commentary. This entry should be revisited as coverage accumulates.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

@@ -2,6 +2,14 @@
 
 **3 extracted prediction(s)** across 3 channel(s). Consensus: **bearish** (0 bullish / 1 bearish / 2 neutral).
 
+## The debate
+
+The identified debate around Goldman Sachs in this corpus is thin, and what little exists is a valuation argument rather than a business argument. On June 17, 2026, [aminvest](../People/aminvest.md) was lukewarm-positive on the franchise itself — "Goldman Sachs (GS)我也覺得不俗," roughly "I think GS is pretty decent" — but declined to chase it, saying the share price was too elevated to get in ("股價偏高，較難入手"). Six days later, [George Noble](../People/george-noble.md) was blunter: asked about "Goldman Sachs at $1,100 a share. Is that a stock you're picking," the recorded answer was "No, not interested."
+
+That is really the shape of the debate: nobody with a name attached is making a bear case on Goldman's business — the reluctance is about price. Both June calls cluster around the same idea of a decent firm at an expensive level. The corpus formally labels consensus bearish (zero bullish, one bearish, two neutral), but "bearish" oversells what's actually here; this reads closer to "no buyers at these levels" than to a conviction short thesis.
+
+The bull side exists only as an orphan. On August 13, 2026, an unattributed voice in the digest offered "他们将获得其中7%的份额... 他们会大赚一笔" — "they'll get a 7% share of it... they'll make a killing" — which sounds constructive on its face, but with no named speaker, no stance recorded, and no context for what the 7% refers to, it can't responsibly be counted as a bull call. And there is no mind-changing to report: each speaker in this set appears exactly once, so the timeline is flat — aminvest's price caution in mid-June, Noble's pass a week later, and an unnamed favorable fragment in August. The honest summary is that coverage is sparse, the named voices are price-skeptics rather than thesis bears, and the lone bullish note carries no signature.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

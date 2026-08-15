@@ -2,6 +2,12 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
+## The debate
+
+The debate around GDX in this corpus is, frankly, barely a debate at all. The record contains just two calls, both dated August 10, 2026, both from an unidentified speaker, and the consensus tag reflects that emptiness: zero bullish, zero bearish, two neutral reads filed under "watch." No named analysts, no opposing camps, no documented reversals. What exists is a single voice sketching a two-stage path: an initial expectation that GDX would reach 88 to 91, followed by the more ambitious claim that "there's a potential of GDX making it to 102 and even potentially to a new all-time high above 117."
+
+Taken together, the two quotes read less like a hedged bull case than a sequence — a near-term landing zone and then a stretch scenario — but the digest doesn't tell us whether the 88-to-91 expectation was met before the upside talk, or whether the speaker was laying out a conditional path versus two competing outcomes. That ambiguity is the whole story here. There are no bears on record to push back, no one who publicly changed their mind, and no citation links preserved in the digest to anchor the speaker or the venue. Until more sourced calls surface, the honest summary is that GDX coverage in this corpus is a single-day, single-speaker data point: one unnamed voice calling for 88–91, with 102 and a break above 117 as the dream scenario.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

@@ -2,6 +2,14 @@
 
 **9 extracted prediction(s)** across 5 channel(s). Consensus: **bearish** (0 bullish / 4 bearish / 5 neutral).
 
+## The debate
+
+The recorded debate on the US Dollar Index leans clearly bearish, though the sample is thin: zero bullish calls against four bearish and five neutral in the corpus. The most emphatic bear is [JD](../People/jd.md), who on June 23, 2026 called the dollar's recent strength "a false breakout" and stated flatly, "I'm very bearish." On the same day, [George Noble](../People/george-noble.md) delivered a hedged version of the same view — opening with "Pair of twos no opinion on the dollar" before conceding "I actually think it goes lower if you must know" — the kind of reluctant bearishness that often carries more weight than a conviction call. [Erik Townsend](../People/erik-townsend.md) framed the move technically rather than directionally, noting on June 18 and again June 19, 2026 that "we're back down to 99 and a half on the Dixie" and "testing what was previously resistance as support," a setup that implies the dollar's rebound had fully round-tripped.
+
+The timeline then jumps to August 2026, where the digest contains several quotes it does not attribute to a named speaker, and those unattributed comments point in opposite directions within the same week. On August 3, one commentary flagged that "the dollar is breaking an uptrend. We just fell through some support levels right at the 100 101 level" — a squarely bearish read consistent with the June calls. Yet three days later, on August 6, another (or the same) voice argued the opposite timeframe: "the long-term moving average for the dollar is saying hey it is going up. It has all the characteristics of a bull market." Two further August 11 entries carry no stated view at all.
+
+The shape of the debate, then, is a near-term bearish consensus sitting on top of an unresolved long-term question. Everyone willing to put a name to a call in June was negative or leaning negative, and the early-August breakdown through the 100–101 support zone validated that camp. But the bull-market framing from the August 6 comment — bullish-sounding language that apparently never got logged as a formal bullish call, given the 0-in-the-tally consensus — suggests at least one participant sees the weakness as a correction within a larger uptrend rather than a regime change. Honest caveat: coverage here is sparse, concentrated in a single week in June plus a handful of unattributed August notes, and there is no named bull anywhere in the record, so the bearish consensus may simply reflect who happened to be talking.
+
 ## Themes
 
 - [Broad Market & Macro Indices](../Themes/macro-indices.md)

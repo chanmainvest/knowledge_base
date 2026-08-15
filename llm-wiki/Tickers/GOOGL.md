@@ -2,6 +2,14 @@
 
 **3 extracted prediction(s)** across 2 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 3 neutral).
 
+## The debate
+
+Coverage of Alphabet (GOOGL) in this corpus is thin, and it is worth saying so plainly: three entries, none carrying an explicit buy or sell rating, leaving the consensus tag at neutral/watch with zero recorded bulls and zero recorded bears. What the file captures instead is a narrow, single-theme conversation — Alphabet's capital-expenditure trajectory into 2027 and how the company is financing it — rather than a genuine bull-versus-bear fight.
+
+The timeline reads as follows. On 19 June 2026, [何啟聰](../People/person-001.md) argued that Alphabet's decision to raise capital on a large scale in advance, locking in lower interest rates, was exactly the point of moving early — a reading of the financing as deliberate rate management rather than distress. By 24 July 2026, an unidentified commentator (the corpus does not attribute these July entries) observed that the share price had fallen after the news broke, while flagging that capital expenditure was expected to remain elevated through 2027. Six days later, on 30 July 2026, the same unattributed thread recorded an expectation that spending would "rise significantly again in 2027." Nobody in the file reversed course or changed their mind over this window.
+
+If there is a fault line here at all, it is implicit rather than stated: 何啟聰's framing treats the pre-emptive fundraising as prudent, while the July commentary's tone — price down on the news, capex staying high — captures investor discomfort with the spending ramp. But no speaker actually took a position on the stock in either direction, and the bearish signal is limited to an observed share-price decline, not a call. On the current record, GOOGL is a capex story awaiting someone willing to argue what it means for the shares.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

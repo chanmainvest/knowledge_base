@@ -30,12 +30,20 @@ import shutil
 import subprocess
 from typing import Any
 
-from tenacity import retry, retry_if_not_exception_type, stop_after_attempt, wait_exponential
+from tenacity import retry, retry_if_not_exception_type
 
 from .config import settings
 from .logging_setup import get_logger
 
 log = get_logger("llm")
+
+# Rate-limit / overload signals from the OpenAI SDK (raised by the openai and
+# zai providers). Retried with a quiet period so batch extraction survives the
+# OpenRouter free-tier 429s / provider-side throttling.
+try:
+    from openai import RateLimitError as _OpenAIRateLimitError
+except ImportError:  # pragma: no cover — openai is a hard dep
+    _OpenAIRateLimitError = None
 
 PROVIDERS: tuple[str, ...] = ("openai", "github", "anthropic", "zai")
 EMBEDDING_PROVIDERS: tuple[str, ...] = ("openai", "zai")
@@ -43,6 +51,54 @@ EMBEDDING_PROVIDERS: tuple[str, ...] = ("openai", "zai")
 
 class LLMError(RuntimeError):
     """Raised when a provider fails to produce a usable response."""
+
+
+def _retry_after_or_exponential(retry_state) -> float:
+    """tenacity wait callable: honour Retry-After on 429s, else exponential.
+
+    On a rate-limit error (openai RateLimitError or an HTTP 429 surfaced via
+    the SDK's response), sleep for the server-advertised Retry-After (seconds)
+    when present; otherwise pause `llm_rate_limit_pause_sec`. For other
+    transient errors fall back to exponential backoff (2..pause_sec). This lets
+    batch extraction ride through the OpenRouter free-tier throttling instead
+    of failing the item after the default 4 quick retries.
+    """
+    import time
+
+    exc = retry_state.outcome.exception() if retry_state.outcome else None
+    pause = settings().llm_rate_limit_pause_sec
+    is_rate_limit = _OpenAIRateLimitError is not None and isinstance(exc, _OpenAIRateLimitError)
+
+    # Also treat any error whose underlying response is an HTTP 429 as throttling
+    # (covers anthropic / generic APIStatusError paths).
+    resp = getattr(exc, "response", None)
+    if not is_rate_limit and resp is not None and getattr(resp, "status_code", None) == 429:
+        is_rate_limit = True
+
+    if is_rate_limit:
+        # Prefer the server's Retry-After header (seconds; some send a date).
+        retry_after = None
+        if resp is not None:
+            raw = resp.headers.get("retry-after") or resp.headers.get("Retry-After")
+            if raw:
+                try:
+                    retry_after = float(raw)
+                except (TypeError, ValueError):
+                    # HTTP-date form — best-effort parse.
+                    try:
+                        from email.utils import parsedate_to_datetime
+
+                        retry_after = max(
+                            0.0, (parsedate_to_datetime(raw).timestamp() - time.time())
+                        )
+                    except (TypeError, ValueError, OverflowError):
+                        retry_after = None
+        wait = retry_after if retry_after is not None else pause
+        log.warning("rate-limited (429); pausing %.1fs before retry #%d", wait, retry_state.attempt_number)
+        return wait
+
+    # Other transient errors: exponential backoff capped at the rate-limit pause.
+    return min(pause, max(2, 2 ** (retry_state.attempt_number - 1)))
 
 
 def default_model(provider: str) -> str:
@@ -104,7 +160,15 @@ def _chat_json_openai_compatible(system: str, user: str, schema: dict[str, Any],
         },
         temperature=0.1,
     )
-    return json.loads(resp.choices[0].message.content or "{}")
+    content = resp.choices[0].message.content or "{}"
+    # Free OpenAI-compatible models (e.g. OpenRouter free tier) often wrap the
+    # JSON in ```json ... ``` markdown fences despite `strict: True`, and may
+    # prepend stray prose. _extract_json_object tolerates both; falls back to a
+    # raw json.loads for models that return clean JSON (cheapest path).
+    try:
+        return json.loads(content)
+    except json.JSONDecodeError:
+        return _extract_json_object(content)
 
 
 def _embed_openai_compatible(texts: list[str], model: str, base_url: str,
@@ -112,6 +176,20 @@ def _embed_openai_compatible(texts: list[str], model: str, base_url: str,
     client = _openai_compatible_client(base_url, api_key)
     resp = client.embeddings.create(model=model, input=texts)
     return [d.embedding for d in resp.data]
+
+
+def _chat_text_openai_compatible(system: str, user: str, model: str,
+                                 base_url: str, api_key: str) -> str:
+    client = _openai_compatible_client(base_url, api_key)
+    resp = client.chat.completions.create(
+        model=model,
+        messages=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ],
+        temperature=0.4,
+    )
+    return (resp.choices[0].message.content or "").strip()
 
 
 # ---------------------------------------------------------------------------
@@ -268,7 +346,47 @@ def _chat_json_copilot_cli(system: str, user: str, schema: dict[str, Any], model
 # Public dispatch
 # ---------------------------------------------------------------------------
 
-@retry(stop=stop_after_attempt(4), wait=wait_exponential(multiplier=2, min=2, max=30),
+def _stop_after_configured_retries(retry_state) -> bool:
+    """tenacity stop predicate: stop after settings().llm_max_retries attempts."""
+    return retry_state.attempt_number >= settings().llm_max_retries
+
+
+@retry(stop=_stop_after_configured_retries,
+       wait=_retry_after_or_exponential,
+       retry=retry_if_not_exception_type(ValueError))
+def chat_text(system: str, user: str,
+              provider: str | None = None, model: str | None = None) -> str:
+    """Call an LLM and return its plain-text reply (no JSON forcing).
+
+    Used for narrative generation (e.g. the llm-wiki prose layer) where the
+    output is Markdown prose, not a structured record.
+    """
+    s = settings()
+    provider = provider or s.llm_provider
+    if provider not in PROVIDERS:
+        raise ValueError(f"unknown LLM provider {provider!r}; choose one of {PROVIDERS}")
+    model = model or default_model(provider)
+
+    if provider == "openai":
+        return _chat_text_openai_compatible(system, user, model, s.llm_base_url, s.llm_api_key)
+    if provider == "zai":
+        return _chat_text_openai_compatible(system, user, model, s.zai_base_url, s.zai_api_key)
+    if provider == "anthropic":
+        import anthropic  # noqa: WPS433 — lazy like the rest of the module
+
+        client = _anthropic_sdk_client(s.anthropic_api_key, s.anthropic_base_url)
+        resp = client.messages.create(
+            model=model, max_tokens=4096, system=system,
+            messages=[{"role": "user", "content": user}],
+        )
+        return "".join(b.text for b in resp.content if b.type == "text").strip()
+    if provider == "github":
+        raise ValueError("chat_text: the github/copilot provider only supports chat_json")
+    raise AssertionError(provider)  # pragma: no cover — guarded by the check above
+
+
+@retry(stop=_stop_after_configured_retries,
+       wait=_retry_after_or_exponential,
        retry=retry_if_not_exception_type(ValueError))
 def chat_json(system: str, user: str, schema: dict[str, Any],
               provider: str | None = None, model: str | None = None) -> dict[str, Any]:
@@ -294,7 +412,8 @@ def chat_json(system: str, user: str, schema: dict[str, Any],
     raise AssertionError(provider)  # pragma: no cover — guarded by the check above
 
 
-@retry(stop=stop_after_attempt(4), wait=wait_exponential(multiplier=2, min=2, max=30),
+@retry(stop=_stop_after_configured_retries,
+       wait=_retry_after_or_exponential,
        retry=retry_if_not_exception_type(ValueError))
 def embed(texts: list[str], provider: str | None = None, model: str | None = None) -> list[list[float]]:
     if not texts:

@@ -2,6 +2,14 @@
 
 **3 extracted prediction(s)** across 1 channel(s). Consensus: **bullish** (3 bullish / 0 bearish / 0 neutral).
 
+## The debate
+
+The bull case on DBA in this corpus rests entirely with one voice: options strategist [Patrick Ceresna](../People/patrick-ceresna.md), who in mid-June 2026 laid out a defined-risk structure on the agriculture fund. With DBA trading at $26.84 on June 18, he reached for the January 15, 2027 expiration — roughly 211 days out — and recommended buying the $27 strike call for $1.70 while selling the $30 strike call for $0.80, a 27-by-30 bull call spread for a $0.90 net debit ([Patrick Ceresna](../People/patrick-ceresna.md)). He walked through the same trade the same day ([Patrick Ceresna](../People/patrick-ceresna.md)) and again on June 19, restating the buy-$27-call/sell-$30-call spread at the $0.90 net cost ([Patrick Ceresna](../People/patrick-ceresna.md)).
+
+What's notable about the debate is that there isn't much of one. The record shows three bullish calls and zero bearish or neutral takes, but that 3-0 tally overstates the breadth of opinion — all three entries come from a single speaker restating the same position inside a 48-hour window, with no offsetting skeptic and no evidence anyone revised their view. What the structure itself does tell you is the flavor of the bullishness: Ceresna expressed it with capped upside at $30 rather than outright long exposure, a spread that pays off if agriculture rallies but keeps the risk to the $0.90 debit if it doesn't — confidence, but of the hedged, options-practitioner kind rather than a commodities supercycle thesis.
+
+Frankly, the coverage here is thin. One analyst, one week, one trade. Any wiki reader looking for the bear case on DBA — the demand-destruction or record-supply arguments that typically frame agricultural ETF debates — will need sources beyond this corpus, because as of late June 2026 the documented discussion is a single, carefully constructed bull call spread and nothing on the other side.
+
 ## Themes
 
 - [Agriculture & Softs](../Themes/agriculture-food.md)

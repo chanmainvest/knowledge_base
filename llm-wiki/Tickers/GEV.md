@@ -2,6 +2,12 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **bullish** (1 bullish / 0 bearish / 1 neutral).
 
+## The debate
+
+The bull case on GE Vernova, at least as this corpus records it, belongs almost entirely to Chris Semenuk, who made his pitch on June 18, 2026. His argument is that the market is fixing on the wrong number: the most underappreciated component of the business, he argued, "is not that they have an $87 billion dollar backlog" but something further — the quote in the record cuts off mid-sentence at "80 bi…," so the second half of his case isn't fully verifiable here, though the framing suggests a capacity or demand figure he thinks dwarfs the backlog headline ([Chris Semenuk](../People/chris-semenuk.md)). His stronger, more quotable call the same day was blunt: "The next Vernova is Vernova, okay?" — the read being that investors hunting for the next big electrification winner need look no further than the stock itself ([Chris Semenuk](../People/chris-semenuk.md)).
+
+What's conspicuously absent is the other side. The consensus tally shows one bullish, one neutral, zero bearish — but the neutral position is unattributed in the digest, and no bear case, no valuation objection, and no wind-or-gas-segment skeptic appears anywhere in the record. No one in this corpus is documented as having changed their mind on GEV, and the entire timeline of calls collapses to a single day, June 18, 2026. That makes this page less a debate than a monologue with an asterisk: Semenuk's bullishness is on tape, but as of this digest the bear side of the GE Vernova argument simply hasn't shown up to argue.
+
 ## Themes
 
 - [Electrification, Power & Industrials](../Themes/electrification-industrials.md)

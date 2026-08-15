@@ -2,6 +2,16 @@
 
 **8 extracted prediction(s)** across 2 channel(s). Consensus: **bearish** (1 bullish / 3 bearish / 4 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
+## The debate
+
+The recorded debate on silver in this corpus is thin but tilted bearish — a tally of one bullish call against three bearish and four neutral — and the bull case rests almost entirely on one voice. [Jeffrey Kushin](../People/jeffrey-kushin.md) laid it out on June 16, 2026, arguing for a wide trading range before a year-end push: "our expectation is a consolidation between $60 and $90... and then higher prices in the final four months of this year." He is the only participant in the digest with an outright bullish stance on record.
+
+The bear side belongs to [Jeffrey Christian](../People/jeffrey-christian.md), who was consistent across late June. On June 19 he warned that "the potential of a spike below 60 is very high at least for the next two and a half months," while allowing that silver "may continue to move sideways with the possibility of a short-term spike below $60 before prices strengthen later." By June 23 he was explaining why silver was testing support near the low $60s and flagging the darker forecasts circulating in the market: "There are people with 54 and $50 targets." Worth noting the hedge inside his position — Christian is a near-term bear, not a structural one, and his own language has prices strengthening after the flush. In that sense the two named speakers are arguing less about direction than about the floor: Kushin's worst case is the bottom of a $60–$90 range; Christian's is a spike below $60, with $54–$50 targets in play among others.
+
+The tape, at least on timing, went Christian's way. An unattributed remark from July 24 notes that "Silver also recently tested $55" — below the $60 line Christian flagged — though the same voice allowed that silver "may rise with gold in the short term." Two weeks later, on August 6, that unnamed speaker had turned distinctly darker, expecting "another 20, 30, 40% haircut potentially in these during the next reset." That is the closest thing to a change of mind in the corpus, with two caveats: the digest does not attribute these calls to a named person or formally classify their stances, and the word "these" may refer to a broader set of assets than silver alone.
+
+No named participant flipped — Kushin made one call and held it, Christian held his near-term bearishness throughout — but the consensus tally (eight votes) counts more calls than the six itemized here, so the neutral middle is larger than the quoted debate suggests. As recorded, this is a lopsided argument: one bull betting on a $60–$90 base and a fourth-quarter rally, a bear who expected the sub-$60 break and got it within five weeks, and a market that had drifted from the low $60s to $55 by late July.
+
 ## Themes
 
 - [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md)

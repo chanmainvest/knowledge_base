@@ -2,6 +2,14 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 0 neutral).
 
+## The debate
+
+The "debate" around Eaton, at least as captured in this corpus, barely deserves the name: it is a one-man bull case with no recorded opposition. Every tracked call is bullish — two bullish, zero bearish, zero neutral — and both of those come from the same speaker, [Chris Semenuk](../People/chris-semenuk.md), on the same day, June 18, 2026. Nobody in the digest flipped their stance on the stock, and nobody was captured arguing the other side, which means the bear case here has to be inferred rather than quoted.
+
+Semenuk's argument is a pure data-center electrification thesis. Pointing to Eaton's most recent quarter, he flagged that the company "had 240% growth in equipment that they sell into data centers" ([Chris Semenuk](../People/chris-semenuk.md)), and his framing of the franchise is breadth: "you can just go out and buy Eaton, you know, they make everything from the grid straight down to the chip inside the data center" ([Chris Semenuk](../People/chris-semenuk.md)). It's a one-stop exposure argument — grid equipment, power distribution, and in-rack gear all wrapped in a single industrial name — aimed squarely at investors who want AI-capex leverage without picking a hyperscaler.
+
+The honest caveat is that this record is thin to the point of being anecdotal: one speaker, one date, one direction. Whether the absence of bearish voices reflects genuine Wall Street consensus around Eaton's grid-to-chip positioning, or simply gaps in coverage, the digest can't say — and readers should treat the "consensus: bullish" tag accordingly.
+
 ## Themes
 
 - [Electrification, Power & Industrials](../Themes/electrification-industrials.md)

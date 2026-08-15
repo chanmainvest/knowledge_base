@@ -6,6 +6,12 @@
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
+Raoul Pal is a British former hedge fund manager turned macro commentator, and in the past decade one of the most recognizable faces in financial media. He cut his teeth at Goldman Sachs, co-managing the hedge fund sales business in European equities and equity derivatives, then co-managed the GLG Global Macro Fund before retiring from fund management in his mid-30s. Rather than disappearing, he built a second act as a publisher: he founded Global Macro Investor (GMI), a subscription macro research service, and in 2014 co-founded Real Vision, the financial media and education company where he serves as CEO. He hosts the podcast "The Journeyman," is widely known on social media as @RaoulGMI, works largely out of the Cayman Islands, and has spoken openly about his multiple sclerosis diagnosis.
+
+Intellectually, Pal is best understood as a big-picture pessimist about the existing system who converted that pessimism into an aggressive bull case for crypto. His core material is debt cycles, demographics, and what he calls the "Exponential Age" and the "Everything Code" — theses he has popularized arguing that technology-driven compounding is reshaping economies faster than legacy institutions can adapt. That framework made him one of the loudest institutional-finance voices championing Bitcoin, Ethereum, and the broader crypto asset class, a position that defines much of his public profile. "Palvatar," for the record, is an AI-generated avatar of Pal used in Real Vision and related content — a fitting accessory for a man whose brand is built on the exponential thesis.
+
+On the evidentiary record in this corpus, however, Pal's footprint is thin: he appears as a guest on his own show ("Raoul Pal The Journeyman") with a single documented appearance, no tagged bullish, bearish, or neutral stances, and no dated topic timelines. That means the digest offers nothing yet on how his calls may have shifted over time, and no specific market positions can be cited with confidence from this material. Readers should treat the portrait above as biographical context; the dated, citation-backed calls — the substance of a market track record — remain to be captured.
+
 ## At a glance
 
 - **Appearances**: 1 (2026-06-18 → 2026-06-18)

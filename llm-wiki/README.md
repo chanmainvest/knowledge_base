@@ -32,7 +32,7 @@ llm-wiki/
 
 ## Data snapshot at generation time
 
-- Generated: **2026-08-15 06:29 UTC**
+- Generated: **2026-08-15 07:56 UTC**
 - Items in DB: **31,932** (extracted: **228**, pending: **31,701**)
 - Predictions: **420** · Market views: **556**
 - Distinct tickers with calls: **110** · People pages: **53**
@@ -42,7 +42,7 @@ llm-wiki/
 
 1. **Coverage is thin.** The wiki reflects only the items the extraction pipeline has processed so far (a small fraction of the ingested corpus). It will get denser and more accurate as more items are extracted. **Re-run after each scrape/extraction batch.**
 2. **No performance scores.** Predictions carry `score` columns but none are evaluated yet (`n_scored=0`). There is no hit-rate / track-record data — only stated calls.
-3. **People bios are LLM-generated** (default provider: GLM via `zai`) from public knowledge + DB context, and cached. Stances, timelines, shifts and disagreements are strictly DB-derived from extracted quotes.
+3. **The narrative sections are LLM-written** (GLM 5.3) from a digest of the DB facts, with ready-made citation links — they can misread or over-summarise. The tables and timelines below each narrative are the verbatim DB record; bios are LLM-written too. Verify anything load-bearing against the cited source items.
 4. **Themes are keyword-bucketed**, not semantically clustered — approximate by design.
 5. **Quotes are LLM-extracted**, not curated. They can misattribute or trim. Always follow the source-item link to verify.
 

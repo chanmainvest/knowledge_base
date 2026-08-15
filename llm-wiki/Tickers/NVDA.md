@@ -2,6 +2,16 @@
 
 **5 extracted prediction(s)** across 1 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 3 neutral).
 
+## The debate
+
+The recorded debate over Nvidia in this corpus is thin, compressed into essentially one weekend in late June 2026, and lopsided in a telling way: two bullish calls, three neutral, zero outright bearish. The purest bull in the sample is the host of Monetary Matters, who on June 20, 2026 declared "if you had to ask me the name that I'm most excited about right now, I would say Nvidia" — unambiguous enthusiasm, no hedging attached.
+
+The more interesting entry is [Jim Chanos](../People/jim-chanos.md), the veteran short seller, speaking the same day. His stance was logged as bullish, and the quote is a partial one: "I've joked with my clients that you want to be long with the chips produce, not where the chips reside. I think that that's probably still…" The valuation framing alongside it — "Nvidia's at like 15 times on 2027 EPS" — reads as an argument that the multiple on out-year earnings isn't insane. A career bear making even a qualified long-side case about the chip complex is the closest thing this corpus has to a shift in posture, though the record contains no earlier bearish Nvidia call from Chanos to confirm an actual change of mind rather than a one-off remark.
+
+The bear case is essentially vacant, and that's the glaring gap. The nearest thing is [Ed Zitron](../People/ed-zitron.md), a known AI skeptic, on June 21, 2026 framing Nvidia as a ticking clock: "Nvidia's got two, three more earnings calls. if their guidance doesn't make the markets rock hard every three months." Even that is conditional — a deadline on guidance rather than a short thesis — and the corpus tags it as unspecified rather than bearish. The only later data point is an unattributed July 22, 2026 remark that "Nvidia chips have been very highly priced for a long time now... And they haven't come down," which cuts ambiguously: high chip prices that persist are either a customer grievance or evidence of pricing power, depending on your seat.
+
+In short, nobody in this corpus flipped bearish, nobody reversed course, and what's labeled a "debate" is really one enthusiast, one cautious short-seller, and one skeptic with a countdown. Coverage is too thin to treat as a market-wide verdict — the sample is small, mostly single-day, and one quote is truncated mid-sentence.
+
 ## Themes
 
 - [AI & Semiconductors](../Themes/ai-semiconductors.md)

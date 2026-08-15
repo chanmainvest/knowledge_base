@@ -2,6 +2,12 @@
 
 **3 extracted prediction(s)** across 3 channel(s). Consensus: **bearish** (0 bullish / 2 bearish / 1 neutral).
 
+## The debate
+
+Coverage of Meta Platforms in this corpus is thin and one-sided: three calls on record, none of them bullish, for a tabulated consensus of zero bullish, two bearish and one neutral. The bear case rests on two statements delivered within roughly 24 hours of each other in June 2026. On June 19, [何啟聰](../People/person-001.md) flagged that large-cap tech had performed poorly since the start of the year, naming Microsoft and Meta as the representative US examples — a price-action observation rather than a fundamental teardown. A day later, on June 20, the host of Monetary Matters went straight at the story: "Meta's AI strategy makes no sense to me whatsoever and while I'm not short Meta currently, definitely consider me a bear on the stock." That is the sharper of the two calls — a direct attack on Meta's AI spending narrative — though notably hedged in positioning, since the speaker explicitly declines to put a short on despite the conviction.
+
+For now, the bull side of the debate simply does not exist in the record: no speaker in the digest argues for Meta, and nobody has changed their mind in either direction. The only post-June datapoint is an August 13, 2026 remark from an unidentified speaker that the stock was "nearing around that lower weekly implied move" — an options-pricing observation logged as neutral, which hints the market was pricing in a soft week but tells us nothing about anyone's view of the business. The shape of the debate, in other words, is less bull-versus-bear than bear-versus-silence: a momentum-based bear call on June 19, a strategy-skeptic bear call on June 20, and then nothing but a stray line about implied moves. Anyone looking for the bullish counter-case — AI monetization, capex payback, valuation support — will need sources well beyond this digest, and the wiki should be read accordingly.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

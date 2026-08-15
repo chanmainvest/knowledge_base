@@ -2,6 +2,12 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
+## The debate
+
+The debate file on GGO.V is, for now, effectively empty. The corpus holds exactly two records, both logged on 2026-08-07, both attributed to an unnamed speaker, and both carrying no stated position and no quoted language. There are no bullish calls, no bearish calls, and no citable commentary — the "neutral / watch" consensus tag is simply what the system assigns when nothing substantive has been filed, not the residue of analysts actually weighing in and landing in the middle.
+
+That makes GGO.V a genuine blank spot rather than a contested name: no identifiable bull case, no identifiable bear case, and no mind-changes to trace. The only defensible timeline is a single date — 2026-08-07 — on which two anonymous, positionless entries appeared, and nothing since. Until a named commentator attaches an actual view with a quotable rationale, there is nothing here for a reader to lean on, and any bull-or-bear framing would be invention rather than summary.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

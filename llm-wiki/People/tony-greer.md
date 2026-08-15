@@ -6,6 +6,12 @@
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
+Tony Greer is a financial markets analyst and newsletter author best known for The Morning Navigator, a daily macro commentary that tracks momentum, liquidity, and price action across equities, currencies, commodities, and crypto. His pedigree is sell-side trading rather than academia: he spent roughly a decade at Goldman Sachs in the firm's currency and commodities businesses before striking out as an independent researcher. That background shows in how he talks about markets — less narrative, more tape. Greer's approach is fundamentally flows- and momentum-driven; he cares about where liquidity is going and what price action confirms, and he has built his public profile largely through financial media and podcast appearances on CNBC, Real Vision, and a circuit of macro-focused shows.
+
+What Greer argues for, at his core, is discipline over conviction: follow the momentum, respect the liquidity backdrop, and let price action arbitrate between bullish and bearish stories. It is a trader's framework rather than a permabull or permabear ideology, which is part of why he circulates widely across media with very different audiences — his lens travels well because it is not anchored to a single asset-class allegiance.
+
+The record captured here, however, is thin on specifics. Greer appears twice as a guest on The Macro Dirt Podcast, but the digest contains no extracted stances, dated calls, or topic timelines — no documented bullish or bearish positions, and therefore no visible evolution in his views over time. For a wiki page intending to track his strongest calls with dates and citations, the sourcing simply is not there yet; anyone relying on this corpus alone would have his framework and biography, but not his market record.
+
 ## At a glance
 
 - **Appearances**: 2 (2026-06-17 → 2026-06-23)

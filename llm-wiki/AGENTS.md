@@ -35,11 +35,14 @@ uv run python scripts/build_llm_wiki.py [--no-bios]
 
 ## Provenance rules
 
-- Stances, timelines, disagreements and counts are **strictly
-  DB-derived** from `item` / `prediction` / `view_market` /
-  `extraction_run.raw_response->speakers` — never synthesized.
-- Bios are the only LLM-written content and are marked as such on
-  the page.
+- Each page opens with an **LLM-written narrative** (GLM 5.3) generated from a compact digest of DB facts, cached in
+  `scripts/llm_wiki_prose.json` keyed by digest hash (unchanged
+  data is never re-written; `--no-prose` skips generation).
+- The mechanical sections below each narrative — timelines, stance
+  counts, appearance tables, source-item lists — are the
+  **verbatim DB record** and the ground truth to check the prose
+  against.
+- Bios are LLM-written from public knowledge + DB context.
 - Coverage mirrors extraction progress; the Home page states the
   extracted/total fraction. Re-run after each `kb extract run`
   batch.

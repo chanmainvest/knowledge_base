@@ -2,6 +2,14 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
+## The debate
+
+The record on DEO is thin, and it's worth saying so up front: the corpus logs a consensus of neutral / watch, with zero bullish and zero bearish calls against two neutral ones, and not a single dated, fully attributed call in the file. There is no bear case on record, no price targets, and no named analyst staking out a position. Whatever debate exists around Diageo, it hasn't been captured here in any usable form.
+
+The only commentary that made it into the digest comes from an unidentified speaker, undated, and it reads considerably more constructive than the neutral tag would suggest. The speaker is quoted saying "it's starting to inflect" and — in what looks like a transcription artifact — "Dagio takes its next leg higher," the latter presumably meaning Diageo. Both phrases are bullish in plain English: an inflection implies a turn from a downtrend or stagnation, and a "next leg higher" presupposes a prior leg up and expects another. That tension between the two neutral ratings and the only audible voice sounding hopeful is the one genuinely interesting feature of this file — either the neutral label reflects hedged language that wasn't transcribed, or the rating and the rhetoric simply weren't logged consistently.
+
+Beyond that, there's nothing to build a timeline from. No names, no dates, no reversals, no counterarguments. A fair wiki entry has to flag that the shape of the DEO debate is currently unknowable from this material: one anonymous, bullish-sounding data point against a flat consensus, with no timestamps to sequence it. Until identified speakers with dated positions enter the record — bulls arguing a turnaround, bears arguing the malaise persists — this page should be treated as a placeholder rather than a summary of a real argument.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

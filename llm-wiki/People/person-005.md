@@ -6,6 +6,12 @@
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
+梁天卓 is a Hong Kong economist and financial columnist, best known as one-third of the「經濟3.0」(Economics 3.0) column in the Hong Kong Economic Journal (信報)， where he writes alongside 徐家健 and 曾國平 on applied economics, public policy, law and economics, and Hong Kong current affairs. He holds a doctorate in economics and has worked in Hong Kong's financial sector, and he also appears as a commentator and presenter in Cantonese economics media and podcasts. The profile that emerges is less market-timer than policy debater — an economist who takes whatever Hong Kong is arguing about and runs it through the machinery of incentives and institutional design.
+
+That is exactly the register of the strongest call captured in this corpus. In a June 25, 2026 column, he took a position on legalizing autonomous driving, arguing that the more reasonable course is a “middle path”: a limited pilot scheme that approves only vetted systems, runs them in designated areas or on designated routes, obliges operators to submit data on mileage, takeovers, accidents, near misses and complaints, and then expands or narrows the programme's scope periodically according to what the data show ([自駕合法化 有限度先導計劃可取](https://www1.hkej.com/dailynews/investment/article/4439041/%E8%87%AA%E9%A7%95%E5%90%88%E6%B3%95%E5%8C%96+%E6%9C%89%E9%99%90%E5%BA%A6%E5%85%88%E5%B0%8E%E8%A8%88%E5%8A%83%E5%8F%AF%E5%8F%96)). The piece is logged as bullish twice — once under robotics, automation and autonomy, and once under China and Hong Kong equities — but both tags trace back to this single article, so the optimism on record is really an evidence-gated, gradualist stance toward the technology rather than a conventional equity call.
+
+An honest caveat: the coverage here is thin. One dated article, two bullish tags derived from it, and no bearish or neutral positions on record — far too little to chart how his views have moved over time. What the snapshot does establish is method rather than market conviction: demand the data, start small, scale by results. That is classic Economics 3.0 DNA, and it is the through-line readers should expect from him on everything from transport policy onward — though whether he translates that analytical bent into actual directional market calls is something this record simply does not yet show.
+
 ## At a glance
 
 - **Appearances**: 4 (2026-06-17 → 2026-06-27)

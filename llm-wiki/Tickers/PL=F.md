@@ -2,6 +2,14 @@
 
 **3 extracted prediction(s)** across 1 channel(s). Consensus: **bearish** (0 bullish / 3 bearish / 0 neutral).
 
+## The debate
+
+The recorded debate on platinum is barely a debate at all. The digest holds three calls, all from June 2026, all bearish — zero bullish, zero neutral — so if there is a bull case for PL=F out there, it isn't in this corpus. What the record shows instead is a cluster of commentators arriving at the same downside conclusion within a single week, which is notable more for its unanimity than for any clash of views.
+
+The bear case comes in two flavors. [Jeffrey Kushin](../People/jeffrey-kushin.md) framed it as a range call with a downward skew: on June 16, 2026, he said "we expect the price to trade really between $1,600 and $2,000 over the next couple months with a downside." That's a bearish stance dressed as a range — the ceiling caps the upside, and the qualifier leans lower. [Jeffrey Christian](../People/jeffrey-christian.md), the longtime CPM Group precious-metals analyst, was more directly directional, saying on June 19, 2026 that the view is both platinum and its sister metal "may move to lower prices in the next few months." He then sharpened the call on June 23, flagging a concrete level: "1500 is one place where technically oriented traders and investors are looking." The interesting wrinkle is that the two bears don't quite agree on the floor — Kushin's range bottoms at $1,600 while Christian is pointing the technically minded toward $1,500 — a modest but real disagreement about how far the slide goes.
+
+On the question of who changed their mind: nobody, at least not in this record. Christian didn't reverse; he refined, moving from a general "lower prices" call to a specific $1,500 technical target within four days. Kushin made a single appearance. The timeline is compressed — June 16, 19, and 23, 2026, all pointing the same way — so there's no arc of conviction building or breaking, just a one-week chorus. The honest caveat is that this is thin coverage: two speakers, one week, one side of the trade. Any bull narrative for platinum, and any subsequent reversal, would have to come from sources outside this digest.
+
 ## Themes
 
 - [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md)

@@ -2,6 +2,14 @@
 
 **3 extracted prediction(s)** across 2 channel(s). Consensus: **bearish** (0 bullish / 1 bearish / 2 neutral).
 
+## The debate
+
+The recorded debate on Tesla in this corpus is thin, and what exists skews bearish. The only explicit negative call with a name attached comes from [George Noble](../People/george-noble.md), who on June 23, 2026 lumped Tesla in with a short list of short candidates — "I can short Oklahoma or I can short Tesla or I can short Fresh Pet" — treating the stock less as a contested growth story and more as simply a fat target in an expensive market. It is a positioning remark, not a thesis with a price target, but the direction is unambiguous.
+
+The sharpest substantive skepticism came a week earlier from [David Woo](../People/david-woo.md), who on June 15, 2026 pointed at the robotaxi trial in Texas and said it was "literally like creating traffic incidents." Woo attached no rating to the comment, but the substance matters: autonomy is the load-bearing wall of the bull case, and Woo's take is a direct hit on execution there rather than on valuation. Between Noble's short talk and Woo's rollout critique, the bear side at least spans both dimensions of the argument — price and product.
+
+The bull case is barely represented at all. The lone entry is a July 22, 2026 remark — "Tesla's worth multiples of the entire old sort of internal combustion engine producers" — which is the classic relative-valuation argument that Tesla should not be benchmarked against legacy automakers at all. The corpus, however, does not attribute that line to any tracked speaker, so it floats without an owner, and the "bearish" consensus tag (zero bullish, one bearish, two neutral) is really one explicit short call plus two non-committal takes. Notably, nobody in this record changed their mind on Tesla in either direction over the June–July window; the debate, such as it is, never moved.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

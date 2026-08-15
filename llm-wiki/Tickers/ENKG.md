@@ -2,6 +2,12 @@
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
+## The debate
+
+Coverage of ENKG in this corpus is thin to the point of being skeletal, and any honest account of "the debate" has to begin there. The record contains no named bulls, no named bears, and no documented changes of heart — the consensus tracker shows two neutral/watch designations and nothing on either side of the fence. What exists is a single date, July 27, 2026, and two remarks from a speaker the digest leaves unidentified, almost certainly management speaking on a call. That speaker said the company is "targeting about 70% of all of our spending going towards drill and exploration" and, strikingly, that the team is "motivated to get the stock back to that level" — the latter an implicit admission that the shares had fallen from wherever "that level" sits.
+
+Read charitably, those two fragments sketch the only argument available: a capital-allocation bull case resting on heavy drill-and-exploration spend, paired with management's own acknowledgment of a depressed share price they feel pressure to repair. But this is management talking about its own plan, not an analyst taking a stance, and the digest provides no citation links, no speaker attribution, and no prior or subsequent calls to anchor a timeline. Nobody in this corpus turned bearish on ENKG, nobody turned bullish, and nobody reversed course — the honest verdict is that the debate, as documented here, has not yet happened.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._

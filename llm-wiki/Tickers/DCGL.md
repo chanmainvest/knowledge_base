@@ -2,6 +2,14 @@
 
 **4 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 4 neutral).
 
+## The debate
+
+The honest read on DCGL is that there is barely a debate on record yet. The consensus tracker shows neutral/watch with zero bullish and zero bearish calls across four neutral takes, and every quote in the current digest comes from a single, unidentified speaker on July 30, 2026 — one whose framing ("executing on those key things that Jack was speaking to") reads like management narrative, not independent analysis. No citation links accompanied the source material, so the commentary below is attributed by date and role only.
+
+What exists is a management-articulated bull case resting on gold-price arithmetic and a dated catalyst. The speaker argued that at $2,350 gold the asset "becomes a plus 4 billion project," and tied the equity story directly to valuation metrics: an increase in enterprise value per ounce "translates into an increase in share price," with the promise that "we will drive that EV per ounce up" by executing on the operational milestones laid out. The near-term catalyst is specific — a preliminary feasibility study in the fourth quarter of 2026 which, if positive, would also produce a maiden reserve estimate ("if we publish a positive PFS we'll also have a reserve out"). Note that the speaker's own wording is conditional; the reserve depends on the PFS landing positively.
+
+The bear case, such as it is, is simply absent: no skeptics, no valuation pushback, no downgrades, and no one on record who changed their mind in either direction. That one-sidedness is itself informative. Coverage of DCGL is thin, and the neutral/watch posture looks less like genuine disagreement over the asset and more like the market parking itself in wait-and-see mode ahead of the Q4 2026 study. Until that PFS arrives — or slips — the entire debate is a single management thesis awaiting its first real test.
+
 ## Themes
 
 _Not bucketed into any theme (single-name / idiosyncratic)._
