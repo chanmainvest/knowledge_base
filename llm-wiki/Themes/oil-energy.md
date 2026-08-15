@@ -10,6 +10,7 @@ Crude oil (CL=F, RB=F), the Strategic Petroleum Reserve, and broader energy-sect
 |---|---:|
 | [CL=F](../Tickers/CL=F.md) | 33 |
 | [NEE](../Tickers/NEE.md) | 2 |
+| `Energy sector` | 1 |
 | `BZ=F` | 1 |
 | `TLN` | 1 |
 | `CEG` | 1 |

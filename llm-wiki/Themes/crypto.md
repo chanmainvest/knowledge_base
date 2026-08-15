@@ -10,6 +10,7 @@ Bitcoin (BTC-USD) and stablecoin / dollar-peg views. Crosses into the dedollariz
 |---|---:|
 | [BTC-USD](../Tickers/BTC-USD.md) | 12 |
 | `ETH-USD` | 1 |
+| `Neocloud / data center operators and Bitcoin miners turned data center developers` | 1 |
 
 ## Key voices
 

@@ -263,8 +263,14 @@
   `docker compose run --rm kb <cmd>` against the self-contained `kb` image
   (root `Dockerfile`, `kb` service in `docker-compose.yml`). The container
   mounts the host `data/` dir (so scraped content + HKEJ/Patreon/Substack
-  session-cookie files are shared with the local `uv run kb` workflow) and
-  reaches the host Postgres via `POSTGRES_HOST_DOCKER=host.docker.internal`
+  session-cookie files are shared with the local `uv run kb` workflow) — via
+  the `DATA_DIR_HOST`/`LOGS_DIR_HOST` **absolute host paths** in `.env`
+  (`/host_mnt/b/...` Docker-Desktop aliases): a relative `./data` source is
+  resolved by the Docker daemon inside the Docker Desktop VM when Jenkins
+  runs compose from its container, and nightly scrapes silently vanished
+  into an orphan VM dir that way until 2026-08-14 (same rule as
+  `SSH_KEY_DIR`). It reaches the host Postgres via
+  `POSTGRES_HOST_DOCKER=host.docker.internal`
   (the host-side `POSTGRES_HOST` stays `localhost`). It also mounts `~/.ssh`
   read-only for the YouTube SOCKS5 proxy pool. `failFast` is off; login-gated
   stages (HKEJ/Patreon/Substack) are wrapped in `catchError` and downgrade to
@@ -355,19 +361,14 @@ scripts/
                         # stale item.md_path
   build_llm_wiki.py       # regenerate `llm-wiki/` (Karpathy-style synthesized
                         # wiki) from the DB — read-only against Postgres,
-                        # clears and rewrites llm-wiki/; sections: People/
-                        # (interview guests + hosts + solo authors merged
-                        # across shows, opinions per topic over time with
-                        # stance-flip detection, GLM-generated bios cached in
-                        # scripts/llm_wiki_bios.json — `--no-bios` skips),
-                        # Tickers/ (incl. rates/bond-yield backdrop),
-                        # Analysts/, Themes/ (14 keyword buckets, CJK-aware),
-                        # Syntheses/ (opinion shifts, cross-person
-                        # disagreements, global timeline). Re-run after each
-                        # scrape/extract batch to refresh. NOTE: the Mimosa
-                        # write hook flags single-line `text("SELECT …")`
-                        # calls as SQL-injection — keep all inline SQL in the
-                        # multi-line triple-quoted form inside execute().
+                        # clears and rewrites llm-wiki/ (incl. its own
+                        # README.md + AGENTS.md); re-run after each
+                        # scrape/extract batch. Structure, provenance rules
+                        # and section details live in `llm-wiki/AGENTS.md`.
+                        # NOTE: the Mimosa write hook flags single-line
+                        # `text("SELECT …")` calls as SQL-injection — keep
+                        # all inline SQL in the multi-line triple-quoted
+                        # form inside execute().
 ```
 
 ### Data directory structure

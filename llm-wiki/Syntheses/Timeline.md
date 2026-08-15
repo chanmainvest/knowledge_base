@@ -1,6 +1,6 @@
 # Synthesis: Timeline of Calls
 
-Every attributed extracted call (711 events, oldest → newest), grouped by year. Use this to read any topic with the time dimension in view.
+Every attributed extracted call (745 events, oldest → newest), grouped by year. Use this to read any topic with the time dimension in view.
 
 ## 2026
 
@@ -45,6 +45,7 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-14` **Shawn Hackett** ↓ agriculture-food — Right now we have some of the highest concentrations of of of Arabian Peninsula sand in the atmosphere that we've seen since 2002. And 2002…
 - `2026-06-14` **Shawn Hackett** ↑ china-hk-equities — the implications for many so critical food supply items globally um and what it what it even might mean for governments and geopolitics cou…
 - `2026-06-15` **aminvest** ↑ rates-bonds — 除了科技股之外，我也會開始留意走勢轉強的投資銀行股。
+- `2026-06-15` **aminvest** ↑ 金融股 (Financial stocks) — 所以，我也會開始買入金融股。
 - `2026-06-15` **Jeff Snider** → rates-bonds — A rising dollar is not a victory signal. It's a sign of stress.
 - `2026-06-15` **Jeff Snider** ↓ rates-bonds — If the dollar yen exchange rate is not moving in line with rate differentials, then something else must be driving it. And that something e…
 - `2026-06-15` **Jeff Snider** → rates-bonds — It's not automatically dumping treasuries or sell America. It's not proof that the world is rejecting the dollar. It's exactly the opposite.
@@ -85,8 +86,10 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-15` **David Woo** ↓ precious-metals — bearish bearish gold as well. bearish golden so far this short term. There's no doubt.
 - `2026-06-15` **David Woo** ↑ ^IXIC — Since then NASDAQ has added $5 trillion to this market capitalization because people saying Claw Methus is amazing.
 - `2026-06-15` **David Woo** ↓ ^IXIC — I'm short. I mean, I've been short for a while, so it's been very painful
+- `2026-06-15` **David Woo** → Anthropic (Claude/Claude Code) — Microsoft just canceled practically most of their claw co licenses. Okay, because they're trying to get their people to use copilot on GitH…
 - `2026-06-15` **David Woo** ↓ MU — all the chips that Micron are making right now as we speak are are sold out into 28 into 2028 for for forward sales... but once capacity co…
 - `2026-06-15` **David Woo** → TSLA — Tesla's latest robo taxi went into whatever trial in Texas and it was it was literally like creating traffic incidents.
+- `2026-06-15` **David Woo** ↓ software engineering jobs — I think software I think 50% of software engineers going to be gone, you know, within probably three or four years.
 - `2026-06-16` **高天佑** ↑ china-hk-equities — 合肥經濟這麼旺，皆因當地有一批半導體企業，食正人工智能（AI）浪潮
 - `2026-06-16` **高天佑** ↑ china-hk-equities — 長鑫科技今年首季純利達330億元（人民幣．下同），相當於「每日賺3.6億元」，事關該企業屬於全球四家有能力量產高頻記憶體（HBM）的廠商之一
 - `2026-06-16` **高天佑** ↑ macro-indices — 合肥經濟這麼旺，皆因當地有一批半導體企業，食正人工智能（AI）浪潮
@@ -112,6 +115,7 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-16` **Jeffrey Christian** → precious-metals — Gold price outlook and consolidation range
 - `2026-06-16` **Jeffrey Christian** ↓ precious-metals — Platinum and palladium weakness
 - `2026-06-16` **Jeffrey Christian** → SI=F — Silver market update and $60–$90 range
+- `2026-06-16` **Grok (xAI)** → SpaceX — 歷史經驗顯示，此類熱市大pop IPO長期（三年）市場調整後報酬多偏弱，常面臨獲利了結、鎖定期賣壓與均值回歸風險，因此投資人應視其為高波動成長曝險，後續表現將取決於Starlink獲利與Starship執行力，而非首日熱度。
 - `2026-06-16` **陳坤耀** ↓ china-hk-equities — 與新加坡、南韓、台灣等地方比較，我們的R&D（研究開發）投放很少，基礎比較薄弱。這幾年政府在追趕，但是R&D仍僅佔GDP 1.1%至1.2%，還需要加一把勁。
 - `2026-06-16` **Jeffrey Kushin** → precious-metals — Our expectation continues to be that we'll see a volatile sideways consolidation between now and September uh between say $4,000 on the low…
 - `2026-06-16` **Jeffrey Kushin** → precious-metals — Again, our expectation is a consolidation between $60 and $90. A very wide range over the next uh two and a half, three months, and then hi…
@@ -130,6 +134,7 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-17` **高天佑** → china-property — 面對「防走資」形勢，坊間目前有兩種不同意見。
 - `2026-06-17` **aminvest** → GS — Goldman Sachs (GS)我也覺得不俗。只是股價偏高，較難入手。
 - `2026-06-17` **aminvest** ↑ MS — 利申一下，我自己持有Morgan Stanley (MS)的期權好倉。
+- `2026-06-17` **aminvest** ↑ 科技股 (Tech stocks) — 至於科技股，待回調後靠穩，也可以考慮趁低吸納。
 - `2026-06-17` **Jeff Snider** ↓ macro-indices — Pitchbook LCD data showed that software loans in the Morning Star LSTA US leverage loan index were down 4.7% year-to date through May while…
 - `2026-06-17` **Jeff Snider** ↓ macro-indices — If they're protecting liquidity, first of all, they're going to lend less into the real economy. And if they lend less, then private equity…
 - `2026-06-17` **Jeff Snider** ↓ macro-indices — Everything that the Japanese carry traders warned us about in the summer of 2024.
@@ -143,6 +148,8 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-17` **Jeff Snider** ↓ credit-private-credit — Everything that the Japanese carry traders warned us about in the summer of 2024.
 - `2026-06-17` **JD** ↓ rates-bonds — I'm still bearish on the dollar. Um you know, the the thesis is the same. We got Worsche, right? Worsche is going to want to cut rates. I d…
 - `2026-06-17` **JD** ↑ rates-bonds — I like bonds. I like the front end of the yield curve. I like the back end of the yield curve. I like I like the dollar short.
+- `2026-06-17` **JD** ↑ SpaceX — if there if there was one stock that could 5x from here in the top 10 of the S&P, it's probably SpaceX.
+- `2026-06-17` **JD** ↑ SpaceX — I could I could see a scenario where SpaceX does the middle finger chart formation, goes parabolic, and everything else becomes a funding t…
 - `2026-06-17` **施永青** ↑ china-hk-equities — 施老闆已獨排眾議，揚言升幅可達15%
 - `2026-06-17` **施永青** ↓ china-hk-equities — 因為炒家會把樓價推至一個用家負擔不起的水平，繼而妨礙民生。
 - `2026-06-17` **施永青** → china-hk-equities — 穩定地緩緩地隨經濟增長一起同步上升
@@ -153,12 +160,14 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-17` **Tony Greer and Jared Dillian** ↓ rates-bonds — dollar weakness
 - `2026-06-17` **Tony Greer and Jared Dillian** ↓ oil-energy — collapsing oil prices
 - `2026-06-17` **Tony Greer and Jared Dillian** → precious-metals — what gold's recent correction signals for the precious metals sector
+- `2026-06-17` **Tony Greer and Jared Dillian** ↑ SpaceX — whether SpaceX is becoming the ultimate momentum trade as capital rotates across global markets
 - `2026-06-18` **高天佑** ↓ china-hk-equities — 這亦意味着本地零售商、尤其是中小型實體商戶，今後恐將更加難捱，皆因它們很難與財雄勢大的內地巨擘競爭。
 - `2026-06-18` **高天佑** ↓ china-hk-equities — 實體零售業若然更趨蕭條，亦將為失業率、店舖空置率、租金水平、物業估值等帶來更大壓力，並對本港宏觀經濟環境構成挑戰。
 - `2026-06-18` **高天佑** → china-hk-equities — 在此趨勢下，本港消費者於短期內可望成為大贏家，每逢618、雙十一等網購節，以至於平常日子，均將獲得大量電商網購優惠，有利於「慳錢」。
 - `2026-06-18` **高天佑** ↓ macro-indices — 實體零售業若然更趨蕭條，亦將為失業率、店舖空置率、租金水平、物業估值等帶來更大壓力，並對本港宏觀經濟環境構成挑戰。
 - `2026-06-18` **高天佑** ↓ china-property — 實體零售業若然更趨蕭條，亦將為失業率、店舖空置率、租金水平、物業估值等帶來更大壓力，並對本港宏觀經濟環境構成挑戰。
 - `2026-06-18` **aminvest** ↑ rates-bonds — 尤其是現金流強勁的大型科技股，如出現調整，待其企穩後，反而可能是買入機會。
+- `2026-06-18` **aminvest** → Large-cap US tech stocks — 尤其是現金流強勁的大型科技股，如出現調整，待其企穩後，反而可能是買入機會。
 - `2026-06-18` **aminvest** → oil-energy — 總括而言，暫時我不認為美股會大跌。
 - `2026-06-18` **Jeff Snider** ↓ macro-indices — a majority of FOMC participants are now thinking the Fed might have to respond to oil inflation by raising rates
 - `2026-06-18` **Jeff Snider** ↓ macro-indices — If the 2-year remains elevated because of Fed hawkishness while the 10-year refuses to rise, or even drops back down again, that's the mark…
@@ -220,6 +229,8 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-18` **Erik Townsend** ↑ uranium-nuclear — I remain uber duper bullish long long term on uranium, but boy, there's been some upside retracement in the last few days after quite a bit…
 - `2026-06-18` **Erik Townsend** ↑ macro-indices — I remain uber duper bullish long long term on uranium, but boy, there's been some upside retracement in the last few days after quite a bit…
 - `2026-06-18` **Erik Townsend** ↑ china-hk-equities — I do expect that physical shortages, and the realization that this military conflict might not really be over after all, could all lead to…
+- `2026-06-18` **Erik Townsend** → SpaceX IPO restricted shares — if for five out of 10 days during a specified period... the price is above the IPO price, that unlocks 10% of the lockup immediately. So, w…
+- `2026-06-18` **Erik Townsend** ↑ Uranium — So, you know, look for late August, early September as maybe when this market starts to get catch a bid again.
 - `2026-06-18` **Patrick Ceresna** ↓ rates-bonds — The 160 level on the USNE has been uh a rock solid uh overhead resistance where we have seen numerous interventions happen in the past and…
 - `2026-06-18` **Patrick Ceresna** → rates-bonds — Overall, we have not yet actually seen a bullish uh pivot in the trend... I won't rule out the fact that gold may still go and retest some…
 - `2026-06-18` **Patrick Ceresna** → rates-bonds — I think it's very reasonable to assume that the yields at near the 470 will be a a key high, but uh it doesn't make it an immediate opportu…
@@ -259,6 +270,7 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-18` **Patrick Ceresna** ↑ agriculture-food — the bigger opportunity may come later through the knock-on effects on fertilizers, chemicals, and other crop support inputs that were disru…
 - `2026-06-18` **Patrick Ceresna** ↑ JPY=X — here we are quietly crawling above that level. Uh looking like the yen may have a whole new leg down.
 - `2026-06-18` **Patrick Ceresna** ↓ RB=F — This dried gasoline down to 278 a gallon, off more than 10%.
+- `2026-06-18` **Patrick Ceresna** → Uranium stocks — I'm going to still in the process of trying to discover where these uranium stocks are going to start showing bottoming formations.
 - `2026-06-18` **Patrick Ceresna** ↑ ^GSPC — equities rallied on the deescalation with the S&P 500 climbing over 2% to 7420.
 - `2026-06-18` **Brent Johnson** → oil-energy — Now there's a lot of people who already thought we would see oil at 150 bucks or 200 bucks or whatever it is or that we would see gold at 6…
 - `2026-06-18` **Brent Johnson** → oil-energy — Commodity prices over the last year have started to diverge based on where they're traded or where they're used. You can now have a differe…
@@ -363,6 +375,7 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-18` **Chris Semenuk** ↑ FAST — fasteners made by Fastenal
 - `2026-06-18` **Chris Semenuk** ↓ FLR — industrial construction companies like um like, you know, Fluor or Primoris, there's a whole cottage industry of of construction companies…
 - `2026-06-18` **Chris Semenuk** → FTAI — you have to wait 4 years to get a gas turbine from, you know, from Vernova or from Siemens or from, you know, FTAI
+- `2026-06-18` **Chris Semenuk** ↑ GE Vernova — the backlog at Vernova is north of almost $90 billion.
 - `2026-06-18` **Chris Semenuk** ↓ geopolitics-defense — aerospace and defense stocks, they are trading at all-time high valuations.
 - `2026-06-18` **Chris Semenuk** → IDA — if you look at like Idacorp, which is the Idaho utility company... you're now see Micron as a customer. You see Meta as a customer.
 - `2026-06-18` **Chris Semenuk** ↑ IR — uh Ingersoll Rand that makes anything that goes anything that gets moved in a factory
@@ -499,8 +512,13 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-20` **Jim Chanos** → rates-bonds — US economic growth was virtually the same in the decade before the introduction of the internet versus after the internet was introduced. A…
 - `2026-06-20` **Jim Chanos** ↓ rates-bonds — we're focused on uh Jack is what we think are inherently unprofitable business models that are attached to this AI ecosystem where any way…
 - `2026-06-20` **Jim Chanos** → AVGO — Broadcom, after the decline this morning, is at 12 times 2028 EPS.
+- `2026-06-20` **Jim Chanos** ↓ CoreWeave / neo-cloud data center developers — Chanos expresses deep skepticism toward "neo-cloud" data center developers like CoreWeave
 - `2026-06-20` **Jim Chanos** ↓ crypto — we're focused on uh Jack is what we think are inherently unprofitable business models that are attached to this AI ecosystem where any way…
 - `2026-06-20` **Jim Chanos** ↓ LU — we were short Lucent Nortel at that time at MCI
+- `2026-06-20` **Jim Chanos** ↓ Neocloud / data center operators and Bitcoin miners turned data center developers — we would look at things like the Bitcoin miners turn data center developers, even the neo clouds... you still get four, five, six returns o…
+- `2026-06-20` **Jim Chanos** ↓ Nortel — we were short Lucent Nortel at that time at MCI
+- `2026-06-20` **Jim Chanos** ↓ SpaceX (Starlink/launch/xAI businesses, pre-IPO) — I'm not sure it's a great idea to be shorting him because it hasn't worked out for many people over time.
+- `2026-06-20` **Jim Chanos** → Starlink (SpaceX segment) — It's earning about $4 billion right now annually operating. And we think about 25 to 30 billion of invested capital. So it's it's a good bu…
 - `2026-06-20` **Val Zlatev** ↑ ai-semiconductors — Val Zlatev outlines the structural upside for high-demand memory stocks, noting they trade at cheap forward multiples because physical supp…
 - `2026-06-20` **Val Zlatev** ↑ ai-semiconductors — look at head counts over the last three or four years compared to the operating profits of these companies and you will see that the head c…
 - `2026-06-20` **Val Zlatev** → ai-semiconductors — There's probably just as many bears as bulls on the AI argument, which I think is extremely healthy.
@@ -512,6 +530,7 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-20` **Val Zlatev** ↑ electrification-industrials — Technology is the ultimate differentiator in that game... Hence, the value add is in the chips and the wrappers of the chips that go inside…
 - `2026-06-20` **Val Zlatev** → electrification-industrials — If somebody comes up with a new AI architecture, new model, which is not a large language model, which is not a transformer, just a new mod…
 - `2026-06-20` **Val Zlatev** ↓ electrification-industrials — I think there's shorting opportunities on a bunch of component makers that actually sell components to the PC makers or the smartphone make…
+- `2026-06-20` **Val Zlatev** ↑ Memory chip makers (DRAM/NAND, incl. Korean and American producers) — the three big memory producer producers, uh you know, one of which is American, two of which are Korean, their stocks have gone up so much,…
 - `2026-06-20` **Val Zlatev** ↓ precious-metals — These deals where you get granularity on the deals where they actually give you quite a bit are working out penciling out at 7%, 6%, 5%, 8%…
 - `2026-06-20` **George Gammon** → rates-bonds — So this caught the market way offsides, especially the bond market
 - `2026-06-20` **George Gammon** → rates-bonds — Do they really control the interest rate? No, not in my view, just like I didn't control the weather.
@@ -568,10 +587,12 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-21` **Ed Zitron** ↓ electrification-industrials — back in October last year, Broadcom and Open AI said that they were going to do 10 gigawatts of AI data centers together. I don't think Ope…
 - `2026-06-21` **Ed Zitron** ↓ credit-private-credit — these companies are going to need $150 billion within the next 6 to 12 months and also they're going to go public and they're going to have…
 - `2026-06-21` **Ed Zitron** ↓ credit-private-credit — I think they see that and think that that is demand for AI. And what that is is a demand for speculative debt.
+- `2026-06-21` **Ed Zitron** ↓ AI bubble / hyperscaler stocks — Do you think the AI bubble pops this year 2027 or 2028? >> I think 2027's the safe bet.
 - `2026-06-21` **Ed Zitron** ↓ macro-indices — these companies have entered into lease commitments of hundreds of billions of dollars that are going to appear as costs that I don't think…
 - `2026-06-21` **Ed Zitron** → MSFT — Now, $527 million of their sales and marketing costs went through Microsoft.
 - `2026-06-21` **Ed Zitron** → NVDA — Nvidia's got two, three more earnings calls. if their guidance doesn't make the markets rock hard every three months.
 - `2026-06-21` **Ed Zitron** ↓ rates-bonds — But yeah, that number can be manipulated real easy... If you use that times 13 mathematics that's $6.5 billion in annual run rate for a cos…
+- `2026-06-21` **Ed Zitron** ↓ SpaceX — I think 2026 could be possible if SpaceX starts tanking for example. If SpaceX, it's been kind of trundling down.
 - `2026-06-21` **Jeff** ↑ oil-energy — Swiss bond rates are almost back at zero all over again. The critical two-year instrument yielding just a couple of basis points, and it's…
 - `2026-06-21` **Jeff** → oil-energy — Front of the curve goes up... But the long end of the curve was saying, "Wait a minute. Hold on here... growth and inflation expectations n…
 - `2026-06-21` **Jeff** ↑ rates-bonds — Swiss bond rates are almost back at zero all over again. The critical two-year instrument yielding just a couple of basis points, and it's…
@@ -594,9 +615,12 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-21` **Mike Alfred** ↑ BTC-USD — a straight long Bitcoin position, which is really the only position that I've sort of publicly espoused over that period
 - `2026-06-21` **Mike Alfred** ↑ macro-indices — the only thing that that has benefited over the last 3 years in mass is AI. So, like if you look at the S&P 500, it's large companies with…
 - `2026-06-21` **Mike Alfred** ↑ crypto — a straight long Bitcoin position, which is really the only position that I've sort of publicly espoused over that period, and it's it initi…
+- `2026-06-21` **Mike Alfred** ↑ Iron (AI infrastructure company) — I intend to continue holding, right? I can't make any promises to the market, but like it's unlikely I'd be selling anything cuz I don't th…
 - `2026-06-22` **aminvest** → macro-indices — 美股來到關鍵阻力位，究竟要攻，還是要守？今日的走勢相當關鍵。
 - `2026-06-22` **何啟聰** → china-hk-equities — SpaceX未有盈利仍獲追捧，與當下的港股有盈利仍被拋售形成強烈對比
 - `2026-06-22` **何啟聰** ↓ 0981.HK — 港股投資者大概還記得2020年中芯A股上市時，中芯H股（00981）股價即日大跌，要持貨了5年才返家鄉
+- `2026-06-22` **何啟聰** → Rocket Lab — 未來資金，更可能只聚焦在SpaceX及Rocket Lab兩隻較有遠景的太空股上
+- `2026-06-22` **何啟聰** ↓ SpaceX — SpaceX股價連續兩日急跌，一度跌至173美元
 - `2026-06-22` **Jeff Snider** ↓ macro-indices — The stock market is not the economy.
 - `2026-06-22` **Jeff Snider** ↓ macro-indices — Prices go up and they stay up from that point forward.
 - `2026-06-22` **Jeff Snider** ↓ macro-indices — Stocks go up simply because people buy stocks... Some share prices go without any relation to anything else. Valuations and earnings, there…
@@ -629,6 +653,8 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-23` **George Noble** ↑ CL=F — I would bet higher.
 - `2026-06-23` **George Noble** ↓ ^GSPC — The S&P relatively speaking is not of interest to me.
 - `2026-06-23` **George Noble** ↓ crypto — Bitcoin is the Facebook of speculative assets... I think it's just going to go into the sunset I just think it's irrelevant
+- `2026-06-23` **George Noble** ↑ SpaceX — I'm a buyer of of SpaceX puts big time. That being said, it may go to 300 before it goes to 50.
+- `2026-06-23` **George Noble** ↓ SpaceX — you may be able to short SpaceX at 250. I have no idea.
 - `2026-06-23` **George Noble** ↓ BTC-USD — Bitcoin is the Facebook of speculative assets... I think it's just going to go into the sunset I just think it's irrelevant
 - `2026-06-23` **George Noble** ↓ DX-Y.NYB — Pair of twos no opinion on the dollar I actually think it goes lower if you must know
 - `2026-06-23` **George Noble** ↓ FRPT — I can short Oklahoma or I can short Tesla or I can short Fresh Pet.
@@ -637,13 +663,19 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-23` **George Noble** ↑ HG=F — Higher. I mean, you look at all the numbers, you know, doomberg and everything, all the rest and the supply demand higher.
 - `2026-06-23` **George Noble** ↑ SSRM — I think SSRM it's 3132 wherever it is today. I think that stock can double over the next month or next year, excuse me, next month... I thi…
 - `2026-06-23` **George Noble** ↓ TSLA — I can short Oklahoma or I can short Tesla or I can short Fresh Pet.
+- `2026-06-23` **George Noble** ↓ Tesla — I can short Oklahoma or I can short Tesla or I can short Fresh Pet.
 - `2026-06-23` **George Noble** ↑ ^TNX — So, so we so game on this is to JD. I'm higher.
 - `2026-06-23` **JD** ↓ rates-bonds — What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even…
 - `2026-06-23` **JD** ↓ rates-bonds — I actually think this could be a false breakout in the dollar. I'm very bearish.
+- `2026-06-23` **JD** ↑ SpaceX — if there was any stock that had a chance of going to a 10 trillion market cap, it would be SpaceX. And I still believe that.
+- `2026-06-23` **JD** ↑ Bonds — I'm putting it all in bonds.
+- `2026-06-23` **JD** → Brazil — I'm keeping Brazil.
 - `2026-06-23` **JD** ↓ macro-indices — the S&P is now 22% semiconductors, all-time high... I am I have a strong opinion on the index. I'm very bearish on the index.
 - `2026-06-23` **JD** ↑ CL=F — I'm actually I'm with you guys.
 - `2026-06-23` **JD** ↓ DX-Y.NYB — I actually think this could be a false breakout in the dollar. I'm very bearish.
+- `2026-06-23` **JD** → Energy sector — I'm keeping energy.
 - `2026-06-23` **JD** ↑ oil-energy — Stochastics are a nine right now. So that's as oversold as it gets on stochastics. RSI 29. Usually below 30, you got to be looking to buy s…
+- `2026-06-23` **JD** → Small cap value — I'm keeping small cap value.
 - `2026-06-23` **JD** ↓ ^TNX — Oh, yeah. I'm definitely lower.
 - `2026-06-23` **Tony** ↑ CL=F — I'm a buyer down here of oil as well.
 - `2026-06-23` **Tony** ↑ oil-energy — I'm a buyer down here of oil as well.
@@ -679,6 +711,8 @@ Every attributed extracted call (711 events, oldest → newest), grouped by year
 - `2026-06-24` **高天佑** ↓ china-property — 自從2021年內房市場爆煲，全國房價累瀉三成以上
 - `2026-06-24` **aminvest** ↓ SPCX — 如果你覺得 SPCX 跌穿 150 元就已經很抵買，我想說，這個想法有點天真。
 - `2026-06-24` **aminvest** → SPCX — SPCX 要跌至什麼價格，Elon Musk 才會失去首富地位？AI 給我的答案是 17.61 元。
+- `2026-06-24` **aminvest** → US stock market (general) — 所以昨晚我也說過，我已減倉至五成左右。
+- `2026-06-24` **aminvest** ↑ US stock market call options — 如果我見到美股重新出現上升動力，我就會在五成持股的基礎上，再買入認購期權。
 - `2026-06-25` **高天佑** ↓ china-hk-equities — 環球股市動盪，美國大批人工智能（AI）龍頭股周二暴跌逾10%，南韓股市當日亦急挫9.99%，連帶港股也受拖累，創出逾一年新低。
 - `2026-06-25` **梁天卓** ↑ china-hk-equities — 較合理的是中間路線：有限度先導計劃，只批准通過審核的系統，在指定地區或路線試行，要求營辦者提交里程、接管、事故、近失事故和投訴資料，再按數據定期擴大或收窄範圍。
 - `2026-06-25` **梁天卓** ↑ robotics-autonomy — 較合理的是中間路線：有限度先導計劃，只批准通過審核的系統，在指定地區或路線試行，要求營辦者提交里程、接管、事故、近失事故和投訴資料，再按數據定期擴大或收窄範圍。

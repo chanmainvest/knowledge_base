@@ -9,8 +9,8 @@ _Bio LLM-generated from public knowledge + this DB's context — verify before r
 - **Appearances**: 0
 - **Shows**: 
 - **Extracted calls**: 1 predictions, 5 market views
-- **Topics with opinions**: 3
-- **Stance split**: 1 bullish / 2 bearish / 1 neutral
+- **Topics with opinions**: 4
+- **Stance split**: 2 bullish / 2 bearish / 1 neutral
 
 ## Opinions by topic, over time
 
@@ -29,12 +29,17 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 - `2026-06-17` → neutral — what gold's recent correction signals for the precious metals sector
 
+### [SpaceX](../Tickers/spacex.md) — now **bullish** (1 call(s))
+
+- `2026-06-17` ↑ bullish — whether SpaceX is becoming the ultimate momentum trade as capital rotates across global markets
+
 ## Where others disagree
 
 Topics where this person's current stance conflicts with another person's:
 
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [Oil & Energy](../Themes/oil-energy.md) — opposite: [George Noble](../People/george-noble.md), [JD](../People/jd.md), [Tony](../People/tony.md), [Erik Townsend](../People/erik-townsend.md), [David Woo](../People/david-woo.md)
+- [SpaceX](../Tickers/spacex.md) — opposite: [何啟聰](../People/person-001.md), [George Noble](../People/george-noble.md), [Ed Zitron](../People/ed-zitron.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

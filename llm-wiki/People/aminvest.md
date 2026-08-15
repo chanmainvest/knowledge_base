@@ -11,8 +11,8 @@ _Bio LLM-generated from public knowledge + this DB's context — verify before r
 - **Appearances**: 11 (2026-06-13 → 2026-06-25)
 - **Shows**: aminvest
 - **Extracted calls**: 10 predictions, 26 market views
-- **Topics with opinions**: 10, **1 stance flip(s)** ⚠️
-- **Stance split**: 5 bullish / 6 bearish / 4 neutral
+- **Topics with opinions**: 15, **1 stance flip(s)** ⚠️
+- **Stance split**: 8 bullish / 6 bearish / 6 neutral
 
 ## Appearances
 
@@ -67,6 +67,10 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 - `2026-06-17` → neutral — Goldman Sachs (GS)我也覺得不俗。只是股價偏高，較難入手。
 
+### `Large-cap US tech stocks` — now **neutral** (1 call(s))
+
+- `2026-06-18` → neutral — 尤其是現金流強勁的大型科技股，如出現調整，待其企穩後，反而可能是買入機會。
+
 ### `MS` — now **bullish** (1 call(s))
 
 - `2026-06-17` ↑ bullish — 利申一下，我自己持有Morgan Stanley (MS)的期權好倉。
@@ -78,6 +82,22 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 ### [Oil & Energy](../Themes/oil-energy.md) — now **neutral** (1 call(s))
 
 - `2026-06-18` → neutral — 總括而言，暫時我不認為美股會大跌。
+
+### `US stock market (general)` — now **neutral** (1 call(s))
+
+- `2026-06-24` → neutral — 所以昨晚我也說過，我已減倉至五成左右。
+
+### `US stock market call options` — now **bullish** (1 call(s))
+
+- `2026-06-24` ↑ bullish — 如果我見到美股重新出現上升動力，我就會在五成持股的基礎上，再買入認購期權。
+
+### `科技股 (Tech stocks)` — now **bullish** (1 call(s))
+
+- `2026-06-17` ↑ bullish — 至於科技股，待回調後靠穩，也可以考慮趁低吸納。
+
+### `金融股 (Financial stocks)` — now **bullish** (1 call(s))
+
+- `2026-06-15` ↑ bullish — 所以，我也會開始買入金融股。
 
 ## Opinion shifts
 

@@ -28,9 +28,10 @@ _No URL / bio in DB channel metadata._
 - [DBA](../Tickers/DBA.md) (3)
 - [DX-Y.NYB](../Tickers/DX-Y.NYB.md) (2)
 - [USDJPY=X](../Tickers/USDJPY=X.md) (1)
+- `Uranium stocks` (1)
+- `Uranium` (1)
+- `SpaceX IPO restricted shares` (1)
 - [JPY=X](../Tickers/JPY=X.md) (1)
-- [^GSPC](../Tickers/^GSPC.md) (1)
-- `RB=F` (1)
 
 ## Stance distribution (predictions)
 

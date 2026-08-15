@@ -24,6 +24,7 @@ _No URL / bio in DB channel metadata._
 - [BTC-USD](../Tickers/BTC-USD.md) (2)
 - [IREN](../Tickers/IREN.md) (2)
 - [^GSPC](../Tickers/^GSPC.md) (1)
+- `Iron (AI infrastructure company)` (1)
 
 ## Stance distribution (predictions)
 
@@ -44,7 +45,7 @@ _No URL / bio in DB channel metadata._
 
 - [BTC-USD](../Tickers/BTC-USD.md): [Why This Bull Market May Still Have Room to Run With Caleb Franzen & Kris Bullo…](https://www.youtube.com/watch?v=hzD3kSL_haE) — 2026-07-26, Real Vision: "any material dips at the index level for the S&P 500, for the equity market as a whole, even for something like Bitcoin, is just an opportunity to produce a higher low"
 - [^GSPC](../Tickers/^GSPC.md): [Why This Bull Market May Still Have Room to Run With Caleb Franzen & Kris Bullo…](https://www.youtube.com/watch?v=hzD3kSL_haE) — 2026-07-26, Real Vision: "any material dips at the index level for the S&P 500, for the equity market as a whole, even for something like Bitcoin, is just an opportunity to produce a higher low"
-- `(no ticker)`: [The Hidden AI Trade: Land, Power, & Compute \| With Mike Alfred](https://www.youtube.com/watch?v=-p3DhlY2TEk) — 2026-06-21, [Mike Alfred](../People/mike-alfred.md): "I intend to continue holding, right? I can't make any promises to the market, but like it's unlikely I'd be selling anything cuz I don't think we're anywhere near fundamental value yet."
+- `Iron (AI infrastructure company)`: [The Hidden AI Trade: Land, Power, & Compute \| With Mike Alfred](https://www.youtube.com/watch?v=-p3DhlY2TEk) — 2026-06-21, [Mike Alfred](../People/mike-alfred.md): "I intend to continue holding, right? I can't make any promises to the market, but like it's unlikely I'd be selling anything cuz I don't think we're anywhere near fundamental value yet."
 - [BTC-USD](../Tickers/BTC-USD.md): [The Hidden AI Trade: Land, Power, & Compute \| With Mike Alfred](https://www.youtube.com/watch?v=-p3DhlY2TEk) — 2026-06-21, [Mike Alfred](../People/mike-alfred.md): "a straight long Bitcoin position, which is really the only position that I've sort of publicly espoused over that period"
 - [IREN](../Tickers/IREN.md): [The Hidden AI Trade: Land, Power, & Compute \| With Mike Alfred](https://www.youtube.com/watch?v=-p3DhlY2TEk) — 2026-06-21, [Mike Alfred](../People/mike-alfred.md): "I'm on the board, so I can't tell you give you advice to buy it, and I certainly don't know any specific reason why it would do that, but I just modeling the demand for for AI compute in the coming years, I think anybod…"
 - [IREN](../Tickers/IREN.md): [The Hidden AI Trade: Land, Power, & Compute \| With Mike Alfred](https://www.youtube.com/watch?v=-p3DhlY2TEk) — 2026-06-21, [Mike Alfred](../People/mike-alfred.md): "I've never sold a share of Iron, even though it's gone from 28 to 1 to 75 to 28 to to 60."

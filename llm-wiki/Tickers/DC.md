@@ -1,4 +1,4 @@
-# DC — DC
+# DC
 
 **6 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 6 neutral).
 

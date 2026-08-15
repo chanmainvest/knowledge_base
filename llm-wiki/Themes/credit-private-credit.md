@@ -6,7 +6,9 @@ Credit-cycle views: spreads, private credit / direct lending, BDCs, structured c
 
 ## Constituent tickers
 
-_No tickered predictions fall in this theme yet (signal comes from market-view asset_class text only)._
+| Ticker | Mentions |
+|---|---:|
+| `Apollo Debt Solutions (ADS) non-traded BDC` | 1 |
 
 ## Key voices
 

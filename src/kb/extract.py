@@ -343,6 +343,11 @@ def _persist(run_id: int, item_id: int, item_row, agg: dict) -> None:
         conn.execute(text("DELETE FROM view_market WHERE extraction_run_id=:r"), {"r": run_id})
         conn.execute(text("DELETE FROM prediction  WHERE extraction_run_id=:r"), {"r": run_id})
         for v in agg.get("market_views", []):
+            # Free/smaller models occasionally emit a bare string instead of an
+            # object in the array; skip malformed entries rather than aborting
+            # the whole item's extraction.
+            if not isinstance(v, dict):
+                continue
             conn.execute(text("""
               INSERT INTO view_market(item_id, extraction_run_id, speaker, asset_class, region,
                                       direction, horizon, confidence, rationale, quote)
@@ -353,7 +358,16 @@ def _persist(run_id: int, item_id: int, item_row, agg: dict) -> None:
                    "ho": v.get("horizon"), "co": v.get("confidence"),
                    "ra": v.get("rationale"), "qu": v.get("quote")})
         for p in agg.get("predictions", []):
+            if not isinstance(p, dict):
+                continue
             tk = (p.get("ticker") or "").strip().upper() or None
+            if tk and not re.fullmatch(r"[A-Z0-9^.=:\-]{1,12}(\.[A-Z]{1,4})?", tk):
+                # Not a Yahoo-style symbol — an asset/company-name fragment
+                # the LLM put in the ticker field (e.g. "PAN MINE"). Keep the
+                # text as the asset name; don't pollute the ticker column.
+                if not (p.get("asset_name") or "").strip():
+                    p["asset_name"] = tk.title()
+                tk = None
             conn.execute(text("""
               INSERT INTO prediction(item_id, extraction_run_id, speaker, ticker, asset_name, action,
                                      direction, target_price, stop_price, timeframe,
@@ -366,6 +380,8 @@ def _persist(run_id: int, item_id: int, item_row, agg: dict) -> None:
                    "tf": p.get("timeframe"), "qu": p.get("quote"),
                    "ma": item_row["published_at"]})
         for e in agg.get("entities", []):
+            if not isinstance(e, dict):
+                continue
             kind = e.get("kind") or "theme"
             name = (e.get("name") or "").strip()
             if not name:

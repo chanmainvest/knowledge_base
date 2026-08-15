@@ -10,7 +10,7 @@ Calls on the four precious metals — dominated by gold (GC=F), with silver (SI=
 |---|---:|
 | [GC=F](../Tickers/GC=F.md) | 39 |
 | [SI=F](../Tickers/SI=F.md) | 8 |
-| [GOLD ROCK MINE](../Tickers/GOLD ROCK MINE.md) | 3 |
+| [Gold Rock Mine](../Tickers/gold-rock-mine.md) | 3 |
 | [PA=F](../Tickers/PA=F.md) | 3 |
 | [PL=F](../Tickers/PL=F.md) | 3 |
 

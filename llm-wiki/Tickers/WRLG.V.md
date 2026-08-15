@@ -1,4 +1,4 @@
-# WRLG.V — WRLG.V
+# WRLG.V
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 

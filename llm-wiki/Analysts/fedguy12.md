@@ -23,6 +23,7 @@ _No URL / bio in DB channel metadata._
 - `BZ=F` (1)
 - [GC=F](../Tickers/GC=F.md) (1)
 - `^KS11` (1)
+- [SpaceX](../Tickers/spacex.md) (1)
 
 ## Stance distribution (predictions)
 
@@ -46,7 +47,7 @@ _No URL / bio in DB channel metadata._
 - `BZ=F`: [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80) — 2026-06-20, [Joseph](../People/joseph.md): "if you look at spot oil prices, they've absolutely plummeted. So, you can see spot Brent all the way down."
 - [GC=F](../Tickers/GC=F.md): [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — 2026-06-17, Guest analyst: "Gold sold off pretty significantly, precious metals."
 - `^KS11`: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — 2026-06-17, Guest analyst: "the KOSPI basically doubled this year."
-- `(no ticker)`: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — 2026-06-17, Guest analyst: "In the coming months, you'll have lockups unlock, and then you'll have the people sell... obviously, the first chance you have a to sell, you're going to be dumping that."
+- [SpaceX](../Tickers/spacex.md): [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — 2026-06-17, Guest analyst: "In the coming months, you'll have lockups unlock, and then you'll have the people sell... obviously, the first chance you have a to sell, you're going to be dumping that."
 
 ## Recent market views
 

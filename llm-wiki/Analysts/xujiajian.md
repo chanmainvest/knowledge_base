@@ -19,6 +19,10 @@
 - [Grok (xAI)](../People/grok-xai.md) — 1 appearance(s) as guest
 - [克魯明 (Paul Krugman)](../People/paul-krugman.md) — 1 appearance(s) as guest
 
+**Most-called tickers:**
+
+- [SpaceX](../Tickers/spacex.md) (2)
+
 ## Stance distribution (predictions)
 
 | Stance | Count |
@@ -38,8 +42,8 @@
 
 ## Recent notable calls
 
-- `(no ticker)`: [SpaceX市值一飛沖天 諾獎得主狠批龐氏騙局](https://www.master-insight.com/article/48758) — 2026-06-16, [Grok (xAI)](../People/grok-xai.md): "歷史經驗顯示，此類熱市大pop IPO長期（三年）市場調整後報酬多偏弱，常面臨獲利了結、鎖定期賣壓與均值回歸風險，因此投資人應視其為高波動成長曝險，後續表現將取決於Starlink獲利與Starship執行力，而非首日熱度。"
-- `(no ticker)`: [SpaceX市值一飛沖天 諾獎得主狠批龐氏騙局](https://www.master-insight.com/article/48758) — 2026-06-16, 作者 (Author): "SpaceX 未來幾年的股價不宜過分看高，AI泡沫一旦爆破更會首當其衝。長遠來說，我卻是看好的。"
+- [SpaceX](../Tickers/spacex.md): [SpaceX市值一飛沖天 諾獎得主狠批龐氏騙局](https://www.master-insight.com/article/48758) — 2026-06-16, [Grok (xAI)](../People/grok-xai.md): "歷史經驗顯示，此類熱市大pop IPO長期（三年）市場調整後報酬多偏弱，常面臨獲利了結、鎖定期賣壓與均值回歸風險，因此投資人應視其為高波動成長曝險，後續表現將取決於Starlink獲利與Starship執行力，而非首日熱度。"
+- [SpaceX](../Tickers/spacex.md): [SpaceX市值一飛沖天 諾獎得主狠批龐氏騙局](https://www.master-insight.com/article/48758) — 2026-06-16, 作者 (Author): "SpaceX 未來幾年的股價不宜過分看高，AI泡沫一旦爆破更會首當其衝。長遠來說，我卻是看好的。"
 
 ## Recent market views
 

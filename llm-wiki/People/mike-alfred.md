@@ -11,8 +11,8 @@ _Bio LLM-generated from public knowledge + this DB's context — verify before r
 - **Appearances**: 1 (2026-06-21 → 2026-06-21)
 - **Shows**: Real Vision
 - **Extracted calls**: 4 predictions, 6 market views
-- **Topics with opinions**: 6
-- **Stance split**: 11 bullish / 0 bearish / 2 neutral
+- **Topics with opinions**: 7
+- **Stance split**: 12 bullish / 0 bearish / 2 neutral
 
 ## Appearances
 
@@ -54,6 +54,10 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 ### [Crypto & Stablecoins](../Themes/crypto.md) — now **bullish** (1 call(s))
 
 - `2026-06-21` ↑ bullish — a straight long Bitcoin position, which is really the only position that I've sort of publicly espoused over that period, and it's it initially outperformed a lot of equity positi…
+
+### `Iron (AI infrastructure company)` — now **bullish** (1 call(s))
+
+- `2026-06-21` ↑ bullish — I intend to continue holding, right? I can't make any promises to the market, but like it's unlikely I'd be selling anything cuz I don't think we're anywhere near fundamental valu…
 
 ## Where others disagree
 

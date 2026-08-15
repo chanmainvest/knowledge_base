@@ -1,4 +1,4 @@
-# AMZN — AMZN
+# AMZN
 
 **2 extracted prediction(s)** across 2 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 

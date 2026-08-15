@@ -8,6 +8,8 @@ The nuclear renaissance: uranium equities, SMR / OKLO and data-center baseload p
 
 | Ticker | Mentions |
 |---|---:|
+| `Uranium stocks` | 1 |
+| `Uranium` | 1 |
 | `SMR` | 1 |
 | `OKLO` | 1 |
 

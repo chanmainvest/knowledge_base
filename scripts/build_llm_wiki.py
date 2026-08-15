@@ -565,12 +565,35 @@ def fetch_all() -> dict[str, Any]:
 # Derived groupings
 # ---------------------------------------------------------------------------
 
+# A valid Yahoo-style symbol (used to decide whether a prediction's topic
+# page is keyed by ticker or by asset/company name).
+SYMBOL_RE = re.compile(r"^[A-Z0-9^.=:\-]{1,12}(\.[A-Z]{1,4})?$")
+
+
+def _topic_key(p: dict) -> str | None:
+    """Page key for a prediction row: the Yahoo symbol when the ticker is
+    symbol-like, otherwise the asset/company name (LLMs sometimes emit
+    asset-name fragments like 'PAN MINE' into the ticker field; the extract
+    pipeline nulls those tickers, so name-keyed grouping picks them up)."""
+    tk = (p.get("ticker") or "").strip().upper()
+    if tk and SYMBOL_RE.match(tk):
+        return tk
+    name = (p.get("asset_name") or tk or "").strip()
+    return name or None
+
+
+def topic_page_file(key: str) -> str:
+    """Filename (without .md) for a topic page: symbols are used as-is
+    (keeps existing pages like ^TNX.md stable), names are slugified."""
+    return key if SYMBOL_RE.match(key) else slugify(key)
+
+
 def group_predictions_by_ticker(preds: list[dict]) -> dict[str, list[dict]]:
     g: dict[str, list[dict]] = defaultdict(list)
     for p in preds:
-        tk = (p.get("ticker") or "").strip().upper()
-        if tk:
-            g[tk].append(p)
+        k = _topic_key(p)
+        if k:
+            g[k].append(p)
     return g
 
 
@@ -894,7 +917,7 @@ def person_topics(person: dict) -> list[dict]:
             "key": key, "label": label, "is_ticker": is_ticker, "events": []})
 
     for p in person["preds"]:
-        tk = (p.get("ticker") or "").strip().upper()
+        tk = _topic_key(p)
         if not tk:
             continue
         ev = _pred_event(p)
@@ -952,11 +975,12 @@ def build_topic_matrix() -> dict[str, dict]:
 
 def topic_link(path: Path, topic: dict) -> str:
     if topic["is_ticker"]:
-        # only link tickers that actually have their own page (>= threshold
+        # only link topics that actually have their own page (>= threshold
         # predictions); otherwise render as inline code
         n = len(group_predictions_by_ticker(DATA["preds"]).get(topic["key"], []))
         if n >= MIN_TICKER_MENTIONS:
-            return rel_link(path, f"Tickers/{topic['key']}", topic["key"])
+            return rel_link(path, f"Tickers/{topic_page_file(topic['key'])}",
+                            topic["key"])
         return f"`{topic['key']}`"
     return rel_link(path, f"Themes/{topic['key']}", topic["label"])
 
@@ -1121,7 +1145,7 @@ def render_home(inv: dict, people_counts: dict[str, int]) -> Path:
     top_tk = sorted(by_tk.items(), key=lambda kv: len(kv[1]), reverse=True)[:5]
     for tk, plist in top_tk:
         if len(plist) >= MIN_TICKER_MENTIONS:
-            lines.append(f"- [Tickers/{tk}](Tickers/{tk}.md) — "
+            lines.append(f"- [Tickers/{topic_page_file(tk)}](Tickers/{topic_page_file(tk)}.md) — "
                          f"{len(plist)} analyst mentions")
     lines += [
         "",
@@ -1177,7 +1201,10 @@ def _rates_backdrop(path: Path, ticker: str, limit: int = 6) -> list[str]:
 def render_ticker(ticker: str, plist: list[dict]) -> Path | None:
     if len(plist) < MIN_TICKER_MENTIONS:
         return None
+    is_symbol = bool(SYMBOL_RE.match(ticker))
     asset_name = next((p.get("asset_name") for p in plist if p.get("asset_name")), ticker)
+    heading = (f"# {ticker} — {md_escape(asset_name)}" if is_symbol
+               and asset_name != ticker else f"# {md_escape(asset_name)}")
     stances = [stance(p.get("action"), p.get("direction")) for p in plist]
     n_bull = sum(1 for s in stances if s == "bullish")
     n_bear = sum(1 for s in stances if s == "bearish")
@@ -1198,10 +1225,10 @@ def render_ticker(ticker: str, plist: list[dict]) -> Path | None:
     channels = sorted({(p.get("channel_handle"), p.get("channel_name"))
                        for p in plist if p.get("channel_handle")})
 
-    rel = f"Tickers/{ticker}.md"
+    rel = f"Tickers/{topic_page_file(ticker)}.md"
     path = WIKI_DIR / rel
     lines = [
-        f"# {ticker} — {md_escape(asset_name)}",
+        heading,
         "",
         f"**{len(plist)} extracted prediction(s)** across "
         f"{len(channels)} channel(s). Consensus: **{consensus}** "
@@ -1306,7 +1333,7 @@ def render_analyst(a: dict) -> Path:
     items = DATA["channel_items"].get(cid, [])
 
     # coverage: tickers they call most
-    tk_counter = Counter((p.get("ticker") for p in preds if p.get("ticker")))
+    tk_counter = Counter((k for k in (_topic_key(p) for p in preds) if k))
     top_tickers = tk_counter.most_common(10)
     stances = [stance(p.get("action"), p.get("direction")) for p in preds]
     n_bull = sum(1 for s in stances if s == "bullish")
@@ -1363,7 +1390,7 @@ def render_analyst(a: dict) -> Path:
     if top_tickers:
         lines += ["**Most-called tickers:**", ""]
         for tk, n in top_tickers:
-            ticker_link = (rel_link(path, f"Tickers/{tk}", tk)
+            ticker_link = (rel_link(path, f"Tickers/{topic_page_file(tk)}", tk)
                            if tk in group_predictions_by_ticker(DATA["preds"])
                            and len(group_predictions_by_ticker(DATA["preds"])[tk]) >= MIN_TICKER_MENTIONS
                            else f"`{tk}`")
@@ -1393,8 +1420,8 @@ def render_analyst(a: dict) -> Path:
     if preds:
         lines += ["## Recent notable calls", ""]
         for p in preds[:8]:
-            tk = p.get("ticker") or "(no ticker)"
-            tk_link = (rel_link(path, f"Tickers/{tk}", tk)
+            tk = _topic_key(p) or "(no ticker)"
+            tk_link = (rel_link(path, f"Tickers/{topic_page_file(tk)}", tk)
                        if tk in group_predictions_by_ticker(DATA["preds"])
                        and len(group_predictions_by_ticker(DATA["preds"])[tk]) >= MIN_TICKER_MENTIONS
                        else f"`{tk}`")
@@ -1597,7 +1624,7 @@ def render_theme(theme: dict) -> Path:
     views = views_for_theme(slug)
 
     # constituent tickers (from preds)
-    tk_counter = Counter((p.get("ticker") for p in preds if p.get("ticker")))
+    tk_counter = Counter((k for k in (_topic_key(p) for p in preds) if k))
     tickers = tk_counter.most_common()
 
     # key voices: people with the most events in this theme
@@ -1627,7 +1654,7 @@ def render_theme(theme: dict) -> Path:
         for tk, n in tickers:
             plist = group_predictions_by_ticker(DATA["preds"]).get(tk, [])
             if len(plist) >= MIN_TICKER_MENTIONS:
-                link = rel_link(path, f"Tickers/{tk}", tk)
+                link = rel_link(path, f"Tickers/{topic_page_file(tk)}", tk)
             else:
                 link = f"`{tk}`"
             lines.append(f"| {link} | {n} |")
@@ -1867,6 +1894,7 @@ def render_readme(inv: dict, counts: dict[str, int]) -> Path:
         "  Home.md             # overview + DB stats + caveats + marquee pages",
         "  _Index.md           # alphabetical index",
         "  README.md           # this file",
+        "  AGENTS.md           # agent notes (also generated — don't hand-edit)",
         f"  People/    ({counts.get('People',0)} pages)   # one per person (guests, hosts,",
         "                        #   solo authors merged across shows) — opinions",
         "                        #   per topic over time, flips flagged, LLM bios",
@@ -1925,6 +1953,63 @@ def render_readme(inv: dict, counts: dict[str, int]) -> Path:
     return write_page("README.md", "\n".join(lines))
 
 
+def render_agents() -> Path:
+    """Agent-facing notes for the generated tree (rendered each run so it
+    survives the directory wipe, like README.md)."""
+    lines = [
+        "# llm-wiki — agent notes",
+        "",
+        "**This whole directory is generated.** Do not hand-edit pages —",
+        "every file is rewritten by `scripts/build_llm_wiki.py`, which",
+        "clears the tree first. To change anything, change the script (or",
+        "the DB it reads) and re-run:",
+        "",
+        "```bash",
+        "uv run python scripts/build_llm_wiki.py [--no-bios]",
+        "```",
+        "",
+        "## Structure",
+        "",
+        "- `People/` — one page per person (interview guests, show hosts,",
+        "  solo authors), merged across every show they appear on via",
+        "  alias/generic-name resolution. Opinions per topic in chronological",
+        "  order; stance flips (bullish→bearish across *different days*) are",
+        "  flagged. GLM-written bios are cached in",
+        "  `scripts/llm_wiki_bios.json` (pass `--no-bios` to skip generation;",
+        "  failed lookups are retried on the next run).",
+        "- `Tickers/` — one page per topic with >= "
+        f"{MIN_TICKER_MENTIONS} predictions. Pages are keyed by Yahoo",
+        "  symbol when the ticker is symbol-like, otherwise by the",
+        "  asset/company name (the extract pipeline nulls non-symbol",
+        "  tickers into `asset_name`, so fragments like \"PAN MINE\" become",
+        "  name-keyed pages). Each page carries a rates/bond-yield backdrop",
+        "  section for macro context.",
+        "- `Analysts/` — one page per channel with extracted items, plus the",
+        "  people who appear on it.",
+        "- `Themes/` — hand-curated keyword buckets (CJK-aware matching); a",
+        "  theme page only exists when the current extraction has matching",
+        "  rows.",
+        "- `Syntheses/` — cross-cutting views: Opinion Shifts (same person",
+        "  changes stance), Disagreements (people on opposite sides of one",
+        "  topic, each side's latest call), and the global Timeline.",
+        "",
+        "## Provenance rules",
+        "",
+        "- Stances, timelines, disagreements and counts are **strictly",
+        "  DB-derived** from `item` / `prediction` / `view_market` /",
+        "  `extraction_run.raw_response->speakers` — never synthesized.",
+        "- Bios are the only LLM-written content and are marked as such on",
+        "  the page.",
+        "- Coverage mirrors extraction progress; the Home page states the",
+        "  extracted/total fraction. Re-run after each `kb extract run`",
+        "  batch.",
+        "",
+        "Wiki-wide conventions and the pipeline architecture live in the",
+        "repo root `AGENTS.md`.",
+    ]
+    return write_page("AGENTS.md", "\n".join(lines))
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -1978,7 +2063,9 @@ def main() -> None:
         if p:
             asset_name = next((pp.get("asset_name") for pp in plist
                                if pp.get("asset_name")), tk)
-            pages["Tickers"].append((tk, f"{tk} — {asset_name}"))
+            label = (f"{tk} — {asset_name}" if SYMBOL_RE.match(tk)
+                     and asset_name != tk else tk)
+            pages["Tickers"].append((topic_page_file(tk), label))
 
     # --- Analysts ---
     for a in DATA["analysts"]:
@@ -2003,11 +2090,12 @@ def main() -> None:
     render_timeline()
     pages["Syntheses"].append(("Timeline", "Timeline of Calls (global)"))
 
-    # --- Home, Index, README ---
+    # --- Home, Index, README, AGENTS ---
     counts = {k: len(v) for k, v in pages.items()}
     render_home(DATA, counts)
     render_index(pages)
     render_readme(DATA, counts)
+    render_agents()
 
     print(f"\nwiki written to {WIKI_DIR}")
     for k in ("People", "Tickers", "Analysts", "Themes", "Syntheses"):

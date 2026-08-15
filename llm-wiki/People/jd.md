@@ -11,8 +11,8 @@ _Bio LLM-generated from public knowledge + this DB's context — verify before r
 - **Appearances**: 2 (2026-06-17 → 2026-06-23)
 - **Shows**: The Macro Dirt Podcast
 - **Extracted calls**: 10 predictions, 9 market views
-- **Topics with opinions**: 6, **1 stance flip(s)** ⚠️
-- **Stance split**: 3 bullish / 6 bearish / 0 neutral
+- **Topics with opinions**: 11, **1 stance flip(s)** ⚠️
+- **Stance split**: 7 bullish / 6 bearish / 3 neutral
 
 ## Appearances
 
@@ -32,6 +32,20 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 - `2026-06-23` ↓ bearish ⚠️ **flip** — What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash.
 - `2026-06-23` ↓ bearish ⚠️ **flip** — I actually think this could be a false breakout in the dollar. I'm very bearish.
 
+### [SpaceX](../Tickers/spacex.md) — now **bullish** (3 call(s))
+
+- `2026-06-17` ↑ bullish — if there if there was one stock that could 5x from here in the top 10 of the S&P, it's probably SpaceX.
+- `2026-06-17` ↑ bullish — I could I could see a scenario where SpaceX does the middle finger chart formation, goes parabolic, and everything else becomes a funding trade.
+- `2026-06-23` ↑ bullish — if there was any stock that had a chance of going to a 10 trillion market cap, it would be SpaceX. And I still believe that.
+
+### `Bonds` — now **bullish** (1 call(s))
+
+- `2026-06-23` ↑ bullish — I'm putting it all in bonds.
+
+### `Brazil` — now **neutral** (1 call(s))
+
+- `2026-06-23` → neutral — I'm keeping Brazil.
+
 ### [Broad Market & Macro Indices](../Themes/macro-indices.md) — now **bearish** (1 call(s))
 
 - `2026-06-23` ↓ bearish — the S&P is now 22% semiconductors, all-time high... I am I have a strong opinion on the index. I'm very bearish on the index.
@@ -44,9 +58,17 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 - `2026-06-23` ↓ bearish — I actually think this could be a false breakout in the dollar. I'm very bearish.
 
+### `Energy sector` — now **neutral** (1 call(s))
+
+- `2026-06-23` → neutral — I'm keeping energy.
+
 ### [Oil & Energy](../Themes/oil-energy.md) — now **bullish** (1 call(s))
 
 - `2026-06-23` ↑ bullish — Stochastics are a nine right now. So that's as oversold as it gets on stochastics. RSI 29. Usually below 30, you got to be looking to buy stuff.
+
+### `Small cap value` — now **neutral** (1 call(s))
+
+- `2026-06-23` → neutral — I'm keeping small cap value.
 
 ### [^TNX](../Tickers/^TNX.md) — now **bearish** (1 call(s))
 
@@ -65,6 +87,7 @@ _See all people's shifts in [Syntheses/Opinion Shifts](../Syntheses/Opinion-Shif
 Topics where this person's current stance conflicts with another person's:
 
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [SpaceX](../Tickers/spacex.md) — opposite: [何啟聰](../People/person-001.md), [George Noble](../People/george-noble.md), [Ed Zitron](../People/ed-zitron.md)
 - [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md), [David Woo](../People/david-woo.md)
 - [Oil & Energy](../Themes/oil-energy.md) — opposite: [Jeff Snider](../People/jeff-snider.md), [Steve](../People/steve.md), [Joseph](../People/joseph.md), [Joseph Wang](../People/joseph-wang.md), [Jeff (Jeoff)](../People/jeff-jeoff.md), [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md)
 - [^TNX](../Tickers/^TNX.md) — opposite: [George Noble](../People/george-noble.md)

@@ -11,8 +11,8 @@ _Bio LLM-generated from public knowledge + this DB's context — verify before r
 - **Appearances**: 1 (2026-06-21 → 2026-06-21)
 - **Shows**: The Monetary Matters Network
 - **Extracted calls**: 4 predictions, 24 market views
-- **Topics with opinions**: 7
-- **Stance split**: 0 bullish / 30 bearish / 3 neutral
+- **Topics with opinions**: 9
+- **Stance split**: 0 bullish / 32 bearish / 3 neutral
 
 ## Appearances
 
@@ -62,6 +62,10 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 - `2026-06-21` ↓ bearish — these companies are going to need $150 billion within the next 6 to 12 months and also they're going to go public and they're going to have to raise that money with everyone knowi…
 - `2026-06-21` ↓ bearish — I think they see that and think that that is demand for AI. And what that is is a demand for speculative debt.
 
+### `AI bubble / hyperscaler stocks` — now **bearish** (1 call(s))
+
+- `2026-06-21` ↓ bearish — Do you think the AI bubble pops this year 2027 or 2028? >> I think 2027's the safe bet.
+
 ### [Broad Market & Macro Indices](../Themes/macro-indices.md) — now **bearish** (1 call(s))
 
 - `2026-06-21` ↓ bearish — these companies have entered into lease commitments of hundreds of billions of dollars that are going to appear as costs that I don't think many people are considering that.
@@ -78,6 +82,10 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 - `2026-06-21` ↓ bearish — But yeah, that number can be manipulated real easy... If you use that times 13 mathematics that's $6.5 billion in annual run rate for a cost that will never come back.
 
+### [SpaceX](../Tickers/spacex.md) — now **bearish** (1 call(s))
+
+- `2026-06-21` ↓ bearish — I think 2026 could be possible if SpaceX starts tanking for example. If SpaceX, it's been kind of trundling down.
+
 ## Where others disagree
 
 Topics where this person's current stance conflicts with another person's:
@@ -87,6 +95,7 @@ Topics where this person's current stance conflicts with another person's:
 - [Credit, Private Credit & BDCs](../Themes/credit-private-credit.md) — opposite: [CPM Group speaker](../People/cpm-group-speaker.md)
 - [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md), [David Woo](../People/david-woo.md)
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [SpaceX](../Tickers/spacex.md) — opposite: [JD](../People/jd.md), [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

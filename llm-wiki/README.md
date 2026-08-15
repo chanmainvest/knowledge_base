@@ -19,10 +19,11 @@ llm-wiki/
   Home.md             # overview + DB stats + caveats + marquee pages
   _Index.md           # alphabetical index
   README.md           # this file
+  AGENTS.md           # agent notes (also generated — don't hand-edit)
   People/    (53 pages)   # one per person (guests, hosts,
                         #   solo authors merged across shows) — opinions
                         #   per topic over time, flips flagged, LLM bios
-  Tickers/   (51 pages)   # one per ticker >= 2 mentions,
+  Tickers/   (52 pages)   # one per ticker >= 2 mentions,
                         #   incl. rates/bond-yield backdrop
   Analysts/  (37 pages)   # one per channel with extracted items
   Themes/    (14 pages)   # cross-cutting theses (gold, AI-semis, …)
@@ -31,10 +32,10 @@ llm-wiki/
 
 ## Data snapshot at generation time
 
-- Generated: **2026-08-15 01:44 UTC**
+- Generated: **2026-08-15 06:01 UTC**
 - Items in DB: **34,332** (extracted: **228**, pending: **34,101**)
 - Predictions: **420** · Market views: **556**
-- Distinct tickers with calls: **115** · People pages: **53**
+- Distinct tickers with calls: **110** · People pages: **53**
 - Published-date range: **2004-05-06 → 2026-08-13**
 
 ## Important caveats

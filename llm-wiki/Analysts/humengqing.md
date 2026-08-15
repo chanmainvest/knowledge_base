@@ -11,6 +11,11 @@
 - **Predictions**: 2
 - **Market views**: 6
 
+**Most-called tickers:**
+
+- `可靠股份` (1)
+- `豪悅護理` (1)
+
 ## Stance distribution (predictions)
 
 | Stance | Count |
@@ -29,8 +34,8 @@
 
 ## Recent notable calls
 
-- `(no ticker)`: [毒尿片觸發的消費信任危機](https://www.master-insight.com/article/48944) — 2026-06-25, author: "可靠股份盤中更重挫5.69%"
-- `(no ticker)`: [毒尿片觸發的消費信任危機](https://www.master-insight.com/article/48944) — 2026-06-25, author: "端午節後首個工作日，A股紙尿褲代工第一股豪悅護理即低開逾3%，股價更曾一度跌超4%，收盤仍跌1.81%"
+- `可靠股份`: [毒尿片觸發的消費信任危機](https://www.master-insight.com/article/48944) — 2026-06-25, author: "可靠股份盤中更重挫5.69%"
+- `豪悅護理`: [毒尿片觸發的消費信任危機](https://www.master-insight.com/article/48944) — 2026-06-25, author: "端午節後首個工作日，A股紙尿褲代工第一股豪悅護理即低開逾3%，股價更曾一度跌超4%，收盤仍跌1.81%"
 
 ## Recent market views
 

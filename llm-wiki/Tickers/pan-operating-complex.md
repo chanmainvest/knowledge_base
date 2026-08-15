@@ -1,10 +1,10 @@
-# GOLD ROCK MINE — GOLD ROCK MINE
+# Pan Operating Complex
 
-**3 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 3 neutral).
+**2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
 ## Themes
 
-- [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md)
+_Not bucketed into any theme (single-name / idiosyncratic)._
 
 ## Stance breakdown
 
@@ -12,14 +12,13 @@
 |---|---:|
 | Bullish | 0 |
 | Bearish | 0 |
-| Neutral / watch | 3 |
+| Neutral / watch | 2 |
 
 ## Voices on this ticker
 
 
 ## Notable calls
 
-- **Resource Talks** — [North American Gold Producer, But Can They Execute on Growth? \| Mining Americas…](https://www.youtube.com/watch?v=_MgHzkEAbYQ) — 2026-07-23, Resource Talks
 - **Resource Talks** — [North American Gold Producer, But Can They Execute on Growth? \| Mining Americas…](https://www.youtube.com/watch?v=_MgHzkEAbYQ) — 2026-07-23, Resource Talks
 - **Resource Talks** — [North American Gold Producer, But Can They Execute on Growth? \| Mining Americas…](https://www.youtube.com/watch?v=_MgHzkEAbYQ) — 2026-07-23, Resource Talks
 

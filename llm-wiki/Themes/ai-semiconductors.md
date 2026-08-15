@@ -12,10 +12,16 @@ The AI / chip-stack trade: Nvidia (NVDA), Micron (MU), the semiconductor ETF (SM
 | [NVDA](../Tickers/NVDA.md) | 5 |
 | [MU](../Tickers/MU.md) | 3 |
 | [MSFT](../Tickers/MSFT.md) | 2 |
+| `Iron (AI infrastructure company)` | 1 |
+| `AI bubble / hyperscaler stocks` | 1 |
+| `Semiconductor sector broadly` | 1 |
 | `TER` | 1 |
 | `MRVL` | 1 |
+| `Memory chip makers (DRAM/NAND, incl. Korean and American producers)` | 1 |
+| `SpaceX (Starlink/launch/xAI businesses, pre-IPO)` | 1 |
 | `FTAI` | 1 |
 | [^IXIC](../Tickers/^IXIC.md) | 1 |
+| `Anthropic (Claude/Claude Code)` | 1 |
 
 ## Key voices
 

@@ -11,8 +11,8 @@ _Bio LLM-generated from public knowledge + this DB's context — verify before r
 - **Appearances**: 1 (2026-06-20 → 2026-06-20)
 - **Shows**: The Monetary Matters Network
 - **Extracted calls**: 1 predictions, 11 market views
-- **Topics with opinions**: 3
-- **Stance split**: 5 bullish / 3 bearish / 4 neutral
+- **Topics with opinions**: 4
+- **Stance split**: 6 bullish / 3 bearish / 4 neutral
 
 ## Appearances
 
@@ -40,6 +40,10 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 - `2026-06-20` ↑ bullish — Technology is the ultimate differentiator in that game... Hence, the value add is in the chips and the wrappers of the chips that go inside the data center.
 - `2026-06-20` → neutral — If somebody comes up with a new AI architecture, new model, which is not a large language model, which is not a transformer, just a new model, that somehow gets a lot for nothing…
 - `2026-06-20` ↓ bearish — I think there's shorting opportunities on a bunch of component makers that actually sell components to the PC makers or the smartphone makers that don't have the pricing power.
+
+### `Memory chip makers (DRAM/NAND, incl. Korean and American producers)` — now **bullish** (1 call(s))
+
+- `2026-06-20` ↑ bullish — the three big memory producer producers, uh you know, one of which is American, two of which are Korean, their stocks have gone up so much, their actual forward price earnings rat…
 
 ### [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — now **bearish** (1 call(s))
 

@@ -14,7 +14,7 @@ This wiki is generated directly from the `knowledge_base` Postgres database: eve
 | Items extracted (LLM) | **228** (of 34,332; 34,101 pending) |
 | Predictions extracted | **420** |
 | Market views extracted | **556** |
-| Distinct tickers with calls | **115** |
+| Distinct tickers with calls | **110** |
 | People with pages | **53** |
 | Channels (analysts) | **77** |
 | Published-date range | **2004-05-06 → 2026-08-13** |
@@ -60,9 +60,9 @@ This wiki is generated directly from the `knowledge_base` Postgres database: eve
 - [梁天卓](People/person-005.md) — 4 appearance(s), 2 extracted call(s)
 - [Tickers/GC=F](Tickers/GC=F.md) — 39 analyst mentions
 - [Tickers/CL=F](Tickers/CL=F.md) — 33 analyst mentions
+- [Tickers/spacex](Tickers/spacex.md) — 14 analyst mentions
 - [Tickers/^GSPC](Tickers/^GSPC.md) — 13 analyst mentions
 - [Tickers/^TNX](Tickers/^TNX.md) — 13 analyst mentions
-- [Tickers/BTC-USD](Tickers/BTC-USD.md) — 12 analyst mentions
 
 ## Recently extracted items
 

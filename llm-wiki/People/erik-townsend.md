@@ -11,8 +11,8 @@ _Bio LLM-generated from public knowledge + this DB's context — verify before r
 - **Appearances**: 3 (2026-06-18 → 2026-06-19)
 - **Shows**: Macro Voices
 - **Extracted calls**: 13 predictions, 16 market views
-- **Topics with opinions**: 11, **2 stance flip(s)** ⚠️
-- **Stance split**: 20 bullish / 13 bearish / 2 neutral
+- **Topics with opinions**: 13, **2 stance flip(s)** ⚠️
+- **Stance split**: 21 bullish / 13 bearish / 3 neutral
 
 ## Appearances
 
@@ -93,6 +93,14 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 ### [China & Hong Kong Equities](../Themes/china-hk-equities.md) — now **bullish** (1 call(s))
 
 - `2026-06-18` ↑ bullish — I do expect that physical shortages, and the realization that this military conflict might not really be over after all, could all lead to higher prices... I don't think we're hea…
+
+### `SpaceX IPO restricted shares` — now **neutral** (1 call(s))
+
+- `2026-06-18` → neutral — if for five out of 10 days during a specified period... the price is above the IPO price, that unlocks 10% of the lockup immediately. So, we could as early as sometime in mid-July…
+
+### `Uranium` — now **bullish** (1 call(s))
+
+- `2026-06-18` ↑ bullish — So, you know, look for late August, early September as maybe when this market starts to get catch a bid again.
 
 ## Opinion shifts
 

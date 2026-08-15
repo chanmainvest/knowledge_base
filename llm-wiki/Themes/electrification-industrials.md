@@ -16,6 +16,8 @@ The AI-driven power and electrification build-out: utilities (NEE, VST, GEV), gr
 | [GEV](../Tickers/GEV.md) | 2 |
 | [PH](../Tickers/PH.md) | 2 |
 | [GTES](../Tickers/GTES.md) | 2 |
+| `Neocloud / data center operators and Bitcoin miners turned data center developers` | 1 |
+| `CoreWeave / neo-cloud data center developers` | 1 |
 | `VST` | 1 |
 | `CEG` | 1 |
 | `SMR` | 1 |

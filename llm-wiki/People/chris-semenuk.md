@@ -11,8 +11,8 @@ _Bio LLM-generated from public knowledge + this DB's context — verify before r
 - **Appearances**: 1 (2026-06-18 → 2026-06-18)
 - **Shows**: The Monetary Matters Network
 - **Extracted calls**: 44 predictions, 24 market views
-- **Topics with opinions**: 36
-- **Stance split**: 47 bullish / 13 bearish / 11 neutral
+- **Topics with opinions**: 37
+- **Stance split**: 48 bullish / 13 bearish / 11 neutral
 
 ## Appearances
 
@@ -158,6 +158,10 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 ### `FTAI` — now **neutral** (1 call(s))
 
 - `2026-06-18` → neutral — you have to wait 4 years to get a gas turbine from, you know, from Vernova or from Siemens or from, you know, FTAI
+
+### `GE Vernova` — now **bullish** (1 call(s))
+
+- `2026-06-18` ↑ bullish — the backlog at Vernova is north of almost $90 billion.
 
 ### [Geopolitics & Defense](../Themes/geopolitics-defense.md) — now **bearish** (1 call(s))
 

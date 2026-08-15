@@ -11,8 +11,8 @@ _Bio LLM-generated from public knowledge + this DB's context — verify before r
 - **Appearances**: 3 (2026-06-18 → 2026-06-19)
 - **Shows**: Macro Voices
 - **Extracted calls**: 17 predictions, 20 market views
-- **Topics with opinions**: 16
-- **Stance split**: 12 bullish / 7 bearish / 34 neutral
+- **Topics with opinions**: 17
+- **Stance split**: 12 bullish / 7 bearish / 35 neutral
 
 ## Appearances
 
@@ -122,6 +122,10 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 ### [USDJPY=X](../Tickers/USDJPY=X.md) — now **bearish** (1 call(s))
 
 - `2026-06-19` ↓ bearish — The 160 level on the US yen has been a rock solid overhead resistance where we have seen numerous interventions happen in the past and yet here we are quietly crawling above that…
+
+### `Uranium stocks` — now **neutral** (1 call(s))
+
+- `2026-06-18` → neutral — I'm going to still in the process of trying to discover where these uranium stocks are going to start showing bottoming formations.
 
 ### [^GSPC](../Tickers/^GSPC.md) — now **bullish** (1 call(s))
 

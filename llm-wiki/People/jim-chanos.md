@@ -13,8 +13,8 @@ _Bio LLM-generated from public knowledge + this DB's context — verify before r
 - **Appearances**: 1 (2026-06-20 → 2026-06-20)
 - **Shows**: The Monetary Matters Network
 - **Extracted calls**: 9 predictions, 15 market views
-- **Topics with opinions**: 8
-- **Stance split**: 1 bullish / 16 bearish / 6 neutral
+- **Topics with opinions**: 13
+- **Stance split**: 1 bullish / 20 bearish / 7 neutral
 
 ## Appearances
 
@@ -65,6 +65,10 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 - `2026-06-20` → neutral — Broadcom, after the decline this morning, is at 12 times 2028 EPS.
 
+### `CoreWeave / neo-cloud data center developers` — now **bearish** (1 call(s))
+
+- `2026-06-20` ↓ bearish — Chanos expresses deep skepticism toward "neo-cloud" data center developers like CoreWeave
+
 ### [Crypto & Stablecoins](../Themes/crypto.md) — now **bearish** (1 call(s))
 
 - `2026-06-20` ↓ bearish — we're focused on uh Jack is what we think are inherently unprofitable business models that are attached to this AI ecosystem where any way you kind of look at it on a best-case ba…
@@ -72,6 +76,22 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 ### `LU` — now **bearish** (1 call(s))
 
 - `2026-06-20` ↓ bearish — we were short Lucent Nortel at that time at MCI
+
+### `Neocloud / data center operators and Bitcoin miners turned data center developers` — now **bearish** (1 call(s))
+
+- `2026-06-20` ↓ bearish — we would look at things like the Bitcoin miners turn data center developers, even the neo clouds... you still get four, five, six returns on capital in the out years. And I just t…
+
+### `Nortel` — now **bearish** (1 call(s))
+
+- `2026-06-20` ↓ bearish — we were short Lucent Nortel at that time at MCI
+
+### `SpaceX (Starlink/launch/xAI businesses, pre-IPO)` — now **bearish** (1 call(s))
+
+- `2026-06-20` ↓ bearish — I'm not sure it's a great idea to be shorting him because it hasn't worked out for many people over time.
+
+### `Starlink (SpaceX segment)` — now **neutral** (1 call(s))
+
+- `2026-06-20` → neutral — It's earning about $4 billion right now annually operating. And we think about 25 to 30 billion of invested capital. So it's it's a good business. It's not an insanely good busine…
 
 ## Where others disagree
 

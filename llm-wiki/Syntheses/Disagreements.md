@@ -151,6 +151,14 @@ Topics where **different people** currently hold opposite stances (each person's
 - [Brent Johnson](../People/brent-johnson.md) — ↓ bearish (`2026-06-19`): "from the moment the war broke out in Iran to the moment that it looked like we were getting this deal signed last week, gold fell 20%"
 - [Chris Semenuk](../People/chris-semenuk.md) — ↓ bearish (`2026-06-18`): "aerospace and defense stocks, they are trading at all-time high valuations."
 
+## [SpaceX](../Tickers/spacex.md)
+
+- [JD](../People/jd.md) — ↑ bullish (`2026-06-23`): "if there was any stock that had a chance of going to a 10 trillion market cap, it would be SpaceX. And I still believe that."
+- [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md) — ↑ bullish (`2026-06-17`): "whether SpaceX is becoming the ultimate momentum trade as capital rotates across global markets"
+- [何啟聰](../People/person-001.md) — ↓ bearish (`2026-06-22`): "SpaceX股價連續兩日急跌，一度跌至173美元"
+- [George Noble](../People/george-noble.md) — ↓ bearish (`2026-06-23`): "you may be able to short SpaceX at 250. I have no idea."
+- [Ed Zitron](../People/ed-zitron.md) — ↓ bearish (`2026-06-21`): "I think 2026 could be possible if SpaceX starts tanking for example. If SpaceX, it's been kind of trundling down."
+
 ## [GC=F](../Tickers/GC=F.md)
 
 - [George Noble](../People/george-noble.md) — ↑ bullish (`2026-06-23`): "$4,200 gold. You're saying up there, down with fiat currency, broadly speaking."

@@ -15,14 +15,14 @@ _No URL / bio in DB channel metadata._
 
 - [DC](../Tickers/DC.md) (6)
 - [DCGL](../Tickers/DCGL.md) (4)
-- [GOLD ROCK MINE](../Tickers/GOLD ROCK MINE.md) (3)
+- [Gold Rock Mine](../Tickers/gold-rock-mine.md) (3)
 - [GGO.V](../Tickers/GGO.V.md) (2)
 - [ARK.V](../Tickers/ARK.V.md) (2)
 - [ENKG](../Tickers/ENKG.md) (2)
 - [ARS](../Tickers/ARS.md) (2)
 - [SAG.V](../Tickers/SAG.V.md) (2)
-- [PAN OPERATING COMPLEX](../Tickers/PAN OPERATING COMPLEX.md) (2)
-- [PAN MINE](../Tickers/PAN MINE.md) (2)
+- [Pan Operating Complex](../Tickers/pan-operating-complex.md) (2)
+- [Pan Mine](../Tickers/pan-mine.md) (2)
 
 ## Stance distribution (predictions)
 

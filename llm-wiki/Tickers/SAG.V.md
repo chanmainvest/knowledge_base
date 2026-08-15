@@ -1,4 +1,4 @@
-# SAG.V — SAG.V
+# SAG.V
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 

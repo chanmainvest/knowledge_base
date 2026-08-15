@@ -11,8 +11,8 @@ _Bio LLM-generated from public knowledge + this DB's context — verify before r
 - **Appearances**: 1 (2026-06-15 → 2026-06-15)
 - **Shows**: The Monetary Matters Network
 - **Extracted calls**: 9 predictions, 21 market views
-- **Topics with opinions**: 9
-- **Stance split**: 13 bullish / 21 bearish / 1 neutral
+- **Topics with opinions**: 11
+- **Stance split**: 13 bullish / 22 bearish / 2 neutral
 
 ## Appearances
 
@@ -78,6 +78,10 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 - `2026-06-15` ↑ bullish — Since then NASDAQ has added $5 trillion to this market capitalization because people saying Claw Methus is amazing.
 - `2026-06-15` ↓ bearish — I'm short. I mean, I've been short for a while, so it's been very painful
 
+### `Anthropic (Claude/Claude Code)` — now **neutral** (1 call(s))
+
+- `2026-06-15` → neutral — Microsoft just canceled practically most of their claw co licenses. Okay, because they're trying to get their people to use copilot on GitHub.
+
 ### [MU](../Tickers/MU.md) — now **bearish** (1 call(s))
 
 - `2026-06-15` ↓ bearish — all the chips that Micron are making right now as we speak are are sold out into 28 into 2028 for for forward sales... but once capacity comes online prices are going to go down a…
@@ -85,6 +89,10 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 ### [TSLA](../Tickers/TSLA.md) — now **neutral** (1 call(s))
 
 - `2026-06-15` → neutral — Tesla's latest robo taxi went into whatever trial in Texas and it was it was literally like creating traffic incidents.
+
+### `software engineering jobs` — now **bearish** (1 call(s))
+
+- `2026-06-15` ↓ bearish — I think software I think 50% of software engineers going to be gone, you know, within probably three or four years.
 
 ## Where others disagree
 

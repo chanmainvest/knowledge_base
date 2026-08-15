@@ -23,6 +23,7 @@ _No URL / bio in DB channel metadata._
 
 **Most-called tickers:**
 
+- [SpaceX](../Tickers/spacex.md) (9)
 - [GC=F](../Tickers/GC=F.md) (5)
 - [CL=F](../Tickers/CL=F.md) (4)
 - [SMH](../Tickers/SMH.md) (2)
@@ -30,9 +31,8 @@ _No URL / bio in DB channel metadata._
 - [BTC-USD](../Tickers/BTC-USD.md) (2)
 - [DX-Y.NYB](../Tickers/DX-Y.NYB.md) (2)
 - [^TNX](../Tickers/^TNX.md) (2)
-- `FRPT` (1)
-- [TSLA](../Tickers/TSLA.md) (1)
-- `SSRM` (1)
+- `Bonds` (1)
+- `Small cap value` (1)
 
 ## Stance distribution (predictions)
 
@@ -58,9 +58,9 @@ _No URL / bio in DB channel metadata._
 - [SMH](../Tickers/SMH.md): [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
 - [^GSPC](../Tickers/^GSPC.md): [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
 - [GC=F](../Tickers/GC=F.md): [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
-- `(no ticker)`: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "I'm putting it all in bonds."
-- `(no ticker)`: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "I'm keeping small cap value."
-- `(no ticker)`: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "I'm keeping Brazil."
+- `Bonds`: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "I'm putting it all in bonds."
+- `Small cap value`: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "I'm keeping small cap value."
+- `Brazil`: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "I'm keeping Brazil."
 
 ## Recent market views
 

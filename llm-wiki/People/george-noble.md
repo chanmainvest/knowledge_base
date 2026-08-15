@@ -11,8 +11,8 @@ _Bio LLM-generated from public knowledge + this DB's context — verify before r
 - **Appearances**: 2 (2026-06-18 → 2026-06-23)
 - **Shows**: George Gammon, The Macro Dirt Podcast
 - **Extracted calls**: 20 predictions, 23 market views
-- **Topics with opinions**: 19, **1 stance flip(s)** ⚠️
-- **Stance split**: 16 bullish / 15 bearish / 15 neutral
+- **Topics with opinions**: 21, **1 stance flip(s)** ⚠️
+- **Stance split**: 17 bullish / 17 bearish / 15 neutral
 
 ## Appearances
 
@@ -84,6 +84,11 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 - `2026-06-18` → neutral — we are living in a world where reality doesn't matter to the markets whatsoever...the only thing that matters to markets is narrative
 - `2026-06-23` ↓ bearish — Bitcoin is the Facebook of speculative assets... I think it's just going to go into the sunset I just think it's irrelevant
 
+### [SpaceX](../Tickers/spacex.md) — now **bearish** (2 call(s))
+
+- `2026-06-23` ↑ bullish — I'm a buyer of of SpaceX puts big time. That being said, it may go to 300 before it goes to 50.
+- `2026-06-23` ↓ bearish — you may be able to short SpaceX at 250. I have no idea.
+
 ### [BTC-USD](../Tickers/BTC-USD.md) — now **bearish** (1 call(s))
 
 - `2026-06-23` ↓ bearish — Bitcoin is the Facebook of speculative assets... I think it's just going to go into the sunset I just think it's irrelevant
@@ -124,6 +129,10 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 - `2026-06-23` ↓ bearish — I can short Oklahoma or I can short Tesla or I can short Fresh Pet.
 
+### `Tesla` — now **bearish** (1 call(s))
+
+- `2026-06-23` ↓ bearish — I can short Oklahoma or I can short Tesla or I can short Fresh Pet.
+
 ### [^TNX](../Tickers/^TNX.md) — now **bullish** (1 call(s))
 
 - `2026-06-23` ↑ bullish — So, so we so game on this is to JD. I'm higher.
@@ -146,6 +155,7 @@ Topics where this person's current stance conflicts with another person's:
 - [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md), [David Woo](../People/david-woo.md)
 - [^GSPC](../Tickers/^GSPC.md) — opposite: [Patrick Ceresna](../People/patrick-ceresna.md)
 - [Crypto & Stablecoins](../Themes/crypto.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Brent Johnson](../People/brent-johnson.md), [Raoul Pal](../People/raoul-pal.md)
+- [SpaceX](../Tickers/spacex.md) — opposite: [JD](../People/jd.md), [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md)
 - [BTC-USD](../Tickers/BTC-USD.md) — opposite: [Mike Alfred](../People/mike-alfred.md)
 - [GC=F](../Tickers/GC=F.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md)
 - [^TNX](../Tickers/^TNX.md) — opposite: [JD](../People/jd.md), [Patrick Ceresna](../People/patrick-ceresna.md)

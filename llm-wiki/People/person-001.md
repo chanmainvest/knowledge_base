@@ -11,8 +11,8 @@ _Bio LLM-generated from public knowledge + this DB's context — verify before r
 - **Appearances**: 4 (2026-06-15 → 2026-06-26)
 - **Shows**: 何啟聰
 - **Extracted calls**: 12 predictions, 12 market views
-- **Topics with opinions**: 13
-- **Stance split**: 1 bullish / 11 bearish / 5 neutral
+- **Topics with opinions**: 15
+- **Stance split**: 1 bullish / 12 bearish / 6 neutral
 
 ## Appearances
 
@@ -83,6 +83,14 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 - `2026-06-19` ↓ bearish — 萬一情況持續，儲局在明年有機會要被迫作出較大膽的加息決定。
 
+### `Rocket Lab` — now **neutral** (1 call(s))
+
+- `2026-06-22` → neutral — 未來資金，更可能只聚焦在SpaceX及Rocket Lab兩隻較有遠景的太空股上
+
+### [SpaceX](../Tickers/spacex.md) — now **bearish** (1 call(s))
+
+- `2026-06-22` ↓ bearish — SpaceX股價連續兩日急跌，一度跌至173美元
+
 ## Where others disagree
 
 Topics where this person's current stance conflicts with another person's:
@@ -90,6 +98,7 @@ Topics where this person's current stance conflicts with another person's:
 - [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [梁天卓](../People/person-005.md), [Jeff](../People/jeff.md), [Steve](../People/steve.md), [Patrick Boyle](../People/patrick-boyle.md), [Erik Townsend](../People/erik-townsend.md), [Shawn Hackett](../People/shawn-hackett.md)
 - [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md), [David Woo](../People/david-woo.md)
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [SpaceX](../Tickers/spacex.md) — opposite: [JD](../People/jd.md), [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 
