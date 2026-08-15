@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 7
+- **Extracted items**: 8
 - **Items with predictions**: 0
 - **Predictions**: 0
 - **Market views**: 0
@@ -20,6 +20,7 @@ _No URL / bio in DB channel metadata._
 - 2026-07-27 — [「走得快好世界」❗️李嘉誠為何連水電煤公用事業都賣❓其實2012年一失政治靠山，已先賣葵涌港口試水❗️｜8 Mar2026《淺見回顧》](https://www.youtube.com/watch?v=Z1rFbr7dDhk)
 - 2026-07-25 — [大鑊❗️老舖黃金暴跌67%蒸發千億市值❗️中央行卻連買黃金20個月❓香港黃金清算中心正下緊一盤大棋❓｜26 Jul2026](https://www.youtube.com/watch?v=6iaBj14yT1Y)
 - 2026-07-24 — [五招突破香港零售寒冬⋯李小龍「截拳道」⁉️｜24Jul 2025](https://www.youtube.com/watch?v=1nqKWbJUmBk)
+- 2026-07-22 — [日本將會係亞洲未來主角❗️為何唔係中國同美國⁉️｜4 Dec 2025《淺見回顧》](https://www.youtube.com/watch?v=dITwuBL2iss)
 
 _This channel has extracted items but no predictions or market views surfaced yet (the extraction may have found none, or the content is non-marketable commentary)._
 

@@ -83,6 +83,7 @@ Every page in the wiki, alphabetical by display label within each section.
 - [GDX — GDX](Tickers/GDX.md)
 - [GEV — GE Vernova](Tickers/GEV.md)
 - [GGO.V — GGO.V](Tickers/GGO.V.md)
+- [GOLD ROCK MINE — GOLD ROCK MINE](Tickers/GOLD ROCK MINE.md)
 - [GOOGL — Alphabet](Tickers/GOOGL.md)
 - [GS — Goldman Sachs](Tickers/GS.md)
 - [GTES — Gates Industrial](Tickers/GTES.md)
@@ -95,10 +96,13 @@ Every page in the wiki, alphabetical by display label within each section.
 - [NEE — NextEra Energy](Tickers/NEE.md)
 - [NVDA — Nvidia](Tickers/NVDA.md)
 - [PA=F — Palladium](Tickers/PA=F.md)
+- [PAN MINE — PAN MINE](Tickers/PAN MINE.md)
+- [PAN OPERATING COMPLEX — PAN OPERATING COMPLEX](Tickers/PAN OPERATING COMPLEX.md)
 - [PH — Parker Hannifin](Tickers/PH.md)
 - [PL=F — Platinum](Tickers/PL=F.md)
 - [POWL — Powell Industries](Tickers/POWL.md)
 - [PWR — Quanta Services](Tickers/PWR.md)
+- [SAG.V — SAG.V](Tickers/SAG.V.md)
 - [SI=F — Silver](Tickers/SI=F.md)
 - [SMH — Semiconductors](Tickers/SMH.md)
 - [SOXX — SOXX](Tickers/SOXX.md)
@@ -106,6 +110,7 @@ Every page in the wiki, alphabetical by display label within each section.
 - [TKR — Timken](Tickers/TKR.md)
 - [TSLA — Tesla](Tickers/TSLA.md)
 - [USDJPY=X — US Dollar/Japanese Yen](Tickers/USDJPY=X.md)
+- [WRLG.V — WRLG.V](Tickers/WRLG.V.md)
 
 ## Themes
 
@@ -152,6 +157,7 @@ Every page in the wiki, alphabetical by display label within each section.
 - [Raoul Pal The Journey Man](Analysts/raoulpaltjm.md)
 - [Real Vision](Analysts/realvisionfinance.md)
 - [Resource Talks](Analysts/resourcetalks.md)
+- [Simplify Asset Management](Analysts/simplifyassetmanagement.md)
 - [The Jay Martin Show](Analysts/thejaymartinshow.md)
 - [The Julia La Roche Show](Analysts/thejulialarocheshow.md)
 - [The Macro Dirt Podcast](Analysts/macrodirtcast.md)

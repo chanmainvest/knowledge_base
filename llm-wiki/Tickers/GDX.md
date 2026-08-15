@@ -41,7 +41,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
-- 2026-08-10 — [Investor Called Chips Crash, Now Warns ‘We’re Nearing The End’ Of Stock Rally \| Jim Welsh](https://www.youtube.com/watch?v=G9peC5ZZMuo) (David Lin)
+- n/d — [Investor Called Chips Crash, Now Warns ‘We’re Nearing The End’ Of Stock Rally \| Jim Welsh](https://www.youtube.com/watch?v=G9peC5ZZMuo) (David Lin)
 
 ---
 _Page reflects DB state at generation time. Regenerate via `uv run python scripts/build_llm_wiki.py`._

@@ -89,11 +89,11 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 ## Source items
 
 - 2026-08-13 — [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) (David Lin)
-- 2026-08-11 — [Biggest Market Shift Now: ‘You’re Making A Mistake’ Ignoring These Assets \| Ted Oakley](https://www.youtube.com/watch?v=_ZCvbIbrc_k) (David Lin)
+- n/d — [Biggest Market Shift Now: ‘You’re Making A Mistake’ Ignoring These Assets \| Ted Oakley](https://www.youtube.com/watch?v=_ZCvbIbrc_k) (David Lin)
 - 2026-08-03 — [U.S. Bails Out Japan From Crisis; What It Means For Markets \| David Nicoski](https://www.youtube.com/watch?v=irq5IUDIB3Q) (David Lin)
 - 2026-07-30 — [Gold To $3,000, Oil To $40, Bitcoin To $10,000: The Deflation Trade Is Here \| Mike McGlone](https://www.youtube.com/watch?v=_wm2gO04z_I) (David Lin)
 - 2026-07-28 — ['Edge Of A Precipice': Entire Financial System At Risk \| Doug Casey](https://www.youtube.com/watch?v=ca9zCylJcEA) (David Lin)
-- 2026-07-26 — [Major Market Repricing Alert: Global Economy Changed Forever \| John Butler](https://www.youtube.com/watch?v=SjxmpuoQvVc) (David Lin)
+- n/d — [Major Market Repricing Alert: Global Economy Changed Forever \| John Butler](https://www.youtube.com/watch?v=SjxmpuoQvVc) (David Lin)
 - 2026-07-26 — [The “Safest” Companies Are Warning the Consumer Is Breaking](https://www.youtube.com/watch?v=I475w6xb8LI) (Eurodollar University)
 - 2026-07-25 — [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) (Eurodollar University)
 - 2026-07-24 — [1M Ounces of Gold in Idaho, But Can the Grade Support Good Margins? \| Freeman Gold CEO In…](https://www.youtube.com/watch?v=gXgvIhQTUI0) (Resource Talks)

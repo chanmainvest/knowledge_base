@@ -6,7 +6,7 @@
 
 ## Coverage profile
 
-- **Extracted items**: 5
+- **Extracted items**: 6
 - **Items with predictions**: 1
 - **Predictions**: 1
 - **Market views**: 3
@@ -41,6 +41,7 @@
 - 2026-08-10 — [羅奇心目中的舊香港逝不足惜](https://www.master-insight.com/article/49557)
 - 2026-08-04 — [房地產因生產期長而周期性強](https://www.master-insight.com/article/49523)
 - 2026-07-28 — [精挑個股不如均價買入指數ETF](https://www.master-insight.com/article/49431)
+- 2026-07-21 — [投資AI的熱潮有泡沫嗎？](https://www.master-insight.com/article/49338)
 - 2026-06-23 — [京東來港開實體店 零售業大變天](https://www.master-insight.com/article/48918)
 - 2026-06-16 — [改善公屋居住環境須有多方考慮](https://www.master-insight.com/article/48792)
 

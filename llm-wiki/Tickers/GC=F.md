@@ -1,6 +1,6 @@
 # GC=F — Gold
 
-**38 extracted prediction(s)** across 9 channel(s). Consensus: **bullish** (8 bullish / 5 bearish / 25 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
+**39 extracted prediction(s)** across 9 channel(s). Consensus: **bullish** (8 bullish / 5 bearish / 26 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
 ## Themes
 
@@ -12,7 +12,7 @@
 |---|---:|
 | Bullish | 8 |
 | Bearish | 5 |
-| Neutral / watch | 25 |
+| Neutral / watch | 26 |
 
 ## Voices on this ticker
 
@@ -64,6 +64,7 @@
 - **Guest analyst** (action=`watch`, dir=`down`, tf=`short`) — [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — 2026-06-17, Guest analyst: "Gold sold off pretty significantly, precious metals."
 - **Jeffrey Kushin** (action=`buy`, dir=`up`, tf=`1980s-2014, intermediate term (1-5 year)`) — [Gold And Silver Market Update: How Low Before Buyers Return](https://www.youtube.com/watch?v=W1jdQOS8Lu8) — 2026-06-16, [Jeffrey Kushin](../People/jeffrey-kushin.md): "When the price fell to 1211 in in in 2014, we said buy. We were a few years early. The price moved sideways for five years and since that time it's risen."
 - **Jeffrey Kushin** (action=`watch`, dir=`unspecified`, tf=`next two and a half months`) — [Gold And Silver Market Update: How Low Before Buyers Return](https://www.youtube.com/watch?v=W1jdQOS8Lu8) — 2026-06-16, [Jeffrey Kushin](../People/jeffrey-kushin.md): "CPM Group expects that $4,100 level to be tested again over the next two and a half months. Uh, it may well hold. There's more support at 3,800 and 3,500."
+- **David Lin** — [$20,000 Gold Revalue? Can It Erase U.S. Debt? Economist Steve Hanke Answers](https://www.youtube.com/watch?v=X_D5weq9KrY) — n/d, David Lin: "It's going to take longer to hit the target. That's of 6,000, but we we we will hit it."
 
 ## Analysts covering this ticker
 
@@ -95,7 +96,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 - 2026-08-13 — [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) (David Lin)
 - 2026-08-13 — [MacroVoices #545 Michael Howell: Warsh vs. The Markets](https://www.macrovoices.com/1545-macrovoices-545-michael-howell-warsh-vs-the-markets) (MacroVoices)
 - 2026-08-11 — [Christopher Whalen: The Fed Has Lost Control of Interest Rates](https://www.youtube.com/watch?v=k802efbalbg) (VRIC Media)
-- 2026-08-10 — [Investor Called Chips Crash, Now Warns ‘We’re Nearing The End’ Of Stock Rally \| Jim Welsh](https://www.youtube.com/watch?v=G9peC5ZZMuo) (David Lin)
+- n/d — [Investor Called Chips Crash, Now Warns ‘We’re Nearing The End’ Of Stock Rally \| Jim Welsh](https://www.youtube.com/watch?v=G9peC5ZZMuo) (David Lin)
 - 2026-08-09 — [Markets Surge: Where's The Top? Trader On Next Levels For Stocks, Gold \| Kevin Steuer](https://www.youtube.com/watch?v=kmOsTT2grwk) (David Lin)
 - 2026-08-06 — [Markets To Surge 20% Until 'Global Financial Reset' Kills Everything \| Chris Vermeulen](https://www.youtube.com/watch?v=7bqs3hKc-fk) (David Lin)
 - 2026-08-02 — [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stocks \| Tian Y…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) (The Monetary Matters Network)
@@ -111,6 +112,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 - 2026-06-17 — [Nobody Owns Bonds](https://www.youtube.com/watch?v=H-mvJ6poUk4) (The Macro Dirt Podcast)
 - n/d — [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) (Joseph Wang)
 - 2026-06-16 — [Gold And Silver Market Update: How Low Before Buyers Return](https://www.youtube.com/watch?v=W1jdQOS8Lu8) (CPM Group)
+- n/d — [$20,000 Gold Revalue? Can It Erase U.S. Debt? Economist Steve Hanke Answers](https://www.youtube.com/watch?v=X_D5weq9KrY) (David Lin)
 
 ---
 _Page reflects DB state at generation time. Regenerate via `uv run python scripts/build_llm_wiki.py`._

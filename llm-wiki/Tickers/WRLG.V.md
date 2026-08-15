@@ -1,4 +1,4 @@
-# DEO — DEO
+# WRLG.V — WRLG.V
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
@@ -19,8 +19,8 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 ## Notable calls
 
-- **David Lin** — [Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes](https://www.youtube.com/watch?v=8kFLx1lEzU0) — n/d, David Lin: "it's starting to inflect."
-- **David Lin** — [Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes](https://www.youtube.com/watch?v=8kFLx1lEzU0) — n/d, David Lin: "Dagio takes its next leg higher."
+- **David Lin** — [Gold’s Brutal Shakeout: CEO Reveals Next Bullish Pivot And Signal \| Shane Willi…](https://www.youtube.com/watch?v=DB-0gMxwmzw) — 2026-07-22, David Lin: "I think you'll see a good step up those sort of rates of step up over the rest of the year"
+- **David Lin** — [Gold’s Brutal Shakeout: CEO Reveals Next Bullish Pivot And Signal \| Shane Willi…](https://www.youtube.com/watch?v=DB-0gMxwmzw) — 2026-07-22, David Lin: "I expect as the gold market moves up, we will move up at a at the same sort of rate of change. So I would see that's where we will get back up to where we are and above that range."
 
 ## Analysts covering this ticker
 
@@ -41,7 +41,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
-- n/d — [Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes](https://www.youtube.com/watch?v=8kFLx1lEzU0) (David Lin)
+- 2026-07-22 — [Gold’s Brutal Shakeout: CEO Reveals Next Bullish Pivot And Signal \| Shane Williams](https://www.youtube.com/watch?v=DB-0gMxwmzw) (David Lin)
 
 ---
 _Page reflects DB state at generation time. Regenerate via `uv run python scripts/build_llm_wiki.py`._

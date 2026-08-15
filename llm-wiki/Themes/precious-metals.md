@@ -2,14 +2,15 @@
 
 Calls on the four precious metals — dominated by gold (GC=F), with silver (SI=F), platinum (PL=F) and palladium (PA=F). Gold is the single most-predicted asset in the DB.
 
-**52 prediction(s)** and **53 market view(s)** match this theme in the current extraction.
+**56 prediction(s)** and **53 market view(s)** match this theme in the current extraction.
 
 ## Constituent tickers
 
 | Ticker | Mentions |
 |---|---:|
-| [GC=F](../Tickers/GC=F.md) | 38 |
+| [GC=F](../Tickers/GC=F.md) | 39 |
 | [SI=F](../Tickers/SI=F.md) | 8 |
+| [GOLD ROCK MINE](../Tickers/GOLD ROCK MINE.md) | 3 |
 | [PA=F](../Tickers/PA=F.md) | 3 |
 | [PL=F](../Tickers/PL=F.md) | 3 |
 
@@ -24,11 +25,11 @@ Calls on the four precious metals — dominated by gold (GC=F), with silver (SI=
 - [CPM Group analyst](../People/cpm-group-analyst.md) (3)
 - [David Woo](../People/david-woo.md) (3)
 - [CPM Group speaker](../People/cpm-group-speaker.md) (1)
-- [Val Zlatev](../People/val-zlatev.md) (1)
+- [Jeff Snider](../People/jeff-snider.md) (1)
 
 ## Consensus across analysts
 
-Of 52 tickered calls: **9 bullish**, **14 bearish**.
+Of 56 tickered calls: **9 bullish**, **14 bearish**.
 
 ## Notable calls & quotes
 

@@ -50,17 +50,17 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
+- _geopolitics — bullish_: [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80) — n/d, [Joseph](../People/joseph.md): "this is a ceasefire that is probably going to hold and honestly it seems like maybe the Iran war is going to mark the twilight of the influence of the Israeli lobby in the US"
 - _macro/trade — bearish_: [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80) — n/d, Unnamed narrator: "a big reason, according to their analysis, why German growth hasn't been good over the past few years, is because German exports have been declining in their contribution to growth"
-- _macro/trade — bearish_: [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80) — n/d, Unnamed narrator: "one of the things that they're considering actually is to be do something similar basically to erect a tariff wall to try to make their own goods a bit more competitive relative to imports"
-- _trade/manufacturing — mixed_: [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80) — n/d, [Joseph](../People/joseph.md): "Euroland is now also considering to erect their own tariff wall"
-- _macro/trade — bullish_: [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80) — n/d, Unnamed narrator: "you have the Chinese moving up the value chain and threatening a wider range of industries in the West"
-- _commodities — bearish_: [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80) — n/d, [Joseph](../People/joseph.md): "if you look at spot oil prices, they've absolutely plummeted. So, you can see spot Brent all the way down... this is a large large disinflationary wave that is sweeping through the global economy"
-- _currency — bearish_: [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80) — n/d, Unnamed narrator: "the Chinese government is, of course, managing the currency such that the Chinese currency is structurally undervalued and and some people estimate maybe 20 or 30% undervalued"
+- _equities — bearish_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Joseph Wang: "if you look at the equity market reaction, uh there's some possibility that equity markets could have, you know, a bit of a correction."
+- _commodities — bearish_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Joseph Wang: "energy prices are coming down. Uh they're going to come down maybe rapidly, and so that is going to have a disinflationary tailwind coming forward."
+- _rates — neutral_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Joseph Wang: "No, I don't think we'll hike this year. ... my base case is that we just hold rates throughout this year."
+- _rates — bearish_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Joseph Wang: "So he he didn't have to actually hike. He did tighten financial conditions and raise rates just by his communication."
 
 ## Source items (extracted)
 
-- n/d — [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI)
 - n/d — [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80)
+- n/d — [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI)
 
 ---
 _Page reflects DB state at generation time._

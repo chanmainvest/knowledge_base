@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 21
+- **Extracted items**: 23
 - **Items with predictions**: 8
 - **Predictions**: 14
 - **Market views**: 29
@@ -56,9 +56,9 @@ _No URL / bio in DB channel metadata._
 - _? — ?_: [美股市況短評 (20260727)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164973225) — 2026-07-27, aminvest
 - _? — ?_: [美股市況短評 (20260727)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164973225) — 2026-07-27, aminvest
 - _? — ?_: [美股市況短評 (20260727)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164973225) — 2026-07-27, aminvest
-- _credit — bearish_: [美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909) — 2026-06-25, aminvest: "企業債務違約比率，已經開始惡化。"
+- _equities — bullish_: [美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909) — 2026-06-25, aminvest: "大型科技股，很多應該都會再升。"
+- _equities — bearish_: [美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909) — 2026-06-25, aminvest: "而是全球很多 AI 相關與不相關的公司，都將會倒閉。"
 - _equities — bullish_: [美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909) — 2026-06-25, aminvest: "事實上，我認為科技股和金融股仍然有機會再升。"
-- _equities — mixed_: [美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909) — 2026-06-25, aminvest: "不過，美股風險亦已經大增。"
 
 ## Source items (extracted)
 
@@ -71,6 +71,8 @@ _No URL / bio in DB channel metadata._
 - 2026-07-27 — [美股市況短評 (20260727)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164973225)
 - 2026-07-24 — [美股市況短評 (20260724)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164723944)
 - 2026-07-23 — [美股市況短評 (20260723)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164634949)
+- 2026-07-22 — [走勢複盤 (暫名)  - 從 2021 年 ARKK 歷史軌跡，看當前美股結構與隱憂](https://www.patreon.com/aminvest/posts/zou-shi-fu-pan-164564900)
+- 2026-07-21 — [美股市況短評 (20260721)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164419011)
 - 2026-06-26 — [美股市況短評 (20260626)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162143520)
 - 2026-06-25 — [美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909)
 - 2026-06-24 — [美股市況短評 (20260624)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161958989)

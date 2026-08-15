@@ -6,23 +6,23 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 14
-- **Items with predictions**: 10
-- **Predictions**: 52
-- **Market views**: 10
+- **Extracted items**: 16
+- **Items with predictions**: 12
+- **Predictions**: 66
+- **Market views**: 12
 
 **Most-called tickers:**
 
 - [DC](../Tickers/DC.md) (6)
 - [DCGL](../Tickers/DCGL.md) (4)
+- [GOLD ROCK MINE](../Tickers/GOLD ROCK MINE.md) (3)
 - [GGO.V](../Tickers/GGO.V.md) (2)
 - [ARK.V](../Tickers/ARK.V.md) (2)
 - [ENKG](../Tickers/ENKG.md) (2)
 - [ARS](../Tickers/ARS.md) (2)
-- `AG` (1)
-- `TSK.TO` (1)
-- `ICG` (1)
-- [GC=F](../Tickers/GC=F.md) (1)
+- [SAG.V](../Tickers/SAG.V.md) (2)
+- [PAN OPERATING COMPLEX](../Tickers/PAN OPERATING COMPLEX.md) (2)
+- [PAN MINE](../Tickers/PAN MINE.md) (2)
 
 ## Stance distribution (predictions)
 
@@ -30,7 +30,7 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 0 |
 | Bearish | 0 |
-| Neutral / watch | 52 |
+| Neutral / watch | 66 |
 
 ## Recent notable calls
 
@@ -45,9 +45,9 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
+- _? — ?_: [High-Grade Gold Project in Ontario, But Can They Actually Build It? \| Galleon G…](https://www.youtube.com/watch?v=9N4rzN0f9uo) — 2026-08-07, Resource Talks
 - _? — ?_: [Gold Project Next to a Major Mine, But Is the Geology Really the Same? \| Galact…](https://www.youtube.com/watch?v=D8YzCqyL6CI) — 2026-08-07, Resource Talks: "right now in the resource sector, you've got gold that, uh, you know, has taken a tremendous, uh, leap"
 - _? — ?_: [Gold Project Next to a Major Mine, But Is the Geology Really the Same? \| Galact…](https://www.youtube.com/watch?v=D8YzCqyL6CI) — 2026-08-07, Resource Talks: "There's there's many more opportunities given the current market situation and environment"
-- _? — ?_: [High-Grade Gold Project in Ontario, But Can They Actually Build It? \| Galleon G…](https://www.youtube.com/watch?v=9N4rzN0f9uo) — 2026-08-07, Resource Talks
 - _? — ?_: [Multiple Porphyries in Kazakhstan, But Can They Prove Continuity? \| Arras Miner…](https://www.youtube.com/watch?v=ec9hWlIZKJE) — 2026-08-05, Resource Talks
 - _? — ?_: [Multiple Porphyries in Kazakhstan, But Can They Prove Continuity? \| Arras Miner…](https://www.youtube.com/watch?v=ec9hWlIZKJE) — 2026-08-05, Resource Talks
 - _? — ?_: [Cesium Stock +56% on Agnico Deal, US Fluorspar Producer Powers Up, 2 Stocks Cra…](https://www.youtube.com/watch?v=CK7DueVsIs8) — 2026-07-25, Resource Talks
@@ -66,8 +66,10 @@ _No URL / bio in DB channel metadata._
 - 2026-07-28 — [3 Copper-Gold Targets in BC, But Can They Deliver a Discovery? \| Prospect Ridge CEO Inter…](https://www.youtube.com/watch?v=tbRyZYaJh5M)
 - 2026-07-27 — [High-Grade Oxide Gold in Nevada, But Can it Deliver Scale? \| Nevada King Gold CEO Intervi…](https://www.youtube.com/watch?v=FBHwcyBLF1Q)
 - 2026-07-25 — [Cesium Stock +56% on Agnico Deal, US Fluorspar Producer Powers Up, 2 Stocks Crash on Fina…](https://www.youtube.com/watch?v=CK7DueVsIs8)
-- 2026-07-24 — [Targeting Potash Production in 2027, But Can this Mining Method Work? \| Buffalo Potash CE…](https://www.youtube.com/watch?v=mLCEDfK3tL4)
 - 2026-07-24 — [1M Ounces of Gold in Idaho, But Can the Grade Support Good Margins? \| Freeman Gold CEO In…](https://www.youtube.com/watch?v=gXgvIhQTUI0)
+- 2026-07-24 — [Targeting Potash Production in 2027, But Can this Mining Method Work? \| Buffalo Potash CE…](https://www.youtube.com/watch?v=mLCEDfK3tL4)
+- 2026-07-23 — [North American Gold Producer, But Can They Execute on Growth? \| Mining Americas CEO Inter…](https://www.youtube.com/watch?v=_MgHzkEAbYQ)
+- 2026-07-23 — [New Potash Project in the USA, But Will Solution Mining Work at Depth? \| Sage Potash CEO …](https://www.youtube.com/watch?v=Lhn64b39MmQ)
 
 ---
 _Page reflects DB state at generation time._

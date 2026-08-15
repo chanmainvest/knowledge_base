@@ -60,13 +60,13 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 ## Source items
 
 - 2026-08-13 — [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) (David Lin)
-- 2026-08-10 — [Investor Called Chips Crash, Now Warns ‘We’re Nearing The End’ Of Stock Rally \| Jim Welsh](https://www.youtube.com/watch?v=G9peC5ZZMuo) (David Lin)
+- n/d — [Investor Called Chips Crash, Now Warns ‘We’re Nearing The End’ Of Stock Rally \| Jim Welsh](https://www.youtube.com/watch?v=G9peC5ZZMuo) (David Lin)
 - 2026-08-07 — [Washington Is Suppressing Volatility To Keep The AI Boom Alive \| Weekly Roundup](https://www.youtube.com/watch?v=L_g9MNO2tvE) (Forward Guidance)
 - 2026-08-07 — [How High Will Interest Rates Go? Bond Market Sends Fed A Major Warning \| Ed Yardeni](https://www.youtube.com/watch?v=aaaDQUPB4KY) (David Lin)
 - 2026-08-06 — [Markets To Surge 20% Until 'Global Financial Reset' Kills Everything \| Chris Vermeulen](https://www.youtube.com/watch?v=7bqs3hKc-fk) (David Lin)
 - 2026-07-30 — [Gold To $3,000, Oil To $40, Bitcoin To $10,000: The Deflation Trade Is Here \| Mike McGlone](https://www.youtube.com/watch?v=_wm2gO04z_I) (David Lin)
 - 2026-07-30 — [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) (The Macro Dirt Podcast)
-- 2026-07-26 — [Major Market Repricing Alert: Global Economy Changed Forever \| John Butler](https://www.youtube.com/watch?v=SjxmpuoQvVc) (David Lin)
+- n/d — [Major Market Repricing Alert: Global Economy Changed Forever \| John Butler](https://www.youtube.com/watch?v=SjxmpuoQvVc) (David Lin)
 - 2026-07-26 — [Why This Bull Market May Still Have Room to Run With Caleb Franzen & Kris Bullock](https://www.youtube.com/watch?v=hzD3kSL_haE) (Real Vision)
 - 2026-06-23 — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) (The Macro Dirt Podcast)
 - 2026-06-18 — [SpaceX, Iran, OpenAI IPO...Here's My Controversial Stock Strategy For 2026](https://www.youtube.com/watch?v=QxR6yvf8ueU) (George Gammon)

@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 3
+- **Extracted items**: 4
 - **Items with predictions**: 3
 - **Predictions**: 40
 - **Market views**: 36
@@ -64,7 +64,7 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _crypto — bearish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "Bitcoin is the Facebook of speculative assets... I think it's just going to go into the sunset I just think it's irrelevant"
+- _equities — bearish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "the S&P is now 22% semiconductors, all-time high... I am I have a strong opinion on the index. I'm very bearish on the index."
 - _currency/commodity — bullish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "I think all fiat currencies a waste of time. Dollar's not going away. Last year, dollar was down 9%. gold was up 60 some odd percent."
 - _commodity — bullish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "I think the safer way to look at this is if I had to make a bet on the next 10 or even $15 in crude oil, I would bet higher."
 - _commodity — bullish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "Stochastics are a nine right now. So that's as oversold as it gets on stochastics. RSI 29. Usually below 30, you got to be looking to buy stuff."
@@ -74,6 +74,7 @@ _No URL / bio in DB channel metadata._
 ## Source items (extracted)
 
 - 2026-07-30 — [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY)
+- 2026-07-23 — [Macro Dirt and Fast Money](https://www.youtube.com/watch?v=OfmDNcA0Tlc)
 - 2026-06-23 — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4)
 - 2026-06-17 — [Nobody Owns Bonds](https://www.youtube.com/watch?v=H-mvJ6poUk4)
 

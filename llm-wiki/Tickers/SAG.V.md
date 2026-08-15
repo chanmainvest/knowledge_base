@@ -1,4 +1,4 @@
-# DEO — DEO
+# SAG.V — SAG.V
 
 **2 extracted prediction(s)** across 1 channel(s). Consensus: **neutral / watch** (0 bullish / 0 bearish / 2 neutral).
 
@@ -19,12 +19,12 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 ## Notable calls
 
-- **David Lin** — [Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes](https://www.youtube.com/watch?v=8kFLx1lEzU0) — n/d, David Lin: "it's starting to inflect."
-- **David Lin** — [Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes](https://www.youtube.com/watch?v=8kFLx1lEzU0) — n/d, David Lin: "Dagio takes its next leg higher."
+- **Resource Talks** — [New Potash Project in the USA, But Will Solution Mining Work at Depth? \| Sage P…](https://www.youtube.com/watch?v=Lhn64b39MmQ) — 2026-07-23, Resource Talks: "Something where you're, you know, you're producing, say, upwards of a a million tons a year, maybe maybe more"
+- **Resource Talks** — [New Potash Project in the USA, But Will Solution Mining Work at Depth? \| Sage P…](https://www.youtube.com/watch?v=Lhn64b39MmQ) — 2026-07-23, Resource Talks: "revised resource estimate... expected for this year. So Q3 of this year relatively soon"
 
 ## Analysts covering this ticker
 
-- [David Lin](../Analysts/thedavidlinreport.md) (`@TheDavidLinReport`)
+- [Resource Talks](../Analysts/resourcetalks.md) (`@ResourceTalks`)
 
 ## Rates & bond-yield backdrop
 
@@ -41,7 +41,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
-- n/d — [Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes](https://www.youtube.com/watch?v=8kFLx1lEzU0) (David Lin)
+- 2026-07-23 — [New Potash Project in the USA, But Will Solution Mining Work at Depth? \| Sage Potash CEO …](https://www.youtube.com/watch?v=Lhn64b39MmQ) (Resource Talks)
 
 ---
 _Page reflects DB state at generation time. Regenerate via `uv run python scripts/build_llm_wiki.py`._

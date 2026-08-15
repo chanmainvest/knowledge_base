@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 2
+- **Extracted items**: 3
 - **Items with predictions**: 1
 - **Predictions**: 3
 - **Market views**: 0
@@ -35,6 +35,7 @@ _No URL / bio in DB channel metadata._
 
 - 2026-08-13 — [MacroVoices #545 Michael Howell: Warsh vs. The Markets](https://www.macrovoices.com/1545-macrovoices-545-michael-howell-warsh-vs-the-markets)
 - 2026-07-30 — [MacroVoices #543 Jim Bianco: Who Solves Inflation The FED or The Market?](https://www.macrovoices.com/1543-macrovoices-543-jim-bianco-who-solves-inflation-the-fed-or-the-market)
+- 2026-07-23 — [MacroVoices #542 Luke Gromen: As The Conflict Turns](https://www.macrovoices.com/1542-macrovoices-542-luke-gromen-as-the-conflict-turns)
 
 ---
 _Page reflects DB state at generation time._

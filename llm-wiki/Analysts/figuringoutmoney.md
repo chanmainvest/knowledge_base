@@ -36,8 +36,8 @@ _No URL / bio in DB channel metadata._
 ## Recent market views
 
 - _? — ?_: [A Big Move Is Right Around The Corner](https://www.youtube.com/watch?v=jWsZBXK3XsA) — 2026-08-13, Figuring Out Money: "that's why I'm still in that telling everyone that we're in that bull strong environment."
-- _? — ?_: [A Big Move Is Right Around The Corner](https://www.youtube.com/watch?v=jWsZBXK3XsA) — 2026-08-13, Figuring Out Money: "You want to add exposure in bullish environments. You want to reduce when things start to take off or take take take out stops."
 - _? — ?_: [A Big Move Is Right Around The Corner](https://www.youtube.com/watch?v=jWsZBXK3XsA) — 2026-08-13, Figuring Out Money: "if it gets back into this minus 5% area over here and we do see a kind of a shakeout move to the downside that might be potentially aggressive"
+- _? — ?_: [A Big Move Is Right Around The Corner](https://www.youtube.com/watch?v=jWsZBXK3XsA) — 2026-08-13, Figuring Out Money: "You want to add exposure in bullish environments. You want to reduce when things start to take off or take take take out stops."
 
 ## Source items (extracted)
 

@@ -46,7 +46,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
-- 2026-08-10 — [Investor Called Chips Crash, Now Warns ‘We’re Nearing The End’ Of Stock Rally \| Jim Welsh](https://www.youtube.com/watch?v=G9peC5ZZMuo) (David Lin)
+- n/d — [Investor Called Chips Crash, Now Warns ‘We’re Nearing The End’ Of Stock Rally \| Jim Welsh](https://www.youtube.com/watch?v=G9peC5ZZMuo) (David Lin)
 - 2026-08-06 — [Markets To Surge 20% Until 'Global Financial Reset' Kills Everything \| Chris Vermeulen](https://www.youtube.com/watch?v=7bqs3hKc-fk) (David Lin)
 - 2026-07-30 — [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) (The Macro Dirt Podcast)
 - 2026-06-17 — [Nobody Owns Bonds](https://www.youtube.com/watch?v=H-mvJ6poUk4) (The Macro Dirt Podcast)

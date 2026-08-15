@@ -46,7 +46,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 ## Source items
 
 - 2026-08-06 — [Markets To Surge 20% Until 'Global Financial Reset' Kills Everything \| Chris Vermeulen](https://www.youtube.com/watch?v=7bqs3hKc-fk) (David Lin)
-- 2026-07-30 — [Fed Triggers Market 'Carnage': Economist Reveals Next Shock \| Komal Sri-Kumar](https://www.youtube.com/watch?v=2jxIHKDzMw0) (David Lin)
+- n/d — [Fed Triggers Market 'Carnage': Economist Reveals Next Shock \| Komal Sri-Kumar](https://www.youtube.com/watch?v=2jxIHKDzMw0) (David Lin)
 - 2026-06-15 — [Massive AI Crackdown Is Coming (It’s Simply Too Good) \| David Woo](https://www.youtube.com/watch?v=760Bpzc1cYM) (The Monetary Matters Network)
 
 ---

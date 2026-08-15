@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 6
+- **Extracted items**: 7
 - **Items with predictions**: 3
 - **Predictions**: 32
 - **Market views**: 76
@@ -62,7 +62,7 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _geopolitics/energy — bearish_: [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Brent Johnson](../People/brent-johnson.md): "I think this is a very, very tenuous deal at best. And as I said at the very beginning, I don't expect it to last"
+- _energy — bearish_: [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Erik Townsend](../People/erik-townsend.md): "someday we're going to get a real peace deal and when we do, oil is going to sell off and sell off hard. Well, that's exactly what's happened."
 - _commodities — mixed_: [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Brent Johnson](../People/brent-johnson.md): "I don't think that we have seen the full effects yet. And so, I think that is probably I think the big impact won't be realized for 3 to 6 months from now, maybe even 9 months from now. So, let's call let's call it Q4 a…"
 - _oil — neutral_: [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Brent Johnson](../People/brent-johnson.md): "there's a lot of people who already thought we would see go oil at 150 bucks or 200 bucks or whatever it is, or that we would see gold at 6,000 or 8,000 or 10,000 or whatever it is. Instead, they have both fallen precip…"
 - _geopolitics/currency — neutral_: [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Brent Johnson](../People/brent-johnson.md): "I think it is going to open up some. I don't think it's going to get back to normal. I would be surprised if it got back to normal."
@@ -73,9 +73,10 @@ _No URL / bio in DB channel metadata._
 
 - 2026-08-06 — [MacroVoices #544 Viktor Shvets: How Markets Survive Disruption](https://www.youtube.com/watch?v=xe0wg8KUZ_Q)
 - 2026-07-30 — [Trading Desk - July 30th 2026](https://www.youtube.com/watch?v=2vSQ3Cmkxkk)
+- 2026-07-23 — [Trading Desk - July 23rd 2026](https://www.youtube.com/watch?v=dJSZgUTpxO8)
 - 2026-06-19 — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o)
-- 2026-06-18 — [Trade of The Week - MacroVoices #537](https://www.youtube.com/watch?v=oqHNNzR9WNc)
 - 2026-06-18 — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=N7mX2NJ3nxQ)
+- 2026-06-18 — [Trade of The Week - MacroVoices #537](https://www.youtube.com/watch?v=oqHNNzR9WNc)
 - n/d — [Trading Desk - August 6th 2026](https://www.youtube.com/watch?v=CHomdJvGkwg)
 
 ---

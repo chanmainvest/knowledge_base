@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 1
+- **Extracted items**: 2
 - **Items with predictions**: 0
 - **Predictions**: 0
 - **Market views**: 12
@@ -38,6 +38,7 @@ _No URL / bio in DB channel metadata._
 
 ## Source items (extracted)
 
+- 2026-07-23 — [The Liquidity Cycle, AI, and the Economic Singularity \| Raoul Pal The Journey Man](https://www.youtube.com/watch?v=Jd0MzZ3IWfg)
 - 2026-06-18 — [AI, Bitcoin & Self-Sovereignty \| Raoul Pal The Journey Man with Erik Voorhees](https://www.youtube.com/watch?v=nCpeLLNxl-g)
 
 ---

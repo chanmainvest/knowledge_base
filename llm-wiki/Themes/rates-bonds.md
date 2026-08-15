@@ -2,7 +2,7 @@
 
 US Treasury yields (^TNX), the dollar index (DX-Y.NYB), and broad fixed-income / monetary-policy calls. Rates cuts and the dollar's reserve status are the recurring threads.
 
-**26 prediction(s)** and **105 market view(s)** match this theme in the current extraction.
+**27 prediction(s)** and **105 market view(s)** match this theme in the current extraction.
 
 ## Constituent tickers
 
@@ -10,7 +10,7 @@ US Treasury yields (^TNX), the dollar index (DX-Y.NYB), and broad fixed-income /
 |---|---:|
 | [^TNX](../Tickers/^TNX.md) | 13 |
 | [DX-Y.NYB](../Tickers/DX-Y.NYB.md) | 9 |
-| [USDJPY=X](../Tickers/USDJPY=X.md) | 2 |
+| [USDJPY=X](../Tickers/USDJPY=X.md) | 3 |
 | [JPY=X](../Tickers/JPY=X.md) | 2 |
 
 ## Key voices
@@ -28,7 +28,7 @@ US Treasury yields (^TNX), the dollar index (DX-Y.NYB), and broad fixed-income /
 
 ## Consensus across analysts
 
-Of 26 tickered calls: **2 bullish**, **9 bearish**.
+Of 27 tickered calls: **2 bullish**, **9 bearish**.
 
 ## Notable calls & quotes
 
@@ -47,15 +47,15 @@ Of 26 tickered calls: **2 bullish**, **9 bearish**.
 
 ## Broad market views
 
-- _? (?)_: [Christopher Whalen: The Fed Has Lost Control of Interest Rates](https://www.youtube.com/watch?v=k802efbalbg) — 2026-08-11, VRIC Media: "The reserve asset dimension of the dollar is definitely going to decline. I think we could see the dollar down to as little as 40% or less of global reserves held by central banks."
 - _? (?)_: [Christopher Whalen: The Fed Has Lost Control of Interest Rates](https://www.youtube.com/watch?v=k802efbalbg) — 2026-08-11, VRIC Media: "the dollar is very strong, unusually strong. Our currency should be a lot weaker than it is given our fiscal situation."
+- _? (?)_: [Christopher Whalen: The Fed Has Lost Control of Interest Rates](https://www.youtube.com/watch?v=k802efbalbg) — 2026-08-11, VRIC Media: "The reserve asset dimension of the dollar is definitely going to decline. I think we could see the dollar down to as little as 40% or less of global reserves held by central banks."
 - _? (?)_: [Washington Is Suppressing Volatility To Keep The AI Boom Alive \| Weekly Roundup](https://www.youtube.com/watch?v=L_g9MNO2tvE) — 2026-08-07, Forward Guidance: "Treasury Takes Control Of Volatility"
 - _? (?)_: [How Japan Could Trigger The Biggest Market Unwind in History](https://www.youtube.com/watch?v=gdSCfWZp1oQ) — 2026-08-07, David Lin: "a stable yen is not only important for the US, but it's very important for the entire region"
 - _? (?)_: [How Japan Could Trigger The Biggest Market Unwind in History](https://www.youtube.com/watch?v=gdSCfWZp1oQ) — 2026-08-07, David Lin: "if the yen were to weaken substantially, then the other currencies would follow it"
+- _? (?)_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "India's demand for dollars has repeatedly exceeded the private supply available at prevailing exchange rates"
+- _? (?)_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "Today, after 2008, global banks operate with tighter balance sheet constraints. Dollar funding has increasingly migrated into swap, securities financing, non-bank structures or shadow banks that become unstable when col…"
 - _? (?)_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "Across the region, other interventions have produced the same pattern, a temporary rally followed by renewed depreciation. That tells us private dollar conditions remain stronger than official defenses."
 - _? (?)_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "When foreign officials sell their reserve assets, including US Treasuries, it's not because of any of the political reasons that you hear across the media. It's a mechanical relationship, dollar shortage, mobilization o…"
-- _? (?)_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "Today, after 2008, global banks operate with tighter balance sheet constraints. Dollar funding has increasingly migrated into swap, securities financing, non-bank structures or shadow banks that become unstable when col…"
-- _? (?)_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "India's demand for dollars has repeatedly exceeded the private supply available at prevailing exchange rates"
 - _credit (bearish)_: [美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909) — 2026-06-25, aminvest: "企業債務違約比率，已經開始惡化。"
 
 ---

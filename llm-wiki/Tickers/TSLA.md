@@ -1,6 +1,6 @@
 # TSLA — Tesla
 
-**2 extracted prediction(s)** across 2 channel(s). Consensus: **bearish** (0 bullish / 1 bearish / 1 neutral).
+**3 extracted prediction(s)** across 2 channel(s). Consensus: **bearish** (0 bullish / 1 bearish / 2 neutral).
 
 ## Themes
 
@@ -12,7 +12,7 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 |---|---:|
 | Bullish | 0 |
 | Bearish | 1 |
-| Neutral / watch | 1 |
+| Neutral / watch | 2 |
 
 ## Voices on this ticker
 
@@ -21,6 +21,7 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 ## Notable calls
 
+- **The Monetary Matters Network** — [The Next Financial Crisis Isn't In AI, It's In US Treasuries \| Russell Clark](https://www.youtube.com/watch?v=wS4MV0FbVm8) — 2026-07-22, The Monetary Matters Network: "now, you know, Tesla's worth multiples of the entire old sort of internal combustion engine producers"
 - **George Noble** (action=`short`, dir=`down`, tf=`unspecified`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "I can short Oklahoma or I can short Tesla or I can short Fresh Pet."
 - **David Woo** (action=`none`, dir=`unspecified`, tf=`unspecified`) — [Massive AI Crackdown Is Coming (It’s Simply Too Good) \| David Woo](https://www.youtube.com/watch?v=760Bpzc1cYM) — 2026-06-15, [David Woo](../People/david-woo.md): "Tesla's latest robo taxi went into whatever trial in Texas and it was it was literally like creating traffic incidents."
 
@@ -44,6 +45,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
+- 2026-07-22 — [The Next Financial Crisis Isn't In AI, It's In US Treasuries \| Russell Clark](https://www.youtube.com/watch?v=wS4MV0FbVm8) (The Monetary Matters Network)
 - 2026-06-23 — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) (The Macro Dirt Podcast)
 - 2026-06-15 — [Massive AI Crackdown Is Coming (It’s Simply Too Good) \| David Woo](https://www.youtube.com/watch?v=760Bpzc1cYM) (The Monetary Matters Network)
 

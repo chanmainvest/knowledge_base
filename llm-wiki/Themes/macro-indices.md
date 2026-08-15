@@ -2,7 +2,7 @@
 
 Top-down calls on the S&P 500 (^GSPC, SPY), Nasdaq (^IXIC), Kospi (^KS11) and macro / economy direction. The recession-vs-soft-landing debate lives here.
 
-**23 prediction(s)** and **81 market view(s)** match this theme in the current extraction.
+**23 prediction(s)** and **82 market view(s)** match this theme in the current extraction.
 
 ## Constituent tickers
 
@@ -49,15 +49,15 @@ Of 23 tickered calls: **3 bullish**, **7 bearish**.
 ## Broad market views
 
 - _? (?)_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "The danger is that central banks react to the temporary inflationary impact of oil while the underlying economy is already weakening."
+- _? (?)_: [Europe’s 20-Year Economic Collapse Is Finally Impossible to Hide](https://www.youtube.com/watch?v=WhNvNwxV_qA) — 2026-07-22, Eurodollar University: "a persistent depression-like shortfall"
 - _equity index (bearish)_: [海力士槓桿ETF威脅韓股](https://www1.hkej.com/dailynews/investment/article/4440216/%E6%B5%B7%E5%8A%9B%E5%A3%AB%E6%A7%93%E6%A1%BFETF%E5%A8%81%E8%84%85%E9%9F%93%E8%82%A1) — 2026-06-26, 何啟聰: "早前海力士股價便因一些加稅討論而一度急跌,導致KOSPI 200指數跌了一成,正是涉及了不少槓桿產品引致的波幅"
 - _macro (neutral)_: [宏觀交易過五關 AI落場都輸錢](https://www1.hkej.com/dailynews/investment/article/4440220/%E5%AE%8F%E8%A7%80%E4%BA%A4%E6%98%93%E9%81%8E%E4%BA%94%E9%97%9C+AI%E8%90%BD%E5%A0%B4%E9%83%BD%E8%BC%B8%E9%8C%A2) — 2026-06-26, 李聲揚: "事實上，即使能未卜先知，了解局勢走向，對投資近乎是零幫助，甚至是催命符。"
 - _geopolitical/macro (bearish)_: [拆解伊強弱底牌 對美博弈佔上風](https://www.master-insight.com/article/48968) — 2026-06-25, 作者: "再加上以色列根本不想停戰，中東離開真正的和平仍很遙遠。"
+- _equities (bearish)_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "the S&P is now 22% semiconductors, all-time high... I am I have a strong opinion on the index. I'm very bearish on the index."
 - _precious metals (bullish)_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
 - _monetary policy / macro (bearish)_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
 - _equities (neutral)_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "So what the index does, I don't really know. I don't really care. I want to own assets... I think we're reentered. We we've re-entered the golden age of stock picking. So So the index level is of little interest to me."
-- _equities (bearish)_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "the S&P is now 22% semiconductors, all-time high... I am I have a strong opinion on the index. I'm very bearish on the index."
 - _labor market / macro economy (bearish)_: [京東不要快遞員 三項鐵人再培訓](https://www1.hkej.com/dailynews/finnews/article/4436952/%E4%BA%AC%E6%9D%B1%E4%B8%8D%E8%A6%81%E5%BF%AB%E9%81%9E%E5%93%A1+%E4%B8%89%E9%A0%85%E9%90%B5%E4%BA%BA%E5%86%8D%E5%9F%B9%E8%A8%93) — 2026-06-23, 高天佑: "話說內地近年經濟放緩，就業形勢日益惡化，尤其是35歲以上人士已被視為中年，競爭力難及「小鮮肉」，屬於裁員的高危群體。"
-- _equity index (mixed)_: [美股市況短評 (20260622)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161763918) — 2026-06-22, aminvest: "美股來到關鍵阻力位，究竟要攻，還是要守？今日的走勢相當關鍵。"
 
 ---
 _Theme buckets are keyword-based and approximate; an LLM-tagged taxonomy would be more precise. Regenerate via `uv run python scripts/build_llm_wiki.py`._

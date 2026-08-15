@@ -53,9 +53,9 @@ Of 8 tickered calls: **0 bullish**, **4 bearish**.
 - _equity index (bearish)_: [海力士槓桿ETF威脅韓股](https://www1.hkej.com/dailynews/investment/article/4440216/%E6%B5%B7%E5%8A%9B%E5%A3%AB%E6%A7%93%E6%A1%BFETF%E5%A8%81%E8%84%85%E9%9F%93%E8%82%A1) — 2026-06-26, 何啟聰: "早前海力士股價便因一些加稅討論而一度急跌,導致KOSPI 200指數跌了一成,正是涉及了不少槓桿產品引致的波幅"
 - _equity (bearish)_: [毒尿片觸發的消費信任危機](https://www.master-insight.com/article/48944) — 2026-06-25, author: "端午節後首個工作日，A股紙尿褲代工第一股豪悅護理即低開逾3%，股價更曾一度跌超4%，收盤仍跌1.81%；可靠股份盤中更重挫5.69%。"
 - _consumer discretionary (bearish)_: [毒尿片觸發的消費信任危機](https://www.master-insight.com/article/48944) — 2026-06-25, author: "豪悅護理此前已面臨「增收不增利」困境，2025年淨利潤同比大跌40%，此次風波肯定雪上加霜。"
-- _equities (bearish)_: [AI敍事亟需「再驗證」](https://www1.hkej.com/dailynews/finnews/article/4438934/AI%E6%95%8D%E4%BA%8B%E4%BA%9F%E9%9C%80%E3%80%8C%E5%86%8D%E9%A9%97%E8%AD%89%E3%80%8D) — 2026-06-25, 高天佑: "環球股市動盪，美國大批人工智能（AI）龍頭股周二暴跌逾10%，南韓股市當日亦急挫9.99%，連帶港股也受拖累，創出逾一年新低。"
 - _autonomous driving technology / policy (bullish)_: [自駕合法化 有限度先導計劃可取](https://www1.hkej.com/dailynews/investment/article/4439041/%E8%87%AA%E9%A7%95%E5%90%88%E6%B3%95%E5%8C%96+%E6%9C%89%E9%99%90%E5%BA%A6%E5%85%88%E5%B0%8E%E8%A8%88%E5%8A%83%E5%8F%AF%E5%8F%96) — 2026-06-25, 梁天卓: "較合理的是中間路線：有限度先導計劃，只批准通過審核的系統，在指定地區或路線試行，要求營辦者提交里程、接管、事故、近失事故和投訴資料，再按數據定期擴大或收窄範圍。"
-- _real estate (bullish)_: [樓價愈升 愈多購買力](https://www.master-insight.com/article/48919) — 2026-06-24, 作者: "既然知道樓價有機會上升，樓宇便有投資價值"
+- _equities (bearish)_: [AI敍事亟需「再驗證」](https://www1.hkej.com/dailynews/finnews/article/4438934/AI%E6%95%8D%E4%BA%8B%E4%BA%9F%E9%9C%80%E3%80%8C%E5%86%8D%E9%A9%97%E8%AD%89%E3%80%8D) — 2026-06-25, 高天佑: "環球股市動盪，美國大批人工智能（AI）龍頭股周二暴跌逾10%，南韓股市當日亦急挫9.99%，連帶港股也受拖累，創出逾一年新低。"
+- _real estate (bullish)_: [樓價愈升 愈多購買力](https://www.master-insight.com/article/48919) — 2026-06-24, 作者: "樓價愈升，便會出現愈多購買力"
 - _real estate (bullish)_: [樓價愈升 愈多購買力](https://www.master-insight.com/article/48919) — 2026-06-24, 作者: "當這個現象出現，樓宇是極具投資價值"
 
 ---

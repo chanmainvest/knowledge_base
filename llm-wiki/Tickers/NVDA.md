@@ -1,6 +1,6 @@
 # NVDA — Nvidia
 
-**4 extracted prediction(s)** across 1 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 2 neutral).
+**5 extracted prediction(s)** across 1 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 3 neutral).
 
 ## Themes
 
@@ -12,7 +12,7 @@
 |---|---:|
 | Bullish | 2 |
 | Bearish | 0 |
-| Neutral / watch | 2 |
+| Neutral / watch | 3 |
 
 ## Voices on this ticker
 
@@ -22,6 +22,7 @@
 
 ## Notable calls
 
+- **The Monetary Matters Network** — [The Next Financial Crisis Isn't In AI, It's In US Treasuries \| Russell Clark](https://www.youtube.com/watch?v=wS4MV0FbVm8) — 2026-07-22, The Monetary Matters Network: "Nvidia chips have been very highly priced for a long time now... And they haven't come down"
 - **Ed Zitron** (action=`watch`, dir=`unspecified`, tf=`next 2-3 earnings calls through 2027`) — [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) — 2026-06-21, [Ed Zitron](../People/ed-zitron.md): "Nvidia's got two, three more earnings calls. if their guidance doesn't make the markets rock hard every three months."
 - **Host (Monetary Matters)** (action=`buy`, dir=`up`, tf=`unspecified`) — [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alp…](https://www.youtube.com/watch?v=NlIsoPhQePs) — 2026-06-20, Host (Monetary Matters): "if you had to ask me the name that I'm most excited about right now, I would say Nvidia."
 - **Jim Chanos** (action=`none`, dir=`unspecified`, tf=`2027 earnings`) — [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alp…](https://www.youtube.com/watch?v=NlIsoPhQePs) — 2026-06-20, [Jim Chanos](../People/jim-chanos.md): "Nvidia's at like 15 times on 2027 EPS."
@@ -46,6 +47,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
+- 2026-07-22 — [The Next Financial Crisis Isn't In AI, It's In US Treasuries \| Russell Clark](https://www.youtube.com/watch?v=wS4MV0FbVm8) (The Monetary Matters Network)
 - 2026-06-21 — [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) (The Monetary Matters Network)
 - 2026-06-20 — [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alpha in AI &…](https://www.youtube.com/watch?v=NlIsoPhQePs) (The Monetary Matters Network)
 

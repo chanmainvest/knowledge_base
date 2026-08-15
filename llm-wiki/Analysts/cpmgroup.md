@@ -68,12 +68,12 @@ _No URL / bio in DB channel metadata._
 ## Source items (extracted)
 
 - 2026-08-04 — [Gold And Silver WARNING: Is Your Metal Really There?](https://www.youtube.com/watch?v=qLZ381lQiFQ)
-- 2026-07-31 — [Gold And Silver Market Update: August Drop Before the Next Rally?](https://www.youtube.com/watch?v=EajzJMTVieM)
 - 2026-07-28 — [Gold And Silver Price WARNING: Breakout or Breakdown Before August?](https://www.youtube.com/watch?v=Y44xymVXMOg)
 - 2026-07-24 — [Gold Price WARNING: China’s July 24 “Shock” Or Not?](https://www.youtube.com/watch?v=u9jx89f0P3I)
 - 2026-06-23 — [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o)
 - 2026-06-19 — [Why Gold and Silver Prices Are Falling: Is Now The Time To Buy?](https://www.youtube.com/watch?v=z1btQrMgRwo)
 - 2026-06-16 — [Gold And Silver Market Update: How Low Before Buyers Return](https://www.youtube.com/watch?v=W1jdQOS8Lu8)
+- n/d — [Gold And Silver Market Update: August Drop Before the Next Rally?](https://www.youtube.com/watch?v=EajzJMTVieM)
 
 ---
 _Page reflects DB state at generation time._

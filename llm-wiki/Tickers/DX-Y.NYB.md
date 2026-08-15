@@ -44,7 +44,7 @@
 
 ## Source items
 
-- 2026-08-11 — [Biggest Market Shift Now: ‘You’re Making A Mistake’ Ignoring These Assets \| Ted Oakley](https://www.youtube.com/watch?v=_ZCvbIbrc_k) (David Lin)
+- n/d — [Biggest Market Shift Now: ‘You’re Making A Mistake’ Ignoring These Assets \| Ted Oakley](https://www.youtube.com/watch?v=_ZCvbIbrc_k) (David Lin)
 - 2026-08-11 — [Christopher Whalen: The Fed Has Lost Control of Interest Rates](https://www.youtube.com/watch?v=k802efbalbg) (VRIC Media)
 - 2026-08-06 — [Markets To Surge 20% Until 'Global Financial Reset' Kills Everything \| Chris Vermeulen](https://www.youtube.com/watch?v=7bqs3hKc-fk) (David Lin)
 - 2026-08-03 — [U.S. Bails Out Japan From Crisis; What It Means For Markets \| David Nicoski](https://www.youtube.com/watch?v=irq5IUDIB3Q) (David Lin)

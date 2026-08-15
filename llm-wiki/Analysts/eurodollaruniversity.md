@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 17
-- **Items with predictions**: 6
-- **Predictions**: 19
-- **Market views**: 91
+- **Extracted items**: 19
+- **Items with predictions**: 7
+- **Predictions**: 21
+- **Market views**: 96
 
 ## People on this channel
 
@@ -41,7 +41,7 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 0 |
 | Bearish | 4 |
-| Neutral / watch | 15 |
+| Neutral / watch | 17 |
 
 ## Market-view direction
 
@@ -65,12 +65,12 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "Across the region, other interventions have produced the same pattern, a temporary rally followed by renewed depreciation. That tells us private dollar conditions remain stronger than official defenses."
-- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "When foreign officials sell their reserve assets, including US Treasuries, it's not because of any of the political reasons that you hear across the media. It's a mechanical relationship, dollar shortage, mobilization o…"
-- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "Today, after 2008, global banks operate with tighter balance sheet constraints. Dollar funding has increasingly migrated into swap, securities financing, non-bank structures or shadow banks that become unstable when col…"
-- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "Swap spreads are also leaning heavily toward balance sheet caution rather than accelerating consumer prices."
+- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "the eurodollar today is in much worse shape than it was 30 years back"
+- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "Today's immediate catalyst isn't real estate, it's oil"
+- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "The eurodollar transformed its view of Asia from tigers to toxic waste"
+- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "India's demand for dollars has repeatedly exceeded the private supply available at prevailing exchange rates"
 - _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "The danger is that central banks react to the temporary inflationary impact of oil while the underlying economy is already weakening."
-- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "currencies across Asia once again hitting record or near record lows"
+- _? — ?_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "Swap spreads are also leaning heavily toward balance sheet caution rather than accelerating consumer prices."
 
 ## Source items (extracted)
 
@@ -81,6 +81,8 @@ _No URL / bio in DB channel metadata._
 - 2026-07-28 — [This Could Trigger the Next Global Trade War](https://www.youtube.com/watch?v=TYESa0H-uVY)
 - 2026-07-26 — [The “Safest” Companies Are Warning the Consumer Is Breaking](https://www.youtube.com/watch?v=I475w6xb8LI)
 - 2026-07-25 — [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ)
+- 2026-07-23 — [Google Issues a Dire Warning About the “AI Boom”](https://www.youtube.com/watch?v=3JjkvLAvS9w)
+- 2026-07-22 — [Europe’s 20-Year Economic Collapse Is Finally Impossible to Hide](https://www.youtube.com/watch?v=WhNvNwxV_qA)
 - 2026-06-23 — [Private Credit Default Rates Just Hit The Point Of No Return](https://www.youtube.com/watch?v=SibAV9HRe1I)
 - 2026-06-22 — [The U.K. Has Fallen: Here's What It Means for the World](https://www.youtube.com/watch?v=wL63-KdtuEE)
 - 2026-06-21 — [Swiss Bond Market Just Gave A Dire Warning to the World](https://www.youtube.com/watch?v=c2LzapdRuT4)
