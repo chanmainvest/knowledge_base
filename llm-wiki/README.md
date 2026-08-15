@@ -10,7 +10,7 @@ uv run python scripts/build_llm_wiki.py
 # add --no-bios to skip LLM bio generation for People pages
 ```
 
-The script is **read-only** against the DB and only writes under `llm-wiki/` (plus the bio cache `scripts/llm_wiki_bios.json`, so bios are only generated once per person). It clears the directory first, so it is fully idempotent.
+The script is **read-only** against the DB and only writes under `llm-wiki/` (plus the bio cache `scripts/llm_wiki_bios.json`, so bios are only generated once per person). The build is **incremental**: files are only rewritten when their content changes, stale generated pages are garbage-collected, and any other files you keep here are left alone.
 
 ## What it produces
 
@@ -32,7 +32,7 @@ llm-wiki/
 
 ## Data snapshot at generation time
 
-- Generated: **2026-08-15 06:01 UTC**
+- Generated: **2026-08-15 06:06 UTC**
 - Items in DB: **34,332** (extracted: **228**, pending: **34,101**)
 - Predictions: **420** · Market views: **556**
 - Distinct tickers with calls: **110** · People pages: **53**

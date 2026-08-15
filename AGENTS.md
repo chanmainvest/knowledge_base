@@ -360,11 +360,14 @@ scripts/
                         # (display-name drift) + undated/dated dupes; re-point
                         # stale item.md_path
   build_llm_wiki.py       # regenerate `llm-wiki/` (Karpathy-style synthesized
-                        # wiki) from the DB — read-only against Postgres,
-                        # clears and rewrites llm-wiki/ (incl. its own
-                        # README.md + AGENTS.md); re-run after each
-                        # scrape/extract batch. Structure, provenance rules
-                        # and section details live in `llm-wiki/AGENTS.md`.
+                        # wiki) from the DB — read-only against Postgres;
+                        # INCREMENTAL: never wipes llm-wiki/, rewrites pages
+                        # only when content changes, GCs stale generated
+                        # pages via scripts/.llm_wiki_manifest.json, leaves
+                        # any other files in llm-wiki/ untouched. Re-run
+                        # after each scrape/extract batch. Structure,
+                        # provenance rules and section details live in
+                        # `llm-wiki/AGENTS.md`.
                         # NOTE: the Mimosa write hook flags single-line
                         # `text("SELECT …")` calls as SQL-injection — keep
                         # all inline SQL in the multi-line triple-quoted

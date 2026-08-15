@@ -1,9 +1,9 @@
 # llm-wiki — agent notes
 
-**This whole directory is generated.** Do not hand-edit pages —
-every file is rewritten by `scripts/build_llm_wiki.py`, which
-clears the tree first. To change anything, change the script (or
-the DB it reads) and re-run:
+**Every page here is generated.** Do not hand-edit pages — they are
+rewritten by `scripts/build_llm_wiki.py` whenever their content
+changes. To change anything, change the script (or the DB it
+reads) and re-run:
 
 ```bash
 uv run python scripts/build_llm_wiki.py [--no-bios]
