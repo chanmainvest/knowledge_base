@@ -2,7 +2,7 @@
 
 **host of Macro Voices**
 
-> Patrick Ceresna is a derivatives strategist, technical analyst, and educator. He holds the Chartered Market Technician (CMT) designation and serves as the President of RiskEndurance, a financial education firm. He is widely known for his role as a co-host and technical analyst on the 'Macro Voices' podcast, where he discusses market geometry, chart patterns, and options strategies.
+> Patrick Ceresna is a Canadian market strategist and technical analyst, Co-Founder and Chief Market Strategist of MacroVoices Media. He is best known as the host of the weekly 'MacroVoices Market Snapshot' segment on the MacroVoices podcast, where he presents chart-based technical analysis across equities, interest rates, currencies, and commodities, frequently paired with actionable derivatives and options strategies (e.g., bull call spreads). He holds the Chartered Market Technician (CMT), Chartered Investment Manager (CIM), and Derivatives Market Specialist (DMS) designations, and has roughly two decades of experience in capital markets.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

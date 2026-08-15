@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> Grant Williams is a financial author, portfolio manager, and media executive with over 30 years of experience in global markets. He is the creator of the widely read newsletter 'Things That Make You Go Hmmm...' and a co-founder of Real Vision, a financial media platform. Williams previously held senior equity analyst and portfolio management roles at investment banks including Societe Generale and Credit Suisse.
+> Veteran financial markets commentator and newsletter author with roughly three decades of experience in finance, much of it in bond and credit markets in Asia (Tokyo, Singapore, Sydney, Hong Kong) before moving to the U.S. Best known as the author and publisher of the popular contrarian macro newsletter 'Things That Make You Go Hmmm...' and as a co-founder of the financial media platform Real Vision (launched 2014 alongside Raoul Pal), where he created and hosted interview series such as 'The End Game.' After leaving Real Vision in 2022, he established his own media venture centered on 'The Grant Williams Podcast,' featuring long-form interviews with investors, economists, and historians. He is a frequent speaker and podcast guest on macroeconomics, monetary policy, gold, and financial history, known for a skeptical, big-picture take on markets and central-bank policy.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

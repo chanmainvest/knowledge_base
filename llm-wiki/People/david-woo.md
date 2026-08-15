@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> David Woo is a financial markets strategist and the founder of Woo Research. He formerly served as the Head of Global Rates and Foreign Exchange Research at Bank of America Merrill Lynch.
+> Macro strategist and former Wall Street economist. He spent roughly a decade at Bank of America Merrill Lynch as a managing director and head of global rates, currencies and emerging-markets research, and previously worked at Barclays. Known for outspoken, contrarian macro calls — including early Wall Street research on bitcoin valuation and commentary on currency wars, oil and geopolitics — he left the sell side around 2019 to become an independent commentator. He now publishes the newsletter/interview series 'David Woo Unbound' and appears frequently as a guest on finance podcasts discussing macro, energy and markets.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

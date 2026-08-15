@@ -2,7 +2,7 @@
 
 **interview guest (2x)**
 
-> Founder and editor of the financial newsletter 'The Close.' He is a commodities trader with a background in the energy markets.
+> Tony Greer is a financial markets analyst and newsletter author best known for The Morning Navigator, a daily macro commentary that tracks momentum, liquidity, and price action across equities, currencies, commodities, and crypto. He began his career as a trader at Goldman Sachs, where he spent roughly a decade in the firm's currency and commodities businesses before moving into independent research. He is a frequent guest on financial media and market podcasts, including CNBC, Real Vision, and various macro-focused shows, where he is known for a flows- and momentum-driven approach to global markets.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

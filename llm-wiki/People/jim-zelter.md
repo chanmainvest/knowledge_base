@@ -2,7 +2,9 @@
 
 **interview guest (1x)**
 
-_No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
+> James (Jim) Zelter is an American financier and one of the most influential executives in credit markets. He joined Apollo Global Management in 2006 from Citigroup, where he had been a senior executive in high-yield sales and trading and proprietary trading. At Apollo he built and led the firm's capital markets business and helped drive the growth of its massive credit platform, becoming Co-President in 2018 alongside Scott Kleinman; in early 2025 he was named sole President of Apollo and joined its board. He is widely viewed as a potential successor to CEO Marc Rowan. He holds an undergraduate degree from Duke University and an MBA from the Wharton School.
+
+_Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
 ## At a glance
 

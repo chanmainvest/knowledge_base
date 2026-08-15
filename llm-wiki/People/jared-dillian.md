@@ -2,7 +2,7 @@
 
 **interview guest (2x)**
 
-> Jared Dillian is a financial author, investment strategist, and former trader. He is best known for his tenure as an ETF trader at Lehman Brothers and for publishing the investment newsletter 'The Daily Dirtnap.' His writing often focuses on market sentiment, technical analysis, and contrarian investment strategies.
+> Jared Dillian is an American finance writer, newsletter author, and former Wall Street trader, best known as the publisher of The Daily Dirtnap, a widely read daily market commentary letter covering macroeconomics, markets, and trading. He is also the author of the '10th Man' investment column/newsletter for Mauldin Economics. Before becoming a writer, Dillian spent roughly a decade on Wall Street, most notably as a trader at Lehman Brothers on its fixed income/ETF trading desk, where he worked through both the September 11 attacks and the firm's 2008 collapse. His experiences there formed the basis of his memoir, 'Street Freak: Money and Madness at Lehman Brothers' (2011). He is a frequent podcast guest and speaker known for contrarian macro takes, plain-spoken market commentary, and essays on money and culture. He also served as an officer in the U.S. Coast Guard earlier in his career.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

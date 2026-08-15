@@ -2,7 +2,9 @@
 
 **interview guest (2x) · solo author/host (1x)**
 
-> Jeffrey Christian is a prominent commodities analyst and the founder and Managing Director of CPM Group, a commodities research, consulting, and asset management firm he established in 1986. He is widely recognized as a leading authority on the precious metals markets, specifically gold, silver, platinum, and palladium, and authors the firm's annual Precious Metals Yearbooks. Prior to founding CPM Group, he worked at J. Aron & Company and Goldman Sachs. He frequently provides market commentary on global economics, commodity supply and demand fundamentals, and the evolving role of digital assets like Ethereum.
+**Role:** Founder, Managing Partner, and head of research
+
+> Jeffrey Christian is the founder and managing partner of CPM Group, a New York-based commodities research, consulting, and advisory firm he established in 1986. He began his career trading and researching precious metals at J. Aron & Company in the late 1970s before striking out on his own. CPM Group is best known for its annual Gold and Silver Yearbooks, which are widely cited supply-and-demand studies of the precious metals markets, and Christian is a frequent commentator on gold, silver, platinum, and palladium in financial media and on industry podcasts. He has advised miners, fabricators, central banks, and investors, and has testified before the CFTC on metals market structure and position limits. In recent years he has also commented on digital assets, offering Ethereum price outlooks alongside his traditional metals coverage.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

@@ -2,7 +2,7 @@
 
 **solo author/host (4x)**
 
-> Hong Kong-based financial analyst and media commentator specializing in derivatives and structured products. He is known for his expertise in warrants, CBBCs, and leveraged ETFs, frequently analyzing cross-market investment flows between Hong Kong and Korea. He is a regular guest on financial television programs where he discusses market volatility and the mechanics of leveraged instruments.
+> 香港金融業人士，以ETF及上市衍生產品專家身份活躍於本地財經媒體。長期任職於瑞銀（UBS），曾任該行香港區董事總經理兼ETF及場外衍生產品銷售部主管，是香港槓桿及反向產品、窩輪牛熊證市場的知名評論人，經常就散戶交投、ETF資金流向及港股熱門板塊接受訪問及主持節目。
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

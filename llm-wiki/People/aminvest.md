@@ -2,7 +2,7 @@
 
 **solo author/host (11x)**
 
-> Financial content creator and market analyst, likely based in Hong Kong. Hosts a program or channel under the brand 'aminvest' focusing on US stock market analysis. Provides commentary on technology sectors, particularly semiconductors, as well as major financial institutions and assets associated with high-profile figures like Elon Musk.
+> aminvest is the author of a self-titled, Chinese-language (Traditional Chinese, Hong Kong/Cantonese-flavoured) investing newsletter in which they publish solo commentary on U.S. equities. Coverage skews toward high-profile growth and tech names — notably SpaceX-linked shares, semiconductor names such as Micron, and large-cap financials like Goldman Sachs and Morgan Stanley. The tone is analytical but contrarian-leaning, often questioning crowd optimism about popular stocks (e.g., arguing that dips in heavily hyped names may not yet be bargains) while tracking how mega-cap moves such as Micron's can lead the broader market.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

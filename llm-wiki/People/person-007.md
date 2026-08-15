@@ -2,7 +2,9 @@
 
 **interview guest (1x)**
 
-_No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
+> 陳坤耀 (Edward K. Y. Chen) is a veteran Hong Kong economist and academic administrator, best known as President of Lingnan University from 1995 to 2007, where he led the institution's development into a full liberal-arts university. Before that he was Professor of Economics at the University of Hong Kong, where he also held senior posts including dean, and was associated with its Centre of Asian Studies. His research and commentary focus on Hong Kong's economy, the Asia-Pacific newly industrialized economies, technology transfer, and economic development. He has served on many Hong Kong government advisory and public bodies, including as Chairman of the Consumer Council, and is a frequent commentator and columnist on economic and public affairs in the Hong Kong media.
+
+_Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
 ## At a glance
 

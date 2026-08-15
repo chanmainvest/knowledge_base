@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> Mike Alfred is a financial technology entrepreneur and investor. He is the co-founder of Digital Assets Data, a market intelligence platform for digital assets. Alfred serves on the Board of Directors of Iris Energy (IREN), a Bitcoin mining company. He is known for his public commentary on cryptocurrency markets and his long-term investment stance on Bitcoin.
+> American fintech entrepreneur and Bitcoin investor, best known as co-founder (with his brother Ryan Alfred) of BrightScope, a financial data company that rated retirement plans and was acquired in 2016, and later of Digital Assets Data, a crypto market data and intelligence firm whose platform was acquired by Coinbase. Following the acquisition he served in a market intelligence role at Coinbase before focusing on his own investing. He is an active commentator on Bitcoin and publicly traded Bitcoin miners, frequently sharing analysis on X (Twitter), and has served on the board of Bitcoin miner Iris Energy (IREN). A vocal long-term Bitcoin holder, he appeared as a guest on Real Vision discussing his positions in Bitcoin and IREN.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

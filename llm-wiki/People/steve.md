@@ -2,7 +2,7 @@
 
 **interview guest (2x)**
 
-> Finance industry figure and guest on the Eurodollar University podcast.
+> Steve Van Metre is a U.S.-based investment adviser and bond-market commentator known for his YouTube channel analyzing the Treasury market, the dollar system, and Federal Reserve policy. He is closely associated with the 'eurodollar' school of analysis popularized by Jeff Snider, arguing that global dollar liquidity conditions—rather than Fed policy alone—drive markets. He is well known for a long-running bullish Treasury thesis, notably his widely followed 'TLT trade' (long iShares 20+ Year Treasury Bond ETF call options), premised on falling long-term yields as recession and dollar-shortage dynamics unfold. He is a recurring guest on Eurodollar University and appears frequently on podcasts hosted by Jeff Snider and Emil Kalinowski, where he discusses yield curves, debt issuance, money markets, and macro conditions.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

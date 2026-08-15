@@ -2,7 +2,7 @@
 
 **solo author/host (1x)**
 
-> Li Shengyang is a Taiwanese financial analyst and commentator. He hosts a financial program under his own name, where he discusses stock market analysis, investment strategies, and economic trends with a focus on the Taiwan market.
+> 李聲揚 is a Hong Kong–based finance writer and commentator known for promoting value-investing ideas to a Chinese-speaking audience. He writes columns for Hong Kong financial media and has authored books in Chinese on stock-picking and value investing, drawing on Benjamin Graham– and Warren Buffett–style principles applied to Hong Kong and Chinese markets. He is also active as a speaker and podcast commentator on Hong Kong equities and personal investing.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

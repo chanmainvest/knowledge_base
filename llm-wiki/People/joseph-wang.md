@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> Joseph Wang is a former Senior Trader at the Federal Reserve Bank of New York and the author of the 'Fed Guy' newsletter. He specializes in the analysis of central bank policy and its impact on financial markets.
+> Joseph Wang is a financial markets commentator best known as 'Fed Guy,' the author of the newsletter and research platform FedGuy.com, which focuses on Federal Reserve policy, market liquidity, and the plumbing of the financial system. He previously served as a senior trader on the Open Markets Desk at the Federal Reserve Bank of New York, where he traded Treasuries, agency MBS, and repo to help implement monetary policy. He is the author of the book 'Central Banking 101' (2021) and has served as chief investment officer at Monetary Macro, a macro-focused investment firm. He is a frequent podcast guest, discussing Fed operations, quantitative easing, money markets, and dollar liquidity.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

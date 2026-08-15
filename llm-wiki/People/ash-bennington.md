@@ -2,7 +2,7 @@
 
 **interview guest (2x)**
 
-> Ash Bennington is a financial journalist and Senior Editor at Real Vision. He hosts the platform's daily market wrap and interviews leading investors and economists.
+> Ash Bennington is an American financial journalist and editor. He spent over a decade at Bloomberg News as an economics editor, helping direct coverage of the U.S. and global economy before joining Real Vision, the finance-focused video and media platform. At Real Vision he became a managing editor and one of the company's most prominent on-air personalities, hosting daily markets programming (including the show 'Catalysts') and conducting long-form interviews with investors, economists, central-bank watchers, and digital-asset leaders. He is known for macro-focused commentary that bridges traditional finance and crypto, and he is a frequent guest and moderator across finance podcasts and conferences.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

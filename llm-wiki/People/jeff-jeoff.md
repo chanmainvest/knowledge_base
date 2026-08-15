@@ -2,9 +2,7 @@
 
 **interview guest (1x)**
 
-> Guest on the Eurodollar University podcast who discussed energy markets, specifically the reshaping of the WTI futures curve and oil price targets.
-
-_Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
+_No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
 
 ## At a glance
 

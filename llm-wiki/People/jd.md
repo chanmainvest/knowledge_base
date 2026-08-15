@@ -2,9 +2,7 @@
 
 **interview guest (2x)**
 
-> Market analyst and technical strategist known for appearances on The Macro Dirt Podcast. Focuses on macro trends, technical analysis of the US Dollar and Treasury yields, and sector allocation including small-cap value and emerging markets.
-
-_Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
+_No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
 
 ## At a glance
 

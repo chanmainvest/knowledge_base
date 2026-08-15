@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> Val Zlatev is a financial analyst and investment researcher specializing in macroeconomic trends and equity market strategy. He is known for providing independent research that often focuses on liquidity cycles, technology hardware, and global financial markets.
+> Val Zlatev is a portfolio manager at Diamond Hill Capital Management, the Columbus, Ohio-based asset manager, where he began as a research analyst in the early 2010s and has since co-managed the firm's large-cap equity strategies. He has covered technology and semiconductor names and appears as a guest on investing podcasts and in financial media, where he has discussed stocks such as memory-chip makers Micron, Samsung, and SK Hynix.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

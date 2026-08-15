@@ -10,8 +10,8 @@ This wiki is generated directly from the `knowledge_base` Postgres database: eve
 
 | | |
 |---|---|
-| Total items ingested | **34,332** |
-| Items extracted (LLM) | **228** (of 34,332; 34,101 pending) |
+| Total items ingested | **31,932** |
+| Items extracted (LLM) | **228** (of 31,932; 31,701 pending) |
 | Predictions extracted | **420** |
 | Market views extracted | **556** |
 | Distinct tickers with calls | **110** |
@@ -23,16 +23,16 @@ This wiki is generated directly from the `knowledge_base` Postgres database: eve
 
 | Source | Kind | Items | Extracted |
 |---|---|---:|---:|
-| YouTube (`youtube`) | youtube | 20,284 | 126 |
-| Hong Kong Economic Journal (`hkej`) | newspaper | 5,536 | 33 |
+| YouTube (`youtube`) | youtube | 20,259 | 126 |
+| Hong Kong Economic Journal (`hkej`) | newspaper | 3,162 | 33 |
 | Master Insight (`master-insight`) | newspaper | 2,804 | 27 |
-| Patreon (`patreon`) | membership | 2,349 | 23 |
+| Patreon (`patreon`) | membership | 2,348 | 23 |
 | Blogs (`blog`) | blog | 1,672 | 12 |
 | Yahoo Finance Hong Kong (`yahoohk`) | newspaper | 1,407 | 0 |
 | Substack (`substack`) | membership | 280 | 7 |
 
 ### Languages represented
-`en` (18,573), `zh-Hant` (5,542), `zh-Hant-HK` (4,211), `en-US` (3,883), `yue` (1,102), `zh-TW` (559), `vi` (261), `th` (114)
+`en` (18,548), `zh-Hant-HK` (4,211), `en-US` (3,882), `zh-Hant` (3,168), `yue` (1,102), `zh-TW` (559), `vi` (261), `th` (114)
 
 ## How to read this wiki
 
@@ -45,7 +45,7 @@ This wiki is generated directly from the `knowledge_base` Postgres database: eve
 
 ## ⚠️ Important caveats — read before drawing conclusions
 
-1. **Extraction coverage is very thin.** Only **228** of **34,332** ingested items have been LLM-extracted so far (0.66%). Everything below reflects that small slice — it is **not** a representative sample of the full corpus. Treat consensus counts as directional, not authoritative.
+1. **Extraction coverage is very thin.** Only **228** of **31,932** ingested items have been LLM-extracted so far (0.71%). Everything below reflects that small slice — it is **not** a representative sample of the full corpus. Treat consensus counts as directional, not authoritative.
 2. **No scores yet.** Predictions in this DB carry `score` fields, but none have been evaluated against market prices (`n_scored=0`). There is no track record / hit-rate data to report — only stated calls.
 3. **People bios are LLM-written** (from public knowledge + this DB's context) and can be wrong. Stances/timelines, by contrast, are strictly DB-derived from extracted quotes.
 4. **Channel metadata is sparse.** Most channels have no bio/url in the DB; analyst pages say so rather than invent.

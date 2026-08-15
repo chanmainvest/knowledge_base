@@ -2,7 +2,7 @@
 
 **interview guest (1x) · solo author/host (1x)**
 
-> American real estate investor and entrepreneur best known for hosting the 'Recession Proof' YouTube channel and podcast. He focuses on macroeconomic analysis, central bank policy, and market cycles, often interpreting financial events through the lens of Austrian economics.
+> American real estate investor, financial educator, and macroeconomic commentator, best known as the creator and host of The Rebel Capitalist Show, a popular YouTube channel and podcast. He began his career in real estate (fixing and flipping properties) before turning to macro-focused investing commentary. He is known for whiteboard-style explainers on the plumbing of the global financial system — the repo market, Eurodollar system, FX swaps, the Fed's balance sheet, and the role of the US dollar — often drawing on frameworks popularized by commentators like Jeff Snider, whom he has frequently collaborated with and interviewed. He is a recurring guest on finance podcasts such as MacroVoices and Real Vision, and is generally skeptical of mainstream Fed and Treasury narratives, emphasizing fragility in the global dollar system.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

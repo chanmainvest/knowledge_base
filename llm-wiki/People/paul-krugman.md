@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> Paul Krugman is an American economist, columnist for The New York Times, and Distinguished Professor of Economics at the Graduate Center of the City University of New York. He was awarded the Nobel Memorial Prize in Economic Sciences in 2008 for his contributions to New Trade Theory and economic geography. Known for his work in international economics and his advocacy for Keynesian economics, he is also a prolific author and a prominent public intellectual.
+> American economist and columnist, winner of the 2008 Nobel Memorial Prize in Economic Sciences for his analysis of trade patterns and location of economic activity. Taught at MIT, Princeton, and (since 2015) the CUNY Graduate Center. Wrote the New York Times op-ed column "The Conscience of a Liberal" from 2000 until retiring from the column in late 2024, and remains a prominent, often sharply partisan, Keynesian voice on macro policy, trade, inequality, and political economy. Author of numerous books for general readers, including The Return of Depression Economics, End This Depression Now!, and Arguing with Zombies.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

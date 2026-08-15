@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> Jeffrey Kushin is a financial analyst and author specializing in the precious metals sector. He is the publisher of 'The Kushin Factor,' a market research letter focused on technical and fundamental analysis of commodities such as gold, silver, platinum, and palladium.
+> Jeffrey Kushin is a consultant and market analyst at CPM Group, the New York-based commodities research and consulting firm founded by Jeffrey Christian that specializes in precious metals. He contributes to CPM Group's research, consulting, and market commentary on gold, silver, platinum, and palladium, and appears in the firm's video outlooks discussing price forecasts and supply-demand fundamentals for precious metals.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

@@ -2,7 +2,7 @@
 
 **interview guest (1x) · solo author/host (1x)**
 
-> Financial commentator and analyst who appeared on the Joseph Wang podcast, providing market insights.
+> Financial markets researcher and commentator best known as "Fed Guy." A former senior trader on the Markets Desk (Open Market Trading Desk) at the Federal Reserve Bank of New York, where he helped execute Treasury and QE operations. Author of "Central Banking 101" (2021), and writes the Fed Guy blog/newsletter covering Federal Reserve policy, reserves, liquidity, and money markets. Frequently appears on macro-finance podcasts as a guest and hosts his own podcast content.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

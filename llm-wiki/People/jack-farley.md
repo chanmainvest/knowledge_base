@@ -2,7 +2,7 @@
 
 **interview guest (3x)**
 
-> Financial journalist and content creator currently serving as a host at Blockworks. He is best known for his podcast 'Forward Guidance,' which focuses on macroeconomics, monetary policy, and digital assets. Previously, he worked as a writer and editor for Kitco News.
+> American financial podcaster and interviewer, best known as the host of Forward Guidance, a macro-focused interview show covering monetary policy, credit markets, and digital assets that he launched at Blockworks (originally Blockworks TV) and later continued independently. He previously worked at Real Vision, producing and hosting content on crypto and macro markets. A Stanford University graduate, he is known for long-form interviews with macro investors, credit analysts, and crypto market practitioners.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

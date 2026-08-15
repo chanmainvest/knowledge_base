@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> Erik Voorhees is an American entrepreneur and a prominent advocate for Bitcoin and cryptocurrency. He is the founder and former CEO of ShapeShift, a digital asset platform, and previously created Satoshi Dice, an early Bitcoin gambling service. Voorhees is a vocal supporter of libertarianism and decentralized finance.
+> American cryptocurrency entrepreneur and early Bitcoin adopter (since roughly 2011), known for his libertarian views and advocacy of the 'separation of money and state.' Best known as the founder of the digital asset exchange ShapeShift (launched 2014), which he led as CEO through its 2021 decentralization into a DAO before stepping away from day-to-day leadership. Previously created the bitcoin betting site SatoshiDice, sold in 2013, co-founded Coinapult, and worked at BitInstant in the industry's early days. More recently co-founded the privacy-focused AI platform Venice AI.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

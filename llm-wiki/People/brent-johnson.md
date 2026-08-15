@@ -2,7 +2,9 @@
 
 **interview guest (2x)**
 
-**Role:** CEO of Santiago Capital
+> Brent Johnson is an American investor and macro commentator. After roughly a decade as a financial advisor at Credit Suisse, he founded the boutique investment firm Santiago Capital, which emphasizes capital preservation and gold ownership. He became widely known in macro circles for his Dollar Milkshake Theory, popularized through frequent podcast appearances in the 2010s and 2020s. He is also an outspoken advocate of gold as a long-term store of value.
+
+_Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
 ## At a glance
 

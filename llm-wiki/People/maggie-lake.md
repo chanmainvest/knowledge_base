@@ -2,7 +2,9 @@
 
 **interview guest (1x)**
 
-_No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
+> Financial journalist and media entrepreneur. Spent roughly two decades at CNN as a business anchor and correspondent in New York, covering global markets, the economy, and corporate news, and hosting programs including 'Marketplace Africa'. After leaving CNN in 2022, she moved into independent financial media, creating the 'Maggie Lake: Talking Markets' newsletter and podcast, where she interviews investors, economists, and market practitioners about macroeconomics and investing. She has also been associated with Real Vision as a host/interviewer. She is known for accessible, jargon-free breakdowns of macro and market themes for a general audience.
+
+_Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
 ## At a glance
 

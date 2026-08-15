@@ -2,9 +2,7 @@
 
 **interview guest (2x)**
 
-> Financial analyst and the Head of Global Investment Research at Alhambra Investment Partners. He is known for his analysis of the Eurodollar system, monetary policy, and global banking reserves.
-
-_Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
+_No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
 
 ## At a glance
 

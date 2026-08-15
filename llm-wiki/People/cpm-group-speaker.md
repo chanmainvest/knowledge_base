@@ -2,9 +2,7 @@
 
 **interview guest (1x)**
 
-> Founder and Managing Partner of CPM Group, a leading commodities market research, consulting, and asset management company. He is a widely recognized authority on precious metals markets, particularly gold and silver, and has authored numerous industry yearbooks and reports. Prior to founding CPM Group in 1986, he held positions at J. Aron & Company and Goldman Sachs.
-
-_Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
+_No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
 
 ## At a glance
 

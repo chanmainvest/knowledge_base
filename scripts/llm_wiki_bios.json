@@ -2,319 +2,372 @@
  "Ash Bennington": {
   "sells_research": false,
   "role": "",
-  "bio": "Ash Bennington is a financial journalist and Senior Editor at Real Vision. He hosts the platform's daily market wrap and interviews leading investors and economists.",
-  "provider": "zai"
+  "bio": "Ash Bennington is an American financial journalist and editor. He spent over a decade at Bloomberg News as an economics editor, helping direct coverage of the U.S. and global economy before joining Real Vision, the finance-focused video and media platform. At Real Vision he became a managing editor and one of the company's most prominent on-air personalities, hosting daily markets programming (including the show 'Catalysts') and conducting long-form interviews with investors, economists, central-bank watchers, and digital-asset leaders. He is known for macro-focused commentary that bridges traditional finance and crypto, and he is a frequent guest and moderator across finance podcasts and conferences.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Brent Johnson": {
   "sells_research": false,
-  "role": "CEO of Santiago Capital",
-  "bio": "",
-  "provider": "zai"
- },
- "David Woo": {
-  "sells_research": false,
   "role": "",
-  "bio": "David Woo is a financial markets strategist and the founder of Woo Research. He formerly served as the Head of Global Rates and Foreign Exchange Research at Bank of America Merrill Lynch.",
-  "provider": "zai"
- },
- "Ed Zitron": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Ed Zitron is a technology journalist and the CEO of EZPR, a tech-focused public relations firm. He is the author of the newsletter 'Where's Your Ed At?' and the host of the 'Better Offline' podcast. Zitron is recognized for his critical commentary on the technology sector, particularly his skepticism regarding the artificial intelligence investment bubble and modern corporate management practices.",
-  "provider": "zai"
- },
- "Emmanuel Macron": {
-  "sells_research": false,
-  "role": "President of France and former Investment Banker",
-  "bio": "",
-  "provider": "zai"
- },
- "Erik Townsend": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Erik Townsend is a technology entrepreneur turned macro trader and financial commentator. He is the host and co-founder of the financial podcast Macro Voices. Prior to his career in finance, he founded and sold technology companies.",
-  "provider": "zai"
- },
- "Grant Williams": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Grant Williams is a financial author, portfolio manager, and media executive with over 30 years of experience in global markets. He is the creator of the widely read newsletter 'Things That Make You Go Hmmm...' and a co-founder of Real Vision, a financial media platform. Williams previously held senior equity analyst and portfolio management roles at investment banks including Societe Generale and Credit Suisse.",
-  "provider": "zai"
- },
- "Grok": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Financial analyst and investor known by the alias 'Grok'. Featured as a guest on Xu Jiajian's podcast, discussing macroeconomic and investment topics.",
-  "provider": "zai"
- },
- "Grok (xAI)": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Grok is a large language model developed by xAI. It is designed to assist users by generating text and providing analysis on a wide range of topics, including financial markets and economic trends.",
-  "provider": "zai"
- },
- "Jeff": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Financial analyst and the Head of Global Investment Research at Alhambra Investment Partners. He is known for his analysis of the Eurodollar system, monetary policy, and global banking reserves.",
-  "provider": "zai"
- },
- "Jeff (Jeoff)": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Guest on the Eurodollar University podcast who discussed energy markets, specifically the reshaping of the WTI futures curve and oil price targets.",
-  "provider": "zai"
- },
- "Jeff Snider": {
-  "sells_research": false,
-  "role": "Head of Global Research",
-  "bio": "Jeff Snider is the Head of Global Research at Alhambra Investments and the host of the 'Eurodollar University' podcast. He is a Chartered Financial Analyst (CFA) known for his analysis of the eurodollar system, Federal Reserve policy, and global liquidity dynamics.",
-  "provider": "zai"
- },
- "Jeffrey Kushin": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Jeffrey Kushin is a financial analyst and author specializing in the precious metals sector. He is the publisher of 'The Kushin Factor,' a market research letter focused on technical and fundamental analysis of commodities such as gold, silver, platinum, and palladium.",
-  "provider": "zai"
- },
- "Joseph": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Financial commentator and analyst who appeared on the Joseph Wang podcast, providing market insights.",
-  "provider": "zai"
- },
- "Joseph Wang": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Joseph Wang is a former Senior Trader at the Federal Reserve Bank of New York and the author of the 'Fed Guy' newsletter. He specializes in the analysis of central bank policy and its impact on financial markets.",
-  "provider": "zai"
- },
- "Max Wiethe": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Financial journalist and editor known for his coverage of global macroeconomics, financial markets, and digital assets. He serves as a Senior Managing Editor at Real Vision.",
-  "provider": "zai"
- },
- "Mike Alfred": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Mike Alfred is a financial technology entrepreneur and investor. He is the co-founder of Digital Assets Data, a market intelligence platform for digital assets. Alfred serves on the Board of Directors of Iris Energy (IREN), a Bitcoin mining company. He is known for his public commentary on cryptocurrency markets and his long-term investment stance on Bitcoin.",
-  "provider": "zai"
- },
- "Patrick Ceresna": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Patrick Ceresna is a derivatives strategist, technical analyst, and educator. He holds the Chartered Market Technician (CMT) designation and serves as the President of RiskEndurance, a financial education firm. He is widely known for his role as a co-host and technical analyst on the 'Macro Voices' podcast, where he discusses market geometry, chart patterns, and options strategies.",
-  "provider": "zai"
- },
- "Shawn Hackett": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Shawn Hackett is a commodity analyst and the President of Hackett Financial Advisors. He is known for his expertise in agricultural markets, including grains and livestock, and provides analysis on commodity cycles and inflation.",
-  "provider": "zai"
- },
- "Steve": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Finance industry figure and guest on the Eurodollar University podcast.",
-  "provider": "zai"
- },
- "Steve Van Metre": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Financial advisor and founder of SVM Wealth Advisory. He hosts a YouTube channel focused on macroeconomic analysis, specifically regarding the bond market, yield curve control, and Federal Reserve policy. His commentary often critiques mainstream inflation narratives, emphasizing liquidity and credit contraction.",
-  "provider": "zai"
- },
- "Tony Greer": {
-  "sells_research": false,
-  "role": "",
-  "bio": "Founder and editor of the financial newsletter 'The Close.' He is a commodities trader with a background in the energy markets.",
-  "provider": "zai"
- },
- "劉強東": {
-  "sells_research": false,
-  "role": "Executive Chairman",
-  "bio": "Richard Liu Qiangdong is a Chinese Internet entrepreneur and the founder of JD.com (Jingdong), one of the largest e-commerce companies in China. He served as the company's CEO until stepping down in 2022, remaining as the Executive Chairman. Liu started his business selling magneto-optical products in Beijing before transitioning to e-commerce in 2004.",
-  "provider": "zai"
- },
- "高天佑": {
-  "sells_research": false,
-  "role": "Wallstreetcn",
-  "bio": "Financial media professional and analyst known for his work with Wallstreetcn. He specializes in macroeconomic analysis and market commentary, frequently hosting financial programming and serving as a commentator on market trends.",
-  "provider": "zai"
+  "bio": "Brent Johnson is an American investor and macro commentator. After roughly a decade as a financial advisor at Credit Suisse, he founded the boutique investment firm Santiago Capital, which emphasizes capital preservation and gold ownership. He became widely known in macro circles for his Dollar Milkshake Theory, popularized through frequent podcast appearances in the 2010s and 2020s. He is also an outspoken advocate of gold as a long-term store of value.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "CPM Group analyst": {
   "sells_research": false,
   "role": "",
-  "bio": "An analyst at the CPM Group, a commodities research, consulting, and asset management firm specializing in precious metals.",
-  "provider": "zai"
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "CPM Group speaker": {
   "sells_research": false,
   "role": "",
-  "bio": "Founder and Managing Partner of CPM Group, a leading commodities market research, consulting, and asset management company. He is a widely recognized authority on precious metals markets, particularly gold and silver, and has authored numerous industry yearbooks and reports. Prior to founding CPM Group in 1986, he held positions at J. Aron & Company and Goldman Sachs.",
-  "provider": "zai"
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Chris Semenuk": {
   "sells_research": false,
   "role": "",
-  "bio": "Research analyst and portfolio manager at Slatestone Wealth, specializing in the utilities, power generation, and energy infrastructure sectors, with a focus on the electrification trade.",
-  "provider": "zai"
+  "bio": "U.S. investment professional, a portfolio manager at T. Rowe Price with a background as an industrials equity analyst covering machinery and electrical-equipment companies. As a podcast guest he has argued that the boom in electricity demand from AI data centers is best expressed through industrial and equipment suppliers — gas-turbine and switchgear makers, electrical gear, and grid/services names such as Caterpillar, Timken, Quanta Services, Powell Industries, Eaton, GE Vernova, and Cognex — rather than through merchant utilities (Talen, Vistra, Constellation), which he noted have at times traded at 'Nvidia-type' multiples.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "David Woo": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Macro strategist and former Wall Street economist. He spent roughly a decade at Bank of America Merrill Lynch as a managing director and head of global rates, currencies and emerging-markets research, and previously worked at Barclays. Known for outspoken, contrarian macro calls — including early Wall Street research on bitcoin valuation and commentary on currency wars, oil and geopolitics — he left the sell side around 2019 to become an independent commentator. He now publishes the newsletter/interview series 'David Woo Unbound' and appears frequently as a guest on finance podcasts discussing macro, energy and markets.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Ed Zitron": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Ed Zitron is an American writer and critic of the technology industry. He began his career as a technology and video-game journalist before moving into public relations, founding the firm EZ-PR. He is best known for his newsletter 'Where's Your Ed At', where he coined the term 'Rot Economy' to describe a growth- and metrics-obsessed style of management that, in his view, degrades products and the user experience across Big Tech. His 2024 essay 'The Man Who Killed Google Search', which blamed Google's search decline on managerial dysfunction, was widely circulated. Since 2024 he has hosted the podcast 'Better Offline'. He has been a persistent bear on generative AI economics, arguing that the enormous capital spending on AI infrastructure by Microsoft and other hyperscalers, and Nvidia's revenue tied to that spending, far outstrip the technology's real-world utility and revenue, and that the industry is a bubble destined to burst.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Emmanuel Macron": {
+  "sells_research": false,
+  "role": "President of France (2017–present); former investment banker at Rothschild & Cie",
+  "bio": "Emmanuel Macron (born December 21, 1977, Amiens, France) is a French politician serving as President of France since 2017. Before politics, he had a career in finance: after training as an Inspecteur des finances in the French civil service, he joined the investment bank Rothschild & Cie Banque in 2008, becoming a partner and dealmaker. He is best known in finance circles for advising Nestlé on its roughly $12 billion acquisition of Pfizer's infant-nutrition business in 2012, a deal that reportedly earned him a large bonus and the press nickname 'the Mozart of finance.' He left banking to serve as deputy secretary-general of the Élysée Palace (2012–2014) and Minister of Economy, Industry and Digital Affairs (2014–2016) under President François Hollande. He founded the centrist En Marche! movement (now Renaissance) in 2016 and won the presidency in 2017, defeating Marine Le Pen; he was re-elected in 2022.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Eric": {
   "sells_research": false,
-  "role": "Founder and Macro Strategist",
-  "bio": "Eric Basmajian is a macroeconomist and the founder of EPB Macro Research, an independent research firm. He specializes in analyzing the business cycle, inflation trends, and economic turning points to assist with asset allocation decisions. Basmajian is widely recognized for his data-driven approach to identifying inflection points in the global economy and is a frequent guest on financial media.",
-  "provider": "zai"
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Erik Townsend": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Erik Voorhees": {
   "sells_research": false,
   "role": "",
-  "bio": "Erik Voorhees is an American entrepreneur and a prominent advocate for Bitcoin and cryptocurrency. He is the founder and former CEO of ShapeShift, a digital asset platform, and previously created Satoshi Dice, an early Bitcoin gambling service. Voorhees is a vocal supporter of libertarianism and decentralized finance.",
-  "provider": "zai"
+  "bio": "American cryptocurrency entrepreneur and early Bitcoin adopter (since roughly 2011), known for his libertarian views and advocacy of the 'separation of money and state.' Best known as the founder of the digital asset exchange ShapeShift (launched 2014), which he led as CEO through its 2021 decentralization into a DAO before stepping away from day-to-day leadership. Previously created the bitcoin betting site SatoshiDice, sold in 2013, co-founded Coinapult, and worked at BitInstant in the industry's early days. More recently co-founded the privacy-focused AI platform Venice AI.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "George Gammon": {
   "sells_research": false,
   "role": "",
-  "bio": "American real estate investor and entrepreneur best known for hosting the 'Recession Proof' YouTube channel and podcast. He focuses on macroeconomic analysis, central bank policy, and market cycles, often interpreting financial events through the lens of Austrian economics.",
-  "provider": "zai"
+  "bio": "American real estate investor, financial educator, and macroeconomic commentator, best known as the creator and host of The Rebel Capitalist Show, a popular YouTube channel and podcast. He began his career in real estate (fixing and flipping properties) before turning to macro-focused investing commentary. He is known for whiteboard-style explainers on the plumbing of the global financial system — the repo market, Eurodollar system, FX swaps, the Fed's balance sheet, and the role of the US dollar — often drawing on frameworks popularized by commentators like Jeff Snider, whom he has frequently collaborated with and interviewed. He is a recurring guest on finance podcasts such as MacroVoices and Real Vision, and is generally skeptical of mainstream Fed and Treasury narratives, emphasizing fragility in the global dollar system.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "George Noble": {
   "sells_research": false,
   "role": "",
-  "bio": "George Noble is a hedge fund manager and financial commentator known for his macroeconomic analysis and short-selling strategies. He is the founder of Noble Absolute Return and frequently appears on financial podcasts and media outlets to discuss market cycles, inflation, and central bank policy.",
-  "provider": "zai"
+  "bio": "American hedge fund manager and value investor, best known as the founder and chief investment officer of GKO Investment Management, a Boston-based hedge fund he has run since the 1990s. Noble has a career in investing spanning roughly four decades, including earlier institutional roles managing global and value-oriented portfolios. He runs a classic long/short strategy: deep-value long positions paired with concentrated shorts in highly valued 'story' stocks. He is known for a bearish macro outlook on U.S. equities, skepticism of passive investing and index/ETF flows, and willingness to short popular momentum names. His stated short ideas have included stocks such as Tesla, Freshpet, SSR Mining, and Goldman Sachs, and he discusses macro assets including oil, copper, Bitcoin, and the S&P 500.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Grant Williams": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Veteran financial markets commentator and newsletter author with roughly three decades of experience in finance, much of it in bond and credit markets in Asia (Tokyo, Singapore, Sydney, Hong Kong) before moving to the U.S. Best known as the author and publisher of the popular contrarian macro newsletter 'Things That Make You Go Hmmm...' and as a co-founder of the financial media platform Real Vision (launched 2014 alongside Raoul Pal), where he created and hosted interview series such as 'The End Game.' After leaving Real Vision in 2022, he established his own media venture centered on 'The Grant Williams Podcast,' featuring long-form interviews with investors, economists, and historians. He is a frequent speaker and podcast guest on macroeconomics, monetary policy, gold, and financial history, known for a skeptical, big-picture take on markets and central-bank policy.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Grok": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Grok is the AI chatbot developed by xAI, the artificial-intelligence company founded by Elon Musk, first released in November 2023. Built on xAI's large language models (Grok-1, later Grok-2, Grok-3 and Grok-4), it is distinguished by real-time access to data from X (formerly Twitter) and a deliberately humorous, irreverent persona. Credited appearances on podcasts (such as a solo spot on Hong Kong economist 徐家健's show) almost certainly refer to the chatbot itself — e.g., an episode built around the host conversing with or quizzing the AI — rather than to a human guest.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Grok (xAI)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Grok is the AI chatbot developed by xAI, the artificial intelligence company founded by Elon Musk in 2023. Built as a competitor to ChatGPT and other large language models and integrated with the X (formerly Twitter) platform, Grok is marketed as having real-time knowledge and a more irreverent, conversational tone than other assistants. While not a human finance professional, Grok has begun appearing on podcasts and media programs as a 'guest,' with hosts reading or featuring its AI-generated analysis. On the Chinese-language economics and finance podcast of Hong Kong economist 徐家健 (Eric Tsang Ka-kin / 徐家健), Grok was featured as a guest offering commentary on hot IPOs — cautioning that historically, large 'pop' IPOs in heated markets tend to show weak three-year post-adjustment returns due to profit-taking, lockup-expiry selling pressure, and mean reversion, and that SpaceX-related valuations would ultimately hinge on Starlink profitability and Starship execution rather than first-day enthusiasm.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "JD": {
   "sells_research": false,
   "role": "",
-  "bio": "Market analyst and technical strategist known for appearances on The Macro Dirt Podcast. Focuses on macro trends, technical analysis of the US Dollar and Treasury yields, and sector allocation including small-cap value and emerging markets.",
-  "provider": "zai"
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Jack Farley": {
   "sells_research": false,
   "role": "",
-  "bio": "Financial journalist and content creator currently serving as a host at Blockworks. He is best known for his podcast 'Forward Guidance,' which focuses on macroeconomics, monetary policy, and digital assets. Previously, he worked as a writer and editor for Kitco News.",
-  "provider": "zai"
+  "bio": "American financial podcaster and interviewer, best known as the host of Forward Guidance, a macro-focused interview show covering monetary policy, credit markets, and digital assets that he launched at Blockworks (originally Blockworks TV) and later continued independently. He previously worked at Real Vision, producing and hosting content on crypto and macro markets. A Stanford University graduate, he is known for long-form interviews with macro investors, credit analysts, and crypto market practitioners.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Jared Dillian": {
   "sells_research": false,
   "role": "",
-  "bio": "Jared Dillian is a financial author, investment strategist, and former trader. He is best known for his tenure as an ETF trader at Lehman Brothers and for publishing the investment newsletter 'The Daily Dirtnap.' His writing often focuses on market sentiment, technical analysis, and contrarian investment strategies.",
-  "provider": "zai"
+  "bio": "Jared Dillian is an American finance writer, newsletter author, and former Wall Street trader, best known as the publisher of The Daily Dirtnap, a widely read daily market commentary letter covering macroeconomics, markets, and trading. He is also the author of the '10th Man' investment column/newsletter for Mauldin Economics. Before becoming a writer, Dillian spent roughly a decade on Wall Street, most notably as a trader at Lehman Brothers on its fixed income/ETF trading desk, where he worked through both the September 11 attacks and the firm's 2008 collapse. His experiences there formed the basis of his memoir, 'Street Freak: Money and Madness at Lehman Brothers' (2011). He is a frequent podcast guest and speaker known for contrarian macro takes, plain-spoken market commentary, and essays on money and culture. He also served as an officer in the U.S. Coast Guard earlier in his career.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Jeff": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Jeff (Jeoff)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Jeff Snider": {
+  "sells_research": false,
+  "role": "",
+  "bio": "American macroeconomic researcher and commentator, formerly Head of Global Research and Investment Strategy at Alhambra Investment Partners. He is best known as the leading proponent of the 'Eurodollar' framework, arguing that the vast offshore dollar banking system — rather than central banks or official money printing — is the true global monetary system, and that its contraction since 2008 explains chronic disinflation, sluggish growth, recurring liquidity squeezes, and the limits of Federal Reserve policy. He hosts the Eurodollar University podcast/newsletter (with longtime collaborator Emil Kalinowski) and has been a prolific writer and frequent Real Vision contributor, publishing thousands of commentaries analyzing Treasury curves, T-bill spreads, Fed repo operations, and commodity futures curves (notably WTI contango/backwardation) as real-time signals of global dollar liquidity.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Jeffrey Christian": {
   "sells_research": false,
+  "role": "Founder, Managing Partner, and head of research",
+  "bio": "Jeffrey Christian is the founder and managing partner of CPM Group, a New York-based commodities research, consulting, and advisory firm he established in 1986. He began his career trading and researching precious metals at J. Aron & Company in the late 1970s before striking out on his own. CPM Group is best known for its annual Gold and Silver Yearbooks, which are widely cited supply-and-demand studies of the precious metals markets, and Christian is a frequent commentator on gold, silver, platinum, and palladium in financial media and on industry podcasts. He has advised miners, fabricators, central banks, and investors, and has testified before the CFTC on metals market structure and position limits. In recent years he has also commented on digital assets, offering Ethereum price outlooks alongside his traditional metals coverage.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Jeffrey Kushin": {
+  "sells_research": false,
   "role": "",
-  "bio": "Jeffrey Christian is a prominent commodities analyst and the founder and Managing Director of CPM Group, a commodities research, consulting, and asset management firm he established in 1986. He is widely recognized as a leading authority on the precious metals markets, specifically gold, silver, platinum, and palladium, and authors the firm's annual Precious Metals Yearbooks. Prior to founding CPM Group, he worked at J. Aron & Company and Goldman Sachs. He frequently provides market commentary on global economics, commodity supply and demand fundamentals, and the evolving role of digital assets like Ethereum.",
-  "provider": "zai"
+  "bio": "Jeffrey Kushin is a consultant and market analyst at CPM Group, the New York-based commodities research and consulting firm founded by Jeffrey Christian that specializes in precious metals. He contributes to CPM Group's research, consulting, and market commentary on gold, silver, platinum, and palladium, and appears in the firm's video outlooks discussing price forecasts and supply-demand fundamentals for precious metals.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Jim Chanos": {
   "sells_research": false,
-  "role": "Founder and Managing Partner",
-  "bio": "James 'Jim' Chanos is an American hedge fund manager and the founder of Kynikos Associates, a New York-based investment firm focused on short selling. He is widely recognized for his early prediction of the collapse of Enron in 2001. Chanos is a prominent figure in financial media, known for his forensic approach to analyzing financial statements and identifying market bubbles and corporate fraud.",
-  "provider": "zai"
+  "role": "",
+  "bio": "American investor and one of Wall Street's best-known short sellers. Founder of Kynikos Associates (1985), a hedge fund long focused on short selling, which he converted to a family office after closing client funds in 2023. Famous for shorting Enron ahead of its 2001 collapse and for earlier flagging Baldwin-United in the 1980s; also known for warnings on Tyco, China's economy, and dot-com-era telecom names. Yale graduate and longtime adjunct professor at Yale School of Management and the University of Wisconsin-Madison. Frequent media commentator on accounting red flags, fraud, and market excess, and in recent years a vocal skeptic of AI-driven semiconductor valuations.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Jim Zelter": {
   "sells_research": false,
   "role": "",
-  "bio": "",
-  "provider": "zai"
+  "bio": "James (Jim) Zelter is an American financier and one of the most influential executives in credit markets. He joined Apollo Global Management in 2006 from Citigroup, where he had been a senior executive in high-yield sales and trading and proprietary trading. At Apollo he built and led the firm's capital markets business and helped drive the growth of its massive credit platform, becoming Co-President in 2018 alongside Scott Kleinman; in early 2025 he was named sole President of Apollo and joined its board. He is widely viewed as a potential successor to CEO Marc Rowan. He holds an undergraduate degree from Duke University and an MBA from the Wharton School.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Joseph": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Financial markets researcher and commentator best known as \"Fed Guy.\" A former senior trader on the Markets Desk (Open Market Trading Desk) at the Federal Reserve Bank of New York, where he helped execute Treasury and QE operations. Author of \"Central Banking 101\" (2021), and writes the Fed Guy blog/newsletter covering Federal Reserve policy, reserves, liquidity, and money markets. Frequently appears on macro-finance podcasts as a guest and hosts his own podcast content.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Joseph Wang": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Joseph Wang is a financial markets commentator best known as 'Fed Guy,' the author of the newsletter and research platform FedGuy.com, which focuses on Federal Reserve policy, market liquidity, and the plumbing of the financial system. He previously served as a senior trader on the Open Markets Desk at the Federal Reserve Bank of New York, where he traded Treasuries, agency MBS, and repo to help implement monetary policy. He is the author of the book 'Central Banking 101' (2021) and has served as chief investment officer at Monetary Macro, a macro-focused investment firm. He is a frequent podcast guest, discussing Fed operations, quantitative easing, money markets, and dollar liquidity.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Maggie Lake": {
   "sells_research": false,
   "role": "",
-  "bio": "",
-  "provider": "zai"
+  "bio": "Financial journalist and media entrepreneur. Spent roughly two decades at CNN as a business anchor and correspondent in New York, covering global markets, the economy, and corporate news, and hosting programs including 'Marketplace Africa'. After leaving CNN in 2022, she moved into independent financial media, creating the 'Maggie Lake: Talking Markets' newsletter and podcast, where she interviews investors, economists, and market practitioners about macroeconomics and investing. She has also been associated with Real Vision as a host/interviewer. She is known for accessible, jargon-free breakdowns of macro and market themes for a general audience.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Max Sweaty": {
   "sells_research": false,
   "role": "",
   "bio": "",
-  "provider": "zai"
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Max Wiethe": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Max Wiethe is a financial media host, producer, and markets commentator, best known for his work at Real Vision, where he hosted and produced programs such as The Daily Briefing and trade-focused segments. He regularly interviews traders, investors, and strategists and is known for making markets and investment ideas accessible to retail audiences.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Mike Alfred": {
+  "sells_research": false,
+  "role": "",
+  "bio": "American fintech entrepreneur and Bitcoin investor, best known as co-founder (with his brother Ryan Alfred) of BrightScope, a financial data company that rated retirement plans and was acquired in 2016, and later of Digital Assets Data, a crypto market data and intelligence firm whose platform was acquired by Coinbase. Following the acquisition he served in a market intelligence role at Coinbase before focusing on his own investing. He is an active commentator on Bitcoin and publicly traded Bitcoin miners, frequently sharing analysis on X (Twitter), and has served on the board of Bitcoin miner Iris Energy (IREN). A vocal long-term Bitcoin holder, he appeared as a guest on Real Vision discussing his positions in Bitcoin and IREN.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Patrick Boyle": {
   "sells_research": false,
   "role": "",
-  "bio": "Patrick Boyle is a hedge fund manager, academic, and author. He is best known for his YouTube channel and newsletter, through which he provides educational content on quantitative finance, algorithmic trading, and financial market analysis.",
-  "provider": "zai"
+  "bio": "Irish-born finance professional, hedge fund manager, and educator best known for his eponymous YouTube channel, where he delivers dry, often sardonic commentary on financial markets, economics, and business news. He founded and ran a volatility-focused hedge fund (the Palomar Fund) and previously traded derivatives at investment banks in London. He has taught finance at King's College London and Queen Mary University of London, and is the author of several books on quantitative finance, including 'Trading and Pricing Financial Derivatives' and 'Financial Derivatives: A Quantitative Finance View'.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Patrick Ceresna": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Patrick Ceresna is a Canadian market strategist and technical analyst, Co-Founder and Chief Market Strategist of MacroVoices Media. He is best known as the host of the weekly 'MacroVoices Market Snapshot' segment on the MacroVoices podcast, where he presents chart-based technical analysis across equities, interest rates, currencies, and commodities, frequently paired with actionable derivatives and options strategies (e.g., bull call spreads). He holds the Chartered Market Technician (CMT), Chartered Investment Manager (CIM), and Derivatives Market Specialist (DMS) designations, and has roughly two decades of experience in capital markets.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Raoul Pal": {
   "sells_research": false,
   "role": "",
-  "bio": "Raoul Pal is a retired hedge fund manager, macroeconomist, and financial media entrepreneur. He is the co-founder and CEO of Real Vision, a financial media platform, and the author of the Global Macro Investor research service. Prior to his entrepreneurial ventures, he managed the GLG Global Macro Fund and served as a co-head of European hedge fund sales at Goldman Sachs.",
-  "provider": "zai"
+  "bio": "British macro investor, financial media entrepreneur, and writer. Began his career at Goldman Sachs, where he co-managed the European hedge fund sales business in equities and equity derivatives, and later ran a global macro portfolio for GLG Partners before retiring from fund management in his early thirties. In 2005 he founded Global Macro Investor (GMI), an institutional macro research publication. In 2014 he co-founded Real Vision, a subscription financial media company featuring long-form interviews with investors, where he served as CEO. He is a prominent commentator on global macroeconomics and a well-known advocate of Bitcoin and crypto assets, articulated through his 'Exponential Age' thesis. He writes and hosts 'The Journeyman' (also styled The Journey Man), his newsletter, video, and podcast series covering macro, markets, and crypto.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Raoul Pal (Palvatar/AI avatar)": {
   "sells_research": false,
   "role": "",
-  "bio": "British macroeconomist, former hedge fund manager, and financial media entrepreneur. He is the co-founder and CEO of Real Vision, a financial media platform, and the author of the Global Macro Investor newsletter. Prior to media, he co-managed the GLG Global Macro Fund in London and held positions at Goldman Sachs. He is widely known for his analysis of global markets and his focus on the 'exponential age' and cryptocurrency.",
-  "provider": "zai"
+  "bio": "British former hedge fund manager and macro investor. He began his career at Goldman Sachs, co-managing the hedge fund sales business in European equities and equity derivatives, and later co-managed the GLG Global Macro Fund before retiring from fund management in his mid-30s. He went on to found Global Macro Investor (GMI), a subscription macro research publication, and in 2014 co-founded Real Vision, a financial media and education company, where he serves as CEO. Pal is a prominent public commentator on macroeconomics, debt cycles, and demographics, and in recent years has become one of the loudest institutional-finance voices advocating for Bitcoin, Ethereum, and the broader crypto asset class. He hosts the podcast 'The Journeyman' and is known on social media as @RaoulGMI. 'Palvatar' refers to an AI-generated avatar of Pal used in Real Vision and other content. He is based largely in the Cayman Islands and has spoken publicly about his multiple sclerosis diagnosis and about the 'Exponential Age' and 'Everything Code' theses he has popularized.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Shawn Hackett": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Steve": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Steve Van Metre is a U.S.-based investment adviser and bond-market commentator known for his YouTube channel analyzing the Treasury market, the dollar system, and Federal Reserve policy. He is closely associated with the 'eurodollar' school of analysis popularized by Jeff Snider, arguing that global dollar liquidity conditions—rather than Fed policy alone—drive markets. He is well known for a long-running bullish Treasury thesis, notably his widely followed 'TLT trade' (long iShares 20+ Year Treasury Bond ETF call options), premised on falling long-term yields as recession and dollar-shortage dynamics unfold. He is a recurring guest on Eurodollar University and appears frequently on podcasts hosted by Jeff Snider and Emil Kalinowski, where he discusses yield curves, debt issuance, money markets, and macro conditions.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Steve Van Metre": {
+  "sells_research": false,
+  "role": "",
+  "bio": "American financial advisor, portfolio manager, and macroeconomic commentator. Founder and principal of Van Metre & Co. (also known as Steve Van Metre Financial Services), a wealth-management and registered investment advisory firm based in Bakersfield, California. He runs a popular YouTube channel and podcast presence focused on global macroeconomics, where he is known for a strongly dollar-bullish, deflationist outlook: he argues the world faces a structural shortage of U.S. dollars (drawing on Eurodollar-system analysis), predicts a deflationary bust in risk assets and credit, and counsels holding dollars and short-duration Treasuries ahead of a liquidity-driven crisis. He is a frequent guest on macro and finance podcasts.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Tony": {
   "sells_research": false,
   "role": "",
   "bio": "",
-  "provider": "zai"
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "Tony Greer": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Tony Greer is a financial markets analyst and newsletter author best known for The Morning Navigator, a daily macro commentary that tracks momentum, liquidity, and price action across equities, currencies, commodities, and crypto. He began his career as a trader at Goldman Sachs, where he spent roughly a decade in the firm's currency and commodities businesses before moving into independent research. He is a frequent guest on financial media and market podcasts, including CNBC, Real Vision, and various macro-focused shows, where he is known for a flows- and momentum-driven approach to global markets.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Tony Greer and Jared Dillian": {
   "sells_research": false,
   "role": "",
-  "bio": "Founder of TG Macro and author of the daily market newsletter 'The Morning Navigator.' He is a macro strategist and frequent media commentator known for his focus on cross-asset technical analysis and market sentiment.",
-  "provider": "zai"
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "Val Zlatev": {
   "sells_research": false,
   "role": "",
-  "bio": "Val Zlatev is a financial analyst and investment researcher specializing in macroeconomic trends and equity market strategy. He is known for providing independent research that often focuses on liquidity cycles, technology hardware, and global financial markets.",
-  "provider": "zai"
+  "bio": "Val Zlatev is a portfolio manager at Diamond Hill Capital Management, the Columbus, Ohio-based asset manager, where he began as a research analyst in the early 2010s and has since co-managed the firm's large-cap equity strategies. He has covered technology and semiconductor names and appears as a guest on investing podcasts and in financial media, where he has discussed stocks such as memory-chip makers Micron, Samsung, and SK Hynix.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "aminvest": {
   "sells_research": false,
   "role": "",
-  "bio": "Financial content creator and market analyst, likely based in Hong Kong. Hosts a program or channel under the brand 'aminvest' focusing on US stock market analysis. Provides commentary on technology sectors, particularly semiconductors, as well as major financial institutions and assets associated with high-profile figures like Elon Musk.",
-  "provider": "zai"
+  "bio": "aminvest is the author of a self-titled, Chinese-language (Traditional Chinese, Hong Kong/Cantonese-flavoured) investing newsletter in which they publish solo commentary on U.S. equities. Coverage skews toward high-profile growth and tech names — notably SpaceX-linked shares, semiconductor names such as Micron, and large-cap financials like Goldman Sachs and Morgan Stanley. The tone is analytical but contrarian-leaning, often questioning crowd optimism about popular stocks (e.g., arguing that dips in heavily hyped names may not yet be bargains) while tracking how mega-cap moves such as Micron's can lead the broader market.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "何啟聰": {
   "sells_research": false,
   "role": "",
-  "bio": "Hong Kong-based financial analyst and media commentator specializing in derivatives and structured products. He is known for his expertise in warrants, CBBCs, and leveraged ETFs, frequently analyzing cross-market investment flows between Hong Kong and Korea. He is a regular guest on financial television programs where he discusses market volatility and the mechanics of leveraged instruments.",
-  "provider": "zai"
+  "bio": "香港金融業人士，以ETF及上市衍生產品專家身份活躍於本地財經媒體。長期任職於瑞銀（UBS），曾任該行香港區董事總經理兼ETF及場外衍生產品銷售部主管，是香港槓桿及反向產品、窩輪牛熊證市場的知名評論人，經常就散戶交投、ETF資金流向及港股熱門板塊接受訪問及主持節目。",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "克魯明 (Paul Krugman)": {
   "sells_research": false,
   "role": "",
-  "bio": "Paul Krugman is an American economist, columnist for The New York Times, and Distinguished Professor of Economics at the Graduate Center of the City University of New York. He was awarded the Nobel Memorial Prize in Economic Sciences in 2008 for his contributions to New Trade Theory and economic geography. Known for his work in international economics and his advocacy for Keynesian economics, he is also a prolific author and a prominent public intellectual.",
-  "provider": "zai"
+  "bio": "American economist and columnist, winner of the 2008 Nobel Memorial Prize in Economic Sciences for his analysis of trade patterns and location of economic activity. Taught at MIT, Princeton, and (since 2015) the CUNY Graduate Center. Wrote the New York Times op-ed column \"The Conscience of a Liberal\" from 2000 until retiring from the column in late 2024, and remains a prominent, often sharply partisan, Keynesian voice on macro policy, trade, inequality, and political economy. Author of numerous books for general readers, including The Return of Depression Economics, End This Depression Now!, and Arguing with Zombies.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "劉強東": {
+  "sells_research": false,
+  "role": "Founder and Chairman of JD.com; stepped down as CEO in April 2022 while retaining the chairmanship and a controlling influence over the company",
+  "bio": "Liu Qiangdong grew up in a poor rural family in Suqian, Jiangsu. After graduating from Renmin University in 1996 and a failed restaurant venture, he started a small stall selling electronics in Beijing's Zhongguancun technology district in 1998, which grew into Jingdong. He pivoted the business online after the 2003 SARS epidemic, building it into JD.com, which pioneered self-built warehousing and delivery in Chinese e-commerce to guarantee authentic goods and fast service. JD.com listed on the NASDAQ in May 2014 in one of the largest Chinese tech IPOs at the time, and completed a secondary listing in Hong Kong in 2020. The JD ecosystem expanded into logistics (JD Logistics), healthcare (JD Health), and technology/finance (JD Technology, formerly JD Digits). Liu is married to Zhang Zetian. His reputation was affected by a 2018 sexual-assault allegation in Minnesota, which did not result in charges and was settled in a civil suit. He is known for a paternalistic management style toward JD's couriers and for philanthropy in his hometown, and he remains one of China's wealthiest individuals.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "施永青": {
   "sells_research": false,
   "role": "",
-  "bio": "Hong Kong entrepreneur best known as the founder of Centaline Property Agency, one of the city's largest real estate firms. He is also a prominent economic columnist, radio host, and media commentator, frequently discussing property trends and free-market economics.",
-  "provider": "zai"
+  "bio": "Hong Kong entrepreneur and property-market commentator, born 1949 in Shanghai. Best known as co-founder (1978) of Centaline Property Agency (中原地產), which he built into one of the largest real-estate agencies in Hong Kong and mainland China. In 2005 he founded the free Chinese-language newspaper am730, where his widely read columns cover property, economics, and current affairs. A frequent media guest known for his free-market and Daoist-influenced views, he is one of Hong Kong's most quoted voices on the housing market.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "李聲揚": {
   "sells_research": false,
   "role": "",
-  "bio": "Li Shengyang is a Taiwanese financial analyst and commentator. He hosts a financial program under his own name, where he discusses stock market analysis, investment strategies, and economic trends with a focus on the Taiwan market.",
-  "provider": "zai"
+  "bio": "李聲揚 is a Hong Kong–based finance writer and commentator known for promoting value-investing ideas to a Chinese-speaking audience. He writes columns for Hong Kong financial media and has authored books in Chinese on stock-picking and value investing, drawing on Benjamin Graham– and Warren Buffett–style principles applied to Hong Kong and Chinese markets. He is also active as a speaker and podcast commentator on Hong Kong equities and personal investing.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "梁天卓": {
   "sells_research": false,
   "role": "",
-  "bio": "Chinese financial analyst and macroeconomic commentator, best known for his self-titled podcast/audio series where he provides in-depth analysis of global economic cycles, market trends, and investment strategies.",
-  "provider": "zai"
+  "bio": "Hong Kong economist and financial columnist. Best known as one of the three co-authors of the「經濟3.0」(Economics 3.0) column in the Hong Kong Economic Journal (信報), alongside 徐家健 and 曾國平, writing on applied economics, public policy, law and economics, and Hong Kong current affairs. Holds a doctorate in economics and has worked in Hong Kong's financial sector. Also appears as a commentator/presenter in Cantonese economics media and podcasts.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "狂徒": {
   "sells_research": false,
   "role": "",
-  "bio": "",
-  "provider": "zai"
+  "bio": "Pseudonymous Chinese-language investment commentator, best known as the creator and solo host of the show 狂徒投資 (Kuang Tu Investment). Discusses stock markets and investing topics for a primarily Chinese-speaking audience. Personal background and real identity are not widely publicized.",
+  "provider": "zai",
+  "model": "glm-5.3"
  },
  "陳坤耀": {
   "sells_research": false,
   "role": "",
-  "bio": "",
-  "provider": "zai"
+  "bio": "陳坤耀 (Edward K. Y. Chen) is a veteran Hong Kong economist and academic administrator, best known as President of Lingnan University from 1995 to 2007, where he led the institution's development into a full liberal-arts university. Before that he was Professor of Economics at the University of Hong Kong, where he also held senior posts including dean, and was associated with its Centre of Asian Studies. His research and commentary focus on Hong Kong's economy, the Asia-Pacific newly industrialized economies, technology transfer, and economic development. He has served on many Hong Kong government advisory and public bodies, including as Chairman of the Consumer Council, and is a frequent commentator and columnist on economic and public affairs in the Hong Kong media.",
+  "provider": "zai",
+  "model": "glm-5.3"
+ },
+ "高天佑": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Hong Kong-based financial journalist and columnist known for commentary on finance, macroeconomics, and current affairs. He has written for Hong Kong Economic Journal (信報), where his column 新聞點評 covers markets and economic policy, and previously contributed to Apple Daily's finance pages. He appears frequently as a solo host/commentator in audio and podcast versions of his columns.",
+  "provider": "zai",
+  "model": "glm-5.3"
  }
 }

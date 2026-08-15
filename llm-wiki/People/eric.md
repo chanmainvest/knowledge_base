@@ -2,11 +2,7 @@
 
 **interview guest (2x)**
 
-**Role:** Founder and Macro Strategist
-
-> Eric Basmajian is a macroeconomist and the founder of EPB Macro Research, an independent research firm. He specializes in analyzing the business cycle, inflation trends, and economic turning points to assist with asset allocation decisions. Basmajian is widely recognized for his data-driven approach to identifying inflection points in the global economy and is a frequent guest on financial media.
-
-_Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
+_No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
 
 ## At a glance
 

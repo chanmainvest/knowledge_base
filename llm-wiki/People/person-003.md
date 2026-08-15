@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> Hong Kong entrepreneur best known as the founder of Centaline Property Agency, one of the city's largest real estate firms. He is also a prominent economic columnist, radio host, and media commentator, frequently discussing property trends and free-market economics.
+> Hong Kong entrepreneur and property-market commentator, born 1949 in Shanghai. Best known as co-founder (1978) of Centaline Property Agency (中原地產), which he built into one of the largest real-estate agencies in Hong Kong and mainland China. In 2005 he founded the free Chinese-language newspaper am730, where his widely read columns cover property, economics, and current affairs. A frequent media guest known for his free-market and Daoist-influenced views, he is one of Hong Kong's most quoted voices on the housing market.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

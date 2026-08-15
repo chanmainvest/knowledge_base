@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> Grok is a large language model developed by xAI. It is designed to assist users by generating text and providing analysis on a wide range of topics, including financial markets and economic trends.
+> Grok is the AI chatbot developed by xAI, the artificial intelligence company founded by Elon Musk in 2023. Built as a competitor to ChatGPT and other large language models and integrated with the X (formerly Twitter) platform, Grok is marketed as having real-time knowledge and a more irreverent, conversational tone than other assistants. While not a human finance professional, Grok has begun appearing on podcasts and media programs as a 'guest,' with hosts reading or featuring its AI-generated analysis. On the Chinese-language economics and finance podcast of Hong Kong economist 徐家健 (Eric Tsang Ka-kin / 徐家健), Grok was featured as a guest offering commentary on hot IPOs — cautioning that historically, large 'pop' IPOs in heated markets tend to show weak three-year post-adjustment returns due to profit-taking, lockup-expiry selling pressure, and mean reversion, and that SpaceX-related valuations would ultimately hinge on Starlink profitability and Starship execution rather than first-day enthusiasm.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

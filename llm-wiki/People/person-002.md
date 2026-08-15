@@ -1,8 +1,8 @@
 # 劉強東
 
-**Role:** Executive Chairman
+**Role:** Founder and Chairman of JD.com; stepped down as CEO in April 2022 while retaining the chairmanship and a controlling influence over the company
 
-> Richard Liu Qiangdong is a Chinese Internet entrepreneur and the founder of JD.com (Jingdong), one of the largest e-commerce companies in China. He served as the company's CEO until stepping down in 2022, remaining as the Executive Chairman. Liu started his business selling magneto-optical products in Beijing before transitioning to e-commerce in 2004.
+> Liu Qiangdong grew up in a poor rural family in Suqian, Jiangsu. After graduating from Renmin University in 1996 and a failed restaurant venture, he started a small stall selling electronics in Beijing's Zhongguancun technology district in 1998, which grew into Jingdong. He pivoted the business online after the 2003 SARS epidemic, building it into JD.com, which pioneered self-built warehousing and delivery in Chinese e-commerce to guarantee authentic goods and fast service. JD.com listed on the NASDAQ in May 2014 in one of the largest Chinese tech IPOs at the time, and completed a secondary listing in Hong Kong in 2020. The JD ecosystem expanded into logistics (JD Logistics), healthcare (JD Health), and technology/finance (JD Technology, formerly JD Digits). Liu is married to Zhang Zetian. His reputation was affected by a 2018 sexual-assault allegation in Minnesota, which did not result in charges and was settled in a civil suit. He is known for a paternalistic management style toward JD's couriers and for philanthropy in his hometown, and he remains one of China's wealthiest individuals.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

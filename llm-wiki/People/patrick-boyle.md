@@ -2,7 +2,7 @@
 
 **solo author/host (1x)**
 
-> Patrick Boyle is a hedge fund manager, academic, and author. He is best known for his YouTube channel and newsletter, through which he provides educational content on quantitative finance, algorithmic trading, and financial market analysis.
+> Irish-born finance professional, hedge fund manager, and educator best known for his eponymous YouTube channel, where he delivers dry, often sardonic commentary on financial markets, economics, and business news. He founded and ran a volatility-focused hedge fund (the Palomar Fund) and previously traded derivatives at investment banks in London. He has taught finance at King's College London and Queen Mary University of London, and is the author of several books on quantitative finance, including 'Trading and Pricing Financial Derivatives' and 'Financial Derivatives: A Quantitative Finance View'.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

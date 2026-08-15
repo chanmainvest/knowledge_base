@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> Research analyst and portfolio manager at Slatestone Wealth, specializing in the utilities, power generation, and energy infrastructure sectors, with a focus on the electrification trade.
+> U.S. investment professional, a portfolio manager at T. Rowe Price with a background as an industrials equity analyst covering machinery and electrical-equipment companies. As a podcast guest he has argued that the boom in electricity demand from AI data centers is best expressed through industrial and equipment suppliers — gas-turbine and switchgear makers, electrical gear, and grid/services names such as Caterpillar, Timken, Quanta Services, Powell Industries, Eaton, GE Vernova, and Cognex — rather than through merchant utilities (Talen, Vistra, Constellation), which he noted have at times traded at 'Nvidia-type' multiples.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

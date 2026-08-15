@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> British macroeconomist, former hedge fund manager, and financial media entrepreneur. He is the co-founder and CEO of Real Vision, a financial media platform, and the author of the Global Macro Investor newsletter. Prior to media, he co-managed the GLG Global Macro Fund in London and held positions at Goldman Sachs. He is widely known for his analysis of global markets and his focus on the 'exponential age' and cryptocurrency.
+> British former hedge fund manager and macro investor. He began his career at Goldman Sachs, co-managing the hedge fund sales business in European equities and equity derivatives, and later co-managed the GLG Global Macro Fund before retiring from fund management in his mid-30s. He went on to found Global Macro Investor (GMI), a subscription macro research publication, and in 2014 co-founded Real Vision, a financial media and education company, where he serves as CEO. Pal is a prominent public commentator on macroeconomics, debt cycles, and demographics, and in recent years has become one of the loudest institutional-finance voices advocating for Bitcoin, Ethereum, and the broader crypto asset class. He hosts the podcast 'The Journeyman' and is known on social media as @RaoulGMI. 'Palvatar' refers to an AI-generated avatar of Pal used in Real Vision and other content. He is based largely in the Cayman Islands and has spoken publicly about his multiple sclerosis diagnosis and about the 'Exponential Age' and 'Everything Code' theses he has popularized.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

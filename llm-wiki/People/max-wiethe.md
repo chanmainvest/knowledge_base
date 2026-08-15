@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> Financial journalist and editor known for his coverage of global macroeconomics, financial markets, and digital assets. He serves as a Senior Managing Editor at Real Vision.
+> Max Wiethe is a financial media host, producer, and markets commentator, best known for his work at Real Vision, where he hosted and produced programs such as The Daily Briefing and trade-focused segments. He regularly interviews traders, investors, and strategists and is known for making markets and investment ideas accessible to retail audiences.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

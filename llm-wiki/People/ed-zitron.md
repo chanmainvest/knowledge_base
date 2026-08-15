@@ -2,7 +2,7 @@
 
 **interview guest (1x)**
 
-> Ed Zitron is a technology journalist and the CEO of EZPR, a tech-focused public relations firm. He is the author of the newsletter 'Where's Your Ed At?' and the host of the 'Better Offline' podcast. Zitron is recognized for his critical commentary on the technology sector, particularly his skepticism regarding the artificial intelligence investment bubble and modern corporate management practices.
+> Ed Zitron is an American writer and critic of the technology industry. He began his career as a technology and video-game journalist before moving into public relations, founding the firm EZ-PR. He is best known for his newsletter 'Where's Your Ed At', where he coined the term 'Rot Economy' to describe a growth- and metrics-obsessed style of management that, in his view, degrades products and the user experience across Big Tech. His 2024 essay 'The Man Who Killed Google Search', which blamed Google's search decline on managerial dysfunction, was widely circulated. Since 2024 he has hosted the podcast 'Better Offline'. He has been a persistent bear on generative AI economics, arguing that the enormous capital spending on AI infrastructure by Microsoft and other hyperscalers, and Nvidia's revenue tied to that spending, far outstrip the technology's real-world utility and revenue, and that the industry is a bubble destined to burst.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

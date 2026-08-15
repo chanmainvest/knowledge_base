@@ -2,7 +2,7 @@
 
 **solo author/host (1x)**
 
-> Financial analyst and investor known by the alias 'Grok'. Featured as a guest on Xu Jiajian's podcast, discussing macroeconomic and investment topics.
+> Grok is the AI chatbot developed by xAI, the artificial-intelligence company founded by Elon Musk, first released in November 2023. Built on xAI's large language models (Grok-1, later Grok-2, Grok-3 and Grok-4), it is distinguished by real-time access to data from X (formerly Twitter) and a deliberately humorous, irreverent persona. Credited appearances on podcasts (such as a solo spot on Hong Kong economist 徐家健's show) almost certainly refer to the chatbot itself — e.g., an episode built around the host conversing with or quizzing the AI — rather than to a human guest.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

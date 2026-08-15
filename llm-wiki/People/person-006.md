@@ -2,7 +2,9 @@
 
 **solo author/host (1x)**
 
-_No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
+> Pseudonymous Chinese-language investment commentator, best known as the creator and solo host of the show 狂徒投資 (Kuang Tu Investment). Discusses stock markets and investing topics for a primarily Chinese-speaking audience. Personal background and real identity are not widely publicized.
+
+_Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
 ## At a glance
 

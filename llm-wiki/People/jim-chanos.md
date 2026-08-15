@@ -2,9 +2,7 @@
 
 **interview guest (1x)**
 
-**Role:** Founder and Managing Partner
-
-> James 'Jim' Chanos is an American hedge fund manager and the founder of Kynikos Associates, a New York-based investment firm focused on short selling. He is widely recognized for his early prediction of the collapse of Enron in 2001. Chanos is a prominent figure in financial media, known for his forensic approach to analyzing financial statements and identifying market bubbles and corporate fraud.
+> American investor and one of Wall Street's best-known short sellers. Founder of Kynikos Associates (1985), a hedge fund long focused on short selling, which he converted to a family office after closing client funds in 2023. Famous for shorting Enron ahead of its 2001 collapse and for earlier flagging Baldwin-United in the 1980s; also known for warnings on Tyco, China's economy, and dot-com-era telecom names. Yale graduate and longtime adjunct professor at Yale School of Management and the University of Wisconsin-Madison. Frequent media commentator on accounting red flags, fraud, and market excess, and in recent years a vocal skeptic of AI-driven semiconductor valuations.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

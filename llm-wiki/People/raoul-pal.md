@@ -2,7 +2,7 @@
 
 **host of Raoul Pal The Journey Man**
 
-> Raoul Pal is a retired hedge fund manager, macroeconomist, and financial media entrepreneur. He is the co-founder and CEO of Real Vision, a financial media platform, and the author of the Global Macro Investor research service. Prior to his entrepreneurial ventures, he managed the GLG Global Macro Fund and served as a co-head of European hedge fund sales at Goldman Sachs.
+> British macro investor, financial media entrepreneur, and writer. Began his career at Goldman Sachs, where he co-managed the European hedge fund sales business in equities and equity derivatives, and later ran a global macro portfolio for GLG Partners before retiring from fund management in his early thirties. In 2005 he founded Global Macro Investor (GMI), an institutional macro research publication. In 2014 he co-founded Real Vision, a subscription financial media company featuring long-form interviews with investors, where he served as CEO. He is a prominent commentator on global macroeconomics and a well-known advocate of Bitcoin and crypto assets, articulated through his 'Exponential Age' thesis. He writes and hosts 'The Journeyman' (also styled The Journey Man), his newsletter, video, and podcast series covering macro, markets, and crypto.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

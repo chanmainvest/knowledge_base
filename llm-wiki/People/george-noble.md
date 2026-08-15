@@ -2,7 +2,7 @@
 
 **interview guest (2x)**
 
-> George Noble is a hedge fund manager and financial commentator known for his macroeconomic analysis and short-selling strategies. He is the founder of Noble Absolute Return and frequently appears on financial podcasts and media outlets to discuss market cycles, inflation, and central bank policy.
+> American hedge fund manager and value investor, best known as the founder and chief investment officer of GKO Investment Management, a Boston-based hedge fund he has run since the 1990s. Noble has a career in investing spanning roughly four decades, including earlier institutional roles managing global and value-oriented portfolios. He runs a classic long/short strategy: deep-value long positions paired with concentrated shorts in highly valued 'story' stocks. He is known for a bearish macro outlook on U.S. equities, skepticism of passive investing and index/ETF flows, and willingness to short popular momentum names. His stated short ideas have included stocks such as Tesla, Freshpet, SSR Mining, and Goldman Sachs, and he discusses macro assets including oil, copper, Bitcoin, and the S&P 500.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

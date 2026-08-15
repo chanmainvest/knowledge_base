@@ -32,8 +32,8 @@ llm-wiki/
 
 ## Data snapshot at generation time
 
-- Generated: **2026-08-15 06:06 UTC**
-- Items in DB: **34,332** (extracted: **228**, pending: **34,101**)
+- Generated: **2026-08-15 06:29 UTC**
+- Items in DB: **31,932** (extracted: **228**, pending: **31,701**)
 - Predictions: **420** · Market views: **556**
 - Distinct tickers with calls: **110** · People pages: **53**
 - Published-date range: **2004-05-06 → 2026-08-13**

@@ -2,9 +2,7 @@
 
 **interview guest (2x) · solo author/host (8x)**
 
-**Role:** Wallstreetcn
-
-> Financial media professional and analyst known for his work with Wallstreetcn. He specializes in macroeconomic analysis and market commentary, frequently hosting financial programming and serving as a commentator on market trends.
+> Hong Kong-based financial journalist and columnist known for commentary on finance, macroeconomics, and current affairs. He has written for Hong Kong Economic Journal (信報), where his column 新聞點評 covers markets and economic policy, and previously contributed to Apple Daily's finance pages. He appears frequently as a solo host/commentator in audio and podcast versions of his columns.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

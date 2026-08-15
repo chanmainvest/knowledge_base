@@ -2,9 +2,7 @@
 
 **host of Eurodollar University**
 
-**Role:** Head of Global Research
-
-> Jeff Snider is the Head of Global Research at Alhambra Investments and the host of the 'Eurodollar University' podcast. He is a Chartered Financial Analyst (CFA) known for his analysis of the eurodollar system, Federal Reserve policy, and global liquidity dynamics.
+> American macroeconomic researcher and commentator, formerly Head of Global Research and Investment Strategy at Alhambra Investment Partners. He is best known as the leading proponent of the 'Eurodollar' framework, arguing that the vast offshore dollar banking system — rather than central banks or official money printing — is the true global monetary system, and that its contraction since 2008 explains chronic disinflation, sluggish growth, recurring liquidity squeezes, and the limits of Federal Reserve policy. He hosts the Eurodollar University podcast/newsletter (with longtime collaborator Emil Kalinowski) and has been a prolific writer and frequent Real Vision contributor, publishing thousands of commentaries analyzing Treasury curves, T-bill spreads, Fed repo operations, and commodity futures curves (notably WTI contango/backwardation) as real-time signals of global dollar liquidity.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

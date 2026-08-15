@@ -2,7 +2,7 @@
 
 **solo author/host (4x)**
 
-> Chinese financial analyst and macroeconomic commentator, best known for his self-titled podcast/audio series where he provides in-depth analysis of global economic cycles, market trends, and investment strategies.
+> Hong Kong economist and financial columnist. Best known as one of the three co-authors of the「經濟3.0」(Economics 3.0) column in the Hong Kong Economic Journal (信報), alongside 徐家健 and 曾國平, writing on applied economics, public policy, law and economics, and Hong Kong current affairs. Holds a doctorate in economics and has worked in Hong Kong's financial sector. Also appears as a commentator/presenter in Cantonese economics media and podcasts.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 

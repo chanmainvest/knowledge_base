@@ -1,8 +1,6 @@
 # Tony Greer and Jared Dillian
 
-> Founder of TG Macro and author of the daily market newsletter 'The Morning Navigator.' He is a macro strategist and frequent media commentator known for his focus on cross-asset technical analysis and market sentiment.
-
-_Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
+_No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
 
 ## At a glance
 
