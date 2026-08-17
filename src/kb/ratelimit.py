@@ -32,19 +32,28 @@ class HostRateLimiter:
         # successful wait. Capped at max_backoff.
         self._penalty: dict[str, float] = defaultdict(float)
 
-    async def wait(self, url: str) -> None:
+    async def wait(self, url: str, min_interval: float | None = None) -> None:
+        """Block until at least ``min_interval`` (or this call's override) has
+        elapsed since the last request to *url*'s host, plus any 429 penalty.
+
+        ``min_interval`` overrides the limiter's default base interval for this
+        one call (the larger of the two wins). Used by the YouTube scraper to
+        slow down proactively when the proxy pool is dead and requests go
+        direct — a direct residential IP is throttled far harder than a
+        round-robined egress pool, so we don't wait for a 429 to back off."""
         host = urlparse(url).hostname or "_"
         async with self._locks[host]:
             now = asyncio.get_running_loop().time()
             penalty = self._penalty[host]
-            interval = self.min_interval + penalty
+            base = max(self.min_interval, min_interval) if min_interval else self.min_interval
+            interval = base + penalty
             wait_for = self._last[host] + interval - now
             if wait_for > 0:
                 await asyncio.sleep(wait_for + random.uniform(0, self.jitter))
             self._last[host] = asyncio.get_running_loop().time()
             # Decay the penalty: a successful wait (no new 429) reduces it.
             if penalty > 0:
-                self._penalty[host] = max(0.0, penalty - self.min_interval)
+                self._penalty[host] = max(0.0, penalty - base)
 
     def report_429(self, url: str) -> float:
         """Signal that a request to this host got 429'd. Increases the

@@ -2,10 +2,13 @@
 from __future__ import annotations
 
 import asyncio
+from pathlib import Path
 
 from camoufox.async_api import AsyncCamoufox
 
 from kb.config import settings
+
+OUT_DIR = Path(__file__).resolve().parent
 
 LOGIN_URL = (
     "https://subscribe.hkej.com/member/login"
@@ -25,9 +28,8 @@ async def main() -> None:
         await page.goto(LOGIN_URL, wait_until="domcontentloaded", timeout=60000)
         await asyncio.sleep(3)
         html = await page.content()
-        with open("scripts/debug_login.html", "w", encoding="utf-8") as f:
-            f.write(html)
-        print("saved scripts/debug_login.html", "len", len(html))
+        (OUT_DIR / "debug_login.html").write_text(html, encoding="utf-8")
+        print("saved debug_login.html", "len", len(html))
 
         # list buttons / inputs
         info = await page.evaluate(
@@ -84,8 +86,8 @@ async def main() -> None:
                     """
                 )
                 print("VISIBLE CLICKABLES AFTER FILL:", info2)
-                await page.screenshot(path="scripts/debug_login_filled.png")
-                print("screenshot scripts/debug_login_filled.png")
+                await page.screenshot(path=str(OUT_DIR / "debug_login_filled.png"))
+                print("screenshot debug_login_filled.png")
 
 
 if __name__ == "__main__":

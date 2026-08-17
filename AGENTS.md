@@ -100,6 +100,67 @@
   exist, `scripts/fix_youtube_dup_folders.py` merges them into the canonical
   folder (slug of the current DB name), also deduping same-folder
   `undated/` vs dated copies, and re-points stale `md_path` rows.
+- **Transcript paragraphing happens at scrape time.** VTT captions are
+  5-8-word display lines; stored verbatim they render as one giant
+  paragraph (markdown joins single newlines). `_vtt_to_text` therefore
+  parses cues with their timings and builds paragraphs from the VTT's own
+  signals — `>>` speaker changes, cue gaps > 2.5 s, and a ~600-char cap
+  split at sentence boundaries (`_vtt_to_paragraphs` in `youtube.py`).
+  Whisper transcriptions get the same shape via `_assemble_paragraphs`.
+  Paragraphed markdown is canonical: it feeds FTS snippets and the LLM
+  chunker (paragraph-aware `_chunks`) better than a wall of text.
+  Historical files are repaired by `kb youtube reformat-transcripts`
+  (offline, idempotent — text-only heuristics since timings are gone).
+  The Item page renders the transcript as a collapsible section (long
+  ones default collapsed) inside a 72ch reading column.
+- **YouTube missing dates (undated scars).** When yt-dlp's metadata fetch
+  fails (dead tunnel / 429) the video is saved with `published_at=None`;
+  `fetch()` resolves the upload date through a four-step chain so this
+  (almost) never happens: info-json → proxied `--dump-json` → **direct**
+  `--dump-json` (no proxy; `_polite_ytdlp_direct`) → the `/watch` page's
+  embedded `uploadDate`/`publishDate` scraped direct
+  (`_lookup_upload_date_direct`, same residential-IP design as the
+  transcript fallback) → a date parsed from the video title
+  (`_date_from_title`, e.g. "…| 15May2022"; YouTube-era range enforced).
+  Historical scars: files under `<channel>/undated/` plus files the dedup
+  script promoted to dated filenames whose front-matter/DB row still said
+  null. All repaired by `kb youtube backfill-dates` (offline filename pass
+  stamped 1,586 items; the online pass dated the remaining 291 — 288 via
+  yt-dlp, 3 via the watch-page/title fallbacks; also recovers NULL
+  `prediction.made_at` and re-points `md_path`). Resumable and safe to
+  re-run; videos deleted before YouTube served `uploadDate` in the watch
+  page are the only ones that can end up undated.
+- **YouTube stub-metadata scars (empty descriptions).** The same failed
+  yt-dlp fetches also dropped *all* metadata, not just dates: when both
+  dump-json attempts fail, `fetch()` saves from a `{id, title, upload_date}`
+  stub (`youtube.py`), so the file's `## Description` section is empty and
+  `duration_sec`/`extra.uploader`/`view_count`/`tags` are null (2,585 of
+  20,976 files, from the 2026-07/08 bulk-scrape degradation windows). The
+  DB has no description column — description lives only in `item.content`
+  as that markdown section. `kb youtube backfill-metadata` re-fetches
+  metadata per video (direct, one at a time, polite) and rewrites the
+  description/duration/published lines + front-matter (`_apply_metadata_to_md`),
+  re-ingesting each file. Resumable via a `metadata_synced_at` front-matter
+  marker. Two run modes: `--proxy-hosts <aliases>` opens the SSH SOCKS pool
+  with one asyncio worker per tunnel (`_pooled_metadata_loop`; yt-dlp and
+  HTTP calls run via `asyncio.to_thread` — `_ytdlp` is a blocking
+  `subprocess.run` that would otherwise serialize the workers); without
+  hosts it goes direct and sequential at the larger direct interval.
+  **Cloud-egress gotcha (2026-08-16):** the four `oc*.hevangel.com` Oracle
+  IPs (and `hevangel.com`, also Oracle) get "Sign in to confirm you're not
+  a bot" on yt-dlp's innertube calls cookie-less, on every player client —
+  only `horace.org` works. The pooled workers therefore fetch via
+  `_watch_page_info` (one plain GET of the /watch HTML, parsing the embedded
+  `ytInitialPlayerResponse.videoDetails` — description, duration, view
+  count; the watch page is served where innertube is bot-challenged) with
+  yt-dlp as fallback. Rate-limit-aware like
+  `scripts/backfill_youtube_transcripts.py`: blocked fetches (429 /
+  bot-check signatures, `_err_class` — the "sign in to confirm" phrase must
+  stay full-length or yt-dlp's private-video "Sign in if you've been
+  granted access" misclassifies) trigger an exponential cooldown
+  (5 min → doubling, capped 1 h) and retry the same video; repeated blocks
+  retire a worker (or abort a direct run); private/deleted videos are
+  skipped without counting toward the abort.
 - **YouTube proxy** (optional): to avoid YouTube's per-IP rate limiting (HTTP
   429), yt-dlp can route through SOCKS5 tunnels over SSH. `--proxy-hosts
   oc1.hevangel.com,horace.org` opens one `ssh -D` tunnel per host and
@@ -121,6 +182,26 @@
   residential IP, where it works (verified: 16k-char transcript fetched
   direct vs `RequestBlocked` through every proxy egress). Do NOT add the
   proxy to `_fetch_transcript_api`.
+- **Cantonese auto-CC is `yue`, not `zh`** (2026-08-16 fix). YouTube labels
+  the original Cantonese ASR track `yue-orig` (plain `yue` on the
+  transcript-api surface); `zh-Hans`/`zh-Hant`/`en` exist only as
+  auto-translations of it. The pre-fix `--sub-langs en.*,zh.*` filter and the
+  `["en", "zh-Hant", …]` preferred list therefore came home empty for
+  Cantonese-first channels (Dr Ng's LATP), and the timedtext endpoint's hard
+  429 throttling during the 2026-07/08 bulk scrapes stranded ~6.4k files with
+  the `_(no transcript available)_` marker. Both lists now include `yue`,
+  `_pick_vtt()` prefers the original over machine translations, and
+  `scripts/backfill_youtube_transcripts.py` recovers the scarred files —
+  deliberately over-polite (per-item sleep, exponential cooldown on 429,
+  abort after 3 consecutive blocks, resumable via `has_transcript`), meant to
+  run daily for weeks. The backfill routes yt-dlp through the SSH SOCKS5
+  fan-out (`--proxy-hosts` / `YT_DLP_PROXY_HOSTS`): the residential IP alone
+  stays timedtext-throttled for days, while the horace.org egress serves
+  captions reliably; the oc*/Oracle egresses answer cookie-less yt-dlp with
+  the bot-wall and are benched automatically per run. Backfilled files get
+  `transcript_source: youtube-captions` front-matter; promo shorts (<60 s)
+  are skipped by default since YouTube mostly doesn't auto-caption them at
+  all.
 - **serv00 excluded from proxy pool**: `serv00` accepts the SSH connection
   and binds the SOCKS port (tunnel appears "up"), but its SOCKS forwarding
   fails for actual requests (curl rc=97 / connection refused). It is omitted
@@ -197,6 +278,20 @@
   clobbering each other — see `doc/llm-extraction.md` for the full design,
   including how `kb extract compare`/`provider_model_leaderboard` let you
   cross-reference which provider/model is most accurate.
+- **Extraction prompt/schema versioning (file registry).** The extraction
+  system prompt and its JSON schema are NOT constants in `extract.py` — they
+  live as versioned file pairs under `src/kb/prompts/extraction/<version>/`
+  (`system.md`, markdown with a YAML front-matter header whose `version:`
+  must match the dir name, + `schema.json`), loaded by `kb.prompts`
+  (`prompts.py`). The directory name is the `prompt_version` recorded in
+  `extraction_run`, so iterating on a prompt/schema means copying to the
+  next version dir — old runs and their predictions stay untouched, and the
+  new version becomes the default (highest version present; pin with
+  `EXTRACTION_PROMPT_VERSION` or `--prompt-version`; `kb extract prompts`
+  lists them). `kb extract compare --providers zai,zai --model
+  glm-4.6,glm-5.3` A/Bs models on one item without touching its primary
+  run. The files MUST stay inside `src/kb/` — the Dockerfile only COPYs
+  `src/`, and the wheel only packages `src/kb`.
 - **Per-ticker prediction consolidation (read-time).** The LLM extracts per
   chunk, so the same ticker can appear as several flat `prediction` rows for
   one item (one per quote). Those rows are the source of truth for scoring
@@ -205,9 +300,30 @@
   `src/kb/api/main.py` into one entry per ticker with a `quotes[]` array, a
   consensus `direction`, and a `conflict` flag set when the same ticker has
   both a bullish and a bearish call in the same article. The flat
-  `/api/predictions` list still returns raw rows. The frontend item page
-  renders one card per ticker (with an amber **conflict** badge) and makes
-  each quote clickable to jump to and highlight it in the article body.
+  `/api/predictions` list still returns raw rows (primary-run scoped by
+  default; `?all_runs=true` for raw). The frontend item page renders one
+  card per ticker (with an amber **conflict** badge and a price sparkline
+  from the market store) and makes each quote clickable to jump to and
+  highlight it in the article body.
+- **Market-data pipeline (`src/kb/marketdata.py`).** Daily prices for every
+  ticker referenced by an extracted prediction live in the `asset_price`
+  table, bulk-fetched from Yahoo Finance by `kb market sync` (batched
+  `yf.download`, 40 tickers/batch with a 2 s pause; incremental — only
+  tickers whose last stored day lags today get topped up; no-data tickers
+  like LLM-hallucinated symbols are recorded in `asset_ticker` and retried
+  at most weekly). Scoring (`kb leaderboard rebuild` = sync + score +
+  rollups in one command; a nightly Jenkins stage) reads the store via an
+  in-memory `PriceTable` and **never hits the network**. Scores are
+  `sign × return × 5` clamped ±1 over the call's horizon; neutral quotes
+  (hold/watch) are left NULL rather than scored 0; calls whose horizon
+  hasn't elapsed carry an as-of-now score that refreshes until it does.
+  Rollups: `leaderboard_weekly` (channel×week) and `leaderboard_speaker`
+  (interviewee/author, cross-channel, with most-frequent channel) count
+  **primary extraction runs only**; `provider_model_leaderboard`
+  deliberately counts every run. The API serves the built frontend SPA
+  from `frontend/dist` when it exists (assets mount + catch-all fallback),
+  so `kb api` alone serves the GUI; run `npm run build` in `frontend/`
+  after frontend changes.
 - **Pipeline progress tracking.** The scrape → ingest → extract pipeline
   records its progress in two places: per-item stage timestamps
   (`item.ingested_at`, `item.extracted_at`) and a per-source rollup table
@@ -324,18 +440,26 @@ src/kb/
   extract.py           # LLM structured extraction; extraction_run tracking,
                        # primary-run promotion, multi-provider compare;
                        # stamps item.extracted_at and bumps source_progress
+  prompts.py           # versioned extraction prompt/schema registry — loads
+                       # src/kb/prompts/extraction/<ver>/{system.md,schema.json}
+                       # pairs; dir name = prompt_version (enforced vs front-matter)
   progress.py          # pipeline progress tracking — boundary counters
                        # (mark_downloaded/ingested/extracted) + recompute();
                        # backs /api/dashboard and `kb progress status`
   catalog.py           # discovery catalog — records every discovered item so
                        # "discovered but not downloaded" is queryable and
                        # `kb scrape resume` can re-fetch pending items
-  leaderboard.py       # score predictions vs market; provider/model rollup
+  leaderboard.py       # score predictions vs the price store; speaker/channel/
+                       # model rollups (primary-run scoped; neutral = unscored)
+  marketdata.py        # market-data pipeline — bulk yfinance → asset_price
+                       # store (`kb market sync`/`status`); PriceTable used
+                       # by scoring; series()/ticker_stats() for the API
   transcribe.py        # Whisper ASR for YouTube items without subtitles
                        # (opt-in; `kb youtube transcribe` / scrape --transcribe)
   api/
-    main.py            # FastAPI app (search, items, predictions, leaderboard,
-                       # dashboard, sources, channels)
+    main.py            # FastAPI app (search, items, predictions, leaderboard
+                       # incl. speakers, market prices/tickers, dashboard,
+                       # sources, channels) + serves frontend/dist as the SPA
     routes_*.py
 frontend/              # Vite + React + Tailwind
   src/pages/Dashboard.tsx   # pipeline progress overview (landing page)
@@ -359,6 +483,9 @@ scripts/
   fix_youtube_dup_folders.py  # merge duplicate data/youtube/ channel folders
                         # (display-name drift) + undated/dated dupes; re-point
                         # stale item.md_path
+  backfill_youtube_transcripts.py  # re-fetch subtitles (yue-aware) for files
+                        # carrying the no-transcript marker; over-polite by
+                        # design (429 cooldowns, daily slices, resumable)
   build_llm_wiki.py       # regenerate `llm-wiki/` (Karpathy-style synthesized
                         # wiki) from the DB — read-only against Postgres;
                         # INCREMENTAL: never wipes llm-wiki/, rewrites pages

@@ -6,6 +6,12 @@ by several LLM providers so their `view_market`/`prediction` output — and
 later, prediction accuracy scores — can be cross-referenced per model instead
 of one provider's result silently overwriting another's. See
 `doc/llm-extraction.md` for the full pipeline write-up.
+
+The system prompt and JSON schema are NOT defined here: they live as
+versioned file pairs under `src/kb/prompts/extraction/<version>/`
+(system.md + schema.json), loaded by `kb.prompts`. The directory name is the
+prompt_version recorded in `extraction_run`, so editing a prompt or schema
+means adding a new version directory — never editing this module.
 """
 from __future__ import annotations
 
@@ -17,95 +23,13 @@ from typing import Any
 from sqlalchemy import text
 
 from . import llm
+from . import prompts
 from .config import settings
 from .db import engine
 from .llm import chat_json, embed
 from .logging_setup import get_logger
 
 log = get_logger("extract")
-
-# Bump this when SYSTEM/SCHEMA change materially, so old and new extractions
-# of the same item/provider/model are tracked as distinct extraction_run rows
-# instead of one silently overwriting the other.
-PROMPT_VERSION = "v1"
-
-
-SYSTEM = """You are a careful financial analyst. From a transcript or article,
-extract: (1) the speaker/author's broad market views, (2) any specific
-predictions about tickers / assets, (3) any tradable buy/sell calls. Use the
-exact words from the source as 'quote'. Do NOT invent. If something is not
-in the text, leave the field empty / null. Tickers should be Yahoo-Finance
-style (e.g. AAPL, ES=F, GC=F, ^GSPC, BTC-USD). Output strict JSON per the
-schema."""
-
-
-SCHEMA: dict[str, Any] = {
-    "type": "object",
-    "additionalProperties": False,
-    "required": ["summary", "speakers", "market_views", "predictions", "entities"],
-    "properties": {
-        "summary": {"type": "string"},
-        "speakers": {"type": "array", "items": {"type": "string"}},
-        "market_views": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "additionalProperties": False,
-                "required": ["speaker", "asset_class", "direction", "horizon",
-                             "rationale", "quote"],
-                "properties": {
-                    "speaker": {"type": "string"},
-                    "asset_class": {"type": "string"},
-                    "region": {"type": "string"},
-                    "direction": {"type": "string",
-                                  "enum": ["bullish", "bearish", "neutral", "mixed"]},
-                    "horizon": {"type": "string",
-                                "enum": ["short", "medium", "long", "unspecified"]},
-                    "confidence": {"type": "number"},
-                    "rationale": {"type": "string"},
-                    "quote": {"type": "string"},
-                },
-            },
-        },
-        "predictions": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "additionalProperties": False,
-                "required": ["speaker", "ticker", "asset_name", "action",
-                             "direction", "timeframe", "quote"],
-                "properties": {
-                    "speaker": {"type": "string"},
-                    "ticker": {"type": "string"},
-                    "asset_name": {"type": "string"},
-                    "action": {"type": "string",
-                               "enum": ["buy", "sell", "short", "hold", "watch",
-                                       "long", "cover", "avoid", "none"]},
-                    "direction": {"type": "string",
-                                  "enum": ["up", "down", "flat", "unspecified"]},
-                    "target_price": {"type": ["number", "null"]},
-                    "stop_price": {"type": ["number", "null"]},
-                    "timeframe": {"type": "string"},
-                    "quote": {"type": "string"},
-                },
-            },
-        },
-        "entities": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "additionalProperties": False,
-                "required": ["kind", "name"],
-                "properties": {
-                    "kind": {"type": "string",
-                             "enum": ["person", "company", "country", "theme"]},
-                    "name": {"type": "string"},
-                    "ticker": {"type": "string"},
-                },
-            },
-        },
-    },
-}
 
 
 def _chunks(text_in: str, max_chars: int = 14000) -> list[str]:
@@ -176,18 +100,22 @@ def extract_item(item_id: int, provider: str | None = None, model: str | None = 
     """Run one extraction attempt for an item and persist the result.
 
     ``provider``/``model`` default to the configured LLM_PROVIDER and its
-    default model. ``make_primary`` decides whether this run becomes the
-    item's canonical extraction (the one the API/frontend/leaderboard use by
-    default); it defaults to True only when the run uses the configured
-    default provider, so ad-hoc comparison runs (see ``compare_item``) don't
-    disturb the existing canonical view unless asked to.
+    default model. ``prompt_version`` defaults to the registry default
+    (EXTRACTION_PROMPT_VERSION or the highest version under
+    ``src/kb/prompts/extraction/``). ``make_primary`` decides whether this
+    run becomes the item's canonical extraction (the one the
+    API/frontend/leaderboard use by default); it defaults to True only when
+    the run uses the configured default provider, so ad-hoc comparison runs
+    (see ``compare_item``) don't disturb the existing canonical view unless
+    asked to.
     """
     s = settings()
     provider = provider or s.llm_provider
     if provider not in llm.PROVIDERS:
         raise ValueError(f"unknown LLM provider {provider!r}; choose one of {llm.PROVIDERS}")
     model = model or llm.default_model(provider)
-    prompt_version = prompt_version or PROMPT_VERSION
+    pair = prompts.load(prompt_version)
+    prompt_version = pair.version
     if make_primary is None:
         make_primary = provider == s.llm_provider
 
@@ -210,7 +138,8 @@ def extract_item(item_id: int, provider: str | None = None, model: str | None = 
         for i, chunk in enumerate(_chunks(row["content"])):
             prompt = (f"TITLE: {row['title']}\nDATE: {row['published_at']}\n"
                       f"LANGUAGE: {row['language']}\n\nTEXT:\n{chunk}")
-            out = chat_json(SYSTEM, prompt, SCHEMA, provider=provider, model=model)
+            out = chat_json(pair.system, prompt, pair.schema,
+                            provider=provider, model=model)
             if i == 0:
                 aggregate["summary"] = out.get("summary", "")
             for k in ("speakers", "market_views", "predictions", "entities"):
@@ -254,19 +183,23 @@ def extract_item(item_id: int, provider: str | None = None, model: str | None = 
     return aggregate
 
 
-def compare_item(item_id: int, providers: list[str],
-                  models: dict[str, str] | None = None) -> dict[str, dict[str, Any]]:
-    """Extract the same item with several providers without touching the
-    item's existing canonical (primary) extraction. Returns per-provider
-    stats for a quick side-by-side comparison; the underlying rows remain in
-    the DB (tagged by extraction_run) for deeper querying/leaderboard use.
+def compare_item(item_id: int, combos: list[tuple[str, str | None]],
+                  prompt_version: str | None = None) -> dict[str, dict[str, Any]]:
+    """Extract the same item with several provider/model combos without
+    touching the item's existing canonical (primary) extraction. ``combos``
+    is a list of ``(provider, model_or_None)`` pairs — the same provider may
+    appear multiple times with different models (a dict keyed by provider
+    would silently collapse those). Returns per-combo stats keyed
+    "provider/model"; the underlying rows remain in the DB (tagged by
+    extraction_run) for deeper querying/leaderboard use.
     """
-    models = models or {}
+    pair = prompts.load(prompt_version)
     out: dict[str, dict[str, Any]] = {}
-    for p in providers:
-        m = models.get(p) or llm.default_model(p)
-        extract_item(item_id, provider=p, model=m, make_primary=False)
-        out[p] = _run_stats(item_id, p, m)
+    for p, m in combos:
+        m = m or llm.default_model(p)
+        extract_item(item_id, provider=p, model=m, make_primary=False,
+                     prompt_version=pair.version)
+        out[f"{p}/{m}"] = _run_stats(item_id, p, m, pair.version)
     return out
 
 
@@ -285,13 +218,15 @@ def list_runs(item_id: int) -> list[dict[str, Any]]:
     return [dict(r) for r in rows]
 
 
-def _run_stats(item_id: int, provider: str, model: str) -> dict[str, Any]:
+def _run_stats(item_id: int, provider: str, model: str,
+               prompt_version: str) -> dict[str, Any]:
     with engine().connect() as conn:
         row = conn.execute(text("""
             SELECT id, status, error, summary, duration_ms
-            FROM extraction_run WHERE item_id=:i AND provider=:p AND model=:m
+            FROM extraction_run
+            WHERE item_id=:i AND provider=:p AND model=:m AND prompt_version=:v
             ORDER BY id DESC LIMIT 1
-        """), {"i": item_id, "p": provider, "m": model}).mappings().first()
+        """), {"i": item_id, "p": provider, "m": model, "v": prompt_version}).mappings().first()
         if not row:
             return {"status": "error", "error": "extraction did not run (no credentials / empty item?)"}
         n_views = conn.execute(text(
@@ -417,7 +352,8 @@ def embed_chunks(item_id: int, max_chars: int = 1800) -> int:
     return len(chunks)
 
 
-def run(limit: int = 50, provider: str | None = None, model: str | None = None) -> int:
+def run(limit: int = 50, provider: str | None = None, model: str | None = None,
+        prompt_version: str | None = None) -> int:
     n = 0
     with engine().connect() as conn:
         ids = [r[0] for r in conn.execute(text(
@@ -425,7 +361,8 @@ def run(limit: int = 50, provider: str | None = None, model: str | None = None) 
             "ORDER BY published_at DESC NULLS LAST LIMIT :l"), {"l": limit})]
     for iid in ids:
         try:
-            res = extract_item(iid, provider=provider, model=model)
+            res = extract_item(iid, provider=provider, model=model,
+                               prompt_version=prompt_version)
             if res:
                 try:
                     embed_chunks(iid)

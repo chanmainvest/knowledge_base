@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { api, Item } from "../api";
+import { LineChart, Line, ResponsiveContainer, YAxis } from "recharts";
+import { api, Item, PricePoint } from "../api";
+import { ErrorBanner, Spinner, useTitle } from "../components/ui";
 
 // Collapse whitespace and trim so an LLM-extracted quote matches the same text
 // in the rendered article even when line wrapping / spacing differs.
@@ -62,33 +64,111 @@ function flashQuote(container: HTMLElement, rawQuote: string): void {
   }
 }
 
+// Tiny price sparkline since the call date, from the market price store.
+// Renders nothing when the ticker has no cached prices.
+function Sparkline({ ticker, madeAt, up }: { ticker: string; madeAt: string | null; up: boolean }) {
+  const [points, setPoints] = useState<PricePoint[] | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    if (!madeAt) return;
+    const from = new Date(new Date(madeAt).getTime() - 7 * 86400_000).toISOString().slice(0, 10);
+    api.marketPrices(ticker, from)
+      .then(r => { if (!cancelled) setPoints(r.points); })
+      .catch(() => { if (!cancelled) setPoints([]); });
+    return () => { cancelled = true; };
+  }, [ticker, madeAt]);
+  if (!points) return null;
+  const withClose = points.filter(p => p.close != null);
+  if (withClose.length < 2) return null;
+  const first = withClose[0].close!, last = withClose[withClose.length - 1].close!;
+  const pct = ((last - first) / first) * 100;
+  const color = up ? "#4ade80" : "#f87171";
+  return (
+    <div className="w-28 h-8 shrink-0" title={`Price since call: ${pct >= 0 ? "+" : ""}${pct.toFixed(1)}% (${first.toFixed(2)} → ${last.toFixed(2)})`}>
+      <ResponsiveContainer>
+        <LineChart data={withClose}>
+          <YAxis hide domain={["dataMin", "dataMax"]} />
+          <Line type="monotone" dataKey="close" stroke={color} dot={false} strokeWidth={1.5} isAnimationActive={false} />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+
+// The transcript (YouTube items) is split out of the markdown body and
+// rendered in its own collapsible section: very long transcripts default to
+// collapsed so the description/summary stays scannable and we don't render
+// 50k+ chars of DOM on every item view.
+function TranscriptSection({ text }: { text: string }) {
+  const [open, setOpen] = useState(text.length <= 24000);
+  const words = useMemo(() => text.trim().split(/\s+/).length, [text]);
+  return (
+    <section className="border-t border-border pt-3 mt-8">
+      <div className="flex items-center justify-between gap-2">
+        <h2 className="text-lg font-semibold">Transcript</h2>
+        <button type="button" onClick={() => setOpen(o => !o)}
+          className="text-sm text-accent hover:underline">
+          {open ? "Hide" : `Show transcript · ${words.toLocaleString()} words`}
+        </button>
+      </div>
+      {open && (
+        <div className="mt-2">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{text}</ReactMarkdown>
+        </div>
+      )}
+    </section>
+  );
+}
+
 export function ItemPage() {
   const { id } = useParams();
   const [item, setItem] = useState<Item | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const articleRef = useRef<HTMLDivElement>(null);
+  useTitle(item ? item.title.slice(0, 60) : "Item");
 
   useEffect(() => {
+    setItem(null); setErr(null);
     if (!id) return;
-    api.item(Number(id)).then(setItem).catch(e => setErr(String(e)));
+    api.item(Number(id)).then(setItem).catch(e => setErr(String(e?.message || e)));
   }, [id]);
 
-  if (err) return <div className="text-red-400">{err}</div>;
-  if (!item) return <div className="text-mute">Loading…</div>;
+  if (err) return <ErrorBanner error={err} />;
+  if (!item) return <Spinner label="Loading item…" />;
+
+  // Split the transcript (if any) off the markdown body so it can render as
+  // its own collapsible section. 72ch column: comfortable line length for
+  // long-form reading.
+  const marker = "## Transcript";
+  const splitIdx = (item.content || "").indexOf(marker);
+  const articleMd = splitIdx < 0
+    ? (item.content || "")
+    : (item.content || "").slice(0, splitIdx).trimEnd();
+  const transcript = splitIdx < 0
+    ? null
+    : (item.content || "").slice(splitIdx + marker.length).trim();
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8">
-      <article>
+    <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_340px] gap-8">
+      <article className="max-w-[72ch]">
         <div className="text-xs text-mute mb-1 uppercase">
           {item.source} {item.channel_name && <>· {item.channel_name}</>}
-          {item.published_at && <> · {item.published_at.slice(0, 10)}</>}
+          {item.published_at
+            ? <> · {item.published_at.slice(0, 10)}</>
+            : <> · undated</>}
         </div>
         <h1 className="text-2xl font-semibold mb-2">{item.title}</h1>
-        {item.url && (
-          <a href={item.url} className="text-accent text-sm" target="_blank" rel="noreferrer">
-            Original ↗
+        <div className="flex gap-3 items-center">
+          {item.url && (
+            <a href={item.url} className="text-accent text-sm hover:underline" target="_blank" rel="noreferrer">
+              Original ↗
+            </a>
+          )}
+          <a href={`/api/items/${item.id}/raw`} className="text-mute text-sm hover:underline"
+             target="_blank" rel="noreferrer">
+            Raw markdown ↗
           </a>
-        )}
+        </div>
         {item.summary && (
           <div className="mt-4 p-3 bg-panel border border-border rounded text-sm">
             <div className="text-mute mb-1">Summary</div>
@@ -96,7 +176,8 @@ export function ItemPage() {
           </div>
         )}
         <div className="prose-kb mt-6" ref={articleRef}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{item.content || ""}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{articleMd}</ReactMarkdown>
+          {transcript !== null && <TranscriptSection text={transcript} />}
         </div>
       </article>
 
@@ -104,57 +185,68 @@ export function ItemPage() {
         {item.predictions.length > 0 && (
           <Section title={`Predictions (${item.predictions.length})`}>
             <ul className="space-y-2">
-              {item.predictions.map((p, i) => (
-                <li key={(p.ticker || `__${i}`)} className="border border-border rounded p-2 bg-panel/40">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-accent">{p.ticker || "—"}</span>
-                    <div className="flex items-center gap-1">
-                      {p.conflict && (
-                        <span className="text-[10px] uppercase font-semibold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300"
-                              title="Same ticker has opposing calls in this article">
-                          conflict
-                        </span>
-                      )}
-                      <span className={
-                        p.direction === "up" ? "text-xs uppercase text-green-400" :
-                        p.direction === "down" ? "text-xs uppercase text-red-400" :
-                        p.direction === "mixed" ? "text-xs uppercase text-amber-300" :
-                        "text-xs uppercase text-mute"
-                      }>{p.direction}</span>
+              {item.predictions.map((p, i) => {
+                const madeAt = p.quotes[0]?.made_at ?? item.published_at;
+                const up = p.direction === "up";
+                return (
+                  <li key={(p.ticker || `__${i}`)} className="border border-border rounded p-2 bg-panel/40">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className="font-mono text-accent truncate">{p.ticker || "—"}</span>
+                        {p.conflict && (
+                          <span className="text-[10px] uppercase font-semibold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 shrink-0"
+                                title="Same ticker has opposing calls in this article">
+                            conflict
+                          </span>
+                        )}
+                        <span className={
+                          up ? "text-xs uppercase text-green-400" :
+                          p.direction === "down" ? "text-xs uppercase text-red-400" :
+                          p.direction === "mixed" ? "text-xs uppercase text-amber-300" :
+                          "text-xs uppercase text-mute"
+                        }>{p.direction}</span>
+                      </div>
+                      {p.ticker && <Sparkline ticker={p.ticker} madeAt={madeAt} up={up} />}
                     </div>
-                  </div>
-                  {p.asset_name && <div className="text-xs text-mute">{p.asset_name}</div>}
-                  {p.quotes.length > 0 && (
-                    <ul className="mt-1 space-y-1">
-                      {p.quotes.map(q => (
-                        <li key={q.id} className="text-xs">
-                          <div className="flex items-center gap-2 text-mute">
-                            <span className="uppercase">{q.action}</span>
-                            {q.direction && q.direction !== "unspecified" &&
-                              <span>· {q.direction}</span>}
-                            {q.timeframe && <span>· {q.timeframe}</span>}
-                            {q.target_price && <span>· tgt {q.target_price}</span>}
-                            {q.score != null && (
-                              <span className={q.score > 0 ? "text-green-400" :
-                                q.score < 0 ? "text-red-400" : "text-mute"}>
-                                · {q.score.toFixed(2)}
-                              </span>
+                    {p.asset_name && <div className="text-xs text-mute">{p.asset_name}</div>}
+                    {p.speaker && (
+                      <Link to={`/predictions?speaker=${encodeURIComponent(p.speaker)}`}
+                        className="text-xs text-mute hover:text-accent hover:underline">
+                        {p.speaker}
+                      </Link>
+                    )}
+                    {p.quotes.length > 0 && (
+                      <ul className="mt-1 space-y-1">
+                        {p.quotes.map(q => (
+                          <li key={q.id} className="text-xs">
+                            <div className="flex items-center gap-2 text-mute flex-wrap">
+                              <span className="uppercase">{q.action}</span>
+                              {q.direction && q.direction !== "unspecified" &&
+                                <span>· {q.direction}</span>}
+                              {q.timeframe && <span>· {q.timeframe}</span>}
+                              {q.target_price && <span>· tgt {q.target_price}</span>}
+                              {q.score != null && (
+                                <span className={q.score > 0 ? "text-green-400" :
+                                  q.score < 0 ? "text-red-400" : "text-mute"}>
+                                  · {q.score.toFixed(2)}
+                                </span>
+                              )}
+                            </div>
+                            {q.quote && (
+                              <button type="button"
+                                onClick={() => articleRef.current && flashQuote(articleRef.current, q.quote || "")}
+                                className="mt-0.5 text-left italic text-mute hover:text-accent hover:underline cursor-pointer"
+                                title="Jump to this quote in the article">
+                                "{q.quote}"
+                              </button>
                             )}
-                          </div>
-                          {q.quote && (
-                            <button type="button"
-                              onClick={() => articleRef.current && flashQuote(articleRef.current, q.quote || "")}
-                              className="mt-0.5 text-left italic text-mute hover:text-accent hover:underline cursor-pointer"
-                              title="Jump to this quote in the article">
-                              "{q.quote}"
-                            </button>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </Section>
         )}
@@ -164,13 +256,14 @@ export function ItemPage() {
             <ul className="space-y-2">
               {item.market_views.map(v => (
                 <li key={v.id} className="border border-border rounded p-2 bg-panel/40">
-                  <div className="flex justify-between">
-                    <span>{v.asset_class || "—"}{v.region ? ` · ${v.region}` : ""}</span>
+                  <div className="flex justify-between gap-2">
+                    <span className="truncate">{v.asset_class || "—"}{v.region ? ` · ${v.region}` : ""}</span>
                     <span className={
                       v.direction === "bullish" ? "text-green-400" :
                       v.direction === "bearish" ? "text-red-400" : "text-mute"
                     }>{v.direction}</span>
                   </div>
+                  {v.speaker && <div className="text-xs text-mute mt-0.5">{v.speaker}</div>}
                   {v.rationale && <div className="text-xs text-mute mt-1">{v.rationale}</div>}
                 </li>
               ))}
@@ -182,7 +275,10 @@ export function ItemPage() {
           <Section title="Entities">
             <div className="flex flex-wrap gap-1">
               {item.entities.map(e => (
-                <span key={e.id} className="text-xs px-2 py-0.5 rounded bg-panel border border-border">
+                <span key={e.id}
+                  className={"text-xs px-2 py-0.5 rounded bg-panel border border-border " +
+                    (e.kind === "person" ? "border-accent/40" : "")}
+                  title={e.kind}>
                   {e.name}{e.ticker ? ` · ${e.ticker}` : ""}
                 </span>
               ))}

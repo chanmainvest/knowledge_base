@@ -17,10 +17,13 @@ from kb.scrapers.youtube import (
 )
 
 
-def test_undated_youtube_cache_without_published_at_is_incomplete(
+def test_undated_youtube_cache_counts_as_scraped(
     monkeypatch: pytest.MonkeyPatch,
     tmp_path: Path,
 ) -> None:
+    """Undated videos (no upload_date in metadata) can never gain a date, so
+    a non-trivial cached md file must count as scraped — requiring
+    published_at re-fetches them every run and burns the nightly budget."""
     scraper = YouTubeScraper()
     monkeypatch.setattr("kb.scrapers.youtube.DATA_DIR", tmp_path)
 
@@ -36,7 +39,7 @@ def test_undated_youtube_cache_without_published_at_is_incomplete(
         encoding="utf-8",
     )
 
-    assert not scraper.already_scraped({
+    assert scraper.already_scraped({
         "external_id": "BMi3nQSfKS4",
         "channel_handle": "@LATP",
         "channel_name": "LATP",
@@ -145,7 +148,8 @@ async def test_discover_uses_resolved_channel_name(
         )
 
     monkeypatch.setattr(scraper, "_ytdlp", fake_ytdlp)
-    monkeypatch.setattr(scraper.limiter, "wait", lambda host: asyncio.sleep(0))
+    monkeypatch.setattr(scraper.limiter, "wait",
+                        lambda host, **kw: asyncio.sleep(0))
 
     items = [item async for item in scraper.discover()]
     assert items[0]["channel_name"] == "Resolved Name"
@@ -157,7 +161,7 @@ async def test_polite_ytdlp_waits_before_call(monkeypatch: pytest.MonkeyPatch) -
     scraper = YouTubeScraper()
     calls: list[tuple[str, str]] = []
 
-    async def fake_wait(url: str) -> None:
+    async def fake_wait(url: str, **kwargs: object) -> None:
         calls.append(("wait", url))
 
     def fake_ytdlp(*args: str, **kwargs: object) -> object:
@@ -234,6 +238,9 @@ def test_migrate_youtube_folders_renames_handle_slug_to_display_name(
         "kb.scrapers.youtube._load_channels",
         lambda: [("@RealVisionFinance", "Real Vision Finance")],
     )
+    # No pinned dir_slug for this channel — hermetic: without this the real
+    # DB's pins (e.g. @RealVisionFinance -> 'real-vision') leak into the test.
+    monkeypatch.setattr("kb.scrapers.youtube._channel_dir_slugs", lambda: {})
 
     old = tmp_path / "youtube" / channel_dir_slug("@RealVisionFinance") / "2024"
     old.mkdir(parents=True)
@@ -244,6 +251,34 @@ def test_migrate_youtube_folders_renames_handle_slug_to_display_name(
     new = tmp_path / "youtube" / channel_dir_slug("Real Vision Finance")
     assert new.is_dir()
     assert not (tmp_path / "youtube" / channel_dir_slug("@RealVisionFinance")).exists()
+    assert (new / "2024" / "2024-01-01-sample.md").exists()
+
+
+def test_migrate_youtube_folders_prefers_pinned_dir_slug(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+) -> None:
+    """A pinned channel.metadata['dir_slug'] wins over the current display
+    name's slug — the point of pinning is that display-name drift must not
+    fork the folder again."""
+    monkeypatch.setattr("kb.scrapers.youtube.DATA_DIR", tmp_path)
+    monkeypatch.setattr(
+        "kb.scrapers.youtube._load_channels",
+        lambda: [("@RealVisionFinance", "Real Vision Finance")],
+    )
+    monkeypatch.setattr(
+        "kb.scrapers.youtube._channel_dir_slugs",
+        lambda: {"@RealVisionFinance": "real-vision"},
+    )
+
+    old = tmp_path / "youtube" / channel_dir_slug("@RealVisionFinance") / "2024"
+    old.mkdir(parents=True)
+    (old / "2024-01-01-sample.md").write_text("# sample\n", encoding="utf-8")
+
+    moves = migrate_youtube_folders()
+    assert len(moves) == 1
+    new = tmp_path / "youtube" / "real-vision"
+    assert new.is_dir()
     assert (new / "2024" / "2024-01-01-sample.md").exists()
 
 

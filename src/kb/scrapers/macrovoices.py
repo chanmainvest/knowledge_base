@@ -1,10 +1,37 @@
 """MacroVoices scraper.
 
-Public episode index lives at https://www.macrovoices.com/podcast-transcripts
-and https://www.macrovoices.com/all-podcasts (paginated). Login is needed to
-download the full PDF transcript and the slide deck of each episode. We use
-Playwright for the auth + per-episode download, and parse the rendered HTML
-for the show notes.
+The site has two episode indices whose coverage differs — a cross-index
+dedup gotcha the scraper must handle:
+
+* **Live index** — ``/podcasts-collection/macrovoices-podcasts``. This is the
+  current, maintained list ("Page 1 of ~29", 20 episodes/page, item-offset
+  ``?start=N``). It spans the *whole* archive (newest episode → oldest, back
+  to early 2016) and is the only place new episodes appear. Episode links are
+  root-level ``/<article_id>-macrovoices-<episode_num>-<slug>``.
+* **Legacy index** — ``/podcast-transcripts`` (alias ``/all-podcasts``). This
+  is **frozen at episode 1538 / 25 June 2026** and no longer receives new
+  episodes; it is kept only as a fallback for the old-format pages.
+
+The two indices assign **different article IDs to the same episode** (e.g.
+Lyn Alden ep538 is article 1538 on the legacy index but 1537 on the live
+index), so article IDs are *not* a stable cross-index key. We dedup by the
+**episode slug text** (guest + title), which is identical on both, and by the
+episode number embedded in the live-index URL (``macrovoices-<NNN>``).
+
+Transcript source also differs by page format:
+
+* **Old-format pages** (``/podcast-transcripts/<id>``): the inline transcript
+  text is rendered across Joomla pagebreak pages; ``?showall=1`` collapses it
+  onto one page.
+* **New-format pages** (``/<id>-macrovoices-<NNN>-<slug>``): there is *no*
+  inline transcript — the body is a "Download the podcast transcript
+  [Click Here]" link to a PDF at
+  ``/guest-content/list-guest-transcripts/<id>/file``. We download that PDF
+  and text-extract it with pypdf.
+
+Discovery walks the **live index**; ``fetch()`` branches on URL shape so both
+page formats are handled. The flat-file layout (``data/blog/macrovoices/<YYYY>/``)
+is preserved.
 """
 from __future__ import annotations
 
@@ -20,7 +47,21 @@ from .base import BaseScraper, ScrapedItem
 
 
 BASE = "https://www.macrovoices.com"
+# Live, maintained episode index (newest episodes appear here only).
+PODCASTS_URL = f"{BASE}/podcasts-collection/macrovoices-podcasts"
+# Legacy index — frozen at episode 1538 (25 June 2026). Old-format pages under
+# here still serve inline transcripts via ?showall=1, so it stays as a fallback.
 LIST_URL = f"{BASE}/podcast-transcripts"
+GUEST_TRANSCRIPTS_URL = f"{BASE}/guest-content/list-guest-transcripts"
+# Live-index pagination: 20 episodes per page, ?start=N is an item offset.
+PODCASTS_PAGE_SIZE = 20
+
+# Root-level live-index episode link: /<article_id>-macrovoices-<ep_num>-<slug>
+_RE_LIVE_EPISODE = re.compile(
+    r"/(\d{3,4})-macrovoices-(\d+)-([a-z0-9][a-z0-9-]*?)(?:[\"'/?#]|$)"
+)
+# Old-format episode link: /podcast-transcripts/<article_id>-<slug>
+_RE_LEGACY_EPISODE = re.compile(r"/podcast-transcripts/(\d+)-([^/?#\"']+)$")
 
 _MV_MONTHS = {"january":1,"february":2,"march":3,"april":4,"may":5,"june":6,
               "july":7,"august":8,"september":9,"october":10,"november":11,"december":12}
@@ -78,17 +119,63 @@ class MacroVoicesScraper(BaseScraper):
         self.log.warning("MacroVoices login form not detected")
 
     def already_scraped(self, d: dict) -> bool:
-        slug = slugify(d["external_id"], 60)
+        """Cross-index dedup.
+
+        The two indices assign different article IDs to the same episode, so
+        matching on the numeric id would re-scrape episodes already on disk
+        under the other index's id. We match in two layers:
+
+        1. **Slug-text prefix** (24 chars) — catches the same episode under a
+           different article id, robust to filename truncation.
+        2. **Guest-token overlap** — a fallback for when the slug itself differs
+           across indices: diacritic transliteration (``stöferle`` →
+           ``stoeferle`` vs ``sto-ferle``) and guest-name reordering
+           (``jeffrey-snider-luke-gromen`` vs ``luke-gromen-jeff-snider``).
+           We count significant tokens (len ≥ 4) shared with an existing
+           filename stem; ≥ 3 shared tokens is a confident match.
+
+        Filenames look like ``<YYYY>-<MM>-<DD>-<artid>-<slug>.md`` (legacy) or
+        ``<YYYY>-<MM>-<DD>-mv-<ep>-<slug>.md`` (live).
+        """
         mv_dir = DATA_DIR / "blog" / "macrovoices"
-        # Flat layout: data/blog/macrovoices/<year>/<date>-<slug>.md
+        needle = d.get("dedup_slug")  # set by discover(); slug-text only
+        ep_num = d.get("episode_num")
+        prefix = needle[:24] if needle else None
+        my_tokens = set(re.findall(r"[a-z]{4,}", (needle or "").lower()))
         for md_path in mv_dir.glob("*/*.md"):
-            if slug in md_path.stem:
-                return md_path.stat().st_size > 500
+            if md_path.name == "README.md":
+                continue
+            stem = md_path.stem
+            if md_path.stat().st_size <= 500:
+                continue
+            if prefix and prefix in stem:
+                return True
+            # Live-index descriptors also carry an episode number; old files
+            # don't encode it, so this only matches newer mv-<ep> filenames.
+            if ep_num and f"mv-{ep_num}" in stem:
+                return True
+            # Token-overlap fallback for transliteration/reordering mismatches.
+            if my_tokens:
+                stem_tokens = set(re.findall(r"[a-z]{4,}", stem.lower()))
+                if len(my_tokens & stem_tokens) >= 3:
+                    return True
         return False
 
     async def discover(self, limit: int | None = None) -> AsyncIterator[dict]:
+        """Walk the **live** ``/podcasts-collection`` index.
+
+        New episodes (post-redesign) appear *only* here; the legacy
+        ``/podcast-transcripts`` index is frozen at episode 1538. This index
+        paginates 20 per page (``?start=N`` is an item offset) and spans the
+        whole archive, so it is the single source of truth for discovery.
+
+        Each descriptor carries a ``dedup_slug`` (the slug text after the
+        ``<artid>-macrovoices-<NNN>-`` prefix) so :meth:`already_scraped` can
+        match against existing legacy-index filenames that use a different
+        article id for the same episode.
+        """
         from playwright.async_api import async_playwright
-        self._seen_ids: set[str] = set()
+        self._seen_episodes: set[int] = set()
         n = 0
         async with async_playwright() as pw:
             browser = await pw.chromium.launch(headless=True)
@@ -96,10 +183,10 @@ class MacroVoicesScraper(BaseScraper):
             page = await ctx.new_page()
             await self._login(page)
 
-            page_num = 1
+            start = 0
             consecutive_fail = 0
             while True:
-                url = f"{LIST_URL}?start={(page_num - 1) * 20}"
+                url = f"{PODCASTS_URL}?start={start}"
                 await self.limiter.wait(url)
                 self.log.info("listing %s", url)
                 try:
@@ -109,38 +196,50 @@ class MacroVoicesScraper(BaseScraper):
                     consecutive_fail += 1
                     if consecutive_fail >= 3:
                         break
-                    page_num += 1
+                    start += PODCASTS_PAGE_SIZE
                     await asyncio.sleep(5)
                     continue
                 consecutive_fail = 0
-                # Episode links look like /podcast-transcripts/<slug>
                 try:
-                    links = await page.eval_on_selector_all(
-                        "a[href*='/podcast-transcripts/'], a[href*='/all-podcasts/']",
-                        "els => els.map(e => ({href: e.href, text: e.innerText}))",
+                    raw_links = await page.eval_on_selector_all(
+                        "a[href*='macrovoices-']",
+                        "els => els.map(e => e.href)",
                     )
                 except Exception as exc:
                     self.log.warning("list eval failed: %s", exc)
-                    page_num += 1
+                    start += PODCASTS_PAGE_SIZE
                     continue
                 fresh = 0
-                for ln in links:
-                    # Strip query/fragment so ?tmpl=component variants dedupe
-                    href = ln["href"].split("?")[0].split("#")[0].rstrip("/")
-                    if not re.search(r"/podcast-transcripts/\d+-[^/]+$", href):
+                seen_on_page: set[int] = set()
+                for href in raw_links:
+                    # Strip query/fragment (print/tmpl variants) and collapse.
+                    clean = href.split("?")[0].split("#")[0].rstrip("/")
+                    m = _RE_LIVE_EPISODE.search(clean)
+                    if not m:
                         continue
-                    ext_id = href.rsplit("/", 1)[-1]
-                    # Just the numeric prefix as canonical id (e.g. 1519)
-                    m = re.match(r"(\d+)-", ext_id)
-                    canonical_id = m.group(1) if m else ext_id
-                    if canonical_id in self._seen_ids:
+                    # Skip MP3-file/research pages — they match the slug pattern
+                    # but carry no transcript (just an audio download or a 404).
+                    if "/macro-voices-research/" in clean or "/podcast-mp3-files/" in clean:
                         continue
-                    self._seen_ids.add(canonical_id)
+                    article_id, ep_num, slug_text = m.group(1), int(m.group(2)), m.group(3)
+                    if ep_num in seen_on_page:
+                        continue
+                    seen_on_page.add(ep_num)
+                    if ep_num in self._seen_episodes:
+                        continue
+                    self._seen_episodes.add(ep_num)
                     fresh += 1
+                    # Canonical external_id encodes the episode number so it is
+                    # stable across indices; the article id lives in the URL.
                     yield {
-                        "external_id": ext_id,
-                        "url": href,
-                        "title": ln["text"].strip() or href,
+                        "external_id": f"mv-{ep_num}-{slug_text}",
+                        "url": clean,
+                        "title": slug_text.replace("-", " ").strip() or clean,
+                        "episode_num": ep_num,
+                        "article_id": article_id,
+                        # Slug-text tail (without the artid/macrovoices-NNN prefix)
+                        # used for cross-index dedup against legacy filenames.
+                        "dedup_slug": slug_text,
                     }
                     n += 1
                     if limit and n >= limit:
@@ -148,7 +247,7 @@ class MacroVoicesScraper(BaseScraper):
                         return
                 if fresh == 0:
                     break
-                page_num += 1
+                start += PODCASTS_PAGE_SIZE
                 await asyncio.sleep(2)
             await browser.close()
 
@@ -212,9 +311,32 @@ class MacroVoicesScraper(BaseScraper):
             parts.append(chunk)
         return "\n\n".join(parts)
 
+    @staticmethod
+    def _is_new_format(url: str) -> bool:
+        """New-format episode page: ``/<id>-macrovoices-<NNN>-<slug>``.
+
+        Old-format pages live under ``/podcast-transcripts/<id>-<slug>``.
+        """
+        return bool(_RE_LIVE_EPISODE.search(url))
+
     async def fetch(self, d: dict) -> ScrapedItem | None:
-        from playwright.async_api import async_playwright
         await self.limiter.wait(d["url"])
+        # New-format pages (post-redesign) are PDF-only; old-format pages still
+        # serve the inline transcript via ?showall=1.
+        if self._is_new_format(d["url"]):
+            return await self._fetch_new_format(d)
+        return await self._fetch_legacy_format(d)
+
+    async def _fetch_new_format(self, d: dict) -> ScrapedItem | None:
+        """Fetch a post-redesign episode page and its PDF transcript.
+
+        These pages (``/<id>-macrovoices-<NNN>-<slug>``) carry *no* inline
+        transcript — the body is a "Download the podcast transcript
+        [Click Here]" link to a PDF at
+        ``/guest-content/list-guest-transcripts/<id>/file``. We grab the show
+        notes from the page, download the PDF, and text-extract the dialogue.
+        """
+        from playwright.async_api import async_playwright
         async with async_playwright() as pw:
             browser = await pw.chromium.launch(headless=True)
             ctx = await browser.new_context(
@@ -222,10 +344,119 @@ class MacroVoicesScraper(BaseScraper):
                 accept_downloads=True,
             )
             page = await ctx.new_page()
-            # Skip login since /login returns 404 on this site; transcript text is public.
-            # Joomla splits long articles across pages via a pagebreak plugin; the
-            # bare URL returns only page 1 (+ an "Article Index" table of contents).
-            # `?showall=1` makes Joomla render the entire article on one page.
+            try:
+                await page.goto(d["url"], wait_until="domcontentloaded", timeout=60000)
+            except Exception as exc:
+                self.log.warning("goto failed for %s: %s", d["url"], exc)
+                await browser.close()
+                return None
+            try:
+                await page.wait_for_load_state("networkidle", timeout=10000)
+            except Exception:
+                pass
+            html = await page.content()
+
+            from bs4 import BeautifulSoup
+            soup = BeautifulSoup(html, "lxml")
+            # New-format pages put the site banner in <h1> ("Welcome to Macro
+            # Voices"); the real episode title is the <h2> (e.g.
+            # "MacroVoices #544 Viktor Shvets: How Markets Survive Disruption")
+            # and matches <title>. Prefer <h2> when <h1> is the generic banner.
+            h1 = soup.find("h1")
+            h1_text = h1.get_text(strip=True) if h1 else ""
+            if h1_text in ("", "Welcome to Macro Voices"):
+                title_el = soup.find("h2")
+                title_text = title_el.get_text(strip=True) if title_el else d["title"]
+            else:
+                title_text = h1_text
+            published_at = _parse_mv_date(html)
+
+            # Show notes = page body minus chrome (reuse the same stripper so
+            # pagination/nav junk doesn't leak in even though these pages
+            # aren't pagebroken).
+            body_md = self._article_body_md(soup)
+
+            # Dead-link / non-episode guard. The live index carries a handful of
+            # dangling links that resolve to the site 404 page (title "404Error")
+            # or redirect to the homepage, whose <h2> is still the generic
+            # "Welcome to Macro Voices" with no episode title and no transcript
+            # PDF link. Detect that and skip rather than write a junk file.
+            if title_text in ("404Error", "Welcome to Macro Voices"):
+                self.log.info("skip (dead link, %r): %s", title_text, d["url"])
+                await browser.close()
+                return None
+
+            # The transcript PDF link: the <a> right after the literal
+            # "Download the podcast transcript" label (the "[Click Here]" link),
+            # or any /guest-content/list-guest-transcripts/<id>/file href.
+            transcript_pdf_url: str | None = None
+            for a in soup.find_all("a", href=True):
+                href = a["href"]
+                if "/guest-content/list-guest-transcripts/" in href and href.rstrip("/").endswith("/file"):
+                    transcript_pdf_url = href if href.startswith("http") else f"{BASE}{href}"
+                    break
+            transcript_pdfs = [transcript_pdf_url] if transcript_pdf_url else []
+
+            date_str = published_at.date().isoformat() if published_at else "undated"
+            year_str = published_at.strftime("%Y") if published_at else "undated"
+            ext_slug = slugify(d["external_id"], 60)
+            stem = f"{date_str}-{ext_slug}"
+            raw_dir = DATA_DIR / "raw" / "blog" / "macrovoices" / year_str
+            raw_dir.mkdir(parents=True, exist_ok=True)
+
+            if transcript_pdf_url:
+                try:
+                    await self.limiter.wait(transcript_pdf_url)
+                    resp = await ctx.request.get(transcript_pdf_url)
+                    if resp.ok:
+                        (raw_dir / f"{stem}.transcript.pdf").write_bytes(await resp.body())
+                        try:
+                            import pypdf
+                            r = pypdf.PdfReader(raw_dir / f"{stem}.transcript.pdf")
+                            text = "\n\n".join((p.extract_text() or "") for p in r.pages)
+                            (raw_dir / f"{stem}.transcript.txt").write_text(text, encoding="utf-8")
+                            body_md += "\n\n## Full Transcript\n\n" + text
+                        except Exception as exc:  # noqa: BLE001
+                            self.log.info("pypdf failed: %s", exc)
+                    else:
+                        self.log.warning("transcript pdf status %s for %s", resp.status, transcript_pdf_url)
+                except Exception as exc:  # noqa: BLE001
+                    self.log.warning("transcript download fail: %s", exc)
+            else:
+                self.log.warning("no transcript PDF link on %s", d["url"])
+
+            await browser.close()
+
+        return ScrapedItem(
+            source=self.effective_source_code,
+            channel="macrovoices",
+            channel_name="MacroVoices",
+            external_id=d["external_id"],
+            title=title_text,
+            url=d["url"],
+            published_at=published_at,
+            language="en",
+            body_md=body_md,
+            raw_html=html,
+            extra={"slides_pdfs": [], "transcript_pdfs": transcript_pdfs},
+            folder_name=stem,
+            flat_layout=True,
+        )
+
+    async def _fetch_legacy_format(self, d: dict) -> ScrapedItem | None:
+        """Fetch an old-format ``/podcast-transcripts/<id>`` page (inline text).
+
+        ``?showall=1`` collapses Joomla's pagebreak pagination onto one page;
+        a defensive per-page walk runs if showall ever fails to concatenate.
+        """
+        from playwright.async_api import async_playwright
+        async with async_playwright() as pw:
+            browser = await pw.chromium.launch(headless=True)
+            ctx = await browser.new_context(
+                user_agent=settings().scrape_user_agent,
+                accept_downloads=True,
+            )
+            page = await ctx.new_page()
             fetch_url = f"{d['url']}?showall=1"
             try:
                 await page.goto(fetch_url, wait_until="domcontentloaded", timeout=60000)
@@ -239,8 +470,7 @@ class MacroVoicesScraper(BaseScraper):
                 pass
             html = await page.content()
 
-            # Extract publish date and download links
-            from bs4 import BeautifulSoup, Tag
+            from bs4 import BeautifulSoup
             soup = BeautifulSoup(html, "lxml")
             title = (soup.find("h1") or soup.find("h2"))
             title_text = title.get_text(strip=True) if title else d["title"]
@@ -258,11 +488,11 @@ class MacroVoicesScraper(BaseScraper):
                 extra = await self._fetch_remaining_pages(ctx, d["url"])
                 if extra:
                     body_md = body_md + "\n\n" + extra
-                    # Re-strip any nav that the stitched pages reintroduced.
                     soup2 = BeautifulSoup(f"<div>{body_md}</div>", "lxml")
                     body_md = self._article_body_md(soup2)
 
-            # Find PDF transcript + slide deck links
+            # Find PDF transcript + slide deck links (older episodes attach
+            # slide decks and PDFs directly on the page).
             pdfs = [a["href"] for a in soup.find_all("a", href=True)
                     if a["href"].lower().endswith(".pdf")]
             slides_path = None
@@ -275,7 +505,6 @@ class MacroVoicesScraper(BaseScraper):
                 else:
                     transcript_pdfs.append(full)
 
-            # Save slides / transcripts under data/raw/blog/macrovoices/<year>/
             date_str = published_at.date().isoformat() if published_at else "undated"
             year_str = published_at.strftime("%Y") if published_at else "undated"
             ext_slug = slugify(d["external_id"], 60)
@@ -299,7 +528,6 @@ class MacroVoicesScraper(BaseScraper):
                     resp = await ctx.request.get(url)
                     if resp.ok:
                         (raw_dir / f"{stem}.transcript.pdf").write_bytes(await resp.body())
-                        # extract text
                         try:
                             import pypdf
                             r = pypdf.PdfReader(raw_dir / f"{stem}.transcript.pdf")

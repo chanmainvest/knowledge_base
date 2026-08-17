@@ -399,6 +399,10 @@ INSERT INTO channel(source_id, handle, name, url)
 SELECT id, 'kuangtu', '狂徒', 'https://madxcap.com/'
 FROM source WHERE code='blog'
 ON CONFLICT (source_id, handle) DO NOTHING;
+INSERT INTO channel(source_id, handle, name, url)
+SELECT id, 'gorozen', 'Goehring & Rozencwajg', 'https://www.gorozen.com/'
+FROM source WHERE code='blog'
+ON CONFLICT (source_id, handle) DO NOTHING;
 
 -- --- Blog consolidation (macrovoices + madxcap → blog) ---------------------
 -- This block re-points any items/channels from the old separate 'macrovoices'
@@ -569,6 +573,54 @@ UPDATE source_progress sp SET
     last_ingest_at    = (SELECT MAX(i.ingested_at)  FROM item i WHERE i.source_id = sp.source_id),
     last_extract_at   = (SELECT MAX(i.extracted_at) FROM item i WHERE i.source_id = sp.source_id),
     updated_at        = now();
+
+-- --- Market data (price store) ------------------------------------------------
+-- Daily OHLCV for every ticker referenced by extracted predictions, fetched
+-- in bulk from Yahoo Finance by `kb market sync` and cached here. Scoring
+-- (`kb leaderboard rebuild`) reads this table and never hits the network.
+CREATE TABLE IF NOT EXISTS asset_price (
+    ticker     TEXT NOT NULL,
+    day        DATE NOT NULL,
+    open       NUMERIC,
+    high       NUMERIC,
+    low        NUMERIC,
+    close      NUMERIC,
+    volume     BIGINT,
+    source     TEXT NOT NULL DEFAULT 'yahoo',
+    fetched_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+    PRIMARY KEY (ticker, day)
+);
+
+-- Sync-state directory for the price store: one row per ticker ever needed
+-- by scoring. status 'ok' = Yahoo returned rows; 'no_data' = ticker not on
+-- Yahoo (LLM-hallucinated symbols); 'error' = fetch failed. no_data/error
+-- tickers are retried at most once a week (see marketdata.RETRY_HOURS).
+CREATE TABLE IF NOT EXISTS asset_ticker (
+    ticker         TEXT PRIMARY KEY,
+    status         TEXT NOT NULL DEFAULT 'ok',   -- ok | no_data | error
+    first_day      DATE,
+    last_day       DATE,
+    n_days         INT NOT NULL DEFAULT 0,
+    last_synced_at TIMESTAMPTZ,
+    last_error     TEXT
+);
+
+-- Speaker-level scoring rollup: the interviewee/author behind each call
+-- (prediction.speaker, free text) scored across every show they appear on.
+-- main_channel_id = the channel the speaker appears on most often. Rebuilt
+-- by `kb leaderboard rebuild` from primary extraction runs only.
+CREATE TABLE IF NOT EXISTS leaderboard_speaker (
+    speaker         TEXT PRIMARY KEY,
+    main_channel_id INT REFERENCES channel(id) ON DELETE SET NULL,
+    n_calls         INT NOT NULL DEFAULT 0,
+    n_scored        INT NOT NULL DEFAULT 0,
+    avg_score       REAL,
+    hit_rate        REAL,
+    last_call_at    TIMESTAMPTZ,
+    updated_at      TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS leaderboard_speaker_score_idx
+    ON leaderboard_speaker(avg_score DESC NULLS LAST);
 
 -- --- Discovery catalog ------------------------------------------------------
 -- Records every item a scraper sees during discovery (before fetch), so

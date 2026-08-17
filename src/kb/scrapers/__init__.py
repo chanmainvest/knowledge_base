@@ -10,6 +10,7 @@ from .hkej import HKEJScraper
 from .yahoohk import YahooHKScraper
 from .master_insight import MasterInsightScraper
 from .madxcap import MadxcapScraper
+from .gorozen import GorozenScraper
 
 SCRAPERS: dict[str, type[BaseScraper]] = {
     MacroVoicesScraper.code: MacroVoicesScraper,
@@ -20,6 +21,7 @@ SCRAPERS: dict[str, type[BaseScraper]] = {
     YahooHKScraper.code: YahooHKScraper,
     MasterInsightScraper.code: MasterInsightScraper,
     MadxcapScraper.code: MadxcapScraper,
+    GorozenScraper.code: GorozenScraper,
 }
 
 

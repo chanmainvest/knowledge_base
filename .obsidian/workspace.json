@@ -1,0 +1,223 @@
+{
+  "main": {
+    "id": "c941f277ba45e66b",
+    "type": "split",
+    "children": [
+      {
+        "id": "686944d8ceaa761d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c961c0e285096ca7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "llm-wiki/README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "58ce4a7d18e4dd21",
+    "type": "split",
+    "children": [
+      {
+        "id": "f5acc6cc73cd64a6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "22f107b40199e1e5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "5a64296d0b105abf",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "ca71aa86603054b0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f65b1d27f316202d",
+    "type": "split",
+    "children": [
+      {
+        "id": "31b34b8fb3434376",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2a832934177b1765",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "llm-wiki/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for README"
+            }
+          },
+          {
+            "id": "63bf8aef1600fe9e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "llm-wiki/README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from README"
+            }
+          },
+          {
+            "id": "615dfadcb83de655",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "65ca87339cd96b40",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "9a37f5b837466036",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "llm-wiki/README.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of README"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "22f107b40199e1e5",
+  "lastOpenFiles": [
+    "scripts/llm_wiki_prose.json",
+    "AGENTS.md.tmp.50944.19fc654e866a",
+    "scripts/build_llm_wiki.py.tmp.50944.dcae857d0d00",
+    "scripts/build_llm_wiki.py.tmp.50944.61803a67f697",
+    "scripts/build_llm_wiki.py.tmp.50944.996bdeee8a41",
+    "scripts/build_llm_wiki.py.tmp.50944.40228ce641f9",
+    "scripts/build_llm_wiki.py.tmp.50944.d1cc7bef8c6f",
+    "scripts/build_llm_wiki.py.tmp.50944.f682ec0c4a75",
+    "scripts/build_llm_wiki.py.tmp.50944.0dec91528291",
+    "scripts/build_llm_wiki.py.tmp.50944.d363e561767d",
+    "scripts/build_llm_wiki.py.tmp.50944.2f118c6b0e00",
+    "llm-wiki/AGENTS.md",
+    "llm-wiki/Syntheses/Timeline.md",
+    "llm-wiki/Syntheses/Opinion-Shifts.md",
+    "llm-wiki/Syntheses/Disagreements.md",
+    "llm-wiki/Analysts/tangwenliang.md",
+    "llm-wiki/Analysts/fedguy12.md",
+    "llm-wiki/People/shawn-hackett.md",
+    "llm-wiki/People/raoul-pal.md",
+    "llm-wiki/People/person-008.md",
+    "llm-wiki/People/person-006.md",
+    "llm-wiki/People/person-004.md",
+    "llm-wiki/People/person-003.md",
+    "llm-wiki/People/person-002.md",
+    "llm-wiki/People/person-001.md",
+    "llm-wiki/People/jeff-jeoff.md",
+    "llm-wiki/People/jeff.md",
+    "llm-wiki/People/jd.md",
+    "llm-wiki/People/jeff-snider.md",
+    "llm-wiki/Themes/oil-energy.md",
+    "llm-wiki/People/brent-johnson.md",
+    "llm-wiki/People/aminvest.md",
+    "llm-wiki/Tickers/ZZZZ-stale.md",
+    "llm-wiki/MY-NOTES.md"
+  ]
+}

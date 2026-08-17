@@ -1,0 +1,48 @@
+# Keep the image build context small and avoid baking scraped content / local
+# tooling state into the kb image. The image only needs the Python source,
+# pyproject/lock, and init.sql — data/ and logs/ are mounted at run time.
+
+# Scraped content (mounted as a volume at runtime, not baked in)
+data/
+!data/.gitkeep
+
+# Python build artefacts & local tooling
+.venv/
+venv/
+.uv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+tests/
+
+# Frontend (the kb CLI image never serves the API/frontend)
+frontend/
+node_modules/
+
+# Local state & logs
+logs/
+tmp/
+graphify-out/
+.zcode/
+.mimosa/
+
+# Git & DB volumes
+.git/
+.gitignore
+pgdata/
+docker/postgres/data/
+
+# Docs the image doesn't need
+*.md
+!README.md
+doc/
+
+# CI configs (the Jenkinsfile describes how to build *this* image — not needed in it)
+Jenkinsfile
+
+# Secrets (never bake in; injected via env_file at runtime)
+.env
+.env.*

@@ -1,0 +1,67 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["summary", "speakers", "market_views", "predictions", "entities"],
+  "properties": {
+    "summary": {"type": "string"},
+    "speakers": {"type": "array", "items": {"type": "string"}},
+    "market_views": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["speaker", "asset_class", "direction", "horizon",
+                     "rationale", "quote"],
+        "properties": {
+          "speaker": {"type": "string"},
+          "asset_class": {"type": "string"},
+          "region": {"type": "string"},
+          "direction": {"type": "string",
+                        "enum": ["bullish", "bearish", "neutral", "mixed"]},
+          "horizon": {"type": "string",
+                      "enum": ["short", "medium", "long", "unspecified"]},
+          "confidence": {"type": "number"},
+          "rationale": {"type": "string"},
+          "quote": {"type": "string"}
+        }
+      }
+    },
+    "predictions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["speaker", "ticker", "asset_name", "action",
+                     "direction", "timeframe", "quote"],
+        "properties": {
+          "speaker": {"type": "string"},
+          "ticker": {"type": "string"},
+          "asset_name": {"type": "string"},
+          "action": {"type": "string",
+                     "enum": ["buy", "sell", "short", "hold", "watch",
+                              "long", "cover", "avoid", "none"]},
+          "direction": {"type": "string",
+                        "enum": ["up", "down", "flat", "unspecified"]},
+          "target_price": {"type": ["number", "null"]},
+          "stop_price": {"type": ["number", "null"]},
+          "timeframe": {"type": "string"},
+          "quote": {"type": "string"}
+        }
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "name"],
+        "properties": {
+          "kind": {"type": "string",
+                   "enum": ["person", "company", "country", "theme"]},
+          "name": {"type": "string"},
+          "ticker": {"type": "string"}
+        }
+      }
+    }
+  }
+}

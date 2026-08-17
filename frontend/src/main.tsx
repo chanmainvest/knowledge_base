@@ -1,11 +1,11 @@
 import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes, NavLink, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes, NavLink, Navigate, Link } from "react-router-dom";
 import "./index.css";
 
 // Route-based code splitting: each page (and its heavy deps — recharts on
-// Leaderboard, react-markdown on Item) is split into its own chunk that only
-// loads when the route is visited. This keeps the initial Search bundle small.
+// Leaderboard/Item sparklines, react-markdown on Item) is split into its own
+// chunk that only loads when the route is visited.
 const SearchPage = lazy(() => import("./pages/Search").then(m => ({ default: m.SearchPage })));
 const ItemPage = lazy(() => import("./pages/Item").then(m => ({ default: m.ItemPage })));
 const LeaderboardPage = lazy(() => import("./pages/Leaderboard").then(m => ({ default: m.LeaderboardPage })));
@@ -13,15 +13,32 @@ const ChannelsPage = lazy(() => import("./pages/Channels").then(m => ({ default:
 const PredictionsPage = lazy(() => import("./pages/Predictions").then(m => ({ default: m.PredictionsPage })));
 const DashboardPage = lazy(() => import("./pages/Dashboard").then(m => ({ default: m.DashboardPage })));
 
+function NotFound() {
+  return (
+    <div className="border border-dashed border-border rounded p-10 text-center">
+      <div className="text-3xl font-semibold text-mute">404</div>
+      <div className="text-mute mt-2">That page doesn't exist.</div>
+      <Link to="/dashboard" className="text-accent text-sm hover:underline mt-3 inline-block">
+        Go to the dashboard →
+      </Link>
+    </div>
+  );
+}
+
 function Shell() {
   const linkCls = ({ isActive }: { isActive: boolean }) =>
-    "px-3 py-2 rounded " + (isActive ? "bg-panel text-accent" : "hover:bg-panel");
+    "px-3 py-1.5 rounded-md text-sm transition-colors " +
+    (isActive ? "bg-accent/15 text-accent" : "text-mute hover:text-ink hover:bg-panel");
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="border-b border-border bg-panel/60 backdrop-blur">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex gap-2 items-center">
-          <div className="font-semibold text-accent mr-4">KB</div>
-          <nav className="flex gap-1 text-sm">
+      <header className="border-b border-border bg-panel/60 backdrop-blur sticky top-0 z-40">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex gap-2 items-center flex-wrap">
+          <Link to="/dashboard" className="flex items-center gap-2 mr-4">
+            <span className="w-6 h-6 rounded bg-accent/20 border border-accent/40 text-accent
+                             text-xs font-bold flex items-center justify-center">KB</span>
+            <span className="font-semibold hidden sm:inline">Knowledge Base</span>
+          </Link>
+          <nav className="flex gap-1 flex-wrap">
             <NavLink to="/dashboard" className={linkCls}>Dashboard</NavLink>
             <NavLink to="/search" className={linkCls}>Search</NavLink>
             <NavLink to="/channels" className={linkCls}>Channels</NavLink>
@@ -32,7 +49,12 @@ function Shell() {
       </header>
       <main className="flex-1">
         <div className="max-w-6xl mx-auto px-4 py-6">
-          <Suspense fallback={<div className="text-mute">Loading…</div>}>
+          <Suspense fallback={
+            <div className="flex items-center gap-2 text-mute py-8 justify-center">
+              <span className="inline-block w-2 h-2 rounded-full bg-accent animate-pulse" />
+              Loading…
+            </div>
+          }>
             <Routes>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<DashboardPage />} />
@@ -41,10 +63,17 @@ function Shell() {
               <Route path="/channels" element={<ChannelsPage />} />
               <Route path="/predictions" element={<PredictionsPage />} />
               <Route path="/leaderboard" element={<LeaderboardPage />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </div>
       </main>
+      <footer className="border-t border-border text-xs text-mute">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between gap-2 flex-wrap">
+          <span>chanmainvest knowledge base</span>
+          <span>pipeline · extraction · scoring · market data</span>
+        </div>
+      </footer>
     </div>
   );
 }

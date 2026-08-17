@@ -150,6 +150,18 @@ async def daemon_prime_login(*, wait_sec: float) -> dict | None:
 
 
 def start_daemon_process(*, login_wait_minutes: int = 15) -> None:
+    # The daemon drives an on-host Camoufox — only meaningful in local mode. In
+    # docker mode the container is the persistent browser, so no-op and point
+    # the user at `kb hkej docker up` instead. (This also avoids the known
+    # failure where camoufox can't launch from a background/agent context.)
+    from ..config import settings
+
+    if settings().hkej_browser_mode == "docker":
+        log.warning(
+            "HKEJ_BROWSER_MODE=docker — local browser daemon disabled. "
+            "Start the container instead: kb hkej docker up",
+        )
+        return
     if is_daemon_alive():
         log.info("browser daemon already running")
         return

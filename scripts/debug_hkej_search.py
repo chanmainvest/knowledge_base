@@ -4,9 +4,12 @@ from __future__ import annotations
 import asyncio
 import re
 import urllib.parse
+from pathlib import Path
 
 from bs4 import BeautifulSoup
 from camoufox.async_api import AsyncCamoufox
+
+OUT_DIR = Path(__file__).resolve().parent
 
 
 async def main(name: str = "李聲揚") -> None:
@@ -30,11 +33,10 @@ async def main(name: str = "李聲揚") -> None:
             await asyncio.sleep(3)
         else:
             print("Challenge may not have cleared")
-        await page.screenshot(path="scripts/debug_search.png")
+        await page.screenshot(path=str(OUT_DIR / "debug_search.png"))
         html = await page.content()
 
-    with open("scripts/debug_search.html", "w", encoding="utf-8") as f:
-        f.write(html)
+    (OUT_DIR / "debug_search.html").write_text(html, encoding="utf-8")
     print("HTML length:", len(html))
     print("Title snippet:", html[html.find("<title>"):html.find("</title>")+8] if "<title>" in html else "no title")
 

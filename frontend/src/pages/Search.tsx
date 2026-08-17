@@ -1,55 +1,61 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { api, Source, Channel, SearchHit } from "../api";
+import { ErrorBanner, Spinner, useTitle } from "../components/ui";
 
 const PAGE_SIZES = [25, 50, 100, 200];
 
+// All filter state lives in the URL (via useSearchParams), so filtered views
+// are shareable, the browser back/forward buttons step through filter
+// changes, and inbound deep links (?channel_id=… from the Channels page)
+// just work. The text input is the only local state — it commits to the URL
+// on submit, like a normal search box.
 export function SearchPage() {
-  const [urlParams] = useSearchParams();
+  useTitle("Search");
+  const [params, setParams] = useSearchParams();
 
-  const [q, setQ] = useState("");
-  const [submittedQ, setSubmittedQ] = useState("");
+  const submittedQ = params.get("q") ?? "";
+  const selectedSources = params.getAll("source");
+  const selectedChannels = params.getAll("channel_id").map(Number).filter(n => !isNaN(n));
+  const dateFrom = params.get("date_from") ?? "";
+  const dateTo = params.get("date_to") ?? "";
+  const hasPredictions = params.get("has_predictions") ?? "";
+  const page = Math.max(1, Number(params.get("page")) || 1);
+  const pageSize = Math.max(1, Number(params.get("page_size")) || 25);
+
+  const [qInput, setQInput] = useState(submittedQ);
+  // Keep the input in sync when the URL changes elsewhere (back button).
+  useEffect(() => { setQInput(submittedQ); }, [submittedQ]);
 
   const [sources, setSources] = useState<Source[]>([]);
   const [channels, setChannels] = useState<Channel[]>([]);
-  const [selectedSources, setSelectedSources] = useState<string[]>([]);
-  const [selectedChannels, setSelectedChannels] = useState<number[]>([]);
-  const [dateFrom, setDateFrom] = useState("");
-  const [dateTo, setDateTo] = useState("");
-  const [hasPredictions, setHasPredictions] = useState<"" | "true" | "false">("");
-
-  const [pageSize, setPageSize] = useState(25);
-  const [page, setPage] = useState(1);
-
   const [items, setItems] = useState<SearchHit[]>([]);
   const [total, setTotal] = useState(0);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
-  // Preselect a channel when arriving from the Channels page
-  // (`/search?channel_id=<id>`).
-  useEffect(() => {
-    const cid = urlParams.get("channel_id");
-    if (cid) setSelectedChannels([Number(cid)]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   useEffect(() => { api.sources().then(setSources).catch(() => {}); }, []);
 
-  // Channels list narrows to the selected sources (multi-select); reload
-  // whenever the source selection changes and drop any selected channel that
-  // no longer applies.
   useEffect(() => {
     api.channels(selectedSources.length ? selectedSources : undefined)
       .then(chs => {
         setChannels(chs);
-        setSelectedChannels(sel => sel.filter(id => chs.some(c => c.id === id)));
+        // Drop selected channels that don't belong to the (remaining)
+        // sources, e.g. after a source checkbox was turned off.
+        const ids = new Set(chs.map(c => c.id));
+        const stale = selectedChannels.filter(id => !ids.has(id));
+        if (stale.length) {
+          update(p => {
+            const keep = p.getAll("channel_id").filter(v => !stale.includes(Number(v)));
+            p.delete("channel_id");
+            keep.forEach(v => p.append("channel_id", v));
+          });
+        }
       })
       .catch(() => setChannels([]));
-  }, [selectedSources]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedSources.join(",")]);
 
-  // Default view: latest posts (q omitted). Re-runs whenever the query or
-  // any filter/pagination control changes.
   useEffect(() => {
     let cancelled = false;
     setBusy(true); setErr(null);
@@ -72,7 +78,47 @@ export function SearchPage() {
       if (!cancelled) setBusy(false);
     });
     return () => { cancelled = true; };
-  }, [submittedQ, selectedSources, selectedChannels, dateFrom, dateTo, hasPredictions, pageSize, page]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [submittedQ, selectedSources.join(","), selectedChannels.join(","),
+     dateFrom, dateTo, hasPredictions, page, pageSize]);
+
+  function update(mut: (p: URLSearchParams) => void) {
+    const next = new URLSearchParams(params);
+    mut(next);
+    setParams(next);
+  }
+  // Any filter change resets to page 1.
+  function updateFirstPage(mut: (p: URLSearchParams) => void) {
+    update(p => { p.delete("page"); mut(p); });
+  }
+  function toggleMulti(name: string, value: string) {
+    updateFirstPage(p => {
+      const cur = p.getAll(name);
+      p.delete(name);
+      const next = cur.includes(value) ? cur.filter(v => v !== value) : [...cur, value];
+      next.forEach(v => p.append(name, v));
+    });
+  }
+  function toggleSource(code: string) { toggleMulti("source", code); }
+  function toggleChannel(id: number) { toggleMulti("channel_id", String(id)); }
+
+  function submitQuery(e?: React.FormEvent) {
+    e?.preventDefault();
+    updateFirstPage(p => {
+      const t = qInput.trim();
+      if (t) p.set("q", t); else p.delete("q");
+    });
+  }
+  function clearQuery() {
+    setQInput("");
+    updateFirstPage(p => p.delete("q"));
+  }
+  function clearFilters() {
+    update(p => {
+      ["source", "channel_id", "date_from", "date_to", "has_predictions", "page"]
+        .forEach(k => p.delete(k));
+    });
+  }
 
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const channelsBySource = useMemo(() => {
@@ -84,38 +130,14 @@ export function SearchPage() {
     return m;
   }, [channels]);
 
-  function submitQuery(e?: React.FormEvent) {
-    e?.preventDefault();
-    setPage(1);
-    setSubmittedQ(q.trim());
-  }
-  function clearQuery() {
-    setQ(""); setSubmittedQ(""); setPage(1);
-  }
-  function toggleSource(code: string) {
-    setPage(1);
-    setSelectedSources(sel => sel.includes(code) ? sel.filter(s => s !== code) : [...sel, code]);
-  }
-  function toggleChannel(id: number) {
-    setPage(1);
-    setSelectedChannels(sel => sel.includes(id) ? sel.filter(c => c !== id) : [...sel, id]);
-  }
-  function clearFilters() {
-    setPage(1);
-    setSelectedSources([]);
-    setSelectedChannels([]);
-    setDateFrom("");
-    setDateTo("");
-    setHasPredictions("");
-  }
   const hasFilters = selectedSources.length > 0 || selectedChannels.length > 0
-    || !!dateFrom || !!dateTo || hasPredictions !== "";
+    || !!dateFrom || !!dateTo || hasPredictions !== "" || !!submittedQ;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-6">
       <div className="space-y-4 min-w-0">
         <form onSubmit={submitQuery} className="flex gap-2">
-          <input value={q} onChange={e => setQ(e.target.value)}
+          <input value={qInput} onChange={e => setQInput(e.target.value)}
             placeholder="Search transcripts and articles… (leave empty to browse latest)"
             className="flex-1 min-w-0 bg-panel border border-border rounded px-3 py-2 outline-none focus:border-accent" />
           <button disabled={busy} className="bg-accent text-bg font-medium rounded px-4 py-2 shrink-0">
@@ -129,34 +151,39 @@ export function SearchPage() {
           )}
         </form>
 
-        {err && <div className="text-red-400 text-sm">{err}</div>}
+        <ErrorBanner error={err} />
 
         <div className="flex items-center justify-between text-sm text-mute gap-2 flex-wrap">
           <span>
-            {busy ? "Loading…" : total === 0 ? "No results." :
+            {busy && !items.length ? "Loading…" : total === 0 ? "No results." :
               `Showing ${(page - 1) * pageSize + 1}–${Math.min(page * pageSize, total)} of ${total}`}
           </span>
           <label className="flex items-center gap-2">
             Rows per page
-            <select value={pageSize} onChange={e => { setPageSize(Number(e.target.value)); setPage(1); }}
+            <select value={pageSize}
+              onChange={e => updateFirstPage(p => p.set("page_size", e.target.value))}
               className="bg-panel border border-border rounded px-2 py-1">
               {PAGE_SIZES.map(n => <option key={n} value={n}>{n}</option>)}
             </select>
           </label>
         </div>
 
+        {busy && items.length === 0 && <Spinner label="Searching…" />}
+
         <ul className="space-y-3">
           {items.map(h => (
-            <li key={h.id} className="border border-border rounded p-3 bg-panel/40">
-              <div className="text-xs text-mute flex gap-2 mb-1">
+            <li key={h.id} className="border border-border rounded p-3 bg-panel/40 hover:border-accent/40">
+              <div className="text-xs text-mute flex gap-2 mb-1 flex-wrap">
                 <span className="uppercase">{h.source}</span>
                 {h.channel_name && <span>· {h.channel_name}</span>}
-                {h.published_at && <span>· {h.published_at.slice(0, 10)}</span>}
+                {h.published_at
+                  ? <span>· {h.published_at.slice(0, 10)}</span>
+                  : <span title="No publish date in the source metadata">· undated</span>}
                 {h.has_predictions && (
                   <span className="text-accent normal-case">· has predictions</span>
                 )}
               </div>
-              <Link to={`/items/${h.id}`} className="text-lg text-accent hover:underline">
+              <Link to={`/items/${h.id}`} className="text-lg hover:underline">
                 {h.title}
               </Link>
               {h.snippet ? (
@@ -169,14 +196,20 @@ export function SearchPage() {
           ))}
         </ul>
 
+        {!busy && items.length === 0 && (
+          <div className="border border-dashed border-border rounded p-8 text-center text-mute">
+            Nothing found{hasFilters ? " — try clearing some filters." : "."}
+          </div>
+        )}
+
         {totalPages > 1 && (
           <div className="flex items-center justify-center gap-3 text-sm pt-2">
-            <button disabled={page <= 1} onClick={() => setPage(p => Math.max(1, p - 1))}
+            <button disabled={page <= 1} onClick={() => update(p => p.set("page", String(page - 1)))}
               className="border border-border rounded px-3 py-1 disabled:opacity-40">
               Prev
             </button>
             <span className="text-mute">Page {page} of {totalPages}</span>
-            <button disabled={page >= totalPages} onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+            <button disabled={page >= totalPages} onClick={() => update(p => p.set("page", String(page + 1)))}
               className="border border-border rounded px-3 py-1 disabled:opacity-40">
               Next
             </button>
@@ -200,13 +233,15 @@ export function SearchPage() {
             <label className="flex items-center gap-2">
               <span className="text-mute text-xs w-8">From</span>
               <input type="date" value={dateFrom}
-                onChange={e => { setDateFrom(e.target.value); setPage(1); }}
+                onChange={e => updateFirstPage(
+                  p => e.target.value ? p.set("date_from", e.target.value) : p.delete("date_from"))}
                 className="flex-1 bg-panel border border-border rounded px-2 py-1" />
             </label>
             <label className="flex items-center gap-2">
               <span className="text-mute text-xs w-8">To</span>
               <input type="date" value={dateTo}
-                onChange={e => { setDateTo(e.target.value); setPage(1); }}
+                onChange={e => updateFirstPage(
+                  p => e.target.value ? p.set("date_to", e.target.value) : p.delete("date_to"))}
                 className="flex-1 bg-panel border border-border rounded px-2 py-1" />
             </label>
           </div>
@@ -215,7 +250,8 @@ export function SearchPage() {
         <section>
           <h4 className="text-mute text-xs uppercase tracking-wide mb-2">Prediction extraction</h4>
           <select value={hasPredictions}
-            onChange={e => { setHasPredictions(e.target.value as "" | "true" | "false"); setPage(1); }}
+            onChange={e => updateFirstPage(
+              p => e.target.value ? p.set("has_predictions", e.target.value) : p.delete("has_predictions"))}
             className="w-full bg-panel border border-border rounded px-2 py-1">
             <option value="">All items</option>
             <option value="true">With predictions</option>

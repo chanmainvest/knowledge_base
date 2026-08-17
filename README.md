@@ -131,6 +131,8 @@ uv run kb db migrate
 
 # scrape (each runs as its own job; safe in parallel)
 uv run kb youtube scrape --limit 5
+uv run kb youtube backfill-dates        # repair items scraped without a publish date
+uv run kb youtube backfill-metadata --limit 50   # refill empty descriptions (rate-limited, resumable)
 uv run kb blog scrape macrovoices --limit 3
 uv run kb blog scrape madxcap --limit 5
 # HKEJ is behind Cloudflare → needs the Camoufox browser container (default mode).
@@ -146,14 +148,21 @@ uv run kb substack scrape <handle> --limit 3
 
 # extract structure
 uv run kb extract run --limit 50
-uv run kb leaderboard rebuild
+
+# market data + scoring: fetch daily prices for every predicted ticker into
+# the asset_price store (bulk yfinance, incremental), score calls against it,
+# rebuild the channel/speaker/model leaderboards
+uv run kb market sync
+uv run kb market status            # per-ticker coverage
+uv run kb leaderboard rebuild      # sync + score + rollups in one command
 
 # regenerate the synthesized wiki (people, tickers, themes, syntheses)
 uv run python scripts/build_llm_wiki.py
 
 # serve api + frontend
-uv run kb api
-cd frontend && npm install && npm run dev
+uv run kb api                      # serves the API on :8088 and, if
+                                  # frontend/dist exists, the built GUI too
+cd frontend && npm install && npm run dev   # or the Vite dev server w/ proxy
 ```
 
 The `llm-wiki/` directory is a generated, Karpathy-style synthesized wiki
@@ -171,11 +180,13 @@ to run/compare multiple LLM providers, see `doc/llm-extraction.md`.
 
 ## Nightly Jenkins pipeline
 
-A [`Jenkinsfile`](Jenkinsfile) runs the full scrape → ingest → extract pipeline
-nightly at 03:00, one stage per source category. Jenkins shells out to a
-self-contained `kb` Docker image (`docker compose build kb`) rather than
-installing Python/uv/yt-dlp itself; the container mounts `data/` and reaches the
-host Postgres, so it shares your existing items. Secrets come from the Jenkins
-Credentials store (or the gitignored `.env`). See
-[`doc/jenkins-pipeline.md`](doc/jenkins-pipeline.md) for build, one-time session
-priming (HKEJ/Patreon/Substack), and job-creation steps.
+A [`Jenkinsfile`](Jenkinsfile) runs the full scrape → ingest → extract →
+score pipeline nightly at 03:00, one stage per source category. Jenkins
+shells out to a self-contained `kb` Docker image (`docker compose build kb`)
+rather than installing Python/uv/yt-dlp itself; the container mounts `data/`
+and reaches the host Postgres, so it shares your existing items. The final
+`Score` stage runs `kb leaderboard rebuild` (market-data sync + prediction
+scoring + leaderboard rollups). Secrets come from the Jenkins Credentials
+store (or the gitignored `.env`). See
+[`doc/jenkins-pipeline.md`](doc/jenkins-pipeline.md) for build, one-time
+session priming (HKEJ/Patreon/Substack), and job-creation steps.

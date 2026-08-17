@@ -14,6 +14,10 @@ uv run kb youtube add-channel --handle BloorStreetCapital        # PowerShell-fr
 uv run kb youtube migrate-folders --dry-run                 # preview folder renames
 uv run kb youtube migrate-folders --ingest                  # rename + refresh md_path in DB
 uv run kb youtube scrape --limit 5
+uv run kb youtube scrape --limit 5 --transcribe             # + Whisper ASR for new no-subtitle videos (opt-in)
+uv run kb youtube transcribe --list                         # preview pending transcription candidates
+uv run kb youtube transcribe --channel latp --limit 1       # transcribe one channel's videos
+uv run kb youtube transcribe --reset-stuck                  # clear stale 'transcribing' rows after a crash
 
 uv run kb hkej list-authors
 uv run kb hkej add-author "高天佑"
@@ -95,37 +99,71 @@ uv run kb scrape all --limit 5
 
 ## HKEJ Scraping
 
-HKEJ uses a persistent Camoufox browser because Cloudflare and subscriber login state are browser-bound.
+HKEJ sits behind Cloudflare and needs a real (anti-detect) browser. By default
+the browser runs in a **Docker container** (a Camoufox Firefox exposing a
+Playwright WebSocket endpoint); the scraper connects over WS, restores the
+saved login cookies from `data/hkej/.browser_state.json` so you don't re-login
+every run, scrapes, then disconnects. This is the `HKEJ_BROWSER_MODE=docker`
+default and is what most users want.
 
-Start and check the browser daemon:
+### Docker mode (default)
+
+Build the image once, then start the container:
 
 ```pwsh
-uv run kb hkej browser start --login-wait-minutes 15
-uv run kb hkej browser status
+docker compose build camoufox
+uv run kb hkej docker up          # also: docker compose up -d camoufox
+uv run kb hkej docker status
 ```
 
-Prime search/login manually if needed:
+The container exposes:
+
+- `ws://127.0.0.1:9222/hkej` — the Playwright WS endpoint the scraper connects to.
+- `http://localhost:7900` — a noVNC web view of the browser. Open it when
+  Cloudflare throws an interactive challenge or to log in manually. (Disable
+  with `kb hkej docker up --no-vnc` or `HKEJ_DOCKER_NOVNC=0` for headless-auto.)
+
+Login is automatic by default: set `HKEJ_USER`/`HKEJ_PASS` in `.env` and the
+form is filled and submitted for you (`HKEJ_LOGIN_MODE=auto`, the default).
+Set `HKEJ_LOGIN_MODE=manual` to always wait for a human to click 登入 — useful
+when Cloudflare's interactive challenge must be solved in the noVNC window.
+
+Register authors and scrape as usual — the scraper picks up the container
+automatically:
+
+```pwsh
+uv run kb hkej add-author "李聲揚"
+uv run kb hkej add-author "高天佑"
+uv run kb hkej scrape-author "高天佑" --limit 1
+uv run kb hkej scrape-author "高天佑"
+```
+
+Other lifecycle commands:
+
+```pwsh
+uv run kb hkej docker down        # stop + remove the container
+uv run kb hkej docker logs -f     # tail container logs (shows the WS endpoint)
+```
+
+### Local mode (fallback, opt-out)
+
+If Docker isn't available, run Camoufox on the host directly. Set
+`HKEJ_BROWSER_MODE=local` (or pass `--browser-mode local`):
+
+```pwsh
+uv run kb hkej browser start --login-wait-minutes 15   # keep one window open
+uv run kb hkej browser status
+uv run kb hkej scrape-author "高天佑" --browser-mode local
+```
+
+Prime search/login manually if needed (the author name only opens a real HKEJ
+search page so Cloudflare can clear; it does not restrict later scraping):
 
 ```pwsh
 uv run kb hkej prime "李聲揚" --login-wait-minutes 15
 ```
 
-The author name in `prime` only opens a real HKEJ search page so Cloudflare can clear. It does not restrict later scraping.
-
-Register authors:
-
-```pwsh
-uv run kb hkej add-author "李聲揚"
-uv run kb hkej add-author "何啟聰"
-uv run kb hkej add-author "高天佑"
-```
-
-Scrape one author:
-
-```pwsh
-uv run kb hkej scrape-author "高天佑" --limit 1
-uv run kb hkej scrape-author "高天佑"
-```
+### Resume behaviour
 
 The HKEJ scraper records search-page discovery in Postgres before downloads. If the machine stops mid-run, rerun the same command. The next run crawls page 1 first, compares the current search total and page-1 fingerprint, and only reuses old page snapshots when the result set has not shifted.
 
@@ -171,6 +209,17 @@ uv run python scripts/fix_yahoohk_titles.py
 ```
 
 The script trims boilerplate, renames markdown and raw HTML to the real headline slug, and re-ingests each item. Safe to re-run; it only touches files whose stem still ends with `雅虎香港財經`.
+
+### Merge duplicate YouTube folders
+
+When a YouTube channel's display name changed between runs, the channel's folder (named from the slugified display name) forked into two copies. Merge them into the canonical folder and clean up same-folder `undated/` vs dated duplicates:
+
+```pwsh
+uv run python scripts/fix_youtube_dup_folders.py --dry-run
+uv run python scripts/fix_youtube_dup_folders.py
+```
+
+The script keeps the better copy of each video (transcript presence, then recency, then the dated path), deletes the other, promotes undated winners to dated paths, removes the emptied old folder, and re-ingests so `item.md_path` points at the surviving files. Safe to re-run. Future forks are prevented by the pinned `channel.metadata['dir_slug']` and the DB-backed already-scraped check in the scraper itself.
 
 ## Master Insight Scraping
 
@@ -344,6 +393,14 @@ The `scripts/` directory contains maintenance and debugging helpers:
 - `build_data_readmes.py`: builds `README.md` indexes for every visible folder under `data/` and supports the static `data/index.html` browser. Safe to re-run.
 - `copy_to_data_public.py`: copies a configured subset of `data/` markdown into the `data_public/` submodule (see `scripts/data_public_config.json`). Defaults to the last 365 days, skips unchanged files, then rebuilds `data_public/` README indexes via `build_data_readmes.py`. Safe to re-run.
 - `fix_yahoohk_titles.py`: renames Yahoo HK columnist articles that were saved with the generic `雅虎香港財經` title, trims boilerplate, and re-ingests. Safe to re-run.
+- `fix_youtube_dup_folders.py`: merges duplicate `data/youtube/` channel folders (display-name drift) and `undated/` vs dated copies of the same video, then re-points stale `item.md_path` rows. Safe to re-run.
+- `backfill_youtube_transcripts.py`: re-fetches subtitles for items whose markdown still carries the `_(no transcript available)_` marker and re-ingests them (front-matter `has_transcript` flips to true, which also drops them from the Whisper queue). Cantonese-aware — the original auto-CC track is `yue`/`yue-orig`, which the pre-2026-08 `zh`-only sub-langs filter could not see. yt-dlp requests fan out over the SSH SOCKS5 tunnels (`--proxy-hosts`, default `YT_DLP_PROXY_HOSTS`; the residential IP alone stays timedtext-throttled for days) — bot-walled egresses (the oc*/Oracle IPs) are benched automatically per run, and in practice horace.org carries the load. Deliberately over-polite otherwise (originals-only sub-langs, per-item sleep + jitter on top of the limiter; 429 → exponential cooldown, same item retried; 3 consecutive blocks abort with exit code 2). Resumable: successes are skipped via `has_transcript`, confirmed caption-less videos via `scripts/.backfill_youtube_transcripts_state.json` (`--retry-no-cc` clears that).
+  ```pwsh
+  uv run python scripts/backfill_youtube_transcripts.py --dry-run
+  uv run python scripts/backfill_youtube_transcripts.py --limit 300          # nightly slice
+  uv run python scripts/backfill_youtube_transcripts.py --year-from 2025     # caption-bearing Dr Ng slice first
+  uv run python scripts/backfill_youtube_transcripts.py --channel "Ng Ming" --limit 50
+  ```
 - `scrape_patreon.ps1`: Windows Task Scheduler wrapper for `uv run kb patreon scrape-creator`.
 - `reextract_hkej.py`: re-runs extraction workflows for HKEJ content.
 - `debug_hkej_search.py`: probes HKEJ search result HTML while debugging selectors or Cloudflare behavior.

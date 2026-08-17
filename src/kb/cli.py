@@ -28,12 +28,14 @@ lb_app = typer.Typer(no_args_is_help=True)
 youtube_app = typer.Typer(no_args_is_help=True, help="YouTube channel management")
 hkej_app = typer.Typer(no_args_is_help=True, help="HKEJ author management")
 hkej_browser_app = typer.Typer(no_args_is_help=True, help="Persistent browser session")
+hkej_docker_app = typer.Typer(no_args_is_help=True, help="Camoufox Docker container (default browser mode)")
 master_insight_app = typer.Typer(no_args_is_help=True, help="Master Insight author management")
 patreon_app = typer.Typer(no_args_is_help=True, help="Patreon session helpers")
 patreon_browser_app = typer.Typer(no_args_is_help=True, help="Persistent Patreon browser")
 substack_app = typer.Typer(no_args_is_help=True, help="Substack session helpers")
 blog_app = typer.Typer(no_args_is_help=True, help="Blog site scrapers (macrovoices, madxcap, …)")
 progress_app = typer.Typer(no_args_is_help=True, help="Pipeline progress tracking (dashboard data)")
+market_app = typer.Typer(no_args_is_help=True, help="Market data (daily price store)")
 app.add_typer(db_app, name="db")
 app.add_typer(scrape_app, name="scrape")
 app.add_typer(ext_app, name="extract")
@@ -41,12 +43,14 @@ app.add_typer(lb_app, name="leaderboard")
 app.add_typer(youtube_app, name="youtube")
 app.add_typer(hkej_app, name="hkej")
 hkej_app.add_typer(hkej_browser_app, name="browser")
+hkej_app.add_typer(hkej_docker_app, name="docker")
 app.add_typer(master_insight_app, name="master-insight")
 app.add_typer(patreon_app, name="patreon")
 patreon_app.add_typer(patreon_browser_app, name="browser")
 app.add_typer(substack_app, name="substack")
 app.add_typer(blog_app, name="blog")
 app.add_typer(progress_app, name="progress")
+app.add_typer(market_app, name="market")
 
 log = get_logger("cli")
 
@@ -70,8 +74,15 @@ def db_status() -> None:
     with engine().connect() as c:
         for tbl in ("source", "channel", "item", "extraction_run", "prediction",
                     "view_market", "chunk", "entity", "leaderboard_weekly",
-                    "provider_model_leaderboard", "source_progress"):
-            n = c.execute(text(f"SELECT COUNT(*) FROM {tbl}")).scalar()
+                    "leaderboard_speaker", "provider_model_leaderboard",
+                    "asset_price", "asset_ticker", "source_progress"):
+            # %I inside format() quotes the identifier server-side, so the
+            # table name rides as a bind parameter instead of interpolation.
+            n = c.execute(text("""
+                SELECT (xpath('/row/c/text()', query_to_xml(
+                           format('SELECT COUNT(*) AS c FROM %I', CAST(:t AS text)),
+                           false, true, '')))[1]::text::int
+            """), {"t": tbl}).scalar()
             print(f"  {tbl:26s} {n}")
 
 
@@ -286,6 +297,112 @@ def youtube_migrate_folders(
         print(f"[green]Re-ingested {n}[/green] markdown file(s).")
 
 
+@youtube_app.command("backfill-dates")
+def youtube_backfill_dates(
+    limit: int = typer.Option(
+        0, "--limit",
+        help="Max undated videos to look up online (0 = all remaining)"),
+    dry_run: bool = typer.Option(
+        False, "--dry-run", help="Report what would change without touching files/DB"),
+    fetch: bool = typer.Option(
+        True, "--fetch/--no-fetch",
+        help="After the offline filename pass, look up still-undated videos "
+             "online (direct yt-dlp, one at a time, polite)"),
+) -> None:
+    """Repair missing published_at on YouTube items.
+
+    Two passes: (1) offline — items whose markdown filename already carries
+    a YYYY-MM-DD- prefix (promoted by the folder dedup) get their front-matter
+    and DB row stamped from it; (2) online — items still under ``undated/``
+    get their upload date looked up per video, the file moved to its dated
+    path, and the DB re-pointed. Also recovers prediction.made_at for any
+    calls that were unscoreable due to the missing date. Resumable — rerun
+    after interruptions."""
+    from .scrapers.youtube import (
+        backfill_dates_from_filenames,
+        backfill_undated_metadata,
+    )
+
+    n = backfill_dates_from_filenames(dry_run=dry_run)
+    print(f"[green]{n}[/green] item(s) dated from filenames"
+          f"{' (dry run)' if dry_run else ''}")
+    if fetch:
+        stats = asyncio.run(backfill_undated_metadata(
+            limit=limit or 0, dry_run=dry_run))
+        print(f"[green]{stats['dated']}[/green] undated item(s) resolved online "
+              f"of {stats['candidates']} candidates "
+              f"({stats['unknown']} unknown/deleted, {stats['missing_file']} missing files)"
+              f"{' (dry run)' if dry_run else ''}")
+
+
+@youtube_app.command("reformat-transcripts")
+def youtube_reformat_transcripts(
+    dry_run: bool = typer.Option(
+        False, "--dry-run", help="Report what would change without touching files/DB"),
+    limit: int = typer.Option(
+        0, "--limit", help="Only process the first N files (0 = all)"),
+) -> None:
+    """Re-paragraph stored YouTube transcripts (one-time repair).
+
+    Transcript markdown scraped before the paragraph-aware `_vtt_to_text`
+    is a wall of 5-8-word caption lines. This joins them into flowing text
+    with paragraphs at >> speaker changes (timing gaps are gone from stored
+    text), rewrites each file and re-ingests it. Offline, idempotent —
+    already-readable files are skipped."""
+    from .scrapers.youtube import reformat_transcripts
+    stats = reformat_transcripts(dry_run=dry_run, limit=limit or 0)
+    print(f"files scanned: {stats['files']}")
+    print(f"[green]{stats['reformatted']}[/green] transcript(s) re-paragraphed"
+          f"{' (dry run)' if dry_run else ''}, "
+          f"{stats['unchanged']} already readable, "
+          f"{stats['no_transcript']} without transcript, "
+          f"{stats['missing_file']} missing")
+
+
+@youtube_app.command("backfill-metadata")
+def youtube_backfill_metadata(
+    limit: int = typer.Option(
+        0, "--limit",
+        help="Max videos to re-fetch online (0 = all remaining)"),
+    dry_run: bool = typer.Option(
+        False, "--dry-run", help="Report what would change without touching files/DB"),
+    proxy_hosts: str = typer.Option(
+        "", "--proxy-hosts",
+        help="Comma-separated SSH host aliases for SOCKS5 tunnels — runs one "
+             "parallel worker per tunnel (e.g. oc1.hevangel.com,horace.org). "
+             "Falls back to the YT_DLP_PROXY_HOSTS env var; without tunnels "
+             "the run is direct and sequential."),
+) -> None:
+    """Backfill video descriptions and other lost metadata on YouTube items.
+
+    Videos scraped while yt-dlp's metadata fetch was failing (dead SOCKS
+    tunnel / HTTP 429 during the 2026-07/08 bulk scrapes) were saved from an
+    id+title-only stub: empty `## Description` section, null
+    duration/uploader/view-count. This re-fetches metadata per video, rewrites
+    the description/duration/published lines and front-matter, and re-ingests
+    each file. With --proxy-hosts it runs in parallel over the SSH SOCKS
+    tunnels (one worker each); otherwise direct, one at a time. Resumable —
+    processed files carry `metadata_synced_at` in front-matter. Rate-limit
+    aware: blocked fetches trigger an exponential cooldown (5 min → doubling,
+    capped 1 h) and retry the same video; repeated blocks retire a worker
+    (or abort a direct run)."""
+    from .scrapers.youtube import backfill_metadata
+
+    stats = asyncio.run(backfill_metadata(
+        limit=limit or 0, dry_run=dry_run, proxy_hosts=proxy_hosts))
+    print(f"candidates: {stats['candidates']}")
+    if stats.get("workers"):
+        print(f"parallel workers: {stats['workers']} (SSH SOCKS tunnels)")
+    print(f"[green]{stats['updated']}[/green] item(s) repaired"
+          f"{' (dry run)' if dry_run else ''}, "
+          f"{stats['empty']} with genuinely empty description, "
+          f"{stats['unavailable']} unavailable/deleted, "
+          f"{stats['failed']} failed, "
+          f"{stats['blocked']} rate-limited (cooled down + retried)"
+          + (" — some workers retired or the run aborted; rerun resumes"
+             if stats.get("aborted") else ""))
+
+
 @youtube_app.command("scrape")
 def youtube_scrape(
     limit: int = typer.Option(0, help="Max videos to inspect per channel (0 = all)"),
@@ -293,9 +410,96 @@ def youtube_scrape(
         "", help="Comma-separated SSH host aliases to open SOCKS5 tunnels to, "
                  "distributing requests round-robin (e.g. oc1.hevangel.com,serv00). "
                  "Falls back to YT_DLP_PROXY_HOSTS env var."),
+    transcribe: bool = typer.Option(
+        None, "--transcribe/--no-transcribe",
+        help="After scraping, transcribe the newly fetched videos that have no "
+             "subtitle, using faster-whisper (one at a time, GPU). "
+             "Default: WHISPER_ENABLED from .env (= disabled).",
+    ),
 ) -> None:
     """Scrape registered YouTube channels."""
-    scrape_run(code="youtube", limit=limit, proxy_hosts=proxy_hosts)
+    new_paths = scrape_run(code="youtube", limit=limit, proxy_hosts=proxy_hosts)
+    if transcribe is None:
+        transcribe = settings().whisper_enabled
+    if transcribe:
+        from .io_md import load_md
+        from . import transcribe as transcribe_mod
+
+        # Only the videos just written by this run (external_id from the new
+        # files' front-matter) — not the whole pending backlog.
+        vids: list[str] = []
+        for p in new_paths:
+            try:
+                doc = load_md(p)
+                if not doc.front.get("has_transcript"):
+                    vid = doc.front.get("external_id")
+                    if vid:
+                        vids.append(vid)
+            except Exception:  # noqa: BLE001
+                continue
+        if vids:
+            print(f"[cyan]transcribe[/cyan] {len(vids)} new video(s) without subtitles")
+            transcribe_mod.run_transcribe(external_ids=vids)
+
+
+@youtube_app.command("transcribe")
+def youtube_transcribe(
+    limit: int = typer.Option(0, help="Max items to transcribe (0 = all pending)"),
+    channel: str = typer.Option(
+        "", help="Only transcribe this channel handle/name (substring match)",
+    ),
+    dry_run: bool = typer.Option(
+        False, "--dry-run", help="List candidates but don't download/transcribe",
+    ),
+    list_only: bool = typer.Option(
+        False, "--list", help="List candidates and a status summary, then exit",
+    ),
+    retry_failed: bool = typer.Option(
+        False, "--retry-failed", help="Also re-attempt items previously marked 'failed'",
+    ),
+    reset_stuck: bool = typer.Option(
+        False, "--reset-stuck",
+        help="Re-queue items stuck in 'transcribing'/'audio_downloaded' back "
+             "to 'pending' and exit",
+    ),
+    model: str = typer.Option(None, help="Override whisper model (default: from config)"),
+    device: str = typer.Option(None, help="Override device, e.g. cuda|cpu (default: from config)"),
+) -> None:
+    """Transcribe YouTube videos missing subtitles (faster-whisper, opt-in).
+
+    Covers items where no subtitle/transcript could be fetched
+    (`has_transcript=false`): downloads the audio track, runs Whisper on GPU
+    one video at a time, writes the transcript into the item's markdown and
+    re-ingests it.
+    """
+    from . import transcribe as transcribe_mod
+
+    if reset_stuck:
+        n = transcribe_mod.reset_stuck()
+        print(f"Re-queued {n} item(s) from 'transcribing'/'audio_downloaded' → 'pending'.")
+        return
+
+    if list_only:
+        candidates = transcribe_mod.gather_candidates(limit, channel or None, retry_failed)
+        print(f"\n{len(candidates)} transcription candidate(s):\n")
+        for row in candidates:
+            print(f"  {row['external_id']} | {row.get('channel_name', '?')} | "
+                  f"{row.get('transcription_status') or 'pending'} | "
+                  f"{row.get('duration_sec') or '?'}s | {(row['title'] or '')[:60]}")
+        counts = transcribe_mod.count_by_status()
+        print("\nStatus summary (has_transcript=false YouTube items):")
+        for st, n in counts.items():
+            print(f"  {st}: {n}")
+        return
+
+    transcribe_mod.run_transcribe(
+        limit=limit,
+        channel=channel or None,
+        retry_failed=retry_failed,
+        dry_run=dry_run,
+        model=model,
+        device=device,
+    )
 
 
 @scrape_app.command("run")
@@ -349,6 +553,7 @@ def scrape_run(
             ingest_mod.ingest_file(p)
         except Exception as exc:  # noqa: BLE001
             log.exception("ingest failed for %s :: %s", p, exc)
+    return paths
 
 
 @scrape_app.command("all")
@@ -398,8 +603,12 @@ def extract_run(
     provider: str | None = typer.Option(
         None, help="Override LLM_PROVIDER for this run (openai|github|anthropic|zai)"),
     model: str | None = typer.Option(None, help="Override the provider's default model"),
+    prompt_version: str | None = typer.Option(
+        None, help="Prompt/schema version (dir under src/kb/prompts/extraction/); "
+                   "default = EXTRACTION_PROMPT_VERSION or the highest present"),
 ) -> None:
-    n = extract_mod.run(limit, provider=provider, model=model)
+    n = extract_mod.run(limit, provider=provider, model=model,
+                        prompt_version=prompt_version)
     print(f"[green]extracted[/green] {n}")
 
 
@@ -408,16 +617,54 @@ def extract_compare(
     item_id: int,
     providers: str = typer.Option(
         "openai,github,anthropic,zai",
-        help="Comma-separated providers to run on this item, e.g. 'openai,anthropic'"),
+        help="Comma-separated providers to run on this item, e.g. 'openai,anthropic'. "
+             "Repeat a provider to compare its models: 'zai,zai'."),
+    model: str = typer.Option(
+        "", help="Comma-separated models, applied to the providers in order. "
+                 "One entry = same model for every provider; otherwise the "
+                 "counts must match --providers. "
+                 "E.g. --providers zai,zai --model glm-4.6,glm-5.3"),
+    prompt_version: str | None = typer.Option(
+        None, help="Prompt/schema version (dir under src/kb/prompts/extraction/); "
+                   "default = EXTRACTION_PROMPT_VERSION or the highest present"),
 ) -> None:
-    """Extract one item with several LLM providers side by side, without
-    disturbing the item's existing primary (canonical) extraction. Useful for
-    judging which provider/model reads a given author most reliably before
-    committing to it as LLM_PROVIDER."""
+    """Extract one item with several provider/model combos side by side,
+    without disturbing the item's existing primary (canonical) extraction.
+    Useful for judging which provider/model reads a given author most
+    reliably before committing to it as LLM_PROVIDER."""
     provider_list = [p.strip() for p in providers.split(",") if p.strip()]
-    results = extract_mod.compare_item(item_id, provider_list)
-    for p, stats in results.items():
-        print(f"[bold]{p}[/bold]: {stats}")
+    model_list = [m.strip() for m in model.split(",") if m.strip()] if model else []
+    if not model_list:
+        combos: list[tuple[str, str | None]] = [(p, None) for p in provider_list]
+    elif len(model_list) == 1:
+        combos = [(p, model_list[0]) for p in provider_list]
+    elif len(model_list) == len(provider_list):
+        combos = list(zip(provider_list, model_list))
+    else:
+        raise typer.BadParameter(
+            f"--model has {len(model_list)} entries but --providers has "
+            f"{len(provider_list)}; give one model (applied to all) or one "
+            "per provider")
+    results = extract_mod.compare_item(item_id, combos,
+                                       prompt_version=prompt_version)
+    for combo, stats in results.items():
+        print(f"[bold]{combo}[/bold]: {stats}")
+
+
+@ext_app.command("prompts")
+def extract_prompts() -> None:
+    """List the registered extraction prompt/schema versions
+    (src/kb/prompts/extraction/<version>/ = one system.md + schema.json pair)."""
+    from . import prompts as prompts_mod
+    versions = prompts_mod.list_versions()
+    if not versions:
+        print("[yellow]no prompt versions registered[/yellow]")
+        return
+    default = prompts_mod.default_version()
+    for v in versions:
+        pair = prompts_mod.load(v)
+        marker = "[green] (default)[/green]" if v == default else ""
+        print(f"{v:<8} {pair.name:<24} {pair.path}{marker}")
 
 
 @ext_app.command("runs")
@@ -430,14 +677,82 @@ def extract_runs(item_id: int) -> None:
     for r in rows:
         marker = "[green]primary[/green]" if r.get("is_primary") else "       "
         print(f"{marker} run={r['id']:<6} {r['provider']:<10} {(r['model'] or '(default)'):<28} "
+              f"{(r.get('prompt_version') or '-'):<5} "
               f"status={r['status']:<7} views={r['n_market_views']} preds={r['n_predictions']} "
               f"{r['duration_ms'] or '-'}ms")
 
 
 @lb_app.command("rebuild")
-def leaderboard_rebuild() -> None:
-    lb_mod.rebuild()
+def leaderboard_rebuild(
+    rescore: bool = typer.Option(
+        False, "--rescore",
+        help="Re-score every prediction, including ones whose horizon already "
+             "elapsed (default only updates unscored/running ones)"),
+    no_sync: bool = typer.Option(
+        False, "--no-sync",
+        help="Skip the price-store sync step (score from cached prices only)"),
+) -> None:
+    """Sync market prices, score predictions, rebuild channel/speaker/model
+    leaderboard rollups."""
+    from . import marketdata as market_mod
+    stats = lb_mod.rebuild(rescore=rescore, sync_prices=not no_sync)
+    sc = stats.get("scoring", {})
+    print(f"[green]scored[/green] {sc.get('scored', 0)}/{sc.get('candidates', 0)} "
+          f"predictions ({sc.get('no_price', 0)} without price data)")
+    sy = stats.get("sync") or {}
+    if sy:
+        print(f"[green]market sync[/green] {sy.get('fetched', 0)}/{sy.get('tickers', 0)} "
+              f"tickers, {sy.get('rows', 0)} rows, {sy.get('skipped', 0)} skipped, "
+              f"{len(sy.get('no_data', []))} no-data, {len(sy.get('errors', []))} errors")
     print("[green]leaderboard updated[/green]")
+
+
+# --- Market data (price store) ---------------------------------------------
+
+@market_app.command("sync")
+def market_sync(
+    ticker: list[str] = typer.Option(
+        None, "--ticker", "-t",
+        help="Sync only this ticker (repeatable). Default: every ticker "
+             "referenced by extracted predictions."),
+    full: bool = typer.Option(
+        False, "--full",
+        help="Re-download full history and retry no-data/error tickers "
+             "instead of topping up the recent tail"),
+) -> None:
+    """Bulk-fetch daily prices into the `asset_price` store (Yahoo Finance)."""
+    from . import marketdata as market_mod
+    stats = market_mod.sync(tickers=ticker or None, full=full)
+    print(f"[green]synced[/green] {stats.get('fetched', 0)}/{stats.get('tickers', 0)} "
+          f"tickers ({stats.get('rows', 0)} rows, {stats.get('skipped', 0)} up-to-date)")
+    if stats.get("no_data"):
+        print(f"[yellow]no data on Yahoo:[/yellow] {', '.join(stats['no_data'][:20])}"
+              + (" …" if len(stats["no_data"]) > 20 else ""))
+    if stats.get("errors"):
+        print(f"[red]fetch errors:[/red] {', '.join(stats['errors'][:20])}"
+              + (" …" if len(stats["errors"]) > 20 else ""))
+
+
+@market_app.command("status")
+def market_status() -> None:
+    """Per-ticker price coverage + prediction call counts."""
+    from . import marketdata as market_mod
+    rows = market_mod.ticker_stats()
+    if not rows:
+        print("[yellow]price store empty — run [bold]kb market sync[/bold][/yellow]")
+        return
+    print(f"{'ticker':12s} {'calls':>5s} {'scored':>6s} {'avg':>6s} "
+          f"{'sync':>8s} {'days':>5s}  first        last         name")
+    for r in rows:
+        avg = "—" if r["avg_score"] is None else f'{r["avg_score"]:+.2f}'
+        print(f"{r['ticker']:12s} "
+              f"{(r['n_calls'] or 0):>5d} "
+              f"{(r['n_scored'] or 0):>6d} "
+              f"{avg:>6s} "
+              f"{(r['sync_status'] or '—'):>8s} "
+              f"{(r['n_days'] or 0):>5d}  "
+              f"{str(r['first_day'] or '—'):12s} {str(r['last_day'] or '—'):12s} "
+              f"{r['asset_name'] or ''}"[:110])
 
 
 @app.command("links")
@@ -571,13 +886,172 @@ def hkej_browser_status() -> None:
         print("[dim]Browser daemon not running[/dim] — start with: kb hkej browser start")
 
 
+# --------------------------------------------------------------------------- #
+# kb hkej docker — Camoufox container (the default browser mode)
+# --------------------------------------------------------------------------- #
+
+# Docker image references and container names are constrained to a safe charset
+# (no shell metacharacters) before being passed to `docker` as argv elements.
+# Every `docker` invocation below uses a list-literal argv with shell=False, so
+# nothing is ever interpreted by a shell; the allowlist is defence-in-depth.
+import re as _re
+
+_DOCKER_NAME_RE = _re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.\-/:]*$")
+
+
+def _safe_name(value: str, field: str) -> str:
+    """Validate a docker image/container identifier; exit on anything unsafe."""
+    if not value or not _DOCKER_NAME_RE.match(value):
+        print(f"[red]Invalid {field}:[/red] {value!r}")
+        raise typer.Exit(1)
+    return value
+
+
+def _container_state(container: str) -> str | None:
+    """Return the container's state (e.g. 'running', 'exited') or None if absent."""
+    import subprocess
+
+    try:
+        out = subprocess.run(
+            ["docker", "inspect", "-f", "{{.State.Status}}", _safe_name(container, "container")],
+            capture_output=True, text=True, check=False, shell=False,
+        )
+    except FileNotFoundError:
+        return None
+    if out.returncode != 0:
+        return None
+    return out.stdout.strip() or None
+
+
+@hkej_docker_app.command("up")
+def hkej_docker_up(
+    novnc: bool = typer.Option(
+        True, "--no-vnc/--no-novnc",
+        help="Enable the noVNC web UI (http://localhost:<port>) for interactive Cloudflare/login",
+    ),
+    image: str = typer.Option(
+        None, "--image", help="Docker image (default: HKEJ_DOCKER_IMAGE from .env)",
+    ),
+) -> None:
+    """Start the Camoufox browser container (the default browser mode)."""
+    import subprocess
+
+    s = settings()
+    img = _safe_name(image or s.hkej_docker_image, "image")
+    container = _safe_name(s.hkej_docker_container, "container")
+    ws_port = int(s.hkej_camoufox_port)
+    novnc_port = int(s.hkej_docker_novnc_port)
+
+    state = _container_state(container)
+    if state == "running":
+        print(f"[green]Container already running[/green] ({container})")
+        return
+    if state is not None:
+        # Exists but stopped/exited — remove so we can recreate cleanly.
+        subprocess.run(
+            ["docker", "rm", "-f", container], capture_output=True, check=False, shell=False,
+        )
+
+    print(f"[bold]Starting Camoufox container[/bold] ({img})…")
+    if novnc:
+        res = subprocess.run(
+            ["docker", "run", "-d", "--name", container, "--restart", "unless-stopped",
+             "-p", f"{ws_port}:9222", "-p", f"{novnc_port}:7900",
+             "-e", "CAMOUFOX_NOVNC=1", "-e", "CAMOUFOX_WS_PATH=hkej",
+             "-e", "CAMOUFOX_PORT=9222", img],
+            capture_output=True, text=True, shell=False,
+        )
+    else:
+        res = subprocess.run(
+            ["docker", "run", "-d", "--name", container, "--restart", "unless-stopped",
+             "-p", f"{ws_port}:9222",
+             "-e", "CAMOUFOX_NOVNC=0", "-e", "CAMOUFOX_WS_PATH=hkej",
+             "-e", "CAMOUFOX_PORT=9222", img],
+            capture_output=True, text=True, shell=False,
+        )
+    if res.returncode != 0:
+        print(f"[red]docker run failed:[/red]\n{res.stderr.strip()}")
+        print(
+            "\nBuild the image first with:  [bold]docker compose build camoufox[/bold]\n"
+            "or set HKEJ_DOCKER_IMAGE to a prebuilt one."
+        )
+        raise typer.Exit(1)
+
+    print(f"[green]Container started[/green] ({container})")
+    print(f"  Playwright WS: ws://127.0.0.1:{ws_port}/hkej")
+    if novnc:
+        print(f"  noVNC web UI:  http://localhost:{novnc_port}")
+        print("  Open the noVNC URL if Cloudflare/login needs a human.")
+
+
+@hkej_docker_app.command("down")
+def hkej_docker_down() -> None:
+    """Stop and remove the Camoufox browser container."""
+    import subprocess
+
+    container = _safe_name(settings().hkej_docker_container, "container")
+    state = _container_state(container)
+    if state is None:
+        print(f"[dim]Container not present[/dim] ({container})")
+        return
+    res = subprocess.run(
+        ["docker", "rm", "-f", container], capture_output=True, text=True, shell=False,
+    )
+    if res.returncode != 0:
+        print(f"[red]docker rm failed:[/red]\n{res.stderr.strip()}")
+        raise typer.Exit(1)
+    print(f"[green]Container removed[/green] ({container})")
+
+
+@hkej_docker_app.command("status")
+def hkej_docker_status() -> None:
+    """Show container state, the WS endpoint, and the noVNC URL."""
+    import socket
+
+    s = settings()
+    container = s.hkej_docker_container
+    state = _container_state(container)
+    if state is None:
+        print(f"[dim]Container not present[/dim] ({container}) — start with: kb hkej docker up")
+        return
+    print(f"Container: [bold]{container}[/bold] — state: {state}")
+    # Reachability of the mapped WS port on the host.
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.settimeout(1.0)
+    try:
+        sock.connect(("127.0.0.1", int(s.hkej_camoufox_port)))
+        reachable = True
+    except OSError:
+        reachable = False
+    finally:
+        sock.close()
+    ep = f"ws://127.0.0.1:{int(s.hkej_camoufox_port)}/hkej"
+    print(f"  WS endpoint {ep}: {'[green]reachable[/green]' if reachable else '[red]not reachable[/red]'}")
+    print(f"  noVNC:       http://localhost:{int(s.hkej_docker_novnc_port)}")
+
+
+@hkej_docker_app.command("logs")
+def hkej_docker_logs(
+    follow: bool = typer.Option(False, "--follow/-f", help="Follow log output"),
+) -> None:
+    """Show the Camoufox container logs (useful to see the WS endpoint / errors)."""
+    import subprocess
+
+    container = _safe_name(settings().hkej_docker_container, "container")
+    args = ["--follow"] if follow else []
+    try:
+        subprocess.run(["docker", "logs", container, *args], check=False, shell=False)
+    except FileNotFoundError:
+        print("[red]docker not found on PATH[/red]")
+
+
 @hkej_app.command("scrape-author")
 def hkej_scrape_author(
     handle: str = typer.Argument(..., help="Author handle, e.g. 李聲揚"),
     limit: int = typer.Option(0, help="Max new articles to fetch (0 = all)"),
     keep_browser: bool = typer.Option(
         False,
-        help="Leave browser open after scrape (one-off mode only)",
+        help="Leave browser open after scrape (local one-off mode only)",
     ),
     login_wait_minutes: int = typer.Option(
         15, help="Minutes to wait for you to log in at the start",
@@ -585,33 +1059,56 @@ def hkej_scrape_author(
     use_daemon: bool = typer.Option(
         True,
         "--daemon/--no-daemon",
-        help="Reuse persistent browser (kb hkej browser start)",
+        help="Reuse persistent browser (kb hkej browser start) — local mode only",
+    ),
+    browser_mode: str = typer.Option(
+        None,
+        "--browser-mode",
+        help="docker|local (default: HKEJ_BROWSER_MODE from .env, =docker)",
+    ),
+    login: str = typer.Option(
+        None,
+        "--login",
+        help="auto|manual (default: HKEJ_LOGIN_MODE from .env). "
+        "auto fills the form from HKEJ_USER/HKEJ_PASS; manual waits for you",
     ),
 ) -> None:
-    """Scrape articles for one author — reuses open browser when daemon is running."""
+    """Scrape articles for one author — Docker browser by default."""
+    from .config import settings
     from .scrapers.hkej import HKEJScraper
-    from .scrapers.hkej_daemon import (
-        is_daemon_alive,
-        start_daemon_process,
-        wait_for_daemon,
-    )
     from . import ingest as ingest_mod
 
-    if use_daemon and not is_daemon_alive():
+    mode = browser_mode or settings().hkej_browser_mode
+
+    if mode == "docker":
         print(
-            "\n[bold]Starting browser daemon[/bold] "
-            "(complete Cloudflare + login once; window stays open)\n"
+            "\n[bold]HKEJ scrape (Docker mode)[/bold] — connecting to the Camoufox container\n"
+            "  If Cloudflare/login needs a human, complete it in the noVNC window:\n"
+            f"  [bold]http://localhost:{settings().hkej_docker_novnc_port}[/bold]\n"
+            "  (start it first with [bold]kb hkej docker up[/bold] if not running)\n"
         )
-        start_daemon_process(login_wait_minutes=login_wait_minutes)
-        if not asyncio.run(wait_for_daemon(120.0)):
-            print(
-                "[red]Browser daemon did not become ready in 2 minutes.[/red]\n"
-                "  Complete Cloudflare/login in the Camoufox window, then retry.\n"
-                "  Or run: [bold]kb hkej browser start[/bold] first."
-            )
-            raise typer.Exit(1)
     elif use_daemon:
-        print("\n[dim]Using persistent browser session (no Cloudflare redo).[/dim]\n")
+        from .scrapers.hkej_daemon import (
+            is_daemon_alive,
+            start_daemon_process,
+            wait_for_daemon,
+        )
+
+        if not is_daemon_alive():
+            print(
+                "\n[bold]Starting browser daemon[/bold] "
+                "(complete Cloudflare + login once; window stays open)\n"
+            )
+            start_daemon_process(login_wait_minutes=login_wait_minutes)
+            if not asyncio.run(wait_for_daemon(120.0)):
+                print(
+                    "[red]Browser daemon did not become ready in 2 minutes.[/red]\n"
+                    "  Complete Cloudflare/login in the Camoufox window, then retry.\n"
+                    "  Or run: [bold]kb hkej browser start[/bold] first."
+                )
+                raise typer.Exit(1)
+        else:
+            print("\n[dim]Using persistent browser session (no Cloudflare redo).[/dim]\n")
     else:
         print(
             "\n[bold]HKEJ scrape[/bold] — one browser: prime → login → fetch\n"
@@ -628,6 +1125,8 @@ def hkej_scrape_author(
             keep_browser_open=keep_browser,
             login_wait_sec=login_wait_minutes * 60,
             use_daemon=use_daemon,
+            browser_mode=mode,
+            login_mode=login,
         )
     )
     s = sc.last_stats
@@ -757,8 +1256,25 @@ def master_insight_add_author(
     if not handle:
         print("[red]Author slug cannot be empty.[/red]")
         raise typer.Exit(1)
+    # slug-only chars: keeps the handle from altering the URL's
+    # scheme/host/path below (no '/', ':', '?', etc.)
+    if not _re.fullmatch(r"[A-Za-z0-9._-]+", handle):
+        print("[red]Author slug may only contain letters, digits, '.', '_', '-'[/red]")
+        raise typer.Exit(1)
+
+    # slug-only chars: keeps the handle from altering the URL's
+    # scheme/host/path below (no '/', ':', '?', etc.)
+    if not _re.fullmatch(r"[A-Za-z0-9._-]+", handle):
+        print("[red]Author slug may only contain letters, digits, '.', '_', '-'[/red]")
+        raise typer.Exit(1)
 
     disc_url = f"https://www.master-insight.com/author/{handle}"
+    # SSRF guard: this CLI fetch only ever hits the fixed Master Insight
+    # origin — scheme + host are pinned and the slug is charset-validated.
+    _parsed = urllib.parse.urlsplit(disc_url)
+    if _parsed.scheme != "https" or _parsed.netloc != "www.master-insight.com":
+        print("[red]Refusing to fetch an unexpected origin.[/red]")
+        raise typer.Exit(1)
 
     import httpx
     from bs4 import BeautifulSoup
@@ -771,7 +1287,9 @@ def master_insight_add_author(
     name = handle
     try:
         print(f"Resolving author name for '{handle}' from {disc_url}...")
-        r = httpx.get(disc_url, headers=headers, follow_redirects=True, timeout=15.0, verify=False)
+        with httpx.Client(timeout=15.0,
+                          headers=headers, follow_redirects=True) as client:
+            r = client.get(disc_url)
         if r.status_code == 200:
             soup = BeautifulSoup(r.text, "lxml")
             author_a = soup.select_one(".r2-box .author a")

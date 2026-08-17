@@ -1,4 +1,4 @@
-"""FastAPI app: search, items, leaderboard."""
+"""FastAPI app: search, items, predictions, leaderboard, market data."""
 from __future__ import annotations
 
 from typing import Any
@@ -6,10 +6,11 @@ from typing import Any
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from sqlalchemy import bindparam, text
 
-from ..config import settings
+from ..config import ROOT, settings
 from ..db import engine
 
 app = FastAPI(title="KB API", version="0.1.0")
@@ -204,6 +205,14 @@ def dashboard() -> dict[str, Any]:
             GROUP BY s.id, s.code, s.name, s.kind, sp.last_scrape_at
             ORDER BY s.name
         """)).mappings().all()
+        ptot = dict(c.execute(text("""
+            SELECT COUNT(*) AS n_calls,
+                   COUNT(p.score) AS n_scored,
+                   COUNT(DISTINCT p.speaker) FILTER (
+                       WHERE p.speaker IS NOT NULL AND p.speaker <> '') AS n_speakers
+            FROM prediction p JOIN item i ON i.id = p.item_id
+            WHERE p.extraction_run_id = i.primary_extraction_run_id
+        """)).mappings().one())
     sources_list = []
     for r in rows:
         d = dict(r)
@@ -222,6 +231,9 @@ def dashboard() -> dict[str, Any]:
         "n_extract_error":    sum(r["n_extract_error"] for r in sources_list),
         "n_pending_download": sum(r["n_pending_download"] for r in sources_list),
         "n_no_transcript":    sum(r["n_no_transcript"] for r in sources_list),
+        "n_predictions":      ptot["n_calls"],
+        "n_scored":           ptot["n_scored"],
+        "n_speakers":         ptot["n_speakers"],
     }
     return {"sources": sources_list, "totals": totals}
 
@@ -340,7 +352,15 @@ def get_item(item_id: int, run_id: int | None = None) -> dict[str, Any]:
             {"i": item_id, "r": effective_run_id}).mappings()]
         item["predictions"] = _consolidate_predictions(
             [dict(r) for r in conn.execute(text(
-                "SELECT * FROM prediction WHERE item_id=:i AND extraction_run_id=:r ORDER BY id"),
+                """SELECT id, speaker, ticker, asset_name, action,
+                          target_price::float8 AS target_price,
+                          stop_price::float8 AS stop_price,
+                          direction, timeframe, quote, made_at,
+                          price_at_call::float8 AS price_at_call,
+                          price_at_eval::float8 AS price_at_eval,
+                          eval_at, score
+                   FROM prediction WHERE item_id=:i AND extraction_run_id=:r
+                   ORDER BY id"""),
                 {"i": item_id, "r": effective_run_id}).mappings()])
         item["extraction_runs"] = [dict(r) for r in conn.execute(text("""
             SELECT id, provider, model, status, duration_ms
@@ -419,30 +439,92 @@ def list_items(source: list[str] | None = Query(None),
 
 @app.get("/api/predictions")
 def predictions(ticker: str | None = None,
+                speaker: str | None = Query(
+                    None, description="Substring match on speaker, case-insensitive"),
                 channel_id: int | None = None,
-                limit: int = 100) -> list[dict[str, Any]]:
+                direction: str | None = Query(
+                    None, description="up | down | flat | unspecified"),
+                scored: bool | None = Query(
+                    None, description="true = only rows evaluated against prices, "
+                                      "false = only unscored"),
+                date_from: str | None = Query(None, description="YYYY-MM-DD on made_at, inclusive"),
+                date_to: str | None = Query(None, description="YYYY-MM-DD on made_at, inclusive"),
+                order: str = Query("recent", description="recent | score_desc | score_asc"),
+                all_runs: bool = Query(
+                    False, description="Include non-primary extraction runs "
+                                       "(provider-comparison rows) instead of just the "
+                                       "canonical extraction"),
+                limit: int = 50,
+                offset: int = 0) -> dict[str, Any]:
+    """Flat prediction rows with item/channel context. Defaults to the items'
+    canonical (primary) extraction runs and newest-first ordering."""
+    limit = max(1, min(limit, MAX_PAGE_SIZE))
+    offset = max(0, offset)
+    clauses: list[str] = []
+    params: dict[str, Any] = {}
+    if not all_runs:
+        clauses.append("p.extraction_run_id = i.primary_extraction_run_id")
+    if ticker:
+        clauses.append("p.ticker = :ticker")
+        params["ticker"] = ticker.strip().upper()
+    if speaker:
+        clauses.append("p.speaker ILIKE :speaker_pat")
+        params["speaker_pat"] = f"%{speaker.strip()}%"
+    if channel_id is not None:
+        clauses.append("i.channel_id = :cid")
+        params["cid"] = channel_id
+    if direction:
+        clauses.append("p.direction = :dir")
+        params["dir"] = direction
+    if scored is not None:
+        clauses.append("p.score IS NOT NULL" if scored else "p.score IS NULL")
+    if date_from:
+        clauses.append("p.made_at >= CAST(:date_from AS date)")
+        params["date_from"] = date_from
+    if date_to:
+        clauses.append("p.made_at < (CAST(:date_to AS date) + INTERVAL '1 day')")
+        params["date_to"] = date_to
+    where_sql = ("WHERE " + " AND ".join(clauses)) if clauses else ""
+    order_sql = {
+        "recent": "p.made_at DESC NULLS LAST, p.id DESC",
+        "score_desc": "p.score DESC NULLS LAST, p.made_at DESC NULLS LAST",
+        "score_asc": "p.score ASC NULLS LAST, p.made_at DESC NULLS LAST",
+    }.get(order, "p.made_at DESC NULLS LAST, p.id DESC")
+    base = ("FROM prediction p JOIN item i ON i.id=p.item_id "
+            "LEFT JOIN channel c ON c.id=i.channel_id ")
     with engine().connect() as conn:
-        rows = conn.execute(text("""
-            SELECT p.*, i.title AS item_title, i.url AS item_url,
+        total = conn.execute(text(f"SELECT COUNT(*) {base}{where_sql}"),
+                             params).scalar() or 0
+        rows = conn.execute(text(f"""
+            SELECT p.id, p.item_id, p.extraction_run_id, p.speaker, p.ticker,
+                   p.asset_name, p.action, p.direction,
+                   p.target_price::float8 AS target_price,
+                   p.stop_price::float8 AS stop_price,
+                   p.timeframe, p.quote, p.made_at,
+                   p.price_at_call::float8 AS price_at_call,
+                   p.price_at_eval::float8 AS price_at_eval,
+                   p.eval_at, p.score,
+                   i.title AS item_title, i.url AS item_url,
                    c.handle AS channel, c.name AS channel_name
-            FROM prediction p JOIN item i ON i.id=p.item_id
-            LEFT JOIN channel c ON c.id=i.channel_id
-            WHERE (CAST(:t AS text) IS NULL OR p.ticker=:t)
-              AND (CAST(:cid AS integer) IS NULL OR i.channel_id=:cid)
-            ORDER BY p.made_at DESC NULLS LAST LIMIT :lim
-        """), {"t": ticker, "cid": channel_id, "lim": limit}).mappings().all()
-    return [dict(r) for r in rows]
+            {base}{where_sql}
+            ORDER BY {order_sql}
+            LIMIT :lim OFFSET :off
+        """), {**params, "lim": limit, "off": offset}).mappings().all()
+    return {"items": [dict(r) for r in rows], "total": total,
+            "limit": limit, "offset": offset}
 
 
 @app.get("/api/leaderboard")
 def leaderboard(weeks: int = 12,
                 date_from: str | None = Query(None, description="YYYY-MM-DD, inclusive"),
                 date_to: str | None = Query(None, description="YYYY-MM-DD, inclusive")) -> dict[str, Any]:
-    """Weekly + overall channel scoring. By default `weeks` limits the weekly
-    series to the last N weeks (the overall table is all-time). Supplying
-    `date_from` and/or `date_to` overrides the weeks window with an explicit
-    inclusive range: applied to `leaderboard_weekly.week_start` for the weekly
-    series and to `item.published_at` for the overall aggregate."""
+    """Weekly + overall channel scoring, plus the speaker (interviewee/
+    author) leaderboard. By default `weeks` limits the weekly series to the
+    last N weeks (the overall tables are all-time). Supplying `date_from`
+    and/or `date_to` overrides the weeks window with an explicit inclusive
+    range: applied to `leaderboard_weekly.week_start` for the weekly series
+    and to `item.published_at` for the overall aggregate. All aggregates use
+    the items' canonical (primary) extraction runs only."""
     has_range = bool(date_from or date_to)
     with engine().connect() as conn:
         if has_range:
@@ -483,6 +565,7 @@ def leaderboard(weeks: int = 12,
             "FROM channel c JOIN source s ON s.id=c.source_id "
             "LEFT JOIN item i ON i.channel_id=c.id "
             "LEFT JOIN prediction p ON p.item_id=i.id "
+            "AND p.extraction_run_id = i.primary_extraction_run_id "
         )
         overall_tail = (
             " GROUP BY c.id, s.code "
@@ -504,7 +587,19 @@ def leaderboard(weeks: int = 12,
         else:
             overall = [dict(r) for r in conn.execute(
                 text(overall_base + overall_tail)).mappings()]
-    return {"weekly": weekly, "overall": overall}
+
+        # Speaker rollup (precomputed by `kb leaderboard rebuild`).
+        speakers = [dict(r) for r in conn.execute(text("""
+            SELECT ls.speaker, ls.n_calls, ls.n_scored, ls.avg_score,
+                   ls.hit_rate, ls.last_call_at, ls.main_channel_id,
+                   c.handle AS main_channel_handle,
+                   c.name AS main_channel_name, s.code AS source
+            FROM leaderboard_speaker ls
+            LEFT JOIN channel c ON c.id = ls.main_channel_id
+            LEFT JOIN source s ON s.id = c.source_id
+            ORDER BY ls.avg_score DESC NULLS LAST
+        """)).mappings()]
+    return {"weekly": weekly, "overall": overall, "speakers": speakers}
 
 
 @app.get("/api/models/leaderboard")
@@ -530,6 +625,26 @@ def models_leaderboard() -> dict[str, Any]:
     return {"overall": overall, "by_channel": by_channel}
 
 
+@app.get("/api/market/tickers")
+def market_tickers() -> list[dict[str, Any]]:
+    """Ticker directory: every ticker referenced by an extracted prediction,
+    with call counts, scores, and price-store coverage/sync status."""
+    from .. import marketdata
+    return marketdata.ticker_stats()
+
+
+@app.get("/api/market/prices")
+def market_prices(ticker: str = Query(..., description="e.g. GC=F, ^GSPC, AAPL"),
+                  date_from: str | None = Query(None, description="YYYY-MM-DD"),
+                  date_to: str | None = Query(None, description="YYYY-MM-DD"),
+                  limit: int = Query(400, description="Max points (downsampled)")) -> dict[str, Any]:
+    """Daily close series from the price store, for sparklines."""
+    from .. import marketdata
+    pts = marketdata.series(ticker.strip().upper(), date_from, date_to,
+                            max_points=max(50, min(limit, 2000)))
+    return {"ticker": ticker.strip().upper(), "points": pts}
+
+
 @app.get("/api/items/{item_id}/raw")
 def raw_md(item_id: int) -> FileResponse:
     with engine().connect() as conn:
@@ -538,6 +653,24 @@ def raw_md(item_id: int) -> FileResponse:
     if not row or not row[0]:
         raise HTTPException(404)
     return FileResponse(row[0], media_type="text/markdown")
+
+
+# --- Static frontend (built SPA) -------------------------------------------
+# Serve frontend/dist when present so `kb api` is a one-command local
+# deployment: /api/* routes above win (registered first), /assets is a real
+# static mount, and everything else falls back to index.html for SPA
+# routing. Without a dist/ the app stays API-only (dev uses the Vite proxy).
+_DIST = ROOT / "frontend" / "dist"
+if (_DIST / "index.html").is_file():
+    if (_DIST / "assets").is_dir():
+        app.mount("/assets", StaticFiles(directory=_DIST / "assets"), name="assets")
+
+    @app.get("/{full_path:path}", include_in_schema=False)
+    def spa(full_path: str) -> FileResponse:
+        target = (_DIST / full_path).resolve() if full_path else None
+        if target and target.is_file() and _DIST.resolve() in target.parents:
+            return FileResponse(target)
+        return FileResponse(_DIST / "index.html")
 
 
 def main() -> None:

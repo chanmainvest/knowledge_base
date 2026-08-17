@@ -79,6 +79,16 @@ class ProxyPool:
                      "-o", "ServerAliveCountMax=2",
                      "-o", "TCPKeepAlive=yes",
                      "-o", "ConnectTimeout=10",
+                     # The container stages the host known_hosts, but a Windows
+                     # bind-mount can leave it CRLF-corrupted / missing some
+                     # aliases (e.g. horace.org is known only as [horace.org]:7822),
+                     # which makes ssh refuse with "Host key verification failed"
+                     # — silently killing every tunnel and forcing yt-dlp direct
+                     # (which YouTube 429s). accept-new auto-trusts first
+                     # connections to these user-owned servers and writes to the
+                     # per-container known_hosts, while still rejecting an actual
+                     # key CHANGE (MITM protection retained).
+                     "-o", "StrictHostKeyChecking=accept-new",
                      host],
                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
                     # Put ssh in its own process group so Ctrl-C / SIGINT on the

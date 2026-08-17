@@ -34,7 +34,10 @@ Short items (the common case) are a single chunk.
 
 ### The prompt
 
-Every chunk is sent with the same fixed `SYSTEM` prompt:
+Every chunk is sent with the same fixed system prompt, which lives in
+`src/kb/prompts/extraction/<version>/system.md` (markdown with a YAML
+front-matter header; the body after the header is the prompt text — see
+"Prompt/schema versions" below). The v1 body reads:
 
 > "You are a careful financial analyst. From a transcript or article,
 > extract: (1) the speaker/author's broad market views, (2) any specific
@@ -48,7 +51,8 @@ there is no per-channel customization.
 
 ### The schema
 
-The LLM must return one JSON object matching a fixed schema (`extract.SCHEMA`):
+The LLM must return one JSON object matching a fixed schema
+(`src/kb/prompts/extraction/<version>/schema.json`):
 
 - `summary` (string) — one-shot summary, only kept from the *first* chunk.
 - `speakers` (string[]).
@@ -68,6 +72,45 @@ is no de-duplication across chunks, and only chunk 0's `summary` survives.
 This means the same ticker can show up as several flat `prediction` rows for
 one item (one per quote, possibly one per chunk). Those duplicate rows are
 consolidated at read time — see "Within-article consolidation" below.
+
+### Prompt/schema versions (file registry)
+
+The prompt and its JSON schema are versioned together as a **pair of files**
+under `src/kb/prompts/extraction/` — never as constants in `extract.py`:
+
+```text
+src/kb/prompts/extraction/
+  v1/
+    system.md     # YAML front-matter (version, name) + prompt body
+    schema.json   # the JSON Schema for chat_json structured output
+```
+
+The directory name is the version. It is exactly what lands in
+`extraction_run.prompt_version`, so runs made under different versions are
+distinct rows (the table's unique key is item/provider/model/prompt_version)
+and never overwrite each other. The loader (`src/kb/prompts.py`) enforces
+that the front-matter `version:` field matches the directory name, so a
+copy-pasted directory can't silently mis-tag runs.
+
+**To iterate on a prompt or schema:** copy the newest version directory to
+the next name (`v1` → `v2`), edit `system.md`/`schema.json`, and re-run.
+New runs pick up the new version automatically — the default is the highest
+version present — while old runs and their persisted predictions stay
+untouched. Pin the default with `EXTRACTION_PROMPT_VERSION` in `.env` (e.g.
+stay on `v1` while testing `v2`), or override per invocation with
+`--prompt-version`. `kb extract prompts` lists the registered versions.
+Because `kb extract run` only picks `extraction_status='pending'` items, A/B
+testing the *same* items under a new version is done with
+`kb extract compare` (never promotes to primary) or by flipping chosen items
+back to `'pending'`.
+
+Caveat for schema changes: `_persist()` copies the aggregated output into
+the fixed `view_market`/`prediction`/`item_speaker`/`item_entity` tables.
+Tightening or re-describing the schema needs no DB change (extra fields
+simply aren't inserted; the full raw output is always kept in
+`extraction_run.raw_response` JSONB). New fields you want *queryable*
+require extending `docker/postgres/init.sql` (`ADD COLUMN IF NOT EXISTS`), a
+matching numbered `migrations/NNN_*.sql`, and the inserts in `_persist()`.
 
 ### Persistence
 
@@ -113,31 +156,53 @@ raw rows. This is distinct from Part 2 proposal #6, which concerns
 
 ### Scoring — turning a call into a number
 
-`leaderboard.score_prediction()` (`src/kb/leaderboard.py`) is what actually
-judges whether a call was "right":
+`leaderboard.score_all()` (`src/kb/leaderboard.py`) is what actually judges
+whether a call was "right". Prices come from the **market-data price store**
+(`asset_price`, filled in bulk by `kb market sync` / `src/kb/marketdata.py`)
+— scoring itself never touches the network:
 
 1. **Horizon**: mapped from the free-text `timeframe` string to a fixed
    number of days — `day→7`, `week→14`, `month`/`quarter→90`, `year→365`,
    anything unparsed → `90`. This is a coarse heuristic; "3 months" and
    "next quarter" both collapse to 90 days regardless of the author's actual
    wording.
-2. **Prices**: `yfinance` daily close on/after `made_at` (the item's
-   published date) and on/after `made_at + horizon` (or "now" if the horizon
-   hasn't elapsed yet).
-3. **Sign**: `+1` if `direction=='up'` or `action in {buy, long}`; `-1` if
-   `direction=='down'` or `action in {short, sell}`; **`0` (neutral) for
-   everything else** — including `hold`, `watch`, `avoid`, `none`, or an
-   empty/ambiguous direction.
+2. **Prices**: cached daily close on/after `made_at` (the item's published
+   date) and on/after `min(now, made_at + horizon)`. Calls whose horizon
+   hasn't elapsed score against the latest close and keep refreshing on
+   later rebuilds until the horizon passes and the score freezes
+   (`_final()` skips frozen rows, so incremental rebuilds are cheap).
+3. **Sign**: `+1` if `direction=='up'` or `action in {buy, long, cover}`;
+   `-1` if `direction=='down'` or `action in {short, sell, avoid}`; `0`
+   (neutral) for everything else — `hold`, `watch`, `none`, or an
+   empty/ambiguous direction. **Neutral quotes are not forecasts and are
+   left `score = NULL`** (previously they were scored `0.0`, dragging every
+   average toward zero and inflating `n_scored`).
 4. **Score**: `sign * ((price_eval - price_call) / price_call) * 5`, clamped
    to `[-1, +1]` — i.e. a ±20% move earns the maximum score.
-5. Calls with no `ticker`, no `made_at`, or unresolvable prices are left
+5. Calls with no `ticker`, no `made_at`, or no cached prices are left
    `score = NULL` (excluded from averages, not counted as failures).
+   Tickers Yahoo doesn't know (LLM-hallucinated symbols) are recorded in
+   `asset_ticker` with `status='no_data'` and retried at most weekly.
 
-`leaderboard.rebuild()` then rolls per-item scores up into
-`leaderboard_weekly` (per channel, per ISO week: `n_calls`, `n_scored`,
-`avg_score`, `hit_rate` = fraction of scored calls with `score > 0`), and the
-API's `/api/leaderboard` also computes an all-time `overall` rollup the same
-way.
+`kb leaderboard rebuild` (nightly Jenkins stage) then:
+- rolls scores up into `leaderboard_weekly` (per channel, per ISO week) and
+  the API's `/api/leaderboard` `overall` rollup (live, same aggregates),
+- rolls up per **speaker** into `leaderboard_speaker` — the interviewee/
+  author behind the call, scored across every channel they appear on, with
+  their most-frequent channel attached,
+- rolls up per provider/model into `provider_model_leaderboard` (all runs,
+  deliberately, since comparing extractions of the same article is the
+  point).
+
+Channel and speaker rollups count **primary extraction runs only** so a
+provider-comparison run can't double-count the same call; `/api/predictions`
+defaults to primary-run rows too (`?all_runs=true` opts into raw).
+
+`kb market sync` discovers tickers from the `prediction` table, fetches them
+in batched `yf.download()` calls (40/batch, 2 s pause), upserts into
+`asset_price`, and tracks per-ticker sync state in `asset_ticker` — so
+incremental runs only top up the recent tail. `kb market status` shows
+per-ticker coverage.
 
 ### What you could see today (before this change)
 
@@ -218,11 +283,11 @@ far; the ideas below are documented for prioritization, not yet built.
    confidence is not informative").
 
 4. **Penalize/segregate vague calls instead of scoring them as neutral 0.**
-   Track `n_vague` (action in `hold|watch|none|avoid`, or empty direction)
-   as its own metric, separate from `avg_score`. Report "hit rate among
-   *actionable* calls" alongside "% of calls that were non-committal" so a
-   channel that mostly hedges doesn't get an artificially inflated
-   (or deflated) score just by avoiding a stance.
+   **Now implemented (simplified):** neutral quotes (hold/watch/none/empty
+   direction) are excluded from scoring entirely (`score = NULL`) instead of
+   being written as `0.0`. The remaining piece — surfacing `n_vague` as its
+   own "% of calls that were non-committal" metric on the channel report
+   card — is still open.
 
 5. **Volume-normalized / confidence-interval leaderboard.**
    Rank channels by a lower confidence bound (e.g. Wilson interval on
@@ -326,10 +391,11 @@ that item — the one the frontend, `/api/items/<id>`, and the per-channel
 `leaderboard_weekly` rollup use by default. Plain `kb extract run` always
 promotes its result to primary (preserving the old single-version
 behavior); `kb extract compare` never does, so exploratory runs can't
-disturb the item's canonical reading. `PROMPT_VERSION` (currently `"v1"`,
-in `extract.py`) should be bumped whenever `SYSTEM`/`SCHEMA` change
-materially, so old and new prompt outputs for the same provider/model are
-kept as distinct, comparable rows instead of one being silently discarded.
+disturb the item's canonical reading. When the prompt or schema changes,
+add a new version directory under `src/kb/prompts/extraction/` (see
+"Prompt/schema versions" above) so old and new prompt outputs for the same
+provider/model are kept as distinct, comparable rows instead of one being
+silently discarded.
 
 **Bug fix included in this change**: a failed extraction now sets
 `item.extraction_status='error'` and `item.extraction_error` — previously
@@ -361,12 +427,23 @@ model-accuracy leaderboard, not just an author leaderboard.
 # Extract with a specific provider/model instead of the .env default:
 uv run kb extract run --limit 50 --provider anthropic --model claude-sonnet-4-5
 
+# Extract with a specific prompt/schema version (default: highest present
+# under src/kb/prompts/extraction/, or EXTRACTION_PROMPT_VERSION from .env):
+uv run kb extract run --limit 50 --prompt-version v1
+
 # Run one item through several providers side by side, without touching
 # its existing primary/canonical extraction:
 uv run kb extract compare 133703 --providers openai,github,anthropic,zai
 
+# Compare two models of the same provider (repeat the provider, one model
+# per entry):
+uv run kb extract compare 133703 --providers zai,zai --model glm-4.6,glm-5.3
+
+# List the registered prompt/schema versions (and which is the default):
+uv run kb extract prompts
+
 # List every extraction attempt recorded for an item (provider, model,
-# status, view/prediction counts, timing, and which one is primary):
+# prompt_version, status, view/prediction counts, timing, which is primary):
 uv run kb extract runs 133703
 
 # Cross-model rollup (also refreshed by the normal leaderboard rebuild):

@@ -18,5 +18,65 @@ services:
       timeout: 5s
       retries: 10
 
+  # Camoufox anti-detect browser for the HKEJ scraper (HKEJ sits behind
+  # Cloudflare). The default HKEJ browser mode (HKEJ_BROWSER_MODE=docker)
+  # connects to this container's Playwright WS endpoint. noVNC is on by default
+  # so you can solve interactive Cloudflare challenges / log in through a web
+  # browser at http://localhost:7900. Build once: docker compose build camoufox.
+  camoufox:
+    build: ./docker/camoufox
+    image: ${HKEJ_DOCKER_IMAGE:-kb-camoufox:latest}
+    container_name: ${HKEJ_DOCKER_CONTAINER:-kb_camoufox}
+    restart: unless-stopped
+    environment:
+      CAMOUFOX_NOVNC: ${HKEJ_DOCKER_NOVNC:-1}
+      CAMOUFOX_WS_PATH: hkej
+      CAMOUFOX_PORT: 9222
+    ports:
+      - "${HKEJ_CAMOUFOX_PORT:-9222}:9222"
+      - "${HKEJ_DOCKER_NOVNC_PORT:-7900}:7900"
+
+  # Runtime image for the `kb` CLI. The nightly Jenkins pipeline (and any
+  # `docker compose run --rm kb <cmd>`) uses this — the Jenkins container has no
+  # Python/uv/Playwright/yt-dlp, so it shells out to this image instead. The
+  # container mounts the host data/ dir (scraped markdown, raw HTML, and the
+  # HKEJ/Patreon/Substack session-cookie files) and reaches the host's Postgres
+  # via POSTGRES_HOST_DOCKER (host.docker.internal on Docker Desktop). It is a
+  # one-shot runner: no ports, no restart policy. Build once:
+  #   docker compose build kb
+  kb:
+    build: .
+    image: kb:latest
+    env_file: .env
+    environment:
+      # Override POSTGRES_HOST (localhost in .env) so the container resolves the
+      # host's DB. host.docker.internal is Docker Desktop's host alias on Win/Mac.
+      POSTGRES_HOST: ${POSTGRES_HOST_DOCKER:-host.docker.internal}
+      # The HKEJ scraper connects to the camoufox WS endpoint on the host port.
+      HKEJ_CAMOUFOX_ENDPOINT: ${HKEJ_CAMOUFOX_ENDPOINT:-ws://host.docker.internal:9222/hkej}
+    volumes:
+      # Scraped markdown + raw HTML + per-source session cookies live here.
+      # The source must be an ABSOLUTE HOST path (DATA_DIR_HOST in .env) when
+      # Jenkins runs this compose: a relative ./data is resolved by the Docker
+      # daemon inside the Docker Desktop VM — a different filesystem from the
+      # Jenkins container's /work bind — so the daemon silently created an
+      # orphan dir there and every nightly scrape vanished into the VM
+      # (rescued 2026-08-14). /host_mnt/<drive>/... is the Docker Desktop
+      # in-VM alias for a Windows drive; the ./data default keeps plain local
+      # `docker compose run kb` working without any .env entry.
+      - ${DATA_DIR_HOST:-./data}:/app/data
+      # Log files (LOG_DIR = repo root /logs). Same absolute-host-path rule.
+      - ${LOGS_DIR_HOST:-./logs}:/app/logs
+      # Host SSH dir (config + keys) for the YouTube SOCKS5 proxy pool. Uses
+      # the SSH_KEY_DIR var from .env — an ABSOLUTE host path — never ${HOME}:
+      # when Jenkins (HOME=/var/jenkins_home) runs `docker compose`, a ${HOME}
+      # source resolves to a nonexistent path and Docker mounts an empty dir,
+      # silently killing every tunnel. Mounted read-only to /ssh-staging (NOT
+      # /root/.ssh): the entrypoint copies it to /root/.ssh with strict perms
+      # on each start, because a Windows bind-mount leaves files world-writable
+      # (0777) and SSH then refuses to read them ("Bad owner or permissions").
+      - ${SSH_KEY_DIR}:/ssh-staging:ro
+    # No ports (one-shot runner), no restart policy.
+
 volumes:
   kb_pgdata:

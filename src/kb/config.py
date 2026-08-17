@@ -94,7 +94,7 @@ class Settings(BaseSettings):
     # ---- zai (Z.ai / Zhipu GLM, OpenAI-compatible endpoint) ----
     zai_api_key: str = ""
     zai_base_url: str = "https://api.z.ai/api/paas/v4"
-    zai_model: str = "glm-4.6"
+    zai_model: str = "glm-5.3"
     zai_embedding_model: str = "embedding-3"
 
     # ---- LLM retry / rate-limit backoff ----
@@ -105,6 +105,12 @@ class Settings(BaseSettings):
     # other transient errors, up to llm_max_retries attempts.
     llm_max_retries: int = 8
     llm_rate_limit_pause_sec: int = 20
+
+    # ---- Extraction prompt/schema versioning ----
+    # Pin the extraction prompt+schema version (directory name under
+    # src/kb/prompts/extraction/). Empty = always use the highest version
+    # present, so adding a new version dir adopts it on the next run.
+    extraction_prompt_version: str = ""
 
     # Postgres
     postgres_host: str = "localhost"

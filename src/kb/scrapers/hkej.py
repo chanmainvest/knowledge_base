@@ -1,13 +1,23 @@
 """HKEJ Wealth Management author scraper.
 
-Improvements over the previous version:
-- Logs in once via Playwright, persists ``storage_state`` to a JSON file, and
-  reuses it across ``discover`` and every ``fetch`` call so we don't re-login
-  per article.
-- Tries multiple known HKEJ login endpoints since the site has redirected
-  several times in recent years.
-- Confirms login by reloading the homepage and looking for the logout link
-  (or the absence of the login button).
+HKEJ sits behind Cloudflare, so every request must go through a real (anti-
+detect) browser. Two launch modes are supported, selected by
+``HKEJ_BROWSER_MODE``:
+
+- ``docker`` (default): the browser runs in a Docker container exposing a
+  Playwright WebSocket endpoint (``HKEJ_CAMOUFOX_ENDPOINT``). Each scrape
+  connects over WS, restores the saved ``storage_state`` (cookies) from
+  ``data/hkej/.browser_state.json`` so we don't re-login every run, scrapes,
+  then writes the state back and disconnects. This mirrors how the Substack
+  and Patreon scrapers persist a single cookie across runs.
+- ``local``: an on-host Camoufox is driven directly, kept warm across runs by
+  the long-lived daemon (``kb hkej browser start``).
+
+Login is normally automatic: when ``HKEJ_USER``/``HKEJ_PASS`` are set and
+``HKEJ_LOGIN_MODE=auto`` (the default), the subscribe.hkej.com form is filled
+and submitted for you. Set ``HKEJ_LOGIN_MODE=manual`` to always wait for a
+human to click 登入 (e.g. when Cloudflare's interactive challenge must be
+solved in the noVNC window at http://localhost:7900).
 - Folder layout on disk uses the *author name* (slugified).
 """
 from __future__ import annotations
@@ -47,6 +57,10 @@ HKEJ_UA = (
     "AppleWebKit/537.36 (KHTML, like Gecko) "
     "Chrome/126.0.0.0 Safari/537.36"
 )
+# SESSION_STATE_PATH (.browser_state.json) is the canonical Playwright
+# storage_state file: cookies + localStorage. It is read back on cold starts
+# (see _load_storage_state) so we don't re-login every run, and written on
+# teardown/after login. STATE_PATH (.auth_state.json) is kept as a legacy alias.
 STATE_PATH = DATA_DIR / "hkej" / ".auth_state.json"
 BROWSER_PROFILE_DIR = DATA_DIR / "hkej" / ".browser_profile"
 SESSION_STATE_PATH = DATA_DIR / "hkej" / ".browser_state.json"
@@ -54,6 +68,21 @@ SESSION_STATE_PATH = DATA_DIR / "hkej" / ".browser_state.json"
 _PAGE_SETTLE_SEC = 2.0
 _BETWEEN_PAGES_SEC = 1.5
 _BETWEEN_AUTHORS_SEC = 2.0
+
+
+def _load_storage_state() -> dict | None:
+    """Read the persisted Playwright ``storage_state`` (cookies + localStorage).
+
+    Returns ``None`` when there is no usable state — callers should then start
+    a fresh (logged-out) context. Errors are swallowed so a corrupt file never
+    blocks a scrape; it just forces a re-login.
+    """
+    if not SESSION_STATE_PATH.exists():
+        return None
+    try:
+        return json.loads(SESSION_STATE_PATH.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
 
 
 def _author_dir_slug(author: dict) -> str:
@@ -147,7 +176,13 @@ class HKEJScraper(BaseScraper):
 
     @asynccontextmanager
     async def _raw_browser_session(self, *, keep_open: bool | None = None):
-        """Persistent Camoufox window; optional keep-open until user closes it."""
+        """Persistent on-host Camoufox window; optional keep-open until user closes it.
+
+        This is the *local* launch path (``HKEJ_BROWSER_MODE=local``). The
+        persistent profile dir carries cookies across runs; on a cold start we
+        also seed cookies from the saved storage_state JSON as belt-and-suspenders
+        (helps when the profile was wiped/locked). State is written back on exit.
+        """
         from camoufox.async_api import AsyncCamoufox
 
         keep_open = self._keep_browser_open if keep_open is None else keep_open
@@ -171,6 +206,7 @@ class HKEJScraper(BaseScraper):
             disable_coop=True,
             i_know_what_im_doing=True,
         ) as context:
+            await self._seed_cookies_from_state(context)
             page = context.pages[0] if context.pages else await context.new_page()
             try:
                 yield page
@@ -190,10 +226,81 @@ class HKEJScraper(BaseScraper):
                 except Exception as exc:
                     self.log.debug("save browser state: %s", exc)
 
+    async def _seed_cookies_from_state(self, context) -> None:
+        """Inject cookies from the saved storage_state into a fresh context.
+
+        Best-effort: a missing/corrupt file is fine (skip silently). Cookies
+        whose domain matches hkej let a cold browser start already logged in.
+        """
+        state = _load_storage_state()
+        if not state:
+            return
+        cookies = state.get("cookies") or []
+        if not cookies:
+            return
+        try:
+            await context.add_cookies(cookies)
+            self.log.debug("seeded %d cookies from %s", len(cookies), SESSION_STATE_PATH.name)
+        except Exception as exc:
+            self.log.debug("seed cookies skipped: %s", exc)
+
+    @asynccontextmanager
+    async def _docker_session(self):
+        """Connect to the Camoufox server in the Docker container (default mode).
+
+        The container exposes a Playwright WebSocket endpoint
+        (``HKEJ_CAMOUFOX_ENDPOINT``). We connect, open a context that restores
+        the saved ``storage_state`` (so we stay logged in across runs), and on
+        exit write the state back. The container keeps running — each scrape is
+        a short connect→scrape→disconnect.
+        """
+        from playwright.async_api import async_playwright
+
+        endpoint = settings().hkej_camoufox_endpoint
+        self.log.info("connecting to Camoufox server: %s", endpoint)
+        async with async_playwright() as pw:
+            browser = await pw.firefox.connect(endpoint)
+            ctx_kwargs: dict = {}
+            if SESSION_STATE_PATH.exists():
+                ctx_kwargs["storage_state"] = str(SESSION_STATE_PATH)
+                self.log.info("restoring session from %s", SESSION_STATE_PATH.name)
+            context = await browser.new_context(**ctx_kwargs)
+            page = context.pages[0] if context.pages else await context.new_page()
+            try:
+                yield page
+            finally:
+                try:
+                    await context.storage_state(path=str(SESSION_STATE_PATH))
+                except Exception as exc:
+                    self.log.debug("save storage_state: %s", exc)
+                try:
+                    await context.close()
+                except Exception:
+                    pass
+                try:
+                    await browser.close()  # disconnects the client; server keeps running
+                except Exception:
+                    pass
+
+    @asynccontextmanager
+    async def _browser_context(self, *, keep_open: bool | None = None):
+        """Acquire a browser tab per the configured mode (docker default, local fallback).
+
+        All scrape entry points (``_browser_session``, ``prime_*``, ``discover``,
+        ``fetch``, ``run``) go through here so a mode flip in settings (or a
+        CLI override) is respected everywhere.
+        """
+        if settings().hkej_browser_mode == "docker":
+            async with self._docker_session() as page:
+                yield page
+        else:
+            async with self._raw_browser_session(keep_open=keep_open) as page:
+                yield page
+
     @asynccontextmanager
     async def _browser_session(self):
-        """One persistent Camoufox window: login → search → articles (no restart)."""
-        async with self._raw_browser_session() as page:
+        """One browser window: login → search → articles (no restart). Mode-aware."""
+        async with self._browser_context() as page:
             await self._ensure_logged_in(page)
             yield page
 
@@ -244,12 +351,22 @@ class HKEJScraper(BaseScraper):
         login_wait_sec: float,
         *,
         skip_if_warm: bool = True,
+        login_mode: str | None = None,
     ) -> bool:
         if skip_if_warm and await self._is_session_warm(page):
             self.log.info("reusing warm browser session — skipping Cloudflare/login")
             return True
         if not await self._prime_search_on_page(page, author_handle):
             return False
+        # Auto-fill the login form when credentials are configured and auto mode
+        # is in effect; fall back to waiting for a human (manual). Manual mode
+        # (or missing creds) skips straight to the manual wait.
+        s = settings()
+        effective = login_mode or s.hkej_login_mode
+        if effective != "manual" and s.hkej_user and s.hkej_pass:
+            if await self._login_subscribe(page):
+                return True
+            self.log.warning("auto-login failed — falling back to manual login")
         return await self._wait_for_manual_login(page, wait_sec=login_wait_sec)
 
     async def _prime_search_on_page(
@@ -1354,12 +1471,12 @@ class HKEJScraper(BaseScraper):
 
     async def prime_login_session(self, wait_sec: float = 600.0) -> bool:
         """Open subscribe login; wait on Cloudflare, then wait for manual sign-in."""
-        async with self._raw_browser_session() as page:
+        async with self._browser_context() as page:
             return await self._wait_for_manual_login(page, wait_sec=wait_sec)
 
     async def prime_search_session(self, author_handle: str = "李聲揚") -> bool:
         """Open search.hkej.com once; wait on Cloudflare until results load."""
-        async with self._raw_browser_session() as page:
+        async with self._browser_context() as page:
             return await self._prime_search_on_page(page, author_handle)
 
     async def prime_session(
@@ -1369,8 +1486,12 @@ class HKEJScraper(BaseScraper):
         login_wait_sec: float = 600.0,
         search_timeout_sec: float = 300.0,
     ) -> bool:
-        """Prime search + login in one browser — Cloudflare first, then manual login."""
-        async with self._raw_browser_session() as page:
+        """Prime search + login in one browser — Cloudflare first, then login.
+
+        Mode-aware (docker by default). In docker mode, if Cloudflare needs a
+        human, complete it in the noVNC window (http://localhost:7900).
+        """
+        async with self._browser_context() as page:
             if not await self._prime_search_on_page(
                 page, author_handle, timeout_sec=search_timeout_sec,
             ):
@@ -1418,6 +1539,7 @@ class HKEJScraper(BaseScraper):
         *,
         login_wait_sec: float = 900.0,
         skip_prime_if_warm: bool = True,
+        login_mode: str | None = None,
     ) -> tuple[list[Path], dict]:
         """Scrape using an already-open browser tab (daemon or shared session)."""
         handle = author_handle or "李聲揚"
@@ -1435,7 +1557,8 @@ class HKEJScraper(BaseScraper):
             "on_disk_after": 0,
         }
         if not await self._prepare_session(
-            page, handle, login_wait_sec, skip_if_warm=skip_prime_if_warm,
+            page, handle, login_wait_sec,
+            skip_if_warm=skip_prime_if_warm, login_mode=login_mode,
         ):
             self.log.error("session not ready — scrape aborted")
             stats["aborted"] = True
@@ -1523,8 +1646,17 @@ class HKEJScraper(BaseScraper):
         keep_browser_open: bool = False,
         login_wait_sec: float = 900.0,
         use_daemon: bool = True,
+        browser_mode: str | None = None,
+        login_mode: str | None = None,
     ) -> list[Path]:
-        """Prime → login → search discover → fetch. Uses daemon when available."""
+        """Prime → login → search discover → fetch.
+
+        Mode-aware: in docker mode (default) each call connects to the container
+        over the WS endpoint and bypasses the local daemon entirely (the
+        container *is* the persistent browser). In local mode the long-lived
+        daemon is reused when available, else a one-off on-host Camoufox opens.
+        """
+        mode = browser_mode or settings().hkej_browser_mode
         if author_handle is None:
             handles = self._registered_author_handles()
             out: list[Path] = []
@@ -1536,6 +1668,8 @@ class HKEJScraper(BaseScraper):
                     keep_browser_open=keep_browser_open,
                     login_wait_sec=login_wait_sec,
                     use_daemon=use_daemon,
+                    browser_mode=mode,
+                    login_mode=login_mode,
                 )
                 out.extend(author_paths)
                 author_stats.append({"author": handle, **self.last_stats})
@@ -1545,6 +1679,22 @@ class HKEJScraper(BaseScraper):
                 "fetched": len(out),
                 "limit_per_author": limit,
             }
+            return out
+
+        if mode == "docker":
+            # Container is the persistent browser — connect, scrape, disconnect.
+            # Skip the local daemon (it can't start from a background agent
+            # anyway; the container replaces it).
+            self._keep_browser_open = keep_browser_open
+            async with self._docker_session() as page:
+                out, _stats = await self.run_on_page(
+                    page,
+                    limit=limit,
+                    author_handle=author_handle,
+                    login_wait_sec=login_wait_sec,
+                    skip_prime_if_warm=False,
+                    login_mode=login_mode,
+                )
             return out
 
         if use_daemon:
@@ -1576,6 +1726,7 @@ class HKEJScraper(BaseScraper):
                 author_handle=author_handle,
                 login_wait_sec=login_wait_sec,
                 skip_prime_if_warm=False,
+                login_mode=login_mode,
             )
         return out
 

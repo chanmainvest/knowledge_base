@@ -34,6 +34,20 @@ function listParams(q: ListQuery): URLSearchParams {
   return p;
 }
 
+export interface PredictionsQuery {
+  ticker?: string;
+  speaker?: string;
+  channel_id?: number;
+  direction?: string;
+  scored?: boolean;
+  date_from?: string;
+  date_to?: string;
+  order?: "recent" | "score_desc" | "score_asc";
+  all_runs?: boolean;
+  limit?: number;
+  offset?: number;
+}
+
 export const api = {
   search: (q: ListQuery = {}) => get<SearchResult>(`/api/search?${listParams(q)}`),
   sources: () => get<Source[]>("/api/sources"),
@@ -45,10 +59,11 @@ export const api = {
   },
   item: (id: number) => get<Item>(`/api/items/${id}`),
   items: (q: ListQuery = {}) => get<SearchResult>(`/api/items?${listParams(q)}`),
-  predictions: (q: { ticker?: string; channel_id?: number; limit?: number } = {}) => {
+  predictions: (q: PredictionsQuery = {}) => {
     const p = new URLSearchParams();
-    Object.entries(q).forEach(([k, v]) => v !== undefined && p.set(k, String(v)));
-    return get<Prediction[]>(`/api/predictions?${p}`);
+    Object.entries(q).forEach(([k, v]) =>
+      v !== undefined && v !== "" && p.set(k, String(v)));
+    return get<PredictionsResult>(`/api/predictions?${p}`);
   },
   leaderboard: (weeks = 12, dateFrom?: string, dateTo?: string) => {
     const p = new URLSearchParams();
@@ -57,6 +72,15 @@ export const api = {
     if (dateTo) p.set("date_to", dateTo);
     return get<LB>(`/api/leaderboard?${p}`);
   },
+  modelsLeaderboard: () => get<ModelsLB>("/api/models/leaderboard"),
+  marketPrices: (ticker: string, dateFrom?: string, dateTo?: string) => {
+    const p = new URLSearchParams();
+    if (dateFrom) p.set("date_from", dateFrom);
+    if (dateTo) p.set("date_to", dateTo);
+    return get<{ ticker: string; points: PricePoint[] }>(
+      `/api/market/prices?ticker=${encodeURIComponent(ticker)}&${p}`);
+  },
+  marketTickers: () => get<TickerStat[]>("/api/market/tickers"),
 };
 
 export interface Source { id: number; code: string; name: string; kind: string; n_items: number; }
@@ -72,12 +96,17 @@ export interface SearchHit {
 }
 export interface SearchResult { items: SearchHit[]; total: number; limit: number; offset: number; }
 export interface Prediction {
-  id: number; speaker: string | null; ticker: string | null; asset_name: string | null;
-  action: string | null; direction: string | null; target_price: number | null;
-  stop_price: number | null; timeframe: string | null; quote: string | null;
-  made_at: string | null; price_at_call: number | null; price_at_eval: number | null;
-  score: number | null; item_title: string; item_url: string;
+  id: number; item_id: number; speaker: string | null; ticker: string | null;
+  asset_name: string | null; action: string | null; direction: string | null;
+  target_price: number | null; stop_price: number | null; timeframe: string | null;
+  quote: string | null; made_at: string | null;
+  price_at_call: number | null; price_at_eval: number | null;
+  eval_at: string | null; score: number | null;
+  item_title: string; item_url: string;
   channel: string | null; channel_name: string | null;
+}
+export interface PredictionsResult {
+  items: Prediction[]; total: number; limit: number; offset: number;
 }
 // A single quote within a consolidated prediction (one ticker can reference
 // several quotes from the same article).
@@ -112,7 +141,29 @@ export interface LBRow {
   n_calls: number; n_scored: number; avg_score: number | null; hit_rate: number | null;
   week_start?: string;
 }
-export interface LB { weekly: LBRow[]; overall: LBRow[]; }
+// Speaker (interviewee/author) rollup from leaderboard_speaker.
+export interface SpeakerLBRow {
+  speaker: string; n_calls: number; n_scored: number; avg_score: number | null;
+  hit_rate: number | null; last_call_at: string | null;
+  main_channel_id: number | null; main_channel_handle: string | null;
+  main_channel_name: string | null; source: string | null;
+}
+export interface LB { weekly: LBRow[]; overall: LBRow[]; speakers: SpeakerLBRow[]; }
+export interface ModelLBRow {
+  provider: string; model: string; n_calls: number; n_scored: number;
+  avg_score: number | null; hit_rate: number | null; updated_at: string;
+}
+export interface ModelLBChannelRow extends ModelLBRow {
+  channel_id: number; handle: string; channel_name: string;
+}
+export interface ModelsLB { overall: ModelLBRow[]; by_channel: ModelLBChannelRow[]; }
+export interface TickerStat {
+  ticker: string; asset_name: string | null;
+  n_calls: number; n_scored: number; avg_score: number | null; hit_rate: number | null;
+  last_call_at: string | null;
+  sync_status: string | null; n_days: number; first_day: string | null; last_day: string | null;
+}
+export interface PricePoint { day: string; close: number | null; volume: number | null; }
 
 // Dashboard: per-source pipeline progress (download → ingest → extract).
 export interface DashboardSource {
@@ -125,5 +176,6 @@ export interface DashboardSource {
 export interface DashboardTotals {
   n_downloaded: number; n_ingested: number; n_extracted: number;
   n_extract_pending: number; n_extract_error: number; n_pending_download: number;
+  n_predictions: number | null; n_scored: number | null; n_speakers: number | null;
 }
 export interface Dashboard { sources: DashboardSource[]; totals: DashboardTotals; }
