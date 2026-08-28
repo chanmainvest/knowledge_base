@@ -83,7 +83,7 @@ function Sparkline({ ticker, madeAt, up }: { ticker: string; madeAt: string | nu
   if (withClose.length < 2) return null;
   const first = withClose[0].close!, last = withClose[withClose.length - 1].close!;
   const pct = ((last - first) / first) * 100;
-  const color = up ? "#4ade80" : "#f87171";
+  const color = up ? "var(--kb-up)" : "var(--kb-down)";
   return (
     <div className="w-28 h-8 shrink-0" title={`Price since call: ${pct >= 0 ? "+" : ""}${pct.toFixed(1)}% (${first.toFixed(2)} → ${last.toFixed(2)})`}>
       <ResponsiveContainer>
@@ -204,15 +204,15 @@ export function ItemPage() {
                           <span className="font-mono text-accent truncate">—</span>
                         )}
                         {p.conflict && (
-                          <span className="text-[10px] uppercase font-semibold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 shrink-0"
+                          <span className="text-[10px] uppercase font-semibold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-800 dark:text-amber-300 shrink-0"
                                 title="Same ticker has opposing calls in this article">
                             conflict
                           </span>
                         )}
                         <span className={
-                          up ? "text-xs uppercase text-green-400" :
-                          p.direction === "down" ? "text-xs uppercase text-red-400" :
-                          p.direction === "mixed" ? "text-xs uppercase text-amber-300" :
+                          up ? "text-xs uppercase text-green-700 dark:text-green-400" :
+                          p.direction === "down" ? "text-xs uppercase text-red-600 dark:text-red-400" :
+                          p.direction === "mixed" ? "text-xs uppercase text-amber-800 dark:text-amber-300" :
                           "text-xs uppercase text-mute"
                         }>{p.direction}</span>
                       </div>
@@ -236,8 +236,8 @@ export function ItemPage() {
                               {q.timeframe && <span>· {q.timeframe}</span>}
                               {q.target_price && <span>· tgt {q.target_price}</span>}
                               {q.score != null && (
-                                <span className={q.score > 0 ? "text-green-400" :
-                                  q.score < 0 ? "text-red-400" : "text-mute"}>
+                                <span className={q.score > 0 ? "text-green-700 dark:text-green-400" :
+                                  q.score < 0 ? "text-red-600 dark:text-red-400" : "text-mute"}>
                                   · {q.score.toFixed(2)}
                                 </span>
                               )}
@@ -269,8 +269,8 @@ export function ItemPage() {
                   <div className="flex justify-between gap-2">
                     <span className="truncate">{v.asset_class || "—"}{v.region ? ` · ${v.region}` : ""}</span>
                     <span className={
-                      v.direction === "bullish" ? "text-green-400" :
-                      v.direction === "bearish" ? "text-red-400" : "text-mute"
+                      v.direction === "bullish" ? "text-green-700 dark:text-green-400" :
+                      v.direction === "bearish" ? "text-red-600 dark:text-red-400" : "text-mute"
                     }>{v.direction}</span>
                   </div>
                   {v.speaker && <div className="text-xs text-mute mt-0.5">{v.speaker}</div>}

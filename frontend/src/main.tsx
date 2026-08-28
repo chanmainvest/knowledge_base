@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes, NavLink, Navigate, Link } from "react-router-dom";
 import "./index.css";
@@ -26,6 +26,27 @@ function NotFound() {
   );
 }
 
+function ThemeToggle() {
+  // Dark is the default; `light` is stored in localStorage and applied by the
+  // pre-paint script in index.html. Local state mirrors the class so the
+  // icon updates immediately.
+  const [light, setLight] = useState(
+    () => !document.documentElement.classList.contains("dark"));
+  function toggle() {
+    const next = !light;
+    setLight(next);
+    document.documentElement.classList.toggle("dark", !next);
+    localStorage.setItem("kb-theme", next ? "light" : "dark");
+  }
+  return (
+    <button type="button" onClick={toggle}
+      title={light ? "Switch to dark theme" : "Switch to light theme"}
+      className="ml-auto px-2 py-1.5 rounded-md text-sm text-mute hover:text-ink hover:bg-panel">
+      {light ? "☀" : "☾"}
+    </button>
+  );
+}
+
 function Shell() {
   const linkCls = ({ isActive }: { isActive: boolean }) =>
     "px-3 py-1.5 rounded-md text-sm transition-colors " +
@@ -47,6 +68,7 @@ function Shell() {
             <NavLink to="/leaderboard" className={linkCls}>Leaderboard</NavLink>
             <NavLink to="/insights" className={linkCls}>Insights</NavLink>
           </nav>
+          <ThemeToggle />
         </div>
       </header>
       <main className="flex-1">

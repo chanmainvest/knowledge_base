@@ -2,20 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme tokens: light values on :root, dark overrides on :root.dark (the
+   `dark` class on <html> is also what tailwind's darkMode:"class" keys off;
+   the toggle in main.tsx flips it and persists to localStorage). */
+:root {
+  --kb-bg: #f6f7f9;
+  --kb-panel: #ffffff;
+  --kb-border: #d9dee5;
+  --kb-ink: #1a2129;
+  --kb-mute: #5b6773;
+  --kb-accent: #0077cc;
+  --kb-scroll: #c3ccd6;
+  --kb-scroll-hover: #a8b4c0;
+  --kb-hl: #a16207;
+  --kb-up: #16a34a;
+  --kb-down: #dc2626;
+}
+:root.dark {
+  --kb-bg: #0b0d10;
+  --kb-panel: #13171c;
+  --kb-border: #222a33;
+  --kb-ink: #dee3ea;
+  --kb-mute: #8a96a3;
+  --kb-accent: #5cc8ff;
+  --kb-scroll: #2a3440;
+  --kb-scroll-hover: #3a4756;
+  --kb-hl: #ffd55c;
+  --kb-up: #4ade80;
+  --kb-down: #f87171;
+}
+
 html, body, #root { height: 100%; }
 body { font-family: theme('fontFamily.sans'); }
 
-/* Scrollbars matched to the dark theme (bg #0b0d10 / border #222a33). */
-* { scrollbar-width: thin; scrollbar-color: #2a3440 transparent; }
+/* Scrollbars matched to the active theme. */
+* { scrollbar-width: thin; scrollbar-color: var(--kb-scroll) transparent; }
 *::-webkit-scrollbar { width: 10px; height: 10px; }
 *::-webkit-scrollbar-track { background: transparent; }
 *::-webkit-scrollbar-thumb {
-  background: #2a3440;
+  background: var(--kb-scroll);
   border-radius: 6px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
-*::-webkit-scrollbar-thumb:hover { background-color: #3a4756; }
+*::-webkit-scrollbar-thumb:hover { background-color: var(--kb-scroll-hover); }
 *::-webkit-scrollbar-corner { background: transparent; }
 .prose-kb { line-height: 1.65; }
 .prose-kb h1 { @apply text-2xl font-semibold mt-6 mb-3; }
@@ -34,4 +64,4 @@ body { font-family: theme('fontFamily.sans'); }
   box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.25);
   transition: background 0.3s;
 }
-.snippet b { color: #ffd55c; font-weight: 600; }
+.snippet b { color: var(--kb-hl); font-weight: 600; }

@@ -112,7 +112,7 @@ export function ChatWidget({ itemId, title }: { itemId: number; title: string })
           </div>
         ))}
         {busy && <div className="text-mute text-xs animate-pulse">thinking…</div>}
-        {err && <div className="text-red-400 text-xs">{err}</div>}
+        {err && <div className="text-red-600 dark:text-red-400 text-xs">{err}</div>}
       </div>
 
       <form onSubmit={send} className="flex gap-2 p-2 border-t border-border">

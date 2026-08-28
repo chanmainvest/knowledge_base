@@ -5,10 +5,14 @@ import {
   LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, CartesianGrid,
 } from "recharts";
 import { ColumnFilter, FilterOption } from "../components/ColumnFilter";
-import { ErrorBanner, HitRateSpan, ScoreSpan, SortTh, Spinner, useSort, useTitle } from "../components/ui";
+import { ErrorBanner, HitRateSpan, ScoreSpan, SortTh, Spinner, useSort, useTheme, useTitle } from "../components/ui";
 
-const COLORS = ["#5cc8ff", "#ffd55c", "#ff7eb6", "#7ee787", "#a371f7",
-                "#f97583", "#79b8ff", "#bfa3ff", "#ffa657", "#56d364"];
+// Series colors per theme: pastels tuned for the dark background, darker
+// variants that stay readable on the light one.
+const COLORS_DARK = ["#5cc8ff", "#ffd55c", "#ff7eb6", "#7ee787", "#a371f7",
+                     "#f97583", "#79b8ff", "#bfa3ff", "#ffa657", "#56d364"];
+const COLORS_LIGHT = ["#0077cc", "#b45309", "#d6336c", "#15803d", "#7c3aed",
+                      "#be123c", "#0369a1", "#6d28d9", "#c2410c", "#0f766e"];
 
 type Tab = "channels" | "speakers" | "models";
 
@@ -40,12 +44,6 @@ export function LeaderboardPage() {
   return (
     <div className="space-y-5">
       <div className="flex items-end justify-between gap-3 flex-wrap">
-        <div>
-          <h1 className="text-xl font-semibold">Leaderboard</h1>
-          <div className="text-mute text-sm mt-0.5">
-            Who called the market right — channels, speakers, and the LLMs reading them.
-          </div>
-        </div>
         <div className="flex gap-2 items-center text-sm">
           <span className="text-mute">Date range:</span>
           <input type="date" value={dateFrom} onChange={e => setDateFrom(e.target.value)}
@@ -98,6 +96,8 @@ export function LeaderboardPage() {
 // --- Channels tab ---------------------------------------------------------
 
 function ChannelsTab({ data }: { data: LB }) {
+  const theme = useTheme();
+  const COLORS = theme === "dark" ? COLORS_DARK : COLORS_LIGHT;
   const [sources, setSources] = useState<Source[]>([]);
   useEffect(() => { api.sources().then(setSources).catch(() => {}); }, []);
   const sourceName = useMemo(() => {
@@ -168,10 +168,14 @@ function ChannelsTab({ data }: { data: LB }) {
           <div className="h-72 bg-panel/40 border border-border rounded p-2">
             <ResponsiveContainer>
               <LineChart data={chartData}>
-                <CartesianGrid stroke="#222a33" />
-                <XAxis dataKey="week_start" stroke="#8a96a3" />
-                <YAxis stroke="#8a96a3" domain={[-1, 1]} />
-                <Tooltip contentStyle={{ background: "#13171c", border: "1px solid #222a33" }} />
+                <CartesianGrid stroke="var(--kb-border)" />
+                <XAxis dataKey="week_start" stroke="var(--kb-mute)" />
+                <YAxis stroke="var(--kb-mute)" domain={[-1, 1]} />
+                <Tooltip contentStyle={{
+                  background: "var(--kb-panel)",
+                  border: "1px solid var(--kb-border)",
+                  color: "var(--kb-ink)",
+                }} />
                 <Legend />
                 {topNames.map((n, i) => (
                   <Line key={n} type="monotone" dataKey={n} stroke={COLORS[i % COLORS.length]}

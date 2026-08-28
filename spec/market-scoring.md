@@ -31,3 +31,10 @@ Read this when touching `src/kb/marketdata.py`, `src/kb/leaderboard.py`,
   slugs must match a safe-filename regex (no traversal). The frontend
   `Insights` tab (`frontend/src/pages/Insights.tsx`) renders them with
   react-markdown, navigating via `?section=&page=` query params.
+- **Theming.** The frontend supports dark (default) and light themes: the
+  semantic tailwind colors (`bg`/`panel`/`border`/`ink`/`mute`/`accent`)
+  resolve to CSS variables in `index.css` that flip on the `dark` class of
+  `<html>`; the header toggle persists the choice to localStorage
+  (`kb-theme`) and a pre-paint script in `index.html` applies it. Chart
+  series colors pick a palette per theme via `useTheme()`; status colors
+  pair `text-*-700` with `dark:text-*-400` variants.

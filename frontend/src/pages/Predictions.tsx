@@ -20,8 +20,8 @@ function Stance({ action, direction }: { action: string | null; direction: strin
   const d = (direction || "").toLowerCase();
   let cls = "text-mute";
   let label = a || d || "—";
-  if (d === "up" || ["buy", "long", "cover"].includes(a)) { cls = "text-green-400"; label = (a || d).toUpperCase(); }
-  else if (d === "down" || ["sell", "short", "avoid"].includes(a)) { cls = "text-red-400"; label = (a || d).toUpperCase(); }
+  if (d === "up" || ["buy", "long", "cover"].includes(a)) { cls = "text-green-700 dark:text-green-400"; label = (a || d).toUpperCase(); }
+  else if (d === "down" || ["sell", "short", "avoid"].includes(a)) { cls = "text-red-600 dark:text-red-400"; label = (a || d).toUpperCase(); }
   return <span className={"text-xs font-semibold " + cls}>{label}</span>;
 }
 
@@ -40,7 +40,7 @@ function PriceMove({ p }: { p: Prediction }) {
       {fmtP(call)}
       {evalP != null && !isNaN(evalP) && <> → {fmtP(evalP)}</>}
       {move != null && (
-        <span className={move > 0 ? " text-green-400" : move < 0 ? " text-red-400" : " text-mute"}>
+        <span className={move > 0 ? " text-green-700 dark:text-green-400" : move < 0 ? " text-red-600 dark:text-red-400" : " text-mute"}>
           {" "}({move > 0 ? "+" : ""}{(move * 100).toFixed(1)}%)
         </span>
       )}
@@ -113,12 +113,6 @@ export function PredictionsPage() {
   return (
     <div className="space-y-4">
       <div className="flex items-end justify-between gap-3 flex-wrap">
-        <div>
-          <h1 className="text-xl font-semibold">Predictions</h1>
-          <div className="text-mute text-sm mt-0.5">
-            Every extracted market call, scored against the price store.
-          </div>
-        </div>
         {hasFilters && (
           <button onClick={clearFilters} className="text-accent text-sm hover:underline">
             Clear filters

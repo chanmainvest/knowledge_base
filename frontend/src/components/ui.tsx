@@ -1,5 +1,20 @@
 import { useEffect, useState } from "react";
 
+// Current app theme, tracking the `dark` class on <html> (flipped by the
+// header toggle in main.tsx). Used by pages that need theme-aware colors the
+// token utilities can't express, e.g. recharts palettes.
+export function useTheme(): "dark" | "light" {
+  const [theme, setTheme] = useState<"dark" | "light">(() =>
+    document.documentElement.classList.contains("dark") ? "dark" : "light");
+  useEffect(() => {
+    const obs = new MutationObserver(() =>
+      setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light"));
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => obs.disconnect();
+  }, []);
+  return theme;
+}
+
 // --- Shared page primitives ---------------------------------------------------
 // Every page previously hand-rolled its own "Loading…" text, error string and
 // empty state; these give the app one consistent set. The sortable-table
@@ -92,8 +107,8 @@ export function Pager({ page, pageSize, total, onPage, onPageSize }:
 
 export function scoreClass(v: number | null | undefined): string {
   if (v == null) return "text-mute";
-  if (v > 0) return "text-green-400";
-  if (v < 0) return "text-red-400";
+  if (v > 0) return "text-green-700 dark:text-green-400";
+  if (v < 0) return "text-red-600 dark:text-red-400";
   return "";
 }
 

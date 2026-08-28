@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KB</title>
+    <script>
+      // Apply the stored theme before first paint (dark is the default).
+      if (localStorage.getItem("kb-theme") === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </head>
   <body class="bg-bg text-ink">
     <div id="root"></div>
