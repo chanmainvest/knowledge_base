@@ -192,7 +192,15 @@ export function ItemPage() {
                   <li key={(p.ticker || `__${i}`)} className="border border-border rounded p-2 bg-panel/40">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2 min-w-0">
-                        <span className="font-mono text-accent truncate">{p.ticker || "—"}</span>
+                        {p.ticker ? (
+                          <Link to={`/predictions?ticker=${encodeURIComponent(p.ticker)}`}
+                                title="See all predictions for this ticker"
+                                className="font-mono text-accent truncate hover:underline">
+                            {p.ticker}
+                          </Link>
+                        ) : (
+                          <span className="font-mono text-accent truncate">—</span>
+                        )}
                         {p.conflict && (
                           <span className="text-[10px] uppercase font-semibold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 shrink-0"
                                 title="Same ticker has opposing calls in this article">
