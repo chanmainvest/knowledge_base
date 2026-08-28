@@ -86,13 +86,23 @@ def _stance(action: str | None, direction: str | None) -> str:
     Returns 'bullish', 'bearish', or 'neutral'. A quote counts as bullish if
     its action or direction points up, bearish if either points down; hold /
     watch / flat / unspecified quotes are neutral and never cause a conflict.
+
+    `prediction.direction` is LLM free text, not a clean enum — alongside the
+    canonical 'up'/'down' it holds values like 'bullish (conditional)',
+    'bearish_on_capex_sustainability' or 'higher', so match on the
+    bullish/bearish keywords anywhere in the string (bearish checked first so
+    a hedge like 'short-term bearish despite long position' reads bearish).
     """
     a = (action or "").strip().lower()
     d = (direction or "").strip().lower()
-    if a in _BULLISH_ACTIONS or d == "up":
+    if a in _BULLISH_ACTIONS:
         return "bullish"
-    if a in _BEARISH_ACTIONS or d == "down":
+    if a in _BEARISH_ACTIONS:
         return "bearish"
+    if "bearish" in d or d in ("down", "lower", "negative"):
+        return "bearish"
+    if "bullish" in d or d in ("up", "higher", "positive"):
+        return "bullish"
     return "neutral"
 
 
