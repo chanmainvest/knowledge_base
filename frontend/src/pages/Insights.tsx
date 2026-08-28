@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";import ReactMarkdown from "react-markdown";
+import { useSearchParams, useNavigate } from "react-router-dom";import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { api, InsightsIndex, InsightsPage as InsightsPageT } from "../api";
 import { Spinner, ErrorBanner, useTitle } from "../components/ui";
@@ -82,10 +82,52 @@ export function InsightsPage() {
         {!page && !err && <Spinner label="Loading insights…" />}
         {page && (
           <article className="prose-kb max-w-none">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{page.markdown}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} components={{ a: WikiLink }}>
+              {page.markdown}
+            </ReactMarkdown>
           </article>
         )}
       </div>
     </div>
   );
+}
+
+// The wiki's internal links are relative markdown paths like
+// ../People/andy-unanue.md. Left alone the browser resolves them against
+// /insights and lands on /People/andy-unanue.md — no such route, 404.
+// Rewrite them to in-app ?section=&page= navigation; http(s) links open in
+// a new tab; anything else (anchors, mailto) renders as a plain link.
+const KNOWN_SECTIONS = ["Analysts", "People", "Syntheses", "Studies", "Themes", "Tickers", "Weekly"];
+
+// Split "…/Section/page.md" into [section, page], or null when not a wiki link.
+function parseWikiHref(href: string): [string, string] | null {
+  const parts = href.split("/");
+  const last = parts[parts.length - 1];
+  if (!last.endsWith(".md") || parts.length < 2) return null;
+  const section = parts[parts.length - 2];
+  const page = last.slice(0, -3);
+  return KNOWN_SECTIONS.indexOf(section) >= 0 ? [section, page] : null;
+}
+
+function wikiRoute(section: string, page: string): string {
+  return "/insights?section=" + encodeURIComponent(section) +
+         "&page=" + encodeURIComponent(page);
+}
+
+function WikiLink({ href, children }: { href?: string; children: React.ReactNode }) {
+  const navigate = useNavigate();
+  const parsed = href ? parseWikiHref(href) : null;
+  if (href && /^https?:/i.test(href)) {
+    return <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>;
+  }
+  if (parsed) {
+    const route = wikiRoute(parsed[0], parsed[1]);
+    return (
+      <a href={"#" + route}
+         onClick={e => { e.preventDefault(); navigate(route); }}>
+        {children}
+      </a>
+    );
+  }
+  return <a href={href}>{children}</a>;
 }
