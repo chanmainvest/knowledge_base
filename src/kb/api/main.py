@@ -27,15 +27,19 @@ def _list_filters(
     channel_id: list[int] | None,
     date_from: str | None,
     date_to: str | None,
-    has_predictions: bool | None = None,
+    has_predictions: str | None = None,
 ) -> tuple[list[str], dict[str, Any], list[str]]:
     """Build shared WHERE clauses/params for the item-list and search
     endpoints so both support multi-select sources/channels, a published_at
     date range, and a with/without-prediction-extraction filter identically.
 
     `has_predictions` filters on the item's canonical (primary) extraction
-    run: True keeps items with at least one extracted prediction there,
-    False keeps items with none (including items never extracted).
+    run: 'true' keeps items with at least one extracted prediction there,
+    'false' keeps items with none (including items never extracted); 'bull'
+    / 'bear' keep items with at least one bullish/bearish call, classified
+    the same way `_stance` does (action keywords, or direction free text
+    containing bullish/bearish / up / down / higher / lower / positive /
+    negative).
 
     Returns (clauses, params, expanding_param_names). Callers must call
     `.bindparams(bindparam(name, expanding=True))` for each name in the third
@@ -59,11 +63,30 @@ def _list_filters(
         clauses.append("i.published_at < (CAST(:date_to AS date) + INTERVAL '1 day')")
         params["date_to"] = date_to
     if has_predictions is not None:
-        exists_sql = (
-            "EXISTS (SELECT 1 FROM prediction p "
-            "WHERE p.item_id=i.id AND p.extraction_run_id=i.primary_extraction_run_id)"
-        )
-        clauses.append(exists_sql if has_predictions else f"NOT {exists_sql}")
+        # Enum comes from the query string; anything unknown is ignored so a
+        # hand-edited URL can't inject SQL (values are only compared to a
+        # fixed allowlist, never interpolated into the statement).
+        if has_predictions in ("true", "false", "bull", "bear"):
+            exists_sql = (
+                "EXISTS (SELECT 1 FROM prediction p "
+                "WHERE p.item_id=i.id AND p.extraction_run_id=i.primary_extraction_run_id"
+            )
+            if has_predictions == "bull":
+                exists_sql += (
+                    " AND (p.action IN ('buy','long','cover')"
+                    " OR p.direction ILIKE '%bullish%'"
+                    " OR p.direction IN ('up','higher','positive'))"
+                )
+            elif has_predictions == "bear":
+                exists_sql += (
+                    " AND (p.action IN ('sell','short','avoid')"
+                    " OR p.direction ILIKE '%bearish%'"
+                    " OR p.direction IN ('down','lower','negative'))"
+                )
+            exists_sql += ")"
+            clauses.append(
+                f"NOT {exists_sql}" if has_predictions == "false" else exists_sql
+            )
     return clauses, params, expanding
 
 
@@ -289,9 +312,10 @@ def search(q: str | None = Query(None),
            channel_id: list[int] | None = Query(None),
            date_from: str | None = Query(None, description="YYYY-MM-DD, inclusive"),
            date_to: str | None = Query(None, description="YYYY-MM-DD, inclusive"),
-           has_predictions: bool | None = Query(
-               None, description="true = only items with extracted predictions, "
-                                  "false = only items without"),
+           has_predictions: str | None = Query(
+               None, description="true/false = with/without extracted "
+                                  "predictions; bull/bear = at least one "
+                                  "bullish/bearish call"),
            limit: int = 25,
            offset: int = 0) -> dict[str, Any]:
     """Search items by keyword (optional) with multi-select source/channel
@@ -323,6 +347,7 @@ def search(q: str | None = Query(None),
     list_sql = text(f"""
         SELECT i.id, i.title, i.url, i.published_at, i.summary,
                s.code AS source, c.handle AS channel, c.name AS channel_name,
+               i.channel_id,
                EXISTS (SELECT 1 FROM prediction p
                        WHERE p.item_id=i.id AND p.extraction_run_id=i.primary_extraction_run_id
                       ) AS has_predictions,
@@ -414,9 +439,10 @@ def list_items(source: list[str] | None = Query(None),
                channel_id: list[int] | None = Query(None),
                date_from: str | None = Query(None, description="YYYY-MM-DD, inclusive"),
                date_to: str | None = Query(None, description="YYYY-MM-DD, inclusive"),
-               has_predictions: bool | None = Query(
-                   None, description="true = only items with extracted predictions, "
-                                      "false = only items without"),
+               has_predictions: str | None = Query(
+                   None, description="true/false = with/without extracted "
+                                      "predictions; bull/bear = at least one "
+                                      "bullish/bearish call"),
                limit: int = 50, offset: int = 0) -> dict[str, Any]:
     """Latest items (no keyword search), with the same multi-select
     source/channel filters, date range, prediction-extraction filter, and
@@ -430,6 +456,7 @@ def list_items(source: list[str] | None = Query(None),
     list_sql = text(f"""
         SELECT i.id, i.title, i.url, i.published_at, i.summary,
                s.code AS source, c.handle AS channel, c.name AS channel_name,
+               i.channel_id,
                EXISTS (SELECT 1 FROM prediction p
                        WHERE p.item_id=i.id AND p.extraction_run_id=i.primary_extraction_run_id
                       ) AS has_predictions

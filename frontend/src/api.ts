@@ -10,13 +10,15 @@ async function get<T>(path: string): Promise<T> {
 // (omit it to just browse the latest items), multi-select `source`/`channel_id`,
 // an inclusive published_at date range, a with/without-prediction-extraction
 // filter, and pagination.
+// 'true'/'false' = with/without predictions; 'bull'/'bear' = at least one
+// bullish/bearish call (server-side classification).
 export interface ListQuery {
   q?: string;
   source?: string[];
   channel_id?: number[];
   date_from?: string;
   date_to?: string;
-  has_predictions?: boolean;
+  has_predictions?: string;
   limit?: number;
   offset?: number;
 }
@@ -96,7 +98,7 @@ export interface Channel {
 export interface SearchHit {
   id: number; title: string; url: string; published_at: string | null;
   summary: string | null; source: string; channel: string | null;
-  channel_name: string | null; has_predictions: boolean;
+  channel_name: string | null; channel_id: number | null; has_predictions: boolean;
   snippet: string | null; rank: number | null;
 }
 export interface SearchResult { items: SearchHit[]; total: number; limit: number; offset: number; }

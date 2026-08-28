@@ -65,7 +65,7 @@ export function SearchPage() {
       channel_id: selectedChannels.length ? selectedChannels : undefined,
       date_from: dateFrom || undefined,
       date_to: dateTo || undefined,
-      has_predictions: hasPredictions === "" ? undefined : hasPredictions === "true",
+      has_predictions: hasPredictions === "" ? undefined : hasPredictions,
       limit: pageSize,
       offset: (page - 1) * pageSize,
     }).then(res => {
@@ -101,6 +101,12 @@ export function SearchPage() {
   }
   function toggleSource(code: string) { toggleMulti("source", code); }
   function toggleChannel(id: number) { toggleMulti("channel_id", String(id)); }
+  function toggleHasPredictions() {
+    updateFirstPage(p => {
+      if (hasPredictions === "true") p.delete("has_predictions");
+      else p.set("has_predictions", "true");
+    });
+  }
 
   function submitQuery(e?: React.FormEvent) {
     e?.preventDefault();
@@ -114,8 +120,9 @@ export function SearchPage() {
     updateFirstPage(p => p.delete("q"));
   }
   function clearFilters() {
+    setQInput("");
     update(p => {
-      ["source", "channel_id", "date_from", "date_to", "has_predictions", "page"]
+      ["q", "source", "channel_id", "date_from", "date_to", "has_predictions", "page"]
         .forEach(k => p.delete(k));
     });
   }
@@ -173,14 +180,44 @@ export function SearchPage() {
         <ul className="space-y-3">
           {items.map(h => (
             <li key={h.id} className="border border-border rounded p-3 bg-panel/40 hover:border-accent/40">
-              <div className="text-xs text-mute flex gap-2 mb-1 flex-wrap">
-                <span className="uppercase">{h.source}</span>
-                {h.channel_name && <span>· {h.channel_name}</span>}
-                {h.published_at
-                  ? <span>· {h.published_at.slice(0, 10)}</span>
-                  : <span title="No publish date in the source metadata">· undated</span>}
+              <div className="text-xs text-mute flex gap-1.5 mb-1 flex-wrap items-baseline">
+                <button type="button" onClick={() => toggleSource(h.source)}
+                  title={selectedSources.includes(h.source)
+                    ? `Remove source filter: ${h.source}` : `Filter by source: ${h.source}`}
+                  className={"uppercase hover:underline " +
+                    (selectedSources.includes(h.source) ? "text-accent" : "")}>
+                  {h.source}
+                </button>
+                {h.channel_name && h.channel_id != null && (
+                  <button type="button" onClick={() => toggleChannel(h.channel_id!)}
+                    title={selectedChannels.includes(h.channel_id)
+                      ? `Remove channel filter: ${h.channel_name}` : `Filter by channel: ${h.channel_name}`}
+                    className={"hover:underline " +
+                      (selectedChannels.includes(h.channel_id) ? "text-accent" : "")}>
+                    · {h.channel_name}
+                  </button>
+                )}
+                {h.published_at ? (
+                  <button type="button"
+                    onClick={() => updateFirstPage(p => {
+                      p.set("date_from", h.published_at!.slice(0, 10));
+                      p.set("date_to", h.published_at!.slice(0, 10));
+                    })}
+                    title="Filter to this date"
+                    className={"hover:underline " +
+                      (dateFrom === h.published_at.slice(0, 10) &&
+                       dateTo === h.published_at.slice(0, 10) ? "text-accent" : "")}>
+                    · {h.published_at.slice(0, 10)}
+                  </button>
+                ) : (
+                  <span title="No publish date in the source metadata">· undated</span>
+                )}
                 {h.has_predictions && (
-                  <span className="text-accent normal-case">· has predictions</span>
+                  <button type="button" onClick={() => toggleHasPredictions()}
+                    className={"normal-case hover:underline " + (hasPredictions ? "text-accent" : "text-accent/70")}
+                    title="Toggle the with-predictions filter">
+                    · has predictions
+                  </button>
                 )}
               </div>
               <Link to={`/items/${h.id}`} className="text-lg hover:underline">
@@ -256,6 +293,8 @@ export function SearchPage() {
             <option value="">All items</option>
             <option value="true">With predictions</option>
             <option value="false">Without predictions</option>
+            <option value="bull">Bullish calls only</option>
+            <option value="bear">Bearish calls only</option>
           </select>
         </section>
 
