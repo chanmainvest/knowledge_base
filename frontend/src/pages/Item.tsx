@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import { LineChart, Line, ResponsiveContainer, YAxis } from "recharts";
 import { api, Item, PricePoint } from "../api";
 import { ErrorBanner, Spinner, useTitle } from "../components/ui";
+import { ChatWidget } from "../components/ChatWidget";
 
 // Collapse whitespace and trim so an LLM-extracted quote matches the same text
 // in the rendered article even when line wrapping / spacing differs.
@@ -150,6 +151,7 @@ export function ItemPage() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_340px] gap-8">
+      <ChatWidget itemId={item.id} title={item.title} />
       <article className="max-w-[72ch]">
         <div className="text-xs text-mute mb-1 uppercase">
           {item.source} {item.channel_name && <>· {item.channel_name}</>}

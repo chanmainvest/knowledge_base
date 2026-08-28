@@ -6,6 +6,16 @@ async function get<T>(path: string): Promise<T> {
   return r.json() as Promise<T>;
 }
 
+async function post<T>(path: string, body: unknown): Promise<T> {
+  const r = await fetch(BASE + path, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!r.ok) throw new Error(`${r.status} ${r.statusText}`);
+  return r.json() as Promise<T>;
+}
+
 // Shared query shape for /api/search and /api/items: an optional keyword `q`
 // (omit it to just browse the latest items), multi-select `source`/`channel_id`,
 // an inclusive published_at date range, a with/without-prediction-extraction
@@ -88,6 +98,8 @@ export const api = {
     get<InsightsPage>(
       `/api/insights/page?section=${encodeURIComponent(section)}&page=${encodeURIComponent(page)}`),
   insightsHome: () => get<InsightsPage>("/api/insights/home"),
+  chat: (itemId: number, messages: { role: string; content: string }[]) =>
+    post<{ reply: string }>("/api/chat", { item_id: itemId, messages }),
 };
 
 export interface Source { id: number; code: string; name: string; kind: string; n_items: number; }

@@ -754,6 +754,71 @@ def insights_home() -> dict[str, Any]:
             "title": _wiki_title(md_text, "Insights"), "markdown": md_text}
 
 
+# --- Chat with an article -----------------------------------------------------
+#
+# Answers questions about one item's content using the configured default
+# LLM (glm-5.3-flash via the zai provider since 2026-08-27). Conversation
+# history is supplied by the client; the server stays stateless.
+
+class ChatMessage(BaseModel):
+    role: str                  # 'user' or 'assistant'
+    content: str
+
+
+class ChatRequest(BaseModel):
+    item_id: int
+    messages: list[ChatMessage]
+
+
+# Long transcripts are head-truncated to keep the prompt comfortably inside
+# the model's context window while still covering the whole article body for
+# typical blog posts and columns.
+_CHAT_MAX_CONTENT = 80_000
+
+
+@app.post("/api/chat")
+def chat(req: ChatRequest) -> dict[str, Any]:
+    if req.item_id <= 0:
+        raise HTTPException(422, "item_id must be positive")
+    history = [(m.role, m.content) for m in req.messages
+               if m.role in ("user", "assistant") and m.content.strip()]
+    if not history or history[-1][0] != "user":
+        raise HTTPException(422, "last message must be from the user")
+    with engine().connect() as conn:
+        row = conn.execute(text("""
+            SELECT i.title, i.content, i.published_at, s.code AS source
+            FROM item i JOIN source s ON s.id = i.source_id
+            WHERE i.id = :i
+        """), {"i": req.item_id}).first()
+    if not row:
+        raise HTTPException(404, "no such item")
+    content = row[1] or ""
+    if len(content) > _CHAT_MAX_CONTENT:
+        content = content[:_CHAT_MAX_CONTENT] + "\n\n[... truncated ...]"
+    system = (
+        "You are a research assistant answering questions about a single "
+        "article/transcript from an investment knowledge base. Answer only "
+        "from the article text below; if the article does not cover "
+        "something, say so plainly instead of guessing. Reply in the "
+        "language the user writes in.\n\n"
+        f"Title: {row[0]}\n"
+        f"Source: {row[3]}\n"
+        f"Published: {row[2] or 'unknown'}\n\n"
+        f"--- article begin ---\n{content}\n--- article end ---"
+    )
+    # Multi-turn: fold earlier turns into one user turn — chat_text takes a
+    # single system/user pair, and the article only needs to be stated once.
+    if len(history) > 1:
+        convo = "\n\n".join(
+            f"{'User' if r == 'user' else 'Assistant'}: {c}" for r, c in history[:-1]
+        ) + f"\n\nUser: {history[-1][1]}"
+    else:
+        convo = history[-1][1]
+    from .. import llm
+    reply = llm.chat_text(system, convo)
+    return {"reply": reply}
+
+
 # --- Static frontend (built SPA) -------------------------------------------
 # Serve frontend/dist when present so `kb api` is a one-command local
 # deployment: /api/* routes above win (registered first), /assets is a real
