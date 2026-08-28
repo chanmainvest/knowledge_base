@@ -666,7 +666,7 @@ _WIKI_ROOT = ROOT / "llm-wiki"
 # Fixed section order for the sidebar; page slugs are restricted to safe
 # filename characters so a crafted path can't traverse outside llm-wiki/.
 _WIKI_SECTIONS = ["Analysts", "People", "Syntheses", "Studies", "Themes", "Tickers", "Weekly"]
-_SAFE_PAGE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
+_SAFE_PAGE = re.compile(r"^[A-Za-z0-9^][A-Za-z0-9._^=-]*$")
 
 
 def _wiki_title(md_text: str, fallback: str) -> str:
