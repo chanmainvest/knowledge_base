@@ -1,14 +1,16 @@
-# AAPL — Apple Inc.
+# AAPL — Apple
 
-**2 extracted prediction(s)** across 2 channel(s). Consensus: **bullish** (1 bullish / 0 bearish / 1 neutral).
+**10 extracted prediction(s)** across 5 channel(s). Consensus: **bullish** (1 bullish / 0 bearish / 9 neutral).
 
 ## The debate
 
-The AAPL file in this corpus is thin — two dated calls, one bullish, one neutral, and no bear on record — so any account of "the debate" has to start with that caveat. What exists is a June bullish call and an August non-call, with nobody documented changing their mind in between.
+The first thing to say about the Apple file is that there isn't much of a debate here at all — one bullish stance, zero bears, nine neutrals. The bull case, such as it exists, runs on two legs. The fundamental leg came from [何啟聰](../People/person-002.md) on June 19, who flagged that Apple had just announced price increases to pass through rising chip and memory costs — the classic read that a company raising prices into component inflation has pricing power, with an upward lean on the news. The tactical leg showed up on August 6 from an unattributed voice, who argued the post-earnings drop had already run its course and that "if we get some rotations, maybe Apple wants to start making a pop."
 
-The bull case here belongs to [何啟聰](../People/person-001.md), who on June 19, 2026 flagged Apple's just-announced price increases — "蘋果公司剛宣布將會加價，以反映晶片及內存（記憶體）的價格上升" (Apple announced it will raise prices to reflect rising chip and memory costs) — and marked the stance "up." The implicit logic is straightforward pricing power: if Apple can pass memory and silicon cost inflation through to customers, the margin narrative stays intact. Whether demand absorbs those hikes is exactly the question a bear would press, but no bear in this corpus does.
+The cautious camp never crosses into bearish, but its timing has arguably been better. [Gareth Soloway (guest)](../People/gareth-soloway-guest.md) laid out the fade case on July 17: as the market bounced, he expected Apple "to come back in a little bit" rather than extend. The August tape leaned his way — commentary on August 11 noted Apple "did tag its lower implied move" after showing weakness, and the same day's Chinese-language remark made the parallel point that a rally which had held for over a month had recently broken down. That is precisely the give-back Soloway described, though whether it vindicates a directional call or just reflects ordinary weekly churn is more than this record can settle.
 
-The only subsequent entry is an unattributed comment on August 13, 2026, staked to no direction: "Wouldn't be shocked to see it come back to the upper weekly or the lower weekly implied move." That's an options-framed, deliberately hedged read — price revisiting either band of the weekly implied move is treated as unremarkable — and it's a useful reminder that the sole "neutral" voice here isn't bearish so much as agnostic on timing and direction. So the timeline runs: a concrete bullish call in June tied to pricing news, then two months of silence punctuated by a shrug. The consensus label "bullish" rests on a single position, and the bear side of the ledger is simply empty rather than argued — anyone citing a genuine two-sided dispute on AAPL from this corpus would be overstating what's on the page.
+The timeline reads like a slow deflation of conviction. June 19 brings the price-hike note; July 17 the bounce-fade; August 6 the one explicit bull call on a rotation pop; August 11 the observation that Apple instead tagged the bottom of its weekly implied range; and August 13, the last word on record, a shrug — "wouldn't be shocked" to see it at either the upper or lower weekly implied move. Refusing to pick a side inside the options range is a fitting emblem for the whole file: the consensus label says bullish, but the actual language is dominated by implied-move hedging rather than anyone planting a flag.
+
+One coverage caveat belongs in the debate itself: nearly all of the August commentary is unattributed in the digest, so the most recent voices — including the lone bull — can't be pinned to names. That makes the 1/0/9 tally hard to trust in either direction, and it means the only named participants are [何啟聰](../People/person-002.md) making the pricing-power argument and [Gareth Soloway (guest)](../People/gareth-soloway-guest.md) making the technical one. On this record, the honest summary is that nobody is bearish Apple, but nobody except one anonymous voice in early August has been willing to say why they're buying it either.
 
 ## Themes
 
@@ -20,20 +22,32 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 |---|---:|
 | Bullish | 1 |
 | Bearish | 0 |
-| Neutral / watch | 1 |
+| Neutral / watch | 9 |
 
 ## Voices on this ticker
 
-- [何啟聰](../People/person-001.md)
+- [Gareth Soloway (guest)](../People/gareth-soloway-guest.md)
+- [何啟聰](../People/person-002.md)
 
 ## Notable calls
 
 - **Figuring Out Money** — [A Big Move Is Right Around The Corner](https://www.youtube.com/watch?v=jWsZBXK3XsA) — 2026-08-13, Figuring Out Money: "Wouldn't be shocked to see it come back to the upper weekly or the lower weekly implied move."
+- **AM Invest** — [美股市況短評 (20260811)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-166357523) — 2026-08-11, AM Invest: "例如之前偏強的 Apple (AAPL)，升勢維持了一個多月後，近日又出現回落。"
+- **Figuring Out Money** — [The Money Is Moving Again](https://www.youtube.com/watch?v=UFACPcXvCqc) — 2026-08-11, Figuring Out Money: "Apple did tag its lower implied move. We saw some weakness over there, but it just came right into the lower expectations for the week."
+- **Figuring Out Money** (dir=`bullish`) — [Something Just Happened Behind The Scenes](https://www.youtube.com/watch?v=OxRxUBqEdMI) — 2026-08-06, Figuring Out Money: "perhaps if we get some rotations, maybe Apple wants to start making a pop after already seen its drop from earnings."
+- **Gareth Soloway (guest)** — [75% Tech Crash; Gareth Soloway Reveals Shocking Bottom For Stocks, Gold, Bitcoin](https://www.youtube.com/watch?v=DxFD9ufn8wg) — 2026-07-17, [Gareth Soloway (guest)](../People/gareth-soloway-guest.md): "Now again, as we bounce, we should see Apple, for instance, come back in a little bit"
+- **David Lin** — [75% Tech Crash; Gareth Soloway Reveals Shocking Bottom For Stocks, Gold, Bitcoin](https://www.youtube.com/watch?v=DxFD9ufn8wg) — 2026-07-17, David Lin: "This rejection, I think Apple starts coming in while you get an a semiconductor bounce. After a bounce, semis are going to go lower and I think Apple goes lower as well."
+- **The Monetary Matters Network** — [Semiconductors Are Gushing Cash… Here’s What’s Next in The AI Trade  \| Ben Poul…](https://www.youtube.com/watch?v=1PiHrb6mmo4) — 2026-07-14, The Monetary Matters Network: "Apple's vital role in consumer AI privacy"
+- **AM Invest** — [美股市況短評 (20260630)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162495667) — 2026-06-30, AM Invest: "Apple (AAPL) 反彈至阻力位，如未能突破，或會再次形成Lower High"
+- **Figuring Out Money** (dir=`bearish`, tf=`past week`) — [It's Time To Get Serious About This Market.](https://www.youtube.com/watch?v=2poug85rvhA) — 2026-06-26, Figuring Out Money: "Apple on some news about raising prices got smashed down."
 - **何啟聰** (action=`none`, dir=`up`, tf=`unspecified`) — [AI硬件漲價逼聯儲局入死角](https://www1.hkej.com/dailynews/investment/article/4435475/AI%E7%A1%AC%E4%BB%B6%E6%BC%B2%E5%83%B9%E9%80%BC%E8%81%AF%E5%84%B2%E5%B1%80%E5%85%A5%E6%AD%BB%E8%A7%92) — 2026-06-19, 何啟聰: "蘋果公司剛宣布將會加價，以反映晶片及內存（記憶體）的價格上升。"
 
 ## Analysts covering this ticker
 
 - [Figuring Out Money](../Analysts/figuringoutmoney.md) (`@FiguringOutMoney`)
+- [The Monetary Matters Network](../Analysts/monetary-matters.md) (`@Monetary-Matters`)
+- [David Lin](../Analysts/thedavidlinreport.md) (`@TheDavidLinReport`)
+- [AM Invest](../Analysts/aminvest.md) (`aminvest`)
 - [何啟聰](../Analysts/ch-102369.md) (`何啟聰`)
 
 ## Rates & bond-yield backdrop
@@ -41,17 +55,24 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
 - 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
-- 2026-06-23 _bullish_ [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
 - 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
 - 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
 - 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
 - 2026-08-13 — [A Big Move Is Right Around The Corner](https://www.youtube.com/watch?v=jWsZBXK3XsA) (Figuring Out Money)
+- 2026-08-11 — [美股市況短評 (20260811)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-166357523) (AM Invest)
+- 2026-08-11 — [The Money Is Moving Again](https://www.youtube.com/watch?v=UFACPcXvCqc) (Figuring Out Money)
+- 2026-08-06 — [Something Just Happened Behind The Scenes](https://www.youtube.com/watch?v=OxRxUBqEdMI) (Figuring Out Money)
+- 2026-07-17 — [75% Tech Crash; Gareth Soloway Reveals Shocking Bottom For Stocks, Gold, Bitcoin](https://www.youtube.com/watch?v=DxFD9ufn8wg) (David Lin)
+- 2026-07-14 — [Semiconductors Are Gushing Cash… Here’s What’s Next in The AI Trade  \| Ben Pouladian](https://www.youtube.com/watch?v=1PiHrb6mmo4) (The Monetary Matters Network)
+- 2026-06-30 — [美股市況短評 (20260630)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162495667) (AM Invest)
+- 2026-06-26 — [It's Time To Get Serious About This Market.](https://www.youtube.com/watch?v=2poug85rvhA) (Figuring Out Money)
 - 2026-06-19 — [AI硬件漲價逼聯儲局入死角](https://www1.hkej.com/dailynews/investment/article/4435475/AI%E7%A1%AC%E4%BB%B6%E6%BC%B2%E5%83%B9%E9%80%BC%E8%81%AF%E5%84%B2%E5%B1%80%E5%85%A5%E6%AD%BB%E8%A7%92) (何啟聰)
 
 ---

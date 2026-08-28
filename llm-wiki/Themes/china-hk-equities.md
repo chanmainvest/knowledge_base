@@ -2,26 +2,31 @@
 
 Hong Kong / China names and the local macro backdrop — primarily surfaced from the Chinese-language HKEJ / Master Insight / Yahoo HK columnists.
 
-**8 prediction(s)** and **75 market view(s)** match this theme in the current extraction.
+**17 prediction(s)** and **91 market view(s)** match this theme in the current extraction.
 
 ## What the corpus says
 
-The corpus on China and Hong Kong equities is, in practice, a running argument about how the AI trade is straining the region's market plumbing — and one voice dominates it. Of the eight tickered calls logged here, seven belong to [何啟聰](../People/person-001.md), and his June 2026 cluster sets a firmly bearish baseline. On June 19 he marked down both Alibaba (9988.HK) and Tencent (0700.HK), attributing their weakness to a simple mechanism: if AI hardware keeps getting more expensive, cloud operators' capital expenditure keeps climbing ([何啟聰](../People/person-001.md)). The same day he flagged JD.com (9618.HK) as a sell-side concern after Tencent and Alibaba raised prices and JD immediately answered with cuts of its own — a price-war reflex he treats as margin-destroying rather than share-winning ([何啟聰](../People/person-001.md)). Three days later he turned cautious on SMIC (0981.HK), invoking an uncomfortable precedent: when SMIC listed A-shares in 2020, the H-shares dropped on day one and took five years to claw back home ([何啟聰](../People/person-001.md)).
+The corpus's "China & Hong Kong Equities" theme is really two conversations stacked a few weeks apart. The tickered layer — 17 calls spread across HSBC (0005.HK), Hang Seng Bank (0011.HK), New World Development (0017.HK), HKEX (0388.HK), the Hang Seng Index and a handful of newer names — clusters in late June and July 2026, and it is dominated by an unnamed Cantonese-speaking analyst working through HSBC's privatization of Hang Seng Bank almost line by line. The broad-view layer, 91 entries running through late August, drifts toward geopolitics: US-China competition in chips and "open architecture," a potential financial crackdown out of Beijing, and — in Ian Harris's framing — a world that has "woken up" to the fact that "this whole globalization thing is falling apart," having "handed way too much power" away. A coverage caveat worth stating up front: Harris is the only voice the corpus actually names, so the detailed bank-level reasoning can't be scored against anyone's track record.
 
-Ho's more distinctive contributions, though, are about market structure rather than fundamentals. On June 26 he noted that Hong Kong investors have piled into a two-times leveraged ETF (07709.HK) to the point where its net asset value hit HK$130 billion — overtaking the Tracker Fund (02800) — and in the same breath warned that Korean regulators could step in within weeks if the SK Hynix leveraged ETF keeps ballooning ([何啟聰](../People/person-001.md)). His evidence for why that matters is the June episode in which Hynix fell sharply on tax-talk headlines and dragged the KOSPI 200 down ten percent, volatility he blames squarely on leveraged products ([何啟聰](../People/person-001.md)); he explicitly raises the spectre of systemic risk to the Korean market if Hynix ever gaps down with this much geared money riding on it ([何啟聰](../People/person-001.md)). There is a genuine ambivalence in his coverage: he chronicles the retail enthusiasm for leverage with one hand and warns it could blow up the index with the other.
+The HSBC/Hang Seng thread is the strongest single-name material, and the stance is deliberately split rather than a one-word rating. On July 20, the same treatment lands three ways: neutral on the dividend (management signals it won't cut the payout but will slow share buybacks), a risk factor on capital, and bullish on the long term. The capital math is the crux — roughly HK$100 billion of cash going out the door for the privatization is said to knock HSBC's capital adequacy from about 14.8% before the announcement down to 13.5%. Hang Seng Bank itself simply "disappears" from the market under the deal, and the same voice is bullish that once Hang Seng rides out the property downturn it stands to earn a great deal back. That long-term bullishness sits awkwardly beside an earlier note from June 30, when a HK$200,000 deposit dispute — in which the bank was heard to disown the money — prompts the observation that even "big, big HSBC" is starting to lose the public's trust in Hong Kong.
 
-The supporting cast fills in the backdrop and the exceptions. [高天佑](../People/person-008.md) captures the macro shock of June 25 — US AI leaders down more than ten percent in a session, Korea plunging 9.99 percent, and Hong Kong stocks hitting a more-than-one-year low ([高天佑](../People/person-008.md)). [Grok](../People/grok.md) offers the lone genuinely mixed read, on JD's retail land-grab in Hong Kong: a Wanchai mall opening mobbed with queues, half-price deals and daily twenty-percent discounts backed by a HK$35 billion-plus investment, accelerating price competition against incumbents like Fortress and ParknShop in a local retail sector already described as under "doomsday" pressure — involution, in its view, even if JD's supply chain is formidable ([Grok](../People/grok.md)). [梁天卓](../People/person-005.md) is the outlier bull, though on policy rather than stocks: a middle-path autonomous-driving pilot scheme, limited to vetted systems on designated routes with mandatory disclosure of mileage, takeovers, accidents and near-misses ([梁天卓](../People/person-005.md)). Unattributed June 25 commentary, meanwhile, documents the selloff in A-share nappy-maker Haoyue Care — down 1.81 percent at the close after a four-percent intraday drop, with 2025 net profit already down forty percent — alongside a 5.69 percent slide in 可靠股份.
+Around the banks, the July calls sketch the rest of the local picture. New World (0017.HK) is flagged on July 16 for rising repayment pressure as borrowing costs bite, part of the same property-stress narrative Hang Seng is expected to survive. HKEX's tick-size reform, assessed July 3, gets a skeptical read: a convenience upgrade for trading, "not related" to the Hang Seng Index over the medium-to-long term — a pointed dismissal of whether microstructure tinkering moves the market. The most forward-looking call lands July 24 and targets the new AI listings rather than the old banks: Zhipu (2513.HK) and MiniMax (100.HK), with valuations described as "not low," face "non-trivial political risk." Single mentions of SMIC (0981.HK) and SK Hynix (000660.KS) quietly seed a semis thread that August then makes explicit.
 
-The tone shift over the sample's six weeks is telling. June is dominated by mechanical, valuation-driven worries: capex inflation, price wars, listing supply, and leverage. By July 24 the frame has changed — an unattributed note argues that richly valued large-model companies Zhipu (2513.HK) and MinMax (100.HK) face non-trivial political risk, with no linked author to stand behind it. And by August 13 the corpus thins to a bare "U.S.-China relations" placeholder with no substance attached. In other words, coverage is densest where the debate is about market mechanics, and thinnest exactly as it pivots toward geopolitics — the corpus ends, frustratingly, where the risk story is getting most interesting.
+The August broad views flip the lens from stock-specific to systemic, and they don't fully cohere — which is itself the story. Hong Kong's IPO market "has gotten a lot more active" with notable Chinese listings (August 20), the bullish deal-flow case, arriving weeks after the warning that those very listings carry political risk; the corpus holds both without reconciling them. Competition with China is "real... not just on the chips" but in open architecture too (August 24), commodities are trending higher "because of the background of competition" (August 13), and Beijing's announcement of a "major financial crackdown" is flagged as the variable that "really matters" (August 16). Against the alarm sits a de-escalatory counterpoint from August 22: neither Russia nor China is "in any position to start a war right now," with [Ian Harris](../People/ian-harris.md) supplying the bluntest deglobalization framing on the same mid-August day the commodities call appears. The tonal shift is easy to plot — June and July are granular, skeptical and bank-and-property fixated, with trust erosion as the undercurrent; August turns macro and competitive, worried about power and architecture rather than payout ratios. The through-line across both is political and structural risk: whether it's a privatization's capital cost, an AI listing's politics, or globalization itself, the corpus keeps asking who absorbs the shock — it just never quite settles on an answer.
 
 ## Constituent tickers
 
 | Ticker | Mentions |
 |---|---:|
+| [0005.HK](../Tickers/0005.HK.md) | 4 |
+| [0011.HK](../Tickers/0011.HK.md) | 2 |
 | `100.HK` | 1 |
 | `2513.HK` | 1 |
+| `0017.HK` | 1 |
+| `0388.HK` | 1 |
+| [^HSI](../Tickers/^HSI.md) | 1 |
 | `07709.HK` | 1 |
-| `000660.KS` | 1 |
+| [000660.KS](../Tickers/000660.KS.md) | 1 |
 | `0981.HK` | 1 |
 | `9618.HK` | 1 |
 | `0700.HK` | 1 |
@@ -29,44 +34,48 @@ The tone shift over the sample's six weeks is telling. June is dominated by mech
 
 ## Key voices
 
-- [高天佑](../People/person-008.md) (15)
-- [何啟聰](../People/person-001.md) (10)
+- [高天佑](../People/person-015.md) (15)
+- [何啟聰](../People/person-002.md) (10)
 - [Brent Johnson](../People/brent-johnson.md) (6)
 - [Jeff Snider](../People/jeff-snider.md) (4)
-- [施永青](../People/person-003.md) (3)
+- [施永青](../People/person-008.md) (3)
+- [Ian Harris](../People/ian-harris.md) (2)
+- [Ron Butler](../People/ron-butler.md) (1)
 - [Grok](../People/grok.md) (1)
-- [梁天卓](../People/person-005.md) (1)
+- [梁天卓](../People/person-010.md) (1)
 - [aminvest](../People/aminvest.md) (1)
-- [劉強東](../People/person-002.md) (1)
-- [Jeff](../People/jeff.md) (1)
 
 ## Consensus across analysts
 
-Of 8 tickered calls: **0 bullish**, **4 bearish**.
+Of 17 tickered calls: **0 bullish**, **4 bearish**.
 
 ## Notable calls & quotes
 
 - [中美全面AI爭霸](https://www1.hkej.com/dailynews/investment/article/4464337/%E4%B8%AD%E7%BE%8E%E5%85%A8%E9%9D%A2AI%E7%88%AD%E9%9C%B8) — 2026-07-24, 何啟聰: "現在估值不低的智譜（02513）及稀宇科技（MinMax）（00100）等大模型公司將面臨不輕的政治風險"
 - [中美全面AI爭霸](https://www1.hkej.com/dailynews/investment/article/4464337/%E4%B8%AD%E7%BE%8E%E5%85%A8%E9%9D%A2AI%E7%88%AD%E9%9C%B8) — 2026-07-24, 何啟聰: "現在估值不低的智譜（02513）及稀宇科技（MinMax）（00100）等大模型公司將面臨不輕的政治風險"
+- [HSBC豪擲千億押注香港！佢唔私有化恒生先對唔住股東、客戶、存戶、散戶和員工⁉️｜11 Oct2025《淺見回顧》](https://www.youtube.com/watch?v=-ogzKQRUyfQ) — 2026-07-20, Dr Ng Ming Tak, Victor: "佢喺一個市場度唔見咗㗎，消滅咗佢喇"
+- [HSBC豪擲千億押注香港！佢唔私有化恒生先對唔住股東、客戶、存戶、散戶和員工⁉️｜11 Oct2025《淺見回顧》](https://www.youtube.com/watch?v=-ogzKQRUyfQ) — 2026-07-20, Dr Ng Ming Tak, Victor: "會唔會影，佢話俾你聽唔會㗎嘛 ... 佢係話唔會減少派嘅。咁只不過你會知道呢，佢就會減少回購自己股份㗎嘛 ... 而家千億咪大約年半嘅息囉"
+- [HSBC豪擲千億押注香港！佢唔私有化恒生先對唔住股東、客戶、存戶、散戶和員工⁉️｜11 Oct2025《淺見回顧》](https://www.youtube.com/watch?v=-ogzKQRUyfQ) — 2026-07-20, Dr Ng Ming Tak, Victor: "佢而家呢係有成14點8個喺未即即係宣布之前咁樣 ... 嗰個恆身誒，如果做咗私有法之後佢要曬全部之後咧，匯豐嘅資本充足呢？因為佢少咗1000即係千億嘅現金啊嘛 ... 少咗1000億金就會令到佢呢嗰個份冇少咗呢所以就跌咗落去13.5%5個囉咁"
+- [HSBC豪擲千億押注香港！佢唔私有化恒生先對唔住股東、客戶、存戶、散戶和員工⁉️｜11 Oct2025《淺見回顧》](https://www.youtube.com/watch?v=-ogzKQRUyfQ) — 2026-07-20, Dr Ng Ming Tak, Victor: "嚟講呢即係，其他啲嘢不變嘅話呢，咁佢就係誒長遠又係有賺咯咁"
+- [HSBC豪擲千億押注香港！佢唔私有化恒生先對唔住股東、客戶、存戶、散戶和員工⁉️｜11 Oct2025《淺見回顧》](https://www.youtube.com/watch?v=-ogzKQRUyfQ) — 2026-07-20, Dr Ng Ming Tak, Victor: "恆身呢將來呢捱過呢一個誒地產窮朝呢，或者呢個地產嘅誒。下陳呢，咁佢就會賺返曬好多錢咯咁"
+- [美國有四成加息⋯小投資者點樣六步⋯保住自己的血汗錢❓｜17 Jul2026](https://www.youtube.com/watch?v=4R-iFL8VEOs) — 2026-07-16, Dr Ng Ming Tak, Victor: "都令到呢誐譬如呀、新世界呀、誐，或者呢英嗰啲呢借錢嘅人，還款壓力增加"
+- [恒指22,500點真係守得住❗️配合港交所遲來改革救港股❗️ 呢五個因素決定港股命運⁉️｜4 Jul2026](https://www.youtube.com/watch?v=ZbDIpbS3gjo) — 2026-07-03, Dr Ng Ming Tak, Victor: "呢個改革價呢，係一個 ... 工具上嘅便利改革啦，咁呀令到你交易嘅時候呢方便嘅程度 ... 恆指係咪可以即係 ... 中長期係冇關係咯"
+- [百年一遇❗️港大「被」發債 10億美元「填」北都黑洞❓20萬存款喺HSBC突蒸發⋯啟示金融穩定裂縫❓｜6  Apr2026《淺見回顧》](https://www.youtube.com/watch?v=UoPfdIK-NpE) — 2026-06-30, Dr Ng Ming Tak, Victor: "匯豐嗰個20萬即係俾人提咗唔應唔認數呢...大大大個匯豐呢。都開始失去咗民間嘅信任。"
+- [「公私合營」北京重提 ❗️香港私有財產仲安全嗎❓｜倒查25年資金外流…真正大戲才開始❓｜29 Jun2026](https://www.youtube.com/watch?v=QDPaFmGE2ug) — 2026-06-28, Dr Ng Ming Tak, Victor: "我哋已經提大家呢個誒股票呢，一定會反映翻呢個誒措施，咁呀足，而家都跌咗十個啦係"
 - [海力士槓桿ETF威脅韓股](https://www1.hkej.com/dailynews/investment/article/4440216/%E6%B5%B7%E5%8A%9B%E5%A3%AB%E6%A7%93%E6%A1%BFETF%E5%A8%81%E8%84%85%E9%9F%93%E8%82%A1) — 2026-06-26, 何啟聰: "香港投資者已開始買入其兩倍槓桿ETF(07709),而此基金的資產淨值已高達1300億元,超過了盈富基金(02800)"
-- [海力士槓桿ETF威脅韓股](https://www1.hkej.com/dailynews/investment/article/4440216/%E6%B5%B7%E5%8A%9B%E5%A3%AB%E6%A7%93%E6%A1%BFETF%E5%A8%81%E8%84%85%E9%9F%93%E8%82%A1) — 2026-06-26, 何啟聰: "未來數星期,一旦海力士槓桿ETF的市值再快速膨脹,相信南韓監管當局是有機會推出一些措施的"
-- [SpaceX溢價僅馬斯克獨有](https://www1.hkej.com/dailynews/investment/article/4436065/SpaceX%E6%BA%A2%E5%83%B9%E5%83%85%E9%A6%AC%E6%96%AF%E5%85%8B%E7%8D%A8%E6%9C%89) — 2026-06-22, 何啟聰: "港股投資者大概還記得2020年中芯A股上市時，中芯H股（00981）股價即日大跌，要持貨了5年才返家鄉"
-- [AI硬件漲價逼聯儲局入死角](https://www1.hkej.com/dailynews/investment/article/4435475/AI%E7%A1%AC%E4%BB%B6%E6%BC%B2%E5%83%B9%E9%80%BC%E8%81%AF%E5%84%B2%E5%B1%80%E5%85%A5%E6%AD%BB%E8%A7%92) — 2026-06-19, 何啟聰: "早前騰訊及阿里加價，京東（09618）即宣布減價"
-- [AI硬件漲價逼聯儲局入死角](https://www1.hkej.com/dailynews/investment/article/4435475/AI%E7%A1%AC%E4%BB%B6%E6%BC%B2%E5%83%B9%E9%80%BC%E8%81%AF%E5%84%B2%E5%B1%80%E5%85%A5%E6%AD%BB%E8%A7%92) — 2026-06-19, 何啟聰: "港股則有阿里巴巴（09988）及騰訊（00700）為代表。它們股價下跌，是源於倘若人工智能所需硬件持續加價，未來雲企的資本開支將繼續上升。"
-- [AI硬件漲價逼聯儲局入死角](https://www1.hkej.com/dailynews/investment/article/4435475/AI%E7%A1%AC%E4%BB%B6%E6%BC%B2%E5%83%B9%E9%80%BC%E8%81%AF%E5%84%B2%E5%B1%80%E5%85%A5%E6%AD%BB%E8%A7%92) — 2026-06-19, 何啟聰: "港股則有阿里巴巴（09988）及騰訊（00700）為代表。它們股價下跌，是源於倘若人工智能所需硬件持續加價，未來雲企的資本開支將繼續上升。"
 
 ## Broad market views
 
+- _? (?)_: [‘We’re In A Financial Crisis’: Treasury Readies $1 Trillion Warchest \| Danny Mo…](https://www.youtube.com/watch?v=EfKxbRuLZG0) — 2026-08-24, David Lin: "I think the competition is real in China not just on the chips potentially but obviously on the on the open architecture and and AI"
+- _? (?)_: [Chris Whalen Answers Your Questions on the Fed, Rates & the Next Bailout](https://www.youtube.com/watch?v=BCgHELtTnog) — 2026-08-22, The Julia La Roche Show: "None of the major players, Russia and China, are in any position to start a war right now. Uh you could argue that the Chinese should go take Taiwan, but I don't think so."
+- _? (?)_: [Silver Mine in China Generating Cash Flow, But Can They Execute on Growth? \| Si…](https://www.youtube.com/watch?v=ialp-FjJiRI) — 2026-08-20, Resource Talks: "that we have in China, I would say, are very friendly, wellestablished. Uh we're working with groups we've been working with for many years. It's on commercial basis, though. So, you know, each batch of concentrate is g…"
+- _? (?)_: [Silver Mine in China Generating Cash Flow, But Can They Execute on Growth? \| Si…](https://www.youtube.com/watch?v=ialp-FjJiRI) — 2026-08-20, Resource Talks: "Hong Kong has has gotten a lot more active. There's been some very notable, uh, listings that have been done, uh, Chinese companies, but also other Asian, uh, precious metals companies that have had a good reception. An…"
+- _? (?)_: [Silver Mine in China Generating Cash Flow, But Can They Execute on Growth? \| Si…](https://www.youtube.com/watch?v=ialp-FjJiRI) — 2026-08-20, Resource Talks: "when we set out to expand we were looking at China as being a roughly... 50 million a year in free cash flow and obviously it's higher than that at these prices and depending on uh you know what prices are in a couple y…"
+- _? (?)_: [Chinese Banks Have STOPPED Lending](https://www.youtube.com/watch?v=ams5suvGO8I) — 2026-08-16, Eurodollar University: "It's what China's government did in response in announcing a major financial crackdown that really matters."
+- _? (?)_: [MacroVoices #545 Michael Howell: Warsh vs. The Markets](https://www.youtube.com/watch?v=xn3Mkp6FCss) — 2026-08-13, Macro Voices: "there may be compelling arguments to say that the trending commodities is now a lot higher because of the background of competition with China and arguably capital wars between the major powers. That may well be a stron…"
+- _? (?)_: [Ian Harris: The Smart Money Is Rushing To Copper](https://www.youtube.com/watch?v=5ql9wm7AQs8) — 2026-08-13, [Ian Harris](../People/ian-harris.md): "the world has woken up to say that this whole globalization thing is falling apart. It's we've basically handed way too much power to to China and it's put us at risk. So, we have to start securing the supply chains."
+- _? (?)_: [Ian Harris: The Smart Money Is Rushing To Copper](https://www.youtube.com/watch?v=5ql9wm7AQs8) — 2026-08-13, [Ian Harris](../People/ian-harris.md): "China's done such a good job securing their supply chains that their smelting capacity and also early investment and purchasing of projects uh that the United States has been kind of blind to"
 - _? (?)_: [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "U.S.-China relations"
-- _零售 (mixed)_: [零售末日 京東迫爆](https://www.master-insight.com/article/48974) — 2026-06-28, [Grok](../People/grok.md): "京東在香港零售的『迫爆』現象（灣仔MALL開業即排長龍、人流逼爆），確有明顯內卷特徵：在本地零售已處『末日』壓力（高租金、消費疲弱、北上分流）的存量市場，京東以逾350億投資、強大供應鏈和激進優惠（半價、日日8折）大舉進入，加速價格競爭與傳統玩家（豐澤、百佳、HKTVmall等）的生存危機"
-- _equity index (bearish)_: [海力士槓桿ETF威脅韓股](https://www1.hkej.com/dailynews/investment/article/4440216/%E6%B5%B7%E5%8A%9B%E5%A3%AB%E6%A7%93%E6%A1%BFETF%E5%A8%81%E8%84%85%E9%9F%93%E8%82%A1) — 2026-06-26, 何啟聰: "早前海力士股價便因一些加稅討論而一度急跌,導致KOSPI 200指數跌了一成,正是涉及了不少槓桿產品引致的波幅"
-- _equity/ETF (bearish)_: [海力士槓桿ETF威脅韓股](https://www1.hkej.com/dailynews/investment/article/4440216/%E6%B5%B7%E5%8A%9B%E5%A3%AB%E6%A7%93%E6%A1%BFETF%E5%A8%81%E8%84%85%E9%9F%93%E8%82%A1) — 2026-06-26, 何啟聰: "在槓桿ETF市值不斷暴增下,一旦海力士股價急挫,日後對南韓金融市場或構成系統性風險"
-- _equity (bearish)_: [毒尿片觸發的消費信任危機](https://www.master-insight.com/article/48944) — 2026-06-25, author: "端午節後首個工作日，A股紙尿褲代工第一股豪悅護理即低開逾3%，股價更曾一度跌超4%，收盤仍跌1.81%；可靠股份盤中更重挫5.69%。"
-- _consumer discretionary (bearish)_: [毒尿片觸發的消費信任危機](https://www.master-insight.com/article/48944) — 2026-06-25, author: "豪悅護理此前已面臨「增收不增利」困境，2025年淨利潤同比大跌40%，此次風波肯定雪上加霜。"
-- _equities (bearish)_: [AI敍事亟需「再驗證」](https://www1.hkej.com/dailynews/finnews/article/4438934/AI%E6%95%8D%E4%BA%8B%E4%BA%9F%E9%9C%80%E3%80%8C%E5%86%8D%E9%A9%97%E8%AD%89%E3%80%8D) — 2026-06-25, 高天佑: "環球股市動盪，美國大批人工智能（AI）龍頭股周二暴跌逾10%，南韓股市當日亦急挫9.99%，連帶港股也受拖累，創出逾一年新低。"
-- _autonomous driving technology / policy (bullish)_: [自駕合法化 有限度先導計劃可取](https://www1.hkej.com/dailynews/investment/article/4439041/%E8%87%AA%E9%A7%95%E5%90%88%E6%B3%95%E5%8C%96+%E6%9C%89%E9%99%90%E5%BA%A6%E5%85%88%E5%B0%8E%E8%A8%88%E5%8A%83%E5%8F%AF%E5%8F%96) — 2026-06-25, 梁天卓: "較合理的是中間路線：有限度先導計劃，只批准通過審核的系統，在指定地區或路線試行，要求營辦者提交里程、接管、事故、近失事故和投訴資料，再按數據定期擴大或收窄範圍。"
-- _real estate (bullish)_: [樓價愈升 愈多購買力](https://www.master-insight.com/article/48919) — 2026-06-24, 作者: "既然知道樓價有機會上升，樓宇便有投資價值"
-- _real estate (bullish)_: [樓價愈升 愈多購買力](https://www.master-insight.com/article/48919) — 2026-06-24, 作者: "樓價愈升，便會出現愈多購買力"
 
 ---
 _Theme buckets are keyword-based and approximate; an LLM-tagged taxonomy would be more precise. Regenerate via `uv run python scripts/build_llm_wiki.py`._

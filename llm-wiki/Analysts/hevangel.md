@@ -1,15 +1,24 @@
 # hevangel
 
-`hevangel` — source: `substack`  ·  channel id: `146478`
+`hevangel` — source: `patreon`  ·  channel id: `128046`
 
 _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 4
-- **Items with predictions**: 1
-- **Predictions**: 7
-- **Market views**: 0
+- **Extracted items**: 1
+- **Items with predictions**: 0
+- **Predictions**: 29
+- **Market views**: 16
+
+**Most-called tickers:**
+
+- [SGE.L](../Tickers/SGE.L.md) (3)
+- [GEN](../Tickers/GEN.md) (3)
+- [FIS](../Tickers/FIS.md) (3)
+- [VYX](../Tickers/VYX.md) (3)
+- [GPN](../Tickers/GPN.md) (3)
+- [ROP](../Tickers/ROP.md) (2)
 
 ## Stance distribution (predictions)
 
@@ -17,24 +26,31 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 0 |
 | Bearish | 0 |
-| Neutral / watch | 7 |
+| Neutral / watch | 29 |
 
 ## Recent notable calls
 
-- `(no ticker)`: [Interest Rates and the Future of Gold, Precious Metals, Oil, and Royalty and St…](https://hevangel.substack.com/p/interest-rates-and-the-future-of) — 2026-07-28, hevangel: "Approximate 1-year price sensitivity to +100 bp in rates: -2% to -7% over 1 year"
-- `(no ticker)`: [Interest Rates and the Future of Gold, Precious Metals, Oil, and Royalty and St…](https://hevangel.substack.com/p/interest-rates-and-the-future-of) — 2026-07-28, hevangel: "Approximate 1-year price sensitivity to +100 bp in rates: -2% to -6% over 1 year, larger over 3 years if tightening slows demand"
-- `(no ticker)`: [Interest Rates and the Future of Gold, Precious Metals, Oil, and Royalty and St…](https://hevangel.substack.com/p/interest-rates-and-the-future-of) — 2026-07-28, hevangel: "Approximate 1-year price sensitivity to +100 bp in rates: Short rate: -3% to -6%; 10Y nominal: -4% to -8%"
-- `(no ticker)`: [Interest Rates and the Future of Gold, Precious Metals, Oil, and Royalty and St…](https://hevangel.substack.com/p/interest-rates-and-the-future-of) — 2026-07-28, hevangel: "Approximate 1-year price sensitivity to +100 bp in rates: Short rate: about -4% to -7%; 10Y nominal: -5% to -9%"
-- `(no ticker)`: [Interest Rates and the Future of Gold, Precious Metals, Oil, and Royalty and St…](https://hevangel.substack.com/p/interest-rates-and-the-future-of) — 2026-07-28, hevangel: "A rising-rate path is the most difficult for gold-heavy long-duration valuation multiples unless the rise is entirely inflation-expectations-driven and real rates stay contained; oil can initially hold up in that scenar…"
-- `(no ticker)`: [Interest Rates and the Future of Gold, Precious Metals, Oil, and Royalty and St…](https://hevangel.substack.com/p/interest-rates-and-the-future-of) — 2026-07-28, hevangel: "A stable-rate path is generally supportive of steady, carry-like valuation performance in royalty and streaming firms, especially if real rates drift sideways and metal prices remain above mine incentive levels"
-- `(no ticker)`: [Interest Rates and the Future of Gold, Precious Metals, Oil, and Royalty and St…](https://hevangel.substack.com/p/interest-rates-and-the-future-of) — 2026-07-28, hevangel: "A falling-rate path is most constructive for gold and gold-heavy royalty companies, moderately positive for silver and silver-heavy streamers, and only conditionally positive for platinum, palladium, and oil unless fall…"
+- [ROP](../Tickers/ROP.md): [Roper Technologies: Resilience Through an AI SaaS Collapse](https://hevangel.substack.com/p/roper-technologies-resilience-through) — 2026-08-20, hevangel: "Management raised full-year guidance to at least 8% revenue growth, approximately 6% organic growth and adjusted diluted EPS of $22.15–$22.30."
+- [ROP](../Tickers/ROP.md): [Roper Technologies: Resilience Through an AI SaaS Collapse](https://hevangel.substack.com/p/roper-technologies-resilience-through) — 2026-08-20, hevangel: "A valuation-only collapse could mechanically push the stock toward the mid-$200s even without a material revenue decline; a severe operating and valuation shock could produce much larger temporary losses."
+- [SGE.L](../Tickers/SGE.L.md): [Finance Trained CEOs in Tech](https://hevangel.substack.com/p/finance-trained-ceos-in-tech) — 2026-08-04, hevangel: "Exact-match accountant CEO currently showing that the model can work in recurring workflow software."
+- [GEN](../Tickers/GEN.md): [Finance Trained CEOs in Tech](https://hevangel.substack.com/p/finance-trained-ceos-in-tech) — 2026-08-04, hevangel: "Current execution is good; the risk is medium-term category compression, not imminent breakage."
+- [FIS](../Tickers/FIS.md): [Finance Trained CEOs in Tech](https://hevangel.substack.com/p/finance-trained-ceos-in-tech) — 2026-08-04, hevangel: "Good franchise, but leverage and integration can still hurt."
+- [VYX](../Tickers/VYX.md): [Finance Trained CEOs in Tech](https://hevangel.substack.com/p/finance-trained-ceos-in-tech) — 2026-08-04, hevangel: "Turnaround plus product modernisation plus smaller-cap volatility."
+- [GPN](../Tickers/GPN.md): [Finance Trained CEOs in Tech](https://hevangel.substack.com/p/finance-trained-ceos-in-tech) — 2026-08-04, hevangel: "Best combination of finance-led transformation, integration risk, and capital-return emphasis."
+- [SGE.L](../Tickers/SGE.L.md): [Finance Trained CEOs in Tech](https://hevangel.substack.com/p/finance-trained-ceos-in-tech) — 2026-08-04, hevangel: "Recurring revenue, strong margins, and visible AI productization lower near-term risk. Long-term risk rises only if AI-native competitors weaken Sage’s workflow position faster than Sage upgrades the suite."
+
+## Recent market views
+
+- _? — ?_: [Roper Technologies: Resilience Through an AI SaaS Collapse](https://hevangel.substack.com/p/roper-technologies-resilience-through) — 2026-08-20, hevangel: "The probability that Roper's businesses remain profitable and free-cash-flow positive through an AI/SaaS downturn is high. The probability that Roper's share price avoids a large drawdown is much lower."
+- _? — ?_: [Roper Technologies: Resilience Through an AI SaaS Collapse](https://hevangel.substack.com/p/roper-technologies-resilience-through) — 2026-08-20, hevangel: "At June 30, 2026, Roper had approximately $11.32 billion of debt and only $365 million of cash... Roper is strongly cash generative, but it is not a fortress-balance-sheet defensive holding."
+- _? — ?_: [Roper Technologies: Resilience Through an AI SaaS Collapse](https://hevangel.substack.com/p/roper-technologies-resilience-through) — 2026-08-20, hevangel: "That is about 24%–32% below the median valuation of a selected vertical-software and high-quality industrial-technology peer group. The discount is meaningful, although some of it is justified by higher leverage, acquis…"
+- _? — ?_: [Roper Technologies: Resilience Through an AI SaaS Collapse](https://hevangel.substack.com/p/roper-technologies-resilience-through) — 2026-08-20, hevangel: "an AI assistant embedded in insurance underwriting, government-contract accounting, legal billing, autism-care documentation or clinical laboratory workflows may be more defensible than a generic chatbot."
+- _? — ?_: [Roper Technologies: Resilience Through an AI SaaS Collapse](https://hevangel.substack.com/p/roper-technologies-resilience-through) — 2026-08-20, hevangel: "Roper Technologies is likely to survive an AI/SaaS equity collapse operationally, but its shares would not be immune to severe multiple compression. The key distinction is between a collapse in SaaS stock valuations and…"
+- _? — ?_: [Finding and Valuing Mining Companies Through NI 43-101 and S-K 1300 Technical R…](https://hevangel.substack.com/p/finding-and-valuing-mining-companies) — 2026-08-14, hevangel: "Mixing constant-dollar report costs with nominal commodity-price escalation and a nominal discount rate is a common source of overvaluation."
 
 ## Source items (extracted)
 
-- 2026-07-31 — [Hedge Fund Financing of Open-Source Projects While Shorting Public Competitors](https://hevangel.substack.com/p/hedge-fund-financing-of-open-source)
-- 2026-07-30 — [Silver Shortage](https://hevangel.substack.com/p/silver-shortage)
-- 2026-07-28 — [Interest Rates and the Future of Gold, Precious Metals, Oil, and Royalty and Streaming Co…](https://hevangel.substack.com/p/interest-rates-and-the-future-of)
-- 2026-07-21 — [Capital Cycle Theory](https://hevangel.substack.com/p/capital-cycle-theory)
+- 2026-08-04 — [軟件股大屠殺撈底投資攻略](https://www.patreon.com/hevangel/posts/ruan-jian-gu-da-165713541)
 
 ---
 _Page reflects DB state at generation time._

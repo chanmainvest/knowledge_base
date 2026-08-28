@@ -4,11 +4,11 @@
 
 ## The debate
 
-The record on DEO is thin, and it's worth saying so up front: the corpus logs a consensus of neutral / watch, with zero bullish and zero bearish calls against two neutral ones, and not a single dated, fully attributed call in the file. There is no bear case on record, no price targets, and no named analyst staking out a position. Whatever debate exists around Diageo, it hasn't been captured here in any usable form.
+The honest answer about "the debate" on DEO is that, as of this corpus, there barely is one. The ledger shows zero bullish calls, zero bearish calls, and two neutral entries — both from a single, unnamed speaker, and both landing on the same day, August 12, 2026. Nobody in the record has planted a flag on either side.
 
-The only commentary that made it into the digest comes from an unidentified speaker, undated, and it reads considerably more constructive than the neutral tag would suggest. The speaker is quoted saying "it's starting to inflect" and — in what looks like a transcription artifact — "Dagio takes its next leg higher," the latter presumably meaning Diageo. Both phrases are bullish in plain English: an inflection implies a turn from a downtrend or stagnation, and a "next leg higher" presupposes a prior leg up and expects another. That tension between the two neutral ratings and the only audible voice sounding hopeful is the one genuinely interesting feature of this file — either the neutral label reflects hedged language that wasn't transcribed, or the rating and the rhetoric simply weren't logged consistently.
+What that voice actually said is suggestive but non-committal. The first remark — "it's starting to inflect" — is an observation about momentum turning, not a rating. The second, "Dagio takes its next leg higher" (the source transcript's rendering of the name; this page covers Diageo), reads as scenario framing rather than a committed buy call — the conditional "takes" is doing a lot of work. Tagging both comments neutral rather than bullish seems like the right call: the speaker is flagging a potential inflection point without staking conviction on it, which is watchlist language, not thesis language.
 
-Beyond that, there's nothing to build a timeline from. No names, no dates, no reversals, no counterarguments. A fair wiki entry has to flag that the shape of the DEO debate is currently unknowable from this material: one anonymous, bullish-sounding data point against a flat consensus, with no timestamps to sequence it. Until identified speakers with dated positions enter the record — bulls arguing a turnaround, bears arguing the malaise persists — this page should be treated as a placeholder rather than a summary of a real argument.
+That leaves the rest of the page essentially empty by necessity. There is no bull case to summarize because no one has made one; no bear case either. No one has changed their mind, because there's no prior stance on record to change. The timeline of calls is a single date with a single voice. Until a named analyst goes on record long or short — or the unnamed speaker upgrades the inflection observation into an actual position — DEO sits at neutral/watch, and the "debate" is one person leaning forward slightly in their chair.
 
 ## Themes
 
@@ -27,8 +27,8 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 ## Notable calls
 
-- **David Lin** — [Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes](https://www.youtube.com/watch?v=8kFLx1lEzU0) — n/d, David Lin: "it's starting to inflect."
-- **David Lin** — [Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes](https://www.youtube.com/watch?v=8kFLx1lEzU0) — n/d, David Lin: "Dagio takes its next leg higher."
+- **David Lin** — [Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes](https://www.youtube.com/watch?v=8kFLx1lEzU0) — 2026-08-12, David Lin: "it's starting to inflect."
+- **David Lin** — [Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes](https://www.youtube.com/watch?v=8kFLx1lEzU0) — 2026-08-12, David Lin: "Dagio takes its next leg higher."
 
 ## Analysts covering this ticker
 
@@ -39,17 +39,17 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
 - 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
-- 2026-06-23 _bullish_ [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
 - 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
 - 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
 - 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
-- n/d — [Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes](https://www.youtube.com/watch?v=8kFLx1lEzU0) (David Lin)
+- 2026-08-12 — [Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes](https://www.youtube.com/watch?v=8kFLx1lEzU0) (David Lin)
 
 ---
 _Page reflects DB state at generation time. Regenerate via `uv run python scripts/build_llm_wiki.py`._

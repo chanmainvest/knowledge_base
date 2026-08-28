@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 3
-- **Items with predictions**: 2
-- **Predictions**: 4
-- **Market views**: 25
+- **Extracted items**: 12
+- **Items with predictions**: 10
+- **Predictions**: 45
+- **Market views**: 41
 
 ## People on this channel
 
@@ -20,18 +20,24 @@ _No URL / bio in DB channel metadata._
 
 **Most-called tickers:**
 
-- `BZ=F` (1)
-- [GC=F](../Tickers/GC=F.md) (1)
-- `^KS11` (1)
-- [SpaceX](../Tickers/spacex.md) (1)
+- [^TYX](../Tickers/^TYX.md) (4)
+- [^GSPC](../Tickers/^GSPC.md) (4)
+- [BZ=F](../Tickers/BZ=F.md) (3)
+- [CL=F](../Tickers/CL=F.md) (2)
+- [RB=F](../Tickers/RB=F.md) (1)
+- [ZB=F](../Tickers/ZB=F.md) (1)
+- [JPY=X](../Tickers/JPY=X.md) (1)
+- [TLT](../Tickers/TLT.md) (1)
+- [^SOX](../Tickers/^SOX.md) (1)
+- [^IXIC](../Tickers/^IXIC.md) (1)
 
 ## Stance distribution (predictions)
 
 | Stance | Count |
 |---|---:|
-| Bullish | 0 |
-| Bearish | 3 |
-| Neutral / watch | 1 |
+| Bullish | 3 |
+| Bearish | 6 |
+| Neutral / watch | 36 |
 
 ## Market-view direction
 
@@ -44,25 +50,38 @@ _No URL / bio in DB channel metadata._
 
 ## Recent notable calls
 
-- `BZ=F`: [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80) — 2026-06-20, [Joseph](../People/joseph.md): "if you look at spot oil prices, they've absolutely plummeted. So, you can see spot Brent all the way down."
-- [GC=F](../Tickers/GC=F.md): [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — 2026-06-17, Guest analyst: "Gold sold off pretty significantly, precious metals."
-- `^KS11`: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — 2026-06-17, Guest analyst: "the KOSPI basically doubled this year."
-- [SpaceX](../Tickers/spacex.md): [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — 2026-06-17, Guest analyst: "In the coming months, you'll have lockups unlock, and then you'll have the people sell... obviously, the first chance you have a to sell, you're going to be dumping that."
+- [CL=F](../Tickers/CL=F.md): [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "But again, you're fighting against the relentless rise in oil prices. So that is a problem."
+- [^TYX](../Tickers/^TYX.md): [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "if they were to cut long end issuance sizes that would also very clearly send a strong signal to the markets and mechanically have less supply and that would have a notable downward shift in the long bond yield."
+- [^TYX](../Tickers/^TYX.md): [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "And really, there's no limit to this. He could just really buy it all if he really wanted to. So, he's going to probably keep doing this until he gets the outcome that he wants."
+- [CL=F](../Tickers/CL=F.md): [Markets Weekly August 15, 2026](https://www.youtube.com/watch?v=nYf-RBhbAh8) — 2026-08-15, Joseph Wang: "when we see what happens in um crude oil pretty well behaved"
+- [RB=F](../Tickers/RB=F.md): [Markets Weekly August 15, 2026](https://www.youtube.com/watch?v=nYf-RBhbAh8) — 2026-08-15, Joseph Wang: "whereas gasoline futures continue to march steadily higher."
+- [ZB=F](../Tickers/ZB=F.md): [Markets Weekly August 15, 2026](https://www.youtube.com/watch?v=nYf-RBhbAh8) — 2026-08-15, Joseph Wang: "that would ultimately give a bid to bonds."
+- [^TYX](../Tickers/^TYX.md): [Markets Weekly August 15, 2026](https://www.youtube.com/watch?v=nYf-RBhbAh8) — 2026-08-15, Joseph Wang: "over the past few months it's basically been marching up higher relentlessly and now it's about 5.25%"
+- [^GSPC](../Tickers/^GSPC.md): [Markets Weekly August 15, 2026](https://www.youtube.com/watch?v=nYf-RBhbAh8) — 2026-08-15, Joseph Wang: "I continue to think that uh of course, we could have a blow-off top in the equity markets, but I do continue to be very cautious here."
 
 ## Recent market views
 
-- _rates — neutral_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Guest: "At the moment, they're they've really scaled down those reserve management uh purchases. I think it's like to 10 billion a month now."
-- _rates — bearish_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Guest: "So, my full expectation is he would have a big committee, all these people sign off... Having a smaller Fed balance sheet, great idea... we should have it be a Treasury-only balance sheet."
-- _rates — mixed_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Guest: "Governor Bowman for example is like we should have more of a vault. This is great... I think that having some volatility would actually probably be not as good for speculators but could make the markets more resilient."
-- _rates — mixed_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Guest: "I think what could happen with the change in communication is you could actually have a significant chair... There would be more rate volatility, but uh as a Fed chair, that is probably not super popular."
-- _equities — bearish_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Joseph Wang: "if you look at the equity market reaction, uh there's some possibility that equity markets could have, you know, a bit of a correction."
-- _commodities — bearish_: [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — n/d, Joseph Wang: "energy prices are coming down. Uh they're going to come down maybe rapidly, and so that is going to have a disinflationary tailwind coming forward."
+- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "In any case the long bond yield keeps going up and up and up and at 5.3% it it is historically high. It's its heights it's been since before the 2008 financial crisis."
+- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "First and foremost, of course, is that this is a global movement driven by the war in Iran driving up energy prices. So everywhere in the world the long bond yields are rising uh mostly because energy prices are rising."
+- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "Kevin's last performance at his FOMC meeting was very concerning because he suggested that you know maybe he's not going to target PCE. Maybe he's going to target something else that he doesn't want to tell you about."
+- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "you can say that for example the hyperscalers are issuing a lot of debt crowding out treasuries or you can say that the equity market is doing so well that 5% long bond yields are just not enough."
+- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "Besson was actually pretty candid about this at in an interview he gave with CNBC where he called this a treasury twist."
+- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "So at the end of the day, this so far has not been successful, but really I I wouldn't sweat it because they really do have the firepower to make this work."
 
 ## Source items (extracted)
 
+- 2026-08-22 — [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg)
+- 2026-08-15 — [Markets Weekly August 15, 2026](https://www.youtube.com/watch?v=nYf-RBhbAh8)
+- 2026-08-08 — [Markets Weekly August 8, 2026](https://www.youtube.com/watch?v=aMg4pQg1hlI)
 - 2026-08-01 — [Markets Weekly August 1, 2026](https://www.youtube.com/watch?v=fIY6Bm88VGs)
-- n/d — [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80)
-- n/d — [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI)
+- 2026-07-29 — [July 2026 FOMC Debrief](https://www.youtube.com/watch?v=l5IGlZ8TXZk)
+- 2026-07-25 — [Markets Weekly July 25, 2026](https://www.youtube.com/watch?v=9MGlq_4xxjE)
+- 2026-07-18 — [Markets Weekly July 18, 2026](https://www.youtube.com/watch?v=jw0rXEyUKaU)
+- 2026-07-11 — [Markets Weekly July 11, 2026](https://www.youtube.com/watch?v=cpxOs7TnBZ0)
+- 2026-07-04 — [Markets Weekly July 4, 2026](https://www.youtube.com/watch?v=P9oxwMfNItU)
+- 2026-06-27 — [Markets Weekly June 27, 2026](https://www.youtube.com/watch?v=UzRGWHUuJRI)
+- 2026-06-20 — [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80)
+- 2026-06-17 — [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI)
 
 ---
 _Page reflects DB state at generation time._

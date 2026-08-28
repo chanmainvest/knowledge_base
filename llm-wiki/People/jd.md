@@ -93,8 +93,8 @@ _See all people's shifts in [Syntheses/Opinion Shifts](../Syntheses/Opinion-Shif
 Topics where this person's current stance conflicts with another person's:
 
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
-- [SpaceX](../Tickers/spacex.md) — opposite: [何啟聰](../People/person-001.md), [George Noble](../People/george-noble.md), [Ed Zitron](../People/ed-zitron.md)
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md), [David Woo](../People/david-woo.md)
+- [SpaceX](../Tickers/spacex.md) — opposite: [何啟聰](../People/person-002.md), [George Noble](../People/george-noble.md), [Ed Zitron](../People/ed-zitron.md)
+- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [Oil & Energy](../Themes/oil-energy.md) — opposite: [Jeff Snider](../People/jeff-snider.md), [Steve](../People/steve.md), [Joseph](../People/joseph.md), [Joseph Wang](../People/joseph-wang.md), [Jeff (Jeoff)](../People/jeff-jeoff.md), [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md)
 - [^TNX](../Tickers/^TNX.md) — opposite: [George Noble](../People/george-noble.md)
 

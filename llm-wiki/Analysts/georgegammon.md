@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 3
-- **Items with predictions**: 1
-- **Predictions**: 6
-- **Market views**: 13
+- **Extracted items**: 13
+- **Items with predictions**: 4
+- **Predictions**: 18
+- **Market views**: 34
 
 ## People on this channel
 
@@ -20,9 +20,15 @@ _No URL / bio in DB channel metadata._
 
 **Most-called tickers:**
 
-- [^GSPC](../Tickers/^GSPC.md) (2)
+- [^TNX](../Tickers/^TNX.md) (3)
+- [^GSPC](../Tickers/^GSPC.md) (3)
 - [CL=F](../Tickers/CL=F.md) (2)
-- `SPY` (1)
+- [JPY=X](../Tickers/JPY=X.md) (1)
+- [GC=F](../Tickers/GC=F.md) (1)
+- [DX-Y.NYB](../Tickers/DX-Y.NYB.md) (1)
+- `STRC` (1)
+- [MSTR](../Tickers/MSTR.md) (1)
+- [SPY](../Tickers/SPY.md) (1)
 - `LEN` (1)
 
 ## Stance distribution (predictions)
@@ -31,7 +37,7 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 3 |
 | Bearish | 2 |
-| Neutral / watch | 1 |
+| Neutral / watch | 13 |
 
 ## Market-view direction
 
@@ -44,25 +50,37 @@ _No URL / bio in DB channel metadata._
 
 ## Recent notable calls
 
-- [^GSPC](../Tickers/^GSPC.md): [SpaceX, Iran, OpenAI IPO...Here's My Controversial Stock Strategy For 2026](https://www.youtube.com/watch?v=QxR6yvf8ueU) — 2026-06-18, George: "there is absolutely no way that I would go outright long the S&P 500 right now as we speak."
-- `SPY`: [SpaceX, Iran, OpenAI IPO...Here's My Controversial Stock Strategy For 2026](https://www.youtube.com/watch?v=QxR6yvf8ueU) — 2026-06-18, George: "I want to offset this, believe it or not, with a long position in the S&P 500... I'm going to take a $10,000 long position to offset this in the SPY."
-- `LEN`: [SpaceX, Iran, OpenAI IPO...Here's My Controversial Stock Strategy For 2026](https://www.youtube.com/watch?v=QxR6yvf8ueU) — 2026-06-18, George: "is being short a company like LAR. So LEN... I don't like the homebuilders right now"
-- [CL=F](../Tickers/CL=F.md): [SpaceX, Iran, OpenAI IPO...Here's My Controversial Stock Strategy For 2026](https://www.youtube.com/watch?v=QxR6yvf8ueU) — 2026-06-18, George: "So you could see within the next couple months oil at 150, 170, who knows, maybe even 200"
-- [CL=F](../Tickers/CL=F.md): [SpaceX, Iran, OpenAI IPO...Here's My Controversial Stock Strategy For 2026](https://www.youtube.com/watch?v=QxR6yvf8ueU) — 2026-06-18, George: "we could see a delayed effect...you are going to see the supply of oil absolutely plummet because there ain't nothing left in the SPR"
-- [^GSPC](../Tickers/^GSPC.md): [SpaceX, Iran, OpenAI IPO...Here's My Controversial Stock Strategy For 2026](https://www.youtube.com/watch?v=QxR6yvf8ueU) — 2026-06-18, George: "in that environment of hysteria mania where there is capital continuing more and more and more capital going to the markets that's not something that I would want to short but that doesn't mean that I'm going outright l…"
+- `(no ticker)`: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "But this assumes of course that oil stays right around 80 85 a barrel and we don't have further escalation in the Middle East."
+- `(no ticker)`: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "I think that if we fast forward one year, most likely interest rates will be lower."
+- `(no ticker)`: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "So now let's get into my prediction. Where are interest rates headed in the future?"
+- [^TNX](../Tickers/^TNX.md): [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "the market is going to see that as an opportunity and bring it right back down in line ... let's just say 7%. which is more in line with where they historically are"
+- [JPY=X](../Tickers/JPY=X.md): [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "We're probably at 158 159 now. But you can see we're once again likely headed back to where we were before they started, which is right around 163 164."
+- [^TNX](../Tickers/^TNX.md): [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "even if what they're doing really won't work."
+- [^TNX](../Tickers/^TNX.md): [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "every single time they did QE, whether it was one, two, or three, the interest rates were higher at the end of the process than where they started."
+- [GC=F](../Tickers/GC=F.md): [WARNING: This Is When The Dollar Will Lose Reserve Currency Status](https://www.youtube.com/watch?v=IcDsLFqzN5k) — 2026-08-21, George Gammon: "So, why couldn't we go back to that in the next three years, four years, five years? I think we absolutely could. And if you look at a trend, it's definitely going that direction."
 
 ## Recent market views
 
-- _rates — mixed_: [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everyth…](https://www.youtube.com/watch?v=8QKGzMIhuh0) — 2026-06-20, George Gammon: "So this caught the market way offsides, especially the bond market"
-- _rates — neutral_: [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everyth…](https://www.youtube.com/watch?v=8QKGzMIhuh0) — 2026-06-20, George Gammon: "Do they really control the interest rate? No, not in my view, just like I didn't control the weather."
-- _rates — mixed_: [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everyth…](https://www.youtube.com/watch?v=8QKGzMIhuh0) — 2026-06-20, George Gammon: "This is really the key. And we can see it's right around 30 basis points, which relatively speaking is very low, usually right around 100, maybe even 150 basis points."
-- _interest rates — bearish_: [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everyth…](https://www.youtube.com/watch?v=8QKGzMIhuh0) — 2026-06-20, speaker: "So, with your portfolio or with your analysis of the overall US economy, I would expect lower rates in the future, not higher rates."
-- _interest rates — mixed_: [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everyth…](https://www.youtube.com/watch?v=8QKGzMIhuh0) — 2026-06-20, speaker: "So he's going to go from a dove to a hawk and then straight back to a dove again, which would make a lot of sense."
-- _macro/economy — bearish_: [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everyth…](https://www.youtube.com/watch?v=8QKGzMIhuh0) — 2026-06-20, speaker: "But, then what you have to do is you have to realize what lower rates tells us about the overall economy. And that usually means the economy is getting worse. It's not getting better."
+- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "Because the long end of the curve is not driven by debt, deficits, or oddly enough, the typical version of supply and demand... It's driven by growth and inflation expectations."
+- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "But we saw the complete opposite. Why? Because the long end of the curve is not driven by debt, deficits, or oddly enough, the typical version of supply and demand."
+- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "So, we can go ahead and cross off the central planners. They are not going to be able to control interest rates just like they can't control the yen versus the dollar... The only thing these guys can do is just create s…"
+- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "when the BOJ or the Ministry of Finance, the central planners in Japan, when they try to defend the currency and try to make the yen appreciate against the dollar... you can see what happens after a couple weeks. It jus…"
+- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "We now have over 40 trillion dollar in debt... And are interest rates higher now or are they lower? They're a lot lower, way lower than they were in 1980... But what happened to interest rates especially from 1980 to 20…"
+- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "throw up a chart of the 10-year Treasury yield and nominal GDP in the United States, which is basically a combination of growth and inflation. And you can see that there's an extremely strong correlation regardless of w…"
 
 ## Source items (extracted)
 
+- 2026-08-27 — [The Entire House of Cards Is About To Fall (US Treasury Is Terrified)](https://www.youtube.com/watch?v=mXi5jB-kPJE)
+- 2026-08-22 — [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE)
+- 2026-08-21 — [WARNING: This Is When The Dollar Will Lose Reserve Currency Status](https://www.youtube.com/watch?v=IcDsLFqzN5k)
+- 2026-08-15 — [BlackRock and Nvidia? Ok, Now It's Getting Dangerous](https://www.youtube.com/watch?v=Gb5hBqdmnUI)
+- 2026-07-23 — [WARNING: They Just Created A $10 Trillion Derivatives Timebomb](https://www.youtube.com/watch?v=YbIKPH-rK8w)
 - 2026-07-18 — [WARNING: This Is An Economic Sign That Can't Be Ignored](https://www.youtube.com/watch?v=YD5IrExMPVk)
+- 2026-07-16 — [It's Official, The AI Bubble Just Popped (Here's Why)](https://www.youtube.com/watch?v=paLy21TVecw)
+- 2026-07-11 — [The Next Subprime Crisis Was Just Triggered...And It's Bigger Than 2008](https://www.youtube.com/watch?v=42cunoNk_HA)
+- 2026-07-09 — [This Multi Trillion Dollar Bubble May Have Just Broken The Economy](https://www.youtube.com/watch?v=Ca0X4O2t9Mo)
+- 2026-07-04 — [Are We On The Brink Of Another Financial Crisis? (Answer Will Surprise You)](https://www.youtube.com/watch?v=5GkdhYhW2-c)
+- 2026-07-02 — [Powerful Stock Indicator Just Gave An Extreme Crash Warning](https://www.youtube.com/watch?v=8QB9yHWVumQ)
 - 2026-06-20 — [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everything)](https://www.youtube.com/watch?v=8QKGzMIhuh0)
 - 2026-06-18 — [SpaceX, Iran, OpenAI IPO...Here's My Controversial Stock Strategy For 2026](https://www.youtube.com/watch?v=QxR6yvf8ueU)
 

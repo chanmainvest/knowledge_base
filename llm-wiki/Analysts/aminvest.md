@@ -1,4 +1,4 @@
-# aminvest
+# AM Invest
 
 `aminvest` — source: `patreon`  ·  channel id: `114605`
 
@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 26
-- **Items with predictions**: 10
-- **Predictions**: 19
-- **Market views**: 29
+- **Extracted items**: 70
+- **Items with predictions**: 26
+- **Predictions**: 59
+- **Market views**: 64
 
 ## People on this channel
 
@@ -19,16 +19,16 @@ _No URL / bio in DB channel metadata._
 
 **Most-called tickers:**
 
+- [DRAM](../Tickers/DRAM.md) (8)
+- [BABA](../Tickers/BABA.md) (4)
+- [QQQ](../Tickers/QQQ.md) (4)
+- [ROKU](../Tickers/ROKU.md) (4)
+- [NVDA](../Tickers/NVDA.md) (2)
+- [AAPL](../Tickers/AAPL.md) (2)
+- [^IXIC](../Tickers/^IXIC.md) (2)
+- [MSFT](../Tickers/MSFT.md) (2)
 - [MU](../Tickers/MU.md) (2)
-- [DRAM](../Tickers/DRAM.md) (2)
-- [SPCX](../Tickers/SPCX.md) (2)
-- `US stock market call options` (1)
-- `US stock market (general)` (1)
-- `Large-cap US tech stocks` (1)
-- `科技股 (Tech stocks)` (1)
-- [GS](../Tickers/GS.md) (1)
-- `MS` (1)
-- `金融股 (Financial stocks)` (1)
+- [NQ=F](../Tickers/NQ=F.md) (2)
 
 ## Stance distribution (predictions)
 
@@ -36,7 +36,7 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 5 |
 | Bearish | 1 |
-| Neutral / watch | 13 |
+| Neutral / watch | 53 |
 
 ## Market-view direction
 
@@ -48,52 +48,52 @@ _No URL / bio in DB channel metadata._
 
 ## Recent notable calls
 
-- `(no ticker)`: [美股市況短評 (20260730)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-165262678) — 2026-07-30, aminvest
-- `(no ticker)`: [美股市況短評 (20260727)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164973225) — 2026-07-27, aminvest
-- `(no ticker)`: [美股市況短評 (20260727)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164973225) — 2026-07-27, aminvest
-- [MU](../Tickers/MU.md): [美股市況短評 (20260724)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164723944) — 2026-07-24, aminvest: "最強勢的股票，例如 Micron Technology (MU)，已擺脫下跌通道。"
-- [DRAM](../Tickers/DRAM.md): [美股市況短評 (20260720)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164345791) — 2026-07-20, aminvest: "在經歷大跌之後，DRAM若出現反彈，升勢有機會相當急。"
-- [DRAM](../Tickers/DRAM.md): [美股市況短評 (20260720)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164345791) — 2026-07-20, aminvest: "不過我認為，DRAM未必會跌到那麼低。"
-- `(no ticker)`: [美股市況短評 (20260717)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164086007) — 2026-07-17, aminvest: "DRAM還會不會再跌？我也不敢肯定"
-- `(no ticker)`: [美股市況短評 (20260717)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164086007) — 2026-07-17, aminvest: "但斬倉盤過後，往往也會帶來更大的反彈"
+- [BABA](../Tickers/BABA.md): [美股市況短評 (20260825)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167633850) — 2026-08-25, AM Invest: "阿里巴巴的盈利的確有所改善。"
+- [BABA](../Tickers/BABA.md): [美股市況短評 (20260825)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167633850) — 2026-08-25, AM Invest: "而且，這隻股票仍有機會出現較大的下行風險。不過，只要股價出現恐慌式下跌，這類盈利向好的公司，的確會有買入價值。"
+- [BABA](../Tickers/BABA.md): [美股市況短評 (20260825)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167633850) — 2026-08-25, AM Invest: "畢竟，BABA 現水平的沽壓仍然很大。貿然出手，勝算實在不高。"
+- [BABA](../Tickers/BABA.md): [美股市況短評 (20260825)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167633850) — 2026-08-25, AM Invest: "特別是如果你回看 BABA 過去的表現，就會發現股價在真正見底之前，往往都會被沽得相當狠。所以，如果股價只是跌了一點點，你就心急入市，其實很難贏到錢。"
+- `(no ticker)`: [美股市況短評 (20260821)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167280931) — 2026-08-21, AM Invest: "這樣，只要市況好轉，我們的倉位總值就有機會再創新高。"
+- `(no ticker)`: [美股市況短評 (20260821)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167280931) — 2026-08-21, AM Invest: "你會看到，我做的行使價都相當保守，因為早前我認為美股有機會下跌一點。"
+- `(no ticker)`: [美股市況短評 (20260818)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167003069) — 2026-08-18, AM Invest: "另外，Diagonal Spread 的 Short Call，今晚時間值應該所剩無幾。"
+- [QQQ](../Tickers/QQQ.md): [美股市況短評 (20260818)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167003069) — 2026-08-18, AM Invest: "然而，如果指數急速下跌，情況就會完全不同。期權的引伸波幅會大幅上升，這亦會間接影響 Delta 值。"
 
 ## Recent market views
 
-- _? — ?_: [美股市況短評 (20260727)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164973225) — 2026-07-27, aminvest
-- _? — ?_: [美股市況短評 (20260727)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164973225) — 2026-07-27, aminvest
-- _? — ?_: [美股市況短評 (20260727)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164973225) — 2026-07-27, aminvest
-- _credit — bearish_: [美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909) — 2026-06-25, aminvest: "企業債務違約比率，已經開始惡化。"
-- _equities — bearish_: [美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909) — 2026-06-25, aminvest: "而是全球很多 AI 相關與不相關的公司，都將會倒閉。"
-- _equities — bullish_: [美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909) — 2026-06-25, aminvest: "大型科技股，很多應該都會再升。"
+- _? — ?_: [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585) — 2026-08-26, AM Invest: "而且，必須有心理準備：如果股價繼續下跌，我們是願意接貨的。"
+- _? — ?_: [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585) — 2026-08-26, AM Invest: "始終，美股整體升幅並不算過分誇張。"
+- _? — ?_: [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585) — 2026-08-26, AM Invest: "一些有基本因素支持的股票，在回調後如果能夠企穩，我會視為可以部署入市的機會。"
+- _? — ?_: [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585) — 2026-08-26, AM Invest: "很多散戶都不明白，其實在橫行市中，賺錢難度本來就會大幅增加。"
+- _? — ?_: [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585) — 2026-08-26, AM Invest: "跌少少就買，其實是投資大忌。"
+- _? — ?_: [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585) — 2026-08-26, AM Invest: "要買，就要等市場真正出現恐慌。"
 
 ## Source items (extracted)
 
-- 2026-07-31 — [美股市況短評 (20260731)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-165359723)
-- 2026-07-30 — [是時候再次留意 SQQQ。](https://www.patreon.com/aminvest/posts/shi-shi-hou-zai-165282941)
-- 2026-07-30 — [美股市況短評 (20260730)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-165262678)
-- 2026-07-29 — [美股市況短評 (20260729)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-165166163)
-- 2026-07-29 — [AI 巨企軍備競賽是什麼一回事？](https://www.patreon.com/aminvest/posts/ai-ju-qi-jun-bei-165157899)
-- 2026-07-28 — [美股市況短評 (20260728)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-165070160)
-- 2026-07-27 — [美股市況短評 (20260727)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164973225)
-- 2026-07-24 — [美股市況短評 (20260724)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164723944)
-- 2026-07-23 — [美股市況短評 (20260723)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164634949)
-- 2026-07-22 — [走勢複盤 (暫名)  - 從 2021 年 ARKK 歷史軌跡，看當前美股結構與隱憂](https://www.patreon.com/aminvest/posts/zou-shi-fu-pan-164564900)
-- 2026-07-21 — [美股市況短評 (20260721)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164419011)
-- 2026-07-20 — [美股市況短評 (20260720)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164345791)
-- 2026-07-17 — [沒有大礙了，下一步怎樣做？](https://www.patreon.com/aminvest/posts/mei-you-da-ai-yi-164109944)
-- 2026-07-17 — [美股市況短評 (20260717)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-164086007)
-- 2026-06-26 — [美股市況短評 (20260626)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162143520)
-- 2026-06-25 — [美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909)
-- 2026-06-24 — [美股市況短評 (20260624)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161958989)
-- 2026-06-23 — [倉位無大礙，但減倉保平安](https://www.patreon.com/aminvest/posts/cang-wei-wu-da-161877458)
-- 2026-06-23 — [美股市況短評 (20260623)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161861803)
-- 2026-06-22 — [美股市況短評 (20260622)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161763918)
-- 2026-06-18 — [美股市況短評 (20260618)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161407746)
-- 2026-06-17 — [美股市況短評 (20260617)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161328901)
-- 2026-06-16 — [「攻守轉換全攻略」重温連結](https://www.patreon.com/aminvest/posts/gong-shou-zhuan-161228143)
-- 2026-06-15 — [美股升勢比之前更全面。](https://www.patreon.com/aminvest/posts/mei-gu-sheng-shi-161170184)
-- 2026-06-15 — [美股市況短評 (20260615)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161146651)
-_…and 1 more._
+- 2026-08-26 — [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585)
+- 2026-08-25 — [美股市況短評 (20260825)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167633850)
+- 2026-08-24 — [美股市況短評 (20260824)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167548084)
+- 2026-08-21 — [美股市況短評 (20260821)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167280931)
+- 2026-08-20 — [美股市況短評 (20260820)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167196381)
+- 2026-08-19 — [美股市況短評 (20260819)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167107493)
+- 2026-08-18 — [減倉了，沒有大礙，而這就是我的方法。](https://www.patreon.com/aminvest/posts/jian-cang-liao-167026322)
+- 2026-08-18 — [美股市況短評 (20260818)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167003069)
+- 2026-08-17 — [美股市況短評 (20260817)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-166906435)
+- 2026-08-17 — [「白果系統」程式碼，以及簡單用法](https://www.patreon.com/aminvest/posts/bai-guo-xi-tong-166896931)
+- 2026-08-14 — [美股市況短評 (20260814)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-166649252)
+- 2026-08-14 — [這個新指標相當好用。](https://www.patreon.com/aminvest/posts/zhe-ge-xin-zhi-166640328)
+- 2026-08-13 — [美股市況短評 (20260813)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-166561284)
+- 2026-08-13 — [美股繼續看好，但要做一些橫行也能獲利的策略。](https://www.patreon.com/aminvest/posts/mei-gu-ji-xu-kan-166536089)
+- 2026-08-12 — [美股市況短評 (20260812)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-166465985)
+- 2026-08-11 — [倉位繼續破頂，感覺自己的操作越來越成熟。](https://www.patreon.com/aminvest/posts/cang-wei-ji-xu-166403899)
+- 2026-08-11 — [美股市況短評 (20260811)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-166357523)
+- 2026-08-10 — [Roku (ROKU) 現在才入市，坦白說，已經有點遲了。](https://www.patreon.com/aminvest/posts/roku-roku-xian-166302077)
+- 2026-08-10 — [美股市況短評 (20260810)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-166260420)
+- 2026-08-07 — [美股市況短評 (20260807)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-166024025)
+- 2026-08-06 — [美股市況短評 (20260806)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-165928091)
+- 2026-08-05 — [美股市況短評 (20260805)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-165833351)
+- 2026-08-04 — [美股市況短評 (20260804)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-165738141)
+- 2026-08-04 — [倉位總值差不多重返高位，這個策略值得再跟大家分享一次。](https://www.patreon.com/aminvest/posts/cang-wei-zong-bu-165729329)
+- 2026-08-03 — [剖析熊市本質：熊市大致可分為這三類。](https://www.patreon.com/aminvest/posts/pou-xi-xiong-shi-165656202)
+_…and 45 more._
 
 ---
 _Page reflects DB state at generation time._

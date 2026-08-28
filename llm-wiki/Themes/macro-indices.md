@@ -2,72 +2,84 @@
 
 Top-down calls on the S&P 500 (^GSPC, SPY), Nasdaq (^IXIC), Kospi (^KS11) and macro / economy direction. The recession-vs-soft-landing debate lives here.
 
-**24 prediction(s)** and **82 market view(s)** match this theme in the current extraction.
+**197 prediction(s)** and **188 market view(s)** match this theme in the current extraction.
 
 ## What the corpus says
 
-The corpus on broad-market indices is overwhelmingly an S&P 500 story — fourteen of the twenty-four tickered calls point at ^GSPC, with the Nasdaq, the dollar index (DX-Y.NYB), a single SPY mention and one KOSPI call filling out the margins — and the coverage clusters tightly between late June and mid-August 2026. Attribution is this theme's weak point: most of the punchiest index calls arrive with no name and no source attached, so the loudest voices here are, awkwardly, anonymous. The named contributors supply the texture instead, while the anonymous tape is where the price targets live.
+The gravitational center of this corpus is unmistakably the S&P 500. Of 197 tickered calls, ^GSPC accounts for 140, with the Nasdaq Composite (23) and SPY (9) as distant secondaries; the dollar index (6), the Kospi (5), the SOX semis index (3), and scattered looks at the NDX and Hang Seng round out the rest. Whatever argument is happening here, it is happening through the lens of large-cap US equities — and the 188 broad views mostly exist to explain or worry about that index.
 
-Those targets tell a story of accelerating optimism. On July 30 the framing was still defensive — one call war-gamed an S&P drop of 10 to 20 percent, while another warned that "if they find that the interest rates are going to increase significantly, Nasdaq-oriented stocks get hit." By August 7 the tone had flipped, and schizophrenically so within a single day: the same date produced a complaint that "they just started their intervention tactics like way preemptively when the S&P was off 2 and 1/2%" alongside a flat-out bull call for "8,250 on the S&P 500 by the end of the year and 10,000 by the end of the decade." Three days later someone was hunting for catalysts to "provide the juice for the S&P to get above 7620," and by August 13 a Chinese-language call conceded "但这太看涨了" — this is too bullish — while still expecting a breakout and a sharp rally like the previous few days. Read in sequence, the targets chase the tape upward, and the intervention gripe is telling: even the bulls seem unsure the move is organic.
+The dominant mode of the tickered calls, clustered in late August 2026, is levels-and-scenarios talk. The conversation on August 24–25 fixates on a 7,500 put wall, a "potentially sell order around 7,600" flagged as a key level, and a model pointing to "increased selling" right around 7,610, with SPY's weekly expected move mapped down to around 753 and stretching toward 777. Beneath the levels sits pattern-matching: one speaker rehearses corrections "at the beginning of 2018 and the end of 2018... the beginning of 2022 and the end of 2022," and wonders whether the market is starting to "sniff out that midterm year seasonality" as a reason it isn't joining some move. The hedging is candid — a hypothetical 10-to-15% sell-off gets entertained, and on timing, one speaker simply concedes whether "it breaks in early '27 or you have to go another year or two, that's beyond me." Notably, the mood isn't uniformly defensive: with stocks "putting in new all-time highs," staying bullish on the energy sector (the lone ^SP500-45 call) is described on August 25 as "fairly easy."
 
-The named skeptics cluster earlier and point downward or sideways. [Jeffrey Christian](../People/jeffrey-christian.md) took a two-track stance on June 23: the mounting risks "may be negative for the broader economy but supportive for gold and silver over time," paired with a monetary-policy complaint that "he wanted the Fed to be less forthcoming with information, less transparent, more secretive" — a transparency worry that rhets with August's intervention talk. The June backdrop was geopolitical, with one unbylined author arguing on June 25 that Israel doesn't want a ceasefire and the Middle East remains far from real peace. In Hong Kong, [何啟聰](../People/person-001.md) flagged a mechanics-driven risk on June 26: SK Hynix's brief plunge on tax-hike talk dragged the KOSPI 200 down a tenth, "正是涉及了不少槓桿產品引致的波幅" — the volatility came from the leveraged products wrapped around the index. July's macro views darken further, warning of "a persistent depression-like shortfall" (July 22) and that "the danger is that central banks react to the temporary inflationary impact of oil while the underlying economy is already weakening" (July 25).
+The macro thread is where the anxiety lives, and it escalates within a single week. On August 22 the discussion leans on a chart pairing the 10-year Treasury yield with US nominal GDP, noting a "very close correlation going all the way back"; by August 24 the tail scenario is explicit — the S&P is "down a lot" if 10-year yields go to 6% "in a straight line." [Warren Pies](../People/warren-pies.md) crystallized the shift on August 25 with the framing "why macro risks are suddenly taking control of the stock market," and by August 27 an unnamed host was invoking Druckenmiller to argue the fiscal picture is "by no means... solved," with the deficit still growing and interest expense climbing. That progression — from correlation chart, to rates shock scenario, to deficit fatalism — is the clearest tone shift the digest contains.
 
-Then there are the two who reject the forecasting exercise entirely. [李聲揚](../People/person-004.md) wrote on June 26 that "即使能未卜先知，了解局勢走向，對投資近乎是零幫助，甚至是催命符" — even foreknowledge of events is near-zero help for investing, even a death sentence — and [George Noble](../People/george-noble.md) shrugged the same week: "So what the index does, I don't really know. I don't really care. I want to own assets." That leaves the debate with three corners: round-number index bulls whose targets inflated as August wore on, macro and geopolitical bears who think the economy or the Fed is the real problem, and agnostics who think index forecasting itself is the trap. One caveat on the evidence: the dollar index's four calls and most of the Nasdaq tape come through the digest without quotes or attribution, so the currency side of this theme is essentially uncited here — a thin patch in otherwise S&P-heavy coverage.
+Running underneath is a liquidity-and-structure debate that never quite resolves. One commenter is "a bit more willing to accept" a multi-month, significant drawdown of the Treasury General Account, dismissing the related fiscal theater as "kabuki theater events," while another counters that any injection impact would be "one-off and transitory" as markets and the economy quickly equilibrate. A dot-com analogy surfaces too — like fiber in 2000, the worry is that everyone keeps "digging and leasing" regardless of payoff — and there's a distributional edge: if the top of the economy starts getting hit, "the top of the K comes down." Against all that, the corpus keeps one quantitative buy signal on file: a Ned Davis multi-cap equal-dollar-weighted buy-thrust, triggered when the 10-day gain runs 2.3x the 30-day gain eleven days after an S&P decline of at least 9%.
+
+Fair caveats: nearly everything here clusters between August 22 and 27, 2026, so "over time" means within one week rather than across seasons, and most of the macro voices are unnamed in the record — Pies is the only byline. The dominant posture that emerges is bullish by default at all-time highs, but with exit levels charted in advance and rates, the deficit, and the TGA held up as the things that could invalidate them.
 
 ## Constituent tickers
 
 | Ticker | Mentions |
 |---|---:|
-| [^GSPC](../Tickers/^GSPC.md) | 14 |
-| [^IXIC](../Tickers/^IXIC.md) | 4 |
-| [DX-Y.NYB](../Tickers/DX-Y.NYB.md) | 4 |
-| `SPY` | 1 |
-| `^KS11` | 1 |
+| [^GSPC](../Tickers/^GSPC.md) | 140 |
+| [^IXIC](../Tickers/^IXIC.md) | 23 |
+| [SPY](../Tickers/SPY.md) | 9 |
+| [DX-Y.NYB](../Tickers/DX-Y.NYB.md) | 6 |
+| [^KS11](../Tickers/^KS11.md) | 5 |
+| [^SOX](../Tickers/^SOX.md) | 3 |
+| [^NDX](../Tickers/^NDX.md) | 2 |
+| [^HSI](../Tickers/^HSI.md) | 2 |
+| `Ned Davis Research multi-cap equal dollar-weighted index (buy-thrust signal: 10-day gain 2.3x the 30-day gain, 11 days after S&P declined at least 9%)` | 1 |
+| `^SP500-45` | 1 |
+| `Index transcribed as '732 index' (likely a transcription artifact; possibly SOX)` | 1 |
+| [NQ=F](../Tickers/NQ=F.md) | 1 |
+| `Housing market / housing index` | 1 |
+| [QQQ](../Tickers/QQQ.md) | 1 |
+| [XLE](../Tickers/XLE.md) | 1 |
 
 ## Key voices
 
 - [George Noble](../People/george-noble.md) (9)
-- [David Woo](../People/david-woo.md) (6)
-- [Jeff Snider](../People/jeff-snider.md) (6)
-- [Brent Johnson](../People/brent-johnson.md) (6)
+- [David Woo](../People/david-woo.md) (8)
+- [Brent Johnson](../People/brent-johnson.md) (8)
+- [Jeff Snider](../People/jeff-snider.md) (7)
+- [Steve](../People/steve.md) (6)
+- [Milton Berg](../People/milton-berg.md) (6)
+- [Patrick](../People/patrick.md) (4)
+- [Darius Dale](../People/darius-dale.md) (4)
+- [Patrick Ceresna](../People/patrick-ceresna.md) (4)
 - [Chris Semenuk](../People/chris-semenuk.md) (4)
-- [Erik Townsend](../People/erik-townsend.md) (3)
-- [高天佑](../People/person-008.md) (3)
-- [Steve](../People/steve.md) (3)
-- [JD](../People/jd.md) (2)
-- [何啟聰](../People/person-001.md) (2)
 
 ## Consensus across analysts
 
-Of 24 tickered calls: **3 bullish**, **7 bearish**.
+Of 197 tickered calls: **9 bullish**, **9 bearish**.
 
 ## Notable calls & quotes
 
-- [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "但这太看涨了，我预计它会突破，并且像过去几天那样大幅上涨。"
-- [Investor Called Chips Crash, Now Warns ‘We’re Nearing The End’ Of Stock Rally \|…](https://www.youtube.com/watch?v=G9peC5ZZMuo) — 2026-08-10, David Lin: "provide the juice for the S&P to get above 7620"
-- [Washington Is Suppressing Volatility To Keep The AI Boom Alive \| Weekly Roundup](https://www.youtube.com/watch?v=L_g9MNO2tvE) — 2026-08-07, Forward Guidance: "they just started their intervention tactics like way preemptively when the S&P was off 2 and 1/2%"
-- [How High Will Interest Rates Go? Bond Market Sends Fed A Major Warning \| Ed Yar…](https://www.youtube.com/watch?v=aaaDQUPB4KY) — 2026-08-07, David Lin: "I'm shooting for 8,250 on the S&P 500 by the end of the year and 10,000 by the end of the decade."
-- [Markets To Surge 20% Until 'Global Financial Reset' Kills Everything \| Chris Ve…](https://www.youtube.com/watch?v=7bqs3hKc-fk) — 2026-08-06, David Lin
-- [Markets To Surge 20% Until 'Global Financial Reset' Kills Everything \| Chris Ve…](https://www.youtube.com/watch?v=7bqs3hKc-fk) — 2026-08-06, David Lin
-- [The Government’s New Plan for Markets with Cem Karsan](https://www.youtube.com/watch?v=5KrgIjDDYYg) — 2026-08-02, Real Vision
-- [Gold To $3,000, Oil To $40, Bitcoin To $10,000: The Deflation Trade Is Here \| M…](https://www.youtube.com/watch?v=_wm2gO04z_I) — 2026-07-30, David Lin: "let's say S&P drops 10 to 20%"
-- [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
-- [Fed Triggers Market 'Carnage': Economist Reveals Next Shock \| Komal Sri-Kumar](https://www.youtube.com/watch?v=2jxIHKDzMw0) — 2026-07-30, David Lin: "if they find that the interest rates are going to increase significantly, Nasdaq-oriented stocks get hit"
-- [Major Market Repricing Alert: Global Economy Changed Forever \| John Butler](https://www.youtube.com/watch?v=SjxmpuoQvVc) — 2026-07-26, David Lin: "I think that could happen any day"
-- [Why This Bull Market May Still Have Room to Run With Caleb Franzen & Kris Bullo…](https://www.youtube.com/watch?v=hzD3kSL_haE) — 2026-07-26, Real Vision: "any material dips at the index level for the S&P 500, for the equity market as a whole, even for something like Bitcoin, is just an opportunity to produce a higher low"
+- [Ted Oakley: Gold Still Cheap at $4,600, Energy Move Could Be Bigger, & 3 Signs …](https://www.youtube.com/watch?v=V5LzrcmhffA) — 2026-08-25, The Julia La Roche Show: "Now, whether whether it breaks in early '27 or you have to go another year or two, that's that's beyond me. Uh but but I will say this, once you get it there, that's when you have to take action in your portfolio"
+- [Ted Oakley: Gold Still Cheap at $4,600, Energy Move Could Be Bigger, & 3 Signs …](https://www.youtube.com/watch?v=V5LzrcmhffA) — 2026-08-25, The Julia La Roche Show: "if for some reason you had a market sell-off that was sort of... maybe a 10 or 15% market sell-off. A lot of times people, when that happens, they'll sell their winners"
+- [Why Is Bitcoin Suddenly Exploding? Will The Rally Continue? \| Ben Cowen](https://www.youtube.com/watch?v=gTn7-oSb_ic) — 2026-08-25, David Lin: "considering the stock market keeps putting in new all-time highs, it's been fairly easy to stay bullish on on the energy sector... it might get caught up in a in a correction in the S&P, but I I think that would be rela…"
+- [Why Is Bitcoin Suddenly Exploding? Will The Rally Continue? \| Ben Cowen](https://www.youtube.com/watch?v=gTn7-oSb_ic) — 2026-08-25, David Lin: "we had a correction in stocks at the beginning of 2018 and the end of 2018. At the beginning of 2022 and the end of 2022, and then also at the beginning of 2014 and the end of 2014. And so far we had one at the beginnin…"
+- [Why Is Bitcoin Suddenly Exploding? Will The Rally Continue? \| Ben Cowen](https://www.youtube.com/watch?v=gTn7-oSb_ic) — 2026-08-25, David Lin: "maybe the stock market is starting to sniff out that midterm year seasonality and and perhaps that's the reason why it's not joining the party here, at least in the short term."
+- [‘We’re In A Financial Crisis’: Treasury Readies $1 Trillion Warchest \| Danny Mo…](https://www.youtube.com/watch?v=EfKxbRuLZG0) — 2026-08-24, David Lin: "So S&P is down a lot if if 10ear yields go to 6% kind of in a straight line."
+- [The Setup Nobody Sees Coming](https://www.youtube.com/watch?v=Gvx5cXIaonU) — 2026-08-24, Figuring Out Money: "And that is we talked about that 7500 put wall down here. The potentially sell order around 7,600 could be a key level. Those round numbers and then probably be a little bit less bearish if this starts moving to an over…"
+- [The Setup Nobody Sees Coming](https://www.youtube.com/watch?v=Gvx5cXIaonU) — 2026-08-24, Figuring Out Money: "the spy on the 15-minute time frame, the weekly expected move is 75540 down to and around 753. So this zone in here, okay, above us is 776 to 777, right? Almost 778. Our daily implied move going into tomorrow's trading…"
+- [The Setup Nobody Sees Coming](https://www.youtube.com/watch?v=Gvx5cXIaonU) — 2026-08-24, Figuring Out Money: "here's a model right here telling us that there can be some increased selling right right at about that 7610. So that means simply put that if we start breaking under 7610 7600 we may see these CTAs start to sell into t…"
+- [The Setup Nobody Sees Coming](https://www.youtube.com/watch?v=Gvx5cXIaonU) — 2026-08-24, Figuring Out Money: "the SPY weekly expected move from seventy five fifty three to seventy seventy seven with the daily implied move from seven sixty to seven sixty six going into tomorrow"
+- [The Setup Nobody Sees Coming](https://www.youtube.com/watch?v=Gvx5cXIaonU) — 2026-08-24, Figuring Out Money: "a potential sell trigger near seventy six ten where a break under seventy six hundred can open the door to a moderate move down into seventy five hundred where the put wall sits"
+- [Treasury’s $1 Trillion Rescue: What’s Next For Stocks, Gold, Oil \| Todd Horwitz](https://www.youtube.com/watch?v=szfb2vqhLjo) — 2026-08-24, David Lin: "I think we're just in the beginning of that 40 to 60% sell-off that I'm looking for"
 
 ## Broad market views
 
-- _? (?)_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "The danger is that central banks react to the temporary inflationary impact of oil while the underlying economy is already weakening."
-- _? (?)_: [Europe’s 20-Year Economic Collapse Is Finally Impossible to Hide](https://www.youtube.com/watch?v=WhNvNwxV_qA) — 2026-07-22, Eurodollar University: "a persistent depression-like shortfall"
-- _equity index (bearish)_: [海力士槓桿ETF威脅韓股](https://www1.hkej.com/dailynews/investment/article/4440216/%E6%B5%B7%E5%8A%9B%E5%A3%AB%E6%A7%93%E6%A1%BFETF%E5%A8%81%E8%84%85%E9%9F%93%E8%82%A1) — 2026-06-26, 何啟聰: "早前海力士股價便因一些加稅討論而一度急跌,導致KOSPI 200指數跌了一成,正是涉及了不少槓桿產品引致的波幅"
-- _macro (neutral)_: [宏觀交易過五關 AI落場都輸錢](https://www1.hkej.com/dailynews/investment/article/4440220/%E5%AE%8F%E8%A7%80%E4%BA%A4%E6%98%93%E9%81%8E%E4%BA%94%E9%97%9C+AI%E8%90%BD%E5%A0%B4%E9%83%BD%E8%BC%B8%E9%8C%A2) — 2026-06-26, 李聲揚: "事實上，即使能未卜先知，了解局勢走向，對投資近乎是零幫助，甚至是催命符。"
-- _geopolitical/macro (bearish)_: [拆解伊強弱底牌 對美博弈佔上風](https://www.master-insight.com/article/48968) — 2026-06-25, 作者: "再加上以色列根本不想停戰，中東離開真正的和平仍很遙遠。"
-- _precious metals (bullish)_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
-- _monetary policy / macro (bearish)_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
-- _equities (neutral)_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "So what the index does, I don't really know. I don't really care. I want to own assets... I think we're reentered. We we've re-entered the golden age of stock picking. So So the index level is of little interest to me."
-- _equities (bearish)_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "the S&P is now 22% semiconductors, all-time high... I am I have a strong opinion on the index. I'm very bearish on the index."
-- _labor market / macro economy (bearish)_: [京東不要快遞員 三項鐵人再培訓](https://www1.hkej.com/dailynews/finnews/article/4436952/%E4%BA%AC%E6%9D%B1%E4%B8%8D%E8%A6%81%E5%BF%AB%E9%81%9E%E5%93%A1+%E4%B8%89%E9%A0%85%E9%90%B5%E4%BA%BA%E5%86%8D%E5%9F%B9%E8%A8%93) — 2026-06-23, 高天佑: "話說內地近年經濟放緩，就業形勢日益惡化，尤其是35歲以上人士已被視為中年，競爭力難及「小鮮肉」，屬於裁員的高危群體。"
+- _? (?)_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "But by no means is is Druckenmiller is this this solved. Like the deficit's still is what it is, it's growing, interest expense is rising. Inflationary pressures are not going away and they're not going to go away when…"
+- _? (?)_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "why macro risks are suddenly taking control of the stock market"
+- _? (?)_: [TGA 101](https://dampedspring101.substack.com/p/tga-101) — 2026-08-24, dampedspring: "I am a bit more willing to accept that a multi month significant drawdown of the TGA as seen in multiple kabuki theater events of the debt ceiling is stimulative to assets and the economy during the drawdown and reverse…"
+- _? (?)_: [TGA 101](https://dampedspring101.substack.com/p/tga-101) — 2026-08-24, dampedspring: "That impact would be one off and transitory as markets and the economy would quickly equilabrate after the injection at whatever new price levels occur."
+- _? (?)_: [‘We’re In A Financial Crisis’: Treasury Readies $1 Trillion Warchest \| Danny Mo…](https://www.youtube.com/watch?v=EfKxbRuLZG0) — 2026-08-24, David Lin: "No one's asking those questions yet because like the.com bubble with fiber and we're just going to keep digging and leasing and building fiber because the internet's here to stay. The macro is right. The question is all…"
+- _? (?)_: [‘We’re In A Financial Crisis’: Treasury Readies $1 Trillion Warchest \| Danny Mo…](https://www.youtube.com/watch?v=EfKxbRuLZG0) — 2026-08-24, David Lin: "If they start to get hit, that's going to have a follow on on the K-shaped economy and the top of the K comes down."
+- _? (?)_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "throw up a chart of the 10-year Treasury yield and nominal GDP in the United States, which is basically a combination of growth and inflation. And you can see that there's an extremely strong correlation regardless of w…"
+- _? (?)_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "when you look at that chart of the 10-year Treasury yield and nominal GDP, there's a very close correlation going all the way back as many decades as you want to"
+- _? (?)_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "you get all of this additional buying or additional demand ... So then you get all the buying which brings rates right back down right let's say right here to let's just say 7%. which is more in line with where they his…"
+- _? (?)_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "you see no correlation, almost an inverse correlation between that 10-year Treasury yield and the debt in the United States or the deficits as a percentage of GDP"
 
 ---
 _Theme buckets are keyword-based and approximate; an LLM-tagged taxonomy would be more precise. Regenerate via `uv run python scripts/build_llm_wiki.py`._

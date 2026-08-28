@@ -14,7 +14,7 @@ The record available for this page, however, is thin, and it is worth saying so 
 
 - **Appearances**: 2 (2026-06-14 → 2026-06-21)
 - **Shows**: Real Vision
-- **Extracted calls**: 0 predictions, 0 market views
+- **Extracted calls**: 0 predictions, 1 market views
 
 ## Appearances
 

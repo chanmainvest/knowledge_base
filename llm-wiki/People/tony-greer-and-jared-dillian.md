@@ -43,7 +43,7 @@ Topics where this person's current stance conflicts with another person's:
 
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [Oil & Energy](../Themes/oil-energy.md) — opposite: [George Noble](../People/george-noble.md), [JD](../People/jd.md), [Tony](../People/tony.md), [Erik Townsend](../People/erik-townsend.md), [David Woo](../People/david-woo.md)
-- [SpaceX](../Tickers/spacex.md) — opposite: [何啟聰](../People/person-001.md), [George Noble](../People/george-noble.md), [Ed Zitron](../People/ed-zitron.md)
+- [SpaceX](../Tickers/spacex.md) — opposite: [何啟聰](../People/person-002.md), [George Noble](../People/george-noble.md), [Ed Zitron](../People/ed-zitron.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

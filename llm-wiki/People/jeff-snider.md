@@ -6,23 +6,21 @@
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
-Jeff Snider is an American macroeconomic researcher and commentator, formerly Head of Global Research and Investment Strategy at Alhambra Investment Partners and now the host of Eurodollar University, the podcast and newsletter he runs with longtime collaborator Emil Kalinowski. He is best known as the leading proponent of the "Eurodollar" framework: the argument that the vast offshore dollar banking system — not central banks or official money printing — is the true global monetary system, and that its contraction since 2008 explains chronic disinflation, sluggish growth, recurring liquidity squeezes, and the limits of Federal Reserve policy. A prolific Real Vision contributor with thousands of commentaries behind him, Snider treats Treasury curves, T-bill spreads, Fed repo operations, and WTI contango/backwardation as real-time gauges of global dollar liquidity, which is why his asset calls are almost always liquidity calls underneath.
+Jeff Snider is an American macroeconomic researcher and commentator, formerly Head of Global Research and Investment Strategy at Alhambra Investment Partners, and the host of Eurodollar University, the podcast and newsletter he runs with longtime collaborator Emil Kalinowski. He is best known as the leading proponent of the "Eurodollar" framework — the argument that the vast offshore dollar banking system, not the Federal Reserve or official money printing, is the world's true monetary system, and that its contraction since 2008 explains chronic disinflation, sluggish growth, recurring liquidity squeezes, and the hard limits of Fed policy. A prolific writer and frequent Real Vision contributor, he reads Treasury curves, T-bill spreads, Fed repo operations and commodity futures curves (WTI contango and backwardation in particular) as real-time gauges of global dollar liquidity. That method is the key to his record: he trusts market prices over official narratives, and nearly everything else follows from it.
 
-The record captured here is concentrated in a ten-day window in mid-June 2026, and it is unrelentingly bearish. His loudest call of the stretch came on June 13, when he branded the ECB's rate hike a historic mistake — "The European Central Bank just raised rates on Thursday into an economy that is already shrinking" ([Europe Just Made A Historic Policy Mistake](https://www.youtube.com/watch?v=bBMP-s5PzKo)). He reached for a 2008 analogy, noting Ben Bernanke had come dangerously close to hiking even after Bear Stearns had already failed while the US economy was weakening, and insisted that "the Treasury market response in 2008 is the key parallel to what's going on today" ([Europe Just Made A Historic Policy Mistake](https://www.youtube.com/watch?v=bBMP-s5PzKo)). The Fed, he warned, "has to decide whether it's going to see through the oil shock or get pulled into the same mistake," even as "there's a private credit bust going on in Europe at the same time, too" ([Europe Just Made A Historic Policy Mistake](https://www.youtube.com/watch?v=bBMP-s5PzKo)). Notably, his stance on rates, bonds and the dollar flipped within days — bullish on the 2008-parallel bond rally on June 13, bearish by June 15, reasoning that if dollar-yen stops tracking rate differentials then something else, presumably liquidity, is driving it.
+The stance ledger shows what that lens produces — of 123 recorded positions, 91 are bearish, 26 neutral, and just 6 bullish. This is not event-driven pessimism but a structural disinflationist reading of the world, and his strongest recent calls all run through it. On June 13, 2026, he hammered the ECB for raising rates "into an economy that is already shrinking," calling it a historic policy mistake and drawing a direct parallel to Ben Bernanke coming dangerously close to hiking even after Bear Stearns had already failed in 2008, while warning that "the ECB has already chosen the wrong side" and that a private credit bust was underway in Europe at the same time ([Europe Just Made A Historic Policy Mistake](https://www.youtube.com/watch?v=bBMP-s5PzKo)). By June 22 he was applying the same "it is the economy, stupid" logic to the fall of Starmer's government in the UK ([The U.K. Has Fallen: Here's What It Means for the World](https://www.youtube.com/watch?v=wL63-KdtuEE)).
 
-China is where his bearishness turns apocalyptic. On June 16 he flagged that "Chinese households are not just borrowing less. They are pulling back at a pace we have not seen before in comparable data," and that real estate investment falling 16.2% in the first five months of the year is "not some mild downturn. This is a legit collapse" ([China Confirms The Rumors...Is This The Start Of A Financia…](https://www.youtube.com/watch?v=d7cNjW_mcEM)). He paired that with contracting May retail sales, deflationary signals from China's curves, and the observation that "no amount of stimulus has been able to thaw the deepening freeze and it starts with the banks who are under siege" ([China Confirms The Rumors...Is This The Start Of A Financia…](https://www.youtube.com/watch?v=d7cNjW_mcEM)). By June 20 he had escalated to the big picture: "China's completing its own transition into depression economics with consequences that have and will continue to radiate all over the entire planet," with the Hang Seng "not behaving like a market convinced by the recovery story" ([Something VERY Strange is Happening Just Happened Global Ma…](https://www.youtube.com/watch?v=3j8NhL0FTo4)). He extended the political-economy read to the UK on June 22: "It is the economy, stupid. It is the single biggest lesson from Starmer's fall" ([The U.K. Has Fallen: Here's What It Means for the World](https://www.youtube.com/watch?v=wL63-KdtuEE)).
+The China call is his most detailed. On June 16 he argued the downturn was "much, much harder to just explain away": real estate investment down 16.2% in the first five months of the year — "not some mild downturn. This is a legit collapse" — Chinese retail sales contracting year-over-year in May, the first annual decline on record in comparable data, households pulling back on borrowing at an unprecedented pace, and deflationary signals written across China's curves and marketplaces ([China Confirms The Rumors...Is This The Start Of A Financia…](https://www.youtube.com/watch?v=d7cNjW_mcEM)). Four days later he escalated: the Hang Seng was "not behaving like a market convinced by the recovery story," and China was completing "its own transition into depression economics" with consequences that radiate globally ([Something VERY Strange is Happening Just Happened Global Ma…](https://www.youtube.com/watch?v=3j8NhL0FTo4)). Around the same window he flagged that the private credit problem had shifted from insiders wanting out to outsiders no longer wanting in ([MASSIVE Private Credit Update, Here's What You Must know](https://www.youtube.com/watch?v=9WH-0Pl9ydM)), and pushed back on the tidy explanation for crude's plunge — not an Iran peace deal normalizing supply, but oil "falling because demand may already be breaking," with big changes in Treasuries and across the curves telling a different story ([ALERT: Oil And Interest Rates Are PLUNGING, Here's What You…](https://www.youtube.com/watch?v=IpZ_HYxaU_8)).
 
-His most distinctive calls, though, are the curve-reading ones. When oil plunged on June 18, he rejected the headline explanation of an Iran peace deal and supply normalization, arguing instead that "oil is falling because demand may already be breaking" — while still expecting a short-run WTI bounce and telling viewers to watch whether the front of the curve flips into contango, "just like we were doing at the end of last year" ([ALERT: Oil And Interest Rates Are PLUNGING, Here's What You…](https://www.youtube.com/watch?v=IpZ_HYxaU_8)). On private credit the same week, he argued the problem has shifted from insiders to "those on the outside who no longer want in," a development he said puts the system "even deeper into stage three" of his framework ([MASSIVE Private Credit Update, Here's What You Must know](https://www.youtube.com/watch?v=9WH-0Pl9ydM)).
-
-The shape of the ledger is telling: 6 bullish calls against 91 bearish and 17 neutral in the captured sample, with the lone green pocket in AI and semiconductors, where he observed on June 20 that "US stocks are surging, tech is soaring, semiconductors are vertical" — even while hedging that Hong Kong's China-linked money flows may be telling a story the AI trade ignores ([Something VERY Strange is Happening Just Happened Global Ma…](https://www.youtube.com/watch?v=3j8NhL0FTo4)). The coverage here is thin in span — essentially June 13–22, 2026 — so it reads as a snapshot of a persistently bearish posture rather than a long arc. The through-line is the framework itself: in Snider's telling, every one of these calls, from Frankfurt's policy mistake to China's "depression economics" to a demand-driven oil slide, is the post-2008 Eurodollar contraction showing up in a different market.
+On movement over time, be honest about the sample: the timeline here clusters almost entirely into June 2026, so this is a snapshot rather than a long arc. Within it, though, two shifts stand out. Rates and the dollar flipped from a bullish read on June 13 to bearish by June 15, when he observed that dollar-yen was no longer moving in line with rate differentials — "something else must be driving it," the eurodollar lens displacing the official-rate one ([Eurodollar Mechanics: Why the Dollar Moves (And Why It Matt…](https://www.youtube.com/watch?v=ocd1ZMBGcRw)). And gold moved from neutral on June 15 — gold can fall on a day people expected it to rise ([Eurodollar Mechanics: Why the Dollar Moves (And Why It Matt…](https://www.youtube.com/watch?v=ocd1ZMBGcRw)) — to explicitly bullish on June 20: "If gold is money, it should act like money. And now it finally can" ([Something VERY Strange is Happening Just Happened Global Ma…](https://www.youtube.com/watch?v=3j8NhL0FTo4)), a conviction he doubled down on by June 27, calling himself a believer in gold as a long-term store of value for whom recent changes "change everything" ([Bitcoin And BlackRock Just Did Something VERY Strange](https://www.youtube.com/watch?v=biyCX7UYAfQ)). Crypto he keeps at arm's length: the strange Bitcoin–BlackRock correlation suggests neither is leading, and both may be responding to "something bigger" — a global dollar force, in his telling, rather than a crypto story at all ([Bitcoin And BlackRock Just Did Something VERY Strange](https://www.youtube.com/watch?v=biyCX7UYAfQ)).
 
 ## At a glance
 
 - **Appearances**: 9 (2026-06-13 → 2026-06-23)
 - **Shows**: Eurodollar University
-- **Extracted calls**: 3 predictions, 58 market views
-- **Topics with opinions**: 11, **1 stance flip(s)** ⚠️
-- **Stance split**: 6 bullish / 91 bearish / 17 neutral
+- **Extracted calls**: 7 predictions, 65 market views
+- **Topics with opinions**: 14, **1 stance flip(s)** ⚠️
+- **Stance split**: 6 bullish / 91 bearish / 26 neutral
 
 ## Appearances
 
@@ -42,7 +40,7 @@ The shape of the ledger is telling: 6 bullish calls against 91 bearish and 17 ne
 
 _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ marks a detected change of mind._
 
-### [Broad Market & Macro Indices](../Themes/macro-indices.md) — now **bearish** (27 call(s))
+### [Broad Market & Macro Indices](../Themes/macro-indices.md) — now **bearish** (28 call(s))
 
 - `2026-06-13` ↓ bearish — The European Central Bank just raised rates on Thursday into an economy that is already shrinking.
 - `2026-06-13` ↓ bearish — The European Central Bank just hiked rates into an economy that is already shrinking.
@@ -71,8 +69,9 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 - `2026-06-22` ↓ bearish — Stocks go up simply because people buy stocks... Some share prices go without any relation to anything else. Valuations and earnings, there is zero correlation between stock retur…
 - `2026-06-22` → neutral — Yeah, the stock market continues to rise as real incomes continue to shrink.
 - `2026-06-22` ↓ bearish — It is the economy, stupid. It is the single biggest lesson from Starmer's fall.
+- `2026-06-27` → neutral — And suddenly you start to see, uh-oh, maybe the US economy isn't good as it used is we were sold on.
 
-### [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — now **bearish** (27 call(s)) ⚠️ stance flipped
+### [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — now **bearish** (28 call(s)) ⚠️ stance flipped
 
 - `2026-06-13` ↓ bearish — The European Central Bank just raised rates on Thursday into an economy that is already shrinking.
 - `2026-06-13` ↓ bearish — The European Central Bank just hiked rates into an economy that is already shrinking.
@@ -101,8 +100,9 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 - `2026-06-21` ↓ bearish — So, why would the government all of a sudden get quiet about interest rates? ... They're going to want rates to go lower because the PBOC... they want to do a lot of stimulus and…
 - `2026-06-21` ↓ bearish — the two-year 10-year spread is down to about 25 basis points. It is more in danger of reinverting than it is signaling something like inflation.
 - `2026-06-21` ↓ bearish — And what the bond market is saying very clearly, and we see this in the TIPS market, perfectly clear. There is no inflation risk.
+- `2026-06-27` → neutral — another picture starts to form, one that includes private credit stress, shadow banking pressure, falling bond yields, and a much deeper drop in another key eurodollar global risk…
 
-### [Credit, Private Credit & BDCs](../Themes/credit-private-credit.md) — now **bearish** (19 call(s))
+### [Credit, Private Credit & BDCs](../Themes/credit-private-credit.md) — now **bearish** (20 call(s))
 
 - `2026-06-13` ↓ bearish — The ECB has already chosen the wrong side of that conflict.
 - `2026-06-13` ↑ bullish — Treasury yields collapsed again, the Fed and ECB both followed the market by cutting policy rates aggressively the rest of the year.
@@ -123,6 +123,7 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 - `2026-06-20` ↓ bearish — So, replacing private credit demand with government borrowing is not a structural victory. It is a sign of desperation.
 - `2026-06-20` → neutral — The global AI trade may not care. US semiconductor stocks may not care, but Hong Kong, because of its position in China related money flows, doesn't have the luxury of ignoring th…
 - `2026-06-23` ↓ bearish — This is not fading or stabilizing. The bust is accelerating.
+- `2026-06-27` → neutral — another picture starts to form, one that includes private credit stress, shadow banking pressure, falling bond yields, and a much deeper drop in another key eurodollar global risk…
 
 ### [China & Hong Kong Equities](../Themes/china-hk-equities.md) — now **bearish** (15 call(s))
 
@@ -166,6 +167,18 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 - `2026-06-20` ↓ bearish — China's completing its own transition into depression economics with consequences that have and will continue to radiate all over the entire planet.
 - `2026-06-22` ↓ bearish — It is the economy, stupid. It is the single biggest lesson from Starmer's fall.
 
+### [Crypto & Stablecoins](../Themes/crypto.md) — now **neutral** (3 call(s))
+
+- `2026-06-27` → neutral — You don't just see BlackRock and Bitcoin generally tracking each other. Instead, what you get is a correlation that can't really be random coincidence. It looks a lot more like a…
+- `2026-06-27` → neutral — Bitcoin may not be leading BlackRock, and BlackRock may not be leading Bitcoin. They might both be responding to something bigger, something more global.
+- `2026-06-27` → neutral — It's almost like okay, the risk money has dried up at the very extreme edges where Bitcoin really lies
+
+### [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — now **bullish** (3 call(s))
+
+- `2026-06-15` → neutral — Gold can fall on a day when people expected it to rise. Stocks sell off globally. Emerging market currencies can sink. Safe havens like the Swiss Frank surge.
+- `2026-06-20` ↑ bullish — If gold is money, it should act like money. And now it finally can.
+- `2026-06-27` → neutral — If you believe in gold as a long-term store of value as I do, this changes everything.
+
 ### [AI & Semiconductors](../Themes/ai-semiconductors.md) — now **bullish** (2 call(s))
 
 - `2026-06-20` ↑ bullish — US stocks are surging, tech is soaring, semiconductors are vertical.
@@ -176,14 +189,17 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 - `2026-06-18` → neutral — WTI bounces in the short run, that wouldn't be surprising. In fact, we expect a bounce in the short run.
 - `2026-06-18` → neutral — Second, watch for that contango, just like we were doing at the end of last year. If the front of the curve flips into contango, that would be a much louder warning that demand de…
 
-### [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — now **bullish** (2 call(s))
+### [BTC-USD](../Tickers/BTC-USD.md) — now **neutral** (1 call(s))
 
-- `2026-06-15` → neutral — Gold can fall on a day when people expected it to rise. Stocks sell off globally. Emerging market currencies can sink. Safe havens like the Swiss Frank surge.
-- `2026-06-20` ↑ bullish — If gold is money, it should act like money. And now it finally can.
+- `2026-06-27` → neutral — You can lighten up on Bitcoin because its momentum is gone.
 
 ### [Electrification, Power & Industrials](../Themes/electrification-industrials.md) — now **bearish** (1 call(s))
 
 - `2026-06-16` ↓ bearish — it's not bullish for commodities, for money or banking, for the global system that still depends on China for its marginal growth potential.
+
+### [^HSI](../Tickers/^HSI.md) — now **neutral** (1 call(s))
+
+- `2026-06-27` → neutral — China is not doing well. In fact, it's accelerating to the downside.
 
 ### [^TNX](../Tickers/^TNX.md) — now **neutral** (1 call(s))
 
@@ -201,13 +217,13 @@ _See all people's shifts in [Syntheses/Opinion Shifts](../Syntheses/Opinion-Shif
 
 Topics where this person's current stance conflicts with another person's:
 
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md), [David Woo](../People/david-woo.md)
+- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [Credit, Private Credit & BDCs](../Themes/credit-private-credit.md) — opposite: [CPM Group speaker](../People/cpm-group-speaker.md)
-- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [梁天卓](../People/person-005.md), [Jeff](../People/jeff.md), [Steve](../People/steve.md), [Patrick Boyle](../People/patrick-boyle.md), [Erik Townsend](../People/erik-townsend.md), [Shawn Hackett](../People/shawn-hackett.md)
+- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [梁天卓](../People/person-010.md), [Jeff](../People/jeff.md), [Steve](../People/steve.md), [Patrick Boyle](../People/patrick-boyle.md), [Erik Townsend](../People/erik-townsend.md), [Shawn Hackett](../People/shawn-hackett.md)
 - [Oil & Energy](../Themes/oil-energy.md) — opposite: [George Noble](../People/george-noble.md), [JD](../People/jd.md), [Tony](../People/tony.md), [Erik Townsend](../People/erik-townsend.md), [David Woo](../People/david-woo.md)
+- [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md), [Val Zlatev](../People/val-zlatev.md), [Brent Johnson](../People/brent-johnson.md)
 - [AI & Semiconductors](../Themes/ai-semiconductors.md) — opposite: [aminvest](../People/aminvest.md), [Ed Zitron](../People/ed-zitron.md), [Jeffrey Christian](../People/jeffrey-christian.md), [Jim Chanos](../People/jim-chanos.md), [Patrick Boyle](../People/patrick-boyle.md), [Chris Semenuk](../People/chris-semenuk.md)
-- [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md), [Val Zlatev](../People/val-zlatev.md), [Brent Johnson](../People/brent-johnson.md), [David Woo](../People/david-woo.md)
 - [Electrification, Power & Industrials](../Themes/electrification-industrials.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Chris Semenuk](../People/chris-semenuk.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._

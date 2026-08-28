@@ -101,7 +101,7 @@ Topics where this person's current stance conflicts with another person's:
 - [AI & Semiconductors](../Themes/ai-semiconductors.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Val Zlatev](../People/val-zlatev.md), [Raoul Pal](../People/raoul-pal.md)
 - [Electrification, Power & Industrials](../Themes/electrification-industrials.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [Credit, Private Credit & BDCs](../Themes/credit-private-credit.md) — opposite: [CPM Group speaker](../People/cpm-group-speaker.md)
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md), [David Woo](../People/david-woo.md)
+- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [SpaceX](../Tickers/spacex.md) — opposite: [JD](../People/jd.md), [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md)
 

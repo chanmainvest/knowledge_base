@@ -42,8 +42,8 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 Topics where this person's current stance conflicts with another person's:
 
-- [Credit, Private Credit & BDCs](../Themes/credit-private-credit.md) — opposite: [aminvest](../People/aminvest.md), [Jeff Snider](../People/jeff-snider.md), [Ed Zitron](../People/ed-zitron.md)
-- [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md), [Val Zlatev](../People/val-zlatev.md), [Brent Johnson](../People/brent-johnson.md), [David Woo](../People/david-woo.md)
+- [Credit, Private Credit & BDCs](../Themes/credit-private-credit.md) — opposite: [aminvest](../People/aminvest.md), [Ed Zitron](../People/ed-zitron.md)
+- [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md), [Val Zlatev](../People/val-zlatev.md), [Brent Johnson](../People/brent-johnson.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

@@ -6,80 +6,93 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 38
-- **Items with predictions**: 18
-- **Predictions**: 78
-- **Market views**: 19
+- **Extracted items**: 83
+- **Items with predictions**: 47
+- **Predictions**: 391
+- **Market views**: 223
+
+## People on this channel
+
+(hosts, guests and solo authors — each person's appearances across all shows are merged on their own People page)
+
+- [Adrian Day](../People/adrian-day.md) — 1 appearance(s) as guest
+- [Chris Vermeulen](../People/chris-vermeulen.md) — 1 appearance(s) as guest
+- [Clem Chambers](../People/clem-chambers.md) — 1 appearance(s) as guest
+- [Danielle DiMartino Booth](../People/danielle-dimartino-booth.md) — 1 appearance(s) as guest
+- [Gareth Soloway](../People/gareth-soloway.md) — 1 appearance(s) as guest
+- [Matt Milligan](../People/matt-milligan.md) — 1 appearance(s) as guest
+- [Peter Boockvar](../People/peter-boockvar.md) — 1 appearance(s) as guest
+- [Steve Hanke](../People/steve-hanke.md) — 1 appearance(s) as guest
 
 **Most-called tickers:**
 
-- [GC=F](../Tickers/GC=F.md) (12)
-- [CL=F](../Tickers/CL=F.md) (8)
-- [^GSPC](../Tickers/^GSPC.md) (6)
-- [SMH](../Tickers/SMH.md) (4)
-- [HG=F](../Tickers/HG=F.md) (3)
-- [BTC-USD](../Tickers/BTC-USD.md) (3)
-- [DX-Y.NYB](../Tickers/DX-Y.NYB.md) (3)
-- [^TNX](../Tickers/^TNX.md) (3)
-- [GDX](../Tickers/GDX.md) (2)
-- [^IXIC](../Tickers/^IXIC.md) (2)
+- [GC=F](../Tickers/GC=F.md) (75)
+- [BTC-USD](../Tickers/BTC-USD.md) (43)
+- [CL=F](../Tickers/CL=F.md) (31)
+- [^GSPC](../Tickers/^GSPC.md) (26)
+- [^TNX](../Tickers/^TNX.md) (12)
+- [DX-Y.NYB](../Tickers/DX-Y.NYB.md) (11)
+- [EQX](../Tickers/EQX.md) (7)
+- [HG=F](../Tickers/HG=F.md) (6)
+- [SI=F](../Tickers/SI=F.md) (6)
+- [SMH](../Tickers/SMH.md) (5)
 
 ## Stance distribution (predictions)
 
 | Stance | Count |
 |---|---:|
-| Bullish | 0 |
-| Bearish | 0 |
-| Neutral / watch | 78 |
+| Bullish | 19 |
+| Bearish | 5 |
+| Neutral / watch | 367 |
 
 ## Recent notable calls
 
-- [CL=F](../Tickers/CL=F.md): [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "石油也会变得更贵"
-- [HG=F](../Tickers/HG=F.md): [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "关于铜价的‘曲棍球棒’走势"
-- [GS](../Tickers/GS.md): [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "他们将获得其中7%的份额... 他们会大赚一笔"
-- [^GSPC](../Tickers/^GSPC.md): [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "但这太看涨了，我预计它会突破，并且像过去几天那样大幅上涨。"
-- [BTC-USD](../Tickers/BTC-USD.md): [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "如果它发生故障，价格将会大幅下降。它将会跌破 4 万。"
-- [HG=F](../Tickers/HG=F.md): [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "我觉得铜价，铜价，我看了那张图表，然后我就想，它明年肯定会翻一番。"
-- [GC=F](../Tickers/GC=F.md): [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "它是否会再次疯狂冲向 8000 分... 当我看到它时，我看到的只是一个停顿... 但我认为它更有可能先弯曲，然后再下降。"
-- `(no ticker)`: [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "Next Asset To 'Vertical Moonshot'"
+- [HG=F](../Tickers/HG=F.md): [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g) — 2026-08-26, David Lin: "If we were experiencing the decline, as an example, in consumer durable purchases, white goods and automobiles, that I would have expected to happen in 2026, you would have experienced real-time decline in copper demand…"
+- `(no ticker)`: [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g) — 2026-08-26, David Lin: "it will continue to consolidate as older owners die and sell their institutions to bigger institutions."
+- [HG=F](../Tickers/HG=F.md): [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g) — 2026-08-26, David Lin: "the ability to produce marketable amounts of copper 3 years from now, 4 years from now, 5 years from now, is very much impacted by the forecasted demand from, uh, uh, AI center build-outs."
+- [GC=F](../Tickers/GC=F.md): [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g) — 2026-08-26, [Rick Rule](../People/rick-rule.md): "whenever I see a momentum-driven chart, uh and I'm beginning to see it in gold now, I get concerned uh for the very very near very near term."
+- [GC=F](../Tickers/GC=F.md): [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g) — 2026-08-26, [Rick Rule](../People/rick-rule.md): "If the US government is successful in driving down the bond yield, uh and if they continue with the same program of counterfeiting, uh notice I hate calling it quantitative easing. I prefer to call it what it is. Then,…"
+- `(no ticker)`: [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g) — 2026-08-26, [Rick Rule](../People/rick-rule.md): "The 30-year fixed mortgage generally trades at a premium to the 30-year Treasury rate. That would suggest a 30-year fixed mortgage rate in the 10 10 and 1/2 range."
+- [^TYX](../Tickers/^TYX.md): [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g) — 2026-08-26, [Rick Rule](../People/rick-rule.md): "It is believed that a riskless counterparty would in a market demand would receive 150 basis points over the real yield. If you assume that the underlying inflation rate is 8%. That would suggest a the 30-year Treasury…"
+- `(no ticker)`: [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g) — 2026-08-26, [Rick Rule](../People/rick-rule.md): "Monetary Shock Incoming"
 
 ## Recent market views
 
-- _? — ?_: [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "AI-driven investment"
-- _? — ?_: [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "Money Printing, Inflation & Reindustrialization"
-- _? — ?_: [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "liquidity and energy demand are reshaping global markets"
-- _? — ?_: [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "U.S.-China relations"
-- _? — ?_: [Markets Surge: Where's The Top? Trader On Next Levels For Stocks, Gold \| Kevin …](https://www.youtube.com/watch?v=kmOsTT2grwk) — 2026-08-09, David Lin: "I worry that a lot of retail traders don't have a process and they're just whatever they think they're doing, it works when everything's great."
-- _? — ?_: [Markets Surge: Where's The Top? Trader On Next Levels For Stocks, Gold \| Kevin …](https://www.youtube.com/watch?v=kmOsTT2grwk) — 2026-08-09, David Lin: "Good traders are right 50% of the time. So I don't always want to be right. I want to make money."
+- _? — ?_: [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g) — 2026-08-26, [Rick Rule](../People/rick-rule.md): "Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming"
+- _? — ?_: [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g) — 2026-08-26, [Rick Rule](../People/rick-rule.md): "What Happens If The Government Stops Intervening?"
+- _? — ?_: [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g) — 2026-08-26, [Rick Rule](../People/rick-rule.md): "Investment Regrets & Opportunities In Community Banks"
+- _? — ?_: [$5,000 Gold Next Or Collapse First? Coming Shock Revealed \| Jeff Christian](https://www.youtube.com/watch?v=7bgdCd8hJFw) — 2026-08-25, David Lin: "You have uh the Ukraine, Russian war going on. You have the US, Israeli, Iran wars going on. Those are not going to go away anytime soon. ... in the United States, you have an extremely unsettled political environment."
+- _? — ?_: [Why Is Bitcoin Suddenly Exploding? Will The Rally Continue? \| Ben Cowen](https://www.youtube.com/watch?v=gTn7-oSb_ic) — 2026-08-25, David Lin: "in order to get a full-blown alt season as a lot of people would like, it would actually likely require a parabolic Bitcoin rally first. Okay? So it would be a euphoric Bitcoin that's going, you know, far beyond all-tim…"
+- _? — ?_: [$5,000 Gold Next Or Collapse First? Coming Shock Revealed \| Jeff Christian](https://www.youtube.com/watch?v=7bgdCd8hJFw) — 2026-08-25, David Lin: "investors have been taking profits in the gold and silver markets over the last several weeks"
 
 ## Source items (extracted)
 
-- 2026-08-13 — [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk)
+- 2026-08-26 — [Will Midterm Election Crash Markets? Economist Reveals Results \| Matt Gertken](https://www.youtube.com/watch?v=14tDyzwEGj0)
+- 2026-08-26 — [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g)
+- 2026-08-25 — [Why Is Bitcoin Suddenly Exploding? Will The Rally Continue? \| Ben Cowen](https://www.youtube.com/watch?v=gTn7-oSb_ic)
+- 2026-08-25 — [$5,000 Gold Next Or Collapse First? Coming Shock Revealed \| Jeff Christian](https://www.youtube.com/watch?v=7bgdCd8hJFw)
+- 2026-08-24 — [‘We’re In A Financial Crisis’: Treasury Readies $1 Trillion Warchest \| Danny Moses](https://www.youtube.com/watch?v=EfKxbRuLZG0)
+- 2026-08-24 — [Treasury’s $1 Trillion Rescue: What’s Next For Stocks, Gold, Oil \| Todd Horwitz](https://www.youtube.com/watch?v=szfb2vqhLjo)
+- 2026-08-22 — [The Market’s $40T Question: Can Treasury Keep Yields Under Control?](https://www.youtube.com/watch?v=SWsGPoxqcR0)
+- 2026-08-21 — [Warning: Interest Rates Not Done Surging; Treasury’s ‘Bazooka’ Coming \| Peter Boockvar](https://www.youtube.com/watch?v=UrCuK2K8mAU)
+- 2026-08-20 — [Major Market Intervention: Why Did Treasury Just Double Bond Buybacks? \| Danielle DiMarti…](https://www.youtube.com/watch?v=BUariIMBL_A)
+- 2026-08-20 — [Interest Rates Explode: 'Everything Blows Up' Once This Level Hits \| Chris Vermeulen](https://www.youtube.com/watch?v=81UzjvXn2no)
+- 2026-08-19 — [Emergency Bond Buybacks: Gold, Stocks Soar, What's Next For Markets? \| Adrian Day](https://www.youtube.com/watch?v=R7SlffFvcI0)
+- 2026-08-14 — [‘Ends In A Great Depression’: Where Stocks, Gold Go In Final Melt-Up \| Gareth Soloway](https://www.youtube.com/watch?v=ZSIgWXXx7UE)
+- 2026-08-14 — [Robot Vs. Criminal: This Machine Replaces Human Security](https://www.youtube.com/watch?v=WOCCTLFWqzY)
 - 2026-08-13 — [When And How Does The Iran War End? Expert Reveals The Endgame \| Trita Parsi](https://www.youtube.com/watch?v=8yPQ0mLoWIY)
+- 2026-08-13 — [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk)
+- 2026-08-12 — [Fund Manager Called Tech Wipeout, Now Reveals Next Great Rotation \| Thomas Hayes](https://www.youtube.com/watch?v=8kFLx1lEzU0)
 - 2026-08-12 — [These Markets To Double Next, Gold To $9,000: The Debasement Trade Is Exploding \| Jim Tho…](https://www.youtube.com/watch?v=7JoEdBLw_JM)
+- 2026-08-11 — [Biggest Market Shift Now: ‘You’re Making A Mistake’ Ignoring These Assets \| Ted Oakley](https://www.youtube.com/watch?v=_ZCvbIbrc_k)
 - 2026-08-10 — ['The Supercycle Is Not Coming, It's Here'; Frank Giustra & Ian Harris On Ultimate 'Shorta…](https://www.youtube.com/watch?v=Ua2V6X1ZqdE)
+- 2026-08-10 — [Investor Called Chips Crash, Now Warns ‘We’re Nearing The End’ Of Stock Rally \| Jim Welsh](https://www.youtube.com/watch?v=G9peC5ZZMuo)
 - 2026-08-09 — [Markets Surge: Where's The Top? Trader On Next Levels For Stocks, Gold \| Kevin Steuer](https://www.youtube.com/watch?v=kmOsTT2grwk)
+- 2026-08-07 — [Gold Explodes Above $4,300: Trader Called Bottom, Reveals Next Levels \| Gary Wagner](https://www.youtube.com/watch?v=Et2zvu5og-I)
 - 2026-08-07 — [How High Will Interest Rates Go? Bond Market Sends Fed A Major Warning \| Ed Yardeni](https://www.youtube.com/watch?v=aaaDQUPB4KY)
 - 2026-08-07 — [How Japan Could Trigger The Biggest Market Unwind in History](https://www.youtube.com/watch?v=gdSCfWZp1oQ)
-- 2026-08-06 — [Yen Bailout Crisis: Bond Market Gets Crushed, Worse To Come \| Steve Hanke](https://www.youtube.com/watch?v=sIFVn-StiBk)
-- 2026-08-06 — [Markets To Surge 20% Until 'Global Financial Reset' Kills Everything \| Chris Vermeulen](https://www.youtube.com/watch?v=7bqs3hKc-fk)
-- 2026-08-04 — [Interest Rates Explode: 'Major Meltdown' Next, Warns Trader \| Todd Horwitz](https://www.youtube.com/watch?v=95se0_3Wun0)
-- 2026-08-04 — [Shocking Bubble Top Sign You've Never Thought Of \| Mark Thornton](https://www.youtube.com/watch?v=1BOCO-FcRYY)
-- 2026-08-03 — [U.S. Bails Out Japan From Crisis; What It Means For Markets \| David Nicoski](https://www.youtube.com/watch?v=irq5IUDIB3Q)
-- 2026-07-31 — [Next Asset To 'Come Down Hard'; Brace For Major Moves Warns Investor \| Florian Grummes](https://www.youtube.com/watch?v=KsmUQs41xMo)
-- 2026-07-30 — [$40 Trillion Debt Trap: What Happens When ‘The Whole House Of Cards Collapses’? \| Brien L…](https://www.youtube.com/watch?v=pohtZyH9ge8)
-- 2026-07-30 — [Gold To $3,000, Oil To $40, Bitcoin To $10,000: The Deflation Trade Is Here \| Mike McGlone](https://www.youtube.com/watch?v=_wm2gO04z_I)
-- 2026-07-28 — ['Edge Of A Precipice': Entire Financial System At Risk \| Doug Casey](https://www.youtube.com/watch?v=ca9zCylJcEA)
-- 2026-07-28 — [Peter Grandich Sold All His Stocks, Here’s What He’s Buying Instead](https://www.youtube.com/watch?v=20QLicjAfbo)
-- 2026-07-27 — [Tech Sell-Off Deepens: Investor Reveals Major Market Warning Signs \| E.B. Tucker](https://www.youtube.com/watch?v=Y4YP9Hbxovg)
-- 2026-07-24 — [$5,000 Gold Return: This Is When And How The Next Breakout Starts \| Joe Cavatoni](https://www.youtube.com/watch?v=MIRTnky8Hkg)
-- 2026-07-23 — [Why Are Markets Crashing Now? Trader Reveals Major Signals For Stocks, Bitcoin, Gold \| Ja…](https://www.youtube.com/watch?v=gA9YhZRZNWA)
-- 2026-07-22 — [Gold’s Brutal Shakeout: CEO Reveals Next Bullish Pivot And Signal \| Shane Williams](https://www.youtube.com/watch?v=DB-0gMxwmzw)
-- 2026-07-21 — [Gold's Crash Is Over: CEO Reveals New Floor \| Mike Allen](https://www.youtube.com/watch?v=AfX_ZBF53HQ)
-- 2026-07-20 — [Why Tech Stocks Are Blowing Up Now: Expert Reveals Bottom \| Clem Chambers](https://www.youtube.com/watch?v=12GGEIB4Tco)
-- 2026-07-20 — [Biggest Bubble In History ‘Unwinding’ Now: 17x Worse Than 2000 Crash \| George Noble](https://www.youtube.com/watch?v=_XC8leI9eCY)
-- n/d — [Gold Explodes Above $4,300: Trader Called Bottom, Reveals Next Levels \| Gary Wagner](https://www.youtube.com/watch?v=Et2zvu5og-I)
-_…and 13 more._
+- 2026-08-07 — ['Japan’s Entire Market Is Insolvent’: Michael Gayed Called Yen Crash, Warns 'Real Panic' …](https://www.youtube.com/watch?v=W4X3h-BvyuU)
+_…and 58 more._
 
 ---
 _Page reflects DB state at generation time._

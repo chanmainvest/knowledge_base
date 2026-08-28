@@ -10,7 +10,7 @@ uv run python scripts/build_llm_wiki.py
 # add --no-bios to skip LLM bio generation for People pages
 ```
 
-The script is **read-only** against the DB and only writes under `llm-wiki/` (plus the bio cache `scripts/llm_wiki_bios.json`, so bios are only generated once per person). The build is **incremental**: files are only rewritten when their content changes, stale generated pages are garbage-collected, and any other files you keep here are left alone.
+The script is read-only against the DB except for one bookkeeping table — `wiki_item_read`, the item-level read tracker, dual-written with `read-state.json` here so the state survives losing the database. Everything else it writes lives under `llm-wiki/` (plus the bio cache `scripts/llm_wiki_bios.json`, so bios are only generated once per person). The build is **incremental**: files are only rewritten when their content changes, stale generated pages are garbage-collected, and any other files you keep here are left alone.
 
 ## What it produces
 
@@ -20,12 +20,17 @@ llm-wiki/
   _Index.md           # alphabetical index
   README.md           # this file
   AGENTS.md           # agent notes (also generated — don't hand-edit)
-  People/    (53 pages)   # one per person (guests, hosts,
+  read-state.json     # item read-tracking (dual-written with the DB's
+                      #   wiki_item_read table; survives losing the DB)
+  People/    (191 pages)   # one per person (guests, hosts,
                         #   solo authors merged across shows) — opinions
                         #   per topic over time, flips flagged, LLM bios
-  Tickers/   (56 pages)   # one per ticker >= 2 mentions,
+  Weekly/    (12 pages)   # Sunday→Saturday weekly digests: what people
+                        #   talked about, where they disagreed, who changed
+                        #   their mind that week
+  Tickers/   (144 pages)   # one per ticker >= 2 mentions,
                         #   incl. rates/bond-yield backdrop
-  Analysts/  (38 pages)   # one per channel with extracted items
+  Analysts/  (42 pages)   # one per channel with extracted items
   Themes/    (14 pages)   # cross-cutting theses (gold, AI-semis, …)
   Syntheses/ (3 pages)   # opinion shifts · disagreements · timeline
   Studies/   (1 pages)   # deep dives (e.g. how a channel
@@ -34,17 +39,17 @@ llm-wiki/
 
 ## Data snapshot at generation time
 
-- Generated: **2026-08-15 23:52 UTC**
-- Items in DB: **31,932** (extracted: **266**, pending: **31,661**)
-- Predictions: **459** · Market views: **588**
-- Distinct tickers with calls: **118** · People pages: **53**
-- Published-date range: **2004-05-06 → 2026-08-13**
+- Generated: **2026-08-27 23:25 UTC**
+- Items in DB: **32,132** (extracted: **762**, pending: **31,334**)
+- Predictions: **2,445** · Market views: **2,192**
+- Distinct tickers with calls: **261** · People pages: **191**
+- Published-date range: **2004-05-06 → 2026-08-27**
 
 ## Important caveats
 
 1. **Coverage is thin.** The wiki reflects only the items the extraction pipeline has processed so far (a small fraction of the ingested corpus). It will get denser and more accurate as more items are extracted. **Re-run after each scrape/extraction batch.**
 2. **No performance scores.** Predictions carry `score` columns but none are evaluated yet (`n_scored=0`). There is no hit-rate / track-record data — only stated calls.
-3. **The narrative sections are LLM-written** (GLM 5.3) from a digest of the DB facts, with ready-made citation links — they can misread or over-summarise. The tables and timelines below each narrative are the verbatim DB record; bios are LLM-written too. Verify anything load-bearing against the cited source items.
+3. **The narrative sections are LLM-written** (GLM 5.3 Flash) from a digest of the DB facts, with ready-made citation links — they can misread or over-summarise. The tables and timelines below each narrative are the verbatim DB record; bios are LLM-written too. Verify anything load-bearing against the cited source items.
 4. **Themes are keyword-bucketed**, not semantically clustered — approximate by design.
 5. **Quotes are LLM-extracted**, not curated. They can misattribute or trim. Always follow the source-item link to verify.
 

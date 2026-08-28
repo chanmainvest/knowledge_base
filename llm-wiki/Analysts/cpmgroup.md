@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 9
-- **Items with predictions**: 4
-- **Predictions**: 26
-- **Market views**: 30
+- **Extracted items**: 13
+- **Items with predictions**: 6
+- **Predictions**: 43
+- **Market views**: 41
 
 ## People on this channel
 
@@ -22,19 +22,20 @@ _No URL / bio in DB channel metadata._
 
 **Most-called tickers:**
 
-- [GC=F](../Tickers/GC=F.md) (12)
-- [SI=F](../Tickers/SI=F.md) (7)
-- [PA=F](../Tickers/PA=F.md) (3)
-- [PL=F](../Tickers/PL=F.md) (3)
-- `ETH-USD` (1)
+- [GC=F](../Tickers/GC=F.md) (19)
+- [SI=F](../Tickers/SI=F.md) (11)
+- [PA=F](../Tickers/PA=F.md) (5)
+- [PL=F](../Tickers/PL=F.md) (5)
+- [CL=F](../Tickers/CL=F.md) (1)
+- [ETH-USD](../Tickers/ETH-USD.md) (1)
 
 ## Stance distribution (predictions)
 
 | Stance | Count |
 |---|---:|
-| Bullish | 2 |
+| Bullish | 3 |
 | Bearish | 13 |
-| Neutral / watch | 11 |
+| Neutral / watch | 27 |
 
 ## Market-view direction
 
@@ -53,29 +54,33 @@ _No URL / bio in DB channel metadata._
 - [GC=F](../Tickers/GC=F.md): [Gold Price WARNING: China’s July 24 “Shock” Or Not?](https://www.youtube.com/watch?v=u9jx89f0P3I) — 2026-07-24, CPM Group: "A break above the declining trendline could produce a short-term spike."
 - [GC=F](../Tickers/GC=F.md): [Gold Price WARNING: China’s July 24 “Shock” Or Not?](https://www.youtube.com/watch?v=u9jx89f0P3I) — 2026-07-24, CPM Group: "Support is near $3,800."
 - [GC=F](../Tickers/GC=F.md): [Gold Price WARNING: China’s July 24 “Shock” Or Not?](https://www.youtube.com/watch?v=u9jx89f0P3I) — 2026-07-24, CPM Group: "Gold is trading near $4,068 and is caught between two important technical trendlines."
-- `ETH-USD`: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "we think that the Ethereum will probably trade between say 10 and 12,000 over the rest of this year. It could go as high as 17 or 20,000. And in a bad scenario, it could fall to around 7,000."
-- [PA=F](../Tickers/PA=F.md): [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "It's testing that $1,200 range or it will be testing that $1,200 range."
+- `(no ticker)`: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "No, it was one-month aberration. It will be back up next month."
+- [GC=F](../Tickers/GC=F.md): [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "We've been talking about the idea of a surge in gold prices around the time of the midterm elections."
 
 ## Recent market views
 
-- _gold — mixed_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "why gold is testing $4,100, why a break lower could point toward $3,800"
-- _silver — mixed_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "why silver is testing support near the low $60s"
-- _precious metals — bullish_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
-- _platinum and palladium — bearish_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "platinum and palladium weakness"
-- _precious metals — bearish_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "it's in line with what we've been expecting in terms of a sideward movement with a downward uh emphasis over the summer period"
-- _precious metals — bullish_: [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o) — 2026-06-23, [Jeffrey Christian](../People/jeffrey-christian.md): "these are good times for long-term investors to buy gold and silver because the prices have ratcheted upward"
+- _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "Jeff explains why financial markets interpreted the inflation report through the lens of Federal Reserve interest rates."
+- _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "He also discusses why the relationship between rates and precious metals prices is not as simple as many investors assume."
+- _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "Jeff explains why the 1999 central bank gold agreement did not cause that price surge."
+- _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "He then revisits the dramatic 1999 gold rally, providing details and explaining why that is not what is happening this year."
+- _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "He then discusses why political conflict, weaker economic conditions, persistent inflation, and the U.S. election could support stronger gold and silver investment demand during the final four months of 2026."
+- _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "In this presentation, Jeffrey Christian of CPM Group provides a precious metals update following an extremely volatile morning in gold, silver, platinum, and palladium. Gold fell as low as $3,990 before rebounding after…"
 
 ## Source items (extracted)
 
 - 2026-08-04 — [Gold And Silver WARNING: Is Your Metal Really There?](https://www.youtube.com/watch?v=qLZ381lQiFQ)
+- 2026-07-31 — [Gold And Silver Market Update: August Drop Before the Next Rally?](https://www.youtube.com/watch?v=EajzJMTVieM)
 - 2026-07-28 — [Gold And Silver Price WARNING: Breakout or Breakdown Before August?](https://www.youtube.com/watch?v=Y44xymVXMOg)
 - 2026-07-24 — [Gold Price WARNING: China’s July 24 “Shock” Or Not?](https://www.youtube.com/watch?v=u9jx89f0P3I)
 - 2026-07-21 — [The 2026 Platinum Group Metals Market Outlook: What Comes Next?](https://www.youtube.com/watch?v=QmW6AantbdU)
 - 2026-07-17 — [Gold And Silver Just Hit CPM’s Targets: Why Further Declines May Be Next](https://www.youtube.com/watch?v=npwugboj_Pw)
+- 2026-07-14 — [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA)
+- 2026-07-10 — [Gold And Silver ALERT: Prices Under Pressure](https://www.youtube.com/watch?v=8b3o8gWKdeQ)
+- 2026-07-07 — [Gold And Silver Market Update: The Real Reason Investors Are Selling](https://www.youtube.com/watch?v=VwM4Z2yXxD0)
+- 2026-06-30 — [Gold And Silver Market Update: Why Interest Rate Changes May Mislead Investors](https://www.youtube.com/watch?v=-6Zt6_Rj4EQ)
 - 2026-06-23 — [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o)
 - 2026-06-19 — [Why Gold and Silver Prices Are Falling: Is Now The Time To Buy?](https://www.youtube.com/watch?v=z1btQrMgRwo)
 - 2026-06-16 — [Gold And Silver Market Update: How Low Before Buyers Return](https://www.youtube.com/watch?v=W1jdQOS8Lu8)
-- n/d — [Gold And Silver Market Update: August Drop Before the Next Rally?](https://www.youtube.com/watch?v=EajzJMTVieM)
 
 ---
 _Page reflects DB state at generation time._

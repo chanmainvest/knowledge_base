@@ -95,7 +95,7 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 - `2026-06-23` ↓ bearish — AI is generating a tremendous amount of misinformation, bad information, inaccurate information
 
-### `ETH-USD` — now **neutral** (1 call(s))
+### [ETH-USD](../Tickers/ETH-USD.md) — now **neutral** (1 call(s))
 
 - `2026-06-23` → neutral — we think that the Ethereum will probably trade between say 10 and 12,000 over the rest of this year. It could go as high as 17 or 20,000. And in a bad scenario, it could fall to a…
 
@@ -111,12 +111,12 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 Topics where this person's current stance conflicts with another person's:
 
-- [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [Jeff Snider](../People/jeff-snider.md), [CPM Group speaker](../People/cpm-group-speaker.md), [Erik Townsend](../People/erik-townsend.md), [Jeffrey Kushin](../People/jeffrey-kushin.md)
-- [GC=F](../Tickers/GC=F.md) — opposite: [George Noble](../People/george-noble.md), [Erik Townsend](../People/erik-townsend.md), [Jeffrey Kushin](../People/jeffrey-kushin.md)
-- [SI=F](../Tickers/SI=F.md) — opposite: [Jeffrey Kushin](../People/jeffrey-kushin.md)
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md), [David Woo](../People/david-woo.md)
+- [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [CPM Group speaker](../People/cpm-group-speaker.md), [Erik Townsend](../People/erik-townsend.md), [Jeffrey Kushin](../People/jeffrey-kushin.md)
+- [GC=F](../Tickers/GC=F.md) — opposite: [George Noble](../People/george-noble.md), [Erik Townsend](../People/erik-townsend.md), [Jeffrey Kushin](../People/jeffrey-kushin.md), [Patrick (addressed by name in transcript)](../People/patrick-addressed-by-name-in-transcript.md)
+- [SI=F](../Tickers/SI=F.md) — opposite: [Jeffrey Kushin](../People/jeffrey-kushin.md), [Patrick (addressed by name in transcript)](../People/patrick-addressed-by-name-in-transcript.md)
+- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [AI & Semiconductors](../Themes/ai-semiconductors.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Val Zlatev](../People/val-zlatev.md), [Raoul Pal](../People/raoul-pal.md)
-- [Crypto & Stablecoins](../Themes/crypto.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Brent Johnson](../People/brent-johnson.md), [Raoul Pal](../People/raoul-pal.md)
+- [Crypto & Stablecoins](../Themes/crypto.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Brent Johnson](../People/brent-johnson.md)
 - [Electrification, Power & Industrials](../Themes/electrification-industrials.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
 

@@ -2,42 +2,55 @@
 
 Chinese property developers, the mainland real-estate bust and HK property / land-supply views — mostly from the Chinese-language columnists.
 
-**0 prediction(s)** and **19 market view(s)** match this theme in the current extraction.
+**2 prediction(s)** and **54 market view(s)** match this theme in the current extraction.
 
 ## What the corpus says
 
-China property is, on this corpus, a theme of broad strokes rather than trackable positions: zero tickered calls against nineteen broad views, and a fair share of the voices arrive unnamed. What the coverage does capture is a sharp, same-week argument in late June 2026 about what property actually is at this point in the cycle — a momentum trade in Hong Kong, or the still-unhealed wreckage of the mainland's post-2021 bust.
+The "China Property & Real Estate" page in this corpus is bigger than it is deep — 54 broad views against just 2 tickered calls, nearly everything compressed into a three-week stretch of August 2026. And the tagged calls are the weakest evidence on it. The lone bullish ticker call comes from the [Torr Metals CEO (also referencing shareholder value plans)](../People/torr-metals-ceo-also-referencing-shareholder-value-plans.md), who on 2026-08-10 dangled company news "within the next year" — but Torr's "property" is exploration ground, not real estate, and the tag swept it in anyway. The other, a conditional bullish take on the housing index dated 2026-08-01 ("potential opportunity in housing... if rates start to come off"), is a rate-cut trade that never mentions China. Anyone arriving here for a read on Chinese developers will find the label doing more work than the evidence.
 
-The bull case shows up on June 24, 2026, from an unnamed columnist making an unapologetically reflexive argument: since home prices have a chance of rising, buildings have investment value; the more prices rise, the more buying power emerges; and once that dynamic takes hold, property becomes "極具投資價值" — exceptionally worth owning. That is momentum logic stated plainly, with rising prices themselves offered as the reason to buy. On the very same day, columnist [高天佑](../People/person-008.md) ran hard the other way, opening with the ledger: since the mainland housing market blew up ("爆煲") in 2021, national home prices have fallen more than 30 percent cumulatively. The same-day collision captures the theme's core tension — a Hong Kong rising-price narrative sitting on top of a mainland balance-sheet hole that nobody in this file claims is closed.
+The bulk of the corpus is a bearish roar from 2026-08-18, and it is unattributed. Anonymous voices date the bubble to 2012, when real estate "bottomed a few years after stocks and it's just gone straight up"; argue a property crash is worse than an equity crash because stocks sit with the top few percent while housing is owned broadly; warn that "baby boomers are going to get hit by this later than they think"; and project 60–80% housing declines in what "will definitely be the worst real estate crash in history." That is full apocalyptic register, and note the 2012 bottom is a post-GFC, US-shaped timeline rather than a China one — the loudest takes on this page may not even concern the country in the page title.
 
-By late July the mood darkens and then moves on. On July 20 an unnamed speaker delivered the bluntest line in the set — "the residential real estate market's bad. Commercial real estate's a disaster" — extending the damage to asset-backed lending "just broadly" and the consumer. Five days later, on July 25, another voice had effectively shelved the topic: "Today's immediate catalyst isn't real estate, it's oil." Within about a month, property went from the thing worth arguing about to the thing that isn't even the near-term story. Hovering at the edge is the Eurodollar University host, whose June 22 bearishness was more political than property-specific — "It is the economy, stupid. It is the single biggest lesson from Starmer's fall" — a reminder that for that camp the property read flows downstream from a broader verdict on economic management.
+The genuinely on-theme material is the quietest. Two Chinese-language entries dated 2026-08-14 survey the Hong Kong housing market with historical detachment: one recalls how district and project prices have previously spiked, only to "打回原型" — revert to form — or sink into long-term decline; the other asks whether emerging trends will reshape the market's direction or prove a flash in the pan, and insists the long-run trajectory must be judged on a horizon of at least ten years. Measured, patient, and, like everything else here, unsigned — but it is the only part of the theme that actually addresses the market the heading names.
 
-Read chronologically, the arc runs from neutral to polarized to dismissive: a June 20 baseline in which an unnamed writer noted that 2026's gains in Hong Kong property and US stocks had been mild and Hong Kong stocks were no longer minting wealth as they had the prior two years; the June 24 bull-versus-bust collision; then the July slide into "disaster" talk and displacement by oil. The honest caveat is that the evidence here is thin — several of the sharpest lines carry no name, and with zero tickered calls there is nothing to hold anyone accountable to. The corpus gives texture on the shape of the debate, not a scoreboard.
+The remainder is atmosphere. On 2026-08-22 an unnamed voice blames Janet Yellen directly, arguing that after Washington decided housing needed help, "they didn't help housing at all" — a policy-failure critique rather than a China-collapse call. And Rex, CEO of Crossroads Gold, appears on 2026-08-21 only to describe the Pheasant Creek property joining the Sunday Creek exploration project — mineral claims again, not real estate. Read as a month, the tone runs from conditional opportunity (August 1: buy housing if rates fall) through decade-scale caution (August 14) to total collapse (August 18) to policy blame (August 22). Thin attribution, loose tagging, and a handful of real Hong Kong notes: that, honestly, is what this corpus says about China property.
 
 ## Constituent tickers
 
-_No tickered predictions fall in this theme yet (signal comes from market-view asset_class text only)._
+| Ticker | Mentions |
+|---|---:|
+| [TORRF](../Tickers/TORRF.md) | 1 |
+| `Housing market / housing index` | 1 |
 
 ## Key voices
 
-- [高天佑](../People/person-008.md) (3)
-- [施永青](../People/person-003.md) (3)
+- [高天佑](../People/person-015.md) (3)
+- [施永青](../People/person-008.md) (3)
+- [Torr Metals CEO (also referencing shareholder value plans)](../People/torr-metals-ceo-also-referencing-shareholder-value-plans.md) (1)
+- [Rex (CEO, Crossroads Gold)](../People/rex-ceo-crossroads-gold.md) (1)
+- [Dave Collum](../People/dave-collum.md) (1)
+- [Blue Macellari](../People/blue-macellari.md) (1)
+
+## Consensus across analysts
+
+Of 2 tickered calls: **0 bullish**, **0 bearish**.
 
 ## Notable calls & quotes
 
+- [Copper-Gold Target in BC, But Will the New Targeting Deliver This Time? \| Torr …](https://www.youtube.com/watch?v=IZoqBYO-SWw) — 2026-08-10, [Torr Metals CEO (also referencing shareholder value plans)](../People/torr-metals-ceo-also-referencing-shareholder-value-plans.md): "And with that, I think there'll be some news coming out with it. I think we'll be able to do something here within the next year."
+- [Nobody Knows Which Way To Feel](https://www.youtube.com/watch?v=ft2ftremg_4) — 2026-08-01, Figuring Out Money: "this could create potential opportunity in housing, right? If rates start to come off, but as it stands right now, that's putting pressure on the housing market."
 
 ## Broad market views
 
-- _? (?)_: [Is This the Beginning of an Asian Financial Crisis 2.0?](https://www.youtube.com/watch?v=C4gNWY4bHYQ) — 2026-07-25, Eurodollar University: "Today's immediate catalyst isn't real estate, it's oil"
-- _? (?)_: [The Next Financial Crisis Isn’t In Banks. It’s In Insurance & Private Credit \| …](https://www.youtube.com/watch?v=5qkNpMxD9kw) — 2026-07-20, The Monetary Matters Network: "the residential real estate market's bad. Commercial real estate's a disaster. the assetbacked lending just broadly, the consumer debt, all of this is going to be sold at the market."
-- _real estate (bullish)_: [樓價愈升 愈多購買力](https://www.master-insight.com/article/48919) — 2026-06-24, 作者: "既然知道樓價有機會上升，樓宇便有投資價值"
-- _real estate (bullish)_: [樓價愈升 愈多購買力](https://www.master-insight.com/article/48919) — 2026-06-24, 作者: "樓價愈升，便會出現愈多購買力"
-- _real estate (bullish)_: [樓價愈升 愈多購買力](https://www.master-insight.com/article/48919) — 2026-06-24, 作者: "當這個現象出現，樓宇是極具投資價值"
-- _中國房地產 (bearish)_: [《求是》響警號 內需新思維](https://www1.hkej.com/dailynews/finnews/article/4437891/%E3%80%8A%E6%B1%82%E6%98%AF%E3%80%8B%E9%9F%BF%E8%AD%A6%E8%99%9F+%E5%85%A7%E9%9C%80%E6%96%B0%E6%80%9D%E7%B6%AD) — 2026-06-24, 高天佑: "自從2021年內房市場爆煲，全國房價累瀉三成以上"
-- _macro/political (bearish)_: [The U.K. Has Fallen: Here's What It Means for the World](https://www.youtube.com/watch?v=wL63-KdtuEE) — 2026-06-22, Eurodollar University host: "It is the economy, stupid. It is the single biggest lesson from Starmer's fall."
-- _股票/房地產 (neutral)_: [2026年第二季香港經濟表現預測](https://www.master-insight.com/article/48875) — 2026-06-20, 作者（未具名）: "2026年港樓及美股的升幅是溫和的，港股卻並未有如以往兩年為股民製造更多財富。"
-- _equities (bearish)_: [Something VERY Strange is Happening Just Happened Global Markets](https://www.youtube.com/watch?v=3j8NhL0FTo4) — 2026-06-20, speaker: "That's why the Hang Seng matters. Hong Kong is looking at all of this and not behaving like a market convinced by the recovery story."
-- _macro/economy (bearish)_: [Something VERY Strange is Happening Just Happened Global Markets](https://www.youtube.com/watch?v=3j8NhL0FTo4) — 2026-06-20, speaker: "China's completing its own transition into depression economics with consequences that have and will continue to radiate all over the entire planet."
+- _? (?)_: [Chris Whalen Answers Your Questions on the Fed, Rates & the Next Bailout](https://www.youtube.com/watch?v=BCgHELtTnog) — 2026-08-22, The Julia La Roche Show: "And then Janet Yellen decided that they also had to do more to help housing. And they didn't help housing at all. They they completely screwed it up. That's why home prices went up 50% in less than 5 years."
+- _? (?)_: [Gold Project Near Fosterville, But Can They Deliver Economic Grades? \| Crossroa…](https://www.youtube.com/watch?v=6PT8ub33Klk) — 2026-08-21, [Rex (CEO, Crossroads Gold)](../People/rex-ceo-crossroads-gold.md): "the pheasant creek property which is over 200 km is a it joins the Sunday creek um exploration development project of southern cross uh which is you know a worldass sort of discovery and um multiple million ounces uh to…"
+- _? (?)_: [Harry Dent on the Everything Bubble — And the Only Safe Haven Left](https://www.youtube.com/watch?v=TInyOyKDOgI) — 2026-08-18, The Julia La Roche Show: "This real estate bubble um started in 2012 when real estate bottomed a few years after stocks and it's just gone straight up, you know, for 14 years. Can't even compare this real estate bubble to the first one or any bu…"
+- _? (?)_: [Harry Dent on the Everything Bubble — And the Only Safe Haven Left](https://www.youtube.com/watch?v=TInyOyKDOgI) — 2026-08-18, The Julia La Roche Show: "Real estate is way worse than a stock crash cuz stocks are largely owned by the top five to 1% to 20%. Real estate's owned broadly by 60-70% of the population and again has never gone down on levels like I'm predicting"
+- _? (?)_: [Harry Dent on the Everything Bubble — And the Only Safe Haven Left](https://www.youtube.com/watch?v=TInyOyKDOgI) — 2026-08-18, The Julia La Roche Show: "baby boomers are going to get hit by this later than they think ... bring financial assets down, which means housing 60 to 80%. That'll be the best thing that ever happened to young people."
+- _? (?)_: [Harry Dent on the Everything Bubble — And the Only Safe Haven Left](https://www.youtube.com/watch?v=TInyOyKDOgI) — 2026-08-18, The Julia La Roche Show: "this could be the worst single stock crash in all of history... and it will definitely be the worst real estate crash in history cuz real estate does not go up normally as much as stocks or go down. The problem with rea…"
+- _? (?)_: [「斯世代」整頓樓市](https://www1.hkej.com/dailynews/finnews/article/4482979/%E3%80%8C%E6%96%AF%E4%B8%96%E4%BB%A3%E3%80%8D%E6%95%B4%E9%A0%93%E6%A8%93%E5%B8%82) — 2026-08-14, 高天佑: "觀乎本港樓市歷史，亦曾有一些地區或項目的樓價異軍突起，之後卻會「打回原型」甚至「長期沉淪」。"
+- _? (?)_: [「斯世代」整頓樓市](https://www1.hkej.com/dailynews/finnews/article/4482979/%E3%80%8C%E6%96%AF%E4%B8%96%E4%BB%A3%E3%80%8D%E6%95%B4%E9%A0%93%E6%A8%93%E5%B8%82) — 2026-08-14, 高天佑: "這些新趨勢最終能否重塑市場大方向，抑或僅屬曇花一現，尚待進一步觀望。看待樓市長遠走勢，至少須以十年為期"
+- _? (?)_: [「斯世代」整頓樓市](https://www1.hkej.com/dailynews/finnews/article/4482979/%E3%80%8C%E6%96%AF%E4%B8%96%E4%BB%A3%E3%80%8D%E6%95%B4%E9%A0%93%E6%A8%93%E5%B8%82) — 2026-08-14, 高天佑: "第一團迷霧繫於內地連串「防走資」政策，對本港樓市長遠將有何影響。"
+- _? (?)_: [「斯世代」整頓樓市](https://www1.hkej.com/dailynews/finnews/article/4482979/%E3%80%8C%E6%96%AF%E4%B8%96%E4%BB%A3%E3%80%8D%E6%95%B4%E9%A0%93%E6%A8%93%E5%B8%82) — 2026-08-14, 高天佑: "現今本港樓市愈來愈多買家來自內地，其喜好及揀樓條件可能與「舊香港人」大不一樣（例如相比起港島老牌豪宅區，他們往往更喜歡九龍站、奧運站、啟德），這亦有機會左右樓市大方向。"
 
 ---
 _Theme buckets are keyword-based and approximate; an LLM-tagged taxonomy would be more precise. Regenerate via `uv run python scripts/build_llm_wiki.py`._

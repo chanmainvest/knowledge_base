@@ -6,38 +6,47 @@
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
-Raoul Pal is a British macro investor, financial media entrepreneur and writer whose career runs from the equities and equity-derivatives sales desks of Goldman Sachs — where he co-managed the European hedge fund sales business — to a global macro portfolio at GLG Partners, before he retired from fund management in his early thirties. He then rebuilt himself as a research and media entrepreneur: in 2005 he founded Global Macro Investor (GMI), an institutional macro research publication, and in 2014 he co-founded Real Vision, the subscription platform for long-form investor interviews, serving as its CEO. Today he writes and hosts The Journeyman, a newsletter, video and podcast series covering macro, markets and crypto, and he has become one of the most recognizable advocates of Bitcoin and crypto assets — a case he packages as his "Exponential Age" thesis.
+Raoul Pal is a British macro investor turned financial media entrepreneur, and one of the more prominent voices arguing that the coming decades belong to exponential technologies rather than the traditional economic playbook. His path runs through Goldman Sachs, where he co-managed the European hedge fund sales business in equities and equity derivatives, and GLG Partners, where he ran a global macro portfolio before stepping away from fund management in his early thirties. In 2005 he founded Global Macro Investor, an institutional macro research publication, and in 2014 he co-founded Real Vision, the subscription media company built around long-form investor interviews, where he served as CEO. His own show, *Raoul Pal The Journey Man*, is where his signature "Exponential Age" thesis — essentially a case for Bitcoin, crypto and AI as the dominant macro forces of the era — gets its fullest airing.
 
-The recorded calls in this corpus are unabashedly bullish, and the strongest of them come from a single June 18, 2026 episode of his show, "AI, Bitcoin & Self-Sovereignty," where he fuses the crypto and AI legs of his argument into one. On crypto, he argued that adoption by the financial system is "the thing that was required" for the asset class to become "the base of money" for the whole system ([AI, Bitcoin & Self-Sovereignty | Raoul Pal The Journey Man …](https://www.youtube.com/watch?v=nCpeLLNxl-g)), and he pushed the idea further, envisioning "a world of super abundance" in which "Bitcoin becomes actually very important in a massively deflationary world" ([AI, Bitcoin & Self-Sovereignty | Raoul Pal The Journey Man …](https://www.youtube.com/watch?v=nCpeLLNxl-g)). On AI and semiconductors, his bullishness takes an unusual form: he sees "an inability for a lot of this infrastructure to go bust, which is a really interesting thing that we've not seen before" ([AI, Bitcoin & Self-Sovereignty | Raoul Pal The Journey Man …](https://www.youtube.com/watch?v=nCpeLLNxl-g)) — a capex boom that, in his telling, comes with a built-in floor.
+His strongest articulation of that thesis came on June 18, 2026, in an episode on AI, Bitcoin and self-sovereignty, where he argued that adoption by the financial system itself was "the thing that was required" for Bitcoin to become "the base of money for the whole system" ([AI, Bitcoin & Self-Sovereignty | Raoul Pal The Journey Man](https://www.youtube.com/watch?v=nCpeLLNxl-g)). He paired that with a deflationary scenario in which "super abundance" driven by AI makes Bitcoin "actually very important in a massively deflationary world," and made a notably bold structural claim about the AI buildout itself: an "inability for a lot of this infrastructure to go bust, which is a really interesting thing that we've not seen before" ([AI, Bitcoin & Self-Sovereignty | Raoul Pal The Journey Man](https://www.youtube.com/watch?v=nCpeLLNxl-g)). It is maximalist framing — the tech stack and the money of the next era, converging.
 
-That is both the strength and the limit of the record here. Every stance captured is bullish — three for three, with no bearish or neutral calls logged — and all of it dates to that one episode, so the timeline reads as a snapshot rather than an evolution; whether Pal has hedged, reversed or doubled down elsewhere cannot be determined from this material. What the snapshot does show is the distinctive shape of his argument: Bitcoin as the monetary anchor of an AI-driven deflationary boom, a synthesis he presses far more explicitly than most macro commentators bother to attempt.
+What's more interesting is how quickly the tone shifted. By August 13, 2026, Pal was noticeably more measured on crypto. Discussing the rise of stablecoins and the "small but growing" RWA bucket, he framed the next phase as infrastructure adoption rather than price euphoria ([Why The Next Phase of Crypto Is Bigger Than You Think](https://www.youtube.com/watch?v=q2TAHZIBpdE)) — and, candidly, conceded that the market "has taken... for getting overexcited earlier," adding that "it'd be nice to get a bit of liquidity back in crypto" ([Why The Next Phase of Crypto Is Bigger Than You Think](https://www.youtube.com/watch?v=q2TAHZIBpdE)). His macro ledger matched that caution: excess liquidity — liquidity growth above GDP growth — "hasn't been very strong," which in his framework explains why fresh liquidity hasn't flowed through to risk assets ([Why The Next Phase of Crypto Is Bigger Than You Think](https://www.youtube.com/watch?v=q2TAHZIBpdE)).
+
+The through-line, then, isn't a conversion — nothing in the record shows Pal turning bearish on crypto, and his structural conviction in the Exponential Age is intact. It's a refinement: from Bitcoin-as-money in June to stablecoins, tokenized assets and plumbing in August, with an explicit admission of prior froth and a liquidity-sensitive, near-term neutral stance on markets. Readers should note the corpus here is thin — a handful of dated quotes across two 2026 episodes — so this portrait captures the arc of a single summer rather than the full history of a two-decade public career.
 
 ## At a glance
 
-- **Appearances**: 1 (2026-06-18 → 2026-06-18)
+- **Appearances**: 2 (2026-06-18 → 2026-08-13)
 - **Shows**: Raoul Pal The Journey Man
-- **Extracted calls**: 0 predictions, 3 market views
-- **Topics with opinions**: 2
-- **Stance split**: 3 bullish / 0 bearish / 0 neutral
+- **Extracted calls**: 5 predictions, 9 market views
+- **Topics with opinions**: 3
+- **Stance split**: 3 bullish / 0 bearish / 3 neutral
 
 ## Appearances
 
 | Date | Show | Role | Item |
 |---|---|---|---|
+| 2026-08-13 | Raoul Pal The Journey Man | host | [Why The Next Phase of Crypto Is Bigger Than You Think w/ Bl…](https://www.youtube.com/watch?v=q2TAHZIBpdE) |
 | 2026-06-18 | Raoul Pal The Journey Man | host | [AI, Bitcoin & Self-Sovereignty \| Raoul Pal The Journey Man …](https://www.youtube.com/watch?v=nCpeLLNxl-g) |
 
 ## Opinions by topic, over time
 
 _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ marks a detected change of mind._
 
-### [Crypto & Stablecoins](../Themes/crypto.md) — now **bullish** (2 call(s))
+### [Crypto & Stablecoins](../Themes/crypto.md) — now **bullish** (4 call(s))
 
 - `2026-06-18` ↑ bullish — the adoption I think by the financial system I think is the is the thing that was required if we want it to become the base of money for the whole system
 - `2026-06-18` ↑ bullish — we potentially get into a world of super abundance where, you know, Bitcoin becomes actually very important in a massively deflationary world. You know, you need some anchoring sy…
+- `2026-08-13` → neutral — when I step back and you look what's happening with the rise of stablecoins and how fast it's growing, the small but but growing RWA bucket that's coming, and then the very nascen…
+- `2026-08-13` → neutral — It'd be nice to get a bit of liquidity back in crypto, cuz I think we've all taken our pennants for getting overexcited um earlier, as you said. And uh maybe it's our time again s…
 
 ### [AI & Semiconductors](../Themes/ai-semiconductors.md) — now **bullish** (1 call(s))
 
 - `2026-06-18` ↑ bullish — you've kind of got a an inability for a lot of this infrastructure to go bust, which is a really interesting thing that we've not seen before.
+
+### [Broad Market & Macro Indices](../Themes/macro-indices.md) — now **neutral** (1 call(s))
+
+- `2026-08-13` → neutral — you know, I look at sort of excess liquidity which is liquidity growth above GDP growth and it hasn't been very strong. So any liquidity that's come into the market goes to the on…
 
 ## Where others disagree
 

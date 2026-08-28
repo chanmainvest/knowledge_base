@@ -1,97 +1,52 @@
-# 高天佑
+# 施永青
 
-**interview guest (2x) · solo author/host (8x)**
+**interview guest (1x)**
 
-> Hong Kong-based financial journalist and columnist known for commentary on finance, macroeconomics, and current affairs. He has written for Hong Kong Economic Journal (信報), where his column 新聞點評 covers markets and economic policy, and previously contributed to Apple Daily's finance pages. He appears frequently as a solo host/commentator in audio and podcast versions of his columns.
+> Hong Kong entrepreneur and property-market commentator, born 1949 in Shanghai. Best known as co-founder (1978) of Centaline Property Agency (中原地產), which he built into one of the largest real-estate agencies in Hong Kong and mainland China. In 2005 he founded the free Chinese-language newspaper am730, where his widely read columns cover property, economics, and current affairs. A frequent media guest known for his free-market and Daoist-influenced views, he is one of Hong Kong's most quoted voices on the housing market.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
-高天佑 is a Hong Kong financial journalist and columnist in the classic 信報 mould: he writes the 新聞點評 column for the Hong Kong Economic Journal, cut his teeth in Apple Daily's finance pages, and voices audio and podcast versions of his own copy. In this corpus he is almost entirely a solo act — solo author or host on eight of ten appearances, a guest just twice — which suits the trade: one voice, a daily deadline, and a stance on whatever the market and the news cycle served up.
+施永青 (Shih Wing Ching) belongs to that rare breed of Hong Kong commentator whose market calls come with an operator's pedigree attached. Born in Shanghai in 1949, he co-founded Centaline Property Agency (中原地產) in 1978 and built it into one of the largest real-estate brokerages across Hong Kong and mainland China; in 2005 he added a media flank by launching the free Chinese-language daily am730, where his widely read columns cover property, economics and current affairs. A free-marketer with Daoist leanings, he is one of the most quoted voices on Hong Kong housing — so when he breaks from the crowd, it registers.
 
-That stance, in the sampled record, is overwhelmingly bearish — 15 bearish calls against 4 bullish and 3 neutral — and the bear case is a coherent three-front story about the mainland washing over Hong Kong. On June 18, 2026 he argued that with mainland e-commerce "attacking" Hong Kong during the 618 shopping festival, local retailers — especially small and mid-sized physical merchants — "恐將更加難捱", unable to compete with 財雄勢大的內地巨擘, with the rot spreading to unemployment, shop vacancy, rents and property valuations ([618攻港 本地零售難捱](https://www1.hkej.com/dailynews/finnews/article/4434076/618%E6%94%BB%E6%B8%AF+%E6%9C%AC%E5%9C%B0%E9%9B%B6%E5%94%AE%E9%9B%A3%E6%8D%B4)). Two days later he was on the mainland labour market: the economy slowing, employment "日益惡化", and anyone over 35 written off as a layoff high-risk group — filed, tellingly, under robotics and automation ([京東不要快遞員 三項鐵人再培訓](https://www1.hkej.com/dailynews/finnews/article/4436952/%E4%BA%AC%E6%9D%B1%E4%B8%8D%E8%A6%81%E5%BF%AB%E9%81%9E%E5%93%A1+%E4%B8%89%E9%A0%85%E9%90%B5%E4%BA%BA%E5%86%8D%E5%9F%B9%E8%A8%93)). On June 24 he put a number on the property wreck: national home prices down more than 30% since the 2021 blowup ([《求是》響警號 內需新思維](https://www1.hkej.com/dailynews/finnews/article/4437891/%E3%80%8A%E6%B1%82%E6%98%AF%E3%80%8B%E9%9F%BF%E8%AD%A6%E8%99%9F+%E5%85%A7%E9%9C%80%E6%96%B0%E6%80%9D%E7%B6%AD)).
+The corpus's record on him, it must be said plainly, is one article deep: an 信報/HKEJ piece dated 17 June 2026, headlined 「北水炒風勁 嚇親施永青」 ("heavy northbound-money speculation spooks Shih Wing Ching"), which also features 高天佑. But that single piece captures the layered stance that defines him. On the headline call, the column describes him as standing alone against consensus — 「施老闆已獨排眾議，揚言升幅可達15%」, declaring the gains could reach 15% ([北水炒風勁 嚇親施永青](https://www1.hkej.com/dailynews/finnews/article/4432968/%E5%8C%97%E6%B0%B4%E7%82%92%E9%A2%A8%E5%8B%81+%E5%9A%87%E8%A6%AA%E6%96%BD%E6%B0%B8%E9%9D%92)). In the same breath he sounds the opposite alarm: 「因為炒家會把樓價推至一個用家負擔不起的水平，繼而妨礙民生」 — speculators will push home prices to a level end-users cannot afford, and livelihoods suffer as a result ([北水炒風勁 嚇親施永青](https://www1.hkej.com/dailynews/finnews/article/4432968/%E5%8C%97%E6%B0%B4%E7%82%92%E9%A2%A8%E5%8B%81+%E5%9A%87%E8%A6%AA%E6%96%BD%E6%B0%B8%E9%9D%92)). Between the two sits his stated ideal: prices 「穩定地緩緩地隨經濟增長一起同步上升」, rising steadily and slowly in step with economic growth ([北水炒風勁 嚇親施永青](https://www1.hkej.com/dailynews/finnews/article/4432968/%E5%8C%97%E6%B0%B4%E7%82%92%E9%A2%A8%E5%8B%81+%E5%9A%87%E8%A6%AA%E6%96%BD%E6%B0%B8%E9%9D%92)).
 
-What makes the portrait interesting is how fast the bull phase burned off. On June 16 he was genuinely upbeat on the China AI complex: Hefei's economy booming on the back of semiconductor firms "食正人工智能浪潮", with CXMT (長鑫科技) posting RMB 33 billion in first-quarter profit — "每日賺3.6億元" — as one of only four companies worldwide mass-producing HBM, and a lesson there for Hong Kong's Northern Metropolis ([北都可借鑑「合肥模式」](https://www1.hkej.com/dailynews/finnews/article/4431990/%E5%8C%97%E9%83%BD%E5%8F%AF%E5%80%9F%E9%91%91%E3%80%8C%E5%90%88%E8%82%A5%E6%A8%A1%E5%BC%8F%E3%80%8D)). Within 48 hours the same author had flipped bearish on both China/Hong Kong equities and broad macro, on the strength of the 618 retail carnage. The stance log then records a second bull-to-bear swing between June 24 and 25, right as global markets cracked — US AI leaders down more than 10% in a session, Korea's market off 9.99%, Hong Kong stocks at a one-year low — though that entry carries no linked article in the sample. He embraced the AI story and then turned on it almost the moment the tape broke.
-
-Two honest caveats. The sampled window is barely ten days in June 2026, so the "flips" may say more about a daily columnist marking the news to market than about deep conviction change — his neutral entries are precisely where he lays out both sides, as in the June 17 piece framing the 防走資 debate as "兩種不同意見" ([北水炒風勁 嚇親施永青](https://www1.hkej.com/dailynews/finnews/article/4432968/%E5%8C%97%E6%B0%B4%E7%82%92%E9%A2%A8%E5%8B%81+%E5%9A%87%E8%A6%AA%E6%96%BD%E6%B0%B8%E9%9D%92)), or his aside that Hong Kong consumers are short-term winners from e-commerce discounts ([618攻港 本地零售難捱](https://www1.hkej.com/dailynews/finnews/article/4434076/618%E6%94%BB%E6%B8%AF+%E6%9C%AC%E5%9C%B0%E9%9B%B6%E5%94%AE%E9%9B%A3%E6%8D%B4)). The bearish tilt is real in the data; the churn is the job description. Coverage is thin — treat this as a snapshot, not a career arc.
+Read as one position rather than three, it is coherent: a near-term bull who thinks the crowd is too timid on upside, a structural worrier about what speculative money does to housing's social function, and a normative middle case of prices tracking the real economy. The corpus's own tagging — "now bearish" on both China & Hong Kong equities and China property, off a 2-bullish/2-bearish/2-neutral stance mix — flattens that nuance; the underlying quotes read more like a bull with a conscience than an outright bear. And on the question of whether his views have moved over time, this sample can say nothing: all six tagged stances, across both topics, trace to the same 17 June 2026 article. Until more of his am730 columns and interviews are digested, his portrait here is a single exposure — contrarian, alarmed by hot money, and insistently on the side of the end-user.
 
 ## At a glance
 
-- **Appearances**: 10 (2026-06-15 → 2026-06-26)
+- **Appearances**: 1 (2026-06-17 → 2026-06-17)
 - **Shows**: 高天佑
-- **Extracted calls**: 0 predictions, 16 market views
-- **Topics with opinions**: 4, **3 stance flip(s)** ⚠️
-- **Stance split**: 4 bullish / 15 bearish / 3 neutral
+- **Extracted calls**: 0 predictions, 3 market views
+- **Topics with opinions**: 2
+- **Stance split**: 2 bullish / 2 bearish / 2 neutral
 
 ## Appearances
 
 | Date | Show | Role | Item |
 |---|---|---|---|
-| 2026-06-26 | 高天佑 | solo | [C朗玩風投 美斯愛磚頭](https://www1.hkej.com/dailynews/finnews/article/4440083/C%E6%9C%97%E7%8E%A9%E9%A2%A8%E6%8A%95+%E7%BE%8E%E6%96%AF%E6%84%9B%E7%A3%9A%E9%A0%AD) |
-| 2026-06-25 | 高天佑 | solo | [AI敍事亟需「再驗證」](https://www1.hkej.com/dailynews/finnews/article/4438934/AI%E6%95%8D%E4%BA%8B%E4%BA%9F%E9%9C%80%E3%80%8C%E5%86%8D%E9%A9%97%E8%AD%89%E3%80%8D) |
-| 2026-06-24 | 高天佑 | solo | [《求是》響警號 內需新思維](https://www1.hkej.com/dailynews/finnews/article/4437891/%E3%80%8A%E6%B1%82%E6%98%AF%E3%80%8B%E9%9F%BF%E8%AD%A6%E8%99%9F+%E5%85%A7%E9%9C%80%E6%96%B0%E6%80%9D%E7%B6%AD) |
-| 2026-06-23 | 高天佑 | solo | [京東不要快遞員 三項鐵人再培訓](https://www1.hkej.com/dailynews/finnews/article/4436952/%E4%BA%AC%E6%9D%B1%E4%B8%8D%E8%A6%81%E5%BF%AB%E9%81%9E%E5%93%A1+%E4%B8%89%E9%A0%85%E9%90%B5%E4%BA%BA%E5%86%8D%E5%9F%B9%E8%A8%93) |
-| 2026-06-22 | 高天佑 | solo | [精準扶貧要做好 在職貧窮更堪憂](https://www1.hkej.com/dailynews/finnews/article/4436104/%E7%B2%BE%E6%BA%96%E6%89%B6%E8%B2%A7%E8%A6%81%E5%81%9A%E5%A5%BD+%E5%9C%A8%E8%81%B7%E8%B2%A7%E7%AA%AE%E6%9B%B4%E5%A0%AA%E6%86%82) |
-| 2026-06-19 | 高天佑 | solo | [大家樂「翻生」啟示](https://www1.hkej.com/dailynews/finnews/article/4435378/%E5%A4%A7%E5%AE%B6%E6%A8%82%E3%80%8C%E7%BF%BB%E7%94%9F%E3%80%8D%E5%95%9F%E7%A4%BA) |
-| 2026-06-18 | 高天佑 | solo | [618攻港 本地零售難捱](https://www1.hkej.com/dailynews/finnews/article/4434076/618%E6%94%BB%E6%B8%AF+%E6%9C%AC%E5%9C%B0%E9%9B%B6%E5%94%AE%E9%9B%A3%E6%8D%B1) |
 | 2026-06-17 | 高天佑 | guest | [北水炒風勁 嚇親施永青](https://www1.hkej.com/dailynews/finnews/article/4432968/%E5%8C%97%E6%B0%B4%E7%82%92%E9%A2%A8%E5%8B%81+%E5%9A%87%E8%A6%AA%E6%96%BD%E6%B0%B8%E9%9D%92) |
-| 2026-06-16 | 高天佑 | guest | [北都可借鑑「合肥模式」](https://www1.hkej.com/dailynews/finnews/article/4431990/%E5%8C%97%E9%83%BD%E5%8F%AF%E5%80%9F%E9%91%91%E3%80%8C%E5%90%88%E8%82%A5%E6%A8%A1%E5%BC%8F%E3%80%8D) |
-| 2026-06-15 | 高天佑 | solo | [社會變化太大 專業人士崩壞](https://www1.hkej.com/dailynews/finnews/article/4431224/%E7%A4%BE%E6%9C%83%E8%AE%8A%E5%8C%96%E5%A4%AA%E5%A4%A7+%E5%B0%88%E6%A5%AD%E4%BA%BA%E5%A3%AB%E5%B4%A9%E5%A3%9E) |
 
 ## Opinions by topic, over time
 
 _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ marks a detected change of mind._
 
-### [China & Hong Kong Equities](../Themes/china-hk-equities.md) — now **bearish** (15 call(s)) ⚠️ stance flipped
+### [China & Hong Kong Equities](../Themes/china-hk-equities.md) — now **bearish** (3 call(s))
 
-- `2026-06-16` ↑ bullish — 合肥經濟這麼旺，皆因當地有一批半導體企業，食正人工智能（AI）浪潮
-- `2026-06-16` ↑ bullish — 長鑫科技今年首季純利達330億元（人民幣．下同），相當於「每日賺3.6億元」，事關該企業屬於全球四家有能力量產高頻記憶體（HBM）的廠商之一
-- `2026-06-17` → neutral — 面對「防走資」形勢，坊間目前有兩種不同意見。
-- `2026-06-18` ↓ bearish ⚠️ **flip** — 這亦意味着本地零售商、尤其是中小型實體商戶，今後恐將更加難捱，皆因它們很難與財雄勢大的內地巨擘競爭。
-- `2026-06-18` ↓ bearish ⚠️ **flip** — 實體零售業若然更趨蕭條，亦將為失業率、店舖空置率、租金水平、物業估值等帶來更大壓力，並對本港宏觀經濟環境構成挑戰。
-- `2026-06-18` → neutral ⚠️ **flip** — 在此趨勢下，本港消費者於短期內可望成為大贏家，每逢618、雙十一等網購節，以至於平常日子，均將獲得大量電商網購優惠，有利於「慳錢」。
-- `2026-06-19` ↓ bearish — 大家樂雖以非常手段成功自救，這卻恐怕並非本港經濟市道的吉兆。
-- `2026-06-19` ↓ bearish — 倘若大集團炒人慳錢成為大勢所趨，增添失業壓力，這又會與消費降級形成惡性循環，消費降級導致炒人，炒人加劇消費降級，那時候本港消費市道恐怕更難走出谷底。
-- `2026-06-23` ↓ bearish — 話說內地近年經濟放緩，就業形勢日益惡化，尤其是35歲以上人士已被視為中年，競爭力難及「小鮮肉」，屬於裁員的高危群體。
-- `2026-06-24` ↓ bearish — 內地5月份社會消費品零售總額按年下跌0.6%，是2022年底以來首次倒退
-- `2026-06-24` ↓ bearish — 自從2021年內房市場爆煲，全國房價累瀉三成以上
-- `2026-06-24` ↓ bearish — 加以A股長期不振，上證指數仍較歷史高位低逾33%
-- `2026-06-24` ↓ bearish — 首5個月全國固定資產投資額按年下跌4.1%，較首4個月的1.6%跌幅進一步擴大
-- `2026-06-24` ↑ bullish — 儘管出口維持強勁（貨品出口額按年增長13.8%），但投資和消費繼續疲弱
-- `2026-06-25` ↓ bearish ⚠️ **flip** — 環球股市動盪，美國大批人工智能（AI）龍頭股周二暴跌逾10%，南韓股市當日亦急挫9.99%，連帶港股也受拖累，創出逾一年新低。
-
-### [Broad Market & Macro Indices](../Themes/macro-indices.md) — now **bearish** (3 call(s)) ⚠️ stance flipped
-
-- `2026-06-16` ↑ bullish — 合肥經濟這麼旺，皆因當地有一批半導體企業，食正人工智能（AI）浪潮
-- `2026-06-18` ↓ bearish ⚠️ **flip** — 實體零售業若然更趨蕭條，亦將為失業率、店舖空置率、租金水平、物業估值等帶來更大壓力，並對本港宏觀經濟環境構成挑戰。
-- `2026-06-23` ↓ bearish — 話說內地近年經濟放緩，就業形勢日益惡化，尤其是35歲以上人士已被視為中年，競爭力難及「小鮮肉」，屬於裁員的高危群體。
+- `2026-06-17` ↑ bullish — 施老闆已獨排眾議，揚言升幅可達15%
+- `2026-06-17` ↓ bearish — 因為炒家會把樓價推至一個用家負擔不起的水平，繼而妨礙民生。
+- `2026-06-17` → neutral — 穩定地緩緩地隨經濟增長一起同步上升
 
 ### [China Property & Real Estate](../Themes/china-property.md) — now **bearish** (3 call(s))
 
-- `2026-06-17` → neutral — 面對「防走資」形勢，坊間目前有兩種不同意見。
-- `2026-06-18` ↓ bearish — 實體零售業若然更趨蕭條，亦將為失業率、店舖空置率、租金水平、物業估值等帶來更大壓力，並對本港宏觀經濟環境構成挑戰。
-- `2026-06-24` ↓ bearish — 自從2021年內房市場爆煲，全國房價累瀉三成以上
-
-### [Robotics, Automation & Autonomy](../Themes/robotics-autonomy.md) — now **bearish** (1 call(s))
-
-- `2026-06-23` ↓ bearish — 話說內地近年經濟放緩，就業形勢日益惡化，尤其是35歲以上人士已被視為中年，競爭力難及「小鮮肉」，屬於裁員的高危群體。
-
-## Opinion shifts
-
-Where this person changed their stance on the same topic:
-
-- **[China & Hong Kong Equities](../Themes/china-hk-equities.md)**: `2026-06-16` ↑ bullish "長鑫科技今年首季純利達330億元（人民幣．下同），相當於「每日賺3.6億元」，事關該企業屬於全球四家有能力量產高頻記憶體（HBM）的廠商之一" → `2026-06-18` ↓ bearish "這亦意味着本地零售商、尤其是中小型實體商戶，今後恐將更加難捱，皆因它們很難與財雄勢大的內地巨擘競爭。"
-- **[China & Hong Kong Equities](../Themes/china-hk-equities.md)**: `2026-06-24` ↑ bullish "儘管出口維持強勁（貨品出口額按年增長13.8%），但投資和消費繼續疲弱" → `2026-06-25` ↓ bearish "環球股市動盪，美國大批人工智能（AI）龍頭股周二暴跌逾10%，南韓股市當日亦急挫9.99%，連帶港股也受拖累，創出逾一年新低。"
-- **[Broad Market & Macro Indices](../Themes/macro-indices.md)**: `2026-06-16` ↑ bullish "合肥經濟這麼旺，皆因當地有一批半導體企業，食正人工智能（AI）浪潮" → `2026-06-18` ↓ bearish "實體零售業若然更趨蕭條，亦將為失業率、店舖空置率、租金水平、物業估值等帶來更大壓力，並對本港宏觀經濟環境構成挑戰。"
-
-_See all people's shifts in [Syntheses/Opinion Shifts](../Syntheses/Opinion-Shifts.md)._
+- `2026-06-17` ↑ bullish — 施老闆已獨排眾議，揚言升幅可達15%
+- `2026-06-17` ↓ bearish — 因為炒家會把樓價推至一個用家負擔不起的水平，繼而妨礙民生。
+- `2026-06-17` → neutral — 穩定地緩緩地隨經濟增長一起同步上升
 
 ## Where others disagree
 
 Topics where this person's current stance conflicts with another person's:
 
-- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [梁天卓](../People/person-005.md), [Jeff](../People/jeff.md), [Steve](../People/steve.md), [Patrick Boyle](../People/patrick-boyle.md), [Erik Townsend](../People/erik-townsend.md), [Shawn Hackett](../People/shawn-hackett.md)
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md), [David Woo](../People/david-woo.md)
-- [Robotics, Automation & Autonomy](../Themes/robotics-autonomy.md) — opposite: [梁天卓](../People/person-005.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [梁天卓](../People/person-010.md), [Jeff](../People/jeff.md), [Steve](../People/steve.md), [Patrick Boyle](../People/patrick-boyle.md), [Erik Townsend](../People/erik-townsend.md), [Shawn Hackett](../People/shawn-hackett.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

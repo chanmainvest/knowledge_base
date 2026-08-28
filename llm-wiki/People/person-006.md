@@ -1,26 +1,16 @@
-# 狂徒
+# 摩根大通 (由作者引用)
 
-**solo author/host (1x)**
+_No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
 
-> Pseudonymous Chinese-language investment commentator, best known as the creator and solo host of the show 狂徒投資 (Kuang Tu Investment). Discusses stock markets and investing topics for a primarily Chinese-speaking audience. Personal background and real identity are not widely publicized.
+摩根大通 — JPMorgan Chase — enters this corpus in an odd position: as a name cited by authors rather than a voice with its own tracked record. In the extracted material, the bank appears only as a referenced authority, and the coding behind that reference is conspicuously empty. Roles are uncoded, and the stance tally reads a flat zero across the board — no bullish, no bearish, no neutral. On this record, there is no House View to summarize, no directional call to attribute, and nothing dated to hang an argument on.
 
-_Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
-
-狂徒 is a pseudonymous Chinese-language investment commentator, best known as the creator and solo host of the show 狂徒投資 (Kuang Tu Investment), where he discusses stock markets and investing for a primarily Chinese-speaking audience. His real identity and personal background are not widely publicized, which is not unusual in this corner of the commentary world — the persona and the show are the product, and the analysis is delivered under the 狂徒 name rather than a verifiable professional track record.
-
-Beyond that framing, the corpus is thin, and it is worth saying so plainly: the extracted record for 狂徒 contains no dated calls, no identifiable bullish, bearish, or neutral positions, and no topic timelines that would let us trace how his views have moved over time. As it stands, this portrait can establish who he is and what platform he argues from, but it cannot yet name his strongest calls or characterize the shape of his market views. Readers should treat this page as a stub pending the addition of cited episodes and positions from 狂徒投資.
+That absence matters for how this page should be read. Normally a portrait like this would trace an arc — when the strategist turned cautious, which call aged well, where the language shifted from hedged to committed. Here the digest offers no topic timelines at all, so there is no movement to narrate and no strongest call to name with a date. The honest reading is that, within this corpus at least, 摩根大通 functions as borrowed credibility — a name authors reach for — rather than a protagonist whose positions the corpus has bothered to pin down. Until fuller extracts land, any claim about its specific market calls would be invention, and this page declines to make them.
 
 ## At a glance
 
-- **Appearances**: 1 (2026-06-18 → 2026-06-18)
-- **Shows**: 狂徒投資
-- **Extracted calls**: 0 predictions, 0 market views
-
-## Appearances
-
-| Date | Show | Role | Item |
-|---|---|---|---|
-| 2026-06-18 | 狂徒投資 | solo | [F狂徒書評: 別再拿《別再跳脫舒適圈》當拒絕挑戰的藉口](https://madxcap.com/fb_20260618_5893/) |
+- **Appearances**: 0
+- **Shows**: 
+- **Extracted calls**: 1 predictions, 0 market views
 
 ---
 _Page reflects DB state at generation time. Regenerate via `uv run python scripts/build_llm_wiki.py`._

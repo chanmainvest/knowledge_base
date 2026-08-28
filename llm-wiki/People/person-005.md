@@ -1,54 +1,16 @@
-# 梁天卓
+# 吳明德 (引述自己以往講法)
 
-**solo author/host (4x)**
+_No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
 
-> Hong Kong economist and financial columnist. Best known as one of the three co-authors of the「經濟3.0」(Economics 3.0) column in the Hong Kong Economic Journal (信報), alongside 徐家健 and 曾國平, writing on applied economics, public policy, law and economics, and Hong Kong current affairs. Holds a doctorate in economics and has worked in Hong Kong's financial sector. Also appears as a commentator/presenter in Cantonese economics media and podcasts.
+關於吳明德，本次整理的語料所能提供的內容出乎意料地單薄：記錄中沒有他的職銜，沒有任何帶日期的觀點或立場，多空中立三項判定均為零，也沒有可供引用的原始連結。唯一可確認的標註，是語料將他描述為「引述自己以往講法」的人——換句話說，他習慣以自己過去的言論作為論述的出發點，但語料並未錄得這些講法的具體內容或日期。
 
-_Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
-
-梁天卓 is a Hong Kong economist and financial columnist, best known as one-third of the「經濟3.0」(Economics 3.0) column in the Hong Kong Economic Journal (信報)， where he writes alongside 徐家健 and 曾國平 on applied economics, public policy, law and economics, and Hong Kong current affairs. He holds a doctorate in economics and has worked in Hong Kong's financial sector, and he also appears as a commentator and presenter in Cantonese economics media and podcasts. The profile that emerges is less market-timer than policy debater — an economist who takes whatever Hong Kong is arguing about and runs it through the machinery of incentives and institutional design.
-
-That is exactly the register of the strongest call captured in this corpus. In a June 25, 2026 column, he took a position on legalizing autonomous driving, arguing that the more reasonable course is a “middle path”: a limited pilot scheme that approves only vetted systems, runs them in designated areas or on designated routes, obliges operators to submit data on mileage, takeovers, accidents, near misses and complaints, and then expands or narrows the programme's scope periodically according to what the data show ([自駕合法化 有限度先導計劃可取](https://www1.hkej.com/dailynews/investment/article/4439041/%E8%87%AA%E9%A7%95%E5%90%88%E6%B3%95%E5%8C%96+%E6%9C%89%E9%99%90%E5%BA%A6%E5%85%88%E5%B0%8E%E8%A8%88%E5%8A%83%E5%8F%AF%E5%8F%96)). The piece is logged as bullish twice — once under robotics, automation and autonomy, and once under China and Hong Kong equities — but both tags trace back to this single article, so the optimism on record is really an evidence-gated, gradualist stance toward the technology rather than a conventional equity call.
-
-An honest caveat: the coverage here is thin. One dated article, two bullish tags derived from it, and no bearish or neutral positions on record — far too little to chart how his views have moved over time. What the snapshot does establish is method rather than market conviction: demand the data, start small, scale by results. That is classic Economics 3.0 DNA, and it is the through-line readers should expect from him on everything from transport policy onward — though whether he translates that analytical bent into actual directional market calls is something this record simply does not yet show.
+正因如此，這一頁無法誠實地回答開篇應回答的三個問題：他主張什麼、他的觀點如何隨時間移動、他最強的判斷是哪幾項。任何就此展開的具體敘述都會是憑空推測，而非來自記錄。目前這一段只能作為待充實的骨架；待語料補上他有日期、可連結的具體言論後，這裡應立即改寫為有引文、有出處的完整傳記式開場。
 
 ## At a glance
 
-- **Appearances**: 4 (2026-06-17 → 2026-06-27)
-- **Shows**: 梁天卓
-- **Extracted calls**: 0 predictions, 2 market views
-- **Topics with opinions**: 2
-- **Stance split**: 2 bullish / 0 bearish / 0 neutral
-
-## Appearances
-
-| Date | Show | Role | Item |
-|---|---|---|---|
-| 2026-06-27 | 梁天卓 | solo | [藉文字分析 看《施政》內容演變](https://www1.hkej.com/dailynews/investment/article/4441565/%E8%97%89%E6%96%87%E5%AD%97%E5%88%86%E6%9E%90+%E7%9C%8B%E3%80%8A%E6%96%BD%E6%94%BF%E3%80%8B%E5%85%A7%E5%AE%B9%E6%BC%94%E8%AE%8A) |
-| 2026-06-25 | 梁天卓 | solo | [自駕合法化 有限度先導計劃可取](https://www1.hkej.com/dailynews/investment/article/4439041/%E8%87%AA%E9%A7%95%E5%90%88%E6%B3%95%E5%8C%96+%E6%9C%89%E9%99%90%E5%BA%A6%E5%85%88%E5%B0%8E%E8%A8%88%E5%8A%83%E5%8F%AF%E5%8F%96) |
-| 2026-06-20 | 梁天卓 | solo | [世界盃賠率 抽水不是天意](https://www1.hkej.com/dailynews/investment/article/4435804/%E4%B8%96%E7%95%8C%E7%9B%83%E8%B3%A0%E7%8E%87+%E6%8A%BD%E6%B0%B4%E4%B8%8D%E6%98%AF%E5%A4%A9%E6%84%8F) |
-| 2026-06-17 | 梁天卓 | solo | [世界盃擴軍 夢想有利也有弊](https://www1.hkej.com/dailynews/investment/article/4433084/%E4%B8%96%E7%95%8C%E7%9B%83%E6%93%B4%E8%BB%8D+%E5%A4%A2%E6%83%B3%E6%9C%89%E5%88%A9%E4%B9%9F%E6%9C%89%E5%BC%8A) |
-
-## Opinions by topic, over time
-
-_Oldest → newest within each topic. Arrows show each call's stance; ⚠️ marks a detected change of mind._
-
-### [China & Hong Kong Equities](../Themes/china-hk-equities.md) — now **bullish** (1 call(s))
-
-- `2026-06-25` ↑ bullish — 較合理的是中間路線：有限度先導計劃，只批准通過審核的系統，在指定地區或路線試行，要求營辦者提交里程、接管、事故、近失事故和投訴資料，再按數據定期擴大或收窄範圍。
-
-### [Robotics, Automation & Autonomy](../Themes/robotics-autonomy.md) — now **bullish** (1 call(s))
-
-- `2026-06-25` ↑ bullish — 較合理的是中間路線：有限度先導計劃，只批准通過審核的系統，在指定地區或路線試行，要求營辦者提交里程、接管、事故、近失事故和投訴資料，再按數據定期擴大或收窄範圍。
-
-## Where others disagree
-
-Topics where this person's current stance conflicts with another person's:
-
-- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [高天佑](../People/person-008.md), [aminvest](../People/aminvest.md), [何啟聰](../People/person-001.md), [Jeff Snider](../People/jeff-snider.md), [Joseph](../People/joseph.md), [陳坤耀](../People/person-007.md)
-- [Robotics, Automation & Autonomy](../Themes/robotics-autonomy.md) — opposite: [高天佑](../People/person-008.md)
-
-_Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
+- **Appearances**: 0
+- **Shows**: 
+- **Extracted calls**: 1 predictions, 0 market views
 
 ---
 _Page reflects DB state at generation time. Regenerate via `uv run python scripts/build_llm_wiki.py`._

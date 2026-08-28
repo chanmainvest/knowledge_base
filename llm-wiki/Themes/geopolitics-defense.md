@@ -2,47 +2,59 @@
 
 War-risk premia, sanctions, tariffs and defense spending — the geopolitical overlay guests apply to commodities and equities.
 
-**0 prediction(s)** and **31 market view(s)** match this theme in the current extraction.
+**2 prediction(s)** and **50 market view(s)** match this theme in the current extraction.
 
 ## What the corpus says
 
-The Geopolitics & Defense corpus is a narrow but dense one: zero tickered calls against thirty-one broad views, nearly all of it compressed into a single week in June 2026 around the Iran conflict and the deal that appeared to resolve it. That timing matters, because everything in this theme is really one argument — whether the "Hormuz resolution" deserves the celebration markets gave it — conducted in the days right after the de-escalation. Even the sharpest data point in the digest is about that window: [Brent Johnson](../People/brent-johnson.md) noted on June 19 that "from the moment the war broke out in Iran to the moment that it looked like we were getting this deal signed last week, gold fell," a reminder that the risk trade unwound fast once the missiles stopped.
+The Geopolitics & Defense theme in this corpus is less a war desk than a study in transmission mechanisms: how distant conflicts show up in energy prices, inflation expectations, and margin warnings. The tickered calls — just two of them — are both Taiwan-facing. One voice, in early July, marveled that the Taiwan index had doubled from 20,000 to 46,000, running past a KOL's old 40,000-point target for 2025 (flagged in the corpus as a past call that has since played out). A week and a half later came the only fundamental call on the books: that TSM's "margins are going to start to contract," dated July 17. Read side by side, that's the theme's central tension in miniature — an index pricing in geopolitical premium and semiconductor euphoria, while a lone voice worries the chipmaker underneath it is peaking. The corpus never reconciles the two.
 
-Johnson is the most prolific voice here, and his stance is layered rather than simple. On the same June 19 appearance he called national defense "probably going to be the biggest investment opportunity any of us have ever seen," yet stayed deliberately noncommittal on the near-term commodity complex — "it's a very fluid situation. I don't think it's over" — and said plainly that "I don't think that we have seen the full effects yet" of the conflict. His structural view extends to the currency order, where he expects the system to "open up some" but not return to normal. So he pairs a secular bullish call on defense spending with tactical hedging on everything the war itself touched, which is a coherent position even if the digest's stance labels (bullish defense, bearish commodities, mixed energy) make it look conflicted on paper.
+Through August, the conversation pivots decisively to the Iran war. By August 1, one contributor notes the bond market "has done its own thing" since the war started and that "this market is leading the way." By August 22, the framing hardens into a "global movement driven by the war in Iran driving up energy prices," filed in the same cluster as a nod to what Kevin Warsh and Treasury Secretary Scott Bessent have made it "pretty clear" they think about inflation. Notably, the host on August 13 presents — and pointedly disowns — the crowd view that oil simply crashes "as everybody starts producing again" once the standoff resolves. That refusal is telling: the corpus treats cheap-oil-on-peace as the consensus position to argue against, not the baseline. And the darkest line in the theme belongs to [Mark Skousen of the Oxford Club and Skousen Report](../People/mark-skousen-oxford-club-skousen-report.md), who argued the stock market never commits suicide but "can be murdered," with national debt approaching $40 trillion named as the instrument. For Skousen, the geopolitical risk isn't the war itself — it's war as an accelerant on an already-loaded debt book.
 
-The clearest dissent from the market's mood belongs to [Erik Townsend](../People/erik-townsend.md), who went bearish equities precisely because "the market seems to be celebrating its perception of the Hormuz resolution being unconditionally good for financial markets" — his complaint is with the celebration, not necessarily the resolution. [Patrick Ceresna](../People/patrick-ceresna.md) sits in the middle, flagging the more mechanical question of whether the de-escalation triggers "rebalancing and rotation out of the things that worked, which is energy stocks and some semis" — a tactical, flows-based read rather than a macro verdict. Between them, Townsend and Ceresna frame the two ways to be unconvinced by a relief rally: wrong on substance, or simply due a rotation.
+On grand strategy, the corpus splits against itself within days. On August 22, one voice argues flatly that none of the major players — Russia and China included — are "in any position to start a war right now," a quiet de-escalation thesis. Three days later, another insists the Ukraine-Russia war and the US-Israel-Iran conflict are simply "not going to go away," full stop. Both live in the same theme, unresolved. Meanwhile the technicals crowd, writing on July 20, claims weekly SPX MACD bearish crossovers preceded both the Iran-conflict drawdown and the tariff volatility — the comfortable fiction that markets telegraph geopolitics before it happens.
 
-The most politically pointed take comes from an unnamed contributor writing in Chinese on June 25, who argued that Iran retains durable leverage because the US votes this year and again in two years — "伊朗一把油價推高，便可威脅美國的政客拿不到選票" — meaning a single push on oil prices can threaten American politicians with lost votes, "a great deterrent against the US." That election-leverage logic quietly sides with Johnson's "not over" caution and against the market euphoria Townsend derides. The honest summary of this theme, then: nobody in the corpus has attached a ticker to their conviction, the entire debate spans one week, and the lean of it — Johnson's defense supercycle aside — is skeptical that June's calm is the last word.
+The tone arc is easy to trace: July opens with Taiwan exuberance punctuated by a single margin warning; by late August it's war, energy, inflation, and debt, in roughly that order of anxiety. The honest caveat is attribution. Of roughly fifty broad views, only Skousen is named, and the two tickered calls are anonymous. This is floor chatter with a discernible shape — geopolitics as a rates-and-prices story first, a shooting-war story a distant second — and the confidence anyone should place in that shape is limited by how few people here are willing to sign their names to it.
 
 ## Constituent tickers
 
-_No tickered predictions fall in this theme yet (signal comes from market-view asset_class text only)._
+| Ticker | Mentions |
+|---|---:|
+| [TSM](../Tickers/TSM.md) | 1 |
+| `^TWII` | 1 |
 
 ## Key voices
 
 - [Brent Johnson](../People/brent-johnson.md) (10)
 - [Erik Townsend](../People/erik-townsend.md) (5)
-- [Patrick Ceresna](../People/patrick-ceresna.md) (4)
 - [Joseph](../People/joseph.md) (4)
+- [Patrick Ceresna](../People/patrick-ceresna.md) (4)
 - [David Woo](../People/david-woo.md) (3)
+- [Mark Skousen (Oxford Club / Skousen Report)](../People/mark-skousen-oxford-club-skousen-report.md) (1)
+- [Jeff Dorman](../People/jeff-dorman.md) (1)
+- [Raam Aluwalia](../People/raam-aluwalia.md) (1)
 - [Chris Semenuk](../People/chris-semenuk.md) (1)
 - [Steve](../People/steve.md) (1)
 
+## Consensus across analysts
+
+Of 2 tickered calls: **0 bullish**, **0 bearish**.
+
 ## Notable calls & quotes
 
+- [75% Tech Crash; Gareth Soloway Reveals Shocking Bottom For Stocks, Gold, Bitcoin](https://www.youtube.com/watch?v=DxFD9ufn8wg) — 2026-07-17, David Lin: "their margins are going to start to contract"
+- [沽美股買韓台AI❗️機會定跳入另一個更大風險❓｜5 Jul2026](https://www.youtube.com/watch?v=r88X-YkTmcY) — 2026-07-05, Dr Ng Ming Tak, Victor: "Taiwan has doubled in the same period of 20,000 to 46,000. So ah maybe that KOL said 2025 40,000 points this place."
 
 ## Broad market views
 
-- _commodities (bullish)_: [拆解伊強弱底牌 對美博弈佔上風](https://www.master-insight.com/article/48968) — 2026-06-25, 作者: "第3，美國今年及兩年後都要選舉，伊朗一把油價推高，便可威脅美國的政客拿不到選票，這是對美國很大的震懾。"
-- _commodities (mixed)_: [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Brent Johnson](../People/brent-johnson.md): "I don't think that we have seen the full effects yet. And so, I think that is probably I think the big impact won't be realized for 3 to 6 months from now, maybe even 9 months from now. So, let's call let's call it Q4 a…"
-- _geopolitics/currency (neutral)_: [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Brent Johnson](../People/brent-johnson.md): "I think it is going to open up some. I don't think it's going to get back to normal. I would be surprised if it got back to normal."
-- _energy (mixed)_: [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Brent Johnson](../People/brent-johnson.md): "It's a very fluid situation. I don't think it's over, but these are the types of things I'm thinking about as I'm looking at this type of stuff."
-- _defense (bullish)_: [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Brent Johnson](../People/brent-johnson.md): "National defense is I think probably going to be the biggest investment opportunity any of us have ever seen, or one of the biggest opportunities any of us have ever seen."
-- _commodities (bearish)_: [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Brent Johnson](../People/brent-johnson.md): "from the moment the war broke out in Iran to the moment that it looked like we were getting this deal signed last week, gold fell 20%"
-- _equities (bearish)_: [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Erik Townsend](../People/erik-townsend.md): "the market seems to be celebrating its perception of the Hormuz resolution being unconditionally good for financial markets. I'm a little bit skeptical of that analysis myself"
-- _equities (mixed)_: [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Patrick Ceresna](../People/patrick-ceresna.md): "will we see um a little bit of uh rebalancing and rotation out of the things that worked, which is energy stocks and some semiconductors, and that being redistributed into a broader widening of the breadth of this market"
-- _currencies (bearish)_: [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Erik Townsend](../People/erik-townsend.md): "if the Iran deal really is as strong as the president hopes it is, that maybe there's a lot more downside as we retrace a lot of the war premium out of the dollar"
-- _currencies/rates (mixed)_: [全球資金流向新拐點](https://www.master-insight.com/article/48870) — 2026-06-18, Author: "全球主要央行貨幣政策正經歷罕見的大分流現象，美、歐、日、澳洲、印尼同步緊縮，部分為抗通脹，亦有部分緣於要捍衛匯價；反觀中國卻成為了少數仍具減息空間的主要經濟體。這一格局將從根本上重塑全球資金流向。"
+- _? (?)_: [$5,000 Gold Next Or Collapse First? Coming Shock Revealed \| Jeff Christian](https://www.youtube.com/watch?v=7bgdCd8hJFw) — 2026-08-25, David Lin: "You have uh the Ukraine, Russian war going on. You have the US, Israeli, Iran wars going on. Those are not going to go away anytime soon. ... in the United States, you have an extremely unsettled political environment."
+- _? (?)_: [Chris Whalen Answers Your Questions on the Fed, Rates & the Next Bailout](https://www.youtube.com/watch?v=BCgHELtTnog) — 2026-08-22, The Julia La Roche Show: "None of the major players, Russia and China, are in any position to start a war right now. Uh you could argue that the Chinese should go take Taiwan, but I don't think so."
+- _? (?)_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "First and foremost, of course, is that this is a global movement driven by the war in Iran driving up energy prices. So everywhere in the world the long bond yields are rising uh mostly because energy prices are rising."
+- _? (?)_: [The Market’s $40T Question: Can Treasury Keep Yields Under Control?](https://www.youtube.com/watch?v=SWsGPoxqcR0) — 2026-08-22, [Mark Skousen (Oxford Club / Skousen Report)](../People/mark-skousen-oxford-club-skousen-report.md): "Stock market is never never commit suicide, but it can be murdered... We're approaching $40 trillion on our national debt in the United States... Treasury has to refinance $7 trillion every year, and that's going up...…"
+- _? (?)_: [Chris Whalen Answers Your Questions on the Fed, Rates & the Next Bailout](https://www.youtube.com/watch?v=BCgHELtTnog) — 2026-08-22, The Julia La Roche Show: "I think Warsh and also Scott Bessent, our Secretary of the Treasury, have made it pretty clear that they think that the inflation from the war is not something that the Fed can do very much about. And I agree with them,…"
+- _? (?)_: [MacroVoices #545 Michael Howell: Warsh vs. The Markets](https://www.youtube.com/watch?v=xn3Mkp6FCss) — 2026-08-13, Host (framing the competing view; states it is not his view): "A lot of people think that oil prices will basically crash as everybody starts producing again just as soon as we resolve this straight of hormuz crisis. That's not my view at all, but that's the view that competes with…"
+- _? (?)_: [Chris Whalen: Warsh's Credibility Problem, Gold's Real Signal, & Why Your Annui…](https://www.youtube.com/watch?v=BgRvK6Ug-SA) — 2026-08-01, The Julia La Roche Show: "And right now this market is leading the way. The bond market has done its own thing since the start of the war with Iran. Uh the Fed has done nothing. So in a sense they're really on the sidelines in terms of markets a…"
+- _? (?)_: [The Floodgates Just Opened.](https://www.youtube.com/watch?v=Ldy0Fl5XNpg) — 2026-07-20, Figuring Out Money: "the weekly SPX MACD bearish crossover and how prior crossovers preceded the Iran conflict drawdown and the tariff volatility of twenty twenty five"
+- _? (?)_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "He then discusses why political conflict, weaker economic conditions, persistent inflation, and the U.S. election could support stronger gold and silver investment demand during the final four months of 2026."
+- _? (?)_: [沽美股買韓台AI❗️機會定跳入另一個更大風險❓｜5 Jul2026](https://www.youtube.com/watch?v=r88X-YkTmcY) — 2026-07-05, Dr Ng Ming Tak, Victor: "the US stock market is of course a new star, but the one that has risen the most in the past two years is not the US stock market, yes Taiwan and South Korea"
 
 ---
 _Theme buckets are keyword-based and approximate; an LLM-tagged taxonomy would be more precise. Regenerate via `uv run python scripts/build_llm_wiki.py`._

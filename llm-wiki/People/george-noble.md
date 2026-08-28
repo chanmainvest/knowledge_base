@@ -125,7 +125,7 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 - `2026-06-18` ↓ bearish — is being short a company like LAR. So LEN... I don't like the homebuilders right now
 
-### `SPY` — now **bullish** (1 call(s))
+### [SPY](../Tickers/SPY.md) — now **bullish** (1 call(s))
 
 - `2026-06-18` ↑ bullish — I want to offset this, believe it or not, with a long position in the S&P 500... I'm going to take a $10,000 long position to offset this in the SPY.
 
@@ -159,10 +159,10 @@ Topics where this person's current stance conflicts with another person's:
 
 - [Oil & Energy](../Themes/oil-energy.md) — opposite: [Jeff Snider](../People/jeff-snider.md), [Steve](../People/steve.md), [Joseph](../People/joseph.md), [Joseph Wang](../People/joseph-wang.md), [Jeff (Jeoff)](../People/jeff-jeoff.md), [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md)
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
-- [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md), [Val Zlatev](../People/val-zlatev.md), [Brent Johnson](../People/brent-johnson.md), [David Woo](../People/david-woo.md)
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md), [David Woo](../People/david-woo.md)
-- [^GSPC](../Tickers/^GSPC.md) — opposite: [Patrick Ceresna](../People/patrick-ceresna.md)
-- [Crypto & Stablecoins](../Themes/crypto.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Brent Johnson](../People/brent-johnson.md), [Raoul Pal](../People/raoul-pal.md)
+- [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md), [Val Zlatev](../People/val-zlatev.md), [Brent Johnson](../People/brent-johnson.md)
+- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [^GSPC](../Tickers/^GSPC.md) — opposite: [Chris Vermeulen](../People/chris-vermeulen.md)
+- [Crypto & Stablecoins](../Themes/crypto.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Brent Johnson](../People/brent-johnson.md)
 - [SpaceX](../Tickers/spacex.md) — opposite: [JD](../People/jd.md), [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md)
 - [BTC-USD](../Tickers/BTC-USD.md) — opposite: [Mike Alfred](../People/mike-alfred.md)
 - [GC=F](../Tickers/GC=F.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md)

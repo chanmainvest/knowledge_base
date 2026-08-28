@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 5
-- **Items with predictions**: 4
-- **Predictions**: 44
-- **Market views**: 36
+- **Extracted items**: 9
+- **Items with predictions**: 8
+- **Predictions**: 57
+- **Market views**: 46
 
 ## People on this channel
 
@@ -24,15 +24,15 @@ _No URL / bio in DB channel metadata._
 **Most-called tickers:**
 
 - [SpaceX](../Tickers/spacex.md) (9)
-- [GC=F](../Tickers/GC=F.md) (7)
+- [GC=F](../Tickers/GC=F.md) (8)
 - [CL=F](../Tickers/CL=F.md) (4)
+- [^GSPC](../Tickers/^GSPC.md) (3)
 - [SI=F](../Tickers/SI=F.md) (2)
 - [SMH](../Tickers/SMH.md) (2)
-- [^GSPC](../Tickers/^GSPC.md) (2)
 - [BTC-USD](../Tickers/BTC-USD.md) (2)
 - [DX-Y.NYB](../Tickers/DX-Y.NYB.md) (2)
 - [^TNX](../Tickers/^TNX.md) (2)
-- `Bonds` (1)
+- `SPACEX` (1)
 
 ## Stance distribution (predictions)
 
@@ -40,7 +40,7 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 16 |
 | Bearish | 14 |
-| Neutral / watch | 14 |
+| Neutral / watch | 27 |
 
 ## Market-view direction
 
@@ -53,29 +53,33 @@ _No URL / bio in DB channel metadata._
 
 ## Recent notable calls
 
+- [^GSPC](../Tickers/^GSPC.md): [Eric Balchunas on Stocks, Gold, ETFs & AI](https://www.youtube.com/watch?v=S1u5RTxsLmA) — 2026-08-07, Eric Balchunas (citing the host's new book): "even if it doesn't go down 30%, stocks could go down like 15% for like 15 months. That still be pretty painful and that might not be at the threshold where the government would like care."
+- `(no ticker)`: [Eric Balchunas on Stocks, Gold, ETFs & AI](https://www.youtube.com/watch?v=S1u5RTxsLmA) — 2026-08-07, [Eric Balchunas](../People/eric-balchunas.md): "And when there is a crisis, usually it's short-lived. And if they sold out during a dip in the past 20 years, they've been burned."
+- `(no ticker)`: [Eric Balchunas on Stocks, Gold, ETFs & AI](https://www.youtube.com/watch?v=S1u5RTxsLmA) — 2026-08-07, [Eric Balchunas](../People/eric-balchunas.md): "the Trump accounts coming are going to put the other 40% or 30%, they're going to try to get those people into stock. So, we're going to be at maybe 80 90% of all Americans."
+- `(no ticker)`: [Eric Balchunas on Stocks, Gold, ETFs & AI](https://www.youtube.com/watch?v=S1u5RTxsLmA) — 2026-08-07, [Eric Balchunas](../People/eric-balchunas.md): "the bigger thesis of my note was I think the government will end up owning equity ETFs... in China and Japan they already do it regularly. It's like no big deal there. I think that's what's going to happen."
 - [SI=F](../Tickers/SI=F.md): [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "200 is on the table and possibly even more than that"
 - [SI=F](../Tickers/SI=F.md): [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "In silver, we get to 200"
 - [GC=F](../Tickers/GC=F.md): [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "I think gold's going to 10,000"
 - [GC=F](../Tickers/GC=F.md): [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "My first target is 8,000"
-- `(no ticker)`: [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
-- `(no ticker)`: [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
-- [SMH](../Tickers/SMH.md): [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
-- [^GSPC](../Tickers/^GSPC.md): [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY) — 2026-07-30, The Macro Dirt Podcast
 
 ## Recent market views
 
-- _bonds — mixed_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
-- _currency/commodity — bullish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "I think all fiat currencies a waste of time. Dollar's not going away. Last year, dollar was down 9%. gold was up 60 some odd percent."
-- _commodity — bullish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "I think the safer way to look at this is if I had to make a bet on the next 10 or even $15 in crude oil, I would bet higher."
-- _commodity — bullish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "Stochastics are a nine right now. So that's as oversold as it gets on stochastics. RSI 29. Usually below 30, you got to be looking to buy stuff."
-- _commodity — bullish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [Tony](../People/tony.md): "I'm a buyer down here of oil as well."
-- _fixed income / equities — bearish_: [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
+- _? — ?_: [A Technical Tour with Frank Cappelleri @cappthesis](https://www.youtube.com/watch?v=emHaEtcrAuY) — 2026-07-16, The Macro Dirt Podcast: "This could easily be another, you know, sentiment wash out in the inflation zone"
+- _? — ?_: [A Technical Tour with Frank Cappelleri @cappthesis](https://www.youtube.com/watch?v=emHaEtcrAuY) — 2026-07-16, The Macro Dirt Podcast: "can't think of an instance where the broad market goes down while financials are rallying tough"
+- _? — ?_: [A Technical Tour with Frank Cappelleri @cappthesis](https://www.youtube.com/watch?v=emHaEtcrAuY) — 2026-07-16, The Macro Dirt Podcast: "I'm a bear. I'm bearish"
+- _? — ?_: [A Technical Tour with Frank Cappelleri @cappthesis](https://www.youtube.com/watch?v=emHaEtcrAuY) — 2026-07-16, The Macro Dirt Podcast: "I do think rates are going lower"
+- _? — ?_: [SpaceX, AI and Interest Rates are TOO HIGH](https://www.youtube.com/watch?v=0JS8MCvpqoE) — 2026-07-02, The Macro Dirt Podcast: "The vast majority of the behavior that you actually see in the stock market is at minimum equity funded"
+- _? — ?_: [SpaceX, AI and Interest Rates are TOO HIGH](https://www.youtube.com/watch?v=0JS8MCvpqoE) — 2026-07-02, The Macro Dirt Podcast: "rates are far too high"
 
 ## Source items (extracted)
 
+- 2026-08-07 — [Eric Balchunas on Stocks, Gold, ETFs & AI](https://www.youtube.com/watch?v=S1u5RTxsLmA)
 - 2026-08-01 — [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk)
 - 2026-07-30 — [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY)
 - 2026-07-23 — [Macro Dirt and Fast Money](https://www.youtube.com/watch?v=OfmDNcA0Tlc)
+- 2026-07-16 — [A Technical Tour with Frank Cappelleri @cappthesis](https://www.youtube.com/watch?v=emHaEtcrAuY)
+- 2026-07-09 — [Another Thematic Shift](https://www.youtube.com/watch?v=8IA0EW7aGYA)
+- 2026-07-02 — [SpaceX, AI and Interest Rates are TOO HIGH](https://www.youtube.com/watch?v=0JS8MCvpqoE)
 - 2026-06-23 — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4)
 - 2026-06-17 — [Nobody Owns Bonds](https://www.youtube.com/watch?v=H-mvJ6poUk4)
 

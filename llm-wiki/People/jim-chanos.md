@@ -107,9 +107,9 @@ Topics where this person's current stance conflicts with another person's:
 
 - [AI & Semiconductors](../Themes/ai-semiconductors.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Val Zlatev](../People/val-zlatev.md), [Raoul Pal](../People/raoul-pal.md)
 - [Electrification, Power & Industrials](../Themes/electrification-industrials.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Chris Semenuk](../People/chris-semenuk.md)
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md), [David Woo](../People/david-woo.md)
+- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
-- [Crypto & Stablecoins](../Themes/crypto.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Brent Johnson](../People/brent-johnson.md), [Raoul Pal](../People/raoul-pal.md)
+- [Crypto & Stablecoins](../Themes/crypto.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Brent Johnson](../People/brent-johnson.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

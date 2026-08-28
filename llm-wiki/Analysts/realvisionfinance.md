@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 5
-- **Items with predictions**: 3
-- **Predictions**: 11
-- **Market views**: 15
+- **Extracted items**: 12
+- **Items with predictions**: 7
+- **Predictions**: 38
+- **Market views**: 60
 
 ## People on this channel
 
@@ -21,12 +21,15 @@ _No URL / bio in DB channel metadata._
 
 **Most-called tickers:**
 
+- [JPY=X](../Tickers/JPY=X.md) (10)
 - [^GSPC](../Tickers/^GSPC.md) (2)
 - [BTC-USD](../Tickers/BTC-USD.md) (2)
 - [IREN](../Tickers/IREN.md) (2)
+- `Japanese Government Bonds (2y-40y JGB yields)` (1)
 - `MP` (1)
-- `INTC` (1)
+- [INTC](../Tickers/INTC.md) (1)
 - `DXY` (1)
+- [CL=F](../Tickers/CL=F.md) (1)
 - `Iron (AI infrastructure company)` (1)
 
 ## Stance distribution (predictions)
@@ -35,7 +38,7 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 2 |
 | Bearish | 0 |
-| Neutral / watch | 9 |
+| Neutral / watch | 36 |
 
 ## Market-view direction
 
@@ -46,29 +49,36 @@ _No URL / bio in DB channel metadata._
 
 ## Recent notable calls
 
-- `(no ticker)`: [The Government’s New Plan for Markets with Cem Karsan](https://www.youtube.com/watch?v=5KrgIjDDYYg) — 2026-08-02, Real Vision
-- `MP`: [The Government’s New Plan for Markets with Cem Karsan](https://www.youtube.com/watch?v=5KrgIjDDYYg) — 2026-08-02, Real Vision
-- `INTC`: [The Government’s New Plan for Markets with Cem Karsan](https://www.youtube.com/watch?v=5KrgIjDDYYg) — 2026-08-02, Real Vision
-- [^GSPC](../Tickers/^GSPC.md): [The Government’s New Plan for Markets with Cem Karsan](https://www.youtube.com/watch?v=5KrgIjDDYYg) — 2026-08-02, Real Vision
-- `DXY`: [The Government’s New Plan for Markets with Cem Karsan](https://www.youtube.com/watch?v=5KrgIjDDYYg) — 2026-08-02, Real Vision
-- [BTC-USD](../Tickers/BTC-USD.md): [Why This Bull Market May Still Have Room to Run With Caleb Franzen & Kris Bullo…](https://www.youtube.com/watch?v=hzD3kSL_haE) — 2026-07-26, Real Vision: "any material dips at the index level for the S&P 500, for the equity market as a whole, even for something like Bitcoin, is just an opportunity to produce a higher low"
-- [^GSPC](../Tickers/^GSPC.md): [Why This Bull Market May Still Have Room to Run With Caleb Franzen & Kris Bullo…](https://www.youtube.com/watch?v=hzD3kSL_haE) — 2026-07-26, Real Vision: "any material dips at the index level for the S&P 500, for the equity market as a whole, even for something like Bitcoin, is just an opportunity to produce a higher low"
-- `Iron (AI infrastructure company)`: [The Hidden AI Trade: Land, Power, & Compute \| With Mike Alfred](https://www.youtube.com/watch?v=-p3DhlY2TEk) — 2026-06-21, [Mike Alfred](../People/mike-alfred.md): "I intend to continue holding, right? I can't make any promises to the market, but like it's unlikely I'd be selling anything cuz I don't think we're anywhere near fundamental value yet."
+- `(no ticker)`: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "she said in that speech, I stand ready to raise rates. Well, she might be a fourth dissenter towards holding policy at the next meeting. She has a different reaction function."
+- `(no ticker)`: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "We saw more dissents in the same direction in the last meeting, three for a rate hike than we've seen at any point in the last 10 years. And I think that that is a trend that is going to continue."
+- [JPY=X](../Tickers/JPY=X.md): [The Real Story Behind the Yen Intervention \| Weston Nakamura & Ash Bennington](https://www.youtube.com/watch?v=XFNk96CabCg) — 2026-08-16, Real Vision: "left unattended, you know, dollar yen would have already hit 200 if not for these kind of yen intervention uh caps at 152 and 160 and all that. That would have already happened anyway."
+- [JPY=X](../Tickers/JPY=X.md): [The Real Story Behind the Yen Intervention \| Weston Nakamura & Ash Bennington](https://www.youtube.com/watch?v=XFNk96CabCg) — 2026-08-16, Real Vision: "should they fail, or should they abandon it all together, this joint cooperation, this FEMA program, all of that kind of stuff, then dollar yen could, you know, blast higher"
+- [JPY=X](../Tickers/JPY=X.md): [The Real Story Behind the Yen Intervention \| Weston Nakamura & Ash Bennington](https://www.youtube.com/watch?v=XFNk96CabCg) — 2026-08-16, Real Vision: "I would think that over the long term, you're going to look, you're going to see dollar yen 200 instead of this being the top of, you know, USD/JPY or the floor for the yen going forward for the last for the next decade."
+- [JPY=X](../Tickers/JPY=X.md): [The Real Story Behind the Yen Intervention \| Weston Nakamura & Ash Bennington](https://www.youtube.com/watch?v=XFNk96CabCg) — 2026-08-16, [Weston Nakamura](../People/weston-nakamura.md): "if you're asking me do I think that this is going to work, if this is going to successfully cap dollar yen for the long term, or if it's going to essentially uh not, I would lean towards the latter."
+- [JPY=X](../Tickers/JPY=X.md): [The Real Story Behind the Yen Intervention \| Weston Nakamura & Ash Bennington](https://www.youtube.com/watch?v=XFNk96CabCg) — 2026-08-16, [Weston Nakamura](../People/weston-nakamura.md): "dollar yen 200 sounds like a crazy figure, but it is only 40 handles away... dollar yen has actually made 40 yen increments uh uh upside, you know, runs before. This would just be yet another one. So, this there's histo…"
+- [JPY=X](../Tickers/JPY=X.md): [The Real Story Behind the Yen Intervention \| Weston Nakamura & Ash Bennington](https://www.youtube.com/watch?v=XFNk96CabCg) — 2026-08-16, [Weston Nakamura](../People/weston-nakamura.md): "I would lean towards the latter. I would think that I I still think that dollar yen 200 in the longer term is the more likely outcome rather than this being the start of a, you know, decades-long strengthening of the ye…"
 
 ## Recent market views
 
-- _? — ?_: [Why Global Liquidity May Be Turning Against Markets \| With Michael Howell](https://www.youtube.com/watch?v=HHeRDiWWprk) — 2026-07-19, Real Vision: "repo stress and bond volatility matter more than most investors realize"
-- _? — ?_: [Why Global Liquidity May Be Turning Against Markets \| With Michael Howell](https://www.youtube.com/watch?v=HHeRDiWWprk) — 2026-07-19, Real Vision: "GFC 2 Is a Serious Long-Term Risk"
-- _? — ?_: [Why Global Liquidity May Be Turning Against Markets \| With Michael Howell](https://www.youtube.com/watch?v=HHeRDiWWprk) — 2026-07-19, Real Vision: "policymakers may be able to delay market stress...but not avoid it forever"
-- _? — ?_: [Why Global Liquidity May Be Turning Against Markets \| With Michael Howell](https://www.youtube.com/watch?v=HHeRDiWWprk) — 2026-07-19, Real Vision: "the liquidity cycle may be rolling over"
-- _? — ?_: [Why Global Liquidity May Be Turning Against Markets \| With Michael Howell](https://www.youtube.com/watch?v=HHeRDiWWprk) — 2026-07-19, Real Vision: "debt refinancing pressure is building across the system"
-- _AI/compute infrastructure — bullish_: [The Hidden AI Trade: Land, Power, & Compute \| With Mike Alfred](https://www.youtube.com/watch?v=-p3DhlY2TEk) — 2026-06-21, [Mike Alfred](../People/mike-alfred.md): "the gating factor has been can you spin up uh heavy-duty infrastructure, right? That that uh you can keep online and you can run it at low price uh that you could provide to a customer."
+- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "Warsh, I will agree, owes us that. And he hasn't given us any reaction function data, how he thinks about it, largely cuz he's got all these task forces, and he wants to change the data that he's looking for... Well, hu…"
+- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "I've been a fan of the Fed not doing forward guidance anymore... this policy of forward guidance, for every time it kind of sets the stage so that they can change policy or raise or lower rates, and there isn't drama, i…"
+- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "It's always going to be somewhere between 33 and 66% for most of these meetings, depending on which side you're going to be on whether they're a move or or not a move. So, there's going to be a great deal of uncertainty."
+- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, Andreas Steno (host): "it kind of leaves leaves us in this vacuum until we know, right Jim? So, the next couple of meetings, we won't really have any news on which inflation variable to measure and which inflation variable to assess as an inv…"
+- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "He called the payroll report echoes of the past uh or echoes of history and to be to use his terminology. It's only good on the third revision."
+- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "No, it might not. You're right, because you know, there's two ways you look at the payroll report, labor demand and labor supply"
 
 ## Source items (extracted)
 
+- 2026-08-23 — [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc)
+- 2026-08-16 — [The Real Story Behind the Yen Intervention \| Weston Nakamura & Ash Bennington](https://www.youtube.com/watch?v=XFNk96CabCg)
+- 2026-08-09 — [The Fed Is Wrong About Rates \| Daniel Lacalle Explains](https://www.youtube.com/watch?v=U2WwLW-m-Qc)
 - 2026-08-02 — [The Government’s New Plan for Markets with Cem Karsan](https://www.youtube.com/watch?v=5KrgIjDDYYg)
 - 2026-07-26 — [Why This Bull Market May Still Have Room to Run With Caleb Franzen & Kris Bullock](https://www.youtube.com/watch?v=hzD3kSL_haE)
 - 2026-07-19 — [Why Global Liquidity May Be Turning Against Markets \| With Michael Howell](https://www.youtube.com/watch?v=HHeRDiWWprk)
+- 2026-07-13 — [Why Did the Iran War Restart? \| Macro Mondays w/ Andreas Steno & Mikkel Rosenvold](https://www.youtube.com/watch?v=G8WqFYZW08s)
+- 2026-07-12 — [Bitcoin Breakdown or Bottoming Process? \| @RektCapital & Kris Bullock](https://www.youtube.com/watch?v=cS1i-G6pq_Q)
+- 2026-07-05 — [The Market Is Misreading Inflation, Oil, and the Fed \| Maleeha Bengali](https://www.youtube.com/watch?v=YsR_uqKU-5s)
+- 2026-06-28 — [Why Investors Say Sentiment Looks Wrong in Crypto & Macro Markets Right Now](https://www.youtube.com/watch?v=3LVb6esEFOk)
 - 2026-06-21 — [The Hidden AI Trade: Land, Power, & Compute \| With Mike Alfred](https://www.youtube.com/watch?v=-p3DhlY2TEk)
 - 2026-06-14 — [Why This El Niño Could Be Different with Shawn Hackett & Ash Bennington](https://www.youtube.com/watch?v=gsteK2Vl5PA)
 

@@ -53,9 +53,9 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 Topics where this person's current stance conflicts with another person's:
 
 - [Oil & Energy](../Themes/oil-energy.md) — opposite: [George Noble](../People/george-noble.md), [JD](../People/jd.md), [Tony](../People/tony.md), [Erik Townsend](../People/erik-townsend.md), [David Woo](../People/david-woo.md)
-- [CL=F](../Tickers/CL=F.md) — opposite: [George Noble](../People/george-noble.md), [JD](../People/jd.md), [Tony](../People/tony.md), [Erik Townsend](../People/erik-townsend.md), [Patrick Ceresna](../People/patrick-ceresna.md), [Brent Johnson](../People/brent-johnson.md)
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md), [David Woo](../People/david-woo.md)
-- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [梁天卓](../People/person-005.md), [Jeff](../People/jeff.md), [Steve](../People/steve.md), [Patrick Boyle](../People/patrick-boyle.md), [Erik Townsend](../People/erik-townsend.md), [Shawn Hackett](../People/shawn-hackett.md)
+- [CL=F](../Tickers/CL=F.md) — opposite: [George Noble](../People/george-noble.md), [JD](../People/jd.md), [Tony](../People/tony.md), [Erik Townsend](../People/erik-townsend.md), [Brent Johnson](../People/brent-johnson.md), [David Woo](../People/david-woo.md)
+- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [梁天卓](../People/person-010.md), [Jeff](../People/jeff.md), [Steve](../People/steve.md), [Patrick Boyle](../People/patrick-boyle.md), [Erik Townsend](../People/erik-townsend.md), [Shawn Hackett](../People/shawn-hackett.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

@@ -6,18 +6,18 @@
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
-aminvest is a solo author writing a self-titled, Traditional Chinese-language investing newsletter (Hong Kong/Cantonese in flavour) that covers U.S. equities for a Patreon audience. The eleven posts captured here skew hard toward the hyped end of the market — SpaceX-linked SPCX, semiconductor names like Micron, and mega-cap financials such as Goldman Sachs and Morgan Stanley — and the house style is analytical with a contrarian streak: the recurring move is telling readers that a dip in a crowd favourite is not automatically a bargain. The stance mix across the corpus (8 bullish, 6 bearish, 6 neutral) suggests balance, but the sequencing tells a sharper story.
+aminvest is the sole author and voice behind *AM Invest*, a self-titled, Traditional Chinese newsletter with a distinctly Hong Kong flavour, published on Patreon as a running series of short US-market briefs (美股市況短評). The coverage skews to the names retail crowds actually trade — SpaceX-linked SPCX, semiconductors like Micron, and large-cap financials such as Goldman Sachs and Morgan Stanley — and the tone is analytical but pointedly contrarian: the recurring move is to ask whether a dip in a heavily hyped stock is truly a bargain, while tracking how mega-cap swings (Micron's, notably) can drag the broader market. The recorded stance mix — 8 bullish, 6 bearish, 6 neutral — reads like a market-timer who calls direction daily rather than a permabull or permabear.
 
-The arc over the captured window — a mere ten days in June 2026 — begins constructively. On June 15, aminvest was widening the net beyond tech, saying they would "start watching investment-bank stocks whose momentum is strengthening" ([美股市況短評 (20260615)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161146651)); two days later they liked Goldman Sachs but called the stock "on the high side" and hard to buy ([美股市況短評 (20260617)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161328901)). On June 18 the stance was still bullish, arguing that large-cap tech with strong cash flows, if it corrected and stabilised, "could actually be a buying opportunity" ([美股市況短評 (20260618)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161407746)). Even the neutrality on the broad market read as genuine two-way uncertainty — U.S. indices at "a key resistance level: attack, or defend?" with the day's trade "critical" ([美股市況短評 (20260622)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161763918)).
+Their most characterful call is on SPCX. On 24 June 2026 they dismissed dip-buyers outright: if you think SPCX breaking below $150 already makes it cheap, "I'd say that idea is a bit naive" ([美股市況短評 (20260624)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161958989)). The same post drifted into provocation — at what price would Elon Musk lose his spot as the world's richest man? "AI's answer to me is $17.61" ([美股市況短評 (20260624)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161958989)). Whether tongue-in-cheek or not, the topic now sits marked bearish.
 
-Then came the pivot, and it ran through credit. On June 23 aminvest flagged that "the corporate credit market has already started to deteriorate" and warned that Hong Kong stocks "may already have entered phase two of a bear market" ([美股市況短評 (20260623)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161861803)); by June 25 the language hardened to "corporate debt default ratios have already begun to deteriorate," which the corpus logs as a formal bullish-to-bearish flip on rates, bonds and the dollar in a single week ([美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909)). The strongest single call, though, is on SPCX: on June 24, aminvest dismissed the bargain-hunters bluntly — if you think SPCX below $150 is already cheap, "that thinking is a bit naive" — and punctuated it by asking an AI model at what SPCX price Elon Musk would lose his richest-man status, getting $17.61 back ([美股市況短評 (20260624)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161958989)).
+The June 2026 timeline shows a fast pivot. Mid-month they were constructive: on 15 June they were watching investment banks whose trends were strengthening beyond tech ([美股市況短評 (20260615)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161146651)), and by 18 June they argued that strong-cash-flow large-cap tech, if it pulled back and stabilized, could be a buying opportunity ([美股市況短評 (20260618)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161407746)). Then the turn: 22 June put the index at a "key resistance — attack or defend?" ([美股市況短評 (20260622)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161763918)); 23 June flagged the corporate credit market as already deteriorating and warned Hong Kong stocks may have entered the second phase of a bear market ([美股市況短評 (20260623)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161861803)); and by 25 June the rates-and-credit view had fully flipped, with corporate debt default ratios "already beginning to deteriorate" ([美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909)).
 
-The most interesting tension sits inside the June 25 post itself, which is logged as both bullish and bearish on AI and semiconductors: aminvest simultaneously said many large-cap tech stocks "should rise further" and that "many AI-related and unrelated companies around the world will go bankrupt" ([美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909)). Read together, that is less a contradiction than a narrow-leadership argument — the mega-caps keep climbing while the long tail of the AI complex fails — but the corpus doesn't spell that out, so treat it as interpretation. The honest caveat: this is thin coverage, eleven posts across June 15–25, 2026, and the "evolution" is really one fast, credit-driven turn inside a fortnight. Whether the bearish credit call held is not something the digest can show.
+That 25 June post is also where their AI view gets genuinely two-sided: many large tech stocks "should rise again," yet many AI-related *and* unrelated companies worldwide will collapse ([美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909)) — a barbell of mega-cap survivors versus an AI periphery they expect to die, which is why the topic is now net bearish despite the bullish line on the giants. Elsewhere they stayed noncommittal: Goldman Sachs is "decent, but the price is high, hard to get in" ([美股市況短評 (20260617)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161328901)). Fair caveat: the entire record here spans roughly two weeks of June 2026, so the flip is compressed and the credit-call verdict is still open.
 
 ## At a glance
 
 - **Appearances**: 11 (2026-06-13 → 2026-06-25)
-- **Shows**: aminvest
+- **Shows**: AM Invest
 - **Extracted calls**: 10 predictions, 26 market views
 - **Topics with opinions**: 15, **1 stance flip(s)** ⚠️
 - **Stance split**: 8 bullish / 6 bearish / 6 neutral
@@ -26,17 +26,17 @@ The most interesting tension sits inside the June 25 post itself, which is logge
 
 | Date | Show | Role | Item |
 |---|---|---|---|
-| 2026-06-25 | aminvest | solo | [美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909) |
-| 2026-06-24 | aminvest | solo | [美股市況短評 (20260624)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161958989) |
-| 2026-06-23 | aminvest | solo | [美股市況短評 (20260623)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161861803) |
-| 2026-06-23 | aminvest | solo | [倉位無大礙，但減倉保平安](https://www.patreon.com/aminvest/posts/cang-wei-wu-da-161877458) |
-| 2026-06-22 | aminvest | solo | [美股市況短評 (20260622)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161763918) |
-| 2026-06-18 | aminvest | solo | [美股市況短評 (20260618)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161407746) |
-| 2026-06-17 | aminvest | solo | [美股市況短評 (20260617)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161328901) |
-| 2026-06-16 | aminvest | solo | [「攻守轉換全攻略」重温連結](https://www.patreon.com/aminvest/posts/gong-shou-zhuan-161228143) |
-| 2026-06-15 | aminvest | solo | [美股升勢比之前更全面。](https://www.patreon.com/aminvest/posts/mei-gu-sheng-shi-161170184) |
-| 2026-06-15 | aminvest | solo | [美股市況短評 (20260615)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161146651) |
-| 2026-06-13 | aminvest | solo | [「攻守轉換全攻略」工作坊登入連結](https://www.patreon.com/aminvest/posts/gong-shou-zhuan-160950208) |
+| 2026-06-25 | AM Invest | solo | [美股市況短評 (20260625)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-162048909) |
+| 2026-06-24 | AM Invest | solo | [美股市況短評 (20260624)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161958989) |
+| 2026-06-23 | AM Invest | solo | [美股市況短評 (20260623)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161861803) |
+| 2026-06-23 | AM Invest | solo | [倉位無大礙，但減倉保平安](https://www.patreon.com/aminvest/posts/cang-wei-wu-da-161877458) |
+| 2026-06-22 | AM Invest | solo | [美股市況短評 (20260622)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161763918) |
+| 2026-06-18 | AM Invest | solo | [美股市況短評 (20260618)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161407746) |
+| 2026-06-17 | AM Invest | solo | [美股市況短評 (20260617)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161328901) |
+| 2026-06-16 | AM Invest | solo | [「攻守轉換全攻略」重温連結](https://www.patreon.com/aminvest/posts/gong-shou-zhuan-161228143) |
+| 2026-06-15 | AM Invest | solo | [美股升勢比之前更全面。](https://www.patreon.com/aminvest/posts/mei-gu-sheng-shi-161170184) |
+| 2026-06-15 | AM Invest | solo | [美股市況短評 (20260615)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161146651) |
+| 2026-06-13 | AM Invest | solo | [「攻守轉換全攻略」工作坊登入連結](https://www.patreon.com/aminvest/posts/gong-shou-zhuan-160950208) |
 
 ## Opinions by topic, over time
 
@@ -122,7 +122,7 @@ Topics where this person's current stance conflicts with another person's:
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [AI & Semiconductors](../Themes/ai-semiconductors.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Val Zlatev](../People/val-zlatev.md), [Raoul Pal](../People/raoul-pal.md)
 - [Credit, Private Credit & BDCs](../Themes/credit-private-credit.md) — opposite: [CPM Group speaker](../People/cpm-group-speaker.md)
-- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [梁天卓](../People/person-005.md), [Jeff](../People/jeff.md), [Steve](../People/steve.md), [Patrick Boyle](../People/patrick-boyle.md), [Erik Townsend](../People/erik-townsend.md), [Shawn Hackett](../People/shawn-hackett.md)
+- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [梁天卓](../People/person-010.md), [Jeff](../People/jeff.md), [Steve](../People/steve.md), [Patrick Boyle](../People/patrick-boyle.md), [Erik Townsend](../People/erik-townsend.md), [Shawn Hackett](../People/shawn-hackett.md)
 - [MU](../Tickers/MU.md) — opposite: [David Woo](../People/david-woo.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._

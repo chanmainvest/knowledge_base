@@ -220,12 +220,12 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 Topics where this person's current stance conflicts with another person's:
 
 - [Electrification, Power & Industrials](../Themes/electrification-industrials.md) — opposite: [Jeff Snider](../People/jeff-snider.md), [Ed Zitron](../People/ed-zitron.md), [Jeffrey Christian](../People/jeffrey-christian.md), [Jim Chanos](../People/jim-chanos.md), [Val Zlatev](../People/val-zlatev.md)
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [高天佑](../People/person-008.md), [何啟聰](../People/person-001.md), [Jeff Snider](../People/jeff-snider.md), [JD](../People/jd.md), [Ed Zitron](../People/ed-zitron.md), [Steve](../People/steve.md)
+- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [高天佑](../People/person-015.md), [何啟聰](../People/person-002.md), [JD](../People/jd.md), [Ed Zitron](../People/ed-zitron.md), [Jeffrey Christian](../People/jeffrey-christian.md), [Jim Chanos](../People/jim-chanos.md)
 - [AI & Semiconductors](../Themes/ai-semiconductors.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Val Zlatev](../People/val-zlatev.md), [Raoul Pal](../People/raoul-pal.md)
-- [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [aminvest](../People/aminvest.md), [何啟聰](../People/person-001.md), [Jeff Snider](../People/jeff-snider.md), [JD](../People/jd.md), [Ed Zitron](../People/ed-zitron.md), [Steve](../People/steve.md)
+- [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [aminvest](../People/aminvest.md), [何啟聰](../People/person-002.md), [JD](../People/jd.md), [Ed Zitron](../People/ed-zitron.md), [Steve](../People/steve.md), [Jeffrey Christian](../People/jeffrey-christian.md)
 - [Uranium & Nuclear](../Themes/uranium-nuclear.md) — opposite: [Erik Townsend](../People/erik-townsend.md), [Brent Johnson](../People/brent-johnson.md)
 - [Geopolitics & Defense](../Themes/geopolitics-defense.md) — opposite: [David Woo](../People/david-woo.md)
-- [Robotics, Automation & Autonomy](../Themes/robotics-autonomy.md) — opposite: [高天佑](../People/person-008.md)
+- [Robotics, Automation & Autonomy](../Themes/robotics-autonomy.md) — opposite: [高天佑](../People/person-015.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

@@ -1,52 +1,40 @@
-# 施永青
+# 劉強東
 
-**interview guest (1x)**
+**Role:** Founder and Chairman of JD.com; stepped down as CEO in April 2022 while retaining the chairmanship and a controlling influence over the company
 
-> Hong Kong entrepreneur and property-market commentator, born 1949 in Shanghai. Best known as co-founder (1978) of Centaline Property Agency (中原地產), which he built into one of the largest real-estate agencies in Hong Kong and mainland China. In 2005 he founded the free Chinese-language newspaper am730, where his widely read columns cover property, economics, and current affairs. A frequent media guest known for his free-market and Daoist-influenced views, he is one of Hong Kong's most quoted voices on the housing market.
+> Liu Qiangdong grew up in a poor rural family in Suqian, Jiangsu. After graduating from Renmin University in 1996 and a failed restaurant venture, he started a small stall selling electronics in Beijing's Zhongguancun technology district in 1998, which grew into Jingdong. He pivoted the business online after the 2003 SARS epidemic, building it into JD.com, which pioneered self-built warehousing and delivery in Chinese e-commerce to guarantee authentic goods and fast service. JD.com listed on the NASDAQ in May 2014 in one of the largest Chinese tech IPOs at the time, and completed a secondary listing in Hong Kong in 2020. The JD ecosystem expanded into logistics (JD Logistics), healthcare (JD Health), and technology/finance (JD Technology, formerly JD Digits). Liu is married to Zhang Zetian. His reputation was affected by a 2018 sexual-assault allegation in Minnesota, which did not result in charges and was settled in a civil suit. He is known for a paternalistic management style toward JD's couriers and for philanthropy in his hometown, and he remains one of China's wealthiest individuals.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
-Shih Wing-ching (施永青) occupies a rare position in Hong Kong's property debate: he is both its most credentialed insider and one of its most quotable outside voices. Born in Shanghai in 1949, he co-founded Centaline Property Agency (中原地產) in 1978 and built it into one of the largest real-estate agencies in Hong Kong and mainland China, then founded the free Chinese-language newspaper am730 in 2005 as a platform for his widely read columns on property, economics and current affairs. His free-market, Daoist-inflected commentary has made "施老闆" — Boss Shih — one of the city's most quoted voices on housing, precisely because he speaks with an operator's knowledge and a philosopher's shrug.
+Liu Qiangdong (劉強東) is the founder and chairman of JD.com, and his biography is the archetypal late-1990s Beijing bootstrapping story: a poor rural childhood in Suqian, Jiangsu, a Renmin University degree in 1996, a failed restaurant venture, then an electronics stall in the Zhongguancun tech district in 1998 that grew into Jingdong. The decisive move came after the 2003 SARS epidemic, when he pushed the business online and committed to what became JD's defining moat — self-built warehousing and delivery, built to guarantee authentic goods and fast service. That bet carried JD.com to a NASDAQ listing in May 2014, one of the largest Chinese tech IPOs of its era, a Hong Kong secondary listing in 2020, and an ecosystem stretching into JD Logistics, JD Health and JD Technology (formerly JD Digits). He stepped down as CEO in April 2022 but retained the chairmanship and, with it, controlling influence over the company.
 
-The corpus on him here is thin — a single entry, captured in Kao Tin-yau's (高天佑) Hong Kong Economic Journal column of June 17, 2026, titled 北水炒風勁 嚇親施永青 — roughly, "mainland money's speculative fervor rattles Shih Wing-ching" ([北水炒風勁 嚇親施永青](https://www1.hkej.com/dailynews/finnews/article/4432968/%E5%8C%97%E6%B0%B4%E7%82%92%E9%A2%A8%E5%8B%81+%E5%9A%87%E8%A6%AA%E6%96%BD%E6%B0%B8%E9%9D%92)). But that one snapshot catches him doing what he does best: holding a bullish call and a bearish warning in the same breath. On the bullish side, the column records him standing alone against consensus, projecting gains of as much as 15% — "施老闆已獨排眾議，揚言升幅可達15%" ([北水炒風勁 嚇親施永青](https://www1.hkej.com/dailynews/finnews/article/4432968/%E5%8C%97%E6%B0%B4%E7%82%92%E9%A2%A8%E5%8B%81+%E5%9A%87%E8%A6%AA%E6%96%BD%E6%B0%B8%E9%9D%92)). Yet the same frenzy apparently unnerved him, because his deeper objection is to froth rather than to appreciation: speculators, he argues, "會把樓價推至一個用家負擔不起的水平，繼而妨礙民生" — push home prices beyond what end-users can afford, and in doing so damage livelihoods ([北水炒風勁 嚇親施永青](https://www1.hkej.com/dailynews/finnews/article/4432968/%E5%8C%97%E6%B0%B4%E7%82%92%E9%A2%A8%E5%8B%81+%E5%9A%87%E8%A6%AA%E6%96%BD%E6%B0%B8%E9%9D%92)). His ideal sits between the two: prices rising "穩定地緩緩地隨經濟增長一起同步上升" — steadily, slowly, in step with economic growth ([北水炒風勁 嚇親施永青](https://www1.hkej.com/dailynews/finnews/article/4432968/%E5%8C%97%E6%B0%B4%E7%82%92%E9%A2%A8%E5%8B%81+%E5%9A%87%E8%A6%AA%E6%96%BD%E6%B0%B8%E9%9D%92)).
+Off the P&L, Liu is known for a distinctly paternalistic management style toward JD's couriers — the workforce his logistics bet created — and for philanthropy in his hometown, and he remains one of China's wealthiest individuals. His reputation took a hit from a 2018 sexual-assault allegation in Minnesota; no charges were filed and the civil suit was settled. He is married to Zhang Zetian.
 
-The data structure itself deserves a caveat. The taggers score him two bullish, two bearish and two neutral stances — but all six come from this single article, split across his China & Hong Kong equities and China property timelines, both of which are marked "now bearish" ([北水炒風勁 嚇親施永青](https://www1.hkej.com/dailynews/finnews/article/4432968/%E5%8C%97%E6%B0%B4%E7%82%92%E9%A2%A8%E5%8B%81+%E5%9A%87%E8%A6%AA%E6%96%BD%E6%B0%B8%E9%9D%92)). With only one dated item, there is no way to chart how his views have moved over time; the "movement" here is intra-column, not inter-temporal. Read carefully, though, the posture is coherent rather than contradictory: Shih is bullish on legitimate upside, hostile to hot-money distortion, and anchored to a fundamentals-aligned, steady-rise view of what property markets should do — a stance of tolerance for gains and intolerance for the gamblers who spoil them.
+On substance, the record here is thin but pointed. The only dated position the corpus files — as of 23 June 2026, tagged bearish on China & Hong Kong equities — turns on a blunt labor-market claim from Liu himself: "In the future it will all be robots doing the deliveries; there simply won't be any need for couriers" (「將來都是機械人送貨了，根本不需要快遞員。」) ([京東不要快遞員 三項鐵人再培訓](https://www1.hkej.com/dailynews/finnews/article/4436952/%E4%BA%AC%E6%9D%B1%E4%B8%8D%E8%A6%81%E5%BF%AB%E9%81%9E%E5%93%A1+%E4%B8%89%E9%A0%85%E9%90%B5%E4%BA%BA%E5%86%8D%E5%9F%B9%E8%A8%93)). The irony is hard to miss: the man who built his fortune — and his public image — on directly employing and looking after delivery workers is now the one forecasting their obsolescence. That tension, between JD's human-logistics legacy and an automation endgame, is the shape of the debate worth watching.
+
+Be clear about what the timeline shows and what it doesn't: with a single dated entry, there is no documented drift in Liu's views here — no earlier bullish phase to measure the June 2026 bearishness against. His "evolution" in this corpus is biographical rather than a track record of calls: from SARS-era online pivot, to the logistics empire, to a chairman musing that the couriers who built it won't be needed at all.
 
 ## At a glance
 
-- **Appearances**: 1 (2026-06-17 → 2026-06-17)
-- **Shows**: 高天佑
-- **Extracted calls**: 0 predictions, 3 market views
-- **Topics with opinions**: 2
-- **Stance split**: 2 bullish / 2 bearish / 2 neutral
-
-## Appearances
-
-| Date | Show | Role | Item |
-|---|---|---|---|
-| 2026-06-17 | 高天佑 | guest | [北水炒風勁 嚇親施永青](https://www1.hkej.com/dailynews/finnews/article/4432968/%E5%8C%97%E6%B0%B4%E7%82%92%E9%A2%A8%E5%8B%81+%E5%9A%87%E8%A6%AA%E6%96%BD%E6%B0%B8%E9%9D%92) |
+- **Appearances**: 0
+- **Shows**: 
+- **Extracted calls**: 0 predictions, 1 market views
+- **Topics with opinions**: 1
+- **Stance split**: 0 bullish / 1 bearish / 0 neutral
 
 ## Opinions by topic, over time
 
 _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ marks a detected change of mind._
 
-### [China & Hong Kong Equities](../Themes/china-hk-equities.md) — now **bearish** (3 call(s))
+### [China & Hong Kong Equities](../Themes/china-hk-equities.md) — now **bearish** (1 call(s))
 
-- `2026-06-17` ↑ bullish — 施老闆已獨排眾議，揚言升幅可達15%
-- `2026-06-17` ↓ bearish — 因為炒家會把樓價推至一個用家負擔不起的水平，繼而妨礙民生。
-- `2026-06-17` → neutral — 穩定地緩緩地隨經濟增長一起同步上升
-
-### [China Property & Real Estate](../Themes/china-property.md) — now **bearish** (3 call(s))
-
-- `2026-06-17` ↑ bullish — 施老闆已獨排眾議，揚言升幅可達15%
-- `2026-06-17` ↓ bearish — 因為炒家會把樓價推至一個用家負擔不起的水平，繼而妨礙民生。
-- `2026-06-17` → neutral — 穩定地緩緩地隨經濟增長一起同步上升
+- `2026-06-23` ↓ bearish — 「將來都是機械人送貨了，根本不需要快遞員。」
 
 ## Where others disagree
 
 Topics where this person's current stance conflicts with another person's:
 
-- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [梁天卓](../People/person-005.md), [Jeff](../People/jeff.md), [Steve](../People/steve.md), [Patrick Boyle](../People/patrick-boyle.md), [Erik Townsend](../People/erik-townsend.md), [Shawn Hackett](../People/shawn-hackett.md)
+- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [梁天卓](../People/person-010.md), [Jeff](../People/jeff.md), [Steve](../People/steve.md), [Patrick Boyle](../People/patrick-boyle.md), [Erik Townsend](../People/erik-townsend.md), [Shawn Hackett](../People/shawn-hackett.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

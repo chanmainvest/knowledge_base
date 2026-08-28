@@ -52,8 +52,8 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 Topics where this person's current stance conflicts with another person's:
 
 - [AI & Semiconductors](../Themes/ai-semiconductors.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Val Zlatev](../People/val-zlatev.md), [Raoul Pal](../People/raoul-pal.md)
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md), [David Woo](../People/david-woo.md)
-- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [高天佑](../People/person-008.md), [aminvest](../People/aminvest.md), [何啟聰](../People/person-001.md), [Jeff Snider](../People/jeff-snider.md), [Joseph](../People/joseph.md), [陳坤耀](../People/person-007.md)
+- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [高天佑](../People/person-015.md), [aminvest](../People/aminvest.md), [何啟聰](../People/person-002.md), [Jeff Snider](../People/jeff-snider.md), [Joseph](../People/joseph.md), [陳坤耀](../People/person-014.md)
 - [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
