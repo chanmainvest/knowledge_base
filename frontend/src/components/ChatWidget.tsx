@@ -74,11 +74,11 @@ export function ChatWidget({ itemId, title }: { itemId: number; title: string })
     <div ref={panelRef} className="fixed bottom-5 right-5 z-50 flex flex-col
                     border border-border rounded-lg bg-panel shadow-xl overflow-hidden
                     w-[min(24rem,calc(100vw-2.5rem))] h-[min(32rem,calc(100vh-6rem))]">
-      <div className="absolute -top-0.5 -left-0.5 w-5 h-5 cursor-nwse-resize z-10
+      <div className="absolute top-0 left-0 w-5 h-5 cursor-nwse-resize z-10 p-1
                       text-mute hover:text-accent" onPointerDown={startResize}
            title="Drag to resize">
-        <svg viewBox="0 0 16 16" className="w-full h-full rotate-90" fill="currentColor">
-          <circle cx="3" cy="3" r="1.4"/><circle cx="8" cy="3" r="1.4"/><circle cx="3" cy="8" r="1.4"/>
+        <svg viewBox="0 0 16 16" className="w-full h-full" fill="currentColor">
+          <circle cx="3" cy="3" r="1.6"/><circle cx="8.5" cy="3" r="1.6"/><circle cx="3" cy="8.5" r="1.6"/>
         </svg>
       </div>
       <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-border">
