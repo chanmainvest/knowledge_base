@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
+import { useSearchParams } from "react-router-dom";import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { api, InsightsIndex, InsightsPage as InsightsPageT } from "../api";
 import { Spinner, ErrorBanner, useTitle } from "../components/ui";
@@ -13,6 +12,8 @@ export function InsightsPage() {
   const [page, setPage] = useState<InsightsPageT | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [params, setParams] = useSearchParams();
+  // Explicitly toggled sections; the active page's section always stays open.
+  const [toggled, setToggled] = useState<Set<string>>(new Set());
 
   const section = params.get("section");
   const pageName = params.get("page");
@@ -31,6 +32,15 @@ export function InsightsPage() {
     req.then(setPage).catch(e => setErr(String(e)));
   }, [section, pageName]);
 
+  const toggle = (name: string) =>
+    setToggled(prev => {
+      const next = new Set(prev);
+      if (next.has(name)) next.delete(name); else next.add(name);
+      return next;
+    });
+  const isOpen = (name: string) =>
+    toggled.has(name) || (section === name && !!pageName);
+
   return (
     <div className="flex flex-col lg:flex-row gap-6">
       <aside className="lg:w-56 shrink-0">
@@ -41,25 +51,30 @@ export function InsightsPage() {
               (!section ? "bg-accent/15 text-accent" : "text-mute hover:text-ink hover:bg-panel")}>
             Overview
           </button>
-          {index?.sections.map(s => (
-            <div key={s.name} className="mt-3">
-              <div className="px-2 text-xs font-semibold uppercase tracking-wide text-mute">
-                {s.name}
+          {index?.sections.map(s => {
+            const open = isOpen(s.name);
+            return (
+              <div key={s.name} className="mt-3">
+                <button type="button" onClick={() => toggle(s.name)}
+                  className="flex items-center justify-between w-full px-2 text-xs font-semibold uppercase tracking-wide text-mute hover:text-ink">
+                  <span>{s.name}</span>
+                  <span className={"transition-transform " + (open ? "rotate-90" : "")}>›</span>
+                </button>
+                {open && s.pages.map(p => {
+                  const active = section === s.name && pageName === p;
+                  return (
+                    <button key={p} type="button"
+                      onClick={() => setParams({ section: s.name, page: p })}
+                      title={p}
+                      className={"block w-full text-left px-2 py-1 rounded text-sm truncate " +
+                        (active ? "bg-accent/15 text-accent" : "text-mute hover:text-ink hover:bg-panel")}>
+                      {p}
+                    </button>
+                  );
+                })}
               </div>
-              {s.pages.map(p => {
-                const active = section === s.name && pageName === p;
-                return (
-                  <button key={p} type="button"
-                    onClick={() => setParams({ section: s.name, page: p })}
-                    title={p}
-                    className={"block w-full text-left px-2 py-1 rounded text-sm truncate " +
-                      (active ? "bg-accent/15 text-accent" : "text-mute hover:text-ink hover:bg-panel")}>
-                    {p}
-                  </button>
-                );
-              })}
-            </div>
-          ))}
+            );
+          })}
         </div>
       </aside>
       <div className="flex-1 min-w-0">
