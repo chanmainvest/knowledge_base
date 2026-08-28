@@ -99,7 +99,7 @@ export const api = {
       `/api/insights/page?section=${encodeURIComponent(section)}&page=${encodeURIComponent(page)}`),
   insightsHome: () => get<InsightsPage>("/api/insights/home"),
   chat: (itemId: number, messages: { role: string; content: string }[]) =>
-    post<{ reply: string }>("/api/chat", { item_id: itemId, messages }),
+    post<{ reply: string; model: string }>("/api/chat", { item_id: itemId, messages }),
 };
 
 export interface Source { id: number; code: string; name: string; kind: string; n_items: number; }

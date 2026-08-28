@@ -5,12 +5,15 @@ Read this when touching `src/kb/llm.py`, `src/kb/extract.py`,
 `extraction_run`/`prediction` tables.
 
 - LLM calls go through `kb.llm.chat_json(system, user, schema, provider,
-  model)`, which supports four providers: `openai` (or any OpenAI-compatible
+  model)`, which supports five providers: `openai` (or any OpenAI-compatible
   endpoint via `LLM_BASE_URL`, e.g. Azure OpenAI, GitHub Models, Ollama),
   `github` (shells out to the local `copilot` CLI in non-interactive mode —
   no separate API key, uses existing `copilot /login` auth), `anthropic`
-  (Anthropic Messages API via forced tool-call JSON), and `zai` (Z.ai/Zhipu
-  GLM, OpenAI-wire-compatible). `LLM_PROVIDER` in `.env` picks the default
+  (Anthropic Messages API via forced tool-call JSON), `zai` (Z.ai/Zhipu
+  GLM, OpenAI-wire-compatible), and `openrouter` (OpenAI-compatible;
+  configured as the chat endpoint's backup — `/api/chat` always tries the
+  primary provider first and only calls `openrouter` when that raises and
+  `OPENROUTER_API_KEY` is set; there is no free GLM tier on OpenRouter). `LLM_PROVIDER` in `.env` picks the default
   (zai since 2026-08-14); the zai default model is `ZAI_MODEL` in `.env`
   (config default `glm-5.3-flash` since 2026-08-27 — faster/cheaper than
   `glm-5.3`, which is still available as an explicit `--model` override);

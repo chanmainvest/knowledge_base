@@ -97,6 +97,13 @@ class Settings(BaseSettings):
     zai_model: str = "glm-5.3-flash"
     zai_embedding_model: str = "embedding-3"
 
+    # ---- openrouter (backup chat LLM when the zai quota is exhausted) ----
+    # OpenRouter speaks the OpenAI wire format too. Note: there is no free
+    # GLM tier on OpenRouter — glm-5.3-flash is billed per token (cheap).
+    openrouter_api_key: str = ""
+    openrouter_base_url: str = "https://openrouter.ai/api/v1"
+    openrouter_model: str = "z-ai/glm-5.3-flash"
+
     # ---- LLM retry / rate-limit backoff ----
     # Providers (esp. OpenRouter free tier) return HTTP 429 under sustained load.
     # chat_json()/embed() retry with a quiet period: honour the server's

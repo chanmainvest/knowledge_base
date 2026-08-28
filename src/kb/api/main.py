@@ -816,8 +816,19 @@ def chat(req: ChatRequest) -> dict[str, Any]:
     else:
         convo = history[-1][1]
     from .. import llm
-    reply = llm.chat_text(system, convo)
-    return {"reply": reply}
+    try:
+        reply = llm.chat_text(system, convo)
+        used = f"{settings().llm_provider}/{llm.default_model(settings().llm_provider)}"
+    except Exception:
+        # Primary (zai) failed — quota exhausted, 429s, outage — fall back to
+        # OpenRouter when configured. Always prefer the primary, so this only
+        # ever runs after the zai attempt actually raised.
+        s = settings()
+        if not s.openrouter_api_key:
+            raise
+        reply = llm.chat_text(system, convo, provider="openrouter")
+        used = f"openrouter/{s.openrouter_model} (backup)"
+    return {"reply": reply, "model": used}
 
 
 # --- Static frontend (built SPA) -------------------------------------------

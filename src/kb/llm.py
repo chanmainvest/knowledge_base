@@ -45,7 +45,7 @@ try:
 except ImportError:  # pragma: no cover — openai is a hard dep
     _OpenAIRateLimitError = None
 
-PROVIDERS: tuple[str, ...] = ("openai", "github", "anthropic", "zai")
+PROVIDERS: tuple[str, ...] = ("openai", "github", "anthropic", "zai", "openrouter")
 EMBEDDING_PROVIDERS: tuple[str, ...] = ("openai", "zai")
 
 
@@ -110,6 +110,7 @@ def default_model(provider: str) -> str:
             "github": s.github_model,
             "anthropic": s.anthropic_model,
             "zai": s.zai_model,
+            "openrouter": s.openrouter_model,
         }[provider]
     except KeyError:
         raise ValueError(f"unknown LLM provider {provider!r}; choose one of {PROVIDERS}") from None
@@ -126,6 +127,8 @@ def has_credentials(provider: str) -> bool:
         return bool(s.anthropic_api_key)
     if provider == "github":
         return True  # relies on local `copilot /login` state, not an env var
+    if provider == "openrouter":
+        return bool(s.openrouter_api_key)
     return False
 
 
@@ -371,6 +374,9 @@ def chat_text(system: str, user: str,
         return _chat_text_openai_compatible(system, user, model, s.llm_base_url, s.llm_api_key)
     if provider == "zai":
         return _chat_text_openai_compatible(system, user, model, s.zai_base_url, s.zai_api_key)
+    if provider == "openrouter":
+        return _chat_text_openai_compatible(
+            system, user, model, s.openrouter_base_url, s.openrouter_api_key)
     if provider == "anthropic":
         import anthropic  # noqa: WPS433 — lazy like the rest of the module
 
