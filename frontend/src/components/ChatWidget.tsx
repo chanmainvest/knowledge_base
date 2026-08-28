@@ -47,11 +47,41 @@ export function ChatWidget({ itemId, title }: { itemId: number; title: string })
     );
   }
 
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  // Drag-to-resize from the top-left grip: the panel is anchored bottom-right
+  // (fixed bottom/right), so growing means moving the top-left corner up/left.
+  function startResize(e: React.PointerEvent) {
+    const el = panelRef.current;
+    if (!el) return;
+    e.preventDefault();
+    const startX = e.clientX, startY = e.clientY;
+    const startW = el.offsetWidth, startH = el.offsetHeight;
+    const move = (ev: PointerEvent) => {
+      const w = Math.min(Math.max(startW - (ev.clientX - startX), 288), window.innerWidth - 40);
+      const h = Math.min(Math.max(startH - (ev.clientY - startY), 288), window.innerHeight - 40);
+      el.style.width = w + "px";
+      el.style.height = h + "px";
+    };
+    const up = () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", up);
+    };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", up);
+  }
+
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col
-                    border border-border rounded-lg bg-panel shadow-xl
-                    resize overflow-hidden
-                    w-[min(24rem,calc(100vw-2.5rem))] h-[min(32rem,calc(100vh-6rem))] min-w-72 min-h-72">
+    <div ref={panelRef} className="fixed bottom-5 right-5 z-50 flex flex-col
+                    border border-border rounded-lg bg-panel shadow-xl overflow-hidden
+                    w-[min(24rem,calc(100vw-2.5rem))] h-[min(32rem,calc(100vh-6rem))]">
+      <div className="absolute -top-0.5 -left-0.5 w-5 h-5 cursor-nwse-resize z-10
+                      text-mute hover:text-accent" onPointerDown={startResize}
+           title="Drag to resize">
+        <svg viewBox="0 0 16 16" className="w-full h-full rotate-90" fill="currentColor">
+          <circle cx="3" cy="3" r="1.4"/><circle cx="8" cy="3" r="1.4"/><circle cx="3" cy="8" r="1.4"/>
+        </svg>
+      </div>
       <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-border">
         <div className="min-w-0">
           <div className="text-sm font-semibold">Chat with this article</div>
