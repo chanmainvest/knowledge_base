@@ -94,7 +94,7 @@ class Settings(BaseSettings):
     # ---- zai (Z.ai / Zhipu GLM, OpenAI-compatible endpoint) ----
     zai_api_key: str = ""
     zai_base_url: str = "https://api.z.ai/api/paas/v4"
-    zai_model: str = "glm-5.3"
+    zai_model: str = "glm-5.3-flash"
     zai_embedding_model: str = "embedding-3"
 
     # ---- LLM retry / rate-limit backoff ----
