@@ -13,6 +13,7 @@ export function ChatWidget({ itemId, title }: { itemId: number; title: string })
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   // Fresh conversation when the item changes.
   useEffect(() => { setMessages([]); setErr(null); }, [itemId]);
@@ -46,8 +47,6 @@ export function ChatWidget({ itemId, title }: { itemId: number; title: string })
       </button>
     );
   }
-
-  const panelRef = useRef<HTMLDivElement>(null);
 
   // Drag-to-resize from the top-left grip: the panel is anchored bottom-right
   // (fixed bottom/right), so growing means moving the top-left corner up/left.
