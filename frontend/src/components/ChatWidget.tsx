@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { api } from "../api";
 
 // Floating "chat with this article" bubble, bottom-right, for the item page.
@@ -46,9 +48,10 @@ export function ChatWidget({ itemId, title }: { itemId: number; title: string })
   }
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 w-[min(24rem,calc(100vw-2.5rem))]
-                    border border-border rounded-lg bg-panel shadow-xl flex flex-col
-                    h-[min(32rem,calc(100vh-6rem))]">
+    <div className="fixed bottom-5 right-5 z-50 flex flex-col
+                    border border-border rounded-lg bg-panel shadow-xl
+                    resize overflow-hidden
+                    w-[min(24rem,calc(100vw-2.5rem))] h-[min(32rem,calc(100vh-6rem))] min-w-72 min-h-72">
       <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-border">
         <div className="min-w-0">
           <div className="text-sm font-semibold">Chat with this article</div>
@@ -70,9 +73,13 @@ export function ChatWidget({ itemId, title }: { itemId: number; title: string })
         {messages.map((m, i) => (
           <div key={i}
             className={m.role === "user"
-              ? "ml-8 bg-accent/15 border border-accent/30 rounded px-2.5 py-1.5"
+              ? "ml-8 bg-accent/15 border border-accent/30 rounded px-2.5 py-1.5 whitespace-pre-wrap"
               : "mr-4 bg-bg border border-border rounded px-2.5 py-1.5"}>
-            {m.content}
+            {m.role === "user"
+              ? m.content
+              : <div className="prose-kb text-sm max-w-none [&>*:first-child]:mt-0 [&>*:last-child]:mb-0">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{m.content}</ReactMarkdown>
+                </div>}
           </div>
         ))}
         {busy && <div className="text-mute text-xs animate-pulse">thinking…</div>}
@@ -84,9 +91,11 @@ export function ChatWidget({ itemId, title }: { itemId: number; title: string })
           placeholder="Ask about this article…"
           className="flex-1 min-w-0 bg-bg border border-border rounded px-2.5 py-1.5
                      text-sm outline-none focus:border-accent" />
-        <button disabled={busy || !input.trim()}
-          className="bg-accent text-bg rounded px-3 text-sm font-medium disabled:opacity-40">
-          Send
+        <button disabled={busy || !input.trim()} title="Send"
+          className="bg-accent text-bg rounded px-3 py-1.5 disabled:opacity-40 shrink-0">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z" />
+          </svg>
         </button>
       </form>
     </div>

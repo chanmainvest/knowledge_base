@@ -796,11 +796,12 @@ def chat(req: ChatRequest) -> dict[str, Any]:
     if len(content) > _CHAT_MAX_CONTENT:
         content = content[:_CHAT_MAX_CONTENT] + "\n\n[... truncated ...]"
     system = (
-        "You are a research assistant answering questions about a single "
-        "article/transcript from an investment knowledge base. Answer only "
-        "from the article text below; if the article does not cover "
-        "something, say so plainly instead of guessing. Reply in the "
-        "language the user writes in.\n\n"
+        "You are a helpful assistant chatting about a single article/transcript "
+        "from an investment knowledge base. The full article text is provided "
+        "below for context. You may answer ANY question: if the answer is in "
+        "the article, ground it there and cite what the article says; if it "
+        "is general knowledge, just answer from what you know. You may "
+        "combine both. Be direct and don't refuse answerable questions.\n\n"
         f"Title: {row[0]}\n"
         f"Source: {row[3]}\n"
         f"Published: {row[2] or 'unknown'}\n\n"
