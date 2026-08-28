@@ -95,8 +95,8 @@ export function ChatWidget({ itemId, title }: { itemId: number; title: string })
       <div ref={listRef} className="flex-1 overflow-y-auto p-3 space-y-2 text-sm">
         {messages.length === 0 && (
           <div className="text-mute text-xs">
-            Ask anything about this article — the assistant answers only from
-            its text (glm-5.3-flash).
+            Ask anything — grounded in this article where possible, general
+            knowledge otherwise (glm-5.3-flash).
           </div>
         )}
         {messages.map((m, i) => (
