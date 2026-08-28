@@ -81,6 +81,11 @@ export const api = {
       `/api/market/prices?ticker=${encodeURIComponent(ticker)}&${p}`);
   },
   marketTickers: () => get<TickerStat[]>("/api/market/tickers"),
+  insightsIndex: () => get<InsightsIndex>("/api/insights"),
+  insightsPage: (section: string, page: string) =>
+    get<InsightsPage>(
+      `/api/insights/page?section=${encodeURIComponent(section)}&page=${encodeURIComponent(page)}`),
+  insightsHome: () => get<InsightsPage>("/api/insights/home"),
 };
 
 export interface Source { id: number; code: string; name: string; kind: string; n_items: number; }
@@ -179,3 +184,10 @@ export interface DashboardTotals {
   n_predictions: number | null; n_scored: number | null; n_speakers: number | null;
 }
 export interface Dashboard { sources: DashboardSource[]; totals: DashboardTotals; }
+
+// Insights: llm-wiki pages served straight from disk by the API.
+export interface InsightsSection { name: string; pages: string[]; }
+export interface InsightsIndex { sections: InsightsSection[]; has_home: boolean; }
+export interface InsightsPage {
+  section: string | null; page: string; title: string; markdown: string;
+}

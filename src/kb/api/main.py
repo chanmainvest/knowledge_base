@@ -1,6 +1,7 @@
 """FastAPI app: search, items, predictions, leaderboard, market data."""
 from __future__ import annotations
 
+import re
 from typing import Any
 
 from fastapi import FastAPI, HTTPException, Query
@@ -653,6 +654,67 @@ def raw_md(item_id: int) -> FileResponse:
     if not row or not row[0]:
         raise HTTPException(404)
     return FileResponse(row[0], media_type="text/markdown")
+
+
+# --- Insights (llm-wiki) ------------------------------------------------------
+#
+# The llm-wiki is generated markdown files in the repo (llm-wiki/), never
+# stored in the DB (only its read-tracking is, in wiki_item_read). These
+# endpoints list and serve those files straight from disk.
+
+_WIKI_ROOT = ROOT / "llm-wiki"
+# Fixed section order for the sidebar; page slugs are restricted to safe
+# filename characters so a crafted path can't traverse outside llm-wiki/.
+_WIKI_SECTIONS = ["Analysts", "People", "Syntheses", "Studies", "Themes", "Tickers", "Weekly"]
+_SAFE_PAGE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
+
+
+def _wiki_title(md_text: str, fallback: str) -> str:
+    for line in md_text.splitlines():
+        if line.startswith("# "):
+            return line[2:].strip()
+    return fallback
+
+
+def _wiki_files(section: str) -> list[str]:
+    d = _WIKI_ROOT / section
+    if not d.is_dir():
+        return []
+    return sorted(
+        p.stem for p in d.glob("*.md")
+        if p.name != "_Index.md" and _SAFE_PAGE.match(p.stem)
+    )
+
+
+@app.get("/api/insights")
+def insights_index() -> dict[str, Any]:
+    sections = [
+        {"name": s, "pages": _wiki_files(s)}
+        for s in _WIKI_SECTIONS
+    ]
+    return {"sections": sections, "has_home": (_WIKI_ROOT / "Home.md").is_file()}
+
+
+@app.get("/api/insights/page")
+def insights_page(section: str, page: str) -> dict[str, Any]:
+    if section not in _WIKI_SECTIONS or not _SAFE_PAGE.match(page):
+        raise HTTPException(404, "no such insights page")
+    path = _WIKI_ROOT / section / f"{page}.md"
+    if not path.is_file():
+        raise HTTPException(404, "no such insights page")
+    md_text = path.read_text(encoding="utf-8")
+    return {"section": section, "page": page,
+            "title": _wiki_title(md_text, page), "markdown": md_text}
+
+
+@app.get("/api/insights/home")
+def insights_home() -> dict[str, Any]:
+    path = _WIKI_ROOT / "Home.md"
+    if not path.is_file():
+        raise HTTPException(404, "no home page")
+    md_text = path.read_text(encoding="utf-8")
+    return {"section": None, "page": "Home",
+            "title": _wiki_title(md_text, "Insights"), "markdown": md_text}
 
 
 # --- Static frontend (built SPA) -------------------------------------------

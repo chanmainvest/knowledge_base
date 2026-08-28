@@ -12,6 +12,7 @@ const LeaderboardPage = lazy(() => import("./pages/Leaderboard").then(m => ({ de
 const ChannelsPage = lazy(() => import("./pages/Channels").then(m => ({ default: m.ChannelsPage })));
 const PredictionsPage = lazy(() => import("./pages/Predictions").then(m => ({ default: m.PredictionsPage })));
 const DashboardPage = lazy(() => import("./pages/Dashboard").then(m => ({ default: m.DashboardPage })));
+const InsightsPage = lazy(() => import("./pages/Insights").then(m => ({ default: m.InsightsPage })));
 
 function NotFound() {
   return (
@@ -44,6 +45,7 @@ function Shell() {
             <NavLink to="/channels" className={linkCls}>Channels</NavLink>
             <NavLink to="/predictions" className={linkCls}>Predictions</NavLink>
             <NavLink to="/leaderboard" className={linkCls}>Leaderboard</NavLink>
+            <NavLink to="/insights" className={linkCls}>Insights</NavLink>
           </nav>
         </div>
       </header>
@@ -63,6 +65,7 @@ function Shell() {
               <Route path="/channels" element={<ChannelsPage />} />
               <Route path="/predictions" element={<PredictionsPage />} />
               <Route path="/leaderboard" element={<LeaderboardPage />} />
+              <Route path="/insights" element={<InsightsPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
