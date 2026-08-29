@@ -27,6 +27,10 @@ uv run kb master-insight list-authors
 uv run kb master-insight add-author tangwenliang
 uv run kb scrape run master-insight --limit 5
 
+uv run kb businessfocus list-authors
+uv run kb businessfocus add-author shing
+uv run kb scrape run businessfocus --limit 5
+
 uv run kb patreon check-session
 uv run kb patreon list-creators
 uv run kb patreon scrape <creator> --limit 3
@@ -45,14 +49,14 @@ List available scrapers, grouped by source category (`source.kind`):
 ```pwsh
 uv run kb scrape list
 uv run kb scrape list --kind blog       # blog source (macrovoices, madxcap)
-uv run kb scrape list --kind newspaper  # hkej, yahoohk, master-insight
+uv run kb scrape list --kind newspaper  # hkej, yahoohk, master-insight, businessfocus
 ```
 
 `kind` distinguishes one-off, homepage-discovery website scrapers with no
 per-author crawl/catalog state (`blog`: macrovoices, madxcap — both channels
 under a single `blog` source) from resumable multi-author crawlers that track
 discovery state in their own catalog tables (`newspaper`: hkej, yahoohk,
-master-insight). YouTube and Patreon/Substack keep their own
+master-insight, businessfocus). YouTube and Patreon/Substack keep their own
 `youtube`/`membership` kinds.
 
 List registered channels for a source:

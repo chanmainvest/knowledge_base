@@ -16,6 +16,7 @@ flowchart LR
         HKEJ[HKEJ Wealth Mgmt]
         YHK[Yahoo Finance HK]
         MI[Master Insight]
+        BF[BusinessFocus]
         PAT[Patreon creators]
         SUB[Substack publications]
     end
@@ -26,6 +27,7 @@ flowchart LR
         S3[hkej.py]
         S5[yahoohk.py]
         S6[master_insight.py]
+        S8[businessfocus.py]
         S4[patreon.py]
         S7[substack.py]
     end
@@ -71,6 +73,9 @@ data/
 
   master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
   raw/master-insight/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
+
+  businessfocus/<author>/<YYYY>/<YYYY-MM-DD>-<title>.md
+  raw/businessfocus/<author>/<YYYY>/<YYYY-MM-DD>-<title>.html
 
   blog/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.md           # MacroVoices, MadX, …
   raw/blog/<channel>/<YYYY>/<YYYY-MM-DD>-<title>.html     # [.slides.pdf …]
@@ -141,6 +146,7 @@ uv run kb hkej docker up        # then scrape; open http://localhost:7900 if Clo
 uv run kb hkej scrape-author 高天佑 --limit 1
 uv run kb scrape run yahoohk --limit 5
 uv run kb master-insight add-author tangwenliang
+uv run kb scrape run businessfocus --limit 5
 uv run kb scrape run master-insight --limit 5
 uv run kb patreon scrape <creator> --limit 3
 uv run kb substack prime-session          # log in once, interactively (headed browser)
@@ -168,12 +174,18 @@ cd frontend && npm install && npm run dev   # or the Vite dev server w/ proxy
 The `llm-wiki/` directory is a generated, Karpathy-style synthesized wiki
 built from the extracted data: one page per **person** (interview guests,
 hosts and solo authors, merged across every show they appear on, with their
-opinions per topic over time and stance-change detection), per **ticker**
+opinions per topic over time and stance-change detection), one **weekly
+digest** per Sunday–Saturday week (what dominated the discourse, where
+commentators disagreed, who changed their mind), per **ticker**
 (with a rates/bond-yield backdrop), per **channel**, per **theme**, plus
 **Syntheses** pages (same-person opinion shifts, cross-person
 disagreements, and a global timeline of calls). See `llm-wiki/README.md`.
+Items consumed by the wiki's LLM passes are tracked in the `wiki_item_read`
+table and `llm-wiki/read-state.json` (dual-written, so unchanged items are
+never re-read and the state survives losing the database).
 
-See `AGENTS.md` for design notes and conventions. Scraper details live in
+See `AGENTS.md` for design notes and conventions (per-subsystem detail is
+split into `spec/*.md`, loaded on demand). Scraper details live in
 `doc/scrape-util-scripts.md`. For exactly how extraction turns Markdown into
 scored predictions, how to judge which channels are worth following, and how
 to run/compare multiple LLM providers, see `doc/llm-extraction.md`.

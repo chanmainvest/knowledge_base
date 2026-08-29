@@ -101,7 +101,7 @@ resumed. One row per `(source_id, external_id)`, carrying `channel_ref`,
 flag (+ `downloaded_at`, `md_path`), and the full original discovery
 `descriptor` (JSONB) used to reconstruct a fetchable descriptor for resume.
 Used by the 5 filesystem-discovery sources (youtube, blog/macrovoices/madxcap,
-substack, yahoohk, master-insight) via the `_recording_discover` wrapper in
+substack, yahoohk, master-insight, businessfocus) via the `_recording_discover` wrapper in
 `scrapers/base.py` and `catalog.mark_downloaded` in `write_md`. hkej and
 patreon keep their richer native catalogs
 (`hkej_article_catalog`/`patreon_post_catalog`) with run/page fingerprinting

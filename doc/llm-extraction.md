@@ -23,7 +23,7 @@ It is in three parts:
 `item.content` — plain text produced by `kb ingest` from a scraped Markdown
 file (front matter stripped). One `item` row = one article, video transcript,
 or podcast episode, each linked to a `channel` (the author/creator) and a
-`source` (hkej, youtube, blog, yahoohk, master-insight, patreon, substack, ...).
+`source` (hkej, youtube, blog, yahoohk, master-insight, businessfocus, patreon, substack, ...).
 
 ### Chunking
 
