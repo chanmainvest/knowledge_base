@@ -186,9 +186,23 @@ def _pin_channel_dir(handle: str, dir_slug: str) -> None:
 
 
 def normalize_youtube_handle(handle: str) -> str:
-    """Return a stored handle/URL; add @ when the user omitted it (PowerShell-friendly)."""
+    """Canonical stored handle: @Name, extracted from URLs when given.
+
+    A full channel URL (https://www.youtube.com/@X[/videos]) is reduced to
+    ``@X`` so it can't fork the channel into a second ``channel`` row beside
+    an existing @-form handle. Non-@ URL shapes (/channel/UC…/, /c/Name/,
+    /user/Name/) are kept verbatim — there's no @handle to extract.
+    """
     handle = handle.strip()
-    if handle.startswith(("http://", "https://", "@")):
+    if handle.startswith(("http://", "https://")):
+        from urllib.parse import urlparse
+
+        path = urlparse(handle).path
+        parts = [p for p in path.split("/") if p]
+        if parts and parts[0].startswith("@"):
+            return parts[0]
+        return handle.rstrip("/")
+    if handle.startswith("@"):
         return handle
     return f"@{handle}"
 

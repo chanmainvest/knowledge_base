@@ -14,6 +14,27 @@ from .logging_setup import get_logger
 log = get_logger("ingest")
 
 
+def _stored_md_path(md_path: Path) -> str:
+    """Canonical md_path for the DB: repo-root-relative posix (``data/...``).
+
+    The same files are ingested from two contexts — the host (``uv run kb
+    ingest``) and the nightly Jenkins container (DATA_DIR=/app/data) — and a
+    verbatim ``str(md_path)`` flip-flops between ``B:\\...`` and
+    ``/app/data/...`` with whichever context ingested last, breaking the
+    other side's file checks (the transcript backfill silently found "0
+    candidates" this way on 2026-08-26). A repo-root-relative path resolves
+    from both: the host repo root is the parent of DATA_DIR, and in the kb
+    container DATA_DIR (/app/data) hangs off WORKDIR /app, so ``data/...``
+    is valid there too. Absolute fallback for files outside DATA_DIR."""
+    p = md_path.resolve()
+    root = DATA_DIR.resolve().parent
+    try:
+        rel = p.relative_to(root)
+    except ValueError:
+        return str(p)
+    return rel.as_posix()
+
+
 def _upsert_channel(conn, source_code: str, handle: str, name: str) -> int:
     sid = conn.execute(text("SELECT id FROM source WHERE code=:c"),
                        {"c": source_code}).scalar_one()
@@ -62,7 +83,7 @@ def ingest_file(md_path: Path) -> int | None:
             "t": fm.get("title", ""), "u": fm.get("url"),
             "p": pub_dt, "l": fm.get("language"),
             "d": fm.get("duration_sec"),
-            "mp": str(md_path),
+            "mp": _stored_md_path(md_path),
             "c": doc.body,
             "m": _json(fm.get("extra") or {}),
             "ht": bool(fm.get("has_transcript", True)),

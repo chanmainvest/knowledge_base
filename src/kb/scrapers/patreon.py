@@ -403,6 +403,25 @@ class PatreonScraper(BaseScraper):
         self.use_browser = use_browser
         self._session_id_cache: str | None = None
 
+    async def http(self):
+        """Serve API calls through curl_cffi's Chrome TLS impersonation.
+
+        Patreon sits behind Cloudflare bot management that fingerprints TLS:
+        plain httpx from the Jenkins container's Linux OpenSSL gets 403
+        ``cf-mitigated: challenge`` on every URL (the Windows build passes),
+        so all Patreon requests impersonate Chrome's TLS stack when
+        curl_cffi is importable. Falls back to plain httpx otherwise.
+        """
+        try:
+            from curl_cffi.requests import AsyncSession
+        except ImportError:
+            return await super().http()
+        return AsyncSession(
+            headers=dict(self.headers),
+            timeout=60.0,
+            impersonate="chrome",
+        )
+
     async def polite_get(self, client: httpx.AsyncClient, url: str, **kw) -> httpx.Response:
         """Patreon-specific GET with per-host spacing and conservative 429 backoff."""
         await self.limiter.wait(url)

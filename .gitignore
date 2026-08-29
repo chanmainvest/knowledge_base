@@ -57,3 +57,4 @@ graphify-out/
 # Whisper audio downloads (ephemeral — deleted after transcription)
 tmp/
 scripts/.llm_wiki_manifest.json
+.minosa
