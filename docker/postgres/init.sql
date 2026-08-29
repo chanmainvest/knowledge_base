@@ -387,8 +387,16 @@ INSERT INTO source(code,name,url,kind) VALUES
   ('patreon','Patreon','https://www.patreon.com/','membership'),
   ('substack','Substack','https://substack.com/','membership'),
   ('yahoohk','Yahoo Finance Hong Kong','https://hk.finance.yahoo.com/','newspaper'),
-  ('master-insight','Master Insight','https://www.master-insight.com/','newspaper')
+  ('master-insight','Master Insight','https://www.master-insight.com/','newspaper'),
+  ('businessfocus','BusinessFocus','https://businessfocus.io/','newspaper')
 ON CONFLICT (code) DO NOTHING;
+
+-- Seed channel for businessfocus (龔成 columnist; more via
+-- `kb businessfocus add-author <slug>`).
+INSERT INTO channel(source_id, handle, name, url)
+SELECT id, 'shing', '龔成', 'https://businessfocus.io/author/shing'
+FROM source WHERE code='businessfocus'
+ON CONFLICT (source_id, handle) DO NOTHING;
 
 -- Seed channels for the consolidated `blog` source (one per site/author).
 INSERT INTO channel(source_id, handle, name, url)
@@ -651,3 +659,23 @@ CREATE INDEX IF NOT EXISTS discovery_catalog_pending_idx
 CREATE INDEX IF NOT EXISTS discovery_catalog_channel_idx ON discovery_catalog(channel_id);
 
 
+
+-- --- LLM-wiki read tracking -------------------------------------------------
+-- Which items the llm-wiki build has already consumed (fed to an LLM pass /
+-- rendered into a page), with a sha256 of exactly what was read, so unchanged
+-- items are never re-read (no wasted tokens). Dual-written by
+-- scripts/build_llm_wiki.py with llm-wiki/read-state.json — the JSON copy is
+-- committed with the wiki, so the state survives losing the DB (re-ingest the
+-- data/ markdown, entries re-attach by source_code+external_id).
+CREATE TABLE IF NOT EXISTS wiki_item_read (
+    item_id     INT NOT NULL REFERENCES item(id) ON DELETE CASCADE,
+    purpose     TEXT NOT NULL,          -- e.g. 'weekly-digest'
+    source_code TEXT NOT NULL,
+    external_id TEXT NOT NULL,          -- stable key across re-ingest
+    content_sha TEXT NOT NULL,          -- sha256[:16] of what was consumed
+    week_start  DATE,                   -- set by the weekly digest purpose
+    read_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
+    PRIMARY KEY (item_id, purpose)
+);
+CREATE INDEX IF NOT EXISTS wiki_item_read_ext_idx
+    ON wiki_item_read(source_code, external_id);

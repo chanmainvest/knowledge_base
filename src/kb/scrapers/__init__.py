@@ -9,8 +9,10 @@ from .youtube import YouTubeScraper
 from .hkej import HKEJScraper
 from .yahoohk import YahooHKScraper
 from .master_insight import MasterInsightScraper
+from .businessfocus import BusinessFocusScraper
 from .madxcap import MadxcapScraper
 from .gorozen import GorozenScraper
+from .blogspot import BlogspotScraper, GreenhornScraper
 
 SCRAPERS: dict[str, type[BaseScraper]] = {
     MacroVoicesScraper.code: MacroVoicesScraper,
@@ -20,8 +22,11 @@ SCRAPERS: dict[str, type[BaseScraper]] = {
     SubstackScraper.code: SubstackScraper,
     YahooHKScraper.code: YahooHKScraper,
     MasterInsightScraper.code: MasterInsightScraper,
+    BusinessFocusScraper.code: BusinessFocusScraper,
     MadxcapScraper.code: MadxcapScraper,
     GorozenScraper.code: GorozenScraper,
+    BlogspotScraper.code: BlogspotScraper,
+    GreenhornScraper.code: GreenhornScraper,
 }
 
 

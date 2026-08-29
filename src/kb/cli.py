@@ -30,6 +30,7 @@ hkej_app = typer.Typer(no_args_is_help=True, help="HKEJ author management")
 hkej_browser_app = typer.Typer(no_args_is_help=True, help="Persistent browser session")
 hkej_docker_app = typer.Typer(no_args_is_help=True, help="Camoufox Docker container (default browser mode)")
 master_insight_app = typer.Typer(no_args_is_help=True, help="Master Insight author management")
+businessfocus_app = typer.Typer(no_args_is_help=True, help="BusinessFocus author management")
 patreon_app = typer.Typer(no_args_is_help=True, help="Patreon session helpers")
 patreon_browser_app = typer.Typer(no_args_is_help=True, help="Persistent Patreon browser")
 substack_app = typer.Typer(no_args_is_help=True, help="Substack session helpers")
@@ -45,6 +46,7 @@ app.add_typer(hkej_app, name="hkej")
 hkej_app.add_typer(hkej_browser_app, name="browser")
 hkej_app.add_typer(hkej_docker_app, name="docker")
 app.add_typer(master_insight_app, name="master-insight")
+app.add_typer(businessfocus_app, name="businessfocus")
 app.add_typer(patreon_app, name="patreon")
 patreon_app.add_typer(patreon_browser_app, name="browser")
 app.add_typer(substack_app, name="substack")
@@ -203,6 +205,10 @@ def _add_channel(
     name: str,
     run_hint: str | None = None,
 ) -> None:
+    if source == "youtube":
+        from .scrapers.youtube import normalize_youtube_handle
+
+        handle = normalize_youtube_handle(handle)
     with engine().begin() as conn:
         sid = conn.execute(text("SELECT id FROM source WHERE code=:c"),
                            {"c": source}).scalar_one_or_none()
@@ -1383,6 +1389,121 @@ def master_insight_rm_author(
         print(f"[yellow]Not found:[/yellow] '{handle}'")
 
 
+@businessfocus_app.command("add-author")
+def businessfocus_add_author(
+    handle: str = typer.Argument(..., help="Author slug, e.g. shing"),
+) -> None:
+    """Register a BusinessFocus author by slug (name resolved via node_api)."""
+    import httpx
+
+    from .scrapers.businessfocus import BASE, PAGE_ID
+
+    handle = handle.strip()
+    if not _re.fullmatch(r"[A-Za-z0-9._-]+", handle):
+        print("[red]Author slug may only contain letters, digits, '.', '_', '-'[/red]")
+        raise typer.Exit(1)
+
+    headers = {"User-Agent": settings().scrape_user_agent,
+               "Accept-Language": "zh-HK,zh;q=0.9,en;q=0.8"}
+    name, blogger_id = handle, None
+    try:
+        print(f"Resolving author name for '{handle}' from node_api...")
+        with httpx.Client(timeout=30.0, headers=headers,
+                          follow_redirects=True) as client:
+            r = client.get(f"{BASE}/node_api/v1/authors/blogger/{handle}",
+                           params={"pageId": PAGE_ID})
+        if r.status_code == 200:
+            data = r.json().get("data") or {}
+            if data.get("id"):
+                name = data.get("display_name") or handle
+                blogger_id = data["id"]
+                print(f"Resolved name: [green]{name}[/green] (blogger id {blogger_id})")
+            else:
+                print(f"[red]No BusinessFocus blogger found for '{handle}'.[/red]")
+                raise typer.Exit(1)
+        else:
+            print(f"[red]Author resolve returned HTTP {r.status_code}.[/red]")
+            raise typer.Exit(1)
+    except typer.Exit:
+        raise
+    except Exception as exc:
+        print(f"[red]Could not resolve author name:[/red] {exc}")
+        raise typer.Exit(1) from exc
+
+    with engine().begin() as conn:
+        sid = conn.execute(
+            text("SELECT id FROM source WHERE code='businessfocus'")
+        ).scalar_one_or_none()
+        if sid is None:
+            conn.execute(
+                text(
+                    "INSERT INTO source(code, name, url, kind) "
+                    "VALUES ('businessfocus', 'BusinessFocus', 'https://businessfocus.io/', 'newspaper') "
+                    "ON CONFLICT (code) DO NOTHING"
+                )
+            )
+            sid = conn.execute(
+                text("SELECT id FROM source WHERE code='businessfocus'")
+            ).scalar_one()
+        conn.execute(
+            text(
+                "INSERT INTO channel(source_id, handle, name, url, metadata) "
+                "VALUES (:s,:h,:n,:u,CAST(:m AS jsonb)) "
+                "ON CONFLICT (source_id, handle) "
+                "DO UPDATE SET name=EXCLUDED.name, url=EXCLUDED.url, metadata=EXCLUDED.metadata"
+            ),
+            {
+                "s": sid,
+                "h": handle,
+                "n": name,
+                "u": f"{BASE}/author/{handle}",
+                "m": json.dumps({"discovery": "manual",
+                                 **({"blogger_id": blogger_id} if blogger_id else {})}),
+            },
+        )
+    print(f"[green]Added[/green] BusinessFocus author '{name}' ({handle})")
+    print(f"  Run [bold]kb scrape run businessfocus[/bold] to fetch their articles.")
+
+
+@businessfocus_app.command("list-authors")
+def businessfocus_list_authors() -> None:
+    """List registered BusinessFocus authors."""
+    with engine().connect() as conn:
+        rows = conn.execute(
+            text("""
+                SELECT c.handle, c.name, c.metadata->>'blogger_id' AS bid
+                FROM channel c JOIN source s ON c.source_id=s.id
+                WHERE s.code='businessfocus' ORDER BY c.handle
+            """)
+        ).all()
+    if not rows:
+        print("No BusinessFocus authors registered.")
+        print("Add one with: [bold]kb businessfocus add-author <author_slug>[/bold]")
+        return
+    for h, n, bid in rows:
+        print(f"  {h:<20} {n:<16} blogger_id={bid or '?'}")
+
+
+@businessfocus_app.command("rm-author")
+def businessfocus_rm_author(
+    handle: str = typer.Argument(..., help="Handle (slug) to remove"),
+) -> None:
+    """Remove a BusinessFocus author from the DB."""
+    with engine().begin() as conn:
+        n = conn.execute(
+            text(
+                "DELETE FROM channel USING source "
+                "WHERE channel.source_id=source.id AND source.code='businessfocus' "
+                "AND channel.handle=:h"
+            ),
+            {"h": handle},
+        ).rowcount
+    if n:
+        print(f"[green]Removed[/green] '{handle}'")
+    else:
+        print(f"[yellow]Not found:[/yellow] '{handle}'")
+
+
 @patreon_app.command("check-session")
 def patreon_check_session(
     cookies_from_browser: str = typer.Option(
@@ -1784,9 +1905,13 @@ def patreon_scrape_creator(
 ) -> None:
     """Scrape registered Patreon creators — no LLM, schedulable.
 
-    Ensures the browser daemon is up, refreshes the session cookie, then crawls
-    and downloads each creator incrementally (already-downloaded posts skipped).
-    Exit codes: 0 ok, 1 nothing to do, 2 session/daemon problem (needs login).
+    Prefers the browser daemon (which refreshes the session cookie), and falls
+    back to the saved data/patreon/.session.json when the daemon can't run —
+    e.g. inside the Jenkins Docker container, where a headed browser cannot
+    launch. The session file is shared with the container via the data/ mount,
+    so a cookie primed locally (`kb patreon browser login` or
+    `kb patreon prime-session`) is reused by both local and Jenkins runs.
+    Exit codes: 0 ok, 1 nothing to do, 2 no usable session (needs login).
     Schedule it (e.g. Windows Task Scheduler) via scripts/scrape_patreon.ps1.
     """
     from .scrapers.patreon import PatreonScraper, normalize_vanity
@@ -1797,32 +1922,45 @@ def patreon_scrape_creator(
         wait_for_daemon,
     )
 
-    # 1. Ensure the logged-in browser daemon is running.
-    if not is_daemon_alive():
-        if not start_browser:
-            print("[red]Browser daemon not running (and --no-start-browser).[/red]")
-            raise typer.Exit(2)
+    # 1. Session: prefer the live daemon browser (refreshes the cookie), fall
+    #    back to the saved session file. Docker (Jenkins) can't run the headed
+    #    daemon at all, so skip spawning it there.
+    in_docker = Path("/.dockerenv").exists()
+    daemon_up = is_daemon_alive()
+    if not daemon_up and start_browser and not in_docker:
         print("[dim]Starting Patreon browser daemon…[/dim]")
         start_daemon_process()
-        if not asyncio.run(wait_for_daemon(60.0)):
+        daemon_up = asyncio.run(wait_for_daemon(60.0))
+        if not daemon_up:
+            print("[yellow]Browser daemon did not start; trying saved session…[/yellow]")
+
+    session: dict | None = None
+    if daemon_up:
+        synced = asyncio.run(daemon_sync())
+        if synced and synced.get("ok"):
+            session = synced
+            print(f"[green]Session OK[/green] for {session.get('full_name') or 'user'}")
+        else:
+            err = (synced or {}).get("error", "no valid session")
+            print(f"[yellow]Daemon session unusable ({err}); trying saved session…[/yellow]")
+    if session is None:
+        try:
+            who = asyncio.run(PatreonScraper().check_session())
             print(
-                "[red]Daemon did not start. Run once interactively: "
-                "kb patreon browser login[/red]"
+                f"[green]Session OK[/green] (saved cookie) for "
+                f"{who.get('full_name') or 'user'}"
+            )
+        except Exception as exc:  # noqa: BLE001
+            daemon_state = "up" if daemon_up else "unavailable"
+            print(
+                f"[red]No usable Patreon session (daemon {daemon_state}; "
+                f"saved session: {exc}).[/red]\n"
+                "  Sign in once: [bold]kb patreon browser login[/bold] "
+                "(or kb patreon prime-session)"
             )
             raise typer.Exit(2)
 
-    # 2. Refresh + validate the session cookie.
-    synced = asyncio.run(daemon_sync())
-    if not (synced and synced.get("ok")):
-        err = (synced or {}).get("error", "no valid session")
-        print(
-            f"[red]Session invalid: {err}.[/red]\n"
-            "  Sign in once: [bold]kb patreon browser login[/bold]"
-        )
-        raise typer.Exit(2)
-    print(f"[green]Session OK[/green] for {synced.get('full_name') or 'user'}")
-
-    # 3. Decide which creators to scrape.
+    # 2. Decide which creators to scrape.
     if creators:
         registered = dict(_registered_patreon_creators())
         targets = [
@@ -1842,7 +1980,8 @@ def patreon_scrape_creator(
     for vanity, display in targets:
         print(f"\n[bold]── {vanity} ──[/bold]")
         # Re-sync before each creator so long runs don't outlive the cookie.
-        asyncio.run(daemon_sync())
+        if daemon_up:
+            asyncio.run(daemon_sync())
         sc = PatreonScraper(
             filter_year=year, filter_handle=vanity, filter_display_name=display,
         )
