@@ -52,7 +52,10 @@ pipeline {
     options {
         timestamps()                 // prefix every log line with a timestamp
         buildDiscarder(logRotator(numToKeepStr: '14'))  // keep 2 weeks of runs
-        timeout(time: 8, unit: 'HOURS')   // first-time backfills are long; 8h headroom
+        timeout(time: 10, unit: 'HOURS')  // extract (200 × ~2.3 min ≈ 7.7h) +
+                                          // scrape/ingest pushed 8h over, which
+                                          // killed Score/Progress recompute
+                                          // every night (builds #21/#22)
         disableConcurrentBuilds()    // never two nightly runs at once
     }
 
@@ -85,6 +88,16 @@ pipeline {
         stage('Build kb image') {
             steps {
                 sh '''set +e
+# Fail fast if this build landed in an empty suffixed workspace (@2, @3, …).
+# That happens when a build starts while another still holds the main
+# customWorkspace (job-level concurrency can't be set for pipeline jobs, and
+# the script's disableConcurrentBuilds only materializes after a build with
+# it completes) — every compose call would then die with the confusing
+# "no configuration file provided: not found" (exit 14).
+if [ ! -f docker-compose.yml ]; then
+    echo "FATAL: docker-compose.yml not found in $(pwd) — this build got an empty @N workspace while another build holds the real one. Re-run once no knowledge-base-nightly build is active."
+    exit 1
+fi
 for attempt in 1 2 3 4 5; do
     echo "--- build attempt $attempt/5 ---"
     docker compose build kb && exit 0
@@ -177,6 +190,16 @@ exit 1
                     }
                 }
 
+                // BusinessFocus — columnist articles via the node_api index
+                // (kb businessfocus add-author <slug> to register more).
+                stage('BusinessFocus') {
+                    steps {
+                        catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                            sh 'docker compose run --rm kb scrape run businessfocus --limit 10'
+                        }
+                    }
+                }
+
                 // HKEJ — login-gated behind Cloudflare. Needs the camoufox
                 // container up + a primed session in data/hkej/.browser_state.json.
                 // Author list is read from the DB by `kb hkej list-authors`.
@@ -196,12 +219,32 @@ exit 1
                                     echo "No HKEJ authors registered — skipping (run: kb hkej add-author <handle>)"
                                     exit 0
                                 fi
-                                while IFS= read -r author; do
+                                # NB: pipe into the loop, NOT `done <<< "$var"` —
+                                # Jenkins `sh` is dash and herestrings are a
+                                # bashism ("Syntax error: redirection unexpected").
+                                # Every docker compose inside the loop gets
+                                # </dev/null: it would otherwise inherit the
+                                # loop's stdin and swallow the rest of the
+                                # author list (the bug that made every nightly
+                                # scrape only the FIRST author). Failures are
+                                # tallied so the stage can go UNSTABLE via the
+                                # catchError wrapper — a bare `|| echo WARN`
+                                # made even total failure report green.
+                                failfile=$(mktemp)
+                                printf '%s\n' "$authors" | while IFS= read -r author; do
                                     [ -z "$author" ] && continue
                                     echo "=== HKEJ author: $author ==="
-                                    docker compose run --rm kb hkej scrape-author "$author" --limit 10 \
-                                        || echo "WARN: HKEJ scrape failed for '$author' (likely Cloudflare/login) — continuing"
-                                done <<< "$authors"
+                                    if ! docker compose run --rm kb hkej scrape-author "$author" --limit 10 </dev/null; then
+                                        echo "$author" >> "$failfile"
+                                        echo "WARN: HKEJ scrape failed for '$author' (Cloudflare/login, or the camoufox browser container is down: docker compose up -d camoufox) — continuing"
+                                    fi
+                                done
+                                fails=$(wc -l < "$failfile")
+                                rm -f "$failfile"
+                                if [ "$fails" -gt 0 ]; then
+                                    echo "HKEJ: $fails author scrape(s) failed"
+                                    exit 1
+                                fi
                             '''
                         }
                     }
@@ -222,12 +265,25 @@ exit 1
                                     echo "No Substack channels registered — skipping"
                                     exit 0
                                 fi
-                                while IFS= read -r handle; do
+                                # Same dash/herestring + stdin rules as the HKEJ
+                                # stage above (</dev/null keeps compose from
+                                # eating the handle list; failures counted so
+                                # the stage degrades to UNSTABLE, not green).
+                                failfile=$(mktemp)
+                                printf '%s\n' "$handles" | while IFS= read -r handle; do
                                     [ -z "$handle" ] && continue
                                     echo "=== Substack: $handle ==="
-                                    docker compose run --rm kb substack scrape "$handle" --limit 10 \
-                                        || echo "WARN: Substack scrape failed for '$handle' — continuing"
-                                done <<< "$handles"
+                                    if ! docker compose run --rm kb substack scrape "$handle" --limit 10 </dev/null; then
+                                        echo "$handle" >> "$failfile"
+                                        echo "WARN: Substack scrape failed for '$handle' — continuing"
+                                    fi
+                                done
+                                fails=$(wc -l < "$failfile")
+                                rm -f "$failfile"
+                                if [ "$fails" -gt 0 ]; then
+                                    echo "Substack: $fails channel scrape(s) failed"
+                                    exit 1
+                                fi
                             '''
                         }
                     }

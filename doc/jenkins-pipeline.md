@@ -99,6 +99,18 @@ When a session expires, the corresponding pipeline stage marks the build
 **UNSTABLE** (yellow) with a clear "needs interactive re-login" message — it
 does **not** fail the whole run. Re-run the priming command above to refresh.
 
+Patreon note: `kb patreon scrape-creator` prefers the local browser daemon
+(headed Chromium, host-only) to refresh the cookie, but inside the nightly
+container — where a headed browser cannot launch — it authenticates directly
+with the shared `data/patreon/.session.json`. Priming that file on the host
+(`kb patreon prime-session` or `kb patreon browser login`) therefore covers
+both local and Jenkins runs; the stage only goes UNSTABLE when the saved
+cookie itself expires. Patreon's Cloudflare also fingerprints TLS: plain
+httpx from the container's Linux OpenSSL gets `403 cf-mitigated: challenge`
+on every patreon.com URL (the Windows build passes), so all Patreon API
+calls go through `curl_cffi`'s Chrome TLS impersonation
+(`PatreonScraper.http()`).
+
 Also keep these services up on the host so the nightly container can reach
 them:
 
@@ -162,7 +174,13 @@ to git (cleaner — edits to the file take effect without re-posting config):
 1. Jenkins → the job → **Configure**.
 2. **Pipeline → Definition** = *Pipeline script from SCM*; point at the repo,
    script path `Jenkinsfile`.
-3. (Optional) add *Build periodically* `0 3 * * *` at the job level too.
+3. Keep the job-level **Build periodically** `0 3 * * *` trigger — it is NOT
+   optional. The Jenkinsfile's own `triggers { cron(...) }` only re-arms after
+   a build *completes*, and every config.xml re-post resets `<triggers/>`;
+   without the job-level timer, a re-post that isn't followed by a manual
+   build silently kills the nightly (exactly what happened 2026-08-18 →
+   08-24: empty history, no runs, until a TimerTrigger was POSTed back and
+   build #18 primed the pipeline).
 
 ### Recreating the job via the REST API
 
@@ -184,12 +202,43 @@ curl -s -b "$COOKIE" -u "$JENKINS_USER:$JENKINS_PASS" \
      "$JENKINS_URL/createItem?name=knowledge-base-nightly"
 ```
 
-Two gotchas hit during setup:
+Six gotchas hit during setup / maintenance:
 - The config must declare `<?xml version="1.0" encoding="UTF-8"?>` — the
   `Jenkinsfile` contains em-dashes/CJK; without an explicit UTF-8 declaration
   Jenkins's parser rejects byte `0x80` inside CDATA.
 - `sandbox=false` causes builds to be dropped silently (no log). The pipeline
   is sandbox-safe, so use `<sandbox>true</sandbox>`.
+- `sh` steps run under **dash**, not bash. Herestrings (`done <<< "$var"`) and
+  process substitution are bashisms that die with
+  `Syntax error: redirection unexpected` (build #18: the HKEJ + Substack loops
+  both failed this way). Pipe into the loop instead:
+  `printf '%s\n' "$var" | while IFS= read -r x; do …; done`.
+- Re-POSTing a config whose script contains raw UTF-8 (em-dashes/CJK) needs
+  `Content-Type: application/xml; charset=utf-8` and the `1.0` XML declaration
+  (the fetched config says `1.1` — switch it). Without the charset param the
+  request body is parsed as Latin-1 and the em-dash's `0x80` byte is an
+  invalid XML control character → HTTP 500. Replace only the
+  `<script>…</script>` section (XML-escape the Jenkinsfile) and keep the
+  `<triggers>` TimerTrigger block — see the note above about it never being
+  optional.
+- Any `docker compose run` **inside a `while read` loop must take
+  `</dev/null`**. The compose client (and the container it spawns) inherit
+  the loop's stdin and swallow the remaining list — build #21 scraped only
+  the FIRST HKEJ author and FIRST Substack channel every night because of
+  this. Relatedly, a bare `|| echo WARN` per item makes even total failure
+  exit 0 (stage green): tally failures (append to a `mktemp` file, `wc -l`
+  after the loop) and `exit 1` so the `catchError` wrapper can downgrade the
+  stage to UNSTABLE as designed.
+- The HKEJ stage depends on the **`kb_camoufox` browser container being up**
+  (`docker compose up -d camoufox` — the pipeline does not start it). If it's
+  down, every author dies in seconds with
+  `BrowserType.connect: WebSocket error: connect ENETUNREACH
+  ws://host.docker.internal:9222/hkej`. The container has
+  `restart: unless-stopped`, so once up it survives Docker restarts — but a
+  `docker compose down` removes it and nothing brings it back (that's exactly
+  what happened between 2026-08-08 and 2026-08-25: 17 days of silently green
+  HKEJ stages). If the Cloudflare/login session also expired, solve it once
+  via the noVNC UI at http://localhost:7900.
 
 ---
 
@@ -207,6 +256,7 @@ stages (Ingest → Extract → recompute) run sequentially after all branches fi
 |   | · Blog: Gorozen    | `kb blog scrape gorozen --limit 10`             | UNSTABLE           |
 |   | · YouTube          | `kb youtube scrape --limit 10`                  | UNSTABLE           |
 |   | · Master Insight   | `kb scrape run master-insight --limit 10`       | UNSTABLE           |
+|   | · BusinessFocus    | `kb scrape run businessfocus --limit 10`        | UNSTABLE           |
 |   | · HKEJ             | loop `kb hkej scrape-author <handle> --limit 10`| UNSTABLE           |
 |   | · Substack         | loop `kb substack scrape <handle> --limit 10`   | UNSTABLE           |
 |   | · Patreon          | `kb patreon scrape-creator --limit 10`          | UNSTABLE           |
