@@ -60,6 +60,22 @@ export interface PredictionsQuery {
   offset?: number;
 }
 
+// Chat target: a DB item, or an llm-wiki page (section+page, or home).
+export type ChatTarget =
+  | { itemId: number }
+  | { section: string; page: string }
+  | { home: true };
+
+function chatBody(target: ChatTarget, messages: { role: string; content: string }[]) {
+  return {
+    item_id: "itemId" in target ? target.itemId : undefined,
+    section: "section" in target ? target.section : undefined,
+    page: "page" in target ? target.page : undefined,
+    home: "home" in target ? true : undefined,
+    messages,
+  };
+}
+
 export const api = {
   search: (q: ListQuery = {}) => get<SearchResult>(`/api/search?${listParams(q)}`),
   sources: () => get<Source[]>("/api/sources"),
@@ -98,8 +114,8 @@ export const api = {
     get<InsightsPage>(
       `/api/insights/page?section=${encodeURIComponent(section)}&page=${encodeURIComponent(page)}`),
   insightsHome: () => get<InsightsPage>("/api/insights/home"),
-  chat: (itemId: number, messages: { role: string; content: string }[]) =>
-    post<{ reply: string; model: string }>("/api/chat", { item_id: itemId, messages }),
+  chat: (target: ChatTarget, messages: { role: string; content: string }[]) =>
+    post<{ reply: string; model: string }>("/api/chat", chatBody(target, messages)),
 };
 
 export interface Source { id: number; code: string; name: string; kind: string; n_items: number; }

@@ -38,3 +38,9 @@ Read this when touching `src/kb/marketdata.py`, `src/kb/leaderboard.py`,
   (`kb-theme`) and a pre-paint script in `index.html` applies it. Chart
   series colors pick a palette per theme via `useTheme()`; status colors
   pair `text-*-700` with `dark:text-*-400` variants.
+- **Chat widget.** The floating 💬 on item pages and the Insights tab chats
+  about the page you're on via `POST /api/chat`, which takes either
+  `item_id`, an llm-wiki `section`+`page`, or `home: true`, and answers via
+  the primary provider with an OpenRouter fallback (`OPENROUTER_API_KEY`;
+  response names the `model` used). Stateless; history supplied by the
+  client; content head-truncated at 80k chars.

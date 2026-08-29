@@ -766,7 +766,10 @@ class ChatMessage(BaseModel):
 
 
 class ChatRequest(BaseModel):
-    item_id: int
+    item_id: int | None = None
+    section: str | None = None   # llm-wiki section (with page) instead of an item
+    page: str | None = None
+    home: bool = False           # chat about the wiki home/overview page
     messages: list[ChatMessage]
 
 
@@ -778,21 +781,40 @@ _CHAT_MAX_CONTENT = 80_000
 
 @app.post("/api/chat")
 def chat(req: ChatRequest) -> dict[str, Any]:
-    if req.item_id <= 0:
-        raise HTTPException(422, "item_id must be positive")
     history = [(m.role, m.content) for m in req.messages
                if m.role in ("user", "assistant") and m.content.strip()]
     if not history or history[-1][0] != "user":
         raise HTTPException(422, "last message must be from the user")
-    with engine().connect() as conn:
-        row = conn.execute(text("""
-            SELECT i.title, i.content, i.published_at, s.code AS source
-            FROM item i JOIN source s ON s.id = i.source_id
-            WHERE i.id = :i
-        """), {"i": req.item_id}).first()
-    if not row:
-        raise HTTPException(404, "no such item")
-    content = row[1] or ""
+
+    # Target: either a DB item, a llm-wiki page (section+page), or the wiki
+    # home page. All resolve to (title, source label, published, content).
+    if req.item_id:
+        if req.item_id <= 0:
+            raise HTTPException(422, "item_id must be positive")
+        with engine().connect() as conn:
+            row = conn.execute(text("""
+                SELECT i.title, i.content, i.published_at, s.code AS source
+                FROM item i JOIN source s ON s.id = i.source_id
+                WHERE i.id = :i
+            """), {"i": req.item_id}).first()
+        if not row:
+            raise HTTPException(404, "no such item")
+        title, source_label, published, content = row[0], row[3], row[2], (row[1] or "")
+    elif req.section or req.page or req.home:
+        if req.home:
+            path = _WIKI_ROOT / "Home.md"
+        elif req.section in _WIKI_SECTIONS and req.page and _SAFE_PAGE.match(req.page):
+            path = _WIKI_ROOT / req.section / f"{req.page}.md"
+        else:
+            raise HTTPException(404, "no such insights page")
+        if not path.is_file():
+            raise HTTPException(404, "no such insights page")
+        md_text = path.read_text(encoding="utf-8")
+        title = _wiki_title(md_text, req.page or "Overview")
+        source_label, published, content = f"llm-wiki/{req.section or 'Home'}", None, md_text
+    else:
+        raise HTTPException(422, "provide item_id, or section+page, or home")
+
     if len(content) > _CHAT_MAX_CONTENT:
         content = content[:_CHAT_MAX_CONTENT] + "\n\n[... truncated ...]"
     system = (
@@ -802,9 +824,9 @@ def chat(req: ChatRequest) -> dict[str, Any]:
         "the article, ground it there and cite what the article says; if it "
         "is general knowledge, just answer from what you know. You may "
         "combine both. Be direct and don't refuse answerable questions.\n\n"
-        f"Title: {row[0]}\n"
-        f"Source: {row[3]}\n"
-        f"Published: {row[2] or 'unknown'}\n\n"
+        f"Title: {title}\n"
+        f"Source: {source_label}\n"
+        f"Published: {published or 'unknown'}\n\n"
         f"--- article begin ---\n{content}\n--- article end ---"
     )
     # Multi-turn: fold earlier turns into one user turn — chat_text takes a

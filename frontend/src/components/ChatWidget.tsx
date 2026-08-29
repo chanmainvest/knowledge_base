@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { api } from "../api";
+import { api, ChatTarget } from "../api";
 
-// Floating "chat with this article" bubble, bottom-right, for the item page.
-// Conversation state is local to the mount (navigating to another item
-// starts a fresh chat); the backend is stateless.
-export function ChatWidget({ itemId, title }: { itemId: number; title: string }) {
+// Floating "chat with this article/page" bubble, bottom-right. Target is
+// either a DB item or an llm-wiki page; conversation state is local to the
+// mount (changing target starts a fresh chat); the backend is stateless.
+export function ChatWidget({ target, title }: { target: ChatTarget; title: string }) {
+  const targetKey = JSON.stringify(target);
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
   const [input, setInput] = useState("");
@@ -15,8 +16,8 @@ export function ChatWidget({ itemId, title }: { itemId: number; title: string })
   const listRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
-  // Fresh conversation when the item changes.
-  useEffect(() => { setMessages([]); setErr(null); }, [itemId]);
+  // Fresh conversation when the target changes.
+  useEffect(() => { setMessages([]); setErr(null); }, [targetKey]);
 
   // Keep the latest message visible.
   useEffect(() => {
@@ -31,7 +32,7 @@ export function ChatWidget({ itemId, title }: { itemId: number; title: string })
     setMessages(next);
     setInput("");
     setBusy(true); setErr(null);
-    api.chat(itemId, next)
+    api.chat(target, next)
       .then(r => setMessages(m => [...m, { role: "assistant", content: r.reply }]))
       .catch(ex => setErr(String(ex?.message || ex)))
       .finally(() => setBusy(false));

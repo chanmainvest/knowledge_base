@@ -151,7 +151,7 @@ export function ItemPage() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_340px] gap-8">
-      <ChatWidget itemId={item.id} title={item.title} />
+      <ChatWidget target={{ itemId: item.id }} title={item.title} />
       <article className="max-w-[72ch]">
         <div className="text-xs text-mute mb-1 uppercase">
           {item.source} {item.channel_name && <>· {item.channel_name}</>}

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";import ReactMarkdown from "react-markdown";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { api, InsightsIndex, InsightsPage as InsightsPageT } from "../api";
 import { Spinner, ErrorBanner, useTitle } from "../components/ui";
+import { ChatWidget } from "../components/ChatWidget";
 
 // Insights tab: renders the generated llm-wiki markdown, served from disk by
 // /api/insights. URL: /insights?section=People&page=adrian-day (section+page
@@ -86,6 +88,11 @@ export function InsightsPage() {
               {page.markdown}
             </ReactMarkdown>
           </article>
+        )}
+        {page && (
+          <ChatWidget
+            target={page.section ? { section: page.section, page: page.page } : { home: true }}
+            title={page.title} />
         )}
       </div>
     </div>
