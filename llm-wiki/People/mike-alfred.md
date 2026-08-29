@@ -71,10 +71,10 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 Topics where this person's current stance conflicts with another person's:
 
-- [AI & Semiconductors](../Themes/ai-semiconductors.md) — opposite: [aminvest](../People/aminvest.md), [Ed Zitron](../People/ed-zitron.md), [Jeffrey Christian](../People/jeffrey-christian.md), [Jim Chanos](../People/jim-chanos.md), [Patrick Boyle](../People/patrick-boyle.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [AI & Semiconductors](../Themes/ai-semiconductors.md) — opposite: [Ed Zitron](../People/ed-zitron.md), [Jeffrey Christian](../People/jeffrey-christian.md), [Jim Chanos](../People/jim-chanos.md), [Patrick Boyle](../People/patrick-boyle.md), [Chris Semenuk](../People/chris-semenuk.md), [Emmanuel Macron](../People/emmanuel-macron.md)
 - [Electrification, Power & Industrials](../Themes/electrification-industrials.md) — opposite: [Jeff Snider](../People/jeff-snider.md), [Ed Zitron](../People/ed-zitron.md), [Jeffrey Christian](../People/jeffrey-christian.md), [Jim Chanos](../People/jim-chanos.md), [Val Zlatev](../People/val-zlatev.md)
 - [BTC-USD](../Tickers/BTC-USD.md) — opposite: [George Noble](../People/george-noble.md)
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [高天佑](../People/person-015.md), [何啟聰](../People/person-002.md), [JD](../People/jd.md), [Ed Zitron](../People/ed-zitron.md), [Jeffrey Christian](../People/jeffrey-christian.md), [Jim Chanos](../People/jim-chanos.md)
+- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [高天佑](../People/person-010.md), [何啟聰](../People/person-001.md), [JD](../People/jd.md), [Ed Zitron](../People/ed-zitron.md), [Jeffrey Christian](../People/jeffrey-christian.md), [Jim Chanos](../People/jim-chanos.md)
 - [Crypto & Stablecoins](../Themes/crypto.md) — opposite: [George Noble](../People/george-noble.md), [Jeffrey Christian](../People/jeffrey-christian.md), [Jim Chanos](../People/jim-chanos.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._

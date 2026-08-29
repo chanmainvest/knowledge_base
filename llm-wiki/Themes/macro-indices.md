@@ -2,26 +2,26 @@
 
 Top-down calls on the S&P 500 (^GSPC, SPY), Nasdaq (^IXIC), Kospi (^KS11) and macro / economy direction. The recession-vs-soft-landing debate lives here.
 
-**197 prediction(s)** and **188 market view(s)** match this theme in the current extraction.
+**214 prediction(s)** and **231 market view(s)** match this theme in the current extraction.
 
 ## What the corpus says
 
-The gravitational center of this corpus is unmistakably the S&P 500. Of 197 tickered calls, ^GSPC accounts for 140, with the Nasdaq Composite (23) and SPY (9) as distant secondaries; the dollar index (6), the Kospi (5), the SOX semis index (3), and scattered looks at the NDX and Hang Seng round out the rest. Whatever argument is happening here, it is happening through the lens of large-cap US equities — and the 188 broad views mostly exist to explain or worry about that index.
+This slice of the corpus is, more than anything else, an S&P 500 conversation. The theme carries 214 tickered calls and 231 broad views, and ^GSPC accounts for 155 of those calls — more than the Nasdaq Composite (24), SPY (9), the dollar index (6), Korea's KOSPI (5) and everything else combined. The rest is a thin tail: a few SOX and Hang Seng entries, a pair of NDX prints, and a single import of a Ned Davis Research buy-thrust signal on a multi-cap equal-dollar-weighted index — a 10-day gain running 2.3x the 30-day gain, arriving 11 days after the S&P had declined at least 9% — the corpus's only nod to breadth-thrust mechanics. Every dated entry here sits in one week of late August 2026, and the through-line is consistent: a market at record highs where nobody is really arguing about direction, only about what would break it.
 
-The dominant mode of the tickered calls, clustered in late August 2026, is levels-and-scenarios talk. The conversation on August 24–25 fixates on a 7,500 put wall, a "potentially sell order around 7,600" flagged as a key level, and a model pointing to "increased selling" right around 7,610, with SPY's weekly expected move mapped down to around 753 and stretching toward 777. Beneath the levels sits pattern-matching: one speaker rehearses corrections "at the beginning of 2018 and the end of 2018... the beginning of 2022 and the end of 2022," and wonders whether the market is starting to "sniff out that midterm year seasonality" as a reason it isn't joining some move. The hedging is candid — a hypothetical 10-to-15% sell-off gets entertained, and on timing, one speaker simply concedes whether "it breaks in early '27 or you have to go another year or two, that's beyond me." Notably, the mood isn't uniformly defensive: with stocks "putting in new all-time highs," staying bullish on the energy sector (the lone ^SP500-45 call) is described on August 25 as "fairly easy."
+The level-watching is unusually specific. On August 24–25 the chatter centers on a 7,500 put wall and a potential sell order around 7,600, with one model flagging increased selling near 7,610; on SPY, traders track a weekly expected move running from the mid-750s up toward 777, with daily implied moves anchored in the 760s. Around the levels sits a thicket of conditionals: on timing, one voice shrugs that whether it "breaks in early '27" or takes "another year or two" is "beyond me"; on rates, the flagged tail risk is an S&P that is "down a lot" if 10-year yields push to 6% "kind of in a straight line." The seasonality framing leans on bookend corrections at the start and end of 2018 and again in 2022, and on the suspicion that the market may be starting to "sniff out" midterm-year seasonality. Yet the trend itself is treated as a gift — with the index printing new all-time highs, it has been "fairly easy to stay bullish" even on energy. That is bullishness of a level-dependent, hedged sort, not conviction.
 
-The macro thread is where the anxiety lives, and it escalates within a single week. On August 22 the discussion leans on a chart pairing the 10-year Treasury yield with US nominal GDP, noting a "very close correlation going all the way back"; by August 24 the tail scenario is explicit — the S&P is "down a lot" if 10-year yields go to 6% "in a straight line." [Warren Pies](../People/warren-pies.md) crystallized the shift on August 25 with the framing "why macro risks are suddenly taking control of the stock market," and by August 27 an unnamed host was invoking Druckenmiller to argue the fiscal picture is "by no means... solved," with the deficit still growing and interest expense climbing. That progression — from correlation chart, to rates shock scenario, to deficit fatalism — is the clearest tone shift the digest contains.
+By August 27 the same corpus pivots from charts to regime. The sharpest thread is bonds: treasuries, one voice argues, "continue to stay under pressure because they are dynamically at odds with the ongoing pace of nominal GDP," resting on the claim that the bond market follows a "pretty tight relationship" with nominal GDP over time — which quietly unsettles the macro community's long-held expectation that rates, growth and inflation would revert to some earlier equilibrium. The fiscal undertow gets airtime too: one host, arguing in the shadow of Stanley Druckenmiller's well-publicized deficit pessimism, insists that by no means is the problem "solved" — the deficit "still is what it is," growing, with interest expense climbing behind it — while another offers only that something is "at least a mild drag" on the US economy, offsetting whatever else is stimulating it. It is worth saying plainly: almost none of this is attributed. The digest names Jason Yanowitz and gestures at Druckenmiller; everyone else is an unidentified voice in an anonymous roundtable.
 
-Running underneath is a liquidity-and-structure debate that never quite resolves. One commenter is "a bit more willing to accept" a multi-month, significant drawdown of the Treasury General Account, dismissing the related fiscal theater as "kabuki theater events," while another counters that any injection impact would be "one-off and transitory" as markets and the economy quickly equilibrate. A dot-com analogy surfaces too — like fiber in 2000, the worry is that everyone keeps "digging and leasing" regardless of payoff — and there's a distributional edge: if the top of the economy starts getting hit, "the top of the K comes down." Against all that, the corpus keeps one quantitative buy signal on file: a Ned Davis multi-cap equal-dollar-weighted buy-thrust, triggered when the 10-day gain runs 2.3x the 30-day gain eleven days after an S&P decline of at least 9%.
+The one argumentative strand with a name attached is the claim that finance itself is dissolving into crypto — dollars becoming stablecoins, stocks becoming tokens, exchanges becoming protocols — supported by the pointed observation that the onchain economy "has barely contracted" over the last 12 months even as Bitcoin fell 50%. [Jason Yanowitz](../People/jason-yanowitz.md) makes the causal case most directly: "It is clearly moving because the macro setup improved at the exact same time that the onchain economy has become a lot more useful."
 
-Fair caveats: nearly everything here clusters between August 22 and 27, 2026, so "over time" means within one week rather than across seasons, and most of the macro voices are unnamed in the record — Pies is the only byline. The dominant posture that emerges is bullish by default at all-time highs, but with exit levels charted in advance and rates, the deficit, and the TGA held up as the things that could invalidate them.
+Taken whole, the shape of the debate is a market long at the levels — bullish because the tape says so, hedged because put walls at 7,500–7,600, a hypothetical 6% 10-year, midterm seasonality and a treasury/nominal-GDP regime all sit in the way — with a side argument over whether the plumbing of finance is the real macro story. The tension between "fairly easy to stay bullish" and a catalog of sell zones is the honest center of this theme. One caveat on time: the coverage concentrates in a single late-August window, so the apparent shift from index technicals (Aug 24–25) to macro-structural debate (Aug 27) is a days-long rotation in topic, not a documented arc over months. Thin on named voices and long on anonymous conviction, the corpus reads as a trading floor's ambient hum rather than a curated debate.
 
 ## Constituent tickers
 
 | Ticker | Mentions |
 |---|---:|
-| [^GSPC](../Tickers/^GSPC.md) | 140 |
-| [^IXIC](../Tickers/^IXIC.md) | 23 |
+| [^GSPC](../Tickers/^GSPC.md) | 155 |
+| [^IXIC](../Tickers/^IXIC.md) | 24 |
 | [SPY](../Tickers/SPY.md) | 9 |
 | [DX-Y.NYB](../Tickers/DX-Y.NYB.md) | 6 |
 | [^KS11](../Tickers/^KS11.md) | 5 |
@@ -35,6 +35,7 @@ Fair caveats: nearly everything here clusters between August 22 and 27, 2026, so
 | `Housing market / housing index` | 1 |
 | [QQQ](../Tickers/QQQ.md) | 1 |
 | [XLE](../Tickers/XLE.md) | 1 |
+| `Individual equities within the index (unspecified)` | 1 |
 
 ## Key voices
 
@@ -43,15 +44,15 @@ Fair caveats: nearly everything here clusters between August 22 and 27, 2026, so
 - [Brent Johnson](../People/brent-johnson.md) (8)
 - [Jeff Snider](../People/jeff-snider.md) (7)
 - [Steve](../People/steve.md) (6)
+- [Patrick Ceresna](../People/patrick-ceresna.md) (6)
 - [Milton Berg](../People/milton-berg.md) (6)
+- [Chris Vermeulen](../People/chris-vermeulen.md) (4)
 - [Patrick](../People/patrick.md) (4)
 - [Darius Dale](../People/darius-dale.md) (4)
-- [Patrick Ceresna](../People/patrick-ceresna.md) (4)
-- [Chris Semenuk](../People/chris-semenuk.md) (4)
 
 ## Consensus across analysts
 
-Of 197 tickered calls: **9 bullish**, **9 bearish**.
+Of 214 tickered calls: **10 bullish**, **13 bearish**.
 
 ## Notable calls & quotes
 
@@ -70,16 +71,16 @@ Of 197 tickered calls: **9 bullish**, **9 bearish**.
 
 ## Broad market views
 
+- _? (?)_: [Bitcoin Price To Double: Here's When $200k Comes \| Jason Yanowitz](https://www.youtube.com/watch?v=ZFhqGDd6Efc) — 2026-08-27, David Lin: "finance is becoming crypto, right? Dollars are becoming stable coins, stocks are becoming tokens, exchanges are becoming protocols, NASDAQ is moving to 24/7 365 trading and launching an onchain trading venue."
+- _? (?)_: [Bitcoin Price To Double: Here's When $200k Comes \| Jason Yanowitz](https://www.youtube.com/watch?v=ZFhqGDd6Efc) — 2026-08-27, David Lin: "the onchain economy has barely contracted, you know, over the last 12 months, while Bitcoin fell 50%."
+- _? (?)_: [Bitcoin Price To Double: Here's When $200k Comes \| Jason Yanowitz](https://www.youtube.com/watch?v=ZFhqGDd6Efc) — 2026-08-27, [Jason Yanowitz](../People/jason-yanowitz.md): "It is clearly moving because the macro setup improved at the exact same time that the onchain economy has become a lot more useful."
+- _? (?)_: [50% Tariff Attack: Canada, U.S. Brace For 'Massive Pain'](https://www.youtube.com/watch?v=edwp5mhmgcs) — 2026-08-27, Unnamed commentator: "and so most of this is is a at least a mild drag uh on the US economy. Uh that somewhat offsets other things that are stimulating."
+- _? (?)_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "there was an expectation in the macroeconomic community that interest rates and the economy and inflation would revert to the pre-COVID norm"
+- _? (?)_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "treasuries continue to stay under pressure because they are dynamically at odds with the ongoing pace of nominal GDP"
+- _? (?)_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "the bond market basically, like, over time tends to follow a pretty tight relationship with uh with nominal GDP"
 - _? (?)_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "But by no means is is Druckenmiller is this this solved. Like the deficit's still is what it is, it's growing, interest expense is rising. Inflationary pressures are not going away and they're not going to go away when…"
 - _? (?)_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "why macro risks are suddenly taking control of the stock market"
 - _? (?)_: [TGA 101](https://dampedspring101.substack.com/p/tga-101) — 2026-08-24, dampedspring: "I am a bit more willing to accept that a multi month significant drawdown of the TGA as seen in multiple kabuki theater events of the debt ceiling is stimulative to assets and the economy during the drawdown and reverse…"
-- _? (?)_: [TGA 101](https://dampedspring101.substack.com/p/tga-101) — 2026-08-24, dampedspring: "That impact would be one off and transitory as markets and the economy would quickly equilabrate after the injection at whatever new price levels occur."
-- _? (?)_: [‘We’re In A Financial Crisis’: Treasury Readies $1 Trillion Warchest \| Danny Mo…](https://www.youtube.com/watch?v=EfKxbRuLZG0) — 2026-08-24, David Lin: "No one's asking those questions yet because like the.com bubble with fiber and we're just going to keep digging and leasing and building fiber because the internet's here to stay. The macro is right. The question is all…"
-- _? (?)_: [‘We’re In A Financial Crisis’: Treasury Readies $1 Trillion Warchest \| Danny Mo…](https://www.youtube.com/watch?v=EfKxbRuLZG0) — 2026-08-24, David Lin: "If they start to get hit, that's going to have a follow on on the K-shaped economy and the top of the K comes down."
-- _? (?)_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "throw up a chart of the 10-year Treasury yield and nominal GDP in the United States, which is basically a combination of growth and inflation. And you can see that there's an extremely strong correlation regardless of w…"
-- _? (?)_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "when you look at that chart of the 10-year Treasury yield and nominal GDP, there's a very close correlation going all the way back as many decades as you want to"
-- _? (?)_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "you get all of this additional buying or additional demand ... So then you get all the buying which brings rates right back down right let's say right here to let's just say 7%. which is more in line with where they his…"
-- _? (?)_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "you see no correlation, almost an inverse correlation between that 10-year Treasury yield and the debt in the United States or the deficits as a percentage of GDP"
 
 ---
 _Theme buckets are keyword-based and approximate; an LLM-tagged taxonomy would be more precise. Regenerate via `uv run python scripts/build_llm_wiki.py`._

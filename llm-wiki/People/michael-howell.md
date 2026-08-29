@@ -84,7 +84,7 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 Topics where this person's current stance conflicts with another person's:
 
-- [GC=F](../Tickers/GC=F.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md)
+- [CL=F](../Tickers/CL=F.md) — opposite: [Gary Wagner](../People/gary-wagner.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

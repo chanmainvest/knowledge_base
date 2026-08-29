@@ -16,7 +16,7 @@ On how her views have moved over time: there is no timeline here to read. Every 
 
 - **Appearances**: 1 (2026-08-13 → 2026-08-13)
 - **Shows**: Raoul Pal The Journey Man
-- **Extracted calls**: 4 predictions, 8 market views
+- **Extracted calls**: 4 predictions, 9 market views
 - **Topics with opinions**: 5
 - **Stance split**: 0 bullish / 0 bearish / 6 neutral
 

@@ -6,17 +6,21 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 8
+- **Extracted items**: 15
 - **Items with predictions**: 4
 - **Predictions**: 26
-- **Market views**: 13
+- **Market views**: 37
 
 ## People on this channel
 
 (hosts, guests and solo authors — each person's appearances across all shows are merged on their own People page)
 
-- [Jimmy Connor (Bloor Street Capital)](../People/jimmy-connor-bloor-street-capital.md) — 1 appearance(s) as guest
-- [John Miniotis (CEO, Abra Silver Resource Corp)](../People/john-miniotis-ceo-abra-silver-resource-corp.md) — 1 appearance(s) as guest
+- [Jimmy Connor](../People/jimmy-connor.md) — 4 appearance(s) as guest
+- [Barry O'Shea](../People/barry-oshea.md) — 1 appearance(s) as guest
+- [John Miniotis](../People/john-miniotis.md) — 1 appearance(s) as guest
+- [Jordan Pandoff](../People/jordan-pandoff.md) — 1 appearance(s) as guest
+- [Sean Whiteford (guest, NexMetals Mining)](../People/sean-whiteford-guest-nexmetals-mining.md) — 1 appearance(s) as solo
+- [Vincent Metcalfe](../People/vincent-metcalfe.md) — 1 appearance(s) as guest
 
 **Most-called tickers:**
 
@@ -52,15 +56,16 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "the study was done at a very conservative commodity prices. So we used $50 for silver long term, $3,650 for gold. So of course well below where we're sitting today."
 - _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "And so, with RIGGI, I'd say Argentina has again truly become genuinely sort of an investable mining jurisdiction again."
-- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "We have a very large-scale permitted, highly economic silver gold development project, very robust economics in a jurisdiction that's improved dramatically and we still have real expansion upside ahead of us."
-- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "we're the only developer in Argentina that has RIGGI approval in place. The other companies that have RIGGI approval already are all the majors."
+- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "the study was done at a very conservative commodity prices. So we used $50 for silver long term, $3,650 for gold. So of course well below where we're sitting today."
 - _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "Abra Silver, our key asset, Diablillos, this is one of the largest, fully permitted, uh, primary silver projects in the world."
+- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "we're the only developer in Argentina that has RIGGI approval in place. The other companies that have RIGGI approval already are all the majors."
+- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "We have a very large-scale permitted, highly economic silver gold development project, very robust economics in a jurisdiction that's improved dramatically and we still have real expansion upside ahead of us."
 - _? — ?_: [Rainbow Rare Earths - CEO George Bennett](https://www.youtube.com/watch?v=RYdBKSiMD0w) — 2026-07-14, Jimmy Connor: "We believe we'll get a big rerating and we'll get massive improvement in liquidity in our share if we list in the US."
 
 ## Source items (extracted)
 
+- 2026-08-24 — [Who Blew Up Nord Stream? The Inside Story of the Pipeline Sabotage \| Bojan Pancevski](https://www.youtube.com/watch?v=r06_2ooytHk)
 - 2026-08-15 — [Where is the S&P and Nasdaq Going into Year End \| Mark Newton Fundstrat](https://www.youtube.com/watch?v=bkL0lcYOTMA)
 - 2026-08-14 — [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c)
 - 2026-08-10 — [Sunrise Energy Metals Surges on $400M U.S. Gov Loan](https://www.youtube.com/watch?v=nGOo_aaTkZA)
@@ -69,6 +74,12 @@ _No URL / bio in DB channel metadata._
 - 2026-07-16 — [Investing in Critical Minerals and Rare Earths \| Meredith Schwartz and Jimmy Connor](https://www.youtube.com/watch?v=YmyxHc__FZ8)
 - 2026-07-14 — [Rainbow Rare Earths - CEO George Bennett](https://www.youtube.com/watch?v=RYdBKSiMD0w)
 - 2026-06-27 — [Generation Mining: Construction Ready Copper-Palladium Mine in Canada](https://www.youtube.com/watch?v=o6hqZnbWuGQ)
+- 2026-06-22 — [Pecoy Copper: Copper Gold Deposit in Peru \| Vincent Metcalfe and Jimmy Connor](https://www.youtube.com/watch?v=wrUoESo2bGk)
+- 2026-06-21 — [NexMetals Mining: Copper-Nickel Developer Moving Towards Production \| Sean Whiteford](https://www.youtube.com/watch?v=MWKeqGVJBeE)
+- 2026-06-20 — [Meredith Whitney on the U.S. Economy and the Consumer](https://www.youtube.com/watch?v=ibrkjqo7eZA)
+- 2026-06-19 — [Lumina Metals: Europe's Largest Copper-Silver District \| Jordan Pandoff and Jimmy Connor](https://www.youtube.com/watch?v=kpsH4AbmHig)
+- 2026-06-18 — [Highland Copper: U.S. Copper Production in 2029 \| Barry O’Shea and Jimmy Connor](https://www.youtube.com/watch?v=c5sfbCTcU3Q)
+- 2026-06-17 — [Faraday Copper: Copper in Arizona \| Paul Harbidge and Jimmy Connor](https://www.youtube.com/watch?v=btZ38rT4e6M)
 
 ---
 _Page reflects DB state at generation time._

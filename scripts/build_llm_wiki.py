@@ -3,8 +3,10 @@
 
 Reads items + predictions + market views + channels + sources + per-item
 speaker lists from Postgres and renders a human-readable, densely
-cross-linked Markdown wiki under `llm-wiki/`. READ-ONLY against the DB;
-writes only to `llm-wiki/` (plus the optional bio cache, see below).
+cross-linked Markdown wiki under `llm-wiki/`. Read-only against the DB
+except for one bookkeeping table: `wiki_item_read`, the item-level
+read tracker (see "Read tracking" below). Everything else it writes
+lives under `llm-wiki/` (plus the optional caches in `scripts/`).
 
 Incremental: re-running updates every generated page **in place** — the
 tree is never wiped, files are only rewritten when their content changes,
@@ -21,7 +23,15 @@ Sections:
                  (who they are, what they argue, how their views moved)
                  over the DB-derived opinion timeline. Stance flips are
                  detected and flagged. People appearing on several shows
-                 get a single merged page.
+                 get a single merged page. The registry is gated by an
+                 LLM pass (cached in ``scripts/llm_wiki_people.json``)
+                 that drops non-person labels (AI bots, companies,
+                 boilerplate) and canonicalizes misspelled / unnamed-CEO
+                 variants, on top of a deterministic generic-name filter.
+- ``Weekly/``    one page per Sunday→Saturday week (named by the Sunday
+                 date, e.g. ``Weekly/2026-08-23.md``): an LLM-written
+                 digest of what dominated the discourse that week, where
+                 commentators disagreed, and who changed their mind.
 - ``Tickers/``   one page per asset with enough mentions, opening with an
                  LLM-written "the debate" narrative, plus a rates /
                  bond-yield backdrop section for context.
@@ -33,7 +43,7 @@ Sections:
                  people on opposite sides of the same topic), and a global
                  timeline of every extracted call.
 
-The narrative sections are written by the configured LLM (GLM 5.3) from a
+The narrative sections are written by the configured LLM (GLM 5.3 Flash) from a
 compact digest of the DB facts, cached in
 ``scripts/llm_wiki_prose.json`` keyed by a hash of the digest — unchanged
 data is never re-written by the LLM. Every factual claim in the prose is
@@ -43,11 +53,20 @@ unavailable, pages render without the narrative sections.
 
 People bios: for people who look like finance-industry professionals
 (interviewees, researchers, ...), a short bio is generated with the
-configured default LLM provider (``zai`` / GLM, model ``glm-5.3`` unless
-overridden via ``--model``) and cached in ``scripts/llm_wiki_bios.json``
+configured default LLM provider (``zai`` / GLM, model ``glm-5.3-flash``
+unless overridden via ``--model``) and cached in
+``scripts/llm_wiki_bios.json``
 so re-runs don't re-call the API. Use ``--no-bios`` to skip bio generation
 entirely. If the LLM is unavailable, the page renders a DB-derived stub
 instead.
+
+Read tracking: every item whose content an LLM pass consumes is recorded
+(item id, purpose, sha256 of exactly what was read) in BOTH the
+``wiki_item_read`` Postgres table and ``llm-wiki/read-state.json`` —
+dual-written, reconciled on load — so unchanged items are never re-read.
+The JSON is committed with the wiki; together with the ``data/`` markdown
+(the canonical raw form) it rebuilds the wiki from the repo alone even
+after losing the database.
 
 The wiki reflects DB state at generation time. Re-run after new scrapes /
 extraction batches to refresh.
@@ -61,7 +80,7 @@ import re
 import sys
 import time
 from collections import Counter, defaultdict
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -75,16 +94,30 @@ from kb.db import engine  # noqa: E402
 
 WIKI_DIR = REPO / "llm-wiki"
 BIO_CACHE = REPO / "scripts" / "llm_wiki_bios.json"
+# Person-gate verdicts: candidate name -> {is_person, canonical}. The
+# extraction LLM emits `speakers` as free strings with no person constraint,
+# so the registry needs an LLM pass to drop non-persons (AI bots, companies,
+# boilerplate) and canonicalize near-duplicate labels (misspellings,
+# unnamed-CEO variants). Cached so each name is judged exactly once.
+PEOPLE_CACHE = REPO / "scripts" / "llm_wiki_people.json"
 # Bio generation model. Defaults to the provider's configured model except
 # on zai, where the wiki pins the newest GLM (5.3) regardless of ZAI_MODEL
 # — extraction (kb extract run) keeps using ZAI_MODEL until it is bumped.
-WIKI_ZAI_MODEL = "glm-5.3"
+WIKI_ZAI_MODEL = "glm-5.3-flash"
+# Display name interpolated into generated README/AGENTS pages so the prose
+# provenance note never drifts from the model constant.
+WIKI_MODEL_DISPLAY = "GLM 5.3 Flash"
 # Narrative-prose cache: page key -> {"hash": <digest sha256>, "text": …}.
 # Re-written by the LLM only when the underlying DB digest changes.
 PROSE_CACHE = REPO / "scripts" / "llm_wiki_prose.json"
 # Files generated by the previous run (used to garbage-collect pages that
 # no longer exist; kept outside llm-wiki/ so it never shows up in the tree).
 MANIFEST = REPO / "scripts" / ".llm_wiki_manifest.json"
+# Item-level read tracker, dual-written: the `wiki_item_read` DB table and
+# this standalone JSON inside llm-wiki/ (so it is committed with the wiki —
+# with the data/ markdown it reconstructs the read state after losing the
+# DB). Not a generated page: never garbage-collected.
+READ_STATE_JSON = WIKI_DIR / "read-state.json"
 
 # --- thresholds (keep pages meaningful; thin data gets noted, not padded) -----
 MIN_TICKER_MENTIONS = 2      # a ticker needs >=2 prediction rows for its own page
@@ -294,6 +327,17 @@ GENERIC_SPEAKER_PATTERNS = [
     re.compile(r"^\s*(speaker|voice)\s*\d*\s*$", re.I),
     re.compile(r"^作者"),                     # "作者", "作者 (Author, …)", "作者（未具名）"
 ]
+# Labels that can never be a person: AI products/companies, domains, and
+# boilerplate fragments the extraction LLM sometimes mistakes for a speaker.
+# (Deterministic floor — the LLM curation pass below catches the rest.)
+NON_PERSON_PATTERNS = [
+    re.compile(r"\b(grok|chatgpt|gpt|copilot|gemini|claude|openai|anthropic"
+               r"|deepseek|chatbot|ai assistant|ai bot)\b", re.I),
+    re.compile(r"\bx\.?ai\b", re.I),          # xAI / x.ai
+    re.compile(r"\.(com|net|org|io|ai)\b"),   # domains (misses "narrator" style)
+    re.compile(r"\b(no ?[- ]?one|indirect source|disclaimer|channel "
+               r"description|not the interviewed)\b", re.I),
+]
 GENERIC_SPEAKERS = {"作者", "host", "guest", "guests", "various", "multiple",
                     "unknown", "n/a"}
 
@@ -337,11 +381,18 @@ def is_generic_speaker(raw: str) -> bool:
         return True
     if s in GENERIC_SPEAKERS:
         return True
-    return any(p.search(s) for p in GENERIC_SPEAKER_PATTERNS)
+    if any(p.search(s) for p in GENERIC_SPEAKER_PATTERNS):
+        return True
+    return any(p.search(s) for p in NON_PERSON_PATTERNS)
 
 
-def resolve_person(raw: str) -> str | None:
-    """Canonical display name for a raw speaker string, or None if generic."""
+def resolve_person(raw: str | dict | None) -> str | None:
+    """Canonical display name for a raw speaker entry, or None if generic.
+
+    `raw` is normally a string, but some extraction runs emit objects
+    ({'name': …, 'role': …}) despite the schema — use their `name` field."""
+    if isinstance(raw, dict):
+        raw = raw.get("name")
     s = (raw or "").strip()
     if not s or is_generic_speaker(s):
         return None
@@ -430,6 +481,194 @@ def rel_link(path: Path, target_page: str, label: str) -> str:
     depth = len(path.parent.relative_to(WIKI_DIR).parts)
     prefix = "../" * depth if depth else ""
     return f"[{label}]({prefix}{target_page}.md)"
+
+
+# ---------------------------------------------------------------------------
+# Read tracking — which items the wiki build has already consumed
+#
+# Every item whose content is fed to an LLM pass (weekly digests, deep
+# reads) is recorded here with a sha256 of exactly what was consumed, in
+# BOTH the `wiki_item_read` Postgres table and `llm-wiki/read-state.json`.
+# An item whose digest is unchanged is never re-read — no wasted tokens.
+# The JSON copy is committed with the wiki, so after losing the DB the
+# state (and the wiki) can be rebuilt from the repo alone: re-ingest the
+# data/ markdown, then re-run — entries are re-attached by
+# (source_code, external_id) even though item ids were regenerated.
+#
+# (All SQL below stays inline inside execute() as multi-line triple-quoted
+# text with bound parameters — the Mimosa write hook flags anything else.)
+# ---------------------------------------------------------------------------
+
+READ_PURPOSE_WEEKLY = "weekly-digest"
+
+
+def _iso(v: Any) -> str:
+    return v.isoformat() if isinstance(v, datetime) else str(v or "")
+
+
+class ReadTracker:
+    """Item read state: {(item_id, purpose): {source_code, external_id,
+    content_sha, week_start, read_at}} merged from the JSON and DB copies
+    (latest read_at wins). `mark()` dirties entries; `flush()` upserts the
+    dirty ones to Postgres and rewrites the JSON so both stay in lockstep."""
+
+    def __init__(self) -> None:
+        self.entries: dict[tuple[int, str], dict] = {}
+        self._dirty: set[tuple[int, str]] = set()
+        self.db_ok = True
+
+    # -- loading ------------------------------------------------------------
+    def load(self) -> None:
+        if READ_STATE_JSON.exists():
+            try:
+                js = json.loads(READ_STATE_JSON.read_text(encoding="utf-8"))
+            except Exception:  # noqa: BLE001 — corrupt JSON: DB copy wins
+                js = {}
+            for key, rec in (js.get("items") or {}).items():
+                try:
+                    item_id_s, purpose = key.split("|", 1)
+                    self.entries[(int(item_id_s), purpose)] = dict(rec)
+                except (ValueError, AttributeError):
+                    continue
+        try:
+            # DDL identical to docker/postgres/init.sql (idempotent) so the
+            # table self-heals even against a DB that predates it.
+            with engine().begin() as c:
+                c.execute(text("""
+                    CREATE TABLE IF NOT EXISTS wiki_item_read (
+                        item_id     INT NOT NULL REFERENCES item(id) ON DELETE CASCADE,
+                        purpose     TEXT NOT NULL,
+                        source_code TEXT NOT NULL,
+                        external_id TEXT NOT NULL,
+                        content_sha TEXT NOT NULL,
+                        week_start  DATE,
+                        read_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
+                        PRIMARY KEY (item_id, purpose)
+                    )
+                """))
+                c.execute(text("""
+                    CREATE INDEX IF NOT EXISTS wiki_item_read_ext_idx
+                        ON wiki_item_read(source_code, external_id)
+                """))
+                for r in c.execute(text("""
+                    SELECT item_id, purpose, source_code, external_id,
+                           content_sha, week_start, read_at
+                    FROM wiki_item_read
+                """)).mappings():
+                    key = (r["item_id"], r["purpose"])
+                    rec = {
+                        "source_code": r["source_code"],
+                        "external_id": r["external_id"],
+                        "content_sha": r["content_sha"],
+                        "week_start": (r["week_start"].isoformat()
+                                       if r["week_start"] else None),
+                        "read_at": _iso(r["read_at"]),
+                    }
+                    old = self.entries.get(key)
+                    if old is None or rec["read_at"] > (old.get("read_at") or ""):
+                        self.entries[key] = rec
+                        self._dirty.add(key)   # JSON-only rows → push to DB
+        except Exception as exc:  # noqa: BLE001 — DB down: JSON still usable
+            self.db_ok = False
+            print(f"  read-tracker: DB unavailable ({type(exc).__name__}) "
+                  "— running from the JSON copy only")
+        self._adopt_orphans()
+
+    def _adopt_orphans(self) -> None:
+        """JSON entries whose item_id no longer exists (DB was rebuilt and
+        re-ingest assigned new ids) get re-attached via source+external_id."""
+        if self.db_ok is False or not self.entries:
+            return
+        try:
+            with engine().connect() as c:
+                live = {r[0] for r in c.execute(text("""
+                    SELECT id FROM item
+                """))}
+        except Exception:  # noqa: BLE001
+            return
+        orphans = [k for k in self.entries if k[0] not in live]
+        for key in orphans:
+            rec = self.entries.pop(key)
+            _, purpose = key
+            try:
+                with engine().connect() as c:
+                    row = c.execute(text("""
+                        SELECT i.id AS item_id
+                        FROM item i JOIN source s ON s.id = i.source_id
+                        WHERE s.code = :code AND i.external_id = :ext
+                        LIMIT 1
+                    """), {"code": rec.get("source_code"),
+                           "ext": rec.get("external_id")}).first()
+            except Exception:  # noqa: BLE001
+                row = None
+            if row:
+                nk = (row["item_id"], purpose)
+                self.entries[nk] = rec
+                self._dirty.add(nk)
+                print(f"  read-tracker: re-attached {rec.get('source_code')}:"
+                      f"{rec.get('external_id')} → item {row['item_id']}")
+            # no match yet: the item isn't re-ingested; entry stays in the
+            # JSON-only limbo and retries adoption on the next run.
+
+    # -- use ----------------------------------------------------------------
+    def sha_for(self, item_id: int, purpose: str) -> str | None:
+        rec = self.entries.get((item_id, purpose))
+        return rec.get("content_sha") if rec else None
+
+    def mark(self, *, item_id: int, purpose: str, source_code: str,
+             external_id: str, content_sha: str,
+             week_start: str | None = None) -> None:
+        key = (item_id, purpose)
+        old = self.entries.get(key)
+        if old and old.get("content_sha") == content_sha:
+            # same content → already read; keep the original read_at (no
+            # tokens were spent on it), only repair a drifted week bucket
+            if week_start and old.get("week_start") != week_start:
+                old["week_start"] = week_start
+                self._dirty.add(key)
+            return
+        self.entries[key] = {
+            "source_code": source_code,
+            "external_id": external_id,
+            "content_sha": content_sha,
+            "week_start": week_start,
+            "read_at": datetime.now(timezone.utc).isoformat(),
+        }
+        self._dirty.add((item_id, purpose))
+
+    def flush(self) -> None:
+        if self.db_ok and self._dirty:
+            params = [{"item_id": iid, "purpose": purpose, **rec}
+                      for (iid, purpose), rec in self.entries.items()
+                      if (iid, purpose) in self._dirty]
+            try:
+                with engine().begin() as c:
+                    c.execute(text("""
+                        INSERT INTO wiki_item_read
+                            (item_id, purpose, source_code, external_id,
+                             content_sha, week_start, read_at)
+                        VALUES (:item_id, :purpose, :source_code,
+                                :external_id, :content_sha,
+                                CAST(:week_start AS DATE),
+                                CAST(:read_at AS TIMESTAMPTZ))
+                        ON CONFLICT (item_id, purpose) DO UPDATE SET
+                            source_code = EXCLUDED.source_code,
+                            external_id = EXCLUDED.external_id,
+                            content_sha = EXCLUDED.content_sha,
+                            week_start  = EXCLUDED.week_start,
+                            read_at     = EXCLUDED.read_at
+                    """), params)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  read-tracker: DB write failed "
+                      f"({type(exc).__name__}) — JSON copy still saved")
+        READ_STATE_JSON.parent.mkdir(parents=True, exist_ok=True)
+        READ_STATE_JSON.write_text(json.dumps({
+            "version": 1,
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "items": {f"{iid}|{purpose}": rec
+                      for (iid, purpose), rec in sorted(self.entries.items())},
+        }, ensure_ascii=False, indent=1), encoding="utf-8")
+        self._dirty.clear()
 
 
 # ---------------------------------------------------------------------------
@@ -569,6 +808,18 @@ def fetch_all() -> dict[str, Any]:
         """), {"st_done": ST_DONE}).mappings():
             channel_items[r["channel_id"]].append(dict(r))
 
+        # --- dated extracted items (Sunday→Saturday weekly digests) ----------
+        weekly_items = [dict(r) for r in c.execute(text("""
+            SELECT i.id, i.title, i.url, i.external_id, i.published_at,
+                   i.summary, i.language, s.code AS source,
+                   c.name AS channel_name, c.handle AS channel_handle
+            FROM item i JOIN source s ON s.id=i.source_id
+            LEFT JOIN channel c ON c.id=i.channel_id
+            WHERE i.extraction_status = :st_done
+              AND i.published_at IS NOT NULL
+            ORDER BY i.published_at
+        """), {"st_done": ST_DONE}).mappings()]
+
     return {
         "sources": sources,
         "totals": totals,
@@ -584,6 +835,7 @@ def fetch_all() -> dict[str, Any]:
         "analysts": analysts,
         "recent_items": recent_items,
         "channel_items": channel_items,
+        "weekly_items": weekly_items,
     }
 
 
@@ -779,6 +1031,12 @@ def build_people() -> dict[str, dict]:
         if name:
             _get(name)["views"].append(v)
 
+    _finalize_people(people)
+    return people
+
+
+def _finalize_people(people: dict[str, dict]) -> None:
+    """(Re)compute stable slugs and the rollups renderers use. Idempotent."""
     # stable slugs: latin slug from the name when possible, else a
     # deterministic person-NNN fallback (CJK-only names slugify to empty).
     cjk_idx = 0
@@ -796,7 +1054,6 @@ def build_people() -> dict[str, dict]:
         p["roles"] = Counter(a["role"] for a in p["appearances"])
         p["channels"] = sorted({a["channel_name"] or a["channel_handle"] or "?"
                                 for a in p["appearances"]})
-    return people
 
 
 def person_slug(name: str) -> str | None:
@@ -816,6 +1073,165 @@ def person_link(path: Path, name: str) -> str:
     if _person_has_page(name):
         return rel_link(path, f"People/{PEOPLE[name]['slug']}", name)
     return md_escape(name)
+
+
+# ---------------------------------------------------------------------------
+# People curation — LLM gate + canonicalizer (cached)
+#
+# The extraction schema types `speakers` as free strings, so the raw
+# registry contains non-persons (AI bots like "Grok (xAI)", companies,
+# channel-disclaimer fragments) and near-duplicates (misspellings, three
+# variants of "Torr Metals CEO"). One batched LLM pass per batch of
+# candidate names (cached forever in scripts/llm_wiki_people.json) drops
+# the non-persons and maps every label to one canonical name — the real
+# full name when confidently known, else a short stable descriptor.
+# ---------------------------------------------------------------------------
+
+PEOPLE_SYSTEM = """You clean a speaker registry that was extracted (noisily)
+by an LLM from finance transcripts and articles. For each candidate label
+decide:
+- is_person: does the label refer to ONE specific individual human? Real
+  names count, full or partial, any spelling, any language. Labels that
+  identify NO specific individual do NOT count: companies, products, AI
+  assistants (Grok, x.ai, ChatGPT), shows/channels, groups, disclaimers or
+  channel boilerplate, and bare generic words ("CEO", "interviewee",
+  "no one", "indirect source").
+- canonical: the single best label for that individual. Their real full
+  name if you are confident who it is from the context or general
+  knowledge — NEVER guess or invent. Otherwise a short stable descriptor
+  with no parentheticals or trailing annotations (e.g. "Torr Metals CEO").
+  Near-duplicate labels for the same individual (spelling variants,
+  "X CEO" vs "CEO of X (unnamed in transcript)") must map to the SAME
+  canonical value. Output strict JSON per the schema."""
+
+PEOPLE_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "additionalProperties": False,
+    "required": ["verdicts"],
+    "properties": {
+        "verdicts": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": False,
+                "required": ["label", "is_person"],
+                "properties": {
+                    "label": {"type": "string"},
+                    "is_person": {"type": "boolean"},
+                    "canonical": {"type": "string"},
+                },
+            },
+        },
+    },
+}
+
+PEOPLE_BATCH = 40   # small batches: long outputs truncate on this endpoint
+
+
+def _load_people_cache() -> dict[str, dict]:
+    if PEOPLE_CACHE.exists():
+        try:
+            return json.loads(PEOPLE_CACHE.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001 — corrupt cache is regenerable
+            return {}
+    return {}
+
+
+def _person_context(name: str) -> str:
+    p = PEOPLE.get(name) or {}
+    shows = Counter(
+        (a.get("channel_name") or a.get("channel_handle") or "?")
+        for a in p.get("appearances", []))
+    roles = p.get("roles") or {}
+    bits = [f"on: " + ", ".join(f"{s} x{n}" for s, n in shows.most_common(3))
+            if shows else "no show info"]
+    if roles:
+        bits.append("roles: " +
+                    ", ".join(f"{r} x{n}" for r, n in
+                              sorted(roles.items()) if n))
+    return "; ".join(bits)
+
+
+def curate_people(provider: str | None, model: str | None) -> None:
+    """Drop non-persons from PEOPLE and canonicalize near-duplicates, using
+    cached LLM verdicts. Mutates the registry in place and re-finalizes it."""
+    cache = _load_people_cache()
+    todo = [n for n in sorted(PEOPLE) if n not in cache]
+    if todo and PROSE_ENABLED:
+        from kb import llm
+        from kb.llm import chat_json
+        from kb.config import settings as _settings
+        provider = provider or _settings().llm_provider
+        if provider not in llm.PROVIDERS or not llm.has_credentials(provider):
+            print("  people: no LLM credentials — labels stay un-gated "
+                  "this run")
+            return
+        if model is None:
+            model = (WIKI_ZAI_MODEL if provider == "zai"
+                     else llm.default_model(provider))
+        print(f"  people: judging {len(todo)} candidate label(s) "
+              f"via {provider}/{model} …")
+        for start in range(0, len(todo), PEOPLE_BATCH):
+            batch = todo[start:start + PEOPLE_BATCH]
+            user = ("CANDIDATES (label — context):\n" +
+                    "\n".join(f"- {n} — {_person_context(n)}"
+                              for n in batch))
+            try:
+                out = chat_json(PEOPLE_SYSTEM, user, PEOPLE_SCHEMA,
+                                provider=provider, model=model)
+            except Exception as exc:  # noqa: BLE001 — rate limit etc.
+                print(f"  people: batch {start // PEOPLE_BATCH} failed "
+                      f"({type(exc).__name__}) — those labels stay "
+                      "un-gated this run")
+                continue
+            # models sometimes answer with the verdicts array itself, or a
+            # one-element list wrapping it
+            if isinstance(out, list):
+                if (len(out) == 1 and isinstance(out[0], dict)
+                        and "verdicts" in out[0]):
+                    out = out[0]
+                else:
+                    out = {"verdicts": out}
+            if not isinstance(out, dict):
+                continue
+            for v in (out.get("verdicts") or []):
+                if not isinstance(v, dict) or not v.get("label"):
+                    continue
+                cache[v["label"]] = {
+                    "is_person": bool(v.get("is_person")),
+                    "canonical": (v.get("canonical") or "").strip() or None,
+                }
+            PEOPLE_CACHE.write_text(
+                json.dumps(cache, ensure_ascii=False, indent=1),
+                encoding="utf-8")
+            time.sleep(2)   # stay clear of the coding-plan rate limit
+
+    # --- apply verdicts -----------------------------------------------------
+    n_drop = n_merge = 0
+    for name in list(PEOPLE):
+        v = cache.get(name)
+        if not v:
+            continue                      # no verdict yet: keep as-is
+        if not v.get("is_person"):
+            del PEOPLE[name]
+            n_drop += 1
+            continue
+        canon = v.get("canonical") or name
+        if canon and canon != name:
+            tgt = PEOPLE.setdefault(canon, {
+                "name": canon, "appearances": [], "preds": [], "views": []})
+            src = PEOPLE[name]
+            seen_items = {a.get("item_id") for a in tgt["appearances"]}
+            tgt["appearances"] += [a for a in src["appearances"]
+                                   if a.get("item_id") not in seen_items]
+            tgt["preds"] += src["preds"]
+            tgt["views"] += src["views"]
+            del PEOPLE[name]
+            n_merge += 1
+    _finalize_people(PEOPLE)
+    if n_drop or n_merge:
+        print(f"  people: dropped {n_drop} non-person label(s), "
+              f"merged {n_merge} into canonicals -> {len(PEOPLE)} people")
 
 
 # ---------------------------------------------------------------------------
@@ -1255,21 +1671,35 @@ def render_study(channel_name: str, items: list[dict], cache: dict,
     canon: dict[str, str] = {}
     names = sorted(raw_names)
     if raw_names:
-        try:
-            merge = llm(
-                "You merge near-duplicate topic names into a small canonical "
-                "taxonomy (max 12 topics). Output strict JSON: "
-                '{"mapping": {"raw name": "canonical name", ...}} covering every '
-                "input name. Canonical names are short (2-5 words).",
-                "TOPIC NAMES (count):\n" +
-                "\n".join(f"- {n} ({c})" for n, c in raw_names.most_common()),
-                {"type": "object", "required": ["mapping"],
-                 "properties": {"mapping": {"type": "object"}}})
+        # cache the merge LLM call by the raw-name multiset: it is NOT part
+        # of the prose digest, so without this every rebuild re-calls it
+        # (and a hung call stalls the whole build for the client timeout).
+        tax_h = hashlib.sha256(
+            "|".join(f"{n}:{c}" for n, c in raw_names.most_common())
+            .encode("utf-8")).hexdigest()[:16]
+        cached_tax = ch_cache.get("taxonomy") or {}
+        if cached_tax.get("hash") == tax_h:
             canon = {str(k): str(v)
-                     for k, v in (merge.get("mapping") or {}).items()}
-        except Exception as exc:  # noqa: BLE001
-            print(f"  study: taxonomy merge failed ({type(exc).__name__}) "
-                  "— using raw names")
+                     for k, v in (cached_tax.get("mapping") or {}).items()}
+        else:
+            try:
+                merge = llm(
+                    "You merge near-duplicate topic names into a small canonical "
+                    "taxonomy (max 12 topics). Output strict JSON: "
+                    '{"mapping": {"raw name": "canonical name", ...}} covering every '
+                    "input name. Canonical names are short (2-5 words).",
+                    "TOPIC NAMES (count):\n" +
+                    "\n".join(f"- {n} ({c})" for n, c in raw_names.most_common()),
+                    {"type": "object", "required": ["mapping"],
+                     "properties": {"mapping": {"type": "object"}}})
+                canon = {str(k): str(v)
+                         for k, v in (merge.get("mapping") or {}).items()}
+                ch_cache["taxonomy"] = {"hash": tax_h, "mapping": canon}
+                _save_studies_cache(cache)
+                time.sleep(2)   # stay clear of the coding-plan rate limit
+            except Exception as exc:  # noqa: BLE001
+                print(f"  study: taxonomy merge failed ({type(exc).__name__}) "
+                      "— using raw names")
     for n in names:
         canon.setdefault(n, n)
 
@@ -1640,7 +2070,8 @@ def write_page(rel_path: str, body: str) -> Path:
     return p
 
 
-def render_home(inv: dict, people_counts: dict[str, int]) -> Path:
+def render_home(inv: dict, people_counts: dict[str, int],
+                weekly: list[tuple[str, str]] | None = None) -> Path:
     t = inv["totals"]
     lines = [
         "# Knowledge Base Wiki",
@@ -1731,6 +2162,9 @@ def render_home(inv: dict, people_counts: dict[str, int]) -> Path:
         "- **[Syntheses/](Syntheses)** — the multi-dimensional views: where "
         "the *same person* flipped stance, where *different people* "
         "disagree on the same topic, and a global timeline of calls.",
+        "- **[Weekly/](Weekly)** — one digest per Sunday→Saturday week: what "
+        "dominated the discourse, where commentators disagreed, and who "
+        "changed their mind that week.",
         "- **[Studies/](Studies)** — deep single-subject dives, e.g. how "
         "one channel recycles its own material over years.",
         "- **[Analysts/](Analysts)** — one page per channel that has "
@@ -1776,6 +2210,13 @@ def render_home(inv: dict, people_counts: dict[str, int]) -> Path:
         if len(plist) >= MIN_TICKER_MENTIONS:
             lines.append(f"- [Tickers/{topic_page_file(tk)}](Tickers/{topic_page_file(tk)}.md) — "
                          f"{len(plist)} analyst mentions")
+    lines += [
+        "",
+        "## Recent weeks",
+        "",
+    ]
+    for slug, label in (weekly or [])[-5:][::-1]:
+        lines.append(f"- [{label}](Weekly/{slug}.md)")
     lines += [
         "",
         "## Recently extracted items",
@@ -2596,6 +3037,284 @@ def render_timeline() -> Path:
     return write_page("Syntheses/Timeline.md", "\n".join(lines))
 
 
+# ---------------------------------------------------------------------------
+# Weekly digests — one page per Sunday→Saturday week
+# ---------------------------------------------------------------------------
+
+def _sunday(dt: Any) -> date | None:
+    """The Sunday starting the Sunday→Saturday week containing `dt`."""
+    if not dt:
+        return None
+    if isinstance(dt, str):
+        try:
+            dt = datetime.fromisoformat(dt.replace("Z", "+00:00"))
+        except ValueError:
+            return None
+    d = dt.date() if isinstance(dt, datetime) else dt
+    return d - timedelta(days=(d.weekday() + 1) % 7)
+
+
+WEEKLY_TASK = (
+    "Write this week's digest essay: (1) what dominated the discourse — the "
+    "topics and news this week's commentators actually talked about, naming "
+    "who said what; (2) the sharpest differing viewpoints — who lines up on "
+    "each side of a topic and what each side argues; (3) anyone who changed "
+    "their mind this week — their earlier stance vs now. Cite items and "
+    "people inline using the exact links in the digest. 3-5 flowing "
+    "paragraphs; if the week is thin, stay short and say so."
+)
+
+
+def render_weekly(tracker: ReadTracker) -> list[tuple[str, str]]:
+    """Render one digest page per Sunday→Saturday week that has extracted
+    items, and mark every incorporated item as read (DB + JSON). Returns
+    [(week_iso, label)] oldest→newest."""
+    weeks: dict[date, list[dict]] = defaultdict(list)
+    for it in DATA["weekly_items"]:
+        w = _sunday(it.get("published_at"))
+        if w:
+            weeks[w].append(it)
+    if not weeks:
+        return []
+
+    preds_by_item: dict[int, list[dict]] = defaultdict(list)
+    for p in DATA["preds"]:
+        preds_by_item[p["item_id"]].append(p)
+    views_by_item: dict[int, list[dict]] = defaultdict(list)
+    for v in DATA["views"]:
+        views_by_item[v["item_id"]].append(v)
+
+    # every detected stance flip, bucketed by the week of its LATER event —
+    # "changed their mind this week" = the after-quote falls in the week
+    flips_by_week: dict[date, list[tuple[str, dict, dict, dict]]] = defaultdict(list)
+    for name, person in PEOPLE.items():
+        for t in person_topics(person):
+            for before, after in t["flips"]:
+                w = _sunday(after["date"])
+                if w:
+                    flips_by_week[w].append((name, t, before, after))
+
+    def _topic_cell(path: Path, key: str, n_all: int) -> str:
+        """Link a topic key to its Ticker page when one exists."""
+        if n_all >= MIN_TICKER_MENTIONS:
+            return rel_link(path, f"Tickers/{topic_page_file(key)}", key)
+        return f"`{key}`"
+
+    today = datetime.now(timezone.utc).date()
+    sorted_weeks = sorted(weeks)
+    out: list[tuple[str, str]] = []
+
+    for idx, w in enumerate(sorted_weeks):
+        wend = w + timedelta(days=6)
+        wk = sorted(weeks[w], key=lambda it: fmt_date(it.get("published_at")))
+        rel = f"Weekly/{w.isoformat()}.md"
+        path = WIKI_DIR / rel
+        current = wend >= today
+
+        # ---------- per-item digest block (also the read-digest sha) ---------
+        def _item_block(it: dict) -> str:
+            iid = it["id"]
+            eff = _effective_speakers(iid)
+            ch = it.get("channel_name") or it.get("channel_handle") or "?"
+            title = (it.get("title") or "untitled").strip()
+            label = title if len(title) <= 80 else title[:79] + "…"
+            url = it.get("url")
+            link = f"[{label}]({url})" if url else label
+            who = ", ".join(person_link(path, n) if n in PEOPLE else n
+                            for n in eff) if eff else ""
+            lines = [f"- {fmt_date(it.get('published_at'))} {link} — {ch}"
+                     + (f" · {who}" if who else "")]
+            for p in preds_by_item.get(iid, [])[:3]:
+                k = _topic_key(p) or "?"
+                tgt = f" @{p['target_price']}" if p.get("target_price") else ""
+                lines.append(f"  * CALL {(_pred_stance(p) or 'neutral').upper()} "
+                             f"{k}{tgt}: \"{truncate(p.get('quote'), 120)}\"")
+            for v in views_by_item.get(iid, [])[:2]:
+                d = view_stance(v.get("direction")).upper()
+                ac = v.get("asset_class") or "macro"
+                lines.append(f"  * VIEW {d} {ac}: "
+                             f"\"{truncate(v.get('quote') or v.get('rationale'), 120)}\"")
+            if it.get("summary"):
+                lines.append(f"  * SUMMARY: {truncate(it['summary'], 180)}")
+            return "\n".join(lines)
+
+        week_preds = [p for it in wk for p in preds_by_item.get(it["id"], [])]
+        week_views = [v for it in wk for v in views_by_item.get(it["id"], [])]
+        speakers_all = sorted({
+            n for it in wk
+            for n in _effective_speakers(it["id"])} | {
+            n for p in week_preds
+            if (n := _attributed_speaker(p.get("speaker"), p["item_id"]))} | {
+            n for v in week_views
+            if (n := _attributed_speaker(v.get("speaker"), v["item_id"]))})
+
+        topic_calls: dict[str, list[dict]] = defaultdict(list)
+        for p in week_preds:
+            k = _topic_key(p)
+            if k:
+                topic_calls[k].append(p)
+        hot = sorted(topic_calls.items(), key=lambda kv: -len(kv[1]))
+        view_themes_c = Counter(
+            s for v in week_views for s in view_themes(v))
+        disagreements = [
+            (k, pl) for k, pl in hot
+            if any(_pred_stance(p) == "bullish" for p in pl)
+            and any(_pred_stance(p) == "bearish" for p in pl)]
+        flips = flips_by_week.get(w, [])
+
+        # ---------- LLM digest input ------------------------------------------
+        digest = [
+            f"WEEK: Sunday {w.isoformat()} → Saturday {wend.isoformat()}"
+            + (" — CURRENT WEEK, still in progress" if current else ""),
+            f"SCALE: {len(wk)} extracted items · {len(speakers_all)} people · "
+            f"{len(week_preds)} predictions · {len(week_views)} market views",
+        ]
+        if hot:
+            digest.append("MOST-DISCUSSED TOPICS: " + ", ".join(
+                f"{k} ({len(pl)} call(s))" for k, pl in hot[:8]))
+        if view_themes_c:
+            digest.append("VIEW THEMES: " + ", ".join(
+                f"{slug} ({n})" for slug, n in view_themes_c.most_common(6)))
+        digest.append("ITEMS (what was published / said this week):")
+        blocks = {it["id"]: _item_block(it) for it in wk}
+        digest += [blocks[it["id"]] for it in wk]
+        if disagreements:
+            digest.append("SHARPEST DISAGREEMENTS THIS WEEK "
+                          "(same topic, opposite stances):")
+            for k, pl in disagreements[:6]:
+                bulls = [p for p in pl if _pred_stance(p) == "bullish"]
+                bears = [p for p in pl if _pred_stance(p) == "bearish"]
+                for side, lst in (("BULL", bulls), ("BEAR", bears)):
+                    for p in lst[:2]:
+                        sp = (_attributed_speaker(p.get("speaker"), p["item_id"])
+                              or "?")
+                        digest.append(f"  {k} {side} — {sp}: "
+                                      f"\"{truncate(p.get('quote'), 110)}\"")
+        if flips:
+            digest.append("MIND-CHANGES THIS WEEK "
+                          "(person, topic; earlier stance → this week's):")
+            for name, t, before, after in flips[:8]:
+                digest.append(f"- {name} on {t['label']}: {before['date']} "
+                              f"{before['stance']} → {after['date']} "
+                              f"{after['stance']}: "
+                              f"\"{truncate(after['quote'], 110)}\"")
+        essay = llm_prose(
+            f"weekly/{w.isoformat()}", WEEKLY_TASK,
+            "\n".join(digest), path)
+
+        # ---------- page -------------------------------------------------------
+        lines = [
+            f"# Week of {w.isoformat()}",
+            "",
+            f"Sunday **{w.isoformat()}** → Saturday **{wend.isoformat()}**"
+            + (" — _current week, still open (regenerated as new items are "
+               "ingested and extracted)_" if current else "") + ".",
+            "",
+            f"Built from **{len(wk)} extracted item(s)** published this week — "
+            f"{len(week_preds)} predictions, {len(week_views)} market views, "
+            f"{len(speakers_all)} identified people "
+            "(authors, hosts and interviewees).",
+            "",
+        ]
+        if essay:
+            lines += ["## The digest", "", essay, ""]
+
+        # hot topics table
+        lines += ["## What people talked about", ""]
+        if hot or view_themes_c:
+            lines += ["| Topic | Calls | Bull | Bear |", "|---|---:|---:|---:|"]
+            n_all_by_topic = {k: len(v) for k, v in
+                              group_predictions_by_ticker(DATA["preds"]).items()}
+            for k, pl in hot:
+                nb = sum(1 for p in pl if _pred_stance(p) == "bullish")
+                nr = sum(1 for p in pl if _pred_stance(p) == "bearish")
+                lines.append(f"| {_topic_cell(path, k, n_all_by_topic.get(k, 0))} "
+                             f"| {len(pl)} | {nb} | {nr} |")
+            for slug, n in view_themes_c.most_common():
+                theme = next(t for t in THEMES if t["slug"] == slug)
+                lines.append(f"| {rel_link(path, f'Themes/{slug}', theme['title'])} "
+                             f"| _view_ | | |")
+            lines.append("")
+        else:
+            lines += ["_No tickered calls or market views this week (commentary "
+                      "only)._", ""]
+
+        # disagreements
+        if disagreements:
+            lines += ["## Where they disagreed", ""]
+            for k, pl in disagreements:
+                lines.append(f"### {_topic_cell(path, k, 10**9)}")
+                lines.append("")
+                for side in ("bullish", "bearish"):
+                    lst = [p for p in pl if _pred_stance(p) == side]
+                    if not lst:
+                        continue
+                    lines.append(f"**{side.title()}:**")
+                    for p in lst[:4]:
+                        sp = (_attributed_speaker(p.get("speaker"), p["item_id"])
+                              or p.get("speaker") or "?")
+                        who = person_link(path, sp) if sp in PEOPLE \
+                            else md_escape(sp)
+                        lines.append(f"- {STANCE_ARROW[side]} {who} "
+                                     f"(`{fmt_date(p.get('made_at') or p.get('published_at'))}`): "
+                                     f"\"{truncate(p.get('quote'), 160) or '_(no quote)'}\"")
+                lines.append("")
+
+        # mind changes
+        lines += ["## Changed their mind this week", ""]
+        if flips:
+            for name, t, before, after in flips:
+                lines.append(
+                    f"- **{person_link(path, name)}** — {topic_link(path, t)}: "
+                    f"`{before['date']}` {STANCE_ARROW[before['stance']]} "
+                    f"\"{truncate(before['quote'], 120) or '_(no quote)'}\" → "
+                    f"`{after['date']}` {STANCE_ARROW[after['stance']]} "
+                    f"\"{truncate(after['quote'], 120) or '_(no quote)'}\"")
+        else:
+            lines.append("_No stance flips detected among this week's "
+                         "extracted calls._")
+        lines.append("")
+
+        # full item roll
+        lines += ["## Everything extracted this week", ""]
+        for it in wk:
+            lines.append(blocks[it["id"]])
+        lines.append("")
+
+        # prev/next nav
+        nav = []
+        if idx > 0:
+            pw = sorted_weeks[idx - 1]
+            nav.append(f"[← week of {pw.isoformat()}]({pw.isoformat()}.md)")
+        if idx + 1 < len(sorted_weeks):
+            nw = sorted_weeks[idx + 1]
+            nav.append(f"[week of {nw.isoformat()} →]({nw.isoformat()}.md)")
+        if nav:
+            lines += ["---", " · ".join(nav), ""]
+
+        lines += [
+            "---",
+            "_Weeks cut off Sunday→Saturday and cover only items the "
+            "extraction pipeline has processed; each incorporated item is "
+            "recorded in the `wiki_item_read` table and "
+            "`read-state.json`. Regenerate via "
+            "`uv run python scripts/build_llm_wiki.py`._",
+        ]
+        write_page(rel, "\n".join(lines))
+        out.append((w.isoformat(), f"Week of {w.isoformat()}"))
+
+        # ---------- record what was read ---------------------------------------
+        for it in wk:
+            sha = hashlib.sha256(blocks[it["id"]].encode("utf-8")
+                                 ).hexdigest()[:16]
+            tracker.mark(
+                item_id=it["id"], purpose=READ_PURPOSE_WEEKLY,
+                source_code=it.get("source") or "?",
+                external_id=str(it.get("external_id") or it["id"]),
+                content_sha=sha, week_start=w.isoformat())
+    return out
+
+
 def render_index(pages: dict[str, list[tuple[str, str]]]) -> Path:
     """pages[section] is a list of (slug, display_label)."""
     lines = [
@@ -2618,6 +3337,9 @@ def render_index(pages: dict[str, list[tuple[str, str]]]) -> Path:
     lines += ["", "## Syntheses", ""]
     for slug, label in sorted(pages.get("Syntheses", []), key=lambda x: x[1].lower()):
         lines.append(f"- [{md_escape(label)}](Syntheses/{slug}.md)")
+    lines += ["", "## Weekly", ""]
+    for slug, label in sorted(pages.get("Weekly", []), key=lambda x: x[0], reverse=True):
+        lines.append(f"- [{md_escape(label)}](Weekly/{slug}.md)")
     lines += ["", "## Studies", ""]
     for slug, label in sorted(pages.get("Studies", []), key=lambda x: x[1].lower()):
         lines.append(f"- [{md_escape(label)}](Studies/{slug}.md)")
@@ -2648,12 +3370,14 @@ def render_readme(inv: dict, counts: dict[str, int]) -> Path:
         "# add --no-bios to skip LLM bio generation for People pages",
         "```",
         "",
-        "The script is **read-only** against the DB and only writes under "
-        "`llm-wiki/` (plus the bio cache `scripts/llm_wiki_bios.json`, so "
-        "bios are only generated once per person). The build is "
-        "**incremental**: files are only rewritten when their content "
-        "changes, stale generated pages are garbage-collected, and any "
-        "other files you keep here are left alone.",
+        "The script is read-only against the DB except for one bookkeeping "
+        "table — `wiki_item_read`, the item-level read tracker, dual-written "
+        "with `read-state.json` here so the state survives losing the "
+        "database. Everything else it writes lives under `llm-wiki/` (plus "
+        "the bio cache `scripts/llm_wiki_bios.json`, so bios are only "
+        "generated once per person). The build is **incremental**: files are "
+        "only rewritten when their content changes, stale generated pages are "
+        "garbage-collected, and any other files you keep here are left alone.",
         "",
         "## What it produces",
         "",
@@ -2663,9 +3387,14 @@ def render_readme(inv: dict, counts: dict[str, int]) -> Path:
         "  _Index.md           # alphabetical index",
         "  README.md           # this file",
         "  AGENTS.md           # agent notes (also generated — don't hand-edit)",
+        "  read-state.json     # item read-tracking (dual-written with the DB's",
+        "                      #   wiki_item_read table; survives losing the DB)",
         f"  People/    ({counts.get('People',0)} pages)   # one per person (guests, hosts,",
         "                        #   solo authors merged across shows) — opinions",
         "                        #   per topic over time, flips flagged, LLM bios",
+        f"  Weekly/    ({counts.get('Weekly',0)} pages)   # Sunday→Saturday weekly digests: what people",
+        "                        #   talked about, where they disagreed, who changed",
+        "                        #   their mind that week",
         f"  Tickers/   ({counts.get('Tickers',0)} pages)   # one per ticker >= {MIN_TICKER_MENTIONS} mentions,",
         "                        #   incl. rates/bond-yield backdrop",
         f"  Analysts/  ({counts.get('Analysts',0)} pages)   # one per channel with extracted items",
@@ -2693,7 +3422,7 @@ def render_readme(inv: dict, counts: dict[str, int]) -> Path:
         "2. **No performance scores.** Predictions carry `score` columns but "
         "none are evaluated yet (`n_scored=0`). There is no hit-rate / "
         "track-record data — only stated calls.",
-        "3. **The narrative sections are LLM-written** (GLM 5.3) from a "
+        f"3. **The narrative sections are LLM-written** ({WIKI_MODEL_DISPLAY}) from a "
         "digest of the DB facts, with ready-made citation links — they can "
         "misread or over-summarise. The tables and timelines below each "
         "narrative are the verbatim DB record; bios are LLM-written too. "
@@ -2743,11 +3472,22 @@ def render_agents() -> Path:
         "",
         "- `People/` — one page per person (interview guests, show hosts,",
         "  solo authors), merged across every show they appear on via",
-        "  alias/generic-name resolution. Opinions per topic in chronological",
+        "  alias/generic-name resolution. Non-person labels (AI bots like",
+        "  'Grok (xAI)', companies, channel boilerplate) are dropped and",
+        "  misspelled / unnamed-CEO variants are canonicalized by a cached",
+        "  LLM gate (`scripts/llm_wiki_people.json`) on top of the",
+        "  deterministic filter. Opinions per topic in chronological",
         "  order; stance flips (bullish→bearish across *different days*) are",
         "  flagged. GLM-written bios are cached in",
         "  `scripts/llm_wiki_bios.json` (pass `--no-bios` to skip generation;",
         "  failed lookups are retried on the next run).",
+        "- `Weekly/` — one page per Sunday→Saturday week, named by its",
+        "  Sunday date (`Weekly/2026-08-23.md` = Aug 23–29): an LLM-written",
+        "  digest of what dominated that week's discourse, the sharpest",
+        "  differing viewpoints, and who changed their mind, over the",
+        "  mechanical record (hot-topic table, bull/bear splits, flips,",
+        "  every extracted item of the week). The current, still-open week",
+        "  is regenerated as new items land.",
         "- `Tickers/` — one page per topic with >= "
         f"{MIN_TICKER_MENTIONS} predictions. Pages are keyed by Yahoo",
         "  symbol when the ticker is symbol-like, otherwise by the",
@@ -2763,10 +3503,16 @@ def render_agents() -> Path:
         "- `Syntheses/` — cross-cutting views: Opinion Shifts (same person",
         "  changes stance), Disagreements (people on opposite sides of one",
         "  topic, each side's latest call), and the global Timeline.",
+        "- `Studies/` — deep single-subject analyses. Current subject: how a",
+        "  channel recycles its own material over time — per-item LLM topic",
+        "  inventories over a chronologically spread sample of full",
+        "  transcripts, every item title classified into the derived",
+        "  taxonomy, then narrative synthesis. Cached in",
+        "  `scripts/llm_wiki_studies.json`.",
         "",
         "## Provenance rules",
         "",
-        "- Each page opens with an **LLM-written narrative** (GLM 5.3) "
+        f"- Each page opens with an **LLM-written narrative** ({WIKI_MODEL_DISPLAY}) "
         "generated from a compact digest of DB facts, cached in",
         "  `scripts/llm_wiki_prose.json` keyed by digest hash (unchanged",
         "  data is never re-written; `--no-prose` skips generation).",
@@ -2775,6 +3521,15 @@ def render_agents() -> Path:
         "  **verbatim DB record** and the ground truth to check the prose",
         "  against.",
         "- Bios are LLM-written from public knowledge + DB context.",
+        "- Read tracking: every item the build consumes is recorded (item id,",
+        "  purpose, sha256 of exactly what was read) in BOTH the",
+        "  `wiki_item_read` DB table and `read-state.json` in this folder —",
+        "  dual-written and reconciled on load (latest read_at wins; entries",
+        "  whose item id vanished after a DB rebuild are re-attached by",
+        "  source+external id). Unchanged items are never re-read, so no",
+        "  tokens are wasted. The JSON is committed with the wiki: after",
+        "  losing the DB, re-ingest the `data/` markdown and re-run — the",
+        "  read state (and the wiki) rebuild from the repo alone.",
         "- Coverage mirrors extraction progress; the Home page states the",
         "  extracted/total fraction. Re-run after each `kb extract run`",
         "  batch.",
@@ -2820,6 +3575,9 @@ def main() -> None:
     print(f"  {len(PEOPLE)} people "
           f"({n_multi} appearing on more than one show)")
 
+    # gate the registry BEFORE bios so junk labels never get LLM bios
+    curate_people(args.provider, args.model)
+
     bios = ensure_bios(no_llm=args.no_bios, provider=args.provider,
                        model=args.model)
     print(f"  bios cached/generated: {len(bios)}")
@@ -2836,7 +3594,7 @@ def main() -> None:
 
     pages: dict[str, list[tuple[str, str]]] = {
         "People": [], "Tickers": [], "Analysts": [], "Themes": [],
-        "Syntheses": [], "Studies": []}
+        "Syntheses": [], "Weekly": [], "Studies": []}
 
     # --- People ---
     for name in sorted(PEOPLE):
@@ -2880,12 +3638,22 @@ def main() -> None:
     render_timeline()
     pages["Syntheses"].append(("Timeline", "Timeline of Calls (global)"))
 
+    # --- Weekly digests (Sunday→Saturday; reads tracked in DB + JSON) -----
+    tracker = ReadTracker()
+    tracker.load()
+    pages["Weekly"] = render_weekly(tracker)
+    n_fresh = sum(1 for (iid, purpose) in tracker._dirty
+                  if purpose == READ_PURPOSE_WEEKLY)
+    tracker.flush()
+    print(f"  weekly: {len(pages['Weekly'])} week(s), "
+          f"{n_fresh} item read(s) recorded")
+
     # --- Studies (deep single-subject analyses; LLM + cache heavy) ---------
     pages["Studies"] = run_studies(args.provider, args.model)
 
     # --- Home, Index, README, AGENTS ---
     counts = {k: len(v) for k, v in pages.items()}
-    render_home(DATA, counts)
+    render_home(DATA, counts, pages["Weekly"])
     render_index(pages)
     render_readme(DATA, counts)
     render_agents()
@@ -2918,7 +3686,7 @@ def main() -> None:
     print(f"\nwiki written to {WIKI_DIR} "
           f"({len(WRITTEN)} pages, {removed} stale removed)")
     for k in ("People", "Tickers", "Analysts", "Themes", "Syntheses",
-              "Studies"):
+              "Weekly", "Studies"):
         if k in counts:
             print(f"  {k:<10} {counts[k]}")
 

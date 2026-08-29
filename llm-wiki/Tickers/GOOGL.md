@@ -4,13 +4,11 @@
 
 ## The debate
 
-There is no bull–bear fight to report on GOOGL in this corpus, and it's worth saying so plainly: the standing tally is eleven neutral stances against zero bullish and zero bearish calls, with the consensus marked "neutral / watch." What actually gets argued isn't direction — it's how to interpret Alphabet's large-scale capital raise, and whether the tape confirms the stock's strength. On both questions the coverage is thin, and one of the two recurring voices is unattributed in the transcripts.
+If you came looking for a bull-bear fight on GOOGL, this corpus doesn't have one yet — eleven logged stances, zero bullish, zero bearish, all neutral. What it does have is a single thread running through the commentary: Alphabet's decision to raise capital on its own terms. On June 19, 何啟聰 laid out the strategic logic, arguing that the large-scale fundraise was precisely about moving first and locking in lower interest rates before conditions turned ([何啟聰](../People/person-001.md) — note: link as provided in source). His framing is explanatory rather than a rating, but the implication leans constructive: this is a company managing its balance sheet from a position of strength, not desperation.
 
-The financing question came first. On June 19, 2026, [何啟聰](../People/person-002.md) framed Alphabet's move as deliberate opportunism: the company front-loaded a large fundraising precisely to lock in lower interest rates before conditions changed. That is a neutral analyst's read of a corporate-finance decision, not a rating — but it sets the interpretive frame the later commentary works within. An unnamed contributor (transcript unattributed, and the Cantonese transcription is rough) returned to the same raise on August 24, 2026, arguing that Alphabet issued securities to raise funds to support its operations and reduce its own "Alpha" risk — essentially a de-risking rationale rather than a distress signal. So the closest thing to a debate here is a split in framing: opportunistic low-rate lock-in versus operational funding and risk management, with neither side drawing a buy or sell conclusion from it.
+An unnamed commentator picks up the same capital-raising thread in late August, arguing on August 24 that Alphabet issued securities to fund operations and reduce its own risk exposure — a reading that echoes 何啮聰's from two months earlier without advancing it. The same speaker's earlier entries are more cautious and more granular. On August 11 he offered a technical read: the stock closed at the highs of its session, "a good sign," but on lower volume, and it needed a break above the prior day's level for genuine follow-through. That's a textbook wait-and-see stance — constructive on the tape, unwilling to commit until volume confirms. An August 22 note in the same run added an accumulation datapoint: an 83% quarterly increase in a stock position that now ranks as the holder's third-largest, worth $37.8 billion in market value — suggestive of smart-money interest, though the commentary stops short of drawing a conclusion from it.
 
-The other thread is ownership and price action, both from the same unnamed voice. On August 22, 2026, the speaker noted a position had been increased by 83%, making it the third-largest stock investment in the portfolio discussed, with a market value of US$37.8 billion — the most bullish-adjacent datapoint in the file, though it was presented as observed fact rather than a call, and the garbled transcript doesn't clearly identify whose book is being described. Earlier, on August 11, the same voice offered a guarded technical take: GOOGL closed at the highs of its session, "a good sign," but immediately hedged — the move came on lower volume and needed a break above the prior day for follow-through. That is show-me tape reading, not a stance.
-
-As for mind-changes, there are none on record. The unnamed contributor's lens simply widened between mid-August and late August — from candlestick volume caution, to an 83% stake increase, to the rationale behind the capital raise — without the neutral posture ever breaking. The honest shape of the GOOGL file, then: a stock everyone is watching, a financing move everyone is interpreting, an unconfirmed breakout, and not a single analyst willing to plant a flag in either direction.
+On the questions this page is supposed to answer: nobody changed their mind, because nobody planted a flag in the first place. The timeline runs June 19 (rate lock-in thesis) → August 11 (unconfirmed technical strength) → August 22 (accumulation data) → August 24 (risk-management reading of the raise), and every entry lands in the same neutral register. The honest observation is that the raw material for a real debate is sitting right there — whether raising money early at low rates is prudent treasury management, as both Chinese-language commentators imply, or an early tell of heavier funding needs ahead is exactly the fault line bulls and bears would argue over. Coverage here is thin — effectively two voices, one of them unnamed — so the neutral consensus says more about the state of the corpus than about conviction on the stock.
 
 ## Themes
 
@@ -26,7 +24,7 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 ## Voices on this ticker
 
-- [何啟聰](../People/person-002.md)
+- [何啟聰](../People/person-001.md)
 
 ## Notable calls
 
@@ -53,12 +51,12 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
-- 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
 - 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 

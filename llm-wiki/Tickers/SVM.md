@@ -4,13 +4,13 @@
 
 ## The debate
 
-There is no bull-versus-bear fight to report on SVM yet — and that absence is itself the story. The register shows eleven neutral stances and zero on either side, so the "debate" is currently just a single-sided management narrative sitting unanswered. Coverage is also remarkably concentrated: essentially every recorded call and quote lands on one date, August 20, 2026, which means there's no revision history, no mind-changing, and no timeline of evolving positions to reconstruct.
+If you came to this page looking for a bull-versus-bear fight over SVM, the record simply doesn't have one. The corpus counts zero bullish and zero bearish stances against eleven neutrals — a consensus of "watch," not conviction. The only primary material is a single August 20, 2026 conversation with company management, and the question that day was less about valuation than whether management's own ramp-up math deserves the benefit of the doubt.
 
-What that one date does contain is a mix of confidence and hedging from the company side. The unnamed speaker (likely management, given the first-person framing) talked about development ore coming from the GC project "this summer" while simultaneously stressing it will make only a "nominal contribution" — and, pointedly, admitting "we don't have a hard date yet" for GC. That hedge sits right next to firmer claims: an expectation of being cash flow positive this year, affirmed directly, and a recovery ramp pegged at 70% for the month with September "extrapolated" to 100%. That word — extrapolating — is doing a lot of work; it's the company's own projection, not an achieved number, and it's exactly the kind of claim that would give a bear something to test.
+The constructive case, such as it is, comes from management itself. Asked about timing, the unnamed company speaker conceded they "don't have a hard date yet" for GC, while pointing to development ore from that project arriving this year — in fact that summer — with only a "nominal" contribution. The load-bearing moment of the call came when the speaker was asked directly whether the company is still expecting to be cash flow positive this year, and answered "Yes." Whatever the operational noise, the year's cash-generation promise is the one thing management refuses to walk back.
 
-The only linked voice on record is [interviewee_lon](../People/interviewee_lon.md), whose August 20 take is tagged as operational recovery and mildly positive. Their framing of the China safety shutdown — "annoying" but something "we'll get through" — captures the whole current thesis in miniature: a temporary operational drag, not a structural problem.
+The texture underneath that confidence is where a skeptical reader starts taking notes. The same speaker admitted they had expected to reach 70% this month and did not — a self-confessed miss on their own ramp milestone — before "extrapolating September should be 100." That is recovery by projection, not by evidence, and it puts the entire bull case on one future data point. On the same date, interviewee_lon rated the operational recovery only "mildly positive," describing the safety shutdown in China as "annoying" but something "we'll get through" — reassurance that hedges even as it comforts.
 
-So the shape of the debate, honestly stated, is unfinished. There are no recorded bulls, no recorded bears, and one date of commentary. Whether the September 100% extrapolation materializes, and whether GC ever gets its hard date, are the natural catalysts for the first non-neutral call.
+As for who changed their mind: nobody. There are no recorded flips, no outside voices taking either side, and nothing in the record beyond this one call. So the real debate at SVM is a standoff between management's September extrapolation and eleven analysts declining to commit. The watch list writes itself — does September actually print the full recovery management projected, does GC finally get a date, and does the China shutdown stay "annoying" rather than turn structural. Until at least one of those resolves, the neutral consensus is less a hedge than the honest position.
 
 ## Themes
 
@@ -26,11 +26,11 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 ## Voices on this ticker
 
-- [interviewee_lon](../People/interviewee_lon.md)
+- interviewee_lon
 
 ## Notable calls
 
-- **interviewee_lon** (dir=`operational recovery (mildly positive)`) — [Silver Mine in China Generating Cash Flow, But Can They Execute on Growth? \| Si…](https://www.youtube.com/watch?v=ialp-FjJiRI) — 2026-08-20, [interviewee_lon](../People/interviewee_lon.md): "for us right now, it's this uh this safety shutdown in China, which is is uh annoying and something that I think we'll get through"
+- **interviewee_lon** (dir=`operational recovery (mildly positive)`) — [Silver Mine in China Generating Cash Flow, But Can They Execute on Growth? \| Si…](https://www.youtube.com/watch?v=ialp-FjJiRI) — 2026-08-20, interviewee_lon: "for us right now, it's this uh this safety shutdown in China, which is is uh annoying and something that I think we'll get through"
 - **Resource Talks** — [Silver Mine in China Generating Cash Flow, But Can They Execute on Growth? \| Si…](https://www.youtube.com/watch?v=ialp-FjJiRI) — 2026-08-20, Resource Talks: "So don't have a hard date yet for uh GC."
 - **Resource Talks** (tf=`Development ore this year/summer; ramp thereafter (subject to the temporary suspension)`) — [Silver Mine in China Generating Cash Flow, But Can They Execute on Growth? \| Si…](https://www.youtube.com/watch?v=ialp-FjJiRI) — 2026-08-20, Resource Talks: "we're looking at some development ore uh coming from that project uh this year and in fact this summer. Um and so so um some nominal contribution uh ramping up to you know 100,000 tons uh out of a you know total of sort…"
 - **Resource Talks** (tf=`This year`) — [Silver Mine in China Generating Cash Flow, But Can They Execute on Growth? \| Si…](https://www.youtube.com/watch?v=ialp-FjJiRI) — 2026-08-20, Resource Talks: "you're still expecting to be cash flow positive this year, though. >> Yes."
@@ -50,12 +50,12 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
-- 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
 - 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 

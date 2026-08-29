@@ -1,39 +1,44 @@
 # Darius Dale
 
-**solo author/host (1x)**
+**solo author/host (2x)**
 
 > Darius Dale is a macro investor and risk-management strategist best known as the founder of 42 Macro, an investment-research firm offering systematic asset-allocation and risk-on/risk-off signals to institutional investors and RIAs. Before launching 42 Macro (~2021), he spent roughly a decade at Keith McCullough's Hedgeye Risk Management, where he rose to portfolio manager. His work emphasizes regime-based investing driven by growth, inflation, and policy trends, popularized through frameworks often cited as 'D.A.M.E.' (debt, assets, markets, economics) and a 'T.I.P.S.'-style trend-following risk-management process.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
-Darius Dale is a macro investor and risk-management strategist who runs 42 Macro, the investment-research firm he founded around 2021 after roughly a decade at Keith McCullough's Hedgeye Risk Management, where he rose to portfolio manager. His product is regime-based investing: asset-allocation and risk-on/risk-off signals for institutional investors and RIAs, driven by growth, inflation and policy trends, and packaged under frameworks his followers know as "D.A.M.E." (debt, assets, markets, economics) and a "T.I.P.S."-style trend-following risk-management process. If Hedgeye taught him anything, it shows in the output — he rarely issues a flat "bullish" or "bearish" call, preferring conditional, regime-conditional statements.
+Darius Dale is a macro investor and risk-management strategist best known as the founder of 42 Macro, an investment-research firm selling systematic asset-allocation and risk-on/risk-off signals to institutional investors and RIAs since roughly 2021. Before that he spent about a decade at Keith McCullough's Hedgeye Risk Management, rising to portfolio manager. His method is regime-based investing driven by growth, inflation, and policy — packaged in frameworks cited as "D.A.M.E." (debt, assets, markets, economics) and a "T.I.P.S."-style trend-following risk-management process — and he works the macro-podcast circuit regularly, including Forward Guidance and MacroVoices.
 
-The dominant frame in his recent public commentary is the "Fourth Turning" thesis, laid out at length on MacroVoices #546 in August 2026. His claim is historical and quantitative, not just vibes: S&P 500 returns and earnings growth "tend to be relatively strong during Fourth Turnings with more volatility," with wider max-min ranges as the tell ([MacroVoices #546](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028)). Applied to the present, that yields a distinctly double-edged call — "buckle up, expect some volatility, but twenty twenty-six is gonna be a great year for risk assets, stocks in particular" ([MacroVoices #546](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028)). He also notes he called the stock market's bubble path "last fall," arguing policymakers would choose to boom the economy and let the dollar's purchasing power print the difference ([MacroVoices #546](https://www.youtube.com/watch?v=VBIeV5Ix7b0)).
+The record in this corpus is narrow — two appearances, eight days apart in August 2026 — but it forms one coherent picture. On Forward Guidance's ["The Growth Strategy Trapping The Fed"](https://www.youtube.com/watch?v=vvMTOKRR0SE) (August 12, 2026), Dale called it "a great short to medium-term outlook for stocks, gold, bitcoin, and commodities, not so much for the dollar... and bonds," while flagging "bubble-like conditions in the equity market" and bond-market trouble from all the extra nominal GDP growth, with r-star now priced above the real effective funds rate — in his telling, a signal beamed straight back to the bond market.
 
-The bearish leg of the framework sits in fixed income and the dollar. Dale argues there is a "geopolitically driven supply-demand imbalance in the Treasury bond market" that will widen over time, force policy responses, and erode Fed independence ([MacroVoices #546](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028)) — a theme he'd flagged a week earlier, arguing that with r-star being priced above the real effective funds rate, the market is sending a signal straight back to the Fed ([The Growth Strategy Trapping The Fed](https://www.youtube.com/watch?v=vvMTOKRR0SE)). On levels, he pegs fair value around 5.75–5.80 on the 10-year and closer to 6.50 on the 30-year, with yields continuing to back up ([MacroVoices #546](https://www.youtube.com/watch?v=VBIeV5Ix7b0)); Treasury bond prices decline during Fourth Turnings, though he expects the slope of that decline to get curtailed by policy intervention ([MacroVoices #546](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028)). The kicker is the dollar: it "tends to be debased substantially" in these regimes, particularly against "a more base form of money, which is gold" — so gold goes "way back past" its January all-time high, Bitcoin soars past its August high ("a matter of when, not if"), and "gold and Bitcoin will beat you to the task force" ([MacroVoices #546](https://www.youtube.com/watch?v=VBIeV5Ix7b0)).
+Eight days later on [MacroVoices #546](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — episode title, I kid you not, "Darius Dale for POTUS 2028" — he scaled the same view into a "Fourth Turnings" framework: "buckle up, expect some volatility, but twenty twenty-six is gonna be a... great year for risk assets, stocks in particular," with S&P 500 returns and earnings growth historically strong in such eras, just with wider max-min ranges. The structural engine underneath is a geopolitically driven supply-demand imbalance in the Treasury market that widens over time, forcing policy responses and an erosion of Fed independence, with money-supply growth accelerating sharply through financial repression and dollar debasement ([MacroVoices #546](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028)).
 
-On policy itself the picture is deliberately two-sided: he sees monetary policy turning "very dovish" over the next 18 months — "substantially more dovish than what is currently priced in," with a policy rate eventually below even the lowest estimates on the OIS curve — but concedes the Fed may first be forced to tighten modestly, purely "to bend the knee of the bond market" ([MacroVoices #546](https://www.youtube.com/watch?v=VBIeV5Ix7b0)). The through-line is consistent: the bond market, not the Fed, sets the terms. One caveat for the record — every dated item in this corpus clusters in mid-August 2026 (two appearances, eight days apart), so the timeline shows a snapshot of a fully-formed worldview rather than a documented evolution of views; the uniformly "neutral" coding across 31 items reflects his analytical, regime-conditional style more than any absence of conviction. Even the episode's jokey title — "Darius Dale for POTUS 2028" — tells you he markets the framework as much as the calls.
+His most concrete calls came on that August 20 appearance: Bitcoin is "going to soar past its all-time high last August. It's a matter of when, not if," and gold will go "way back past its... all-time high in January," while "the dollar tends to be debased substantially during Fourth Turnings, particularly against a more base form of money, which is gold" ([MacroVoices #546](https://www.youtube.com/watch?v=VBIeV5Ix7b0)). On rates he expects policy to turn substantially more dovish over the next 18 months than what's currently priced, with the policy rate ending below even the lowest estimates on the forward curve — yet he simultaneously put fair value around 5.75–5.80% on the 10-year and close to 6.50% on the 30-year, with yields backing up first before real 10-year yields decline substantially and Treasury price declines get curtailed by policy intervention ([MacroVoices #546](https://www.youtube.com/watch?v=VBIeV5Ix7b0)).
+
+Two caveats on the shape of this file. The stance ledger tags all 36 entries neutral, which undersells how plainly directional the talk is — constructive risk assets, hostile dollar and long bonds. And because coverage clusters in a single month, the timeline shows no evolution of views, just one thesis delivered twice with unusual consistency. The genuinely interesting tension is in the rates section: yields backing up toward his own 5.75% fair value while forecasting a far more dovish Fed is a gap most commentators can't hold open — Dale resolves it through the Fourth Turnings logic (nominal growth up, real yields down, policy forced to follow) rather than the standard dovish-equals-lower-yields playbook. Whether that framework survives contact with the tape is, on this record, still an open question.
 
 ## At a glance
 
-- **Appearances**: 1 (2026-08-20 → 2026-08-20)
-- **Shows**: Macro Voices
-- **Extracted calls**: 35 predictions, 14 market views
+- **Appearances**: 2 (2026-08-12 → 2026-08-20)
+- **Shows**: Forward Guidance, Macro Voices
+- **Extracted calls**: 49 predictions, 14 market views
 - **Topics with opinions**: 12
-- **Stance split**: 0 bullish / 0 bearish / 31 neutral
+- **Stance split**: 0 bullish / 0 bearish / 36 neutral
 
 ## Appearances
 
 | Date | Show | Role | Item |
 |---|---|---|---|
 | 2026-08-20 | Macro Voices | solo | [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.youtube.com/watch?v=VBIeV5Ix7b0) |
+| 2026-08-12 | Forward Guidance | solo | [The Growth Strategy Trapping The Fed \| Darius Dale](https://www.youtube.com/watch?v=vvMTOKRR0SE) |
 
 ## Opinions by topic, over time
 
 _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ marks a detected change of mind._
 
-### [^GSPC](../Tickers/^GSPC.md) — now **neutral** (6 call(s))
+### [^GSPC](../Tickers/^GSPC.md) — now **neutral** (8 call(s))
 
+- `2026-08-12` → neutral — it's a great short to medium-term outlook for stocks, gold, bitcoin, and commodities, not so much for the dollar, uh, and bonds
+- `2026-08-12` → neutral — bubble-like conditions in the equity market and so and ultimately some issues in the bond market associated with all that extra nominal GDP growth
 - `2026-08-20` → neutral — I think we said buckle up, expect some volatility, but twenty twenty-six is gonna be a, gonna be a great year for risk assets, stocks in particular. And obviously I think that, he…
 - `2026-08-20` → neutral — S&P 500 returns tend to be relatively strong during Fourth Turnings with more volatility. We can tell there's more volatility by a wider max-min range, a wider interquartile range.
 - `2026-08-20` → neutral — On slide 19, we show S&P 500 earnings growth tends to be relatively strong during Fourth Turnings with more volatility.
@@ -49,17 +54,25 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 - `2026-08-20` → neutral — risk assets tend to go up faster in Fourth Turnings with more volatility. But you tend, as a function of that partially, you tend to have declining Treasury bond prices. But ultim…
 - `2026-08-20` → neutral — money supply growth as a function of all that financial repression and dollar debasement tends to accelerate sharply during Fourth Turnings.
 
-### [BTC-USD](../Tickers/BTC-USD.md) — now **neutral** (3 call(s))
+### [BTC-USD](../Tickers/BTC-USD.md) — now **neutral** (4 call(s))
 
+- `2026-08-12` → neutral — it's a great short to medium-term outlook for stocks, gold, bitcoin, and commodities, not so much for the dollar, uh, and bonds
 - `2026-08-20` → neutral — it tends to be debased substantially versus scarce assets like stocks like Bitcoin as well
 - `2026-08-20` → neutral — Bitcoin's going to soar past its all-time high last August. It's a matter of when, not if.
 - `2026-08-20` → neutral — Hey, gold and Bitcoin will beat you to the task forces.
 
-### [GC=F](../Tickers/GC=F.md) — now **neutral** (3 call(s))
+### [GC=F](../Tickers/GC=F.md) — now **neutral** (4 call(s))
 
+- `2026-08-12` → neutral — it's a great short to medium-term outlook for stocks, gold, bitcoin, and commodities, not so much for the dollar, uh, and bonds
 - `2026-08-20` → neutral — the dollar tends to be debased substantially during four attorneys particularly against a more uh base form of money which is gold
 - `2026-08-20` → neutral — gold is going to go way back past it it its all-time high in January.
 - `2026-08-20` → neutral — Hey, gold and Bitcoin will beat you to the task forces.
+
+### [DX-Y.NYB](../Tickers/DX-Y.NYB.md) — now **neutral** (3 call(s))
+
+- `2026-08-12` → neutral — it's a great short to medium-term outlook for stocks, gold, bitcoin, and commodities, not so much for the dollar, uh, and bonds
+- `2026-08-20` → neutral — On slide 15, the dollar tends to be debased substantially during Fourth Turnings, particularly against a more a base form of money, which is gold. It tends to be debased substanti…
+- `2026-08-20` → neutral — the dollar tends to be debased substantially during four attorneys
 
 ### [ZQ=F](../Tickers/ZQ=F.md) — now **neutral** (3 call(s))
 
@@ -72,11 +85,6 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 - `2026-08-20` → neutral — The 10-year real Treasury yield tends to decline substantially during Fourth Turnings as the elevated nominal growth environment, the elevated inflation, pushes down long-term rea…
 - `2026-08-20` → neutral — we're about 5.75ish somewhere in the range of 575 580 for fair value on the 10ear probably somewhere close to 650 on the 30-year... You're going from today's starting point to, yo…
 - `2026-08-20` → neutral — bond yields continue to back up
-
-### [DX-Y.NYB](../Tickers/DX-Y.NYB.md) — now **neutral** (2 call(s))
-
-- `2026-08-20` → neutral — On slide 15, the dollar tends to be debased substantially during Fourth Turnings, particularly against a more a base form of money, which is gold. It tends to be debased substanti…
-- `2026-08-20` → neutral — the dollar tends to be debased substantially during four attorneys
 
 ### [TLT](../Tickers/TLT.md) — now **neutral** (2 call(s))
 

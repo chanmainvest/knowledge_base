@@ -6,16 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 70
+- **Extracted items**: 73
 - **Items with predictions**: 26
 - **Predictions**: 59
-- **Market views**: 64
-
-## People on this channel
-
-(hosts, guests and solo authors — each person's appearances across all shows are merged on their own People page)
-
-- [aminvest](../People/aminvest.md) — 11 appearance(s) as solo
+- **Market views**: 70
 
 **Most-called tickers:**
 
@@ -42,8 +36,8 @@ _No URL / bio in DB channel metadata._
 
 | Direction | Count |
 |---|---:|
-| bullish | 10 |
 | mixed | 10 |
+| bullish | 10 |
 | bearish | 6 |
 
 ## Recent notable calls
@@ -59,15 +53,18 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585) — 2026-08-26, AM Invest: "而且，必須有心理準備：如果股價繼續下跌，我們是願意接貨的。"
-- _? — ?_: [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585) — 2026-08-26, AM Invest: "始終，美股整體升幅並不算過分誇張。"
-- _? — ?_: [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585) — 2026-08-26, AM Invest: "一些有基本因素支持的股票，在回調後如果能夠企穩，我會視為可以部署入市的機會。"
-- _? — ?_: [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585) — 2026-08-26, AM Invest: "很多散戶都不明白，其實在橫行市中，賺錢難度本來就會大幅增加。"
-- _? — ?_: [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585) — 2026-08-26, AM Invest: "跌少少就買，其實是投資大忌。"
-- _? — ?_: [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585) — 2026-08-26, AM Invest: "要買，就要等市場真正出現恐慌。"
+- _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "對於美股，我不會再看得太淡"
+- _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "美股市況仍然相當混亂"
+- _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "早前強勢的金融股開始轉弱。與此同時，科技股則轉趨強勢。"
+- _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "市況其實並不算太差。但市場資金明顯未算十分充裕。如果市場資金非常充足，股票理應可以同步上升。"
+- _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "我認為美股目前只是偏好，而非全面轉強"
+- _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "倉位快將再破頂，但不宜過急進攻"
 
 ## Source items (extracted)
 
+- 2026-08-28 — [「以AI 系統看清市場真實規律」實體講座 – 報名連結](https://www.patreon.com/aminvest/posts/yi-ai-xi-tong-lu-167901402)
+- 2026-08-27 — [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400)
+- 2026-08-27 — [美股市況短評 (20260827)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167833682)
 - 2026-08-26 — [美股市況短評 (20260826)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167729585)
 - 2026-08-25 — [美股市況短評 (20260825)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167633850)
 - 2026-08-24 — [美股市況短評 (20260824)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167548084)
@@ -90,10 +87,7 @@ _No URL / bio in DB channel metadata._
 - 2026-08-07 — [美股市況短評 (20260807)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-166024025)
 - 2026-08-06 — [美股市況短評 (20260806)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-165928091)
 - 2026-08-05 — [美股市況短評 (20260805)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-165833351)
-- 2026-08-04 — [美股市況短評 (20260804)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-165738141)
-- 2026-08-04 — [倉位總值差不多重返高位，這個策略值得再跟大家分享一次。](https://www.patreon.com/aminvest/posts/cang-wei-zong-bu-165729329)
-- 2026-08-03 — [剖析熊市本質：熊市大致可分為這三類。](https://www.patreon.com/aminvest/posts/pou-xi-xiong-shi-165656202)
-_…and 45 more._
+_…and 48 more._
 
 ---
 _Page reflects DB state at generation time._

@@ -6,24 +6,24 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 27
+- **Extracted items**: 28
 - **Items with predictions**: 21
 - **Predictions**: 209
-- **Market views**: 226
+- **Market views**: 241
 
 ## People on this channel
 
 (hosts, guests and solo authors — each person's appearances across all shows are merged on their own People page)
 
 - [Jack Farley](../People/jack-farley.md) — 3 appearance(s) as guest
+- [Max Wiethe](../People/max-wiethe.md) — 2 appearance(s) as guest
 - [Chris Semenuk](../People/chris-semenuk.md) — 1 appearance(s) as guest
 - [David Woo](../People/david-woo.md) — 1 appearance(s) as guest
 - [Ed Zitron](../People/ed-zitron.md) — 1 appearance(s) as guest
 - [Jim Chanos](../People/jim-chanos.md) — 1 appearance(s) as guest
-- [Liaquat Ahamed (guest, author)](../People/liaquat-ahamed-guest-author.md) — 1 appearance(s) as solo
-- [Max Sweaty](../People/max-sweaty.md) — 1 appearance(s) as guest
-- [Max Wiethe](../People/max-wiethe.md) — 1 appearance(s) as guest
+- [Liaquat Ahamed](../People/liaquat-ahamed.md) — 1 appearance(s) as solo
 - [Robin Wigglesworth](../People/robin-wigglesworth.md) — 1 appearance(s) as solo
+- [Shashank Chiranewala](../People/shashank-chiranewala.md) — 1 appearance(s) as guest
 - [Val Zlatev](../People/val-zlatev.md) — 1 appearance(s) as guest
 
 **Most-called tickers:**
@@ -69,11 +69,11 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "why macro risks are suddenly taking control of the stock market"
-- _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "as the market enters a historically weak seasonal window between August 15th and October 15th"
 - _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "the mispriced odds of a September rate hike, and the hidden political pressures driving the committee's choices"
-- _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "the critical data behind the AI build-out, including H200 GPU availability and the potential impact of major lab IPOs like Anthropic on the broader software sector"
+- _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "as the market enters a historically weak seasonal window between August 15th and October 15th"
+- _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "why macro risks are suddenly taking control of the stock market"
 - _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "Energy as Diversifier"
+- _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "the critical data behind the AI build-out, including H200 GPU availability and the potential impact of major lab IPOs like Anthropic on the broader software sector"
 - _? — ?_: [Is Private Equity Broken? High Yield Harry on Wall Street’s New Reality](https://www.youtube.com/watch?v=YOnxRmI6CV8) — 2026-08-24, The Monetary Matters Network: "And it kind of used to be like you could work at like in corporate banking or um like you know a nonIB type of role and work your way into private credit. I think that's a little harder than it used to be."
 
 ## Source items (extracted)
@@ -101,9 +101,9 @@ _No URL / bio in DB channel metadata._
 - 2026-07-02 — [The Reverse Crash: Why the S&P 500 is Headed Straight to 10,000 By 2027 \| Erik YWR](https://www.youtube.com/watch?v=fcuaGmxTFZk)
 - 2026-06-30 — [Top IPO Scholar on Unprecedented IPO Wave & Why IPOs Underperform the Market \| Jay Ritter](https://www.youtube.com/watch?v=LKT7oRk7OTI)
 - 2026-06-29 — [Lessons From The First Great Depression You Never Were Taught \| Liaquat Ahamed](https://www.youtube.com/watch?v=czdGQG9HvGM)
+- 2026-06-24 — [The Secret to Investing Like Substack & FinTwit's Top Researchers](https://www.youtube.com/watch?v=IHFVBrwt54s)
 - 2026-06-21 — [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc)
-- 2026-06-20 — [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alpha in AI &…](https://www.youtube.com/watch?v=NlIsoPhQePs)
-_…and 2 more._
+_…and 3 more._
 
 ---
 _Page reflects DB state at generation time._

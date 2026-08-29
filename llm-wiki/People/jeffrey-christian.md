@@ -8,21 +8,23 @@
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
-Jeffrey Christian is one of the old hands of precious metals research. He cut his teeth trading and researching the metals desk at J. Aron & Company in the late 1970s before founding CPM Group, the New York commodities research and advisory shop he has run since 1986. CPM's annual Gold and Silver Yearbooks remain standard reference points for supply-and-demand work on gold, silver, platinum, and palladium, and Christian himself has advised miners, fabricators, central banks, and investors, testified before the CFTC on metals market structure and position limits, and cropped up as a steady media commentator. In recent years he has also wandered into digital assets, offering Ethereum price views alongside his traditional metals coverage. He is, in short, a fundamentals man — which makes the tape of calls captured here, overwhelmingly technical in framing, an interesting window onto how he communicates in a fast market.
+Jeffrey Christian is the founder, managing partner, and head of research at CPM Group, the New York commodities research and advisory firm he established in 1986 after starting out trading and researching precious metals at J. Aron & Company in the late 1970s. The firm's annual Gold and Silver Yearbooks are among the most widely cited supply-and-demand studies in the metals business, and Christian himself has advised miners, fabricators, central banks, and investors, testified before the CFTC on metals market structure and position limits, and in recent years branched into digital-asset commentary, including Ethereum price outlooks. In this corpus he shows up as an interview guest twice and a solo host once, with a tally that skews defensive: 22 bearish calls against 13 neutral and just 6 bullish.
 
-The record skews distinctly cautious: of the calls extracted across his appearances, 22 register bearish against 10 neutral and just 6 bullish. The center of gravity is gold. On June 19, 2026, with gold holding above $4,000 in what he called a volatile consolidation, Christian was blunt that "prices are subject to be tested again at the 4,100 level. We do expect that level to be tested," and that a break below "is possible probably on a shorter term spike possibly with a target of 3,800 or 3,500" ([Why Gold and Silver Prices Are Falling: Is Now The Time To …](https://www.youtube.com/watch?v=z1btQrMgRwo)). By June 23 he had sharpened it: gold was testing $4,100, and "a break below 4,100 would have a technical target of around $3,800" ([Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o)). Silver followed a similar arc — from a $60–$90 range framing on June 16 ([Gold And Silver Market Update: How Low Before Buyers Return](https://www.youtube.com/watch?v=W1jdQOS8Lu8)), to a June 19 warning that "the potential of a spike below 60 is very high at least for the next two and a half months" before prices strengthen later ([Why Gold and Silver Prices Are Falling: Is Now The Time To …](https://www.youtube.com/watch?v=z1btQrMgRwo)), to June 23, when silver was testing the low $60s and he flagged that "there are people with 54 and $50 targets" ([Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o)). The platinum group he was simply bearish on throughout: palladium "back down testing that 1,200 support level" with the price at 1,262 after touching 1,245 on June 19, platinum heading lower over the next few months, with $1,500 a level technical traders were watching by June 23.
+The recorded window here is short — four appearances between June 16 and August 25, 2026 — but the drift within it is legible. On June 16 he framed gold as stuck in a consolidation range and silver in a $60–$90 band, while flagging weakness in platinum and palladium ([Gold And Silver Market Update: How Low Before Buyers Return](https://www.youtube.com/watch?v=W1jdQOS8Lu8)). By June 19 the framing had hardened into explicit downside levels: gold still holding above $4,000, but with $4,100 "subject to be tested again... We do expect that level to be tested," a break below opening targets of $3,800 or even $3,500; silver carrying what he called a very high probability of a short-term spike below $60 over the next two and a half months before strengthening later; palladium at $1,262, dipping to $1,245, and grinding toward $1,200 support ([Why Gold and Silver Prices Are Falling: Is Now The Time To …](https://www.youtube.com/watch?v=z1btQrMgRwo)). That June 19 cluster — dated levels on gold, silver, and the PGMs — is the most concrete set of calls in his file.
 
-What keeps this from being a simple bear profile is the explicit time horizon. Christian's downside calls are tactical — spikes, tests, flushes — wrapped inside a structurally constructive view. On June 23 he argued the very risks building in the broader economy "may be negative for the broader economy but supportive for gold and silver over time" ([Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o)), the same week he said Fed commentary pointed to continued volatility across financial markets and metals ([Why Gold and Silver Prices Are Falling: Is Now The Time To …](https://www.youtube.com/watch?v=z1btQrMgRwo)). He also brings a policy edge, criticizing pressure for the Fed to be "less forthcoming with information, less transparent, more secretive," and dismissing AI as "generating a tremendous amount of misinformation, bad information, inaccurate information" ([Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o)) — skepticism aimed less at any one asset than at the quality of information moving markets.
+He doubled down on June 23: gold testing $4,100, where "a break below 4,100 would have a technical target of around $3,800"; silver testing support in the low $60s with "people with 54 and $50 targets" in the market — chatter he was relaying, not necessarily endorsing — and $1,500 flagged as the level technicians were watching on platinum ([Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o)). Yet the same appearance shows why "gold bear" is the wrong shorthand: he argued the very risks weighing on the broader economy would be supportive for gold and silver over time, and he criticized the appetite for a Fed that is "less forthcoming with information, less transparent, more secretive" as a volatility source in its own right. His bearishness is about price levels now, not the long-run case for metals — a distinction the corpus's headline labels tend to flatten.
 
-The honest caveat is that this record is thin and narrow: three appearances inside a single week of June 2026. What looks like an "evolution" — from neutral consolidation talk on June 16 to explicit $3,800 gold targets and sub-$60 silver warnings by June 23 — may be nothing more than a market confirmng his levels in real time. Whether this near-term bearishness reflects his standing posture or a moment-in-time call, the corpus here cannot say; his four decades of Yearbook-style supply-and-demand work suggests the framework is the constant, and the targets are the weather.
+By August 25 the tone had loosened further. Weighing whether "$5,000 gold next or collapse first" was the right frame, he noted CPM's average 2026 gold forecast had been about $4,450 and said the firm would "probably be increasing our annual average projection" from there ([$5,000 Gold Next Or Collapse First? Coming Shock Revealed |…](https://www.youtube.com/watch?v=7bgdCd8hJFw)). Expecting a test of $3,800 on the downside while raising your annual average is not incoherent — a spike lower can sit comfortably inside an upward-sloping year — but readers should hold both halves of that.
+
+Elsewhere the file is thin. His crypto and AI stances rest almost entirely on one June 23 aside that AI is generating "a tremendous amount of misinformation, bad information, inaccurate information," tagged bearish for both crypto and semiconductors — generous treatment of a single quote, especially given that his Ethereum commentary is mentioned in his background but never returns in the timeline.
 
 ## At a glance
 
 - **Appearances**: 3 (2026-06-16 → 2026-06-23)
 - **Shows**: CPM Group
-- **Extracted calls**: 15 predictions, 19 market views
+- **Extracted calls**: 18 predictions, 19 market views
 - **Topics with opinions**: 11
-- **Stance split**: 6 bullish / 22 bearish / 10 neutral
+- **Stance split**: 6 bullish / 22 bearish / 13 neutral
 
 ## Appearances
 
@@ -56,13 +58,16 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 - `2026-06-23` ↑ bullish — these are good times for long-term investors to buy gold and silver because the prices have ratcheted upward
 - `2026-06-23` ↓ bearish — we do see downside uh pressure on both platinum and on palladium
 
-### [GC=F](../Tickers/GC=F.md) — now **bearish** (5 call(s))
+### [GC=F](../Tickers/GC=F.md) — now **bearish** (8 call(s))
 
 - `2026-06-19` → neutral — gold continues to hold above $4,000 while remaining in a volatile price consolidation range
 - `2026-06-19` ↓ bearish — Prices are subject to be tested again at the 4,100 level. We do expect that level to be tested.
 - `2026-06-19` ↓ bearish — a break below that is possible probably on a shorter term spike possibly with a target of 3,800 or 3,500.
 - `2026-06-23` ↓ bearish — why gold is testing $4,100, why a break lower could point toward $3,800
 - `2026-06-23` ↓ bearish — A break below 4,100 would have a technical target of around $3,800.
+- `2026-08-25` → neutral — Well, our average forecast for gold for this year has been about $4,450... but we'll probably be increasing our annual average projection uh from 4,450 because the price is alread…
+- `2026-08-25` → neutral — Our expectation was that the gold price would be in the 4,800 to 5,000 range by the end of this year... Could be a little higher... the gold price is going to rise from now into t…
+- `2026-08-25` → neutral — we think that there could be a pullback in early September, but our expectation as I just said is that the gold price is going to rise from now into the end of the year, if not in…
 
 ### [SI=F](../Tickers/SI=F.md) — now **bearish** (5 call(s))
 
@@ -111,14 +116,14 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 Topics where this person's current stance conflicts with another person's:
 
-- [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [CPM Group speaker](../People/cpm-group-speaker.md), [Erik Townsend](../People/erik-townsend.md), [Jeffrey Kushin](../People/jeffrey-kushin.md)
-- [GC=F](../Tickers/GC=F.md) — opposite: [George Noble](../People/george-noble.md), [Erik Townsend](../People/erik-townsend.md), [Jeffrey Kushin](../People/jeffrey-kushin.md), [Patrick (addressed by name in transcript)](../People/patrick-addressed-by-name-in-transcript.md)
-- [SI=F](../Tickers/SI=F.md) — opposite: [Jeffrey Kushin](../People/jeffrey-kushin.md), [Patrick (addressed by name in transcript)](../People/patrick-addressed-by-name-in-transcript.md)
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [Erik Townsend](../People/erik-townsend.md), [Jeffrey Kushin](../People/jeffrey-kushin.md), [CPM Group analyst](../People/cpm-group-analyst.md)
+- [GC=F](../Tickers/GC=F.md) — opposite: [George Noble](../People/george-noble.md), [Erik Townsend](../People/erik-townsend.md), [Patrick Ceresna](../People/patrick-ceresna.md), [Jeffrey Kushin](../People/jeffrey-kushin.md)
+- [SI=F](../Tickers/SI=F.md) — opposite: [Patrick Ceresna](../People/patrick-ceresna.md), [Jeffrey Kushin](../People/jeffrey-kushin.md)
+- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [AI & Semiconductors](../Themes/ai-semiconductors.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Val Zlatev](../People/val-zlatev.md), [Raoul Pal](../People/raoul-pal.md)
 - [Crypto & Stablecoins](../Themes/crypto.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Brent Johnson](../People/brent-johnson.md)
 - [Electrification, Power & Industrials](../Themes/electrification-industrials.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Chris Semenuk](../People/chris-semenuk.md)
-- [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Chris Semenuk](../People/chris-semenuk.md), [Eurodollar University guest Jeff](../People/eurodollar-university-guest-jeff.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

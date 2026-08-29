@@ -1,16 +1,18 @@
 # CL=F — Crude oil
 
-**103 extracted prediction(s)** across 17 channel(s). Consensus: **bullish** (20 bullish / 6 bearish / 77 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
+**114 extracted prediction(s)** across 19 channel(s). Consensus: **bullish** (21 bullish / 9 bearish / 84 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
 ## The debate
 
-Crude oil spent the summer of 2026 as a tug-of-war between a war premium that kept refusing to die and a supply response that kept capping it. The tape tells the story: Patrick Ceresna noted on June 18 that oil had collapsed from the $90 level to the $73 handle — a near-20% decline — yet the consensus register still reads bullish (20 bullish against just 6 bearish, with a striking 77 neutral). That neutral bloc is the real tell: the headline tilt leans bullish, but most of the Street declined to pick a side in a market whipsawing between geopolitical tail risk and OPEC-plus-style production increases. The loudest early bull call came from David Woo on June 15, who disclosed he'd made money being long oil early in the war and drew a hard line in the sand: if the Strait of Hormuz was still closed by end of July, oil was going to $150.
+The crude oil debate in 2026 has been a fight over whether a wartime premium can survive a supply response. It opened decisively bullish: on June 15, David Woo described himself as long from the war's early days — money made, though down on the trade by mid-June — and laid out the cleanest conditional on record: if the Strait of Hormuz was still closed at the end of July, oil was going to $150 ([David Woo](../People/david-woo.md)). Three days later the market answered with a thud — Patrick Ceresna flagged a near-20% collapse from the $90 level to the $73 handle ([Patrick Ceresna](../People/patrick-ceresna.md)) — and the question ever since has been whether that was the war premium deflating or a pause in something bigger.
 
-The June bull camp clustered around chart mechanics and tail scenarios. Erik Townsend flagged a "great big glaring gap" up to roughly $84.50 that he thought would be filled, while acknowledging the market had just tested its 200-day moving average at $73.50 — and on June 18 he went further, saying prices would settle back above $80, maybe as high as $90, and wouldn't be surprised to see oil back over $100 before year-end. Brent Johnson echoed the "back over 100" call almost verbatim. George Noble was the camp's escalation case, arguing on June 18 that within a couple of months you could see $150, $170, "maybe even 200," because supply would "absolutely plummet" with nothing left in the SPR — then doubled down on June 23 with a simple "I would bet higher." Ceresna sat in the measured middle of the bulls: recovery to the $80–90 zone, nothing more exotic.
+The bulls split into two camps. The supply-destruction camp is led by George Noble, who argued on June 18 that with "nothing left in the SPR," a delayed effect will hit and "the supply of oil absolutely plummet" — putting $150, $170, "who knows, maybe even 200" on the board within a couple of months ([George Noble](../People/george-noble.md)). He doubled down on June 23 with a simple "I would bet higher" ([George Noble](../People/george-noble.md)). The technical camp — Erik Townsend and Brent Johnson — anchored instead on a chart gap near $84.50 that Townsend insisted "will be filled," with both men floating a return above $100 before year-end ([Erik Townsend](../People/erik-townsend.md); [Brent Johnson](../People/brent-johnson.md)). Townsend at least grounded his view in the tape, noting the 200-day moving average test at $73.50 before calling for the gap ([Erik Townsend](../People/erik-townsend.md)). Ceresna's own arc tracks the room: from describing the June crash, to endorsing a "growing view" of $80–85 as fair intermediate value on June 25, to arguing by August 13 that once oil beats $80 it likely stays in the $80-plus zone with room to run ([Patrick Ceresna](../People/patrick-ceresna.md)).
 
-The bear case was thinner but sharpened as summer wore on. Gareth Soloway's July 17 read was political rather than technical: the pressure was on to get the oil price down, "whatever he has to do" — and he noted the gap fill around $67 was exactly where price had gone and bounced. By late August, the bears' core argument was supply itself: as one commentator put it on August 26, oil "probably has the least incentive to move higher here because everyone's trying to increase production." Meanwhile the $200 talk hadn't fully died — the same day's discussion included whether those $150–200 forecasts could materialize, and an August 25 voice pushed back on the bear chorus by observing the market was "having a hard time breaking down into 60 bucks" despite everybody wanting to think it would.
+Michael Howell is the camp's most inventive recruit. On August 13 he conceded he'd been persuaded, signing on to both higher oil and higher bond yields, then reached for a valuation stunt: take the long-run gold/oil ratio of roughly 20x, divide it into the gold price, and you land at $135 a barrel — a number he himself admitted "may be way way off the scale" ([Michael Howell](../People/michael-howell.md)). It's telling that when the charts stopped cooperating, the bulls started triangulating off gold.
 
-The most interesting August development was Michael Howell's reframing on August 13: rather than war headlines, he triangulated from the long-run gold/oil ratio of roughly 20 times — and even stretching to 30 — to land at an oil price around $135 a barrel, "substantially above" spot. He conceded the math "may be way off the scale," which is hedged enthusiasm, but he explicitly endorsed the higher-oil, higher-yields package. Ceresna, for his part, had migrated from describing the June collapse to arguing that once the market beats $80, it likely stays in an $80-plus zone with room to run. So the shape of the debate by late August: the bulls moved from Hormuz countdown clocks to valuation ratios and consolidation floors, the bears moved from gap-fills to supply discipline, and the unresolved extremes — $200 on one side, $60 on the other — were still both very much on the table.
+The bear case is thinner but pointed. Gareth Soloway's July 17 take was political rather than fundamental — "he is going to do whatever he has to do to get that oil price down" — with a gap fill near $67 as the technical destination ([Gareth Soloway](../People/gareth-soloway.md)). The late-August tape (speakers unnamed in the digest) then captured the whole argument in miniature: one voice noted $150–$200 analyst forecasts appeared "as soon as this happened" and asked whether $200 oil was really back on the table, while another called oil the commodity with "the least incentive to move higher" precisely because everyone is racing to raise production. A third pointed at the stubborn floor — a hard time breaking down through $60, whatever "everybody wants to think."
+
+The scoreboard reads bullish — 21 bulls against 9 bears — but the 84 neutrals are the real signal: most of the desk is watching rather than betting. And the bull targets themselves span $80 to $200, a band so wide it exposes what the fight is actually about: not crude's cycle, but whether the war, the strait, and an empty SPR can override the production response. Nobody in the record has flat-out flipped, though the drift is worth watching — from Noble's June maximalism, through Soloway's policy-driven skepticism in July, to the production-glut argument surfacing in late August against a consensus that has been officially bullish since mid-June.
 
 ## Themes
 
@@ -20,9 +22,9 @@ The most interesting August development was Michael Howell's reframing on August
 
 | Stance | Count |
 |---|---:|
-| Bullish | 20 |
-| Bearish | 6 |
-| Neutral / watch | 77 |
+| Bullish | 21 |
+| Bearish | 9 |
+| Neutral / watch | 84 |
 
 ## Voices on this ticker
 
@@ -31,17 +33,19 @@ The most interesting August development was Michael Howell's reframing on August
 - [Erik Townsend](../People/erik-townsend.md)
 - Eurodollar University host
 - [Gareth Soloway](../People/gareth-soloway.md)
+- [Gary Wagner](../People/gary-wagner.md)
 - [George Noble](../People/george-noble.md)
 - Host 1
 - [JD](../People/jd.md)
-- [Jeff (Jeoff)](../People/jeff-jeoff.md)
+- Jeff (Jeoff)
+- [Lyn Alden](../People/lyn-alden.md)
 - [Michael Howell](../People/michael-howell.md)
 - [Patrick](../People/patrick.md)
 - [Patrick Ceresna](../People/patrick-ceresna.md)
 - [Ron Butler](../People/ron-butler.md)
 - [Sam Burns](../People/sam-burns.md)
 - [Tony](../People/tony.md)
-- [unattributed (Bittel or Pal)](../People/unattributed-bittel-or-pal.md)
+- unattributed (Bittel or Pal)
 
 ## Notable calls
 
@@ -75,7 +79,7 @@ The most interesting August development was Michael Howell's reframing on August
 - **David Lin** — [Biggest Market Shift Now: ‘You’re Making A Mistake’ Ignoring These Assets \| Ted…](https://www.youtube.com/watch?v=_ZCvbIbrc_k) — 2026-08-11, David Lin
 - **Figuring Out Money** — [It's Time To Lock In](https://www.youtube.com/watch?v=Meo_bPlCseI) — 2026-08-08, Figuring Out Money: "It was up 30%, right? 30% move."
 - **Figuring Out Money** (dir=`intermarket_note`) — [Something Just Happened Behind The Scenes](https://www.youtube.com/watch?v=OxRxUBqEdMI) — 2026-08-06, Figuring Out Money: "you can see recently oil came off and that benefited the S&P 500. The correlation there is not perfect"
-- **unattributed (Bittel or Pal)** — [Why Markets Could Be Ready To Move? \| Julien Bittel & Raoul Pal](https://www.youtube.com/watch?v=dEDMg2M5Mio) — 2026-08-06, [unattributed (Bittel or Pal)](../People/unattributed-bittel-or-pal.md): "assuming nothing really breaks and say oil doesn't move back above 120, 130, this just extends the business cycle even longer. That's as I see it."
+- **unattributed (Bittel or Pal)** — [Why Markets Could Be Ready To Move? \| Julien Bittel & Raoul Pal](https://www.youtube.com/watch?v=dEDMg2M5Mio) — 2026-08-06, unattributed (Bittel or Pal): "assuming nothing really breaks and say oil doesn't move back above 120, 130, this just extends the business cycle even longer. That's as I see it."
 - **Raoul Pal The Journey Man** (dir=`bearish`) — [Why Markets Could Be Ready To Move? \| Julien Bittel & Raoul Pal](https://www.youtube.com/watch?v=dEDMg2M5Mio) — 2026-08-06, Raoul Pal The Journey Man: "I I still think the oil top is in here."
 - **David Lin** — [U.S. Bails Out Japan From Crisis; What It Means For Markets \| David Nicoski](https://www.youtube.com/watch?v=irq5IUDIB3Q) — 2026-08-03, David Lin: "I don't think we're going to see $40 oil"
 - **David Lin** — [Gold To $3,000, Oil To $40, Bitcoin To $10,000: The Deflation Trade Is Here \| M…](https://www.youtube.com/watch?v=_wm2gO04z_I) — 2026-07-30, David Lin: "The world's largest producer net exporter the average cost of production in this country is around $55 a barrel. The rules of commodities are you always go to average cost of production."
@@ -124,13 +128,22 @@ The most interesting August development was Michael Howell's reframing on August
 - **Sam Burns** (dir=`bearish/neutral — unlikely to return to $110 (its level a few months prior)`) — [What Would End Bull Market Overnight? Strategist Reveals Trigger \| Sam Burns](https://www.youtube.com/watch?v=2mVsHCgJcVc) — 2026-06-30, [Sam Burns](../People/sam-burns.md): "It's going to take a lot for oil to go back to the 110 where it was, you know, a few months ago."
 - **Eurodollar University** (dir=`expects continued normalization (fading of the energy shock) as oil prices come back down`) — [BREAKING: Japan Just Lost Control of Its Currency](https://www.youtube.com/watch?v=21KrmQp4FWQ) — 2026-06-29, Eurodollar University: "as the energy shock starts to fade away, hopefully continues to fade away, and oil prices continue to normalize"
 - **David Lin** — [Investor Called Meltdown In Bitcoin, Gold, Stocks; Here’s His Shocking Forecast…](https://www.youtube.com/watch?v=ssYjTDHuNbM) — 2026-06-27, David Lin: "If I'm getting bullish on oil, if oil kicks off, well, that's going to be an interesting sight."
+- **David Lin** (dir=`down`) — [Housing 'Repeat Of 2008': Trader Warns Banks Will Need Bailouts \| Todd Horwitz](https://www.youtube.com/watch?v=76T7U8Q1Kmo) — 2026-06-26, David Lin: "I'm expecting the mid-50s before this move is all done."
 - **Figuring Out Money** (dir=`short_term_bounce_possible`, tf=`near future`) — [It's Time To Get Serious About This Market.](https://www.youtube.com/watch?v=2poug85rvhA) — 2026-06-26, Figuring Out Money: "Perhaps we see a bounce in oil in the near future. Given the context of its rapid selloff here, it's pretty steep incline. Think of a rubber band stretching, then you typically get some sort of a bounce."
+- **MacroVoices** — [MacroVoices #538 Lyn Alden: Is The War Really Over and What’s Next For Markets?](https://www.macrovoices.com/1537-macrovoices-538-lyn-alden-is-the-war-really-over-and-what-s-next-for-markets) — 2026-06-25, MacroVoices: "And second, once we do get a reversion rally, where does oil actually settle out on an interim basis? Many argue that that eighty dollar area remains a reasonable magnet."
+- **Lyn Alden** (dir=`neutral / fair value near term; higher over time`) — [Lyn Alden: Is The War Really Over and What’s Next For Markets?](https://www.macrovoices.com/podcast-transcripts/1538-lyn-alden-is-the-war-really-over-and-what-s-next-for-markets) — 2026-06-25, [Lyn Alden](../People/lyn-alden.md): "If the strait stays open, I think this is a k- kind of a near term rational place for oil to be from a, a price standpoint. I think over time it trends higher."
+- **Patrick Ceresna** — [MacroVoices #538 Lyn Alden: Is The War Really Over and What’s Next For Markets?](https://www.youtube.com/watch?v=D7BqR7xCxgQ) — 2026-06-25, [Patrick Ceresna](../People/patrick-ceresna.md): "There's a growing view that crude oil's more reasonable intermediate value may lie somewhere around the 80 85 dollar range and that this latest leg lower has been driven less by fundamentals and more by forced flows as…"
+- **Figuring Out Money** (dir=`up`) — [The Reversals Are Telling You THIS...](https://www.youtube.com/watch?v=G4mxxhDLlAM) — 2026-06-23, Figuring Out Money: "is it just giving us an indication that we might see oil potentially rise here"
+- **David Lin** (dir=`up (spike)`, tf=`conditional tail event`) — [Global Crisis Looms: Will Oil Run Out By July? \| Doomberg](https://www.youtube.com/watch?v=FNj9Ux9iNwo) — 2026-06-23, David Lin: "a full-blown re-escalation, the gloves come off, missiles start flying again, and critical infrastructure starts getting hit. Um and in that case, sure, you know, you could see a spike in oil."
+- **David Lin** (dir=`down`, tf=`coming months / 'going into the end of the year'`) — [Global Crisis Looms: Will Oil Run Out By July? \| Doomberg](https://www.youtube.com/watch?v=FNj9Ux9iNwo) — 2026-06-23, David Lin: "Absent that, which is our base case that that won't happen, you're going to see uh the oil markets calm and drift lower and achieve pre-pre-war prices here pretty soon."
 - **Tony** (action=`buy`, dir=`up`, tf=`unspecified`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [Tony](../People/tony.md): "I'm a buyer down here of oil as well."
 - **JD** (action=`buy`, dir=`up`, tf=`unspecified`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "I'm actually I'm with you guys."
 - **George Noble** (action=`buy`, dir=`up`, tf=`next $10-15 move`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "I would bet higher."
+- **The Jay Martin Show** (dir=`conditional / mixed — falls if Strait reopens; favored as a hard asset if it stays shut`) — [Turkey Just Sold Its Gold — Here's Why That Should Scare You](https://www.youtube.com/watch?v=pncMEKuR-g8) — 2026-06-20, The Jay Martin Show: "The oil price falls, the pressure drops, the emerging markets steady themselves, and we all go back to arguing about something else."
 - **Brent Johnson** (action=`watch`, dir=`up`, tf=`by year end`) — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Brent Johnson](../People/brent-johnson.md): "at some point, I think we're going to go fill those gaps at least up to 85. I wouldn't be surprised if we're back over 100 before the year is out. I don't think we're headed to 200 anymore, but I think getting back to t…"
 - **Erik Townsend** (action=`watch`, dir=`up`, target=`84.5`, tf=`unspecified, gap-fill expectation`) — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Erik Townsend](../People/erik-townsend.md): "there's a great big glaring gap in the chart well above the market going up to looks like a 84 and a half or so...I think it will be filled"
 - **Erik Townsend** (action=`watch`, dir=`down`, target=`73.5`, tf=`near term`) — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Erik Townsend](../People/erik-townsend.md): "We tested the 200-day moving average on the continuation chart at 73 spot 50. That's on the new August contract."
+- **Dr Ng Ming Tak, Victor** (dir=`elevated / sticky near term, bearish only later`, tf=`now until after November 2026 (post-election)`) — [歐洲已加息、日本亦會加、點解估計聯儲局穩定不變❓隱潛危機：全球萬億Carry Trade準備拆倉❓｜18 Jun2026](https://www.youtube.com/watch?v=HYyOHdTj5Jk) — 2026-06-18, Dr Ng Ming Tak, Victor: "期油唔跌低個80蚊呢就係因為呢個係打咗106日嗰個累積嘅獎金嚟嘅"
 - **Patrick Ceresna** (action=`watch`, dir=`up`, target=`90`, tf=`unspecified`) — [Trade of The Week - MacroVoices #537](https://www.youtube.com/watch?v=oqHNNzR9WNc) — 2026-06-18, [Patrick Ceresna](../People/patrick-ceresna.md): "I do think we will see prices settle back above 80 at some point here and maybe even as high as 90"
 - **Erik Townsend** (action=`watch`, dir=`up`, target=`85`, tf=`before year end`) — [Trade of The Week - MacroVoices #537](https://www.youtube.com/watch?v=oqHNNzR9WNc) — 2026-06-18, [Erik Townsend](../People/erik-townsend.md): "at some point, I think we're going to go fill those gaps at least up to 85. I wouldn't be surprised if we're back over 100 before the year is out. I don't think we're headed to 200 anymore, but I think getting back to t…"
 - **Eurodollar University host** (action=`watch`, dir=`unspecified`, tf=`unspecified`) — [ALERT: Oil And Interest Rates Are PLUNGING, Here's What You Must Know](https://www.youtube.com/watch?v=IpZ_HYxaU_8) — 2026-06-18, Eurodollar University host: "Second, watch for that contango, just like we were doing at the end of last year. If the front of the curve flips into contango, that would be a much louder warning that demand destruction is becoming more than a possib…"
@@ -142,12 +155,14 @@ The most interesting August development was Michael Howell's reframing on August
 - **Eric Townsend** (action=`watch`, dir=`up`, target=`84.5`, tf=`unspecified, gap fill`) — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=N7mX2NJ3nxQ) — 2026-06-18, Eric Townsend: "there's a great big glaring gap in the chart well above the market going up to looks like 84 a.5 or so. So, good solid $10 above the market just to fill that gap. I think it will be filled"
 - **Eric Townsend** (action=`watch`, dir=`down`, tf=`short term, near term`) — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=N7mX2NJ3nxQ) — 2026-06-18, Eric Townsend: "I wouldn't be surprised if we go lower still as the market continues to celebrate what it thinks is a certain and clean resolution to the Iran deal."
 - **Patrick Ceresna** (action=`none`, dir=`down`, tf=`past week`) — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=N7mX2NJ3nxQ) — 2026-06-18, [Patrick Ceresna](../People/patrick-ceresna.md): "The most notable moves were in crude oil where oil collapsed from the $90 level to the $73 handle, a close to 20% decline."
+- **David Lin** (dir=`bearish long-term IF Iran truce holds; upside risk if truce breaks`) — [Is Gold About To Crash 50%? 2012 Repeat Pattern Explained \| Gary Wagner](https://www.youtube.com/watch?v=tMzlpYpNi_w) — 2026-06-17, David Lin: "If in fact they resolve the problem and maintain that truce and come to a lasting peace agreement, we will see crude crude oil back down on a long-term basis. We saw it tank over the last couple of days, but that's it i…"
+- **Gary Wagner** (dir=`down`, tf=`near-term`) — [Is Gold About To Crash 50%? 2012 Repeat Pattern Explained \| Gary Wagner](https://www.youtube.com/watch?v=tMzlpYpNi_w) — 2026-06-17, [Gary Wagner](../People/gary-wagner.md): "I would look for it if it's not there already to go back to around 80 and 80 being a benchmark."
 - **Host 1** (action=`none`, dir=`down`, target=`73`, tf=`short`) — [Nobody Owns Bonds](https://www.youtube.com/watch?v=H-mvJ6poUk4) — 2026-06-17, Host 1: "Oil is going to go and trade this 200-day moving average at 73 something"
 - **David Woo** (action=`long`, dir=`unspecified`, tf=`unspecified`) — [Massive AI Crackdown Is Coming (It’s Simply Too Good) \| David Woo](https://www.youtube.com/watch?v=760Bpzc1cYM) — 2026-06-15, [David Woo](../People/david-woo.md): "So, it sounds like you uh made money being long oil early in the war... I happen to be long oil. I'm actually uh down"
 - **David Woo** (action=`long`, dir=`up`, target=`150`, tf=`by end of July`) — [Massive AI Crackdown Is Coming (It’s Simply Too Good) \| David Woo](https://www.youtube.com/watch?v=760Bpzc1cYM) — 2026-06-15, [David Woo](../People/david-woo.md): "if the straight of mus is still closed by the end of July like oil price is going to be $150"
 - **David Woo** (action=`long`, dir=`up`, tf=`unspecified`) — [Massive AI Crackdown Is Coming (It’s Simply Too Good) \| David Woo](https://www.youtube.com/watch?v=760Bpzc1cYM) — 2026-06-15, [David Woo](../People/david-woo.md): "I made some money basically from um from being long oil, so I haven't done so badly this year."
-- **Jeff (Jeoff)** (action=`watch`, dir=`unspecified`, tf=`near term`) — [Now That Iran Is Done, The Real Oil Crisis Begins](https://www.youtube.com/watch?v=DTh7cPI8z3E) — 2026-06-14, [Jeff (Jeoff)](../People/jeff-jeoff.md): "The first thing you're going to watch is WTI futures to see how the curve reshapes in this next stage."
-- **Jeff (Jeoff)** (action=`watch`, dir=`down`, target=`50`, tf=`unspecified, potentially months to a year plus`) — [Now That Iran Is Done, The Real Oil Crisis Begins](https://www.youtube.com/watch?v=DTh7cPI8z3E) — 2026-06-14, [Jeff (Jeoff)](../People/jeff-jeoff.md): "So that's how you get to $50 a barrel."
+- **Jeff (Jeoff)** (action=`watch`, dir=`unspecified`, tf=`near term`) — [Now That Iran Is Done, The Real Oil Crisis Begins](https://www.youtube.com/watch?v=DTh7cPI8z3E) — 2026-06-14, Jeff (Jeoff): "The first thing you're going to watch is WTI futures to see how the curve reshapes in this next stage."
+- **Jeff (Jeoff)** (action=`watch`, dir=`down`, target=`50`, tf=`unspecified, potentially months to a year plus`) — [Now That Iran Is Done, The Real Oil Crisis Begins](https://www.youtube.com/watch?v=DTh7cPI8z3E) — 2026-06-14, Jeff (Jeoff): "So that's how you get to $50 a barrel."
 
 ## Analysts covering this ticker
 
@@ -163,22 +178,24 @@ The most interesting August development was Michael Howell's reframing on August
 - [Real Vision](../Analysts/realvisionfinance.md) (`@RealVisionFinance`)
 - [Resource Talks](../Analysts/resourcetalks.md) (`@ResourceTalks`)
 - [David Lin](../Analysts/thedavidlinreport.md) (`@TheDavidLinReport`)
+- [The Jay Martin Show](../Analysts/thejaymartinshow.md) (`@TheJayMartinShow`)
 - [The Julia La Roche Show](../Analysts/thejulialarocheshow.md) (`@TheJuliaLaRocheShow`)
 - [Eurodollar University](../Analysts/eurodollaruniversity.md) (`@eurodollaruniversity`)
 - [Macro Voices](../Analysts/macrovoices7508.md) (`@macrovoices7508`)
 - [Maggie Lake Talking Markets](../Analysts/maggielake-talkingmarkets.md) (`@maggielake-talkingmarkets`)
 - [VRIC Media](../Analysts/vricmedia.md) (`@vricmedia`)
+- [MacroVoices](../Analysts/macrovoices.md) (`macrovoices`)
 
 ## Rates & bond-yield backdrop
 
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
-- 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
 - 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
@@ -234,13 +251,22 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 - 2026-06-30 — [What Would End Bull Market Overnight? Strategist Reveals Trigger \| Sam Burns](https://www.youtube.com/watch?v=2mVsHCgJcVc) (David Lin)
 - 2026-06-29 — [BREAKING: Japan Just Lost Control of Its Currency](https://www.youtube.com/watch?v=21KrmQp4FWQ) (Eurodollar University)
 - 2026-06-27 — [Investor Called Meltdown In Bitcoin, Gold, Stocks; Here’s His Shocking Forecast \| Clem Ch…](https://www.youtube.com/watch?v=ssYjTDHuNbM) (David Lin)
+- 2026-06-26 — [Housing 'Repeat Of 2008': Trader Warns Banks Will Need Bailouts \| Todd Horwitz](https://www.youtube.com/watch?v=76T7U8Q1Kmo) (David Lin)
 - 2026-06-26 — [It's Time To Get Serious About This Market.](https://www.youtube.com/watch?v=2poug85rvhA) (Figuring Out Money)
+- 2026-06-25 — [MacroVoices #538 Lyn Alden: Is The War Really Over and What’s Next For Markets?](https://www.macrovoices.com/1537-macrovoices-538-lyn-alden-is-the-war-really-over-and-what-s-next-for-markets) (MacroVoices)
+- 2026-06-25 — [Lyn Alden: Is The War Really Over and What’s Next For Markets?](https://www.macrovoices.com/podcast-transcripts/1538-lyn-alden-is-the-war-really-over-and-what-s-next-for-markets) (MacroVoices)
+- 2026-06-25 — [MacroVoices #538 Lyn Alden: Is The War Really Over and What’s Next For Markets?](https://www.youtube.com/watch?v=D7BqR7xCxgQ) (Macro Voices)
+- 2026-06-23 — [The Reversals Are Telling You THIS...](https://www.youtube.com/watch?v=G4mxxhDLlAM) (Figuring Out Money)
+- 2026-06-23 — [Global Crisis Looms: Will Oil Run Out By July? \| Doomberg](https://www.youtube.com/watch?v=FNj9Ux9iNwo) (David Lin)
 - 2026-06-23 — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) (The Macro Dirt Podcast)
+- 2026-06-20 — [Turkey Just Sold Its Gold — Here's Why That Should Scare You](https://www.youtube.com/watch?v=pncMEKuR-g8) (The Jay Martin Show)
 - 2026-06-19 — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) (Macro Voices)
+- 2026-06-18 — [歐洲已加息、日本亦會加、點解估計聯儲局穩定不變❓隱潛危機：全球萬億Carry Trade準備拆倉❓｜18 Jun2026](https://www.youtube.com/watch?v=HYyOHdTj5Jk) (Dr Ng Ming Tak, Victor)
 - 2026-06-18 — [Trade of The Week - MacroVoices #537](https://www.youtube.com/watch?v=oqHNNzR9WNc) (Macro Voices)
 - 2026-06-18 — [ALERT: Oil And Interest Rates Are PLUNGING, Here's What You Must Know](https://www.youtube.com/watch?v=IpZ_HYxaU_8) (Eurodollar University)
 - 2026-06-18 — [SpaceX, Iran, OpenAI IPO...Here's My Controversial Stock Strategy For 2026](https://www.youtube.com/watch?v=QxR6yvf8ueU) (George Gammon)
 - 2026-06-18 — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=N7mX2NJ3nxQ) (Macro Voices)
+- 2026-06-17 — [Is Gold About To Crash 50%? 2012 Repeat Pattern Explained \| Gary Wagner](https://www.youtube.com/watch?v=tMzlpYpNi_w) (David Lin)
 - 2026-06-17 — [Nobody Owns Bonds](https://www.youtube.com/watch?v=H-mvJ6poUk4) (The Macro Dirt Podcast)
 - 2026-06-15 — [Massive AI Crackdown Is Coming (It’s Simply Too Good) \| David Woo](https://www.youtube.com/watch?v=760Bpzc1cYM) (The Monetary Matters Network)
 - 2026-06-14 — [Now That Iran Is Done, The Real Oil Crisis Begins](https://www.youtube.com/watch?v=DTh7cPI8z3E) (Eurodollar University)

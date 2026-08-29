@@ -13,7 +13,11 @@ uv run python scripts/build_llm_wiki.py [--no-bios]
 
 - `People/` — one page per person (interview guests, show hosts,
   solo authors), merged across every show they appear on via
-  alias/generic-name resolution. Opinions per topic in chronological
+  alias/generic-name resolution. Non-person labels (AI bots like
+  'Grok (xAI)', companies, channel boilerplate) are dropped and
+  misspelled / unnamed-CEO variants are canonicalized by a cached
+  LLM gate (`scripts/llm_wiki_people.json`) on top of the
+  deterministic filter. Opinions per topic in chronological
   order; stance flips (bullish→bearish across *different days*) are
   flagged. GLM-written bios are cached in
   `scripts/llm_wiki_bios.json` (pass `--no-bios` to skip generation;

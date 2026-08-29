@@ -1,16 +1,16 @@
 # BTC-USD — Bitcoin
 
-**83 extracted prediction(s)** across 13 channel(s). Consensus: **bearish** (1 bullish / 2 bearish / 80 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
+**93 extracted prediction(s)** across 13 channel(s). Consensus: **bearish** (1 bullish / 2 bearish / 90 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
 ## The debate
 
-The Bitcoin ledger in this corpus is technically bearish — one bullish call, two bearish, eighty neutral — but the tally undersells how contested the *framing* is. The bears built their case first and most concretely. Back on 27 June 2026, [Steve](../People/steve.md) laid out a structural argument: if an overhang holder like MicroStrategy ever tried to sell, "it's going to plunge," and in a liquidity squeeze crypto is precisely the asset nobody will gate you for exiting — which is why it goes down first. The macro bears then stacked on through August. An unattributed voice ([Bittel or Pal](../People/unattributed-bittel-or-pal.md)) flagged on 6 August that excess liquidity is "an issue for further out the risk curve," with crypto suffering for it. [Michael Howell](../People/michael-howell.md) put numbers on the beta asymmetry on 13 August — the S&P dropped 25% while Bitcoin dropped 75%, and "some of that drop in crypto is already in the bag" — and on 20 August [Andrew Kang](../People/andrew-kang.md) added the rotation threat: total AI market cap heading for "at least 10, 20, 30x times larger than Bitcoin," meaning the marginal speculative dollar has somewhere more compelling to go.
+The Bitcoin debate in this corpus is stranger than its "bearish" label suggests: the tracked tally is one bullish, two bearish and ninety neutral, meaning the official consensus rests on a wall of shrug with a thin bearish edge. The people actually willing to call it are fighting a narrow but sharp war into late August 2026 — roughly: does the rebound carry through 100K, or is there, as one recurring unnamed voice puts it, "at least one more scare in Q4" still coming?
 
-The bull side comes in two flavors, neither especially loud. The statistical flavor arrived via David Lin on 25 August, citing Kalshi: traders were pricing only a 22% chance Bitcoin hits $50k before $100k — "rather bullish," in his words, with spot sitting right at the midpoint. The conditional flavor is [Ben Cowen](../People/ben-cowen.md), who told listeners that same day to "just prepare yourself ideally for a bull run" while immediately hedging that a rejection around $80–81k "still" leaves room to go lower. Meanwhile an unnamed recurring voice used the same discussion to push back on mechanical bull theses — "the ISM is going up, therefore Bitcoin will go up. Or lagged money supply is going up, therefore Bitcoin will go up…" — while also defending the four-year cycle against its obituary writers ("the argument back then was that the four-year cycle was dead. Uh but it wasn't, right?") and conditioning a call that Bitcoin gets "at least one more scare in Q4."
+The bull case is really a debasement trade argument. The same unnamed voice who warns of a Q4 scare opened the week of August 27 "still extremely comfortable" in gold-and-Bitcoin debasement trades after "a good week," and an unnamed host framed the trade as nearly unfalsifiable: if yields blow out, debasement goes up; if yields fall, debasement goes up anyway. On the pure price side, [JD](../People/jd.md) was blunt the same day — "I think it probably goes to 100 in the short term. I do." — and David Lin, citing Kalshi odds on August 25, noted traders gave just a 22% chance of Bitcoin hitting 50 before 100, with spot sitting right at the midpoint between those levels, which he read as "rather bullish." Even the Macro Dirt host, the friendliest voice on the tape, is a tactical bull at best: there's room to the next resistance at 100K, "the last peak before it collapsed," but they'd "make a sale there if I was long." Note what that means — the optimistic end of this debate is already telling longs where to exit.
 
-The genuinely interesting twist lands on 27 August, when that same unnamed voice declares itself "still extremely comfortable in my debasement trades of gold and Bitcoin. It's been a good week for them." An unnamed host on the same program crystallized why this matters: speculators may "take my ball and play on a different court" — debasement and metals — and the debasement trade wins either way, since "if yields blow out... debasement's going to go up. If yields go down, debasement's going to go up."
+The bear case comes from two directions. [Andrew Kang](../People/andrew-kang.md) made the rotation argument on August 20: total AI market cap is going to be "at least 10, 20, 30x larger than Bitcoin," a polite way of saying the marginal speculator's capital and attention now live elsewhere. Earlier, on June 27, [Steve](../People/steve.md) was bearish on structure — a MicroStrategy selling program would send the price plunging, and because nobody gates redemptions in Bitcoin, it's the first place selling shows up when liquidity turns and investors start asking why crypto is going down. The unnamed host's line about speculators "taking my ball" to debasement and metals captures the same rotation anxiety from the other side.
 
-So the shape of the debate is this: the bull case has migrated from crypto-as-risk-asset to crypto-as-debasement-hedge, a pivot that quietly concedes the bears' liquidity argument — if Bitcoin's marginal buyer shows up only when the debasement narrative is convenient, it is no longer the high-beta liquidity rocket the old ISM-and-money-supply models implied. There's an unresolved tension in the same commentator being conditional-bearish on the tape ("one more scare in Q4") while comfortable in the debasement basket: bullish on the narrative, wary on price. And notably, the corpus documents no clean mind-changes — Steve's June structural case stands unchallenged into the fall, and Cowen remains two-sided throughout — which suggests the 80 registered neutrals are, for once, a defensible majority rather than cowardice.
+As for minds changing, the clearest arc belongs to that unnamed debasement voice, tracked as bearish-then-recovering: back when "the argument was that the four-year cycle was dead," they held the line — and Bitcoin "ended up selling off" anyway, vindicating the cycle framework — yet they remain pointedly allergic to the mechanical bull syllogisms ("ISM going up, therefore Bitcoin will go up… lagged money supply going up, therefore Bitcoin will go up"). [Ben Cowen](../People/ben-cowen.md) runs the same split on August 25, telling listeners to "just prepare yourself ideally for a bull run" while warning that a rejection around 80–81K leaves "still a chance that we go lower." That's the shape of it: the bulls and the recovering bears converge on 100K as the decision point, the loudest bull advice is to sell into it, and the ninety-strong neutral blob implies nobody with tracking coverage has much conviction either way.
 
 ## Themes
 
@@ -22,7 +22,7 @@ So the shape of the debate is this: the bull case has migrated from crypto-as-ri
 |---|---:|
 | Bullish | 1 |
 | Bearish | 2 |
-| Neutral / watch | 80 |
+| Neutral / watch | 90 |
 
 ## Voices on this ticker
 
@@ -31,17 +31,21 @@ So the shape of the debate is this: the bull case has migrated from crypto-as-ri
 - [Ben Cowen](../People/ben-cowen.md)
 - David Lin (host, citing Kalshi market odds)
 - [George Noble](../People/george-noble.md)
-- [Jeff](../People/jeff.md)
+- Host (Macro Dirt)
+- [JD](../People/jd.md)
+- Jeff
 - [Jeff Snider](../People/jeff-snider.md)
 - [Michael Howell](../People/michael-howell.md)
 - [Mike Alfred](../People/mike-alfred.md)
 - Speaker A (unnamed host)
 - [Steve](../People/steve.md)
 - Tony (host)
-- [unattributed (Bittel or Pal)](../People/unattributed-bittel-or-pal.md)
+- unattributed (Bittel or Pal)
 
 ## Notable calls
 
+- **Host (Macro Dirt)** — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "There's room up to yet next resistance level at 100K. That's the last peak before it collapsed. So, I would make a sale there if I was long."
+- **JD** — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "I think it probably goes to 100 in the short term. I do."
 - **Forward Guidance** — [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Forward Guidance: "I'm still extremely comfortable in my debasement trades of of gold and Bitcoin. It's it's been a good week for them"
 - **Speaker A (unnamed host)** — [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "speculators are going to say, "Okay, I'm going to take my ball and play on a different court. Maybe I'm going to go to debasement and metals and Bitcoin.""
 - **Speaker A (unnamed host)** — [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "if yields blow out, they're going to do this and debasement's going to go up. If yields go down, debasement's going to go up."
@@ -88,7 +92,7 @@ So the shape of the debate is this: the bull case has migrated from crypto-as-ri
 - **Forward Guidance** — [Washington Is Suppressing Volatility To Keep The AI Boom Alive \| Weekly Roundup](https://www.youtube.com/watch?v=L_g9MNO2tvE) — 2026-08-07, Forward Guidance: "I think we're kind of in this middle ground. I don't think it's an amazing like entry in either direction"
 - **Forward Guidance** — [Washington Is Suppressing Volatility To Keep The AI Boom Alive \| Weekly Roundup](https://www.youtube.com/watch?v=L_g9MNO2tvE) — 2026-08-07, Forward Guidance: "at some point hash rate drops low enough where you can actually mine again profitably"
 - **Figuring Out Money** — [Something Just Happened Behind The Scenes](https://www.youtube.com/watch?v=OxRxUBqEdMI) — 2026-08-06, Figuring Out Money: "is Bitcoin nearing a potential pop... where I might see a little bit of a move higher. If it doesn't, well, you get out right away. Set your alert back up, and perhaps then maybe it's a better setup. But, right now it's…"
-- **unattributed (Bittel or Pal)** — [Why Markets Could Be Ready To Move? \| Julien Bittel & Raoul Pal](https://www.youtube.com/watch?v=dEDMg2M5Mio) — 2026-08-06, [unattributed (Bittel or Pal)](../People/unattributed-bittel-or-pal.md): "So, but the excess liquidity makes it an issue for further out the risk curve and crypto has not been great from it. But as you say, the move in crypto, the underlying activity tells you something major is going on ther…"
+- **unattributed (Bittel or Pal)** — [Why Markets Could Be Ready To Move? \| Julien Bittel & Raoul Pal](https://www.youtube.com/watch?v=dEDMg2M5Mio) — 2026-08-06, unattributed (Bittel or Pal): "So, but the excess liquidity makes it an issue for further out the risk curve and crypto has not been great from it. But as you say, the move in crypto, the underlying activity tells you something major is going on ther…"
 - **Raoul Pal The Journey Man** (dir=`bullish`) — [Why Markets Could Be Ready To Move? \| Julien Bittel & Raoul Pal](https://www.youtube.com/watch?v=dEDMg2M5Mio) — 2026-08-06, Raoul Pal The Journey Man: "So, and there's the Bitcoin monthly with a nine."
 - **Raoul Pal The Journey Man** — [Why Markets Could Be Ready To Move? \| Julien Bittel & Raoul Pal](https://www.youtube.com/watch?v=dEDMg2M5Mio) — 2026-08-06, Raoul Pal The Journey Man: "Bitcoin's Technical Setup Looks Increasingly Bullish"
 - **The Monetary Matters Network** — [AI Trade "Dead Money" For Now - But Macro Overall Is "Pretty Risk-On" For Stock…](https://www.youtube.com/watch?v=Q4eRWt2Zxx8) — 2026-08-02, The Monetary Matters Network
@@ -107,7 +111,7 @@ So the shape of the debate is this: the bull case has migrated from crypto-as-ri
 - **David Lin** (dir=`Gold preferred over Bitcoin; Bitcoin underperformed gold and expected to continue doing so`, tf=`Ongoing / into more challenging times`) — [End Of Cycle: Analyst Called Bitcoin Top, Warns Market Breaking Point Nears \| R…](https://www.youtube.com/watch?v=dK393rKN-a4) — 2026-06-29, David Lin: "Where in all the conditions for Bitcoin to soar uh really ended up benefiting gold instead, and gold crushed Bitcoin over the last couple of years. So, I do think that as we head into these more challenging times that g…"
 - **David Lin** (tf=`Ongoing`) — [End Of Cycle: Analyst Called Bitcoin Top, Warns Market Breaking Point Nears \| R…](https://www.youtube.com/watch?v=dK393rKN-a4) — 2026-06-29, David Lin: "Bitcoin is one of the the first to benefit and the first to suffer from changes in liquidity."
 - **David Lin** (tf=`Near-term / by year-end 2026 (in context of the host's 'below 50,000 by year end' question)`) — [End Of Cycle: Analyst Called Bitcoin Top, Warns Market Breaking Point Nears \| R…](https://www.youtube.com/watch?v=dK393rKN-a4) — 2026-06-29, David Lin: "I think that Bitcoin is uh not done going down, I'm afraid. And typically, these corrections of Bitcoin are in the 75 to 80% range. So, if you just take 125 and you go down uh you know, 3/4 of that, what does that put y…"
-- **Jeff** (dir=`bearish`) — [Bitcoin And BlackRock Just Did Something VERY Strange](https://www.youtube.com/watch?v=biyCX7UYAfQ) — 2026-06-27, [Jeff](../People/jeff.md): "People over in Bitcoin looking at Bitcoin from a different perspective thinking, I need to pull my money out of Bitcoin."
+- **Jeff** (dir=`bearish`) — [Bitcoin And BlackRock Just Did Something VERY Strange](https://www.youtube.com/watch?v=biyCX7UYAfQ) — 2026-06-27, Jeff: "People over in Bitcoin looking at Bitcoin from a different perspective thinking, I need to pull my money out of Bitcoin."
 - **Steve** (dir=`bearish`) — [Bitcoin And BlackRock Just Did Something VERY Strange](https://www.youtube.com/watch?v=biyCX7UYAfQ) — 2026-06-27, [Steve](../People/steve.md): "Now, arguably if someone like MicroStrategy comes in and tries to sell it, it's going to plunge, but no one's going to close the door and say that you can't sell."
 - **Steve** (dir=`bearish`) — [Bitcoin And BlackRock Just Did Something VERY Strange](https://www.youtube.com/watch?v=biyCX7UYAfQ) — 2026-06-27, [Steve](../People/steve.md): "And then we could start looking at, "Okay, why are things like Bitcoin going down?" Well, because nobody's going to gate you if you want to sell it."
 - **Jeff Snider** — [Bitcoin And BlackRock Just Did Something VERY Strange](https://www.youtube.com/watch?v=biyCX7UYAfQ) — 2026-06-27, [Jeff Snider](../People/jeff-snider.md): "You can lighten up on Bitcoin because its momentum is gone."
@@ -122,9 +126,17 @@ So the shape of the debate is this: the bull case has migrated from crypto-as-ri
 - **David Lin** (dir=`down >50% from all-time high (stated as fact); functioning as warning signal for broader markets`) — [Massive Liquidity Shock Coming; Brace For 'Wrecking Ball' Warns Economist \| Mic…](https://www.youtube.com/watch?v=CDK7G4lTKII) — 2026-06-26, David Lin: "Bitcoin is down more than 50% from its all-time high last year."
 - **Figuring Out Money** (dir=`bearish_but_turning`, tf=`current`) — [It's Time To Get Serious About This Market.](https://www.youtube.com/watch?v=2poug85rvhA) — 2026-06-26, Figuring Out Money: "I do want to just highlight though that we've been on a sell signal and sell trigger since really this week over here and since that point we have been going lower."
 - **Figuring Out Money** (dir=`short_term_bounce_possible`, tf=`near future`) — [It's Time To Get Serious About This Market.](https://www.youtube.com/watch?v=2poug85rvhA) — 2026-06-26, Figuring Out Money: "So is this a positive divergence creating where we might see some sort of a pop in the near future for the price of Bitcoin and ultimately yeah there's a strong possibility after some extreme selling you can see bounces."
+- **David Lin** (dir=`bearish`) — [24% Collapse Incoming: Trader Reveals Shocking Market Red Flags \| Chris Vermeul…](https://www.youtube.com/watch?v=0f1pMEpQ61U) — 2026-06-25, David Lin: "I would say Bitcoin has the most downside potential."
+- **David Lin** (dir=`bearish (bear flag breaking down)`, tf=`weekly chart`) — [24% Collapse Incoming: Trader Reveals Shocking Market Red Flags \| Chris Vermeul…](https://www.youtube.com/watch?v=0f1pMEpQ61U) — 2026-06-25, David Lin: "This weekly chart is a giant bare flag and it's starting to break down. And so there is a potential big unwinding in the crypto space that we need to be aware of."
+- **David Lin** (dir=`bearish`, tf=`weekly chart`) — [24% Collapse Incoming: Trader Reveals Shocking Market Red Flags \| Chris Vermeul…](https://www.youtube.com/watch?v=0f1pMEpQ61U) — 2026-06-25, David Lin: "we had some some low targets 12,000. We also had a 16,000 uh depending on the intraday the uh the weekly chart uh target to the downside."
+- **David Lin** (dir=`bearish`, tf=`unspecified`) — [24% Collapse Incoming: Trader Reveals Shocking Market Red Flags \| Chris Vermeul…](https://www.youtube.com/watch?v=0f1pMEpQ61U) — 2026-06-25, David Lin: "44,000 is the next critical target for Bitcoin"
+- **David Lin** (dir=`bearish`, tf=`monthly chart`) — [24% Collapse Incoming: Trader Reveals Shocking Market Red Flags \| Chris Vermeul…](https://www.youtube.com/watch?v=0f1pMEpQ61U) — 2026-06-25, David Lin: "The monthly chart for Bitcoin uh I was drawing this this morning. The monthly chart for Bitcoin points to 16,000 again, which is a target I had many many years ago."
+- **David Lin** — [Peter Schiff: The Next Meltdown Has Quietly Started](https://www.youtube.com/watch?v=IIBguZNDuzs) — 2026-06-23, David Lin: "the Bitcoin bubble and the crypto bubble, and now, you know, more are going to go."
+- **David Lin** — [Peter Schiff: The Next Meltdown Has Quietly Started](https://www.youtube.com/watch?v=IIBguZNDuzs) — 2026-06-23, David Lin: "Bitcoin, which peaked at 126,000, is down at around 64,000. So, it's down about 50%. But Bitcoin is lower than it was in April of 2021. So, for 5 years, Bitcoin's gone nowhere."
 - **Tony (host)** (action=`watch`, dir=`down`, tf=`unspecified`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, Tony (host): "that looks like the thing tells me that it's like a story that is like coming to an end"
 - **George Noble** (action=`none`, dir=`down`, tf=`unspecified`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "Bitcoin is the Facebook of speculative assets... I think it's just going to go into the sunset I just think it's irrelevant"
 - **Mike Alfred** (action=`long`, dir=`up`, tf=`long`) — [The Hidden AI Trade: Land, Power, & Compute \| With Mike Alfred](https://www.youtube.com/watch?v=-p3DhlY2TEk) — 2026-06-21, [Mike Alfred](../People/mike-alfred.md): "a straight long Bitcoin position, which is really the only position that I've sort of publicly espoused over that period"
+- **Forward Guidance** (dir=`pressured near-term (macro headwinds); constructive long-term`) — [A New Era Is Beginning In Markets \| Weekly Roundup](https://www.youtube.com/watch?v=kBdZAegipLM) — 2026-06-19, Forward Guidance: "the Bitcoin side itself is it's just struggling from macro environment issues"
 
 ## Analysts covering this ticker
 
@@ -146,17 +158,18 @@ So the shape of the debate is this: the bull case has migrated from crypto-as-ri
 
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
-- 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
 - 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
+- 2026-08-27 — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) (The Macro Dirt Podcast)
 - 2026-08-27 — [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Weekly Roundup](https://www.youtube.com/watch?v=aEG3hZZX45M) (Forward Guidance)
 - 2026-08-25 — [Why Is Bitcoin Suddenly Exploding? Will The Rally Continue? \| Ben Cowen](https://www.youtube.com/watch?v=gTn7-oSb_ic) (David Lin)
 - 2026-08-24 — [Treasury’s $1 Trillion Rescue: What’s Next For Stocks, Gold, Oil \| Todd Horwitz](https://www.youtube.com/watch?v=szfb2vqhLjo) (David Lin)
@@ -191,8 +204,11 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 - 2026-06-27 — [Investor Called Meltdown In Bitcoin, Gold, Stocks; Here’s His Shocking Forecast \| Clem Ch…](https://www.youtube.com/watch?v=ssYjTDHuNbM) (David Lin)
 - 2026-06-26 — [Massive Liquidity Shock Coming; Brace For 'Wrecking Ball' Warns Economist \| Michael Howell](https://www.youtube.com/watch?v=CDK7G4lTKII) (David Lin)
 - 2026-06-26 — [It's Time To Get Serious About This Market.](https://www.youtube.com/watch?v=2poug85rvhA) (Figuring Out Money)
+- 2026-06-25 — [24% Collapse Incoming: Trader Reveals Shocking Market Red Flags \| Chris Vermeulen](https://www.youtube.com/watch?v=0f1pMEpQ61U) (David Lin)
+- 2026-06-23 — [Peter Schiff: The Next Meltdown Has Quietly Started](https://www.youtube.com/watch?v=IIBguZNDuzs) (David Lin)
 - 2026-06-23 — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) (The Macro Dirt Podcast)
 - 2026-06-21 — [The Hidden AI Trade: Land, Power, & Compute \| With Mike Alfred](https://www.youtube.com/watch?v=-p3DhlY2TEk) (Real Vision)
+- 2026-06-19 — [A New Era Is Beginning In Markets \| Weekly Roundup](https://www.youtube.com/watch?v=kBdZAegipLM) (Forward Guidance)
 
 ---
 _Page reflects DB state at generation time. Regenerate via `uv run python scripts/build_llm_wiki.py`._

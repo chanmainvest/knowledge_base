@@ -61,9 +61,9 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 Topics where this person's current stance conflicts with another person's:
 
-- [AI & Semiconductors](../Themes/ai-semiconductors.md) — opposite: [aminvest](../People/aminvest.md), [Ed Zitron](../People/ed-zitron.md), [Jeffrey Christian](../People/jeffrey-christian.md), [Jim Chanos](../People/jim-chanos.md), [Patrick Boyle](../People/patrick-boyle.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [AI & Semiconductors](../Themes/ai-semiconductors.md) — opposite: [Ed Zitron](../People/ed-zitron.md), [Jeffrey Christian](../People/jeffrey-christian.md), [Jim Chanos](../People/jim-chanos.md), [Patrick Boyle](../People/patrick-boyle.md), [Chris Semenuk](../People/chris-semenuk.md), [Emmanuel Macron](../People/emmanuel-macron.md)
 - [Electrification, Power & Industrials](../Themes/electrification-industrials.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Chris Semenuk](../People/chris-semenuk.md)
-- [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [CPM Group speaker](../People/cpm-group-speaker.md), [Erik Townsend](../People/erik-townsend.md), [Jeffrey Kushin](../People/jeffrey-kushin.md)
+- [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [Erik Townsend](../People/erik-townsend.md), [Jeffrey Kushin](../People/jeffrey-kushin.md), [CPM Group analyst](../People/cpm-group-analyst.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

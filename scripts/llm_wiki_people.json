@@ -1,0 +1,754 @@
+{
+ "Liaquat Ahamed": {
+  "is_person": true,
+  "canonical": "Liaquat Ahamed"
+ },
+ "Liaquat Ahamed (guest, author)": {
+  "is_person": true,
+  "canonical": "Liaquat Ahamed"
+ },
+ "Libra Energy CEO": {
+  "is_person": true,
+  "canonical": "Libra Energy CEO"
+ },
+ "Lon (Silvercorp representative; full surname not given in transcript)": {
+  "is_person": true,
+  "canonical": "Lon, Silvercorp representative"
+ },
+ "Maggie Lake": {
+  "is_person": true,
+  "canonical": "Maggie Lake"
+ },
+ "Mark Skousen (Oxford Club / Skousen Report)": {
+  "is_person": true,
+  "canonical": "Mark Skousen"
+ },
+ "Mass": {
+  "is_person": true,
+  "canonical": "Massil Beguenane"
+ },
+ "Mass / Masilan": {
+  "is_person": true,
+  "canonical": "Massil Beguenane"
+ },
+ "Massiel Bednarz": {
+  "is_person": true,
+  "canonical": "Massil Beguenane"
+ },
+ "Massil": {
+  "is_person": true,
+  "canonical": "Massil Beguenane"
+ },
+ "Massil Beguenane": {
+  "is_person": true,
+  "canonical": "Massil Beguenane"
+ },
+ "Massimiliano": {
+  "is_person": true,
+  "canonical": "Massil Beguenane"
+ },
+ "Matt (Radisson CEO)": {
+  "is_person": true,
+  "canonical": "Matt, Radisson CEO"
+ },
+ "Matt Milligan": {
+  "is_person": true,
+  "canonical": "Matt Milligan"
+ },
+ "Max Sweaty": {
+  "is_person": true,
+  "canonical": "Max Wiethe"
+ },
+ "Max Wiethe": {
+  "is_person": true,
+  "canonical": "Max Wiethe"
+ },
+ "Michael Howell": {
+  "is_person": true,
+  "canonical": "Michael Howell"
+ },
+ "Michelle Begnan (MacroVoices trading desk / COT positioning)": {
+  "is_person": true,
+  "canonical": "MacroVoices trading desk analyst"
+ },
+ "Mike (macro strategist; passive-investing critic)": {
+  "is_person": true,
+  "canonical": "Mike Green"
+ },
+ "Mike (strategist)": {
+  "is_person": true,
+  "canonical": "Mike Green"
+ },
+ "Mike Alfred": {
+  "is_person": true,
+  "canonical": "Mike Alfred"
+ },
+ "Mile Begnan": {
+  "is_person": true,
+  "canonical": "MacroVoices trading desk analyst"
+ },
+ "Milton Berg": {
+  "is_person": true,
+  "canonical": "Milton Berg"
+ },
+ "Mo (CEO)": {
+  "is_person": true,
+  "canonical": "Mohamed Cisse"
+ },
+ "Mohamed Cisse (CEO, Avanti Gold)": {
+  "is_person": true,
+  "canonical": "Mohamed Cisse"
+ },
+ "Nick (Phoenix Metals CEO)": {
+  "is_person": true,
+  "canonical": "Nick, Phoenix Metals CEO"
+ },
+ "Nomi Prins": {
+  "is_person": true,
+  "canonical": "Nomi Prins"
+ },
+ "One of the brothers (research duo)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Panel": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Panel (Ram Ahluwalia, Seth Ginns, Jeff Dorman)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Patrick": {
+  "is_person": true,
+  "canonical": "Patrick"
+ },
+ "Patrick (MacroVoices Trading Desk)": {
+  "is_person": true,
+  "canonical": "Patrick Ceresna"
+ },
+ "Patrick (addressed by name in transcript)": {
+  "is_person": true,
+  "canonical": "Patrick Ceresna"
+ },
+ "Patrick Boyle": {
+  "is_person": true,
+  "canonical": "Patrick Boyle"
+ },
+ "Patrick Ceresna": {
+  "is_person": true,
+  "canonical": "Patrick Ceresna"
+ },
+ "Patrick Karim": {
+  "is_person": true,
+  "canonical": "Patrick Karim"
+ },
+ "Patrick Sesna": {
+  "is_person": true,
+  "canonical": "Patrick Ceresna"
+ },
+ "Patrick Szna (Big Picture Trading)": {
+  "is_person": true,
+  "canonical": "Patrick Ceresna"
+ },
+ "Peter Boockvar": {
+  "is_person": true,
+  "canonical": "Peter Boockvar"
+ },
+ "Phoenix Metals CEO (Nick)": {
+  "is_person": true,
+  "canonical": "Phoenix Metals CEO"
+ },
+ "Phoenix Metals CEO (interviewee)": {
+  "is_person": true,
+  "canonical": "Phoenix Metals CEO"
+ },
+ "Raam Aluwalia": {
+  "is_person": true,
+  "canonical": "Ram Ahluwalia"
+ },
+ "Ram Ahluwalia": {
+  "is_person": true,
+  "canonical": "Ram Ahluwalia"
+ },
+ "Raoul Pal": {
+  "is_person": true,
+  "canonical": "Raoul Pal"
+ },
+ "Raoul Pal (Palvatar/AI avatar)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Ray Dalio (as summarized by Eurodollar University)": {
+  "is_person": true,
+  "canonical": "Ray Dalio"
+ },
+ "Ray Dalio (per Bloomberg article headline linked in description)": {
+  "is_person": true,
+  "canonical": "Ray Dalio"
+ },
+ "Rex (CEO)": {
+  "is_person": true,
+  "canonical": "Crossroads Gold CEO"
+ },
+ "Rex (CEO, Crossroads Gold)": {
+  "is_person": true,
+  "canonical": "Crossroads Gold CEO"
+ },
+ "Rick Rule": {
+  "is_person": true,
+  "canonical": "Rick Rule"
+ },
+ "Robin Wigglesworth": {
+  "is_person": true,
+  "canonical": "Robin Wigglesworth"
+ },
+ "Ron Butler": {
+  "is_person": true,
+  "canonical": "Ron Butler"
+ },
+ "Ron Butler (headline attribution)": {
+  "is_person": true,
+  "canonical": "Ron Butler"
+ },
+ "Ron Butler (per title attribution; not stated in body text of this excerpt)": {
+  "is_person": true,
+  "canonical": "Ron Butler"
+ },
+ "Ryan King": {
+  "is_person": true,
+  "canonical": "Ryan King"
+ },
+ "Ryan King (own view)": {
+  "is_person": true,
+  "canonical": "Ryan King"
+ },
+ "Ryan King citing Martin Armstrong": {
+  "is_person": true,
+  "canonical": "Ryan King"
+ },
+ "Ryan King citing Pierre Lassonde": {
+  "is_person": true,
+  "canonical": "Ryan King"
+ },
+ "Sam Burns": {
+  "is_person": true,
+  "canonical": "Sam Burns"
+ },
+ "Scott": {
+  "is_person": true,
+  "canonical": "Scott"
+ },
+ "Seth Gins": {
+  "is_person": true,
+  "canonical": "Seth Gins"
+ },
+ "Shawn Hackett": {
+  "is_person": true,
+  "canonical": "Shawn Hackett"
+ },
+ "Silvercorp executive (unnamed)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Silvercorp representative": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Steve": {
+  "is_person": true,
+  "canonical": "Steve"
+ },
+ "Steve Hanke": {
+  "is_person": true,
+  "canonical": "Steve Hanke"
+ },
+ "Steve Keen (經濟學家，由作者引用)": {
+  "is_person": true,
+  "canonical": "Steve Keen"
+ },
+ "Steve Van Metre": {
+  "is_person": true,
+  "canonical": "Steve Van Metre"
+ },
+ "Strategic Metals CEO": {
+  "is_person": true,
+  "canonical": "Strategic Metals CEO"
+ },
+ "Surge Copper CEO": {
+  "is_person": true,
+  "canonical": "Surge Copper CEO"
+ },
+ "Surge Copper CEO (Leif, interviewee)": {
+  "is_person": true,
+  "canonical": "Surge Copper CEO"
+ },
+ "Tony": {
+  "is_person": true,
+  "canonical": "Tony"
+ },
+ "Tony Greer": {
+  "is_person": true,
+  "canonical": "Tony Greer"
+ },
+ "Tony Greer and Jared Dillian": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Torr Metals CEO": {
+  "is_person": true,
+  "canonical": "Torr Metals CEO"
+ },
+ "Torr Metals CEO (also referencing shareholder value plans)": {
+  "is_person": true,
+  "canonical": "Torr Metals CEO"
+ },
+ "Torr Metals CEO (interviewee)": {
+  "is_person": true,
+  "canonical": "Torr Metals CEO"
+ },
+ "Unidentified (transcript begins mid-sentence)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Unidentified Simplify PM (duration/income ETF discussion)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Adrian Day": {
+  "is_person": true,
+  "canonical": "Adrian Day"
+ },
+ "Andrew Cheung": {
+  "is_person": true,
+  "canonical": "Andrew Cheung"
+ },
+ "Andrew Kang": {
+  "is_person": true,
+  "canonical": "Andrew Kang"
+ },
+ "Andrew Kang (Robo Strategies / Robo Global Strategies, guest)": {
+  "is_person": true,
+  "canonical": "Andrew Kang"
+ },
+ "Andy Unanue": {
+  "is_person": true,
+  "canonical": "Andy Unanue"
+ },
+ "Antonio": {
+  "is_person": true,
+  "canonical": "Antonio"
+ },
+ "Ash Bennington": {
+  "is_person": true,
+  "canonical": "Ash Bennington"
+ },
+ "BP Silver executive (unnamed)": {
+  "is_person": true,
+  "canonical": "BP Silver executive"
+ },
+ "Ben Cowen": {
+  "is_person": true,
+  "canonical": "Ben Cowen"
+ },
+ "Bernardo (CEO, Brazilian Rare Earths)": {
+  "is_person": true,
+  "canonical": "Bernardo Azevedo"
+ },
+ "Betsy (presenter)": {
+  "is_person": true,
+  "canonical": "Betsy"
+ },
+ "Blue Macellari": {
+  "is_person": true,
+  "canonical": "Blue Macellari"
+ },
+ "Blue Macellari (agreeing)": {
+  "is_person": true,
+  "canonical": "Blue Macellari"
+ },
+ "Blue Macellari (guest, asset manager)": {
+  "is_person": true,
+  "canonical": "Blue Macellari"
+ },
+ "Brad (GoGold Resources CEO)": {
+  "is_person": true,
+  "canonical": "Brad Langille"
+ },
+ "Brazilian Rare Earths CEO": {
+  "is_person": true,
+  "canonical": "Bernardo Azevedo"
+ },
+ "Brazilian Rare Earths CEO (unnamed in transcript)": {
+  "is_person": true,
+  "canonical": "Bernardo Azevedo"
+ },
+ "Brent Johnson": {
+  "is_person": true,
+  "canonical": "Brent Johnson"
+ },
+ "CEO": {
+  "is_person": false,
+  "canonical": null
+ },
+ "CEO (CoTec)": {
+  "is_person": true,
+  "canonical": "Julian Treger"
+ },
+ "CEO (addressed as 'Aiden')": {
+  "is_person": true,
+  "canonical": "Aiden"
+ },
+ "CEO of Brazilian Rare Earths (unnamed in transcript)": {
+  "is_person": true,
+  "canonical": "Bernardo Azevedo"
+ },
+ "CPM Group analyst": {
+  "is_person": true,
+  "canonical": "CPM Group analyst"
+ },
+ "CPM Group speaker": {
+  "is_person": true,
+  "canonical": "CPM Group analyst"
+ },
+ "Chris Semenuk": {
+  "is_person": true,
+  "canonical": "Chris Semenuk"
+ },
+ "Chris Vermeulen": {
+  "is_person": true,
+  "canonical": "Chris Vermeulen"
+ },
+ "Clem Chambers": {
+  "is_person": true,
+  "canonical": "Clem Chambers"
+ },
+ "Company executive (Mark)": {
+  "is_person": true,
+  "canonical": "Mark"
+ },
+ "Company executive (Stuart)": {
+  "is_person": true,
+  "canonical": "Stuart"
+ },
+ "Danielle DiMartino Booth": {
+  "is_person": true,
+  "canonical": "Danielle DiMartino Booth"
+ },
+ "Darius Dale": {
+  "is_person": true,
+  "canonical": "Darius Dale"
+ },
+ "Darius Dale (guest)": {
+  "is_person": true,
+  "canonical": "Darius Dale"
+ },
+ "Dave Collum": {
+  "is_person": true,
+  "canonical": "Dave Collum"
+ },
+ "David Woo": {
+  "is_person": true,
+  "canonical": "David Woo"
+ },
+ "Dea": {
+  "is_person": true,
+  "canonical": "Dea"
+ },
+ "Dean": {
+  "is_person": true,
+  "canonical": "Dean"
+ },
+ "Dean (one of the brothers)": {
+  "is_person": true,
+  "canonical": "Dean"
+ },
+ "Doug": {
+  "is_person": true,
+  "canonical": "Doug"
+ },
+ "Doug (CEO, Strategic Metals)": {
+  "is_person": true,
+  "canonical": "Doug"
+ },
+ "Dr. Sebastian Purcell": {
+  "is_person": true,
+  "canonical": "Sebastian Purcell"
+ },
+ "Ed Zitron": {
+  "is_person": true,
+  "canonical": "Ed Zitron"
+ },
+ "Emmanuel Macron": {
+  "is_person": true,
+  "canonical": "Emmanuel Macron"
+ },
+ "Eric": {
+  "is_person": true,
+  "canonical": "Macro Voices guest Eric"
+ },
+ "Eric Balchunas": {
+  "is_person": true,
+  "canonical": "Eric Balchunas"
+ },
+ "Erik": {
+  "is_person": true,
+  "canonical": "Macro Voices guest Eric"
+ },
+ "Erik Townsend": {
+  "is_person": true,
+  "canonical": "Erik Townsend"
+ },
+ "Erik Voorhees": {
+  "is_person": true,
+  "canonical": "Erik Voorhees"
+ },
+ "Frank Giustra (relayed by Jay Martin)": {
+  "is_person": true,
+  "canonical": "Frank Giustra"
+ },
+ "Gareth Soloway": {
+  "is_person": true,
+  "canonical": "Gareth Soloway"
+ },
+ "Gareth Soloway (guest)": {
+  "is_person": true,
+  "canonical": "Gareth Soloway"
+ },
+ "George Gammon": {
+  "is_person": true,
+  "canonical": "George Gammon"
+ },
+ "George Noble": {
+  "is_person": true,
+  "canonical": "George Noble"
+ },
+ "Grant Williams": {
+  "is_person": true,
+  "canonical": "Grant Williams"
+ },
+ "HTX 研究 (由作者引用)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Harry": {
+  "is_person": true,
+  "canonical": "Harry"
+ },
+ "Harry Dent": {
+  "is_person": true,
+  "canonical": "Harry Dent"
+ },
+ "Ian Harris": {
+  "is_person": true,
+  "canonical": "Ian Harris"
+ },
+ "JD": {
+  "is_person": true,
+  "canonical": "JD"
+ },
+ "Jack Farley": {
+  "is_person": true,
+  "canonical": "Jack Farley"
+ },
+ "Jared Dillian": {
+  "is_person": true,
+  "canonical": "Jared Dillian"
+ },
+ "Jay Martin (citing Reuters / Colombian Mining Association)": {
+  "is_person": true,
+  "canonical": "Jay Martin"
+ },
+ "Jeff": {
+  "is_person": true,
+  "canonical": "Eurodollar University guest Jeff"
+ },
+ "Jeff (Jeoff)": {
+  "is_person": true,
+  "canonical": "Eurodollar University guest Jeff"
+ },
+ "Jeff Christian": {
+  "is_person": true,
+  "canonical": "Jeffrey Christian"
+ },
+ "Jeff Dorman": {
+  "is_person": true,
+  "canonical": "Jeff Dorman"
+ },
+ "Jeff Snider": {
+  "is_person": true,
+  "canonical": "Jeff Snider"
+ },
+ "Jeffrey Christian": {
+  "is_person": true,
+  "canonical": "Jeffrey Christian"
+ },
+ "Jeffrey Kushin": {
+  "is_person": true,
+  "canonical": "Jeffrey Kushin"
+ },
+ "Jim Bianco": {
+  "is_person": true,
+  "canonical": "Jim Bianco"
+ },
+ "Jim Chanos": {
+  "is_person": true,
+  "canonical": "Jim Chanos"
+ },
+ "Jim Zelter": {
+  "is_person": true,
+  "canonical": "Jim Zelter"
+ },
+ "Jimmy Connor (Bloor Street Capital)": {
+  "is_person": true,
+  "canonical": "Jimmy Connor"
+ },
+ "John Miniotis": {
+  "is_person": true,
+  "canonical": "John Miniotis"
+ },
+ "John Miniotis (CEO, Abra Silver Resource Corp)": {
+  "is_person": true,
+  "canonical": "John Miniotis"
+ },
+ "Joseph": {
+  "is_person": true,
+  "canonical": "Joseph Wang"
+ },
+ "Joseph Wang": {
+  "is_person": true,
+  "canonical": "Joseph Wang"
+ },
+ "Julian (CoTec CEO)": {
+  "is_person": true,
+  "canonical": "Julian Treger"
+ },
+ "Justin Huhn": {
+  "is_person": true,
+  "canonical": "Justin Huhn"
+ },
+ "Kobe (guest)": {
+  "is_person": true,
+  "canonical": "Kobe"
+ },
+ "Leif Nilsson (Surge Copper CEO)": {
+  "is_person": true,
+  "canonical": "Leif Nilsson"
+ },
+ "Missile (MacroVoices Trading Desk)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Unidentified analyst (panel guest)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Unidentified guest (prior segment, before Ron Butler interview)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Unidentified interviewer": {
+  "is_person": false,
+  "canonical": null
+ },
+ "Val Zlatev": {
+  "is_person": true,
+  "canonical": "Val Zlatev"
+ },
+ "Viktor Shvets (Global Strategist, Macquarie Capital)": {
+  "is_person": true,
+  "canonical": "Viktor Shvets"
+ },
+ "Warren Pies": {
+  "is_person": true,
+  "canonical": "Warren Pies"
+ },
+ "Weston Nakamura": {
+  "is_person": true,
+  "canonical": "Weston Nakamura"
+ },
+ "aminvest": {
+  "is_person": false,
+  "canonical": null
+ },
+ "interviewee_lon": {
+  "is_person": false,
+  "canonical": null
+ },
+ "unattributed (Bittel or Pal)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "unattributed (segment opening)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "中聯行測量師 (被引述，講者表示尊敬)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "何啟聰": {
+  "is_person": true,
+  "canonical": "何啟聰"
+ },
+ "克魯明 (Paul Krugman)": {
+  "is_person": true,
+  "canonical": "Paul Krugman"
+ },
+ "劉強東": {
+  "is_person": true,
+  "canonical": "劉強東"
+ },
+ "吳明德": {
+  "is_person": true,
+  "canonical": "吳明德"
+ },
+ "吳明德 (引述自己以往講法)": {
+  "is_person": true,
+  "canonical": "吳明德"
+ },
+ "摩根大通 (由作者引用)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "教授": {
+  "is_person": false,
+  "canonical": null
+ },
+ "施永青": {
+  "is_person": true,
+  "canonical": "施永青"
+ },
+ "李聲揚": {
+  "is_person": true,
+  "canonical": "李聲揚"
+ },
+ "梁天卓": {
+  "is_person": true,
+  "canonical": "梁天卓"
+ },
+ "狂徒": {
+  "is_person": true,
+  "canonical": "狂徒"
+ },
+ "美銀美林 (由作者引用)": {
+  "is_person": false,
+  "canonical": null
+ },
+ "葉教授 (被引述，講者唔認同)": {
+  "is_person": true,
+  "canonical": "葉教授"
+ },
+ "陳坤耀": {
+  "is_person": true,
+  "canonical": "陳坤耀"
+ },
+ "高天佑": {
+  "is_person": true,
+  "canonical": "高天佑"
+ },
+ "高盛 (由作者引用)": {
+  "is_person": false,
+  "canonical": null
+ }
+}

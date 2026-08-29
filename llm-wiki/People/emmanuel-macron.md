@@ -37,7 +37,7 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 Topics where this person's current stance conflicts with another person's:
 
 - [AI & Semiconductors](../Themes/ai-semiconductors.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Val Zlatev](../People/val-zlatev.md), [Raoul Pal](../People/raoul-pal.md)
-- [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Chris Semenuk](../People/chris-semenuk.md), [Eurodollar University guest Jeff](../People/eurodollar-university-guest-jeff.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

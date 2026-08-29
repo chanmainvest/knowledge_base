@@ -157,16 +157,16 @@ _See all people's shifts in [Syntheses/Opinion Shifts](../Syntheses/Opinion-Shif
 
 Topics where this person's current stance conflicts with another person's:
 
-- [Oil & Energy](../Themes/oil-energy.md) — opposite: [Jeff Snider](../People/jeff-snider.md), [Steve](../People/steve.md), [Joseph](../People/joseph.md), [Joseph Wang](../People/joseph-wang.md), [Jeff (Jeoff)](../People/jeff-jeoff.md), [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md)
-- [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [Oil & Energy](../Themes/oil-energy.md) — opposite: [Jeff Snider](../People/jeff-snider.md), [Steve](../People/steve.md), [Joseph Wang](../People/joseph-wang.md)
+- [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Chris Semenuk](../People/chris-semenuk.md), [Eurodollar University guest Jeff](../People/eurodollar-university-guest-jeff.md)
 - [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md), [Val Zlatev](../People/val-zlatev.md), [Brent Johnson](../People/brent-johnson.md)
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [CL=F](../Tickers/CL=F.md) — opposite: [Gary Wagner](../People/gary-wagner.md)
 - [^GSPC](../Tickers/^GSPC.md) — opposite: [Chris Vermeulen](../People/chris-vermeulen.md)
 - [Crypto & Stablecoins](../Themes/crypto.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Brent Johnson](../People/brent-johnson.md)
-- [SpaceX](../Tickers/spacex.md) — opposite: [JD](../People/jd.md), [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md)
+- [SpaceX](../Tickers/spacex.md) — opposite: [JD](../People/jd.md)
 - [BTC-USD](../Tickers/BTC-USD.md) — opposite: [Mike Alfred](../People/mike-alfred.md)
-- [GC=F](../Tickers/GC=F.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md)
-- [^TNX](../Tickers/^TNX.md) — opposite: [JD](../People/jd.md), [Patrick Ceresna](../People/patrick-ceresna.md)
+- [^TNX](../Tickers/^TNX.md) — opposite: [JD](../People/jd.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

@@ -369,5 +369,1433 @@
   "bio": "Hong Kong-based financial journalist and columnist known for commentary on finance, macroeconomics, and current affairs. He has written for Hong Kong Economic Journal (信報), where his column 新聞點評 covers markets and economic policy, and previously contributed to Apple Daily's finance pages. He appears frequently as a solo host/commentator in audio and podcast versions of his columns.",
   "provider": "zai",
   "model": "glm-5.3"
+ },
+ "Adrian Day": {
+  "sells_research": false,
+  "role": "Guest x1 (David Lin)",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Andrew Kang": {
+  "sells_research": false,
+  "role": "Cryptocurrency investor and venture capitalist — Founder and Partner, Mechanism Capital",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Andrew Kang (Robo Strategies / Robo Global Strategies, guest)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Andy Unanue": {
+  "sells_research": false,
+  "role": "Founder and Managing Partner",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Antonio": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "BP Silver executive (unnamed)": {
+  "sells_research": false,
+  "role": "Executive (exact title unspecified)",
+  "bio": "An unnamed executive of BP Silver, a silver-focused mineral exploration company, speaking apparently in an interview or podcast appearance. In the quoted remarks, the individual discusses BP Silver's drill results on its Consunia property, stating the project was already justified by existing drilling regardless of an anticipated award, indicates further drilling would likely occur the following year rather than immediately, and expresses the goal of actively working the property by 2027.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Ben Cowen": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Bernardo (CEO, Brazilian Rare Earths)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Betsy (presenter)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Blue Macellari": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Blue Macellari (agreeing)": {
+  "sells_research": false,
+  "role": "Managing Director",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Blue Macellari (guest, asset manager)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Finance industry professional focused on digital assets and crypto markets, best known for leading digital-asset strategy at asset management firm T. Rowe Price, where she has worked on integrating cryptocurrency exposure into traditional investment frameworks.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Brad (GoGold Resources CEO)": {
+  "sells_research": false,
+  "role": "Chief Executive Officer & Director",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Brazilian Rare Earths CEO": {
+  "sells_research": false,
+  "role": "CEO / Managing Director",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Brazilian Rare Earths CEO (unnamed in transcript)": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "CEO": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "CEO (CoTec)": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "Julian Treger is CEO of CoTec Holdings Corp., a Toronto Venture Exchange-listed investment company that identifies and scales disruptive technologies to improve productivity, safety and sustainability in the natural resources sector. A veteran resources investor, he previously co-founded and served as managing partner of London-based Audley Capital Advisors, a private equity firm focused on investments in extractive industries.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "CEO (addressed as 'Aiden')": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "CEO of Brazilian Rare Earths (unnamed in transcript)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Chris Vermeulen": {
+  "sells_research": false,
+  "role": "Founder & Chief Market Strategist, The Technical Traders",
+  "bio": "Chris Vermeulen is the founder and chief market strategist of The Technical Traders, an independent research service providing technical-analysis-driven market commentary and trade alerts, with a focus on ETF swing trading across equities, indices, and precious metals. He frequently appears on financial media programs such as David Lin's show, discussing trend identification, market timing, and risk management.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Clem Chambers": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Company executive (Mark)": {
+  "sells_research": false,
+  "role": "Executive at a mineral exploration / mining company",
+  "bio": "Anonymized figure identified only by first name (\"Mark\") who appears in podcast/investor-interview excerpts as a senior executive of a mineral exploration company. Based on the quoted remarks, he oversees or speaks to exploration programs involving geophysical work, including the completion and interpretation of an induced polarization (IP) survey, and emphasizes confirming whether a detected anomaly reflects real mineralization before advancing. He also references a phased approach to development, with seamless follow-up after the IP results and Phase 2 drill results expected from September onward.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Company executive (Stuart)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Danielle DiMartino Booth": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Darius Dale": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Darius Dale is a macro investor and risk-management strategist best known as the founder of 42 Macro, an investment-research firm offering systematic asset-allocation and risk-on/risk-off signals to institutional investors and RIAs. Before launching 42 Macro (~2021), he spent roughly a decade at Keith McCullough's Hedgeye Risk Management, where he rose to portfolio manager. His work emphasizes regime-based investing driven by growth, inflation, and policy trends, popularized through frameworks often cited as 'D.A.M.E.' (debt, assets, markets, economics) and a 'T.I.P.S.'-style trend-following risk-management process.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Darius Dale (guest)": {
+  "sells_research": false,
+  "role": "Founder and CEO of 42 Macro",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Dave Collum": {
+  "sells_research": false,
+  "role": "Professor of Chemistry; finance commentator",
+  "bio": "Dave Collum is an organic chemist and longtime Cornell University professor who is better known in finance circles as a macro commentator. He is best known for his lengthy, irreverent annual 'Year in Review' essays (originally published on Peak Prosperity and widely circulated on sites like Zero Hedge), in which he surveys markets, the economy, and politics from a skeptical, Austrian-economics-influenced perspective. He has been a recurring podcast guest on finance shows (e.g., MacroVoices) discussing bubbles, debt, central bank policy, gold, and the fragility of fiat currency.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Dea": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Dean": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Dean (one of the brothers)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Doug": {
+  "sells_research": false,
+  "role": "",
+  "bio": "\"Doug\" is identifiable only by first name in the available material. He appears as an interview guest or stock-commentary speaker discussing junior mining investments from the perspective of a shareholder. His comments center on GGL.V (GGL Resources Corp., a TSX Venture Exchange-listed junior exploration company), which he holds and considers substantially undervalued, pointing to unrecognized asset value and stating optimism that at least one of the company's anticipated catalysts will be realized within roughly a year. He characterizes himself as comfortable continuing to hold the position pending a re-rating. No further verifiable biographical details (surname, firm, or professional title) are available from general knowledge.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Doug (CEO, Strategic Metals)": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Eric Balchunas": {
+  "sells_research": false,
+  "role": "Senior ETF Analyst",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Erik": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Erik Townsend is an American retired software entrepreneur turned macro investor, best known as the host of the MacroVoices podcast and the Energy Transition Show. A teenage programming prodigy, he made his fortune in software and systems consulting before retiring early and later managing a private global macro hedge fund. He launched MacroVoices in 2016, interviewing economists, fund managers, and macro strategists alongside co-host Patrick Ceresna.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Frank Giustra (relayed by Jay Martin)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Gareth Soloway": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Gareth Soloway (guest)": {
+  "sells_research": false,
+  "role": "Chief Market Strategist and technical analyst",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "HTX 研究 (由作者引用)": {
+  "sells_research": false,
+  "role": "HTX — global cryptocurrency exchange formerly known as Huobi (rebranded HTX in 2023)",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Harry": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Harry Dent": {
+  "sells_research": false,
+  "role": "Economic forecaster, financial newsletter author, and investment strategist",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Ian Harris": {
+  "sells_research": false,
+  "role": "",
+  "bio": "The specific Ian Harris appearing in this context is not identifiable with confidence from general knowledge. Several people named Ian Harris are active in finance — most prominently a London-based insurance-sector analyst formerly associated with firms such as Investec — but none is clearly linked to the copper-mining discussion reflected in these quotes. No well-documented public profile matches the content shown.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Jay Martin (citing Reuters / Colombian Mining Association)": {
+  "sells_research": false,
+  "role": "CEO of Cambridge House International; host of The Jay Martin Show",
+  "bio": "Jay Martin leads Cambridge House International, organizer of the Vancouver Resource Investment Conference, and hosts The Jay Martin Show (formerly the Cambridge House podcast), a resource-investing podcast featuring interviews with investors, economists, geologists, and mining executives. His commentary centers on macroeconomics, precious metals, energy, and mining jurisdictions; for example, he has cited a Reuters report forecasting roughly $3.6–4 billion of investment in Colombia's mining sector (via the Colombian Mining Association).",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Jeff Christian": {
+  "sells_research": false,
+  "role": "Managing Partner",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Jim Bianco": {
+  "sells_research": false,
+  "role": "President and CEO",
+  "bio": "Jim Bianco is the founder, president, and CEO of Bianco Research, a Chicago-area firm he established in 1998 that provides macro and fixed income research to institutional investors. He is a widely followed commentator on Federal Reserve policy, inflation, bond markets, and macro strategy, and appears frequently in financial media and on industry podcasts and panels.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Jimmy Connor (Bloor Street Capital)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Canadian investor and financial commentator, founder of Bloor Street Capital, a Toronto-based investment research and commentary firm. He has worked in capital markets and money management and hosts frequent interviews with fund managers, analysts and resource-sector investors on Bloor Street Capital's podcast/YouTube channel. A former nationally ranked junior tennis player in Canada, he later moved into finance.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "John Miniotis": {
+  "sells_research": false,
+  "role": "President, Chief Executive Officer & Director",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "John Miniotis (CEO, Abra Silver Resource Corp)": {
+  "sells_research": false,
+  "role": "President & CEO",
+  "bio": "John Miniotis is a mining finance executive with more than 25 years of experience in the resource sector, largely spent in mining-focused investment banking and capital markets. He is the co-founder and chief executive of Abra Silver Resource Corp., a Canadian silver exploration and development company whose flagship asset is the Diablillos silver-gold project in Salta Province, Argentina, which the company has advanced through significant resource expansion drilling. He has appeared as a guest on precious metals and mining-focused investment programming to discuss silver market dynamics and the company's exploration progress.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Julian (CoTec CEO)": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "Julian Treger is the CEO of CoTec Holdings Corp., a TSX Venture Exchange-listed investment company focused on disruptive technologies in the mining and metals sector. A longtime natural resources investor, he co-founded Audley Capital Advisors, a London-based investment firm specializing in resources, and has managed resource-focused funds and served on mining company boards. At CoTec he has led investments in mineral processing and metal production technologies, including green iron ore pellet / pig iron production initiatives, magnesium extraction (Magratea Metals), and cyanide-free gold leaching (EnviroLeach).",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Justin Huhn": {
+  "sells_research": false,
+  "role": "Newsletter publisher, uranium market analyst",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Kobe (guest)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Libra Energy CEO": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "The provided identifier is a job title rather than a specific person, so no individual biography can be confirmed. Based on the accompanying quotes, Libra Energy appears to be a small-cap mineral exploration company whose chief executive was interviewed about upcoming news flow, including remaining drill and metallurgical results from the Penelope project and updates from the Obama and Cisco West projects. The CEO also signaled that an equity financing was anticipated. I do not have reliable general knowledge of this company's leadership, so the person-level fields are left empty.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Lon (Silvercorp representative; full surname not given in transcript)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Lon appeared on Resource Talks as a representative of Silvercorp Metals Inc., a Canadian mining company that operates silver-lead-zinc mines in China. The transcript provides only a first name, so no further biographical details can be stated with certainty; the most plausible identification is Lon Anderson, a finance executive long associated with Silvercorp, who has served in senior financial roles at the company (including as chief financial officer during the mid-2000s to early 2010s).",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Mark Skousen (Oxford Club / Skousen Report)": {
+  "sells_research": false,
+  "role": "Economist, investment newsletter editor, author, and conference founder",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Mass": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Mass / Masilan": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Massiel Bednarz": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Massil": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Massil Beguenane": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Massimiliano": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Matt (Radisson CEO)": {
+  "sells_research": false,
+  "role": "President and Chief Executive Officer",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Matt Milligan": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Michael Howell": {
+  "sells_research": false,
+  "role": "Managing Director",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Michelle Begnan (MacroVoices trading desk / COT positioning)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Mike (macro strategist; passive-investing critic)": {
+  "sells_research": false,
+  "role": "Macro strategist and commentator on market structure",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Mike (strategist)": {
+  "sells_research": false,
+  "role": "Market strategist",
+  "bio": "A market strategist identified only as 'Mike' in the source material. His commentary centers on equity market strategy, with the S&P 500 (^GSPC) as his most-discussed asset. He has addressed the implications of Japanese policy decisions for markets and the dominance of passive index investing in US retirement assets, noting that the vast majority of 401(k) dollars flow into passive strategies.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Mile Begnan": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Milton Berg": {
+  "sells_research": false,
+  "role": "Market strategist and technical analyst",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Missile (MacroVoices Trading Desk)": {
+  "sells_research": false,
+  "role": "Pseudonymous trader and trading-desk contributor",
+  "bio": "\"Missile\" is the pseudonymous handle of an anonymous trader who appears as a panelist on the MacroVoices Trading Desk, the trading-commentary segment associated with Erik Townsend's MacroVoices podcast. In that capacity the contributor offers short-horizon, positioning- and flow-oriented market commentary — for example discussing crowded short positions and forced buying — on macro assets such as index futures, currencies, and metals. Because the contributor operates under a nickname rather than a real name, personal background, professional history, and employer are not publicly disclosed.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Mo (CEO)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Mohamed Cisse (CEO, Avanti Gold)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Nick (Phoenix Metals CEO)": {
+  "sells_research": false,
+  "role": "CEO, Phoenix Metals",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Nomi Prins": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "One of the brothers (research duo)": {
+  "sells_research": false,
+  "role": "Investment researcher, analyst, and author",
+  "bio": "This entry appears to be a placeholder rather than a specific individual's name. The best-known brother research duo in finance publishing is Tom Gardner and David Gardner, who co-founded The Motley Fool in 1993. David Gardner is known for growth-oriented 'Rule Breakers' research, while Tom Gardner has led value-focused services and served as co-CEO.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Patrick": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Patrick (MacroVoices Trading Desk)": {
+  "sells_research": false,
+  "role": "Co-host of the MacroVoices podcast; derivatives/market strategist; presenter of the weekly MacroVoices Trading Desk segment",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Patrick (addressed by name in transcript)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Patrick Ceresna is a derivatives-market specialist and options strategist best known as co-host of the MacroVoices macro-finance podcast, where alongside host Erik Townsend he delivers the weekly market recap. His segments emphasize CFTC Commitments of Traders (COT) futures positioning — e.g., citing speculators going net short NASDAQ contracts by the tens of thousands — plus technical trends in the S&P 500, gold, silver, crude oil, the US dollar index, the yen, and increasingly bitcoin. He is the founder of Big Picture Trading, an educational platform teaching macro-driven trading and options strategies.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Patrick Karim": {
+  "sells_research": false,
+  "role": "Proprietary futures trader and technical chartist",
+  "bio": "Patrick Karim is a proprietary trader known online as 'badcharts1'. With a background in computer science, he reportedly left the private sector around 2011 to trade futures full-time. He is known for systematic, rules-based technical analysis — particularly breakout and mean-reversion setups evaluated on weekly and monthly timeframes, often referencing moving averages (e.g., the 36-week moving average) and expansion phases. He emphasizes that not every breakout is 'mathematically playable' as a trade.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Patrick Sesna": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Patrick Sesna is a macro and commodities analyst who appeared as a guest on the Macro Voices podcast, where he discussed agricultural markets, warning of potential food shortages and bullish setups in the ag commodity space, as well as Treasury futures positioning, including short-covering dynamics in short-dated Treasuries. His commentary suggests a focus on commodity market cycles and technical/positioning analysis of fixed-income futures.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Patrick Szna (Big Picture Trading)": {
+  "sells_research": false,
+  "role": "{'organization': 'Big Picture Trading', 'role': 'Co-founder'}",
+  "bio": "Patrick Ceresna is a Canadian options and derivatives trader and co-founder of Big Picture Trading, a trading education and market research firm focused on macro analysis, technical analysis, and options-based strategies. He is a regular guest on the MacroVoices podcast, where he discusses volatility, options positioning, and interest rate markets.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Peter Boockvar": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Phoenix Metals CEO (Nick)": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "Nick is the chief executive officer of Phoenix Metals, a recently listed metals exploration and development company. In investor interviews he has discussed drilling underway at the company's Phoenix target area, forthcoming updates on the Lexington project, and plans to deliver a preliminary economic assessment (PEA) supporting a restart of mining operations in the first half of the following year. He has also commented publicly on the company's share performance, saying he would like to see the stock trade well above its IPO price as the business gains traction.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Phoenix Metals CEO (interviewee)": {
+  "sells_research": false,
+  "role": "CEO",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Ray Dalio (as summarized by Eurodollar University)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Ray Dalio (per Bloomberg article headline linked in description)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Resource Talks (channel description/disclaimer, not the interviewed CEO)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Resource Talks is a YouTube channel and interview series covering the mining and metals space, focused on conversations with junior mining company CEOs. It is less notable for any individual personality than for its candid, risk-oriented interview style and its extensive disclaimer, which makes explicit that the host is not a financial or geology expert, that interviews may be promotional or paid, and that the content is not investment advice.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Rex (CEO)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Rex (CEO, Crossroads Gold)": {
+  "sells_research": false,
+  "role": "CEO, Crossroads Gold",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Rick Rule": {
+  "sells_research": false,
+  "role": "Natural resource investor; former President & CEO of Sprott U.S. Holdings; founder of Global Resource Investments; currently heads Rule Investment Media",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Robin Wigglesworth": {
+  "sells_research": false,
+  "role": "Financial journalist; global finance correspondent at the Financial Times",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Ron Butler": {
+  "sells_research": false,
+  "role": "Mortgage broker and Canadian housing market commentator",
+  "bio": "Ron Butler is a Canadian mortgage broker, known as a co-founder of the Toronto-based brokerage Butler Mortgage. He is a prominent media commentator on the Canadian mortgage and housing markets, appearing regularly in outlets such as BNN Bloomberg and CBC and on finance and real estate podcasts, and is active on social media as '@ronmortgageguy'. His commentary typically covers mortgage rate trends, renewal dynamics for Canadian borrowers, housing affordability, and home price outlooks — particularly for the Ontario and British Columbia markets — where he has argued that elevated rates and inventory would keep Canadian homebuyers in a buyer's market through 2026 and potentially into 2027.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Ron Butler (headline attribution)": {
+  "sells_research": false,
+  "role": "Mortgage broker and housing market commentator",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Ron Butler (per title attribution; not stated in body text of this excerpt)": {
+  "sells_research": false,
+  "role": "Mortgage broker and housing market commentator",
+  "bio": "Ron Butler is a veteran Canadian mortgage broker, best known as a principal of Butler Mortgage, an Ontario-based brokerage. He is a frequent and often blunt media commentator on Canadian mortgage rates, housing affordability, and real estate downturns, quoted regularly in outlets such as the Financial Post, CBC, and BNN Bloomberg, and active on social media as @ronmortgageguy. The quoted headline is consistent with his public warnings about falling Canadian home prices and an extended market correction.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Scott": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Silvercorp executive (unnamed)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Silvercorp representative": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Steve Hanke": {
+  "sells_research": false,
+  "role": "Professor of Applied Economics, Johns Hopkins University",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Steve Keen (經濟學家，由作者引用)": {
+  "sells_research": false,
+  "role": "Economist",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Strategic Metals CEO": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Torr Metals CEO": {
+  "sells_research": false,
+  "role": "President, Chief Executive Officer and Director",
+  "bio": "Malcolm Dorsey is a Canadian geologist (P.Geo.) who serves as President, CEO and a director of Torr Metals Inc., a Vancouver-based junior mineral exploration company. Under his leadership, Torr Metals has focused on copper-gold exploration in British Columbia, including the Latham porphyry copper-gold project and the Kolos copper-gold project near Sicamous. He regularly speaks with media and investors about the company's drill programs and geological results.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Torr Metals CEO (also referencing shareholder value plans)": {
+  "sells_research": false,
+  "role": "President & CEO",
+  "bio": "Malcolm Dorsey is a professional geologist who serves as President and CEO of Torr Metals Inc., a Vancouver-based junior exploration company focused on copper-gold projects in Canada. Under his leadership, Torr Metals has advanced assets including its Kolos copper-gold project in southern British Columbia, with the company trading on the TSX Venture Exchange (TMET) and over-the-counter in the U.S. under the ticker TORRF. In interviews, Dorsey has discussed plans to deliver shareholder value, signaling that corporate or project news could materialize within roughly a year.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Torr Metals CEO (interviewee)": {
+  "sells_research": false,
+  "role": "Chief Executive Officer (President & CEO), Torr Metals Inc.",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Unidentified (transcript begins mid-sentence)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Unidentified Simplify PM (duration/income ETF discussion)": {
+  "sells_research": false,
+  "role": "Portfolio Manager (unconfirmed)",
+  "bio": "An unidentified portfolio manager affiliated with Simplify Asset Management, a New York-based ETF sponsor known for simplified, rules-based and derivative-overlay strategies. The individual appeared once as a guest on Simplify's own media/podcast content, discussing duration positioning and income-focused ETF offerings. The guest's specific identity could not be confirmed from the available information; Simplify's investment team includes figures associated with rates and income strategies (e.g., co-founder/CIO David Berns and macro specialist Harley Bassman), but no specific attribution is made here.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Unidentified analyst (panel guest)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Unidentified guest (prior segment, before Ron Butler interview)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Unidentified interviewer": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Viktor Shvets (Global Strategist, Macquarie Capital)": {
+  "sells_research": false,
+  "role": "Global Strategist",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Warren Pies": {
+  "sells_research": false,
+  "role": "Energy markets strategist and independent research author",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Weston Nakamura": {
+  "sells_research": false,
+  "role": "Global macro strategist and financial markets commentator",
+  "bio": "Weston Nakamura is a Tokyo-based global macro strategist and the founder of Real Vision Japan, the Japanese-language extension of the Real Vision media platform. With a professional background spanning FX derivatives and macro trading roles at global investment banks and hedge funds in Tokyo, he is a frequent guest on Real Vision and other macro-focused podcasts and newsletters, where he specializes in Japan markets, yen dynamics, and cross-border capital flows.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "interviewee_lon": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "unattributed (Bittel or Pal)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "unattributed (segment opening)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "中聯行測量師 (被引述，講者表示尊敬)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "吳明德": {
+  "sells_research": false,
+  "role": "Banker, economist, and financial commentator",
+  "bio": "Hong Kong-based economist and veteran banker, commonly cited as Dr. 吳明德. A longtime Citibank executive, he is a frequent media commentator on Hong Kong's economy, writing in depth on monetary issues such as the linked exchange rate system, as well as the property market. He appears regularly on local radio and YouTube finance programs, where he often puts current market conditions in historical context — for example, recalling the roughly 60% decline in Hong Kong property prices between 1998 and 2003.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "吳明德 (引述自己以往講法)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "摩根大通 (由作者引用)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "美銀美林 (由作者引用)": {
+  "sells_research": false,
+  "role": "美国银行",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "葉教授 (被引述，講者唔認同)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "高盛 (由作者引用)": {
+  "sells_research": false,
+  "role": "全球性投資銀行；其全球投資研究部（Global Investment Research）與經濟學家團隊發佈的股票研究、宏觀經濟與市場策略報告，常被財經作者與媒體引用",
+  "bio": "高盛（Goldman Sachs）是美國大型跨國投資銀行，創立於1869年，總部位於紐約，業務涵蓋投資銀行、證券交易、資產管理與財富管理。其研究部門對科技巨頭AI資本支出的預測（如2025至2030年大型科技公司累計資本開支約5.3萬億美元）為市場廣泛引用。",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Andrew Cheung": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Dr. Sebastian Purcell": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Jeff Dorman": {
+  "sells_research": false,
+  "role": "Chief Investment Officer (CIO)",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Leif Nilsson (Surge Copper CEO)": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Liaquat Ahamed": {
+  "sells_research": false,
+  "role": "Investment manager and author",
+  "bio": "Liaquat Ahamed is a veteran investment manager and financial historian. Born in Kenya to a South Asian family and educated at Trinity College, Cambridge, and Columbia University, he began his career at the World Bank before spending roughly two decades in fixed-income asset management in New York and London, including as a partner at Fischer Francis Trees & Watts. He is best known for 'Lords of Finance: The Bankers Who Broke the World' (2009), an account of the interwar central bankers whose monetary policy missteps helped cause the Great Depression, which won the 2010 Pulitzer Prize for History. He has served on PIMCO's Global Advisory Board, contributes essays on economics and finance to publications such as the Financial Times and The New York Times, and appears in documentaries on the Federal Reserve and financial crises.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Liaquat Ahamed (guest, author)": {
+  "sells_research": false,
+  "role": "Investment manager and economic historian; author",
+  "bio": "Liaquat Ahamed is an investment manager and author with a background as a professional economist at the World Bank and a decades-long career in investment management, including as a principal of the money management firm Fischer Francis Trees & Woods. Educated at Trinity College, Cambridge and Columbia University, he is best known for 'Lords of Finance: The Bankers Who Broke the World' (2009), a history of the central bankers of the interwar period that won the 2010 Pulitzer Prize for History.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Panel": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Panel (Ram Ahluwalia, Seth Ginns, Jeff Dorman)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Raam Aluwalia": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Ram Ahluwalia": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Ryan King": {
+  "sells_research": false,
+  "role": "Chief Financial Officer",
+  "bio": "Ryan King is the Chief Financial Officer of Equinox Gold Corp., a mid-tier gold mining company founded with the backing of mining entrepreneur Ross Beaty, with producing assets concentrated in the Americas. He has served as CFO since the company's early years, overseeing its growth-by-acquisition strategy, capital raising, and a deleveraging program that reduced net debt from roughly $1.6–1.7 billion to around $400 million. In interviews and conference appearances he emphasizes jurisdictional risk, positioning the portfolio heavily in 'tier one' jurisdictions like Canada and the United States, and argues that execution and track record merit premium valuations relative to gold-mining peers.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Ryan King (own view)": {
+  "sells_research": false,
+  "role": "Gold and precious-markets commentator (personal capacity)",
+  "bio": "Ryan King is a finance-industry commentator who discusses gold markets, speaking on his own behalf rather than for a firm. In interviews and discussion segments he engages in scenario analysis of the gold price, including bull-case projections well above spot levels (e.g., gold rising toward $5,600/oz) followed by sharp corrections (back toward $4,000/oz), while acknowledging downside risk. Note: 'Ryan King' is a common name and identification here is tentative; this entry reflects the individual discussing gold futures (GC=F) in a personal-views context.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Ryan King citing Martin Armstrong": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Ryan King citing Pierre Lassonde": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Finance writer/commentator whose work focuses on gold and precious metals. He has cited well-known gold-industry figure Pierre Lassonde (co-founder of Franco-Nevada) and Lassonde's argument that growth in the M2 money supply implies a gold price of $17,000/oz or higher. 'Ryan King' is a common name and his precise employer/title is not clearly established in general sources.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Sam Burns": {
+  "sells_research": false,
+  "role": "Chief Market Strategist",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Seth Gins": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Surge Copper CEO": {
+  "sells_research": false,
+  "role": "President and Chief Executive Officer",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Surge Copper CEO (Leif, interviewee)": {
+  "sells_research": false,
+  "role": "President & CEO",
+  "bio": "Canadian mining executive who leads Surge Copper, a Vancouver-based copper-molybdenum-gold explorer active in west-central British Columbia. Under his leadership the company consolidated the Ootsa copper-gold-molybdenum project adjacent to the Huckleberry mine area (acquired from Imperial Metals) as well as the Berg property, and has carried out large drilling programs following resource updates. Nilsson has roughly 25-30 years of experience in mineral exploration, development and mining finance with junior and mid-tier companies. He appeared as a solo guest on the Resource Talks podcast to discuss Surge Copper's BC copper assets, drilling results, and copper market conditions.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "教授": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Aiden": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "BP Silver executive": {
+  "sells_research": false,
+  "role": "Executive at a silver mining/exploration company",
+  "bio": "Identified in source material only by role and company. Speaking in an interview/podcast setting, this executive discusses exploration drill results on a mineral property, an anticipated award or decision on the property, plans to conduct drilling in the following year, and an intention to have active work on the property by 2027. The term 'Consunia' in the transcript appears to be a transcription artifact, possibly a project, concession, or company name.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Bernardo Azevedo": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Bernardo Azevedo is an investor and commentator in the natural resources space, focused primarily on junior mining and precious-metals exploration companies. He appeared as a guest on the Resource Talks interview channel, where he discussed the outlook for an ASX-listed gold developer (Breaker Resources, ASX: BRE), covering its expected development milestones such as scoping, prefeasibility and feasibility studies, permitting, and the potential for further exploration success to re-rate the stock over a 12-24 month horizon.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Betsy": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Brad Langille": {
+  "sells_research": false,
+  "role": "Co-founder, President, CEO and Director of GoGold Silver Inc.",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Crossroads Gold CEO": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Eurodollar University guest Jeff": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Jeff Snider is an American macroeconomic analyst best known for his research on the eurodollar system — the offshore dollar-funding network he argues is the real engine of the global economy. His school of thought holds that structural dollar shortages produce recurring deflationary, low-growth conditions, contrary to mainstream 'money-printing means inflation' narratives. He leads macro research at Alhambra Investments and founded Eurodollar University, a research and education platform where he hosts podcasts and video analysis on labor-market data (household survey, full-time vs. part-time employment), Treasury yields, private credit, oil, and bitcoin.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Frank Giustra": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Jay Martin": {
+  "sells_research": false,
+  "role": "Podcast host, interviewer, and investment conference organizer",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Jimmy Connor": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Julian Treger": {
+  "sells_research": false,
+  "role": "Natural resources financier and mining company executive",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Kobe": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Leif Nilsson": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Lon, Silvercorp representative": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Macro Voices guest Eric": {
+  "sells_research": false,
+  "role": "Founder and Chief Investment Officer, One River Asset Management",
+  "bio": "Veteran macro investor and former portfolio manager at Caxton Associates who founded One River Asset Management, a Greenwich, CT-based alternative asset manager, in 2013. One River became widely known for its macro hedge funds, early institutional bitcoin exposure, and Peters' widely read weekly investor commentary. Peters is a frequent guest on macro finance media, including Macro Voices, Real Vision, and Bloomberg's Odd Lots, discussing liquidity, inflation, monetary policy, and bitcoin.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "MacroVoices trading desk analyst": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Mark": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Mark Skousen": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Matt, Radisson CEO": {
+  "sells_research": false,
+  "role": "President & CEO",
+  "bio": "Canadian mining executive. Leads Radisson Mining Resources, a TSX Venture-listed gold explorer advancing the O'Brien project in Quebec's Abitibi region along the Cadillac-Larder Lake break. In interviews and calls he emphasizes incremental resource updates, a steady pipeline of drill results, and funding the company via partial equity sales (e.g., ~15% placements) while retaining upside in a growing resource. Previously co-founded and led Stornoway Diamond Corporation as President & CEO, where he oversaw the Renard kimberlite discovery and the development of the Renard diamond mine in Quebec.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Mike Green": {
+  "sells_research": false,
+  "role": "Portfolio manager and market strategist",
+  "bio": "Mike Green is a financial markets strategist best known for his research on how the rise of passive index investing shapes market structure, valuation, and volatility. He served as Chief Strategist at Simplify Asset Management and later as Chief Strategist at Logica Capital Advisers, after a career in macro-oriented hedge funds. He is a frequent guest on macro and investing podcasts, where he discusses passive flows, equity market dynamics, retirement-fund flows, demographics, and monetary and fiscal policy — including Japanese policy implications.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Mohamed Cisse": {
+  "sells_research": false,
+  "role": "Mining/exploration executive (West Africa-focused)",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Nick, Phoenix Metals CEO": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Paul Krugman": {
+  "sells_research": false,
+  "role": "",
+  "bio": "American economist and public intellectual, winner of the 2008 Nobel Memorial Prize in Economic Sciences for his work on trade patterns and economic geography (New Trade Theory and New Economic Geography). He taught at MIT, Princeton, and later the CUNY Graduate Center, and was a long-serving op-ed columnist at The New York Times (2000–2024) known for Keynesian-leaning commentary on macroeconomics, trade, and politics. He now writes via his own newsletter/platform and remains a frequent media commentator on bubbles, markets, and economic policy.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Phoenix Metals CEO": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Ray Dalio": {
+  "sells_research": false,
+  "role": "Investor, author, and founder of Bridgewater Associates; served as co-chief investment officer until stepping back in 2022",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Sebastian Purcell": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Steve Keen": {
+  "sells_research": false,
+  "role": "Economist",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Stuart": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Viktor Shvets": {
+  "sells_research": false,
+  "role": "Global Strategist",
+  "bio": "Viktor Shvets is a global equity strategist who has spent decades analyzing Asian and global markets, working previously at firms such as Credit Suisse, Deutsche Bank, and Morgan Stanley before joining Macquarie, where he became head of global strategy based in Hong Kong. He is known for his macro-thematic research on topics such as the fourth industrial revolution, debt supercycles, demographic and productivity trends, China's economic trajectory, and the changing nature of capital and labor. He is the author of books including 'The Great Rupture' and co-author of earlier works on Asia's economic rise.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "葉教授": {
+  "sells_research": false,
+  "role": "Cantonese-language financial and property-market commentator",
+  "bio": "Known under the honorific pen name \"葉教授\" (Professor Yip), appears to be a Hong Kong-based commentator discussing the local property and economic outlook in Cantonese. A full, confirmed identity could not be established from general knowledge, so biographical details beyond the commentary persona are not provided here.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Antonio (interviewer)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Barry O'Shea": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Blackstone CEO (quote relayed by panelist)": {
+  "sells_research": false,
+  "role": "Chairman and CEO",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Chris Batalha": {
+  "sells_research": false,
+  "role": "Junior mining executive; president & CEO of a TSX Venture Exchange–listed exploration company (ticker: FEO.V)",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Chris Batalha (CEO, Oceanic Iron Ore Corp) - primary speaker": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Chris Vermeulen (implied, responding in interview)": {
+  "sells_research": false,
+  "role": "Founder and Chief Market Strategist of TheTechnicalTraders.com",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Company representative (mineral exploration)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "\"Company representative (mineral exploration)\" is a generic descriptor rather than an individual's name. It typically appears as a placeholder in podcast guest lists, transcripts, or quoted interviews for an unnamed executive, geologist, or investor-relations contact speaking on behalf of a mineral exploration company. No specific person can be identified from this entry without an actual name or the name of the company involved.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Daniel Lacalle": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "David (interviewer) - secondary": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "David Lin": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Dustin Perry": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Gary Wagner": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Jason Yanowitz": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Jim McDonald (CEO, unnamed junior silver exploration/development company)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Joe": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Joe (Argenta Silver CEO, first name only per transcript)": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "Joe (identified in the transcript by first name only; the CEO of Argenta Silver is Joaquin 'Joe' Mariasch) leads Argenta Silver Corp., a silver exploration company focused on the high-grade El Quevar silver project in Salta Province, Argentina, which it acquired from Golden Arrow Resources. On his Resource Talks appearance he discussed the company's treasury position (roughly C$3 million on the books) and El Quevar's historical metallurgy, citing concentrate grades of 11,000–13,000 g/t silver and potential recoveries above 90% with no sale penalties on concentrate.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Joe (identified as CEO of Tower Resources)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "John Wang": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Jordan Pandoff": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Finance/investing personality who appeared as a guest on Jimmy Connor's investor-interview program. Detailed professional background not verified; typically guests on this show are investors, analysts, or fund managers discussing stocks and investment strategy.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Komal Sri-Kumar (referred to in transcript as 'Sree Kumar' / 'Sree') — guest": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Komal Sri-Kumar is a macroeconomist and global strategist best known for his forecasting on interest rates, inflation, and global asset allocation. As president of Sri-Kumar Global Strategies he publishes research and commentary for institutional clients, drawing on his long tenure as TCW's chief global strategist. He is a frequent commentator on CNBC, Bloomberg, and other business media, and his views on Treasury yields and Fed policy are widely cited in financial press.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Louie (Titiminas CEO)": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "Louie (publicly known by first name only) is the CEO of Titiminas, a private mining company associated with a gold project in Peru. He has a very low public profile, with few verified biographical details available in mainstream or industry sources. His most notable public exposure came via a solo interview on the mining-focused YouTube channel Resource Talks, where he discussed the company's project.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Lyn Alden": {
+  "sells_research": false,
+  "role": "",
+  "bio": "Lyn Alden is an American investment strategist and founder of the independent research service Lyn Alden Investment Strategy, launched in 2016. She holds engineering degrees (BS in engineering and an MS in engineering and technology management from Oklahoma State University) and worked in the aviation industry before becoming a full-time investment researcher. She is known for data-driven macro analysis of monetary policy, fiscal policy, currency markets, and long-term portfolio strategy, and is a prominent voice on monetary history and Bitcoin. She is the author of 'Broken Money: Why Our Financial System Is Failing Us and How We Can Make It Better' (2023) and is a frequent guest on finance and economics podcasts, including discussions on Treasury markets, the U.S. dollar, and emerging market currencies.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Mark (CEO, AEGC / 'Au Gold' – as spoken in transcript)": {
+  "sells_research": false,
+  "role": "CEO of AEGC (gold resource company; 'Au Gold' as spoken)",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Matt Gertken (BCA Research)": {
+  "sells_research": false,
+  "role": "Chief Geopolitical Strategist",
+  "bio": "Matt Gertken is Chief Geopolitical Strategist at BCA Research, the independent investment research firm headquartered in Montreal. He leads BCA's Geopolitical Strategy service, which assesses political and policy developments—such as elections, conflicts, sanctions, US-China relations, and energy security—and their implications for global markets. He joined BCA Research in 2015 and is a frequent commentator in financial media on geopolitical risk.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Matt Gertken (transcribed as 'Matt Girkin')": {
+  "sells_research": false,
+  "role": "Chief Geopolitical Strategist",
+  "bio": "Matt Gertken is the Chief Geopolitical Strategist at BCA Research, an independent investment research firm, where he analyzes geopolitical developments and how they affect global financial markets, including US foreign policy, great-power competition with China and Russia, elections, and global conflict risk. Before joining BCA Research, he worked as an analyst at the geopolitical intelligence firm Stratfor. He appears regularly in financial media to discuss geopolitics for investors.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Quinn": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Sean Whiteford": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Sean Whiteford (guest, NexMetals Mining)": {
+  "sells_research": false,
+  "role": "President & CEO",
+  "bio": "Sean Whiteford is the President and CEO of NexMetals Mining, formerly Premium Nickel Resources, a mineral exploration and development company focused on reviving the historic Selebi and Selkirk nickel-copper-PGE mines in Botswana, assets acquired out of liquidation. A mining executive with a background in project development and capital markets, he has represented the company in investor-facing media, including a solo interview on Jimmy Connor's podcast.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Shashank Chiranewala": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Stu": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Stu (geologist, ODM background)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Todd Anthony (CEO, Pacifica Silver Corp)": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "Todd Anthony is the CEO of Pacifica Silver Corp, a silver-focused mineral exploration company. In his public appearances he has discussed company-building matters typical of junior resource developers, including bringing on new team members, negotiating community agreements for the company's projects, and planning modest financing rounds (on the order of $10–15 million), with funding supported in part by warrant exercises. Little verified public information is available about his broader career history outside this role.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Vincent Metcalfe": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "interviewee": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "other": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "primary_analyst": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
  }
 }

@@ -1,10 +1,10 @@
-# Nick (Phoenix Metals CEO)
+# Nick, Phoenix Metals CEO
 
-**Role:** CEO, Phoenix Metals
+**Role:** Chief Executive Officer
 
-The record on Nick, chief executive of Phoenix Metals, is about as skeletal as a wiki entry gets: he runs the company, and that is essentially the whole of what is established. No surname, no stated roles beyond the top job, no background detail — the name suggests a metals business, but even that is inference from the company's title rather than anything documented here. For an investment research corpus built on dated, attributable calls, this is a placeholder rather than a portrait.
+Nick is the Chief Executive Officer of Phoenix Metals — that much is firmly on the record. Almost nothing else is. The corpus currently holds no dated calls, no quoted positions, and no stance history for him: nothing bullish, bearish, or neutral on any asset or theme, and no timeline of views moving in either direction.
 
-On substance, there is nothing to characterize. The tracked stance mix reads zero bullish, zero bearish, zero neutral, and the topic timelines — the section where a reader would expect to see, say, a gold call hardening in March or a copper view walked back by autumn — are empty. That means no documented arguments to summarize, no contradictions to flag, and no movement to trace. A sharp reader should treat any confident narrative about Nick's market views as fabrication until sourced calls appear; the honest state of the file is that coverage simply hasn't caught up with him yet. This page will only become useful once it can attach dates and positions to his name, and until then it stands as a flag: senior metals executive, known views — none on record.
+That absence is itself worth flagging rather than papering over. A profile of a metals-company chief executive naturally invites questions about where he stands on gold, copper, or the broader commodity cycle, but the digest gives no basis to answer them. Until sourced material — interviews, fund letters, earnings commentary — is added, this page should be treated as a stub: an identity and a title, with the substance of Nick's market views still unwritten.
 
 ## At a glance
 

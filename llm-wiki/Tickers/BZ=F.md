@@ -4,13 +4,13 @@
 
 ## The debate
 
-The bull case on Brent won the summer, but the record of *how* it won is messier than the 2-bullish / 1-bearish tally suggests. The bear anchor came first: on June 20, [Joseph](../People/joseph.md) pointed at spot prices — "they've absolutely plummeted. So, you can see spot Brent all the way down" — a momentum-down observation with no target or timeline attached. It is the only outright bearish note in the file, and, tellingly, there is no follow-up from him once the tape turned.
+The Brent debate in this corpus is really a fight between two snapshots: Joseph's June and the summer rebound everyone else watched. Joseph staked out the lone bearish call on 2026-06-20, pointing to spot prices — "spot Brent all the way down," in his words — after what he described as an outright plummet. It's a momentum argument, and like most momentum arguments it was perfectly right until it wasn't. The digest offers no follow-up from him, so whether he capitulated as prices recovered is anyone's guess; the record simply goes quiet.
 
-The clearest change of heart belongs to an unnamed commentator who accounts for most of the calls here (the digest doesn't identify them, so they carry no citation). On July 9 he argued there was "$10 plus dollars a barrel" of upside "on a short position alone… just a renormalization" — in plain terms, Brent was due to hand back ten bucks. Sixteen days later he was narrating a surge "just shy of $100 on Brent," hedging only on magnitude: "The price is going up a lot. And you know, maybe it'll go up even further." Whether he re-rated on new information or the rally simply ran his short thesis over isn't in the record — but the swing from calling for a $10 drawdown to "maybe even further" is the sharpest mind-change in this corpus, and it happened inside a month.
+The bull case, such as it is, rests almost entirely on one voice — an unnamed commentator who appears three times and effectively owns the timeline. His earliest entry, on 2026-07-09, is the most interesting and the most muddled: he argued there was "$10 plus dollars a barrel on a short position alone upside here, just a renormalization." Read charitably, that's a positioning call — shorts were crowded, and covering alone could do the work. It's filed without a direction in the digest, but it reads like an early squeeze thesis. By 2026-07-25 he'd dropped the hedging: Brent had "absolutely surged up just shy of $100," and "maybe it'll go up even further."
 
-By August the bull case had acquired its concrete mechanism: sanctions. [Betsy (presenter)](../People/betsy-presenter.md) noted on August 4 that there had been "strong performance over the last couple weeks as oil prices have started to pick back up" — neutral framing, but directionally with the bulls. Then on August 23 the unnamed commentator returned with the most specific call on the board: front-month futures around $94, up roughly six points on the week, New York futures closing at 87, with $100 framed explicitly as the sanctions-escalation scenario, a 90–100 near-term trading range, and no trip back to the low-$80s. That is the bull thesis distilled — the floor is a geopolitical risk premium, and the ceiling question is purely how far escalation runs.
+What's notable is that his conviction, if anything, got more circumspect as the price got higher. By 2026-08-23 he'd settled into a mildly bullish, range-bound framework: futures in the mid-$90s after a six-point weekly gain, New York crude closing at $87, a short-term band of $90 to $100, and — crucially — no return to the $80 area. The upside scenario is explicitly conditional: "if sanctions escalate," he thinks it goes to 100. So even the corpus's loudest bull caps the trade at round-number parity and treats the last few dollars as a geopolitical option rather than a base case.
 
-The shape of the debate, then: the bears' renormalization argument had roughly a two-week window in early July and got steamrolled, while the bulls are now leaning on sanctions risk rather than demand fundamentals — a thinner thing to underwrite. The consensus "bullish" tag also papers over real ambivalence: the same voice trading the 90–100 range was calling for a $10 drop three calls earlier, which reads less like conviction than like chasing. And coverage is genuinely thin — one dominant voice is unidentified, [Joseph](../People/joseph.md) has been silent since June, and Betsy describes price action rather than making a call. Take the bull tilt seriously; take the conviction level with a grain of salt.
+Betsy, the presenter, fills the neutral middle: on 2026-08-04 she merely noted "strong performance over the last couple weeks as oil prices have started to pick back up" — narration, not a call. That's the honest shape of this debate: two bulls, one stale bear, and three entries with no directional content at all. Nobody in the record cleanly switched sides — the closest thing to a mind-change is the anonymous commentator drifting from "renormalization" speculation in early July to an explicit $90–100 range thesis by late August. Coverage is thin, the bull is anonymous, and the bear case hasn't been updated since prices were falling. Treat the "bullish consensus" label accordingly: it's a majority built on one person's range trade and a lot of silence.
 
 ## Themes
 
@@ -26,17 +26,17 @@ The shape of the debate, then: the bears' renormalization argument had roughly a
 
 ## Voices on this ticker
 
-- [Betsy (presenter)](../People/betsy-presenter.md)
-- [Joseph](../People/joseph.md)
+- Betsy (presenter)
+- Joseph
 
 ## Notable calls
 
 - **Dr Ng Ming Tak, Victor** (dir=`偏多/區間上落`, tf=`短期（未來一至兩星期）`) — [《Breaking 92》看懂特朗普「經濟諾曼第」❗️表面攻全球、真正逼中國二選一｜美股、港股、美元、黃金前景｜24 Aug2026](https://www.youtube.com/watch?v=AZve8TvxwdM) — 2026-08-23, Dr Ng Ming Tak, Victor: "嗰個期油就已經去到誒94個幾啦咁即係話呢？成個星期就升咗6點。咁紐約期油就收到87。嗱，咁如果制裁升級嘅話咧。咁就會誒即係誒。我諗佢會100蚊。誒個區間咯咁？如果而家仲喺度ic短期呢係有喺90至誒，100蚊之間賠囖咁。咁所以誒短時間都唔會有啲平落返嚟80蚊附近囖"
-- **Betsy (presenter)** — [Quarterly Market & Strategy Update - July 2026](https://www.youtube.com/watch?v=RVKdhYU4nVU) — 2026-08-04, [Betsy (presenter)](../People/betsy-presenter.md): "We've had some strong performance over the last couple weeks as oil prices have started to pick back up."
+- **Betsy (presenter)** — [Quarterly Market & Strategy Update - July 2026](https://www.youtube.com/watch?v=RVKdhYU4nVU) — 2026-08-04, Betsy (presenter): "We've had some strong performance over the last couple weeks as oil prices have started to pick back up."
 - **Joseph Wang** (dir=`up`) — [Markets Weekly July 25, 2026](https://www.youtube.com/watch?v=9MGlq_4xxjE) — 2026-07-25, Joseph Wang: "The price is going up a lot. And you know, maybe it'll go up even further"
 - **Joseph Wang** (dir=`up`) — [Markets Weekly July 25, 2026](https://www.youtube.com/watch?v=9MGlq_4xxjE) — 2026-07-25, Joseph Wang: "you can see that they absolutely surged up just shy of $100 on Brent"
 - **Macro Voices** — [MacroVoices #540 Adam Parker: Beyond the AI Bubble: Diversifying Portfolios in …](https://www.youtube.com/watch?v=nIFH7B6OQzs) — 2026-07-09, Macro Voices: "I think we could probably have $10 plus dollars a barrel on a short position alone upside here, just a renormalization."
-- **Joseph** (action=`watch`, dir=`down`, tf=`short`) — [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80) — 2026-06-20, [Joseph](../People/joseph.md): "if you look at spot oil prices, they've absolutely plummeted. So, you can see spot Brent all the way down."
+- **Joseph** (action=`watch`, dir=`down`, tf=`short`) — [Markets Weekly June 20, 2026](https://www.youtube.com/watch?v=fI3fVnAqi80) — 2026-06-20, Joseph: "if you look at spot oil prices, they've absolutely plummeted. So, you can see spot Brent all the way down."
 
 ## Analysts covering this ticker
 
@@ -49,12 +49,12 @@ The shape of the debate, then: the bears' renormalization argument had roughly a
 
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
-- 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
 - 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 

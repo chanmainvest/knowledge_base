@@ -2,23 +2,23 @@
 
 Crude oil (CL=F, RB=F), the Strategic Petroleum Reserve, and broader energy-sector views. Often tied to geopolitics (Strait of Hormuz, Iran).
 
-**122 prediction(s)** and **122 market view(s)** match this theme in the current extraction.
+**133 prediction(s)** and **158 market view(s)** match this theme in the current extraction.
 
 ## What the corpus says
 
-Strip away the label and this theme is really a crude oil book: 103 of the 122 tickered calls sit on WTI, with gasoline, the XLE and NextEra barely registering, plus a thin sidebar of critical-minerals exploration. Nearly every timestamp falls in a single week — August 20 to 27, 2026 — and one question frames all of it: with what one voice calls "a global movement driven by the war in Iran driving up energy prices," does triple-digit crude come back, or does the market settle into its range? The corpus genuinely splits. On August 26 one speaker relays that "we could get to these $150 $200 a barrel forecasts," even as another wonders "whether $200 oil is really back on the table" and a third makes the outright bearish, underperform case that oil "has the least incentive to move higher here because everyone's trying to increase production." That same-day collision — scarcity tail versus supply response — is the center of gravity of the whole theme.
+For all its headline scale — 133 tickered calls and 158 broad views — the Oil & Energy theme in this corpus is essentially a one-instrument book: 114 of those calls sit on WTI crude (CL=F), with gasoline (RB=F), the energy sector ETF (XLE), NextEra (NEE) and a scatter of mining stories making up the residual. It is also a compressed record: nearly everything lands in a single week, August 22–27, framed by the war in Iran. An early entry sets the stage plainly — a "global movement driven by the war in Iran driving up energy prices" — and the rest of the week is various forms of arguing about what that means for the price of a barrel.
 
-The named voices sort cleanly. [Patrick](../People/patrick.md) is the corpus's outright crude bull, arguing on August 25 that "on balance of probabilities" oil "can stay at these elevated levels and even have a chance to" extend higher — the transcript cuts off there, but the direction is unmistakable. [Warren Pies](../People/warren-pies.md) reframes the trade as portfolio construction rather than a commodity bet — "Energy as Diversifier" — which is the closest thing here to a thesis statement. [Patrick Ceresna](../People/patrick-ceresna.md) supplies the political-economy layer on August 20: the administration "wants to see stable oil going into the elections," but "we clearly have a global marketplace that is incredibly tight." And [Massil Beguenane](../People/massil-beguenane.md) keeps the bulls honest with the flow caveat — the price recovery "has happened without large funds aggressively chasing it," which "does support a possible range bound story." Those last two positions aren't actually in conflict; tight fundamentals unconfirmed by positioning is exactly the uneasy synthesis this corpus keeps circling.
+The center of gravity is the $200 question. By August 26, speakers were relaying analyst forecasts of "$150, $200 a barrel" that had circulated as soon as a triggering event hit, and openly asking "whether $200 oil is really back on the table." The bull case had been laid out the day before: [Patrick](../People/patrick.md) argued that "on balance of probabilities" oil "can stay at these elevated levels" with a chance of more, while unnamed voices noted the market's stubborn refusal to break toward $60, the sense that the world is "really, really short on energy," and the logic that a higher oil price is probably needed if the conflict reaches its next phase without resolution. Against all that sits a single explicitly bearish call on August 26: oil has the least incentive to move higher "because everyone's trying to increase production" — the one fundamentals-based counterweight in an otherwise geopolitics-driven debate.
 
-Beneath the named cast, unnamed voices fight over the floor. On August 25, one observes oil is "having a hard time breaking it down into 60 bucks or something" even though "everybody wants to think" the breakdown comes; another warns we're "really, really short on energy"; a third argues "you probably need a higher oil price once we get to that phase of the... conflict if there's no resolution." Others note oil had already "gone back up the last couple of months" without that being reflected in positioning. Then the temperature drops: by August 27 the host flags oil volatility "at near its lows year-to-date," taking "that risk sort of off the table." The week's arc is legible — tight market, war-scare tail chatter peaking August 25–26, a fade back toward calm by the 27th — though with timestamps from only eight days, that's a within-week swing, not a trend.
+Then the tone cools fast. On August 27 the Macro Dirt host observed that the crack spread that had "everybody sitting on the freakin edge of their seat" backed off from 70 to 55, and pivoted to the idea of a slow-moving bull market in stocks regardless. Another host the same day noted oil volatility sitting near its year-to-date lows, taking risk off the table. The arc within one week is legible — escalation talk building through August 25–26, then a rapid re-rating of crisis premium. What the corpus never settles is whether that calm is earned: a lingering August 25 complaint that oil "has actually gone back up the last couple of months" without being reflected in the discussion suggests some thought the market was still behind the curve even as the tape quieted. [Warren Pies](../People/warren-pies.md)' "Energy as Diversifier" framing and [Matt Gertken (BCA Research)](../People/matt-gertken-bca-research.md)'s policy observation — that the administration "doesn't want to touch critical minerals or fuel," with oil among the biggest Canadian imports — round out the macro-political layer without resolving the price fight.
 
-The non-crude tail is exploration-stage minerals, not energy-transition incumbents. The [Brazilian Rare Earths CEO](../People/brazilian-rare-earths-ceo-unnamed-in-transcript.md) pitches processing economics as the moat — ore you can mill and "put it in a leech tank" where it "readily leeches," with low energy intensity — alongside the Penelope rare earths project in the ticker list. Libra Energy's Canadian portfolio gets a more candid, mixed read: genuine encouragement at the Stimson graphite discovery (4.7% graphitic carbon over nearly 15 meters in hole one) and recurring OJEP grants of up to 400k a year, set against a blunt dismissal of James Bay as "nothing more than anomalous lithium." NextEra and the XLE appear once or twice each — there is no utility, equity, or renewables argument anywhere in this corpus. One honest caveat: with coverage concentrated in that single late-August week, this page describes a market mid-war-scare, and the digest is simply silent on what these views looked like before August 20.
+The theme's edges are ragged. "Energy" here also sweeps in hard-rock mining: Libra Energy's Stimson graphite discovery in Canada (4.7% graphitic carbon over nearly 15 metres in hole one), a James Bay lithium project dismissed as "nothing more than anomalous lithium," recurring OJEP grants of up to 400k a year, and the Brazilian Rare Earths CEO touting the low energy intensity of his leach circuit. With three calls on SRL.AX and one or two elsewhere, these are footnotes, not coverage. The honest read: this is a crude-oil corpus captured mid-argument during one crisis week — a named bull, an unnamed bear, and a tape that went quiet before either side conceded.
 
 ## Constituent tickers
 
 | Ticker | Mentions |
 |---|---:|
-| [CL=F](../Tickers/CL=F.md) | 103 |
+| [CL=F](../Tickers/CL=F.md) | 114 |
 | [SRL.AX](../Tickers/SRL.AX.md) | 3 |
 | [Penelope rare earths project, Brazil (Libra Energy)](../Tickers/penelope-rare-earths-project-brazil-libra-energy.md) | 2 |
 | [RB=F](../Tickers/RB=F.md) | 2 |
@@ -36,20 +36,20 @@ The non-crude tail is exploration-stage minerals, not energy-transition incumben
 
 ## Key voices
 
+- [Patrick Ceresna](../People/patrick-ceresna.md) (17)
 - [Brent Johnson](../People/brent-johnson.md) (16)
-- [Patrick Ceresna](../People/patrick-ceresna.md) (15)
 - [Erik Townsend](../People/erik-townsend.md) (14)
 - [George Noble](../People/george-noble.md) (11)
 - [David Woo](../People/david-woo.md) (8)
 - [Michael Howell](../People/michael-howell.md) (6)
-- [Jeff (Jeoff)](../People/jeff-jeoff.md) (6)
+- Jeff (Jeoff) (6)
 - [Chris Semenuk](../People/chris-semenuk.md) (5)
 - [Steve](../People/steve.md) (5)
-- [Jeff](../People/jeff.md) (4)
+- Jeff (4)
 
 ## Consensus across analysts
 
-Of 122 tickered calls: **23 bullish**, **10 bearish**.
+Of 133 tickered calls: **24 bullish**, **13 bearish**.
 
 ## Notable calls & quotes
 
@@ -68,16 +68,16 @@ Of 122 tickered calls: **23 bullish**, **10 bearish**.
 
 ## Broad market views
 
+- _? (?)_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "It looks like one of those situations where we may be in for a bull market in stocks, no matter a slowmoving bull market in stocks with a rangebound oil price."
+- _? (?)_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "the crack spread that had everybody sitting on the freakin edge of their seat, backed off from 70 to 55. This week, jet fuel and diesel fuel are off between 6 and 8% with crude oil. That takes a lot of sting out of infl…"
+- _? (?)_: [50% Tariff Attack: Canada, U.S. Brace For 'Massive Pain'](https://www.youtube.com/watch?v=edwp5mhmgcs) — 2026-08-27, [Matt Gertken (BCA Research)](../People/matt-gertken-bca-research.md): "He doesn't want to touch critical minerals or fuel. You know, oil is one of the biggest imports from Canada. He doesn't want to dabble with that."
 - _? (?)_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "oil volatility is at near its lows year-to-date. That's taking that risk sort of off the table."
 - _? (?)_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "Energy as Diversifier"
 - _? (?)_: [Why Is Bitcoin Suddenly Exploding? Will The Rally Continue? \| Ben Cowen](https://www.youtube.com/watch?v=gTn7-oSb_ic) — 2026-08-25, David Lin: "The problem is oil has actually gone back up the last couple of months or so. And I don't think that's necessarily been reflected yet in CPI. And so what they're doing is arguably inflationary, which is by the way the s…"
-- _? (?)_: [Very High-Grade Rare Earths, But Can They Get the Funding? \| Brazilian Rare Ear…](https://www.youtube.com/watch?v=iSYYQqlo7qI) — 2026-08-24, [Brazilian Rare Earths CEO (unnamed in transcript)](../People/brazilian-rare-earths-ceo-unnamed-in-transcript.md): "you can mill this thing, put it in a leech tank, and it readily leeches... that ease of leechability, that low uh energy intensity required for processing is a blessing. It lowers capex, it lowers opex"
+- _? (?)_: [Very High-Grade Rare Earths, But Can They Get the Funding? \| Brazilian Rare Ear…](https://www.youtube.com/watch?v=iSYYQqlo7qI) — 2026-08-24, Brazilian Rare Earths CEO (unnamed in transcript): "you can mill this thing, put it in a leech tank, and it readily leeches... that ease of leechability, that low uh energy intensity required for processing is a blessing. It lowers capex, it lowers opex"
 - _? (?)_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "First and foremost, of course, is that this is a global movement driven by the war in Iran driving up energy prices. So everywhere in the world the long bond yields are rising uh mostly because energy prices are rising."
 - _? (?)_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Massil Beguenane](../People/massil-beguenane.md): "But the price recovery has happened without large funds aggressively chasing it. It does support a possible range bound story, but it also means there's so many on the sideline if oil continues to break higher."
 - _? (?)_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Patrick Ceresna](../People/patrick-ceresna.md): "Now, obviously, the administration is concerned about oil prices and wants to see stable oil going into the elections, but we clearly have a global marketplace that is incredibly tight."
-- _? (?)_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.youtube.com/watch?v=IRHWmEc1QAE) — 2026-08-20, Macro Voices: "we clearly have a global marketplace that is incredibly tight... the price recovery has happened without large funds aggressively chasing it. It does support a possible rangebound story but it also means there's so many…"
-- _? (?)_: [The Calm Before The Storm](https://www.youtube.com/watch?v=c3jEHzOwqBw) — 2026-08-15, Figuring Out Money: "When energy outperforms the S&P 500, it's not really that good for markets. You can see USO and CL, which is crude oil, right? They were up 7.5%."
-- _? (?)_: [Trading Desk - August 13th 2026](https://www.youtube.com/watch?v=c06eQWQljXo) — 2026-08-13, [Patrick Ceresna](../People/patrick-ceresna.md): "That to me implies that there's lots of room for the fair value of oil to be at an elevated level... And so, generally, I think oil has room to strengthen and I don't really see the scenario where oil heads back to the…"
 
 ---
 _Theme buckets are keyword-based and approximate; an LLM-tagged taxonomy would be more precise. Regenerate via `uv run python scripts/build_llm_wiki.py`._

@@ -18,7 +18,7 @@ A caveat on the record itself: this corpus logs seven stances for Butler and all
 
 - **Appearances**: 0
 - **Shows**: 
-- **Extracted calls**: 7 predictions, 5 market views
+- **Extracted calls**: 9 predictions, 5 market views
 - **Topics with opinions**: 5
 - **Stance split**: 0 bullish / 0 bearish / 7 neutral
 

@@ -16,11 +16,9 @@ _No URL / bio in DB channel metadata._
 (hosts, guests and solo authors — each person's appearances across all shows are merged on their own People page)
 
 - [Raoul Pal](../People/raoul-pal.md) — 2 appearance(s) as host
-- [Andrew Kang (Robo Strategies / Robo Global Strategies, guest)](../People/andrew-kang-robo-strategies-robo-global-strategies-guest.md) — 1 appearance(s) as solo
+- [Andrew Kang](../People/andrew-kang.md) — 1 appearance(s) as solo
 - [Blue Macellari](../People/blue-macellari.md) — 1 appearance(s) as guest
-- [Blue Macellari (guest, asset manager)](../People/blue-macellari-guest-asset-manager.md) — 1 appearance(s) as guest
 - [Erik Voorhees](../People/erik-voorhees.md) — 1 appearance(s) as guest
-- [Raoul Pal (Palvatar/AI avatar)](../People/raoul-pal-palvatar-ai-avatar.md) — 1 appearance(s) as guest
 
 **Most-called tickers:**
 

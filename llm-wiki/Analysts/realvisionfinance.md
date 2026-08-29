@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 12
+- **Extracted items**: 13
 - **Items with predictions**: 7
 - **Predictions**: 38
 - **Market views**: 60
@@ -61,11 +61,11 @@ _No URL / bio in DB channel metadata._
 ## Recent market views
 
 - _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "Warsh, I will agree, owes us that. And he hasn't given us any reaction function data, how he thinks about it, largely cuz he's got all these task forces, and he wants to change the data that he's looking for... Well, hu…"
-- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "I've been a fan of the Fed not doing forward guidance anymore... this policy of forward guidance, for every time it kind of sets the stage so that they can change policy or raise or lower rates, and there isn't drama, i…"
-- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "It's always going to be somewhere between 33 and 66% for most of these meetings, depending on which side you're going to be on whether they're a move or or not a move. So, there's going to be a great deal of uncertainty."
-- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, Andreas Steno (host): "it kind of leaves leaves us in this vacuum until we know, right Jim? So, the next couple of meetings, we won't really have any news on which inflation variable to measure and which inflation variable to assess as an inv…"
-- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "He called the payroll report echoes of the past uh or echoes of history and to be to use his terminology. It's only good on the third revision."
-- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "No, it might not. You're right, because you know, there's two ways you look at the payroll report, labor demand and labor supply"
+- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "there is some scuttlebutt that those sources close to the Federal Reserve chairman were named Kevin Warsh, that it was him personally. God, I hope not, because after going through all this drama to try and get rid of fo…"
+- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "I think ultimately, at the end of the day, the market will decide whether or not there is an inflation problem or isn't an inflation problem, and you can invent whatever trim mean PCE number... If the market's worried a…"
+- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "Inflation data matters more than the payroll data at least until the task force"
+- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "It might be because the chairman said that's not that important because the market's more worried about monetary policy than it is about the the state of the labor market."
+- _? — ?_: [The Fed Just Changed the Rules for Investors with Jim Bianco & Andreas Steno](https://www.youtube.com/watch?v=lFpQuOEzGzc) — 2026-08-23, [Jim Bianco](../People/jim-bianco.md): "after one day of bond yields falling they turned around and they went back up even higher than they were before the number"
 
 ## Source items (extracted)
 
@@ -79,6 +79,7 @@ _No URL / bio in DB channel metadata._
 - 2026-07-12 — [Bitcoin Breakdown or Bottoming Process? \| @RektCapital & Kris Bullock](https://www.youtube.com/watch?v=cS1i-G6pq_Q)
 - 2026-07-05 — [The Market Is Misreading Inflation, Oil, and the Fed \| Maleeha Bengali](https://www.youtube.com/watch?v=YsR_uqKU-5s)
 - 2026-06-28 — [Why Investors Say Sentiment Looks Wrong in Crypto & Macro Markets Right Now](https://www.youtube.com/watch?v=3LVb6esEFOk)
+- 2026-06-26 — [Can Real Vision Really Help You Live Your Best Financial Life? \| with Raoul Pal](https://www.youtube.com/watch?v=vh5g0JXx0DI)
 - 2026-06-21 — [The Hidden AI Trade: Land, Power, & Compute \| With Mike Alfred](https://www.youtube.com/watch?v=-p3DhlY2TEk)
 - 2026-06-14 — [Why This El Niño Could Be Different with Shawn Hackett & Ash Bennington](https://www.youtube.com/watch?v=gsteK2Vl5PA)
 

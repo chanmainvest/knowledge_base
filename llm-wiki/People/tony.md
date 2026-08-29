@@ -38,7 +38,8 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 Topics where this person's current stance conflicts with another person's:
 
-- [Oil & Energy](../Themes/oil-energy.md) — opposite: [Jeff Snider](../People/jeff-snider.md), [Steve](../People/steve.md), [Joseph](../People/joseph.md), [Joseph Wang](../People/joseph-wang.md), [Jeff (Jeoff)](../People/jeff-jeoff.md), [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md)
+- [CL=F](../Tickers/CL=F.md) — opposite: [Gary Wagner](../People/gary-wagner.md)
+- [Oil & Energy](../Themes/oil-energy.md) — opposite: [Jeff Snider](../People/jeff-snider.md), [Steve](../People/steve.md), [Joseph Wang](../People/joseph-wang.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

@@ -51,11 +51,11 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [How Much Would an AI Crash Destroy?](https://www.youtube.com/watch?v=wTiYaWFP59Q) — 2026-08-22, Patrick Boyle: "即使一项技术真实存在、用途广泛且具有改变世界的意义，如果你最初为股票支付了过高的价格，它也无法保护你。好的企业和好的投资完全是两回事。"
-- _? — ?_: [How Much Would an AI Crash Destroy?](https://www.youtube.com/watch?v=wTiYaWFP59Q) — 2026-08-22, Patrick Boyle: "相对于每次繁荣的开始时间而言，人工智能的建设速度已经超过了铁路热潮，超过了20世纪20年代的电气化热潮，也超过了互联网泡沫。"
-- _? — ?_: [How Much Would an AI Crash Destroy?](https://www.youtube.com/watch?v=wTiYaWFP59Q) — 2026-08-22, Patrick Boyle: "早期的那些狂热往往会在第五年左右消退，然后拖累经济陷入衰退。我们目前处于第三年，所以还有很多时间。"
-- _? — ?_: [How Much Would an AI Crash Destroy?](https://www.youtube.com/watch?v=wTiYaWFP59Q) — 2026-08-22, Patrick Boyle: "这恰恰说明这段视频并非预测，也不是要教你如何抛售一切。"
-- _? — ?_: [How Much Would an AI Crash Destroy?](https://www.youtube.com/watch?v=wTiYaWFP59Q) — 2026-08-22, Patrick Boyle: "亚马逊挺过了这场危机，并成为人类历史上最有价值的公司之一，但当泡沫破裂时，其股价仍然下跌了约90%。如果你在1999年的巅峰时期买入……可能需要等到2009年才能收回投资成本。"
+- _? — ?_: [How Much Would an AI Crash Destroy?](https://www.youtube.com/watch?v=wTiYaWFP59Q) — 2026-08-22, Patrick Boyle: "真正的多元化意味着刻意持有不会在同一天下午全部倒闭的资产，这在实践中意味着持有一些你略感尴尬的资产。"
+- _? — ?_: [How Much Would an AI Crash Destroy?](https://www.youtube.com/watch?v=wTiYaWFP59Q) — 2026-08-22, Patrick Boyle: "但是，'这项技术是真实存在的'和'这些股票在当前价格下是很好的投资'是两件完全不同的事情。"
+- _? — ?_: [How Much Would an AI Crash Destroy?](https://www.youtube.com/watch?v=wTiYaWFP59Q) — 2026-08-22, Patrick Boyle: "欧洲股票之所以便宜，恰恰是因为很少有人对它们感兴趣。科技股在欧洲股指中仅占约10%，而标普500指数中则接近一半。……这种类型的股票能产生稳定的现金流，并在你等待期间支付你大约3%的股息。"
+- _? — ?_: [How Much Would an AI Crash Destroy?](https://www.youtube.com/watch?v=wTiYaWFP59Q) — 2026-08-22, Patrick Boyle: "熊通常来得早，经常出错，但偶尔也会毫无预兆地猜对。"
+- _? — ?_: [How Much Would an AI Crash Destroy?](https://www.youtube.com/watch?v=wTiYaWFP59Q) — 2026-08-22, Patrick Boyle: "率先开发出变革性技术，大多只是为后来真正赚钱的技术提供了一个非常昂贵的粗略版本。"
 - _? — ?_: [How Much Would an AI Crash Destroy?](https://www.youtube.com/watch?v=wTiYaWFP59Q) — 2026-08-22, Patrick Boyle: "当泡沫破裂时，标普500指数下跌了约一半，纳斯达克指数下跌了近80%。"
 
 ## Source items (extracted)

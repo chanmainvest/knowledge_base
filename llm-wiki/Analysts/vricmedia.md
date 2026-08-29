@@ -45,12 +45,12 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [Don Durrett: $8,000 Gold & $200 Silver Are Coming](https://www.youtube.com/watch?v=GpS3exTGU5o) — 2026-08-25, VRIC Media: "rising government debt, stubborn bond yields, and growing intervention in the Treasury market are creating a “doom loop” that could drive gold and silver substantially higher"
-- _? — ?_: [Don Durrett: $8,000 Gold & $200 Silver Are Coming](https://www.youtube.com/watch?v=GpS3exTGU5o) — 2026-08-25, VRIC Media: "Gold’s second major leg higher"
-- _? — ?_: [Don Durrett: $8,000 Gold & $200 Silver Are Coming](https://www.youtube.com/watch?v=GpS3exTGU5o) — 2026-08-25, VRIC Media: "why silver could outperform"
 - _? — ?_: [Don Durrett: $8,000 Gold & $200 Silver Are Coming](https://www.youtube.com/watch?v=GpS3exTGU5o) — 2026-08-25, VRIC Media: "why he prefers producers and near-term developers over earlier-stage explorers during this phase of the bull market"
-- _? — ?_: [Justin Huhn: The Uranium Market Is Setting Up for a Major Move](https://www.youtube.com/watch?v=eDPDUFOi6Uw) — 2026-08-22, [Justin Huhn](../People/justin-huhn.md): "I'm feeling extremely constructive. I think that we've played the sector extremely well this year. We built up cash positions between December and March and have been deploying cash for the last 6 weeks or so. So, we ar…"
-- _? — ?_: [Justin Huhn: The Uranium Market Is Setting Up for a Major Move](https://www.youtube.com/watch?v=eDPDUFOi6Uw) — 2026-08-22, [Justin Huhn](../People/justin-huhn.md): "we're entering or just about to enter what is typically a strong seasonal period and this year I think is going to be no exception and primarily that has to do with the fact that we saw a big pullback in the summer whic…"
+- _? — ?_: [Don Durrett: $8,000 Gold & $200 Silver Are Coming](https://www.youtube.com/watch?v=GpS3exTGU5o) — 2026-08-25, VRIC Media: "why silver could outperform"
+- _? — ?_: [Don Durrett: $8,000 Gold & $200 Silver Are Coming](https://www.youtube.com/watch?v=GpS3exTGU5o) — 2026-08-25, VRIC Media: "Gold’s second major leg higher"
+- _? — ?_: [Don Durrett: $8,000 Gold & $200 Silver Are Coming](https://www.youtube.com/watch?v=GpS3exTGU5o) — 2026-08-25, VRIC Media: "rising government debt, stubborn bond yields, and growing intervention in the Treasury market are creating a “doom loop” that could drive gold and silver substantially higher"
+- _? — ?_: [Justin Huhn: The Uranium Market Is Setting Up for a Major Move](https://www.youtube.com/watch?v=eDPDUFOi6Uw) — 2026-08-22, VRIC Media: "we have our own personal money along this sector"
+- _? — ?_: [Justin Huhn: The Uranium Market Is Setting Up for a Major Move](https://www.youtube.com/watch?v=eDPDUFOi6Uw) — 2026-08-22, VRIC Media: "This is a trading portfolio where we take sentiment chart and physical market signals that dictate our trades."
 
 ## Source items (extracted)
 

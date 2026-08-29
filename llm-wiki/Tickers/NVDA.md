@@ -1,16 +1,18 @@
 # NVDA — Nvidia
 
-**26 extracted prediction(s)** across 8 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 24 neutral).
+**28 extracted prediction(s)** across 9 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 26 neutral).
 
 ## The debate
 
-The official scorecard on NVDA heading into late August 2026 reads 2 bullish, 0 bearish, and 24 neutral — but that flat tally hides a more interesting debate, because almost nobody in the file is actually arguing about the numbers. The argument is about whether the numbers still matter. Writing the day before an August 24 print, one commentator conceded the mechanical bull case outright — "they'll beat the number. They'll guide up" — and then made the counterpoint that matters: the stock has traded *down* in each of the last four post-earnings sessions. [Patrick of the MacroVoices Trading Desk](../People/patrick-macrovoices-trading-desk.md) landed on the same setup a few days earlier: on balance of probabilities Nvidia beats and guides solidly, but "it's going to be the way traders respond" that decides the trade. That's the neutral bloc's real position — 24 of 26 logged stances — bullish on the quarter, agnostic on the stock.
+On paper the scoreboard reads bullish — two bullish calls, zero bearish, twenty-six neutral — but the number that matters is the twenty-six. Through the August 2026 run-up to earnings, almost nobody in this record wanted to stake out a direction on the stock; the live debate was not whether Nvidia would beat, but whether beating still meant anything. That split runs through every pre-print conversation.
 
-The bull case, such as it is, gets its most surprising endorsement from [Jim Chanos](../People/jim-chanos.md), a man who has made a career on the other side of trades like this. In June he was citing valuation as the anchor — "Nvidia's at like 15 times on 2027 EPS" — and offering clients the joke that you want to be long the chip producers, not where the chips reside. Neither line is a full conversion and the digest doesn't log one, but it's a striking bit of shape: the most famous short-seller in the room supplying the valuation floor argument. Elsewhere in the camp, the Host of Monetary Matters was blunt in the same June window — if you had to pick the one name he's most excited about, it's Nvidia.
+The reaction-skeptics had the specifics. Patrick on the MacroVoices trading desk conceded on August 20 that "on balance of probabilities, they're probably going to beat and have a solid guidance" — his stated worry was "the way traders respond" [Patrick](../People/patrick.md). An unnamed analyst made essentially the same bet with a shrug on August 24: "they'll beat the number. They'll guide up. I get that" — before noting the stock has traded down after each of the last four reports. By earnings week the fence-sitting was explicit: [JD](../People/jd.md) called the quarter "a non-event… as close to unch as you can be" [JD](../People/jd.md), while the host of that discussion went further, admitting he was "hoping that… a little bit of a disappointment in Nvidia might get us there" — a tell that for part of this crowd, a hot print is the bearish scenario.
 
-The skeptics don't dispute the beats; they dispute the durability. [Ed Zitron](../People/ed-zitron.md), writing June 21, put a clock on it: Nvidia's got two, three more earnings calls, and if the guidance doesn't make the market "rock hard" every three months, the gig is up — a sharpening of the same sell-the-beat anxiety the bulls themselves keep voicing. An unnamed bearish take from August 20 went at the balance sheet instead of the income statement, warning that a default triggers collateral clauses, the equipment gets seized, and Nvidia ends up standing beside it holding residual value — the circular-financing worry, in its bluntest form. And a Cantonese-language commentator the same day reached for the two classic analogies: buyers of Cisco at the top of 2000 who waited more than twenty years to see their high again, and Nvidia's hundred-billion-dollar pooling with other prominent funds, which he likened to Hong Kong's pre-sale ("樓花") property model — selling today against value that hasn't shipped yet. The transcript is rough, but the direction of the argument is unmistakable.
+June had sounded different. The Monetary Matters host named Nvidia "the name that I'm most excited about right now," and the most interesting valuation defense came, oddly, from [Jim Chanos](../People/jim-chanos.md) — a man who has built a career shorting market enthusiasms. His June 20 framing was double-edged: at "like 15 times on 2027 EPS" the stock is no bubble relic, and his client joke — "you want to be long with the chips produce[d], not where the chips reside" — flips the usual AI-skeptic trade: own the supplier of the silicon, avoid the customers burning capital to house it [Jim Chanos](../People/jim-chanos.md).
 
-What the timeline shows is a debate that hardened over the summer without anyone flipping. June's calls — Chanos on multiples, Zitron on the shelf life of the guidance trade, the Monetary Matters host picking his favorite name — were about the trajectory; August's calls were about the mechanics of the reaction and the financing underneath the demand. No recorded mind-changes, and coverage is thin enough that the absence proves little. But note the discrepancy worth flagging: the tally logs zero bearish stances while the most vivid language in the file — seized equipment, Cisco's twenty-year round trip, pre-sale flats — is all cautionary. The bear case here lives in tone rather than labels, and everything resolves, one way or another, on Wednesday: either the four-quarter pattern of selling the beat breaks, or it becomes the story.
+The outright bear arguments never attack the multiple; they attack the quality of demand. [Ed Zitron](../People/ed-zitron.md) framed it as a treadmill on June 21: Nvidia has "two, three more earnings calls" of grace if guidance doesn't make markets "rock hard" every three months [Ed Zitron](../People/ed-zitron.md). An unnamed skeptic on August 20 went after the financing plumbing — a default "triggers all of these collateral clauses," the equipment gets seized, and Nvidia is left standing beside its own residual value. On August 24 a Cantonese-language commentator reached for two analogies at once: buyers of Cisco at the 2000 top waited more than two decades to reclaim the high, and the pooled-fund structures assembling around Nvidia alongside several prominent funds — apparently on the order of $100 billion — amounted to Hong Kong-style "樓花" pre-sale financing, booking tomorrow's demand today.
+
+Nobody in this record outright flips sides — there is no documented bull-to-bear conversion or the reverse, though if the August host and the June Monetary Matters host are the same chair, the drift from "most excited about" to rooting for a stumble is the closest thing to a mind-change available. What actually moves is the room's center of gravity: from a June debate about valuation (15x 2027) to an August debate about plumbing (collateral clauses, pre-sale financing). The tension worth flagging is that with zero outright bearish ratings, most of the bear-flavored language sits in the mouths of people simultaneously expecting a beat-and-raise. The consensus here is bullish on the quarter and, at best, agnostic on the stock.
 
 ## Themes
 
@@ -22,18 +24,22 @@ What the timeline shows is a debate that hardened over the summer without anyone
 |---|---:|
 | Bullish | 2 |
 | Bearish | 0 |
-| Neutral / watch | 24 |
+| Neutral / watch | 26 |
 
 ## Voices on this ticker
 
 - [Ed Zitron](../People/ed-zitron.md)
+- Host
 - Host (Monetary Matters)
+- [JD](../People/jd.md)
 - [Jim Chanos](../People/jim-chanos.md)
 - [Patrick](../People/patrick.md)
-- [Patrick (MacroVoices Trading Desk)](../People/patrick-macrovoices-trading-desk.md)
+- Patrick (MacroVoices Trading Desk)
 
 ## Notable calls
 
+- **Host** — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host: "I'm hoping that like a uh a little bit of a disappointment in Nvidia might get us there. So we'll see what happens."
+- **JD** — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "I think Nvidia earnings are going to be a non-event. I do. Yeah, I think it's going to be I mean as close to unch as you can be within a couple of percent."
 - **David Lin** (dir=`bullish_on_earnings`, tf=`near-term (earnings Wednesday)`) — [‘We’re In A Financial Crisis’: Treasury Readies $1 Trillion Warchest \| Danny Mo…](https://www.youtube.com/watch?v=EfKxbRuLZG0) — 2026-08-24, David Lin: "Nvidia reports Wednesday. Um, they'll beat the number. They'll guide up. I get that. But it's traded down the last four quarters and they've beaten, right? And that's just expectations running up into I'm not going to t…"
 - **Dr Ng Ming Tak, Victor** — [AI有真收入，亦有真泡沫❗️幾時先知投資變「大白象」？｜1929與90年代科網狂潮給我們的警告｜24 Aug2026](https://www.youtube.com/watch?v=iqiTITzO8Ao) — 2026-08-24, Dr Ng Ming Tak, Victor: "NVIDIA呢，亦都喺上個禮拜就係叫做高其他嗰個5間出名嘅誐？出名嘅，即係呀，w同one呢啲咁嘅無基金同埋，嗰嗰公務基金呢一齊去誐嗰000億美元就係呢，愛嚟好似，我喺前兩日出嗰個將呢啲呢係叫做花埋樓花嘅香港咁樣樓花化"
 - **Dr Ng Ming Tak, Victor** — [AI有真收入，亦有真泡沫❗️幾時先知投資變「大白象」？｜1929與90年代科網狂潮給我們的警告｜24 Aug2026](https://www.youtube.com/watch?v=iqiTITzO8Ao) — 2026-08-24, Dr Ng Ming Tak, Victor: "你買咗Cisco呢，當時係黃全世界嘅NvIDIA今日嘅NVIDIA就變咗呢？佢只係要等足呢20十幾年先至要翻返個高位"
@@ -44,7 +50,7 @@ What the timeline shows is a debate that hardened over the summer without anyone
 - **Eurodollar University** (dir=`bearish / downside risk`) — [Nvidia’s Hidden Debt Risk Could Crash the ENTIRE AI Bubble](https://www.youtube.com/watch?v=O450x8yyZ-k) — 2026-08-20, Eurodollar University: "the downside potential of the downswing in the credit cycle. The credit cycle is the X factor and Nvidia is the Grace Swan which ends up being the X-actor for the X factor which we need to connect all these things toget…"
 - **Macro Voices** (dir=`bullish`) — [Trading Desk - August 20th 2026](https://www.youtube.com/watch?v=XwI_N0Mvhgs) — 2026-08-20, Macro Voices: "on balance of probabilities, they're probably going to beat and have a solid guidance"
 - **Patrick** — [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Patrick](../People/patrick.md): "Now, on balance of probabilities, they're probably going to beat and have a solid guidance, but it's going to be the way traders respond to Nvidia's earnings that will be the big tell."
-- **Patrick (MacroVoices Trading Desk)** (dir=`bullish`) — [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.youtube.com/watch?v=IRHWmEc1QAE) — 2026-08-20, [Patrick (MacroVoices Trading Desk)](../People/patrick-macrovoices-trading-desk.md): "Now, on balance of probabilities, they're probably going to beat and have a solid guidance. But it's going to be the way traders respond to Nvidia's earnings that will be the big tell."
+- **Patrick (MacroVoices Trading Desk)** (dir=`bullish`) — [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.youtube.com/watch?v=IRHWmEc1QAE) — 2026-08-20, Patrick (MacroVoices Trading Desk): "Now, on balance of probabilities, they're probably going to beat and have a solid guidance. But it's going to be the way traders respond to Nvidia's earnings that will be the big tell."
 - **AM Invest** — [美股市況短評 (20260811)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-166357523) — 2026-08-11, AM Invest: "Nvidia (NVDA) 橫行了一段時間後，近日是有點轉強的。不過，升勢似乎仍未進一步增強。"
 - **Figuring Out Money** — [The Money Is Moving Again](https://www.youtube.com/watch?v=UFACPcXvCqc) — 2026-08-11, Figuring Out Money: "Nvidia's towards the lower end."
 - **Figuring Out Money** — [It's Time To Lock In](https://www.youtube.com/watch?v=Meo_bPlCseI) — 2026-08-08, Figuring Out Money: "So, if this one wants to start to consolidate, will we see rotations back into those other semis? It's a possibility, and that's why I'm on the radar."
@@ -65,6 +71,7 @@ What the timeline shows is a debate that hardened over the summer without anyone
 
 - [Figuring Out Money](../Analysts/figuringoutmoney.md) (`@FiguringOutMoney`)
 - [Dr Ng Ming Tak, Victor](../Analysts/latp.md) (`@LATP`)
+- [The Macro Dirt Podcast](../Analysts/macrodirtcast.md) (`@MacroDirtCast`)
 - [The Monetary Matters Network](../Analysts/monetary-matters.md) (`@Monetary-Matters`)
 - [David Lin](../Analysts/thedavidlinreport.md) (`@TheDavidLinReport`)
 - [Eurodollar University](../Analysts/eurodollaruniversity.md) (`@eurodollaruniversity`)
@@ -76,17 +83,18 @@ What the timeline shows is a debate that hardened over the summer without anyone
 
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
-- 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
 - 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
+- 2026-08-27 — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) (The Macro Dirt Podcast)
 - 2026-08-24 — [‘We’re In A Financial Crisis’: Treasury Readies $1 Trillion Warchest \| Danny Moses](https://www.youtube.com/watch?v=EfKxbRuLZG0) (David Lin)
 - 2026-08-24 — [AI有真收入，亦有真泡沫❗️幾時先知投資變「大白象」？｜1929與90年代科網狂潮給我們的警告｜24 Aug2026](https://www.youtube.com/watch?v=iqiTITzO8Ao) (Dr Ng Ming Tak, Victor)
 - 2026-08-20 — [Nvidia’s Hidden Debt Risk Could Crash the ENTIRE AI Bubble](https://www.youtube.com/watch?v=O450x8yyZ-k) (Eurodollar University)

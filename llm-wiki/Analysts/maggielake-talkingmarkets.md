@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 4
-- **Items with predictions**: 2
-- **Predictions**: 12
-- **Market views**: 6
+- **Extracted items**: 6
+- **Items with predictions**: 3
+- **Predictions**: 14
+- **Market views**: 37
 
 ## People on this channel
 
@@ -20,9 +20,10 @@ _No URL / bio in DB channel metadata._
 
 **Most-called tickers:**
 
-- [^GSPC](../Tickers/^GSPC.md) (5)
+- [^GSPC](../Tickers/^GSPC.md) (6)
 - [CL=F](../Tickers/CL=F.md) (2)
 - [^TNX](../Tickers/^TNX.md) (1)
+- `Individual equities within the index (unspecified)` (1)
 
 ## Stance distribution (predictions)
 
@@ -30,7 +31,7 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 4 |
 | Bearish | 0 |
-| Neutral / watch | 8 |
+| Neutral / watch | 10 |
 
 ## Market-view direction
 
@@ -51,18 +52,20 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [ERIK @YWR on S&P Earnings: “An Insanely Good” Picture \| For The Record](https://www.youtube.com/watch?v=wV4dksg_XjE) — 2026-08-20, Maggie Lake Talking Markets: "it's hard to have a big crisis when the banks haven't been lending since the GFC"
-- _? — ?_: [ERIK @YWR on S&P Earnings: “An Insanely Good” Picture \| For The Record](https://www.youtube.com/watch?v=wV4dksg_XjE) — 2026-08-20, Maggie Lake Talking Markets: "all the headwinds of the banking sector are flipping to tailwinds"
-- _? — ?_: [ERIK @YWR on S&P Earnings: “An Insanely Good” Picture \| For The Record](https://www.youtube.com/watch?v=wV4dksg_XjE) — 2026-08-20, Maggie Lake Talking Markets: "I think the government budget deficit is in the 5 to 6% range ... and the bond market is not freaking out especially about it"
-- _? — ?_: [ERIK @YWR on S&P Earnings: “An Insanely Good” Picture \| For The Record](https://www.youtube.com/watch?v=wV4dksg_XjE) — 2026-08-20, Maggie Lake Talking Markets: "The government is spending money. The companies are spending money and the banks are spending money"
+- _? — ?_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "there was an expectation in the macroeconomic community that interest rates and the economy and inflation would revert to the pre-COVID norm"
+- _? — ?_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "the most recent policy action out of the Treasury, which is basically just to support the long end in terms of liquidity purchases in the 10- and 30-year"
+- _? — ?_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "treasuries continue to stay under pressure because they are dynamically at odds with the ongoing pace of nominal GDP"
+- _? — ?_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "the bond market basically, like, over time tends to follow a pretty tight relationship with uh with nominal GDP"
+- _? — ?_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "There's potentially, you know, a a structural change in the demand for bonds"
 - _? — ?_: [ERIK @YWR on S&P Earnings: “An Insanely Good” Picture \| For The Record](https://www.youtube.com/watch?v=wV4dksg_XjE) — 2026-08-20, Maggie Lake Talking Markets: "One way or the other, we're going to 10,000 on the S&P"
-- _general — neutral_: [Risk, Failure, Luck, & the Art of Finding Joy \| Majors Notes - The Market House…](https://www.youtube.com/watch?v=fNYB0eZxGok) — 2026-06-23, [Grant Williams](../People/grant-williams.md): "We all live in uncertainty, every minute of every day of our lives. But uncertainty and risk are two completely different things. And so yes, there's uncertainty, but you embrace that uncertainty cuz that it's the uncer…"
 
 ## Source items (extracted)
 
+- 2026-08-27 — [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Record](https://www.youtube.com/watch?v=0otcjnQU1-w)
 - 2026-08-20 — [ERIK @YWR on S&P Earnings: “An Insanely Good” Picture \| For The Record](https://www.youtube.com/watch?v=wV4dksg_XjE)
 - 2026-07-16 — [Doomberg on Why Everybody Got the Oil Spike Wrong](https://www.youtube.com/watch?v=0PEQQJ1FZTY)
 - 2026-07-09 — [Juliette Declercq: The Consensus on US Inflation Is Completely Wrong](https://www.youtube.com/watch?v=20SxYVwZDLE)
+- 2026-06-25 — [300% Gains vs. 80% Losses: Michael Nicoletos on the Reality of the K-Shaped AI Market](https://www.youtube.com/watch?v=eiYWo4uTosE)
 - 2026-06-23 — [Risk, Failure, Luck, & the Art of Finding Joy \| Majors Notes - The Market House w/ Grant …](https://www.youtube.com/watch?v=fNYB0eZxGok)
 
 ---

@@ -4,13 +4,13 @@
 
 ## The debate
 
-There isn't much of a two-sided debate on Meta in this record — there isn't a single bullish call among the eight logged (0 bullish, 2 bearish, 4 neutral). What you have instead is a small bear camp and a larger group of fence-sitters watching price levels. The bear case splits into two distinct flavors: a fundamental objection to what Meta is spending on AI, and a relative-performance observation that the stock has been one of the year's big-tech laggards.
+The honest headline for this page is that there isn't much of a debate — the tracked record contains zero bullish calls on Meta, two bears, and four neutral reads. The clearest articulation of the bear case came from the host of Monetary Matters on June 20, 2026, who said Meta's AI strategy "makes no sense to me whatsoever" and declared, "definitely consider me a bear on the stock." The hedge inside that quote is worth flagging: he immediately conceded he wasn't short Meta at the time. That's a thesis bear, not a positioned one — conviction on tape, but nothing at risk behind it.
 
-The sharpest fundamental bear is the host of Monetary Matters, who on June 20, 2026 put it bluntly: "Meta's AI strategy makes no sense to me whatsoever and while I'm not short Meta currently, definitely consider me a bear on the stock." Note the hedge — bearish on the thesis but unwilling to short it, which tells you something about conviction levels even among the skeptics. The day before, 何啟聰 framed Meta as the representative casualty of weak big-tech performance since the start of 2026, naming it alongside Microsoft as the emblem of the US mega-cap slump ([何啟聰](../People/person-002.md)).
+The second explicit bear arrived a day earlier. On June 19, 2026, 何啟聰 wrote that since the start of the year large-cap US tech stocks have performed poorly, with Microsoft and Meta standing as the representative laggards [何啟聰](../People/person-001.md). His bearishness is framed differently — Meta as an emblem of broad big-tech weakness rather than a company-specific indictment — but the timing matters: both outright bear calls landed within roughly 48 hours of each other in mid-June, which reads as a clustered moment of pessimism rather than a sustained, independent drumbeat of negativity.
 
-The neutral camp is essentially one unnamed, options-aware voice tracking Meta against a weekly implied-move band, and their arc is the most interesting part of the timeline. On June 26 they read a bearish signal — "Meta closed slightly outside right on it," i.e., breaking the band. By August 6 they'd flipped to neutral: "Meta's right there on it, and above it," followed by "Meta rather unchanged" on August 11. But the August 13 entry — "nearing around that lower weekly implied move" — suggests the stabilization is uneasy, with the stock drifting back toward the very level whose breach triggered the June bear call.
+The rest of the timeline belongs to an unidentified contributor whose comments are technical rather than fundamental. This voice logged Meta as bearish on June 26 — the stock "closed slightly outside right on it" — then shifted to neutral by August 6, noting Meta was "right there on it, and above it," observed it "rather unchanged" on August 11, and had it "nearing around that lower weekly implied move" by August 13. That makes this person the only participant in the record whose stance visibly moved: bearish in late June, neutral by early August. So the shape of the debate, such as it is, runs bearish-hardening into late June, then a technical drift back toward neutral through the summer — with the neutral side reading price levels and implied moves, not arguing the AI thesis.
 
-So the shape of the debate as of mid-August 2026: no bulls showed up, the fundamental bears are dug in but not positioned, and the only person tracking the stock closely has moved from bearish to neutral without ever getting constructive. The live question isn't whether the bull case exists — in this record it simply doesn't — but whether the August hold above the band survives, or Meta slides back into the breakdown that made the technical read bearish in late June. Coverage this thin on the bullish side is itself a datapoint worth flagging.
+One caveat the record forces: the bull case exists here only as an absence. No one in the corpus is on record defending Meta, so whether the stock is genuinely uncontested or simply under-covered can't be determined from this data. As written, this page documents a bear-tilted quiet, not a two-sided fight.
 
 ## Themes
 
@@ -27,7 +27,7 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 ## Voices on this ticker
 
 - Host (Monetary Matters)
-- [何啟聰](../People/person-002.md)
+- [何啟聰](../People/person-001.md)
 
 ## Notable calls
 
@@ -48,12 +48,12 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
-- 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
 - 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 

@@ -12,7 +12,7 @@ As for how his views have moved: the record can't say. Everything here comes fro
 
 - **Appearances**: 0
 - **Shows**: 
-- **Extracted calls**: 8 predictions, 4 market views
+- **Extracted calls**: 8 predictions, 5 market views
 - **Topics with opinions**: 3
 - **Stance split**: 0 bullish / 0 bearish / 5 neutral
 

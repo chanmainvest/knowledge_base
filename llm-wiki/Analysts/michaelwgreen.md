@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 11
+- **Extracted items**: 12
 - **Items with predictions**: 1
 - **Predictions**: 1
 - **Market views**: 8
@@ -25,12 +25,12 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [Anchors Aweigh, My Boys](https://www.yesigiveafig.com/p/anchors-aweigh-my-boys) — 2026-08-16, michaelwgreen: "The insurer had liabilities. The index has weights — and the weights say *less* precisely when the market needs more."
-- _? — ?_: [Anchors Aweigh, My Boys](https://www.yesigiveafig.com/p/anchors-aweigh-my-boys) — 2026-08-16, michaelwgreen: "Bonds below 75 cents are about 35% of market value but 41% of the risk."
-- _? — ?_: [Anchors Aweigh, My Boys](https://www.yesigiveafig.com/p/anchors-aweigh-my-boys) — 2026-08-16, michaelwgreen: "I've said it for a decade: "We have built the active manager killing machine." Flows matter."
-- _? — ?_: [Anchors Aweigh, My Boys](https://www.yesigiveafig.com/p/anchors-aweigh-my-boys) — 2026-08-16, michaelwgreen: "You know what's worse than a crowded trade? A crowded trade where the crowd is leaving"
-- _? — ?_: [Anchors Aweigh, My Boys](https://www.yesigiveafig.com/p/anchors-aweigh-my-boys) — 2026-08-16, michaelwgreen: "The world's long-term bond markets have lost their two dependable buyers: the central banks that absorbed bonds through quantitative easing, and the Japanese life insurers who absorbed them because their home market pai…"
+- _? — ?_: [Anchors Aweigh, My Boys](https://www.yesigiveafig.com/p/anchors-aweigh-my-boys) — 2026-08-16, michaelwgreen: "The bond sleeve of American retirement saving has become a private-sector successor to QE, minus the discretion."
 - _? — ?_: [Anchors Aweigh, My Boys](https://www.yesigiveafig.com/p/anchors-aweigh-my-boys) — 2026-08-16, michaelwgreen: "The automatic buyer supplies demand. The marginal buyer sets the price. The extra yield on long bonds — the term premium — is his fee, charged on the residual: new supply, minus Japan, minus the Fed, minus what the form…"
+- _? — ?_: [Anchors Aweigh, My Boys](https://www.yesigiveafig.com/p/anchors-aweigh-my-boys) — 2026-08-16, michaelwgreen: "The world's long-term bond markets have lost their two dependable buyers: the central banks that absorbed bonds through quantitative easing, and the Japanese life insurers who absorbed them because their home market pai…"
+- _? — ?_: [Anchors Aweigh, My Boys](https://www.yesigiveafig.com/p/anchors-aweigh-my-boys) — 2026-08-16, michaelwgreen: "You know what's worse than a crowded trade? A crowded trade where the crowd is leaving"
+- _? — ?_: [Anchors Aweigh, My Boys](https://www.yesigiveafig.com/p/anchors-aweigh-my-boys) — 2026-08-16, michaelwgreen: "I've said it for a decade: "We have built the active manager killing machine." Flows matter."
+- _? — ?_: [Anchors Aweigh, My Boys](https://www.yesigiveafig.com/p/anchors-aweigh-my-boys) — 2026-08-16, michaelwgreen: "Bonds below 75 cents are about 35% of market value but 41% of the risk."
 
 ## Source items (extracted)
 
@@ -45,6 +45,7 @@ _No URL / bio in DB channel metadata._
 - 2026-07-12 — [You Can Lead a Horse to Water](https://www.yesigiveafig.com/p/you-can-lead-a-horse-to-water)
 - 2026-07-05 — [The Verb](https://www.yesigiveafig.com/p/the-verb)
 - 2026-06-28 — [A Token China Shock](https://www.yesigiveafig.com/p/a-token-china-shock)
+- 2026-06-21 — [Rinse, Warsh, Repeat](https://www.yesigiveafig.com/p/rinse-warsh-repeat)
 
 ---
 _Page reflects DB state at generation time._

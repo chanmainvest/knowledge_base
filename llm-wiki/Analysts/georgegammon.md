@@ -6,9 +6,9 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 13
-- **Items with predictions**: 4
-- **Predictions**: 18
+- **Extracted items**: 14
+- **Items with predictions**: 5
+- **Predictions**: 22
 - **Market views**: 34
 
 ## People on this channel
@@ -22,10 +22,10 @@ _No URL / bio in DB channel metadata._
 
 - [^TNX](../Tickers/^TNX.md) (3)
 - [^GSPC](../Tickers/^GSPC.md) (3)
+- [JPY=X](../Tickers/JPY=X.md) (2)
+- [DX-Y.NYB](../Tickers/DX-Y.NYB.md) (2)
 - [CL=F](../Tickers/CL=F.md) (2)
-- [JPY=X](../Tickers/JPY=X.md) (1)
 - [GC=F](../Tickers/GC=F.md) (1)
-- [DX-Y.NYB](../Tickers/DX-Y.NYB.md) (1)
 - `STRC` (1)
 - [MSTR](../Tickers/MSTR.md) (1)
 - [SPY](../Tickers/SPY.md) (1)
@@ -35,9 +35,9 @@ _No URL / bio in DB channel metadata._
 
 | Stance | Count |
 |---|---:|
-| Bullish | 3 |
+| Bullish | 4 |
 | Bearish | 2 |
-| Neutral / watch | 13 |
+| Neutral / watch | 16 |
 
 ## Market-view direction
 
@@ -61,12 +61,12 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "Because the long end of the curve is not driven by debt, deficits, or oddly enough, the typical version of supply and demand... It's driven by growth and inflation expectations."
-- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "But we saw the complete opposite. Why? Because the long end of the curve is not driven by debt, deficits, or oddly enough, the typical version of supply and demand."
-- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "So, we can go ahead and cross off the central planners. They are not going to be able to control interest rates just like they can't control the yen versus the dollar... The only thing these guys can do is just create s…"
-- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "when the BOJ or the Ministry of Finance, the central planners in Japan, when they try to defend the currency and try to make the yen appreciate against the dollar... you can see what happens after a couple weeks. It jus…"
-- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "We now have over 40 trillion dollar in debt... And are interest rates higher now or are they lower? They're a lot lower, way lower than they were in 1980... But what happened to interest rates especially from 1980 to 20…"
-- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "throw up a chart of the 10-year Treasury yield and nominal GDP in the United States, which is basically a combination of growth and inflation. And you can see that there's an extremely strong correlation regardless of w…"
+- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "whatever this guy does as far as buybacks or yield curve control or QE or whatever you want to call it doesn't work at all"
+- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "you see no correlation, almost an inverse correlation between that 10-year Treasury yield and the debt in the United States or the deficits as a percentage of GDP"
+- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "you get all of this additional buying or additional demand ... So then you get all the buying which brings rates right back down right let's say right here to let's just say 7%. which is more in line with where they his…"
+- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "when you look at that chart of the 10-year Treasury yield and nominal GDP, there's a very close correlation going all the way back as many decades as you want to"
+- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "he can't buy gold or Bitcoin or anything like that because he's taking massive amounts of what I would call just FX risk. So, he's really got two choices. He can either lend to the government and we'll just call that bo…"
+- _? — ?_: [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "And the reason is because supply creates its own demand."
 
 ## Source items (extracted)
 
@@ -81,6 +81,7 @@ _No URL / bio in DB channel metadata._
 - 2026-07-09 — [This Multi Trillion Dollar Bubble May Have Just Broken The Economy](https://www.youtube.com/watch?v=Ca0X4O2t9Mo)
 - 2026-07-04 — [Are We On The Brink Of Another Financial Crisis? (Answer Will Surprise You)](https://www.youtube.com/watch?v=5GkdhYhW2-c)
 - 2026-07-02 — [Powerful Stock Indicator Just Gave An Extreme Crash Warning](https://www.youtube.com/watch?v=8QB9yHWVumQ)
+- 2026-06-25 — [A $100 Trillion Currency Crisis Just Started (You Won't Believe This)](https://www.youtube.com/watch?v=kGK6CyiNj3g)
 - 2026-06-20 — [You Won't Believe What Just Happened To Interest Rates (New Fed Changed Everything)](https://www.youtube.com/watch?v=8QKGzMIhuh0)
 - 2026-06-18 — [SpaceX, Iran, OpenAI IPO...Here's My Controversial Stock Strategy For 2026](https://www.youtube.com/watch?v=QxR6yvf8ueU)
 

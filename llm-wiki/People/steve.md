@@ -93,11 +93,11 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 
 Topics where this person's current stance conflicts with another person's:
 
-- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Erik Townsend](../People/erik-townsend.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [Broad Market & Macro Indices](../Themes/macro-indices.md) — opposite: [Mike Alfred](../People/mike-alfred.md), [Chris Semenuk](../People/chris-semenuk.md)
 - [Oil & Energy](../Themes/oil-energy.md) — opposite: [George Noble](../People/george-noble.md), [JD](../People/jd.md), [Tony](../People/tony.md), [Erik Townsend](../People/erik-townsend.md), [David Woo](../People/david-woo.md)
-- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [高天佑](../People/person-015.md), [aminvest](../People/aminvest.md), [何啟聰](../People/person-002.md), [Jeff Snider](../People/jeff-snider.md), [Joseph](../People/joseph.md), [陳坤耀](../People/person-014.md)
+- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [高天佑](../People/person-010.md), [何啟聰](../People/person-001.md), [Jeff Snider](../People/jeff-snider.md), [Joseph Wang](../People/joseph-wang.md), [陳坤耀](../People/person-009.md), [劉強東](../People/person-002.md)
 - [Geopolitics & Defense](../Themes/geopolitics-defense.md) — opposite: [David Woo](../People/david-woo.md)
-- [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Jeff](../People/jeff.md), [Chris Semenuk](../People/chris-semenuk.md)
+- [Rates, Bonds & the Dollar](../Themes/rates-bonds.md) — opposite: [Chris Semenuk](../People/chris-semenuk.md), [Eurodollar University guest Jeff](../People/eurodollar-university-guest-jeff.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

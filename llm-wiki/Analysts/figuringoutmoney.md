@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 22
-- **Items with predictions**: 18
-- **Predictions**: 229
-- **Market views**: 109
+- **Extracted items**: 24
+- **Items with predictions**: 20
+- **Predictions**: 234
+- **Market views**: 130
 
 **Most-called tickers:**
 
@@ -18,8 +18,8 @@ _No URL / bio in DB channel metadata._
 - [NQ=F](../Tickers/NQ=F.md) (9)
 - [QQQ](../Tickers/QQQ.md) (8)
 - [SPY](../Tickers/SPY.md) (8)
+- [CL=F](../Tickers/CL=F.md) (8)
 - [AVGO](../Tickers/AVGO.md) (7)
-- [CL=F](../Tickers/CL=F.md) (7)
 - [GOOGL](../Tickers/GOOGL.md) (6)
 - [NVDA](../Tickers/NVDA.md) (6)
 - [^IXIC](../Tickers/^IXIC.md) (6)
@@ -28,9 +28,9 @@ _No URL / bio in DB channel metadata._
 
 | Stance | Count |
 |---|---:|
-| Bullish | 4 |
-| Bearish | 3 |
-| Neutral / watch | 222 |
+| Bullish | 5 |
+| Bearish | 4 |
+| Neutral / watch | 225 |
 
 ## Recent notable calls
 
@@ -76,6 +76,8 @@ _No URL / bio in DB channel metadata._
 - 2026-07-01 — [You're Gonna Wanna Sit Down For This](https://www.youtube.com/watch?v=YRJb3kVX7TM)
 - 2026-06-30 — [Inside Every Trade I'm In Right Now.](https://www.youtube.com/watch?v=E55lrn6yX34)
 - 2026-06-26 — [It's Time To Get Serious About This Market.](https://www.youtube.com/watch?v=2poug85rvhA)
+- 2026-06-24 — [The Framework Nobody Talks About...](https://www.youtube.com/watch?v=WJWrubg9lVs)
+- 2026-06-23 — [The Reversals Are Telling You THIS...](https://www.youtube.com/watch?v=G4mxxhDLlAM)
 
 ---
 _Page reflects DB state at generation time._

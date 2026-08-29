@@ -4,13 +4,13 @@
 
 ## The debate
 
-The SpaceX debate in mid-June 2026 is a clean momentum-versus-supply fight, and the tape forced both sides to show their hand within a single week. On June 17, with the stock still climbing, the bull case ran through [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md), who framed it as potentially the ultimate momentum trade as capital rotates across global markets, and through [JD](../People/jd.md), who argued that if any stock in the S&P top 10 could 5x from here, it's probably SpaceX — going so far as to invoke a "middle finger chart formation" where SpaceX goes parabolic and everything else becomes a funding trade. Host 1 chimed in that "this thing looks like it could double from here," though notably hedged it, suggesting something else may not arrive until SpaceX turns, "could be in over the next quarter" — a caveat that reads as bulls already needing the chart to cooperate.
+SpaceX's debate in late June 2026 is really a fight about sequencing, not direction-of-travel theology: does the momentum run continue first, or does the lockup air pocket hit first? The week captured here splits almost perfectly down the middle — June 17 reads like peak euphoria, June 21–23 like the hangover. On the 17th, [JD](../People/jd.md) laid out the maximal bull case: SpaceX could "5x from here in the top 10 of the S&P," and he even invoked a "middle finger chart formation" where the stock goes parabolic "and everything else becomes a funding" casualty. Host 1 was nearly as aggressive, saying "this thing looks like it could double from here," while Tony Greer and Jared Dillian framed the whole trade as a question of whether SpaceX was becoming "the ultimate momentum trade as capital rotates across global markets." Against that, a guest analyst offered the structural counter that would age well: "In the coming months, you'll have lockups unlock, and then you'll have the people sell" — insiders taking the first exit they've ever had.
 
-The bear case was seeded the same day by a guest analyst, who pointed to the obvious supply overhang: lockups unlocking in the coming months, and insiders selling "the first chance you have to sell." Within days that thesis started getting price confirmation. By June 21, [Ed Zitron](../People/ed-zitron.md) had the stock "kind of trundling down," and [何啟聰](../People/person-002.md) documented a two-day slide that took the shares to $173 at the lows on June 22.
+The bear case then arrived on schedule. By June 21, Ed Zitron noted the stock had "been kind of trundling down" and floated a SpaceX tank as the kind of trigger that could make his 2026 scenario possible. On June 22, 何啟聰 [flagged](../People/person-001.md) that SpaceX shares had fallen sharply for two consecutive sessions, at one point touching $173. By June 23, Tony the host was calling for a "crash landing," saying the stock was on pace to trade back to its IPO price "in a couple of weeks" — a strikingly specific reversion call for a name that, on the same day, [JD](../People/jd.md) was still championing with his signature line: "if there was any stock that had a chance of going to a 10 trillion market cap, it would be SpaceX. And I still believe that."
 
-June 23 was the bears' day. Tony (host) declared the stock on pace to trade back at its IPO price "in a couple of weeks" and warned of a coming crash landing. [George Noble](../People/george-noble.md) went furthest, saying he's "a buyer of SpaceX puts big time" — though even his bearishness comes with a shrug: "you may be able to short SpaceX at 250. I have no idea," and "it may go to 300 before it goes to 50." That's hedged shorting, and worth flagging as such.
+That same-day split — $10 trillion versus IPO-price crash landing, both on June 23 — is the cleanest snapshot of where the debate stands. George Noble occupies the interesting middle: he declared himself "a buyer of SpaceX puts big time" and suggested you "may be able to short SpaceX at 250," but immediately hedged on timing with "it may go to 300 before it goes to 50." That's the honest bear position here — conviction on direction, humility on path — and it contrasts with the guest analyst's lockup thesis, which is less a price target than a calendar.
 
-Against that, the most striking datapoint in the corpus is [JD](../People/jd.md) doubling down on the same day the puts were being bought, reiterating: "if there was any stock that had a chance of going to a $10 trillion market cap, it would be SpaceX. And I still believe that." No documented flip-flops appear in the digest — the split is less about minds changing than about timing, with the bearish calls clustering in the June 21–23 window as price fell. The official tally still skews bullish (6/5/3), but the most recent calls lean bearish, and the real debate is whether the lockup-driven supply overwhelms what the bulls see as the market's only must-own momentum name.
+Nobody in this digest explicitly flips sides, which is itself notable. [JD](../People/jd.md) repeats his $10 trillion line nearly verbatim across the six days, and the bears don't waver either. Host 1 comes closest to genuine ambivalence, pairing the "could double from here" call with a warning that a broader turn "may not come until SpaceX turns… could be in over the next quarter." The unresolved question, then, isn't whether SpaceX is special — even the bears implicitly concede it's the tail that wags the market dog — but whether insiders with unlocked shares will let the momentum crowd keep the story intact. The coverage here is heavily clustered in one June week, so treat any longer arc as unproven.
 
 ## Themes
 
@@ -28,13 +28,13 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 - [Ed Zitron](../People/ed-zitron.md)
 - [George Noble](../People/george-noble.md)
-- [Grok (xAI)](../People/grok-xai.md)
+- Grok (xAI)
 - Guest analyst
 - Host 1
 - [JD](../People/jd.md)
 - Tony (host)
-- [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md)
-- [何啟聰](../People/person-002.md)
+- Tony Greer and Jared Dillian
+- [何啟聰](../People/person-001.md)
 - 作者 (Author)
 
 ## Notable calls
@@ -49,9 +49,9 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 - **JD** (action=`watch`, dir=`up`, tf=`unspecified`) — [Nobody Owns Bonds](https://www.youtube.com/watch?v=H-mvJ6poUk4) — 2026-06-17, [JD](../People/jd.md): "I could I could see a scenario where SpaceX does the middle finger chart formation, goes parabolic, and everything else becomes a funding trade."
 - **Host 1** (action=`watch`, dir=`up`, tf=`unspecified`) — [Nobody Owns Bonds](https://www.youtube.com/watch?v=H-mvJ6poUk4) — 2026-06-17, Host 1: "this thing looks like it could double from here."
 - **JD** (action=`watch`, dir=`up`, tf=`unspecified`) — [Nobody Owns Bonds](https://www.youtube.com/watch?v=H-mvJ6poUk4) — 2026-06-17, [JD](../People/jd.md): "if there if there was one stock that could 5x from here in the top 10 of the S&P, it's probably SpaceX."
-- **Tony Greer and Jared Dillian** (action=`watch`, dir=`up`, tf=`unspecified`) — [Nobody Owns Bonds](https://www.youtube.com/watch?v=H-mvJ6poUk4) — 2026-06-17, [Tony Greer and Jared Dillian](../People/tony-greer-and-jared-dillian.md): "whether SpaceX is becoming the ultimate momentum trade as capital rotates across global markets"
+- **Tony Greer and Jared Dillian** (action=`watch`, dir=`up`, tf=`unspecified`) — [Nobody Owns Bonds](https://www.youtube.com/watch?v=H-mvJ6poUk4) — 2026-06-17, Tony Greer and Jared Dillian: "whether SpaceX is becoming the ultimate momentum trade as capital rotates across global markets"
 - **Guest analyst** (action=`watch`, dir=`down`, tf=`coming months`) — [June 2026 FOMC Debrief](https://www.youtube.com/watch?v=Njd_JuRuEcI) — 2026-06-17, Guest analyst: "In the coming months, you'll have lockups unlock, and then you'll have the people sell... obviously, the first chance you have a to sell, you're going to be dumping that."
-- **Grok (xAI)** (action=`watch`, dir=`unspecified`, tf=`long (three years)`) — [SpaceX市值一飛沖天 諾獎得主狠批龐氏騙局](https://www.master-insight.com/article/48758) — 2026-06-16, [Grok (xAI)](../People/grok-xai.md): "歷史經驗顯示，此類熱市大pop IPO長期（三年）市場調整後報酬多偏弱，常面臨獲利了結、鎖定期賣壓與均值回歸風險，因此投資人應視其為高波動成長曝險，後續表現將取決於Starlink獲利與Starship執行力，而非首日熱度。"
+- **Grok (xAI)** (action=`watch`, dir=`unspecified`, tf=`long (three years)`) — [SpaceX市值一飛沖天 諾獎得主狠批龐氏騙局](https://www.master-insight.com/article/48758) — 2026-06-16, Grok (xAI): "歷史經驗顯示，此類熱市大pop IPO長期（三年）市場調整後報酬多偏弱，常面臨獲利了結、鎖定期賣壓與均值回歸風險，因此投資人應視其為高波動成長曝險，後續表現將取決於Starlink獲利與Starship執行力，而非首日熱度。"
 - **作者 (Author)** (action=`watch`, dir=`unspecified`, tf=`short-to-medium term`) — [SpaceX市值一飛沖天 諾獎得主狠批龐氏騙局](https://www.master-insight.com/article/48758) — 2026-06-16, 作者 (Author): "SpaceX 未來幾年的股價不宜過分看高，AI泡沫一旦爆破更會首當其衝。長遠來說，我卻是看好的。"
 
 ## Analysts covering this ticker
@@ -66,12 +66,12 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
-- 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
 - 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 

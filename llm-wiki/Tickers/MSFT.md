@@ -4,13 +4,13 @@
 
 ## The debate
 
-There is no bull in this record — that has to be said up front. The corpus tags MSFT with zero bullish calls against one bearish and six neutral, and the lone explicit down call came from [何啟聰](../People/person-002.md) on June 19, who framed the damage as sector-wide: large-cap tech had performed poorly since the start of the year, with Microsoft and Meta as the American exhibits. A day later, [Ed Zitron](../People/ed-zitron.md) supplied the bear camp's forensic flavor, noting that $527 million of a company's sales and marketing costs ran through Microsoft. Zitron needs little introduction as a persistent Microsoft skeptic, though it's worth flagging that his recorded entry here is a single cost-line observation tagged "unspecified" — a receipts-style jab, not a rating. So the label "bearish consensus" slightly overstates things: one named bear, one critic with a cost figure, and a lot of fence-sitting.
+The "bearish consensus" stamp on Microsoft — zero bullish calls, one bearish, six neutral — is a little misleading, because the record contains exactly one outright bear and a pile of technical fence-sitting. The lone down call came on June 19, 2026, when [何啟聰](../People/person-001.md) tagged Microsoft and Meta as the representative casualties of a rough year for large-cap tech, noting that the sector's share prices had fared poorly since the start of the year. It was a mid-downtrend call, and within six weeks the same stock was being described as having clearly escaped that downtrend — which is the quiet tension running through this page.
 
-What actually happens across the timeline is more interesting than a bull-bear fight: the technical conversation flips. On August 4, unattributed commentary conceded that MSFT had been the strongest gainer in its group, had "clearly shaken off its downtrend," and was now worth watching to see whether it could rebuild an uptrend — while warning that a short-term rise that steep invites a pullback. Two days later the same anonymous tape had the stock "tooling right in" around its weekly expected move, which is neutral-speak for: nothing broken, nothing screaming.
+The other June entry is [Ed Zitron](../People/ed-zitron.md)'s, dated June 21, 2026, and it isn't a price call at all. His observation that "$527 million of their sales and marketing costs went through Microsoft" is a structural jab — Microsoft cast as the tollbooth inside someone else's cost base — consistent with his standing role as one of the loudest skeptics of Microsoft's AI-era strategy. The digest doesn't identify which company "their" refers to, and his stance is logged as unspecified, so it would be overstating things to call it a sell rating. Still, it's the only fundamental-flavored skepticism in the corpus, and it gives the bear side of this debate its substance: the case against MSFT here is as much about what Microsoft is as what the stock does.
 
-But the concession comes hedged, and that hedge is the real debate. By August 8 the read was that Microsoft "might need to chill out here for a little bit," and by August 11 the stock had indeed "saw a bit of a pullback" after its "nice bump up." In other words, the fence-sitters don't dispute the momentum — they dispute its durability. That's a much narrower argument than the June bear case, which questioned the fundamental picture outright; the August crowd is purely asking whether an overextended move needs a pause. One caveat on attribution: all of the August commentary is unidentified, so we can't tell whether this is one voice revising a view or several technicians converging on the same read.
+Everything after mid-June comes from a single unattributed voice (the digest logs the speaker as "?"), and their August arc reads like a live seminar in trading an extended chart. On August 4 the note was that MSFT had been the strongest riser among its peers, that a short-term rally this steep inevitably invites pullbacks, and that the downtrend was clearly broken — worth watching whether it could regain an upward track. By August 6 it was "tooling right in around its weekly inspected expected move," the corpus's one formally neutral call. August 8 brought "Microsoft might need to chill out here for a little bit," and by August 11 the pullback had indeed arrived — "a bit of a pullback... after a nice bump up," with the commentary (truncated in the record) still characterizing the tape as strength. None of it is bearish; it is mean-reversion caution layered on top of a constructive read.
 
-Coverage is thin, and honest analysts should say so. There are no price targets, no fundamental bull to cross-examine 何啟聰's June down call, and no follow-up from Zitron within this window. The open question the record leaves hanging is exactly the one the August 4 note posed: does MSFT regain its uptrend, or does the first-half weakness that anchored the bear case reassert itself? For now, the verdict sits with the hedgers.
+So the shape of the debate is lopsided and thin. The bear case rests on one June macro-gloom call plus a Zitron-style structural critique; the bull case exists only implicitly, in an anonymous trader's insistence that the downtrend is broken and the strength is real — with nobody willing to put a name to it. And the timeline actually cuts against the official bearish label: the single "down" rating predates the rally everyone spent early August reacting to. As of mid-August 2026, the honest summary of this panel is "extended, cooling off, upside unproven" — which is hedging, not conviction, from a group that has produced no named bull in six months of coverage.
 
 ## Themes
 
@@ -27,7 +27,7 @@ Coverage is thin, and honest analysts should say so. There are no price targets,
 ## Voices on this ticker
 
 - [Ed Zitron](../People/ed-zitron.md)
-- [何啟聰](../People/person-002.md)
+- [何啟聰](../People/person-001.md)
 
 ## Notable calls
 
@@ -50,12 +50,12 @@ Coverage is thin, and honest analysts should say so. There are no price targets,
 
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
-- 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
 - 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 

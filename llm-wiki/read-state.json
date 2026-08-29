@@ -1,13 +1,13 @@
 {
  "version": 1,
- "updated_at": "2026-08-27T23:00:01.781648+00:00",
+ "updated_at": "2026-08-29T01:31:44.112657+00:00",
  "items": {
   "102425|weekly-digest": {
    "source_code": "youtube",
    "external_id": "O-RRUlGQb6o",
-   "content_sha": "e614ad9dd3b37368",
+   "content_sha": "c3a4ac01b98b6440",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673422+00:00"
+   "read_at": "2026-08-29T01:31:43.061280+00:00"
   },
   "102426|weekly-digest": {
    "source_code": "youtube",
@@ -26,23 +26,23 @@
   "102997|weekly-digest": {
    "source_code": "youtube",
    "external_id": "SibAV9HRe1I",
-   "content_sha": "c8ef94fe6766e958",
+   "content_sha": "bf82a8315d837714",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673408+00:00"
+   "read_at": "2026-08-29T01:31:43.061228+00:00"
   },
   "102998|weekly-digest": {
    "source_code": "youtube",
    "external_id": "wL63-KdtuEE",
-   "content_sha": "238dfe47390ee49d",
+   "content_sha": "724689cbf229d764",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673322+00:00"
+   "read_at": "2026-08-29T01:31:43.061079+00:00"
   },
   "102999|weekly-digest": {
    "source_code": "youtube",
    "external_id": "c2LzapdRuT4",
-   "content_sha": "4c5b3a9ac44b61b5",
+   "content_sha": "3310f1c3e58db2ce",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673307+00:00"
+   "read_at": "2026-08-29T01:31:43.061014+00:00"
   },
   "103000|weekly-digest": {
    "source_code": "youtube",
@@ -54,16 +54,16 @@
   "103001|weekly-digest": {
    "source_code": "youtube",
    "external_id": "IpZ_HYxaU_8",
-   "content_sha": "76842d3e56677895",
+   "content_sha": "959b2261ff3fbeed",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320100+00:00"
+   "read_at": "2026-08-29T01:31:42.771415+00:00"
   },
   "103002|weekly-digest": {
    "source_code": "youtube",
    "external_id": "9WH-0Pl9ydM",
-   "content_sha": "8926cc536cc7ed3e",
+   "content_sha": "384cc3889423b522",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.319992+00:00"
+   "read_at": "2026-08-29T01:31:42.771149+00:00"
   },
   "103003|weekly-digest": {
    "source_code": "youtube",
@@ -82,30 +82,30 @@
   "103005|weekly-digest": {
    "source_code": "youtube",
    "external_id": "DTh7cPI8z3E",
-   "content_sha": "a841cd1b5b9c6132",
+   "content_sha": "d68f4a1648ca216b",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.319820+00:00"
+   "read_at": "2026-08-29T01:31:42.770945+00:00"
   },
   "103006|weekly-digest": {
    "source_code": "youtube",
    "external_id": "bBMP-s5PzKo",
-   "content_sha": "df6fc540bc9af38d",
+   "content_sha": "33cecb9b932eeeab",
    "week_start": "2026-06-07",
-   "read_at": "2026-08-27T22:20:34.575861+00:00"
+   "read_at": "2026-08-29T01:31:42.402647+00:00"
   },
   "104109|weekly-digest": {
    "source_code": "youtube",
    "external_id": "fI3fVnAqi80",
-   "content_sha": "862b0a06d5860bb2",
+   "content_sha": "2fa804e85df23378",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T19:21:13.032560+00:00"
+   "read_at": "2026-08-29T01:31:42.771610+00:00"
   },
   "104110|weekly-digest": {
    "source_code": "youtube",
    "external_id": "Njd_JuRuEcI",
-   "content_sha": "5e755799aa64f4f8",
+   "content_sha": "f43e823ab419ab5a",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320030+00:00"
+   "read_at": "2026-08-29T01:31:42.771199+00:00"
   },
   "104281|weekly-digest": {
    "source_code": "youtube",
@@ -117,23 +117,23 @@
   "104282|weekly-digest": {
    "source_code": "youtube",
    "external_id": "QxR6yvf8ueU",
-   "content_sha": "7efe4a1d5707ff9f",
+   "content_sha": "b68bbb7d88ee6509",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320115+00:00"
+   "read_at": "2026-08-29T01:31:42.771263+00:00"
   },
   "105068|weekly-digest": {
    "source_code": "youtube",
    "external_id": "LDrOV4i0EU4",
-   "content_sha": "a94c80baa1cece0b",
+   "content_sha": "74f2a32ff9089231",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673383+00:00"
+   "read_at": "2026-08-29T01:31:43.061243+00:00"
   },
   "105069|weekly-digest": {
    "source_code": "youtube",
    "external_id": "H-mvJ6poUk4",
-   "content_sha": "e0b72452677e394a",
+   "content_sha": "363160487c3fa6a0",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.319982+00:00"
+   "read_at": "2026-08-29T01:31:42.771125+00:00"
   },
   "105174|weekly-digest": {
    "source_code": "youtube",
@@ -145,30 +145,30 @@
   "105237|weekly-digest": {
    "source_code": "youtube",
    "external_id": "xFd8X7TI7Sc",
-   "content_sha": "28398e9d07b7f9a2",
+   "content_sha": "05660427aca1e9e8",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673248+00:00"
+   "read_at": "2026-08-29T01:31:43.061043+00:00"
   },
   "105238|weekly-digest": {
    "source_code": "youtube",
    "external_id": "NlIsoPhQePs",
-   "content_sha": "c328ef009a8b2e94",
+   "content_sha": "998a431785c50f65",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T19:21:13.032571+00:00"
+   "read_at": "2026-08-29T01:31:42.771633+00:00"
   },
   "105239|weekly-digest": {
    "source_code": "youtube",
    "external_id": "aS6W2GJ2AzA",
-   "content_sha": "45d644ca1c89d3b7",
+   "content_sha": "fc9f86bb8e77de33",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320088+00:00"
+   "read_at": "2026-08-29T01:31:42.771354+00:00"
   },
   "105240|weekly-digest": {
    "source_code": "youtube",
    "external_id": "760Bpzc1cYM",
-   "content_sha": "37e48707ce5e5c66",
+   "content_sha": "0c8ba489403fb2f8",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.319899+00:00"
+   "read_at": "2026-08-29T01:31:42.770973+00:00"
   },
   "105795|weekly-digest": {
    "source_code": "youtube",
@@ -180,149 +180,156 @@
   "106252|weekly-digest": {
    "source_code": "youtube",
    "external_id": "nCpeLLNxl-g",
-   "content_sha": "605d1f64fbb6f85e",
+   "content_sha": "01668be0fed79789",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320055+00:00"
+   "read_at": "2026-08-29T01:31:42.771299+00:00"
   },
   "106595|weekly-digest": {
    "source_code": "youtube",
    "external_id": "-p3DhlY2TEk",
-   "content_sha": "7cf5761bd0754102",
+   "content_sha": "f839f6e459f006ac",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673285+00:00"
+   "read_at": "2026-08-29T01:31:43.061029+00:00"
   },
   "106596|weekly-digest": {
    "source_code": "youtube",
    "external_id": "gsteK2Vl5PA",
-   "content_sha": "58ffade43dcb63b9",
+   "content_sha": "20da14c2de17d010",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.319854+00:00"
+   "read_at": "2026-08-29T01:31:42.770919+00:00"
   },
   "107904|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4436065",
-   "content_sha": "814a64909c13275b",
+   "content_sha": "e35395fa97829878",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673354+00:00"
+   "read_at": "2026-08-28T07:13:48.907996+00:00"
   },
   "107905|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4435475",
-   "content_sha": "b2316e63ffbfdbad",
+   "content_sha": "848533efcb384f13",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T19:21:13.032512+00:00"
+   "read_at": "2026-08-28T07:13:48.787160+00:00"
   },
   "107906|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4431194",
-   "content_sha": "ba68dba1ac8e1435",
+   "content_sha": "6814b692e193b837",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.319890+00:00"
+   "read_at": "2026-08-29T01:31:42.770990+00:00"
   },
   "110732|weekly-digest": {
    "source_code": "youtube",
    "external_id": "N7mX2NJ3nxQ",
-   "content_sha": "7386420e8956900a",
+   "content_sha": "eea17416b7d60d3c",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320077+00:00"
+   "read_at": "2026-08-29T01:31:42.771392+00:00"
   },
   "110733|weekly-digest": {
    "source_code": "youtube",
    "external_id": "oqHNNzR9WNc",
-   "content_sha": "43b6050e4e4e19dd",
+   "content_sha": "97fab6f229e08692",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320124+00:00"
+   "read_at": "2026-08-29T01:31:42.771288+00:00"
   },
   "110734|weekly-digest": {
    "source_code": "youtube",
    "external_id": "s7IDIRbZa2o",
-   "content_sha": "6520227b11d79931",
+   "content_sha": "60e93e7b2f42e695",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320180+00:00"
+   "read_at": "2026-08-29T01:31:42.771479+00:00"
+  },
+  "111987|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "IHFVBrwt54s",
+   "content_sha": "719fc5a0d0c02831",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061361+00:00"
   },
   "127720|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4431224",
-   "content_sha": "0083f8bf4165ff4e",
+   "content_sha": "e280263b83a3a07e",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.319868+00:00"
+   "read_at": "2026-08-28T07:13:48.786328+00:00"
   },
   "127721|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4431990",
-   "content_sha": "6e769d86d0c9a219",
+   "content_sha": "e9056a469d329d13",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.319925+00:00"
+   "read_at": "2026-08-28T07:13:48.786419+00:00"
   },
   "127722|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4432968",
-   "content_sha": "0c10d5561e8ed7c8",
+   "content_sha": "d8fe0ad53df247e8",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320005+00:00"
+   "read_at": "2026-08-29T01:31:42.771087+00:00"
   },
   "127723|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4434076",
-   "content_sha": "48c6a4ce440da8f3",
+   "content_sha": "6d0aa0b74c357643",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320106+00:00"
+   "read_at": "2026-08-29T01:31:42.771377+00:00"
   },
   "127724|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4435378",
-   "content_sha": "cdc56e814b39a235",
+   "content_sha": "f8906e3c5f680fc1",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320157+00:00"
+   "read_at": "2026-08-28T07:13:48.787143+00:00"
   },
   "127725|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4436104",
-   "content_sha": "d7835a3a807ba0d1",
+   "content_sha": "379743b685fee055",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673339+00:00"
+   "read_at": "2026-08-28T07:13:48.907970+00:00"
   },
   "127726|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4436952",
-   "content_sha": "c08b40c98871b1ec",
+   "content_sha": "35f33969c069295c",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673433+00:00"
+   "read_at": "2026-08-29T01:31:43.061193+00:00"
   },
   "127727|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4437891",
-   "content_sha": "34e807b1a5f0972b",
+   "content_sha": "8e8e9ab2d5c1d02a",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673482+00:00"
+   "read_at": "2026-08-29T01:31:43.061314+00:00"
   },
   "127728|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4438934",
-   "content_sha": "37fa3195eab181c7",
+   "content_sha": "2434478824ca40a5",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673538+00:00"
+   "read_at": "2026-08-29T01:31:43.061472+00:00"
   },
   "128033|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4440220",
-   "content_sha": "6ccaf6a43876e4ce",
+   "content_sha": "4a847738dd77cc99",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673667+00:00"
+   "read_at": "2026-08-29T01:31:43.061611+00:00"
   },
   "128034|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4440216",
-   "content_sha": "27f33aa214e8617a",
+   "content_sha": "47883e487bde4a54",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673617+00:00"
+   "read_at": "2026-08-29T01:31:43.061638+00:00"
   },
   "128035|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4440083",
-   "content_sha": "b99d85d77d6a7289",
+   "content_sha": "c9a4845f33648efe",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673640+00:00"
+   "read_at": "2026-08-28T07:13:48.909082+00:00"
   },
   "128043|weekly-digest": {
    "source_code": "patreon",
@@ -334,149 +341,149 @@
   "128353|weekly-digest": {
    "source_code": "patreon",
    "external_id": "162048909",
-   "content_sha": "df705143568653fb",
+   "content_sha": "8c3d734590d53f70",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673559+00:00"
+   "read_at": "2026-08-29T01:31:43.061557+00:00"
   },
   "128354|weekly-digest": {
    "source_code": "patreon",
    "external_id": "161958989",
-   "content_sha": "6c3c40815fbbfbcc",
+   "content_sha": "2370a66a34aa4f69",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673512+00:00"
+   "read_at": "2026-08-29T01:31:43.061390+00:00"
   },
   "128355|weekly-digest": {
    "source_code": "patreon",
    "external_id": "161877458",
-   "content_sha": "eb0e648d9ba455fc",
+   "content_sha": "538952449cc3535b",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T19:26:18.553060+00:00"
+   "read_at": "2026-08-28T07:13:48.908164+00:00"
   },
   "128356|weekly-digest": {
    "source_code": "patreon",
    "external_id": "161861803",
-   "content_sha": "4415202d6e78407a",
+   "content_sha": "4d8342800b79d190",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673459+00:00"
+   "read_at": "2026-08-29T01:31:43.061299+00:00"
   },
   "128357|weekly-digest": {
    "source_code": "patreon",
    "external_id": "161763918",
-   "content_sha": "78184452765555db",
+   "content_sha": "62bb918d7f28d344",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T19:26:18.552938+00:00"
+   "read_at": "2026-08-28T07:13:48.908016+00:00"
   },
   "128358|weekly-digest": {
    "source_code": "patreon",
    "external_id": "161407746",
-   "content_sha": "70bb63a0d68258e3",
+   "content_sha": "290ef8576a73b098",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T19:21:13.032460+00:00"
+   "read_at": "2026-08-29T01:31:42.771445+00:00"
   },
   "128359|weekly-digest": {
    "source_code": "patreon",
    "external_id": "161328901",
-   "content_sha": "8a4c7cb182381ed2",
+   "content_sha": "9d037a81d44a2f38",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T19:21:13.032340+00:00"
+   "read_at": "2026-08-29T01:31:42.771230+00:00"
   },
   "128360|weekly-digest": {
    "source_code": "patreon",
    "external_id": "161228143",
-   "content_sha": "2f3de1a57fd7344b",
+   "content_sha": "99d912cb6879ebca",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T19:21:13.032223+00:00"
+   "read_at": "2026-08-28T07:13:48.786457+00:00"
   },
   "128361|weekly-digest": {
    "source_code": "patreon",
    "external_id": "161170184",
-   "content_sha": "7a6d77564a27ff39",
+   "content_sha": "9e67ac5ac56acd10",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.319917+00:00"
+   "read_at": "2026-08-29T01:31:42.771021+00:00"
   },
   "128362|weekly-digest": {
    "source_code": "patreon",
    "external_id": "161146651",
-   "content_sha": "cfa759b4869161c0",
+   "content_sha": "90db4fcce77456e2",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.319909+00:00"
+   "read_at": "2026-08-28T07:13:48.786389+00:00"
   },
   "128363|weekly-digest": {
    "source_code": "patreon",
    "external_id": "160950208",
-   "content_sha": "bf302d77383dac21",
+   "content_sha": "c685f7d946c710ea",
    "week_start": "2026-06-07",
-   "read_at": "2026-08-27T19:18:14.320708+00:00"
+   "read_at": "2026-08-28T07:13:48.527239+00:00"
   },
   "128625|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4441565",
-   "content_sha": "148888b110a8e997",
+   "content_sha": "c24237607848d689",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673705+00:00"
+   "read_at": "2026-08-28T07:13:48.909187+00:00"
   },
   "128626|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4439041",
-   "content_sha": "9afac8223ea33107",
+   "content_sha": "ec45f2f7e9c05d60",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673526+00:00"
+   "read_at": "2026-08-28T07:13:48.908236+00:00"
   },
   "128627|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4435804",
-   "content_sha": "e14f7ad2cae1b974",
+   "content_sha": "def442e73e02f7a8",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320187+00:00"
+   "read_at": "2026-08-28T07:13:48.787194+00:00"
   },
   "128628|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4433084",
-   "content_sha": "0c6b6da2fd15ce57",
+   "content_sha": "56805deddf92fe50",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320016+00:00"
+   "read_at": "2026-08-28T07:13:48.786586+00:00"
   },
   "129639|weekly-digest": {
    "source_code": "master-insight",
    "external_id": "48919",
-   "content_sha": "68bb8e25784096df",
+   "content_sha": "a9df766496553734",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673495+00:00"
+   "read_at": "2026-08-29T01:31:43.061379+00:00"
   },
   "133718|weekly-digest": {
    "source_code": "blog",
    "external_id": "fb_20260618_5893",
-   "content_sha": "121873164a02e9c0",
+   "content_sha": "0cd10904d57526d5",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320066+00:00"
+   "read_at": "2026-08-28T07:13:48.787010+00:00"
   },
   "142606|weekly-digest": {
    "source_code": "master-insight",
    "external_id": "48944",
-   "content_sha": "580dd51db9163f08",
+   "content_sha": "dc64c72ec087dd36",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T19:26:18.553140+00:00"
+   "read_at": "2026-08-29T01:31:43.061547+00:00"
   },
   "142607|weekly-digest": {
    "source_code": "master-insight",
    "external_id": "48870",
-   "content_sha": "753784c6409d33cd",
+   "content_sha": "928293f5ee9e5c66",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320138+00:00"
+   "read_at": "2026-08-29T01:31:42.771455+00:00"
   },
   "143291|weekly-digest": {
    "source_code": "master-insight",
    "external_id": "48968",
-   "content_sha": "5c3214518c023d81",
+   "content_sha": "18ce586bf138498b",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673573+00:00"
+   "read_at": "2026-08-29T01:31:43.061566+00:00"
   },
   "143292|weekly-digest": {
    "source_code": "master-insight",
    "external_id": "48855",
-   "content_sha": "9502e97cfa557454",
+   "content_sha": "b3a220854254922b",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320147+00:00"
+   "read_at": "2026-08-29T01:31:42.771467+00:00"
   },
   "143833|weekly-digest": {
    "source_code": "master-insight",
@@ -502,23 +509,23 @@
   "145137|weekly-digest": {
    "source_code": "master-insight",
    "external_id": "48974",
-   "content_sha": "be649124498d93bb",
+   "content_sha": "cdc3e141d53ec974",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T19:29:00.785024+00:00"
+   "read_at": "2026-08-28T07:13:49.025187+00:00"
   },
   "145138|weekly-digest": {
    "source_code": "master-insight",
    "external_id": "48875",
-   "content_sha": "46fde17d57a3be92",
+   "content_sha": "d55feb1c2f5860fa",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.320230+00:00"
+   "read_at": "2026-08-29T01:31:42.771683+00:00"
   },
   "145139|weekly-digest": {
    "source_code": "master-insight",
    "external_id": "48758",
-   "content_sha": "f9f61e47dddc4728",
+   "content_sha": "d9495fa7f0268c17",
    "week_start": "2026-06-14",
-   "read_at": "2026-08-27T22:22:54.319966+00:00"
+   "read_at": "2026-08-29T01:31:42.771066+00:00"
   },
   "146143|weekly-digest": {
    "source_code": "substack",
@@ -527,12 +534,26 @@
    "week_start": "2026-06-21",
    "read_at": "2026-08-27T22:26:51.673676+00:00"
   },
+  "146144|weekly-digest": {
+   "source_code": "substack",
+   "external_id": "203045383",
+   "content_sha": "fc3e15457636bd1a",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061145+00:00"
+  },
   "146147|weekly-digest": {
    "source_code": "substack",
    "external_id": "203549107",
    "content_sha": "e786425f66ede6b6",
    "week_start": "2026-06-28",
    "read_at": "2026-08-27T22:40:00.240034+00:00"
+  },
+  "146148|weekly-digest": {
+   "source_code": "substack",
+   "external_id": "201481693",
+   "content_sha": "5ba4c14802d0d96f",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061057+00:00"
   },
   "153103|weekly-digest": {
    "source_code": "youtube",
@@ -541,6 +562,20 @@
    "week_start": "2026-06-21",
    "read_at": "2026-08-27T22:26:51.673715+00:00"
   },
+  "156316|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "G4mxxhDLlAM",
+   "content_sha": "799f8bee78bed264",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061216+00:00"
+  },
+  "156317|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "WJWrubg9lVs",
+   "content_sha": "a3ac264845a00e61",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061342+00:00"
+  },
   "156318|weekly-digest": {
    "source_code": "youtube",
    "external_id": "2poug85rvhA",
@@ -548,26 +583,152 @@
    "week_start": "2026-06-21",
    "read_at": "2026-08-27T22:26:51.673629+00:00"
   },
+  "157654|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "_fc4kHFw0Bs",
+   "content_sha": "c446f02e6ad851cf",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061527+00:00"
+  },
   "157655|weekly-digest": {
    "source_code": "youtube",
    "external_id": "biyCX7UYAfQ",
-   "content_sha": "99f294d18d44a02f",
+   "content_sha": "e423f9e9afba9f59",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673761+00:00"
+   "read_at": "2026-08-29T01:31:43.061745+00:00"
+  },
+  "158962|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "tMzlpYpNi_w",
+   "content_sha": "bbbb986ece9d852b",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771104+00:00"
+  },
+  "158963|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "aAJlsz3mzi0",
+   "content_sha": "4d7db35dd3787cad",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771178+00:00"
+  },
+  "158964|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "FHtb-uCMgLU",
+   "content_sha": "de77f482a9497a9b",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771275+00:00"
+  },
+  "158966|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "K1EYafiD8BM",
+   "content_sha": "2a721f30fefde0ce",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771252+00:00"
+  },
+  "158967|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "ljPRDXx_g-8",
+   "content_sha": "56bd352fd64ab312",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771497+00:00"
+  },
+  "158968|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "6ROyDk-ML_k",
+   "content_sha": "c8965eedea9aeb95",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061050+00:00"
+  },
+  "158970|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "5d24O1o9gvk",
+   "content_sha": "2a36aa73814013c4",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061124+00:00"
+  },
+  "158971|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "FNj9Ux9iNwo",
+   "content_sha": "e707365a8e73899e",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061251+00:00"
+  },
+  "158972|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "oKhx0YrvoKc",
+   "content_sha": "53b6a1ac4568de10",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061208+00:00"
+  },
+  "158973|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "IIBguZNDuzs",
+   "content_sha": "cb1c580217316290",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061269+00:00"
+  },
+  "158975|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "0f1pMEpQ61U",
+   "content_sha": "ead788e1be5c261c",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061406+00:00"
+  },
+  "158976|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "IhP8-hw8OZM",
+   "content_sha": "7d9bd4a2200046bd",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061462+00:00"
+  },
+  "158977|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "kb-voDc27hY",
+   "content_sha": "db9ff3ad4ab35f5c",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061433+00:00"
+  },
+  "158978|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "76T7U8Q1Kmo",
+   "content_sha": "53e86aa142d00873",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061627+00:00"
   },
   "158979|weekly-digest": {
    "source_code": "youtube",
    "external_id": "CDK7G4lTKII",
-   "content_sha": "aa8ff2e6d41978fa",
+   "content_sha": "190abd313fa135c3",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673605+00:00"
+   "read_at": "2026-08-29T01:31:43.061596+00:00"
   },
   "158980|weekly-digest": {
    "source_code": "youtube",
    "external_id": "ssYjTDHuNbM",
-   "content_sha": "87e8f867a5dfa74b",
+   "content_sha": "ae039aa068ff11ac",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673742+00:00"
+   "read_at": "2026-08-29T01:31:43.061735+00:00"
+  },
+  "159555|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "YWeAUtiILYM",
+   "content_sha": "00b5527938a599c5",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061715+00:00"
+  },
+  "169419|weekly-digest": {
+   "source_code": "blog",
+   "external_id": "1538-lyn-alden-is-the-war-really-over-and-what-s-next-for-markets",
+   "content_sha": "26d78e8bddb38d94",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061537+00:00"
+  },
+  "169420|weekly-digest": {
+   "source_code": "blog",
+   "external_id": "1536-brent-johnson-there-s-no-turning-back",
+   "content_sha": "84f253fc7392ff33",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771320+00:00"
   },
   "169729|weekly-digest": {
    "source_code": "blog",
@@ -635,9 +796,9 @@
   "170096|weekly-digest": {
    "source_code": "patreon",
    "external_id": "162393012",
-   "content_sha": "5abbe6b24baed0ae",
+   "content_sha": "391c24c6feecedc6",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240178+00:00"
+   "read_at": "2026-08-29T01:31:43.182853+00:00"
   },
   "170103|weekly-digest": {
    "source_code": "substack",
@@ -992,9 +1153,9 @@
   "188101|weekly-digest": {
    "source_code": "youtube",
    "external_id": "2mVsHCgJcVc",
-   "content_sha": "36e11fefabebdcbf",
+   "content_sha": "c80566d21c4b2f2f",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240223+00:00"
+   "read_at": "2026-08-29T01:31:43.182870+00:00"
   },
   "188102|weekly-digest": {
    "source_code": "youtube",
@@ -1027,16 +1188,16 @@
   "188106|weekly-digest": {
    "source_code": "youtube",
    "external_id": "NBToObvXTmI",
-   "content_sha": "6acc68bfe6ff0d9c",
+   "content_sha": "2a466f86ede4c55a",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240512+00:00"
+   "read_at": "2026-08-29T01:31:43.183154+00:00"
   },
   "188107|weekly-digest": {
    "source_code": "youtube",
    "external_id": "QjuThPhidXY",
-   "content_sha": "2f260d92f2d46f95",
+   "content_sha": "377c0853a14be974",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240523+00:00"
+   "read_at": "2026-08-29T01:31:43.183136+00:00"
   },
   "188108|weekly-digest": {
    "source_code": "youtube",
@@ -1048,9 +1209,9 @@
   "188684|weekly-digest": {
    "source_code": "youtube",
    "external_id": "-6Zt6_Rj4EQ",
-   "content_sha": "7e6f5ad12a4e4169",
+   "content_sha": "33ac53a54911bfc6",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240205+00:00"
+   "read_at": "2026-08-29T01:31:43.182917+00:00"
   },
   "188686|weekly-digest": {
    "source_code": "youtube",
@@ -1104,9 +1265,9 @@
   "188879|weekly-digest": {
    "source_code": "youtube",
    "external_id": "o-FOwKtBoTA",
-   "content_sha": "d8644ca84fb0dce6",
+   "content_sha": "964132ccf872f6a7",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T19:35:32.808143+00:00"
+   "read_at": "2026-08-29T01:31:43.311148+00:00"
   },
   "193078|weekly-digest": {
    "source_code": "patreon",
@@ -1279,9 +1440,9 @@
   "223212|weekly-digest": {
    "source_code": "youtube",
    "external_id": "czdGQG9HvGM",
-   "content_sha": "427afa0a76f5f5ce",
+   "content_sha": "f976f054759b0b82",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240124+00:00"
+   "read_at": "2026-08-28T07:13:49.025283+00:00"
   },
   "223213|weekly-digest": {
    "source_code": "youtube",
@@ -1300,9 +1461,9 @@
   "223215|weekly-digest": {
    "source_code": "youtube",
    "external_id": "25c8ffah2ZU",
-   "content_sha": "8a18aa07cda3afe5",
+   "content_sha": "6a5c89ab039606d7",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240580+00:00"
+   "read_at": "2026-08-29T01:31:43.183204+00:00"
   },
   "223216|weekly-digest": {
    "source_code": "youtube",
@@ -1335,9 +1496,9 @@
   "223220|weekly-digest": {
    "source_code": "youtube",
    "external_id": "5qkNpMxD9kw",
-   "content_sha": "cc525d75dbf3c2e0",
+   "content_sha": "ff423527b806272c",
    "week_start": "2026-07-19",
-   "read_at": "2026-08-27T19:39:58.864111+00:00"
+   "read_at": "2026-08-29T01:31:43.371852+00:00"
   },
   "223221|weekly-digest": {
    "source_code": "youtube",
@@ -1384,9 +1545,9 @@
   "223333|weekly-digest": {
    "source_code": "youtube",
    "external_id": "0JS8MCvpqoE",
-   "content_sha": "7368218bf2296c19",
+   "content_sha": "bce4f0b4f52a46ea",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T19:29:00.785191+00:00"
+   "read_at": "2026-08-29T01:31:43.183051+00:00"
   },
   "223334|weekly-digest": {
    "source_code": "youtube",
@@ -1398,9 +1559,9 @@
   "223335|weekly-digest": {
    "source_code": "youtube",
    "external_id": "emHaEtcrAuY",
-   "content_sha": "a75659144974f48a",
+   "content_sha": "8741c4ee6b9802aa",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T19:35:32.808447+00:00"
+   "read_at": "2026-08-29T01:31:43.311295+00:00"
   },
   "223336|weekly-digest": {
    "source_code": "youtube",
@@ -1423,6 +1584,13 @@
    "week_start": "2026-07-26",
    "read_at": "2026-08-27T19:43:12.744253+00:00"
   },
+  "223534|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "YQd7TRakAnw",
+   "content_sha": "f66fdb0139e39625",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771488+00:00"
+  },
   "223535|weekly-digest": {
    "source_code": "youtube",
    "external_id": "ngB0bbqrRxI",
@@ -1433,9 +1601,9 @@
   "223536|weekly-digest": {
    "source_code": "youtube",
    "external_id": "BdXsAIO2jZI",
-   "content_sha": "cd40dbe9bd59fd69",
+   "content_sha": "462b32ed1c1f1b5b",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T19:35:32.808330+00:00"
+   "read_at": "2026-08-29T01:31:43.311329+00:00"
   },
   "223537|weekly-digest": {
    "source_code": "youtube",
@@ -1475,9 +1643,9 @@
   "223542|weekly-digest": {
    "source_code": "youtube",
    "external_id": "RVKdhYU4nVU",
-   "content_sha": "1f0e585f2c0ca1a3",
+   "content_sha": "11872a74c5c3425f",
    "week_start": "2026-08-02",
-   "read_at": "2026-08-27T22:53:33.558590+00:00"
+   "read_at": "2026-08-29T01:31:43.452795+00:00"
   },
   "224085|weekly-digest": {
    "source_code": "youtube",
@@ -1493,12 +1661,61 @@
    "week_start": "2026-06-28",
    "read_at": "2026-08-27T19:29:00.785255+00:00"
   },
+  "224731|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "UHoDM6NhyLo",
+   "content_sha": "2f27585319c2ca71",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771161+00:00"
+  },
+  "224732|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "3JkSoHOLQZs",
+   "content_sha": "e700753825539b6b",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061066+00:00"
+  },
+  "224733|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "6n8OcH_nmdM",
+   "content_sha": "a7607e56acf56ace",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061182+00:00"
+  },
+  "224734|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "W6ZqtpZhoAw",
+   "content_sha": "40be394678ead5b0",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061351+00:00"
+  },
+  "224735|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "dc1_pJVDXXg",
+   "content_sha": "3c1845a0c3b218f2",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061442+00:00"
+  },
+  "224736|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "BgR0bNaPWlE",
+   "content_sha": "2dbec0de0a90911b",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061647+00:00"
+  },
+  "224737|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "iheeFlIdZRQ",
+   "content_sha": "3f8d4846a832bae9",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061666+00:00"
+  },
   "224738|weekly-digest": {
    "source_code": "youtube",
    "external_id": "CvML35iIl2k",
-   "content_sha": "8b35b9148c50ee67",
+   "content_sha": "1885696f5600b37f",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240168+00:00"
+   "read_at": "2026-08-29T01:31:43.182803+00:00"
   },
   "224739|weekly-digest": {
    "source_code": "youtube",
@@ -1524,9 +1741,9 @@
   "224742|weekly-digest": {
    "source_code": "youtube",
    "external_id": "WIZH1VMJSYA",
-   "content_sha": "01d3447dfcecbe98",
+   "content_sha": "c15e8bdc56c8b2df",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240551+00:00"
+   "read_at": "2026-08-29T01:31:43.183110+00:00"
   },
   "224743|weekly-digest": {
    "source_code": "youtube",
@@ -1552,9 +1769,9 @@
   "224746|weekly-digest": {
    "source_code": "youtube",
    "external_id": "0yiCsbenX9E",
-   "content_sha": "1fb2c3c3012a85da",
+   "content_sha": "a73c2062d5222c18",
    "week_start": "2026-07-05",
-   "read_at": "2026-08-27T22:42:03.804459+00:00"
+   "read_at": "2026-08-29T01:31:43.222419+00:00"
   },
   "224747|weekly-digest": {
    "source_code": "youtube",
@@ -1594,9 +1811,9 @@
   "224752|weekly-digest": {
    "source_code": "youtube",
    "external_id": "X1et3UmEJYo",
-   "content_sha": "f675cb6526f6f489",
+   "content_sha": "a921aed454da7297",
    "week_start": "2026-07-05",
-   "read_at": "2026-08-27T22:42:03.804900+00:00"
+   "read_at": "2026-08-29T01:31:43.222731+00:00"
   },
   "224753|weekly-digest": {
    "source_code": "youtube",
@@ -1615,9 +1832,9 @@
   "224755|weekly-digest": {
    "source_code": "youtube",
    "external_id": "j19_M8n_AAg",
-   "content_sha": "c41e70a9c4d58497",
+   "content_sha": "6a0d19237b826da6",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T22:44:26.161534+00:00"
+   "read_at": "2026-08-29T01:31:43.311186+00:00"
   },
   "224756|weekly-digest": {
    "source_code": "youtube",
@@ -1643,9 +1860,9 @@
   "224759|weekly-digest": {
    "source_code": "youtube",
    "external_id": "YElviHEcLw0",
-   "content_sha": "02e4d1ae81bdee5f",
+   "content_sha": "10f23da08ef1b36c",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T22:44:26.162953+00:00"
+   "read_at": "2026-08-29T01:31:43.311480+00:00"
   },
   "224760|weekly-digest": {
    "source_code": "youtube",
@@ -1657,9 +1874,9 @@
   "224761|weekly-digest": {
    "source_code": "youtube",
    "external_id": "VSuHD4NG1Xg",
-   "content_sha": "3f533821d0449870",
+   "content_sha": "31d107879dcd3eec",
    "week_start": "2026-07-19",
-   "read_at": "2026-08-27T19:39:58.864123+00:00"
+   "read_at": "2026-08-29T01:31:43.371864+00:00"
   },
   "224762|weekly-digest": {
    "source_code": "youtube",
@@ -1769,9 +1986,9 @@
   "224778|weekly-digest": {
    "source_code": "youtube",
    "external_id": "D8YzCqyL6CI",
-   "content_sha": "09de4ce7fdffadfe",
+   "content_sha": "4ce8a3dc2d027094",
    "week_start": "2026-08-02",
-   "read_at": "2026-08-27T19:45:29.782180+00:00"
+   "read_at": "2026-08-29T01:31:43.453001+00:00"
   },
   "224779|weekly-digest": {
    "source_code": "youtube",
@@ -1783,9 +2000,9 @@
   "224854|weekly-digest": {
    "source_code": "youtube",
    "external_id": "RmNZLvOBu8M",
-   "content_sha": "f2d18dc0b8d4d521",
+   "content_sha": "03dc846ee0931843",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673655+00:00"
+   "read_at": "2026-08-29T01:31:43.061585+00:00"
   },
   "224856|weekly-digest": {
    "source_code": "youtube",
@@ -1794,12 +2011,19 @@
    "week_start": "2026-07-12",
    "read_at": "2026-08-27T19:35:32.808206+00:00"
   },
+  "225936|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "vh5g0JXx0DI",
+   "content_sha": "fb30d178daf4e06d",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061603+00:00"
+  },
   "225937|weekly-digest": {
    "source_code": "youtube",
    "external_id": "3LVb6esEFOk",
-   "content_sha": "7240e7ce832f90d8",
+   "content_sha": "654aa22f22aaffd4",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.239973+00:00"
+   "read_at": "2026-08-29T01:31:43.182722+00:00"
   },
   "225938|weekly-digest": {
    "source_code": "youtube",
@@ -1825,9 +2049,9 @@
   "225941|weekly-digest": {
    "source_code": "youtube",
    "external_id": "HHeRDiWWprk",
-   "content_sha": "94e5e346981753ef",
+   "content_sha": "59698a5014038bea",
    "week_start": "2026-07-19",
-   "read_at": "2026-08-27T19:39:58.863986+00:00"
+   "read_at": "2026-08-29T01:31:43.371733+00:00"
   },
   "225942|weekly-digest": {
    "source_code": "youtube",
@@ -1874,16 +2098,16 @@
   "226293|weekly-digest": {
    "source_code": "youtube",
    "external_id": "dEDMg2M5Mio",
-   "content_sha": "0dedb6a8ecc2ae29",
+   "content_sha": "e20688f2e0a8a231",
    "week_start": "2026-08-02",
-   "read_at": "2026-08-27T22:53:33.558758+00:00"
+   "read_at": "2026-08-29T01:31:43.452924+00:00"
   },
   "226755|weekly-digest": {
    "source_code": "youtube",
    "external_id": "mogiYAtfn7w",
-   "content_sha": "d976c975928e853b",
+   "content_sha": "ec2e437841c1f092",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673724+00:00"
+   "read_at": "2026-08-29T01:31:43.061756+00:00"
   },
   "226756|weekly-digest": {
    "source_code": "youtube",
@@ -1920,6 +2144,13 @@
    "week_start": "2026-08-02",
    "read_at": "2026-08-27T19:45:29.781591+00:00"
   },
+  "227382|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "eiYWo4uTosE",
+   "content_sha": "6891028ca1c54061",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061503+00:00"
+  },
   "227383|weekly-digest": {
    "source_code": "youtube",
    "external_id": "20SxYVwZDLE",
@@ -1933,6 +2164,20 @@
    "content_sha": "4940c3734fae26a8",
    "week_start": "2026-07-12",
    "read_at": "2026-08-27T19:35:32.808339+00:00"
+  },
+  "229678|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "D7BqR7xCxgQ",
+   "content_sha": "84cbdaf72efd225d",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061493+00:00"
+  },
+  "229679|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "G4bsPPuWIXQ",
+   "content_sha": "e760144b5e5bb296",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061519+00:00"
   },
   "229680|weekly-digest": {
    "source_code": "youtube",
@@ -2011,6 +2256,13 @@
    "week_start": "2026-08-02",
    "read_at": "2026-08-27T19:45:29.781979+00:00"
   },
+  "229848|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "fdx-qR9RhOo",
+   "content_sha": "cd866fb31f017a8f",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771210+00:00"
+  },
   "232611|weekly-digest": {
    "source_code": "youtube",
    "external_id": "l5IGlZ8TXZk",
@@ -2046,19 +2298,61 @@
    "week_start": "2026-07-19",
    "read_at": "2026-08-27T19:39:58.864698+00:00"
   },
+  "233144|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "btZ38rT4e6M",
+   "content_sha": "1356cc1c80a87851",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771111+00:00"
+  },
+  "233145|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "c5sfbCTcU3Q",
+   "content_sha": "c4343ddf958b8cfa",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771365+00:00"
+  },
+  "233146|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "kpsH4AbmHig",
+   "content_sha": "6fac488ac02fadc5",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771574+00:00"
+  },
+  "233147|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "ibrkjqo7eZA",
+   "content_sha": "f727d34bbc454824",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771657+00:00"
+  },
+  "233148|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "MWKeqGVJBeE",
+   "content_sha": "6b30699c3342ebc2",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061000+00:00"
+  },
+  "233149|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "wrUoESo2bGk",
+   "content_sha": "f812a0c221ee9552",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061114+00:00"
+  },
   "233150|weekly-digest": {
    "source_code": "youtube",
    "external_id": "o6hqZnbWuGQ",
-   "content_sha": "9ac2870f554233e7",
+   "content_sha": "5be29d6b9a8bd4e1",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673695+00:00"
+   "read_at": "2026-08-29T01:31:43.061797+00:00"
   },
   "233152|weekly-digest": {
    "source_code": "youtube",
    "external_id": "RYdBKSiMD0w",
-   "content_sha": "159be9d789f351fb",
+   "content_sha": "53894546b3c899df",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T22:44:26.161492+00:00"
+   "read_at": "2026-08-29T01:31:43.311171+00:00"
   },
   "233153|weekly-digest": {
    "source_code": "youtube",
@@ -2081,12 +2375,19 @@
    "week_start": "2026-07-12",
    "read_at": "2026-08-27T19:35:32.808672+00:00"
   },
+  "233944|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "kGK6CyiNj3g",
+   "content_sha": "746d4875a502d478",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061425+00:00"
+  },
   "233945|weekly-digest": {
    "source_code": "youtube",
    "external_id": "8QB9yHWVumQ",
-   "content_sha": "5a6a6005786f9f70",
+   "content_sha": "29682c8417449afb",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240436+00:00"
+   "read_at": "2026-08-29T01:31:43.183081+00:00"
   },
   "233946|weekly-digest": {
    "source_code": "youtube",
@@ -2112,9 +2413,9 @@
   "233949|weekly-digest": {
    "source_code": "youtube",
    "external_id": "paLy21TVecw",
-   "content_sha": "e6c1dd99799d4243",
+   "content_sha": "e14575e3368e2e09",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T19:35:32.808476+00:00"
+   "read_at": "2026-08-29T01:31:43.311312+00:00"
   },
   "233950|weekly-digest": {
    "source_code": "youtube",
@@ -2129,6 +2430,20 @@
    "content_sha": "9bee38b7185acd83",
    "week_start": "2026-07-19",
    "read_at": "2026-08-27T19:39:58.864430+00:00"
+  },
+  "235409|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "kBdZAegipLM",
+   "content_sha": "2a1da138d0e6e164",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771508+00:00"
+  },
+  "235410|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "5h2MYi_SufA",
+   "content_sha": "a1a54a4bcda181da",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061702+00:00"
   },
   "235412|weekly-digest": {
    "source_code": "youtube",
@@ -2154,9 +2469,9 @@
   "235415|weekly-digest": {
    "source_code": "youtube",
    "external_id": "CJE3YWA4LLk",
-   "content_sha": "c5941425c5bf1901",
+   "content_sha": "404839819a2aa948",
    "week_start": "2026-07-19",
-   "read_at": "2026-08-27T22:47:31.156794+00:00"
+   "read_at": "2026-08-29T01:31:43.372039+00:00"
   },
   "235416|weekly-digest": {
    "source_code": "youtube",
@@ -2196,16 +2511,16 @@
   "236686|weekly-digest": {
    "source_code": "youtube",
    "external_id": "Qoim_txtgWM",
-   "content_sha": "976c8a0307c959f1",
+   "content_sha": "1594122249711276",
    "week_start": "2026-07-19",
-   "read_at": "2026-08-27T22:47:31.156840+00:00"
+   "read_at": "2026-08-29T01:31:43.371992+00:00"
   },
   "236687|weekly-digest": {
    "source_code": "youtube",
    "external_id": "6_4qbQS8XXM",
-   "content_sha": "9ad47da902698cb7",
+   "content_sha": "0933e4c808310f3c",
    "week_start": "2026-07-26",
-   "read_at": "2026-08-27T22:51:02.014947+00:00"
+   "read_at": "2026-08-29T01:31:43.395813+00:00"
   },
   "236692|weekly-digest": {
    "source_code": "youtube",
@@ -2217,16 +2532,16 @@
   "236693|weekly-digest": {
    "source_code": "youtube",
    "external_id": "Ldy0Fl5XNpg",
-   "content_sha": "93cfa1596013c271",
+   "content_sha": "0c35ce33a14c620c",
    "week_start": "2026-07-19",
-   "read_at": "2026-08-27T22:47:31.156661+00:00"
+   "read_at": "2026-08-29T01:31:43.371803+00:00"
   },
   "236699|weekly-digest": {
    "source_code": "youtube",
    "external_id": "Qr2t9t4uY9Y",
-   "content_sha": "b81546cfa954ceb5",
+   "content_sha": "8012e27b0f2d959f",
    "week_start": "2026-07-19",
-   "read_at": "2026-08-27T22:47:31.157015+00:00"
+   "read_at": "2026-08-29T01:31:43.372262+00:00"
   },
   "236700|weekly-digest": {
    "source_code": "youtube",
@@ -2238,9 +2553,9 @@
   "236701|weekly-digest": {
    "source_code": "youtube",
    "external_id": "OOLz2iSE-iY",
-   "content_sha": "a4b92ad583a9d1f8",
+   "content_sha": "285cc7cd430d67f7",
    "week_start": "2026-07-19",
-   "read_at": "2026-08-27T22:47:31.156570+00:00"
+   "read_at": "2026-08-29T01:31:43.371775+00:00"
   },
   "238045|weekly-digest": {
    "source_code": "youtube",
@@ -2266,9 +2581,9 @@
   "238048|weekly-digest": {
    "source_code": "youtube",
    "external_id": "pVKgqxFCXmw",
-   "content_sha": "6a784c3b6a353459",
+   "content_sha": "088c2d65df4b7eb0",
    "week_start": "2026-07-05",
-   "read_at": "2026-08-27T22:42:03.804652+00:00"
+   "read_at": "2026-08-29T01:31:43.222588+00:00"
   },
   "238049|weekly-digest": {
    "source_code": "youtube",
@@ -2329,9 +2644,9 @@
   "238057|weekly-digest": {
    "source_code": "youtube",
    "external_id": "WhNvNwxV_qA",
-   "content_sha": "71fc48cf23d33de0",
+   "content_sha": "d2f9e7908f4134f5",
    "week_start": "2026-07-19",
-   "read_at": "2026-08-27T22:47:31.156830+00:00"
+   "read_at": "2026-08-29T01:31:43.372013+00:00"
   },
   "238058|weekly-digest": {
    "source_code": "youtube",
@@ -2343,9 +2658,9 @@
   "238059|weekly-digest": {
    "source_code": "youtube",
    "external_id": "C4gNWY4bHYQ",
-   "content_sha": "9413c5adb4f187ac",
+   "content_sha": "a9438710e2d6dc75",
    "week_start": "2026-07-19",
-   "read_at": "2026-08-27T22:47:31.157008+00:00"
+   "read_at": "2026-08-29T01:31:43.372241+00:00"
   },
   "238060|weekly-digest": {
    "source_code": "youtube",
@@ -2389,12 +2704,47 @@
    "week_start": "2026-08-02",
    "read_at": "2026-08-27T19:45:29.781278+00:00"
   },
+  "245654|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "HYyOHdTj5Jk",
+   "content_sha": "63dcdc9afa9cc240",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771311+00:00"
+  },
+  "245655|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "cvpGegRHzuo",
+   "content_sha": "5f9bf004123170b9",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771517+00:00"
+  },
+  "245656|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "ylbOBeE7ta8",
+   "content_sha": "cdd2788b57005214",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.060961+00:00"
+  },
+  "245657|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "h3omw_qiJZc",
+   "content_sha": "c7902b5fdd613fa1",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061160+00:00"
+  },
+  "245658|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "KcjDMV7-eoc",
+   "content_sha": "9806118bed5081d7",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061368+00:00"
+  },
   "245659|weekly-digest": {
    "source_code": "youtube",
    "external_id": "gYvYL-zteBU",
-   "content_sha": "3a2e920c1486e4fa",
+   "content_sha": "9c2aa804aea7f04e",
    "week_start": "2026-06-21",
-   "read_at": "2026-08-27T22:26:51.673593+00:00"
+   "read_at": "2026-08-29T01:31:43.061691+00:00"
   },
   "245660|weekly-digest": {
    "source_code": "youtube",
@@ -2406,16 +2756,16 @@
   "245661|weekly-digest": {
    "source_code": "youtube",
    "external_id": "d5YcA1-GJjs",
-   "content_sha": "d91882187f0135c4",
+   "content_sha": "156441fb285a82cb",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240135+00:00"
+   "read_at": "2026-08-29T01:31:43.182818+00:00"
   },
   "245662|weekly-digest": {
    "source_code": "youtube",
    "external_id": "bSEMH2MX5AM",
-   "content_sha": "f0c4289644276447",
+   "content_sha": "6cf33f02b1d1bc44",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240371+00:00"
+   "read_at": "2026-08-29T01:31:43.182985+00:00"
   },
   "245663|weekly-digest": {
    "source_code": "youtube",
@@ -2574,9 +2924,9 @@
   "245687|weekly-digest": {
    "source_code": "youtube",
    "external_id": "g5Cmv3GGORg",
-   "content_sha": "fd570e011d7501c9",
+   "content_sha": "b41c839c4eb27163",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T22:44:26.161070+00:00"
+   "read_at": "2026-08-29T01:31:43.311016+00:00"
   },
   "245688|weekly-digest": {
    "source_code": "youtube",
@@ -2584,6 +2934,20 @@
    "content_sha": "9fc3d5ac6d36ffb8",
    "week_start": "2026-07-26",
    "read_at": "2026-08-27T19:43:12.743844+00:00"
+  },
+  "245689|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "BGz3SMZ76z4",
+   "content_sha": "baed469e2222a44c",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771136+00:00"
+  },
+  "245692|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "TZG6gnNYmgE",
+   "content_sha": "5ba032ac14e9a80f",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061260+00:00"
   },
   "245695|weekly-digest": {
    "source_code": "youtube",
@@ -2609,16 +2973,23 @@
   "245704|weekly-digest": {
    "source_code": "youtube",
    "external_id": "-ogzKQRUyfQ",
-   "content_sha": "e6eaab7a3d03f454",
+   "content_sha": "da1bef4a31bd6ea1",
    "week_start": "2026-07-19",
-   "read_at": "2026-08-27T22:47:31.156644+00:00"
+   "read_at": "2026-08-29T01:31:43.371821+00:00"
+  },
+  "245705|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "Y8f1gGJqTow",
+   "content_sha": "0137617b03113f05",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771168+00:00"
   },
   "245706|weekly-digest": {
    "source_code": "youtube",
    "external_id": "0yAFQSCUJEU",
-   "content_sha": "6ee7b95784be9462",
+   "content_sha": "9171a0459af45b74",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240461+00:00"
+   "read_at": "2026-08-29T01:31:43.183072+00:00"
   },
   "245707|weekly-digest": {
    "source_code": "youtube",
@@ -2651,16 +3022,23 @@
   "245715|weekly-digest": {
    "source_code": "youtube",
    "external_id": "XFvEBVUS4_A",
-   "content_sha": "87502afcefed7589",
+   "content_sha": "9b19627cd36b2051",
    "week_start": "2026-07-05",
-   "read_at": "2026-08-27T22:42:03.804595+00:00"
+   "read_at": "2026-08-29T01:31:43.222523+00:00"
   },
   "245717|weekly-digest": {
    "source_code": "youtube",
    "external_id": "sHdkTkhzWDw",
-   "content_sha": "b21a922f265baf27",
+   "content_sha": "f19654e07390b78c",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240234+00:00"
+   "read_at": "2026-08-29T01:31:43.182936+00:00"
+  },
+  "245718|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "7Ms1r4rmC9M",
+   "content_sha": "6236f409e18f28ed",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771641+00:00"
   },
   "245721|weekly-digest": {
    "source_code": "youtube",
@@ -2669,12 +3047,26 @@
    "week_start": "2026-06-28",
    "read_at": "2026-08-27T22:40:00.240468+00:00"
   },
+  "245722|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "bjkO8Ndj9fY",
+   "content_sha": "08b4003bb9624b28",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.060989+00:00"
+  },
   "245723|weekly-digest": {
    "source_code": "youtube",
    "external_id": "Tyhuqc_-dUw",
    "content_sha": "73a1b5a5fb37cbd1",
    "week_start": "2026-07-26",
    "read_at": "2026-08-27T19:43:12.743788+00:00"
+  },
+  "245734|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "9OqIYmCLPb4",
+   "content_sha": "bb7ce530801ec36a",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061416+00:00"
   },
   "245737|weekly-digest": {
    "source_code": "youtube",
@@ -2683,12 +3075,26 @@
    "week_start": "2026-07-26",
    "read_at": "2026-08-27T19:43:12.743895+00:00"
   },
+  "245746|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "6qzbE3FnMYk",
+   "content_sha": "863922e7a7ed87e3",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771648+00:00"
+  },
   "245749|weekly-digest": {
    "source_code": "youtube",
    "external_id": "vlfT3MqQSwo",
    "content_sha": "9d1f6732ca046498",
    "week_start": "2026-07-05",
    "read_at": "2026-08-27T22:42:03.804353+00:00"
+  },
+  "245752|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "V8R3_J4bI6s",
+   "content_sha": "c60b1b33bac8f97a",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771526+00:00"
   },
   "245755|weekly-digest": {
    "source_code": "youtube",
@@ -2732,19 +3138,26 @@
    "week_start": "2026-07-12",
    "read_at": "2026-08-27T19:35:32.808623+00:00"
   },
+  "245765|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "Rl54QmYIOxo",
+   "content_sha": "0e42e7f8a972d900",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061098+00:00"
+  },
   "245766|weekly-digest": {
    "source_code": "youtube",
    "external_id": "QDPaFmGE2ug",
-   "content_sha": "1a2e0be6ace9a58f",
+   "content_sha": "658a11b0dd48c43c",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.239999+00:00"
+   "read_at": "2026-08-29T01:31:43.182762+00:00"
   },
   "245769|weekly-digest": {
    "source_code": "youtube",
    "external_id": "IkMlNEsGljg",
-   "content_sha": "bf537d3a22bfc0fc",
+   "content_sha": "8f742de9f4cb4571",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T22:44:26.162895+00:00"
+   "read_at": "2026-08-29T01:31:43.311508+00:00"
   },
   "245771|weekly-digest": {
    "source_code": "youtube",
@@ -2788,6 +3201,13 @@
    "week_start": "2026-07-19",
    "read_at": "2026-08-27T19:39:58.864456+00:00"
   },
+  "245793|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "_qkGmR2-5YM",
+   "content_sha": "2f85f4084e30194d",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061573+00:00"
+  },
   "245799|weekly-digest": {
    "source_code": "youtube",
    "external_id": "d4f7RQmX4ew",
@@ -2795,12 +3215,26 @@
    "week_start": "2026-07-05",
    "read_at": "2026-08-27T22:42:03.804501+00:00"
   },
+  "245801|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "Y33GmzCm4Nc",
+   "content_sha": "c76cbaf2b2c55f26",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061106+00:00"
+  },
+  "245804|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "zTqguDYLiWQ",
+   "content_sha": "77ece0435e693fd7",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061482+00:00"
+  },
   "245808|weekly-digest": {
    "source_code": "youtube",
    "external_id": "ZbDIpbS3gjo",
-   "content_sha": "cb2bb5c665e0c099",
+   "content_sha": "36f8281ec5e73ffd",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240495+00:00"
+   "read_at": "2026-08-29T01:31:43.183163+00:00"
   },
   "245809|weekly-digest": {
    "source_code": "youtube",
@@ -2809,12 +3243,19 @@
    "week_start": "2026-07-19",
    "read_at": "2026-08-27T19:39:58.863937+00:00"
   },
+  "245833|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "RZP1jji-tdg",
+   "content_sha": "6142735ce05f8223",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061322+00:00"
+  },
   "245834|weekly-digest": {
    "source_code": "youtube",
    "external_id": "Ynk0MppJxoo",
-   "content_sha": "02537a216ecc96ea",
+   "content_sha": "6b98e3925495f375",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T22:44:26.161131+00:00"
+   "read_at": "2026-08-29T01:31:43.310975+00:00"
   },
   "245835|weekly-digest": {
    "source_code": "youtube",
@@ -2858,6 +3299,13 @@
    "week_start": "2026-07-26",
    "read_at": "2026-08-27T19:43:12.743941+00:00"
   },
+  "245849|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "5KrAUAxkfFQ",
+   "content_sha": "729ac0f5dcb7a8eb",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061138+00:00"
+  },
   "245851|weekly-digest": {
    "source_code": "youtube",
    "external_id": "ByoMKzI5MfU",
@@ -2879,6 +3327,13 @@
    "week_start": "2026-06-28",
    "read_at": "2026-08-27T22:40:00.240591+00:00"
   },
+  "245860|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "qEDMPwqGmg0",
+   "content_sha": "0fa0c900f33ff0d5",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771599+00:00"
+  },
   "245861|weekly-digest": {
    "source_code": "youtube",
    "external_id": "tKxDC5SJRHk",
@@ -2889,16 +3344,30 @@
   "245863|weekly-digest": {
    "source_code": "youtube",
    "external_id": "r88X-YkTmcY",
-   "content_sha": "10360e197cb1b7fa",
+   "content_sha": "34ba38ef038e2f13",
    "week_start": "2026-07-05",
-   "read_at": "2026-08-27T22:42:03.804207+00:00"
+   "read_at": "2026-08-29T01:31:43.222299+00:00"
+  },
+  "245866|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "aJvhf3dPF-Y",
+   "content_sha": "1534144816dc0c6f",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.060980+00:00"
+  },
+  "245868|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "vTS5rWAR3YE",
+   "content_sha": "2f4e3d793fd467e3",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061511+00:00"
   },
   "245869|weekly-digest": {
    "source_code": "youtube",
    "external_id": "-9Gy58Swoq4",
-   "content_sha": "57e042c7ac42a48c",
+   "content_sha": "c7658c6de2f824fa",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T22:44:26.161443+00:00"
+   "read_at": "2026-08-29T01:31:43.311211+00:00"
   },
   "245873|weekly-digest": {
    "source_code": "youtube",
@@ -2931,9 +3400,9 @@
   "245883|weekly-digest": {
    "source_code": "youtube",
    "external_id": "5TlZuLlikYo",
-   "content_sha": "4e5502348f6f3a5a",
+   "content_sha": "bf685fac1caa4f23",
    "week_start": "2026-07-26",
-   "read_at": "2026-08-27T19:43:12.743900+00:00"
+   "read_at": "2026-08-29T01:31:43.395879+00:00"
   },
   "245884|weekly-digest": {
    "source_code": "youtube",
@@ -2942,19 +3411,26 @@
    "week_start": "2026-07-19",
    "read_at": "2026-08-27T19:39:58.864482+00:00"
   },
+  "245888|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "dYng6Mw9b-8",
+   "content_sha": "a462e462610eade9",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061330+00:00"
+  },
   "245890|weekly-digest": {
    "source_code": "youtube",
    "external_id": "N-Nao7vMXss",
-   "content_sha": "a17ed0621083cfd7",
+   "content_sha": "b614633eaaed6919",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T19:35:32.808044+00:00"
+   "read_at": "2026-08-29T01:31:43.311061+00:00"
   },
   "245891|weekly-digest": {
    "source_code": "youtube",
    "external_id": "4R-iFL8VEOs",
-   "content_sha": "169d453052936278",
+   "content_sha": "5859ff171201d7d1",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T22:44:26.162455+00:00"
+   "read_at": "2026-08-29T01:31:43.311376+00:00"
   },
   "245892|weekly-digest": {
    "source_code": "youtube",
@@ -2973,9 +3449,9 @@
   "245896|weekly-digest": {
    "source_code": "youtube",
    "external_id": "xIUo6iVhfRY",
-   "content_sha": "5b1f19e03e717dc1",
+   "content_sha": "5e9194df2942d508",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T22:44:26.162642+00:00"
+   "read_at": "2026-08-29T01:31:43.311343+00:00"
   },
   "245898|weekly-digest": {
    "source_code": "youtube",
@@ -2990,6 +3466,20 @@
    "content_sha": "345aac5581c6a19f",
    "week_start": "2026-06-21",
    "read_at": "2026-08-27T22:26:51.673749+00:00"
+  },
+  "245903|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "Ivob4nRK7PQ",
+   "content_sha": "4d116bd215e6768b",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771401+00:00"
+  },
+  "245905|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "Zl36NBBPT5E",
+   "content_sha": "5104081377f0a291",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771435+00:00"
   },
   "245907|weekly-digest": {
    "source_code": "youtube",
@@ -3012,12 +3502,26 @@
    "week_start": "2026-07-05",
    "read_at": "2026-08-27T22:42:03.804667+00:00"
   },
+  "245913|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "zfiXmzT-joU",
+   "content_sha": "c03c4c1bb9a87053",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771535+00:00"
+  },
   "245914|weekly-digest": {
    "source_code": "youtube",
    "external_id": "9KFFsgy1GIA",
    "content_sha": "825926baa689cebb",
    "week_start": "2026-06-28",
    "read_at": "2026-08-27T22:40:00.240148+00:00"
+  },
+  "245915|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "y0ZlJMeV3K8",
+   "content_sha": "893b2c7c465761db",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061170+00:00"
   },
   "245916|weekly-digest": {
    "source_code": "youtube",
@@ -3071,9 +3575,9 @@
   "245929|weekly-digest": {
    "source_code": "youtube",
    "external_id": "_yaYWmCMy7M",
-   "content_sha": "c2c73375093ba24d",
+   "content_sha": "170ee96edf003e82",
    "week_start": "2026-07-19",
-   "read_at": "2026-08-27T22:47:31.156723+00:00"
+   "read_at": "2026-08-29T01:31:43.371933+00:00"
   },
   "245930|weekly-digest": {
    "source_code": "youtube",
@@ -3113,9 +3617,9 @@
   "245945|weekly-digest": {
    "source_code": "youtube",
    "external_id": "8xwjVaPlB4Y",
-   "content_sha": "d3c11ca5063e81ab",
+   "content_sha": "6938b39a79e0737b",
    "week_start": "2026-06-28",
-   "read_at": "2026-08-27T22:40:00.240609+00:00"
+   "read_at": "2026-08-29T01:31:43.183184+00:00"
   },
   "245947|weekly-digest": {
    "source_code": "youtube",
@@ -3232,16 +3736,16 @@
   "247345|weekly-digest": {
    "source_code": "youtube",
    "external_id": "DxFD9ufn8wg",
-   "content_sha": "c12a78b96eca24d3",
+   "content_sha": "d7be51b68302c218",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T22:44:26.162831+00:00"
+   "read_at": "2026-08-29T01:31:43.311436+00:00"
   },
   "247357|weekly-digest": {
    "source_code": "youtube",
    "external_id": "NWOFw-CUrQA",
-   "content_sha": "21ccb5a04920a668",
+   "content_sha": "f958fae00c4ff1f5",
    "week_start": "2026-07-05",
-   "read_at": "2026-08-27T22:42:03.804570+00:00"
+   "read_at": "2026-08-29T01:31:43.222503+00:00"
   },
   "247399|weekly-digest": {
    "source_code": "youtube",
@@ -3302,23 +3806,23 @@
   "247731|weekly-digest": {
    "source_code": "youtube",
    "external_id": "K7KJIVyp2SA",
-   "content_sha": "2293c1ce0b3080b4",
+   "content_sha": "dd66b21a3bafc24c",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T22:44:26.161668+00:00"
+   "read_at": "2026-08-29T01:31:43.311248+00:00"
   },
   "247755|weekly-digest": {
    "source_code": "youtube",
    "external_id": "Ls5lglIDTOA",
-   "content_sha": "10cd1727f3785842",
+   "content_sha": "84fbaec7bb73eb79",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T22:44:26.161231+00:00"
+   "read_at": "2026-08-29T01:31:43.311080+00:00"
   },
   "247771|weekly-digest": {
    "source_code": "youtube",
    "external_id": "D6OJe2rdK9M",
-   "content_sha": "6a0b2ea303c8f4c8",
+   "content_sha": "fe2736ad4c2f198e",
    "week_start": "2026-07-12",
-   "read_at": "2026-08-27T22:44:26.161388+00:00"
+   "read_at": "2026-08-29T01:31:43.311203+00:00"
   },
   "247804|weekly-digest": {
    "source_code": "youtube",
@@ -3372,9 +3876,9 @@
   "248105|weekly-digest": {
    "source_code": "youtube",
    "external_id": "irw_Z6o1r44",
-   "content_sha": "3eaafb551c8e452a",
+   "content_sha": "5451ada727b0e1c1",
    "week_start": "2026-07-05",
-   "read_at": "2026-08-27T22:42:03.804882+00:00"
+   "read_at": "2026-08-29T01:31:43.222705+00:00"
   },
   "248200|weekly-digest": {
    "source_code": "youtube",
@@ -3656,6 +4160,20 @@
    "week_start": "2026-06-28",
    "read_at": "2026-08-27T19:29:00.785218+00:00"
   },
+  "374843|weekly-digest": {
+   "source_code": "blog",
+   "external_id": "mv-538-lyn-alden-is-the-war-really-over-and-what-s-next-for-markets",
+   "content_sha": "839883d3d7cab527",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061453+00:00"
+  },
+  "374844|weekly-digest": {
+   "source_code": "blog",
+   "external_id": "mv-537-brent-johnson-there-s-no-turning-back",
+   "content_sha": "3a7af6d8696aaab3",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771425+00:00"
+  },
   "375307|weekly-digest": {
    "source_code": "blog",
    "external_id": "fb_20260809_53977",
@@ -3715,9 +4233,9 @@
   "377124|weekly-digest": {
    "source_code": "youtube",
    "external_id": "ZrygAEYWTqc",
-   "content_sha": "214945caab3b8b65",
+   "content_sha": "34bbd1c82571a74a",
    "week_start": "2026-08-02",
-   "read_at": "2026-08-27T22:53:33.558815+00:00"
+   "read_at": "2026-08-29T01:31:43.452954+00:00"
   },
   "377125|weekly-digest": {
    "source_code": "youtube",
@@ -3729,9 +4247,9 @@
   "377127|weekly-digest": {
    "source_code": "youtube",
    "external_id": "UFACPcXvCqc",
-   "content_sha": "03602646757d0c30",
+   "content_sha": "59f07105341cdba0",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.141620+00:00"
+   "read_at": "2026-08-29T01:31:43.604108+00:00"
   },
   "377128|weekly-digest": {
    "source_code": "youtube",
@@ -3743,9 +4261,9 @@
   "377129|weekly-digest": {
    "source_code": "youtube",
    "external_id": "L_g9MNO2tvE",
-   "content_sha": "29897c732d3b80e9",
+   "content_sha": "7635d1593830e383",
    "week_start": "2026-08-02",
-   "read_at": "2026-08-27T19:45:29.782155+00:00"
+   "read_at": "2026-08-29T01:31:43.452993+00:00"
   },
   "377133|weekly-digest": {
    "source_code": "youtube",
@@ -3764,23 +4282,23 @@
   "377142|weekly-digest": {
    "source_code": "youtube",
    "external_id": "Ne85LFkW-XE",
-   "content_sha": "88c442bba952939f",
+   "content_sha": "cd6f1ae8f6197b2e",
    "week_start": "2026-08-02",
-   "read_at": "2026-08-27T19:45:29.781955+00:00"
+   "read_at": "2026-08-28T07:13:49.340270+00:00"
   },
   "377145|weekly-digest": {
    "source_code": "youtube",
    "external_id": "cUO79k97pJ8",
-   "content_sha": "a8530aee8806c78c",
+   "content_sha": "cdb6cfa89d28ae65",
    "week_start": "2026-08-02",
-   "read_at": "2026-08-27T22:53:33.558852+00:00"
+   "read_at": "2026-08-29T01:31:43.453011+00:00"
   },
   "377149|weekly-digest": {
    "source_code": "youtube",
    "external_id": "rE75WvOtcu8",
-   "content_sha": "d09a863f9a8785e2",
+   "content_sha": "43ab4f9a8b6c7cfd",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.141543+00:00"
+   "read_at": "2026-08-29T01:31:43.604034+00:00"
   },
   "377153|weekly-digest": {
    "source_code": "youtube",
@@ -3799,16 +4317,16 @@
   "377160|weekly-digest": {
    "source_code": "youtube",
    "external_id": "IZoqBYO-SWw",
-   "content_sha": "a5170166b248106a",
+   "content_sha": "c113ab082acfaf88",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.141489+00:00"
+   "read_at": "2026-08-29T01:31:43.604016+00:00"
   },
   "377165|weekly-digest": {
    "source_code": "youtube",
    "external_id": "Zgbzdk-eqJ0",
-   "content_sha": "f501c760f4643b0e",
+   "content_sha": "070084d58c199494",
    "week_start": "2026-08-02",
-   "read_at": "2026-08-27T22:53:33.558923+00:00"
+   "read_at": "2026-08-29T01:31:43.453055+00:00"
   },
   "377166|weekly-digest": {
    "source_code": "youtube",
@@ -3827,9 +4345,9 @@
   "377168|weekly-digest": {
    "source_code": "youtube",
    "external_id": "kvTo7xzwqlk",
-   "content_sha": "6458ff810cb3c065",
+   "content_sha": "fd84b8eb168cbb26",
    "week_start": "2026-08-02",
-   "read_at": "2026-08-27T22:53:33.558711+00:00"
+   "read_at": "2026-08-29T01:31:43.452874+00:00"
   },
   "377169|weekly-digest": {
    "source_code": "youtube",
@@ -3844,6 +4362,13 @@
    "content_sha": "18fcda6f4d3684d5",
    "week_start": "2026-07-19",
    "read_at": "2026-08-27T19:39:58.864587+00:00"
+  },
+  "377171|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "t6KT7YbaQlA",
+   "content_sha": "7a43c9ec51f90f29",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061656+00:00"
   },
   "377173|weekly-digest": {
    "source_code": "youtube",
@@ -3862,9 +4387,9 @@
   "378548|weekly-digest": {
    "source_code": "youtube",
    "external_id": "8kFLx1lEzU0",
-   "content_sha": "d6cc7b41cd4c31b8",
+   "content_sha": "30e0892fd705ad82",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.141753+00:00"
+   "read_at": "2026-08-29T01:31:43.604292+00:00"
   },
   "378549|weekly-digest": {
    "source_code": "youtube",
@@ -3876,37 +4401,37 @@
   "378550|weekly-digest": {
    "source_code": "youtube",
    "external_id": "QNDwry7_6C4",
-   "content_sha": "fc51e9024b5ca91c",
+   "content_sha": "1f2d340f8806f080",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T19:47:27.729283+00:00"
+   "read_at": "2026-08-29T01:31:43.604236+00:00"
   },
   "378551|weekly-digest": {
    "source_code": "youtube",
    "external_id": "jWsZBXK3XsA",
-   "content_sha": "1dba3805a503fe01",
+   "content_sha": "78108609c4a2e34f",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.141852+00:00"
+   "read_at": "2026-08-29T01:31:43.604381+00:00"
   },
   "378552|weekly-digest": {
    "source_code": "youtube",
    "external_id": "vvMTOKRR0SE",
-   "content_sha": "723ae8900da2cebd",
+   "content_sha": "5d6a9f9ea577db73",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T19:47:27.729255+00:00"
+   "read_at": "2026-08-29T01:31:43.604250+00:00"
   },
   "378562|weekly-digest": {
    "source_code": "youtube",
    "external_id": "q2TAHZIBpdE",
-   "content_sha": "f92ab333cfe27556",
+   "content_sha": "eb55b21dcfb579be",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.141939+00:00"
+   "read_at": "2026-08-29T01:31:43.604440+00:00"
   },
   "378566|weekly-digest": {
    "source_code": "youtube",
    "external_id": "j_t-RAAdzA8",
-   "content_sha": "3f868b0c3d5661f1",
+   "content_sha": "a963689c9ee7989f",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.141700+00:00"
+   "read_at": "2026-08-29T01:31:43.604275+00:00"
   },
   "378570|weekly-digest": {
    "source_code": "youtube",
@@ -3918,16 +4443,16 @@
   "378572|weekly-digest": {
    "source_code": "youtube",
    "external_id": "Idj7jAOtE50",
-   "content_sha": "662c9d3f13b3386c",
+   "content_sha": "db6cc9d732844408",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.141775+00:00"
+   "read_at": "2026-08-29T01:31:43.604219+00:00"
   },
   "378575|weekly-digest": {
    "source_code": "youtube",
    "external_id": "k802efbalbg",
-   "content_sha": "113515f82a4fcedb",
+   "content_sha": "d9994344d01c3f97",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.141647+00:00"
+   "read_at": "2026-08-29T01:31:43.604155+00:00"
   },
   "378576|weekly-digest": {
    "source_code": "master-insight",
@@ -4037,9 +4562,9 @@
   "381437|weekly-digest": {
    "source_code": "youtube",
    "external_id": "gdSCfWZp1oQ",
-   "content_sha": "58bd3d100bc55c07",
+   "content_sha": "380d61ea38ad07f3",
    "week_start": "2026-08-02",
-   "read_at": "2026-08-27T19:45:29.782066+00:00"
+   "read_at": "2026-08-29T01:31:43.452967+00:00"
   },
   "381438|weekly-digest": {
    "source_code": "youtube",
@@ -4065,9 +4590,9 @@
   "381441|weekly-digest": {
    "source_code": "youtube",
    "external_id": "kmOsTT2grwk",
-   "content_sha": "5e548786b2b0bf6c",
+   "content_sha": "9da5910c67b1b29b",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.141415+00:00"
+   "read_at": "2026-08-29T01:31:43.603887+00:00"
   },
   "381444|weekly-digest": {
    "source_code": "youtube",
@@ -4086,9 +4611,9 @@
   "385059|weekly-digest": {
    "source_code": "youtube",
    "external_id": "qEWYbiwT1tk",
-   "content_sha": "671788c11a21f0a3",
+   "content_sha": "6d70593bc51731b6",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.141837+00:00"
+   "read_at": "2026-08-29T01:31:43.604351+00:00"
   },
   "385060|weekly-digest": {
    "source_code": "youtube",
@@ -4135,9 +4660,9 @@
   "461287|weekly-digest": {
    "source_code": "patreon",
    "external_id": "166649252",
-   "content_sha": "01fa4de6c37c6e1e",
+   "content_sha": "88cd9cd2ef805ea7",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.142146+00:00"
+   "read_at": "2026-08-29T01:31:43.604662+00:00"
   },
   "461289|weekly-digest": {
    "source_code": "patreon",
@@ -4254,9 +4779,9 @@
   "462617|weekly-digest": {
    "source_code": "blog",
    "external_id": "mv-546-darius-dale-darius-dale-for-potus-2028",
-   "content_sha": "8101da6c965fe5e8",
+   "content_sha": "0e4f103011bd8fd0",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.409031+00:00"
+   "read_at": "2026-08-29T01:31:43.826401+00:00"
   },
   "462618|weekly-digest": {
    "source_code": "master-insight",
@@ -4331,16 +4856,16 @@
   "462628|weekly-digest": {
    "source_code": "patreon",
    "external_id": "167003069",
-   "content_sha": "437f7a98687f9fc6",
+   "content_sha": "7f266289aeeefc1a",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.408930+00:00"
+   "read_at": "2026-08-29T01:31:43.826257+00:00"
   },
   "464055|weekly-digest": {
    "source_code": "substack",
    "external_id": "212592393",
-   "content_sha": "79c44a9bc02c3798",
+   "content_sha": "c14ce038f426a697",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665770+00:00"
+   "read_at": "2026-08-29T01:31:43.988484+00:00"
   },
   "464056|weekly-digest": {
    "source_code": "substack",
@@ -4366,9 +4891,9 @@
   "464064|weekly-digest": {
    "source_code": "youtube",
    "external_id": "gTn7-oSb_ic",
-   "content_sha": "3f635b9ca061359c",
+   "content_sha": "cfdb0c9377bbf858",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T19:52:14.843420+00:00"
+   "read_at": "2026-08-29T01:31:43.988547+00:00"
   },
   "464065|weekly-digest": {
    "source_code": "youtube",
@@ -4387,16 +4912,16 @@
   "464068|weekly-digest": {
    "source_code": "youtube",
    "external_id": "SWsGPoxqcR0",
-   "content_sha": "9184764b90009ab0",
+   "content_sha": "175f4300bed28d57",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T19:49:40.853026+00:00"
+   "read_at": "2026-08-29T01:31:43.826566+00:00"
   },
   "464070|weekly-digest": {
    "source_code": "youtube",
    "external_id": "UrCuK2K8mAU",
-   "content_sha": "f35e1c85bc5112f9",
+   "content_sha": "e552c96b387847dc",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.409187+00:00"
+   "read_at": "2026-08-29T01:31:43.826510+00:00"
   },
   "464071|weekly-digest": {
    "source_code": "youtube",
@@ -4422,9 +4947,9 @@
   "464074|weekly-digest": {
    "source_code": "youtube",
    "external_id": "V_gMA_Lsg6g",
-   "content_sha": "8be9da350fa3c28b",
+   "content_sha": "7efc5f32c9d66310",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665781+00:00"
+   "read_at": "2026-08-29T01:31:43.988565+00:00"
   },
   "464076|weekly-digest": {
    "source_code": "youtube",
@@ -4436,9 +4961,9 @@
   "464078|weekly-digest": {
    "source_code": "youtube",
    "external_id": "iqiTITzO8Ao",
-   "content_sha": "b5b4859f925a0623",
+   "content_sha": "3d652ce2af56f4f6",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665721+00:00"
+   "read_at": "2026-08-29T01:31:43.988444+00:00"
   },
   "464079|weekly-digest": {
    "source_code": "youtube",
@@ -4499,9 +5024,9 @@
   "464087|weekly-digest": {
    "source_code": "youtube",
    "external_id": "fDNBPn7jmUw",
-   "content_sha": "897a748e0c34edab",
+   "content_sha": "06175e44b2890809",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.408963+00:00"
+   "read_at": "2026-08-29T01:31:43.826309+00:00"
   },
   "464088|weekly-digest": {
    "source_code": "youtube",
@@ -4534,9 +5059,9 @@
   "464093|weekly-digest": {
    "source_code": "youtube",
    "external_id": "votJ0sjvFmI",
-   "content_sha": "5bad93c20c4a9c8c",
+   "content_sha": "e27c9714940dc3a0",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.141634+00:00"
+   "read_at": "2026-08-29T01:31:43.604141+00:00"
   },
   "464094|weekly-digest": {
    "source_code": "youtube",
@@ -4555,23 +5080,23 @@
   "464097|weekly-digest": {
    "source_code": "youtube",
    "external_id": "c3jEHzOwqBw",
-   "content_sha": "35ab2072ea98350c",
+   "content_sha": "4ec9e268a70a5a0f",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.142254+00:00"
+   "read_at": "2026-08-29T01:31:43.604733+00:00"
   },
   "464101|weekly-digest": {
    "source_code": "youtube",
    "external_id": "OxRxUBqEdMI",
-   "content_sha": "fb006edf81bce734",
+   "content_sha": "26cb5bd11b5ccfe0",
    "week_start": "2026-08-02",
-   "read_at": "2026-08-27T22:53:33.558735+00:00"
+   "read_at": "2026-08-29T01:31:43.452885+00:00"
   },
   "464114|weekly-digest": {
    "source_code": "youtube",
    "external_id": "enxD5EPAFCE",
-   "content_sha": "4f9e434d38bf3c02",
+   "content_sha": "1af0351484d322b5",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.409356+00:00"
+   "read_at": "2026-08-29T01:31:43.826536+00:00"
   },
   "464115|weekly-digest": {
    "source_code": "youtube",
@@ -4597,16 +5122,16 @@
   "464126|weekly-digest": {
    "source_code": "youtube",
    "external_id": "9RbfUZb2Z2c",
-   "content_sha": "1080391ecaf5f7c8",
+   "content_sha": "8d60e5b84d3720b1",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.142091+00:00"
+   "read_at": "2026-08-29T01:31:43.604570+00:00"
   },
   "464134|weekly-digest": {
    "source_code": "youtube",
    "external_id": "KYirz5POgZg",
-   "content_sha": "1218d8708619e8ef",
+   "content_sha": "3eb73a2524a55515",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.409250+00:00"
+   "read_at": "2026-08-29T01:31:43.826594+00:00"
   },
   "464135|weekly-digest": {
    "source_code": "youtube",
@@ -4618,9 +5143,9 @@
   "464164|weekly-digest": {
    "source_code": "youtube",
    "external_id": "IRHWmEc1QAE",
-   "content_sha": "87be155dad3c2a3a",
+   "content_sha": "112e3ca3e67f46e9",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.409016+00:00"
+   "read_at": "2026-08-29T01:31:43.826390+00:00"
   },
   "464165|weekly-digest": {
    "source_code": "youtube",
@@ -4632,100 +5157,100 @@
   "464167|weekly-digest": {
    "source_code": "youtube",
    "external_id": "xn3Mkp6FCss",
-   "content_sha": "d8a6ab8fb5598a69",
+   "content_sha": "ec26f04182af2738",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T19:47:27.729326+00:00"
+   "read_at": "2026-08-28T07:13:49.497761+00:00"
   },
   "464168|weekly-digest": {
    "source_code": "youtube",
    "external_id": "c06eQWQljXo",
-   "content_sha": "97861bb944e158e6",
+   "content_sha": "dd55060cc9fdf912",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.141900+00:00"
+   "read_at": "2026-08-29T01:31:43.604413+00:00"
   },
   "464174|weekly-digest": {
    "source_code": "youtube",
    "external_id": "wV4dksg_XjE",
-   "content_sha": "17ec3e934ef895f4",
+   "content_sha": "209f178ea06e9e71",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.409006+00:00"
+   "read_at": "2026-08-29T01:31:43.826448+00:00"
   },
   "464194|weekly-digest": {
    "source_code": "youtube",
    "external_id": "wTiYaWFP59Q",
-   "content_sha": "111d05703d44a304",
+   "content_sha": "4cfebb744832b91c",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.409280+00:00"
+   "read_at": "2026-08-29T01:31:43.826579+00:00"
   },
   "464195|weekly-digest": {
    "source_code": "youtube",
    "external_id": "yh18YXKMk3g",
-   "content_sha": "ad6064a20e5e7d90",
+   "content_sha": "ae51b1e996473073",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.142201+00:00"
+   "read_at": "2026-08-29T01:31:43.604709+00:00"
   },
   "464204|weekly-digest": {
    "source_code": "youtube",
    "external_id": "2qsUh1sMDfs",
-   "content_sha": "c33d0a7aa24c65af",
+   "content_sha": "cd4928133d2d3303",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.409057+00:00"
+   "read_at": "2026-08-28T07:13:49.739064+00:00"
   },
   "464214|weekly-digest": {
    "source_code": "youtube",
    "external_id": "lFpQuOEzGzc",
-   "content_sha": "3fb74d25dda53bd5",
+   "content_sha": "bbf385b3e9fd86ae",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665609+00:00"
+   "read_at": "2026-08-29T01:31:43.988349+00:00"
   },
   "464215|weekly-digest": {
    "source_code": "youtube",
    "external_id": "XFNk96CabCg",
-   "content_sha": "50041f75fadc5cbf",
+   "content_sha": "f6dd8220bbceae3d",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.408726+00:00"
+   "read_at": "2026-08-29T01:31:43.826038+00:00"
   },
   "464244|weekly-digest": {
    "source_code": "youtube",
    "external_id": "iSYYQqlo7qI",
-   "content_sha": "115475b9fd384471",
+   "content_sha": "792a27077281a84e",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665708+00:00"
+   "read_at": "2026-08-29T01:31:43.988424+00:00"
   },
   "464245|weekly-digest": {
    "source_code": "youtube",
    "external_id": "3EwmJyljx1g",
-   "content_sha": "c89dd9ee62a90a25",
+   "content_sha": "6a5a14561dcb8434",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665659+00:00"
+   "read_at": "2026-08-29T01:31:43.988375+00:00"
   },
   "464246|weekly-digest": {
    "source_code": "youtube",
    "external_id": "8Hnok1i10K0",
-   "content_sha": "9ecaf3421b3864e5",
+   "content_sha": "e124cdae14295f1b",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665575+00:00"
+   "read_at": "2026-08-29T01:31:43.988273+00:00"
   },
   "464247|weekly-digest": {
    "source_code": "youtube",
    "external_id": "USmJExN-MEg",
-   "content_sha": "0674a9f1c3a72b44",
+   "content_sha": "865a3da775a3d2b3",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.409334+00:00"
+   "read_at": "2026-08-29T01:31:43.826586+00:00"
   },
   "464248|weekly-digest": {
    "source_code": "youtube",
    "external_id": "6PT8ub33Klk",
-   "content_sha": "98315e4ff2659a24",
+   "content_sha": "3a64704908b7cc37",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T19:49:40.852974+00:00"
+   "read_at": "2026-08-29T01:31:43.826501+00:00"
   },
   "464249|weekly-digest": {
    "source_code": "youtube",
    "external_id": "ialp-FjJiRI",
-   "content_sha": "36d6b5ed1b188f18",
+   "content_sha": "f2675cd7a648e91b",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.409072+00:00"
+   "read_at": "2026-08-29T01:31:43.826420+00:00"
   },
   "464250|weekly-digest": {
    "source_code": "youtube",
@@ -4751,16 +5276,16 @@
   "464253|weekly-digest": {
    "source_code": "youtube",
    "external_id": "M0eDetccI5M",
-   "content_sha": "fba121c81bea15f8",
+   "content_sha": "60dc3a5a187a99ee",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.408761+00:00"
+   "read_at": "2026-08-29T01:31:43.826143+00:00"
   },
   "464254|weekly-digest": {
    "source_code": "youtube",
    "external_id": "i25DJxYcDGw",
-   "content_sha": "6fdd62035338b601",
+   "content_sha": "71b96fd5617108eb",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.408972+00:00"
+   "read_at": "2026-08-29T01:31:43.826295+00:00"
   },
   "464264|weekly-digest": {
    "source_code": "youtube",
@@ -4797,26 +5322,33 @@
    "week_start": "2026-06-21",
    "read_at": "2026-08-27T22:26:51.673732+00:00"
   },
+  "464280|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "pncMEKuR-g8",
+   "content_sha": "b804a94821a2c7a8",
+   "week_start": "2026-06-14",
+   "read_at": "2026-08-29T01:31:42.771623+00:00"
+  },
   "464284|weekly-digest": {
    "source_code": "youtube",
    "external_id": "BCgHELtTnog",
-   "content_sha": "2d68dc4bb4ee61be",
+   "content_sha": "8b76178974622ae7",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.409294+00:00"
+   "read_at": "2026-08-29T01:31:43.826522+00:00"
   },
   "464285|weekly-digest": {
    "source_code": "youtube",
    "external_id": "TInyOyKDOgI",
-   "content_sha": "2b53c8e0c5acedde",
+   "content_sha": "58c1a3615767e814",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.408910+00:00"
+   "read_at": "2026-08-29T01:31:43.826201+00:00"
   },
   "464286|weekly-digest": {
    "source_code": "youtube",
    "external_id": "400m6gYSRCE",
-   "content_sha": "4d4a40961046b67c",
+   "content_sha": "c4297a116e135452",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.142184+00:00"
+   "read_at": "2026-08-29T01:31:43.604771+00:00"
   },
   "464287|weekly-digest": {
    "source_code": "youtube",
@@ -4835,9 +5367,9 @@
   "464292|weekly-digest": {
    "source_code": "youtube",
    "external_id": "BgRvK6Ug-SA",
-   "content_sha": "00bcc9b4bba530f5",
+   "content_sha": "d3151f2ff61679a9",
    "week_start": "2026-07-26",
-   "read_at": "2026-08-27T22:51:02.015251+00:00"
+   "read_at": "2026-08-29T01:31:43.396148+00:00"
   },
   "464293|weekly-digest": {
    "source_code": "youtube",
@@ -4881,6 +5413,13 @@
    "week_start": "2026-07-05",
    "read_at": "2026-08-27T19:31:27.473843+00:00"
   },
+  "464317|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "imNcJrD1QpM",
+   "content_sha": "4013687257d19cd5",
+   "week_start": "2026-06-21",
+   "read_at": "2026-08-29T01:31:43.061619+00:00"
+  },
   "464334|weekly-digest": {
    "source_code": "youtube",
    "external_id": "j6TP13fhGqU",
@@ -4891,9 +5430,9 @@
   "464335|weekly-digest": {
    "source_code": "youtube",
    "external_id": "eDPDUFOi6Uw",
-   "content_sha": "75d1eb688b3ca044",
+   "content_sha": "3657e9445d878957",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.409205+00:00"
+   "read_at": "2026-08-29T01:31:43.826557+00:00"
   },
   "464337|weekly-digest": {
    "source_code": "youtube",
@@ -4912,9 +5451,9 @@
   "464339|weekly-digest": {
    "source_code": "youtube",
    "external_id": "mfhDfeJuY6Y",
-   "content_sha": "601c617380b69c59",
+   "content_sha": "ddae8881a487e9b6",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.142056+00:00"
+   "read_at": "2026-08-29T01:31:43.604590+00:00"
   },
   "464340|weekly-digest": {
    "source_code": "youtube",
@@ -4954,16 +5493,16 @@
   "496398|weekly-digest": {
    "source_code": "substack",
    "external_id": "211141481",
-   "content_sha": "81db1c3b0f5c8724",
+   "content_sha": "08fee5a89020848a",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T22:54:59.142124+00:00"
+   "read_at": "2026-08-29T01:31:43.604640+00:00"
   },
   "496399|weekly-digest": {
    "source_code": "substack",
    "external_id": "209213724",
-   "content_sha": "9472c0361489f783",
+   "content_sha": "8a17b16e48fbb878",
    "week_start": "2026-08-02",
-   "read_at": "2026-08-27T22:53:33.558634+00:00"
+   "read_at": "2026-08-29T01:31:43.452827+00:00"
   },
   "496400|weekly-digest": {
    "source_code": "substack",
@@ -4996,9 +5535,9 @@
   "496404|weekly-digest": {
    "source_code": "substack",
    "external_id": "210670502",
-   "content_sha": "db3e2eb43770781f",
+   "content_sha": "0306782e08440836",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.408748+00:00"
+   "read_at": "2026-08-29T01:31:43.826117+00:00"
   },
   "496405|weekly-digest": {
    "source_code": "substack",
@@ -5010,9 +5549,9 @@
   "496406|weekly-digest": {
    "source_code": "hkej",
    "external_id": "4489225",
-   "content_sha": "6fd28209a3bc4dea",
+   "content_sha": "3ad0b78f26a5b924",
    "week_start": "2026-08-16",
-   "read_at": "2026-08-27T22:57:31.409174+00:00"
+   "read_at": "2026-08-29T01:31:43.826483+00:00"
   },
   "496407|weekly-digest": {
    "source_code": "hkej",
@@ -5115,16 +5654,16 @@
   "496422|weekly-digest": {
    "source_code": "patreon",
    "external_id": "167633850",
-   "content_sha": "1107d69eb0893a98",
+   "content_sha": "b292d2a2dbbac4a7",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665881+00:00"
+   "read_at": "2026-08-29T01:31:43.988612+00:00"
   },
   "496423|weekly-digest": {
    "source_code": "youtube",
    "external_id": "7bgdCd8hJFw",
-   "content_sha": "84109e775c018a13",
+   "content_sha": "827e73d37fe7d4c0",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665800+00:00"
+   "read_at": "2026-08-29T01:31:43.988586+00:00"
   },
   "496424|weekly-digest": {
    "source_code": "youtube",
@@ -5136,9 +5675,9 @@
   "496425|weekly-digest": {
    "source_code": "youtube",
    "external_id": "LdncUDjkJps",
-   "content_sha": "83626c35b2f2545b",
+   "content_sha": "27669d4ab8d6bc1a",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665965+00:00"
+   "read_at": "2026-08-29T01:31:43.988710+00:00"
   },
   "496426|weekly-digest": {
    "source_code": "youtube",
@@ -5178,16 +5717,16 @@
   "496431|weekly-digest": {
    "source_code": "youtube",
    "external_id": "FsPoAmywH3U",
-   "content_sha": "58fbcf2ae2bb77be",
+   "content_sha": "cab8ce9986aab783",
    "week_start": "2026-08-09",
-   "read_at": "2026-08-27T19:47:27.729359+00:00"
+   "read_at": "2026-08-28T07:13:49.497773+00:00"
   },
   "496434|weekly-digest": {
    "source_code": "youtube",
    "external_id": "CJYFy1WEDSE",
-   "content_sha": "61b8f2b6e7ba691b",
+   "content_sha": "a588ac57d13cae98",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665824+00:00"
+   "read_at": "2026-08-29T01:31:43.988529+00:00"
   },
   "496435|weekly-digest": {
    "source_code": "youtube",
@@ -5199,16 +5738,16 @@
   "496436|weekly-digest": {
    "source_code": "youtube",
    "external_id": "LcJTSTmnjsc",
-   "content_sha": "e5905f6c088ea233",
+   "content_sha": "51b1bba626cbd6c8",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T19:52:14.843452+00:00"
+   "read_at": "2026-08-29T01:31:43.988518+00:00"
   },
   "496437|weekly-digest": {
    "source_code": "youtube",
    "external_id": "GpS3exTGU5o",
-   "content_sha": "23df229a5b3c545f",
+   "content_sha": "db6fd589607af5d6",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T19:52:14.843441+00:00"
+   "read_at": "2026-08-29T01:31:43.988504+00:00"
   },
   "528558|weekly-digest": {
    "source_code": "hkej",
@@ -5248,16 +5787,16 @@
   "528563|weekly-digest": {
    "source_code": "master-insight",
    "external_id": "49796",
-   "content_sha": "8fd155b8d035353b",
+   "content_sha": "7f700b26c91ffd7e",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.666029+00:00"
+   "read_at": "2026-08-29T01:31:43.988869+00:00"
   },
   "528565|weekly-digest": {
    "source_code": "patreon",
    "external_id": "167729585",
-   "content_sha": "5a0ec43f1c52c251",
+   "content_sha": "a1f235b4513df5d3",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665980+00:00"
+   "read_at": "2026-08-29T01:31:43.988734+00:00"
   },
   "528566|weekly-digest": {
    "source_code": "youtube",
@@ -5269,9 +5808,9 @@
   "528567|weekly-digest": {
    "source_code": "youtube",
    "external_id": "lYQw_7Myw2g",
-   "content_sha": "3be89f1d754fc37f",
+   "content_sha": "64270db8e0ce982d",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665956+00:00"
+   "read_at": "2026-08-29T01:31:43.988641+00:00"
   },
   "528568|weekly-digest": {
    "source_code": "youtube",
@@ -5304,9 +5843,9 @@
   "528572|weekly-digest": {
    "source_code": "youtube",
    "external_id": "aEG3hZZX45M",
-   "content_sha": "c7c6a342c65610c3",
+   "content_sha": "24a8786027afd047",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.666000+00:00"
+   "read_at": "2026-08-29T01:31:43.988786+00:00"
   },
   "528573|weekly-digest": {
    "source_code": "youtube",
@@ -5325,9 +5864,9 @@
   "528575|weekly-digest": {
    "source_code": "youtube",
    "external_id": "bY40DOJPvxk",
-   "content_sha": "3c74102a7c89be49",
+   "content_sha": "d5fcd123f842e82b",
    "week_start": "2026-08-23",
-   "read_at": "2026-08-27T23:00:01.665914+00:00"
+   "read_at": "2026-08-29T01:31:43.988676+00:00"
   },
   "528576|weekly-digest": {
    "source_code": "youtube",
@@ -5335,6 +5874,118 @@
    "content_sha": "047ce24f0f4749b6",
    "week_start": "2026-08-23",
    "read_at": "2026-08-27T19:52:14.843617+00:00"
+  },
+  "561321|weekly-digest": {
+   "source_code": "hkej",
+   "external_id": "4495733",
+   "content_sha": "9172309fe0f3d6f4",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988942+00:00"
+  },
+  "561322|weekly-digest": {
+   "source_code": "hkej",
+   "external_id": "4495632",
+   "content_sha": "f17c82f16ede3994",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988897+00:00"
+  },
+  "561323|weekly-digest": {
+   "source_code": "patreon",
+   "external_id": "167901402",
+   "content_sha": "e09da82986f44155",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988951+00:00"
+  },
+  "561324|weekly-digest": {
+   "source_code": "patreon",
+   "external_id": "167864400",
+   "content_sha": "89fde1c9e3592426",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988887+00:00"
+  },
+  "561325|weekly-digest": {
+   "source_code": "patreon",
+   "external_id": "167833682",
+   "content_sha": "57ee5d9ccb576a18",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988878+00:00"
+  },
+  "561326|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "ZFhqGDd6Efc",
+   "content_sha": "c055a9977b3975d1",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988764+00:00"
+  },
+  "561327|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "edwp5mhmgcs",
+   "content_sha": "2b9044caa76e8f45",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988798+00:00"
+  },
+  "561328|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "GhjhKBIe6Bs",
+   "content_sha": "903c798d697e7966",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988909+00:00"
+  },
+  "561329|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "svnoor3Ew-I",
+   "content_sha": "e21d352c8285deed",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988920+00:00"
+  },
+  "561330|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "rTKVSgvPbAs",
+   "content_sha": "ab22a496b796ead9",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988931+00:00"
+  },
+  "561331|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "-sWZKBElr0o",
+   "content_sha": "c3b98a03225a757e",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988831+00:00"
+  },
+  "561332|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "r06_2ooytHk",
+   "content_sha": "600ac4d1e2e3fdbc",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988385+00:00"
+  },
+  "561333|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "J0R7IlQ5L_c",
+   "content_sha": "76b4ab3711a7819f",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988840+00:00"
+  },
+  "561335|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "0otcjnQU1-w",
+   "content_sha": "b271e5cbf15c5a0c",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988809+00:00"
+  },
+  "561336|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "kI8I2U2jUds",
+   "content_sha": "8aca0e69904d0be1",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988821+00:00"
+  },
+  "561337|weekly-digest": {
+   "source_code": "youtube",
+   "external_id": "o2bF4sPqBdQ",
+   "content_sha": "ff8a7bda076f2418",
+   "week_start": "2026-08-23",
+   "read_at": "2026-08-29T01:31:43.988774+00:00"
   }
  }
 }

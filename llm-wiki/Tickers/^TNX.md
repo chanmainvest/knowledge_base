@@ -1,16 +1,16 @@
 # ^TNX — US 10-year Treasury yield
 
-**59 extracted prediction(s)** across 16 channel(s). Consensus: **mixed (conflict)** (4 bullish / 4 bearish / 51 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
+**66 extracted prediction(s)** across 18 channel(s). Consensus: **mixed (conflict)** (5 bullish / 5 bearish / 56 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
 ## The debate
 
-The 10-year yield debate in this corpus is genuinely split — four contributors on each side of the direction call and a large neutral middle — but the fault line runs through a single question: whether fiscal supply and liquidity conditions force yields up or the macro regime grinds them down. The sharpest exchange came on June 23, when [JD](../People/jd.md) declared himself "definitely lower" on yields, and [George Noble](../People/george-noble.md) immediately fired back — "game on... I'm higher" — a clean head-to-head split with no hedging on either side.
+The 10-year Treasury yield is one of the genuinely split files in the corpus — the running tally reads mixed at 5 bullish, 5 bearish and 56 neutral — and the divide maps less onto bull-versus-bear than onto timeframe: near-term grind higher versus structural decline. The loudest number on the board belongs to [Michael Howell](../People/michael-howell.md), who argued on August 13, 2026 that it's "not impossible to see the 10-year bond testing 6% yields" "in the not too distant future." But even the yield bulls hedge. The guest on the August 27 episode agreed there are "decent short-term shorts to be had in bonds" and allowed a day earlier that yields "could certainly go to 5%" — while insisting he wasn't interested in pressing the trade, because the fiscal impulse isn't strong enough into the back half of the year to produce a 2022-style surge. Room toward 5%, in other words, but no conviction in a blow-off.
 
-The lower-yield camp is the more argued position. [Patrick Ceresna](../People/patrick-ceresna.md) laid out its most disciplined version in mid-June: it's "very reasonable to assume" that yields near 4.70% mark "a key high," but that "doesn't make it an immediate opportunity to go long bonds" — and as of June 18 he noted the market was under the 4.50% level "but still not officially breaking into a new downtrend in yields." That's the classic right-thesis-wrong-timing stance, and it captures why the neutral count runs to 51. [Darius Dale](../People/darius-dale.md) gave the camp its structural backing on August 20, arguing that the 10-year real yield "tends to decline substantially during Fourth Turnings" given elevated nominal growth conditions.
+The bear case has both a tactical and a structural wing. The tactical version got its cleanest airing on June 23, when [JD](../People/jd.md) declared himself "definitely lower" on yields and was answered on the spot by [George Noble](../People/george-noble.md): "game on this is to JD. I'm higher." That exchange is the whole debate in miniature. The structural version came from [Darius Dale](../People/darius-dale.md) on August 20, who argued the 10-year *real* yield "tends to decline substantially during Fourth Turnings" given the elevated nominal growth environment — a framework call, not a chart call.
 
-Against that, the higher-yield case is thinner but carries the boldest number on the board. [Michael Howell](../People/michael-howell.md) said on August 13 that it's "not impossible to see the 10-year bond testing 6% yields... in the not too distant future" — a call that dwarfs every other target in the corpus. [Brent Johnson](../People/brent-johnson.md) split the difference by time horizon on June 26: over the next 5 or 10 months bonds "might" hold their value, but over 5 or 10 years "they're probably not going to." Noble's June 23 "I'm higher" rounds out the bearish-on-bonds side without a stated level.
+Then there's [Patrick Ceresna](../People/patrick-ceresna.md), the file's reluctant bear. Across June 18–19 he repeatedly framed yields "near the 470" as "a key high," while noting that with yields under the 4.5 level the market was "still not officially breaking into a new downtrend in yields" — and, crucially, that the key high "doesn't make it an immediate opportunity to go long bonds." He is a top-caller who won't buy the top he's calling, which is why his stance sits closer to neutral than the "key high" language suggests.
 
-The August tape suggests the debate softened toward Ceresna's patience rather than Howell's conviction. An unnamed guest on August 24 conceded yields could move lower with long-end curve flattening — "I'm not going to doubt that it can happen. It probably will happen" — while still admitting "we could certainly go to 5%." Two days later, the same speaker allowed there are "some decent short-term shorts to be had in bonds" but wasn't interested, arguing the fiscal impulse isn't strong enough in the back half of the year to produce a "2022-style" yield spike — with the host pressing on what happens if the issuer of the bonds moves to support them. Read as a timeline, the arc runs from June's crisp JD-versus-Noble split, through Ceresna's wait-for-confirmation framing, to Howell's 6% outlier in mid-August, and finally into a late-August consensus that leans toward lower and flatter yields — while keeping 5% explicitly on the table.
+The middle ground is [Brent Johnson](../People/brent-johnson.md), who split the difference by horizon on June 26: bonds over the next 5 to 10 months "might" hold their value, but over 5 to 10 years they're "probably not going to hold their value." And the wildcard nobody's calls fully price was floated by the unnamed host on August 27 — what happens if the "printer of the currency and or that the issue of the bonds" comes out pledging measures to support the market. The timeline itself tells a story: June produced positioning-level calls (Ceresna's key high, the JD–Noble split, Johnson's horizon trade), while August escalated to headline numbers — Howell's 6%, talk of 5% — with Dale supplying the structural counterweight. The majority, meanwhile, sits at 56 neutral, which says the loudest voices are getting airtime while the median participant declines to pick a side.
 
 ## Themes
 
@@ -20,9 +20,9 @@ The August tape suggests the debate softened toward Ceresna's patience rather th
 
 | Stance | Count |
 |---|---:|
-| Bullish | 4 |
-| Bearish | 4 |
-| Neutral / watch | 51 |
+| Bullish | 5 |
+| Bearish | 5 |
+| Neutral / watch | 56 |
 
 ## Voices on this ticker
 
@@ -89,9 +89,16 @@ The August tape suggests the debate softened toward Ceresna's patience rather th
 - **Brent Johnson** (dir=`bonds hold value near term, lose value long term`) — [The Dollar Reset Just Started…And It Could Break Everything w/Brent Johnson](https://www.youtube.com/watch?v=RmNZLvOBu8M) — 2026-06-26, [Brent Johnson](../People/brent-johnson.md): "Over the next 5 or 10 years they're probably not going to hold their value, but over the next 5 or 10 months they might, right?"
 - **David Lin** (dir=`yields rising`) — [Massive Liquidity Shock Coming; Brace For 'Wrecking Ball' Warns Economist \| Mic…](https://www.youtube.com/watch?v=CDK7G4lTKII) — 2026-06-26, David Lin: "Dollar's going up. Bond markets, yields are rising."
 - **Figuring Out Money** (dir=`yields_lower_bonds_bullish`, tf=`current`) — [It's Time To Get Serious About This Market.](https://www.youtube.com/watch?v=2poug85rvhA) — 2026-06-26, Figuring Out Money: "10-year yield, right? We saw back off. It's following the price of oil heading lower."
+- **Figuring Out Money** (dir=`down`) — [The Reversals Are Telling You THIS...](https://www.youtube.com/watch?v=G4mxxhDLlAM) — 2026-06-23, Figuring Out Money: "is oil leading the way telling us that the 10-year yield is going to be coming down following it"
 - **JD** (action=`watch`, dir=`down`, tf=`next quarter`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [JD](../People/jd.md): "Oh, yeah. I'm definitely lower."
 - **George Noble** (action=`watch`, dir=`up`, tf=`next quarter`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "So, so we so game on this is to JD. I'm higher."
+- **The Jay Martin Show** (dir=`yields up / bond prices down`) — [Turkey Just Sold Its Gold — Here's Why That Should Scare You](https://www.youtube.com/watch?v=pncMEKuR-g8) — 2026-06-20, The Jay Martin Show: "Take them away, force the selling and yields punch right through that line."
+- **Forward Guidance** — [A New Era Is Beginning In Markets \| Weekly Roundup](https://www.youtube.com/watch?v=kBdZAegipLM) — 2026-06-19, Forward Guidance: "the 10-year yield went to 450 almost and just get smashed down today because it it really is putting a a pin prick in in potentially growth and definitely inflation. Like inflation long-term inflation expectations I thi…"
+- **Simplify Asset Management** — [Rates on the Run \| Ep. 26 - June 2026](https://www.youtube.com/watch?v=YQd7TRakAnw) — 2026-06-19, Simplify Asset Management: "if you can get 4 to 4 and 1/2% on a 10-year, that's pretty attractive"
+- **Simplify Asset Management** (dir=`stay somewhat elevated`) — [Rates on the Run \| Ep. 26 - June 2026](https://www.youtube.com/watch?v=YQd7TRakAnw) — 2026-06-19, Simplify Asset Management: "back end rates staying somewhat elevated as well because, you know, not elevated as well because, you know, not just um you know, the inflation concern just um you know, the inflation concern over the war could dissipat…"
 - **Patrick Ceresna** (action=`avoid`, dir=`unspecified`, target=`4.7`, tf=`unspecified`) — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) — 2026-06-19, [Patrick Ceresna](../People/patrick-ceresna.md): "near the 470 will be a a key high, but uh it doesn't make it an immediate opportunity to go long bonds"
+- **David Lin** (dir=`relatively flat vs. short end (+~2bps); rises with the whole curve if inflation fears increase`) — [New Fed Chair Drops Bombshell Signals,  ‘No Escape’ From Coming Disaster \| Koma…](https://www.youtube.com/watch?v=FHtb-uCMgLU) — 2026-06-18, David Lin: "And the 10-year, depending on what is the last figure you're looking at, probably moved up about two basis points."
+- **David Lin** (dir=`up`) — [New Fed Chair Drops Bombshell Signals,  ‘No Escape’ From Coming Disaster \| Koma…](https://www.youtube.com/watch?v=FHtb-uCMgLU) — 2026-06-18, David Lin: "if inflation is not controlled before the end of the year, expect the 10-year and 30-year to move up as well."
 - **Patrick Ceresna** (action=`avoid`, dir=`unspecified`, target=`4.7`, tf=`unspecified`) — [Trade of The Week - MacroVoices #537](https://www.youtube.com/watch?v=oqHNNzR9WNc) — 2026-06-18, [Patrick Ceresna](../People/patrick-ceresna.md): "Overall, I think that it's very reasonable to assume that the yields near the 470 will be a a key high, but it doesn't make it an immediate opportunity to go long bonds."
 - **Patrick Ceresna** (action=`watch`, dir=`down`, target=`4.5`, tf=`unspecified`) — [Trade of The Week - MacroVoices #537](https://www.youtube.com/watch?v=oqHNNzR9WNc) — 2026-06-18, [Patrick Ceresna](../People/patrick-ceresna.md): "We're under the 4 and 1/2 level on the yield levels, but still not officially breaking into a new downtrend in yields."
 - **Eurodollar University host** (action=`watch`, dir=`unspecified`, tf=`unspecified`) — [ALERT: Oil And Interest Rates Are PLUNGING, Here's What You Must Know](https://www.youtube.com/watch?v=IpZ_HYxaU_8) — 2026-06-18, Eurodollar University host: "always watch the Treasury curve. Don't just won't focus on the Treasury curve, start with the Treasury curve."
@@ -108,7 +115,9 @@ The August tape suggests the debate softened toward Ceresna's patience rather th
 - [The Monetary Matters Network](../Analysts/monetary-matters.md) (`@Monetary-Matters`)
 - [Patrick Boyle](../Analysts/pboyle.md) (`@PBoyle`)
 - [Rebel Capitalist Interviews](../Analysts/rebelcapitalistinterviews.md) (`@RebelCapitalistInterviews`)
+- [Simplify Asset Management](../Analysts/simplifyassetmanagement.md) (`@SimplifyAssetManagement`)
 - [David Lin](../Analysts/thedavidlinreport.md) (`@TheDavidLinReport`)
+- [The Jay Martin Show](../Analysts/thejaymartinshow.md) (`@TheJayMartinShow`)
 - [The Julia La Roche Show](../Analysts/thejulialarocheshow.md) (`@TheJuliaLaRocheShow`)
 - [Eurodollar University](../Analysts/eurodollaruniversity.md) (`@eurodollaruniversity`)
 - [Macro Voices](../Analysts/macrovoices7508.md) (`@macrovoices7508`)
@@ -157,8 +166,13 @@ The August tape suggests the debate softened toward Ceresna's patience rather th
 - 2026-06-26 — [The Dollar Reset Just Started…And It Could Break Everything w/Brent Johnson](https://www.youtube.com/watch?v=RmNZLvOBu8M) (Rebel Capitalist Interviews)
 - 2026-06-26 — [Massive Liquidity Shock Coming; Brace For 'Wrecking Ball' Warns Economist \| Michael Howell](https://www.youtube.com/watch?v=CDK7G4lTKII) (David Lin)
 - 2026-06-26 — [It's Time To Get Serious About This Market.](https://www.youtube.com/watch?v=2poug85rvhA) (Figuring Out Money)
+- 2026-06-23 — [The Reversals Are Telling You THIS...](https://www.youtube.com/watch?v=G4mxxhDLlAM) (Figuring Out Money)
 - 2026-06-23 — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) (The Macro Dirt Podcast)
+- 2026-06-20 — [Turkey Just Sold Its Gold — Here's Why That Should Scare You](https://www.youtube.com/watch?v=pncMEKuR-g8) (The Jay Martin Show)
+- 2026-06-19 — [A New Era Is Beginning In Markets \| Weekly Roundup](https://www.youtube.com/watch?v=kBdZAegipLM) (Forward Guidance)
+- 2026-06-19 — [Rates on the Run \| Ep. 26 - June 2026](https://www.youtube.com/watch?v=YQd7TRakAnw) (Simplify Asset Management)
 - 2026-06-19 — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=s7IDIRbZa2o) (Macro Voices)
+- 2026-06-18 — [New Fed Chair Drops Bombshell Signals,  ‘No Escape’ From Coming Disaster \| Komal Sri Kumar](https://www.youtube.com/watch?v=FHtb-uCMgLU) (David Lin)
 - 2026-06-18 — [Trade of The Week - MacroVoices #537](https://www.youtube.com/watch?v=oqHNNzR9WNc) (Macro Voices)
 - 2026-06-18 — [ALERT: Oil And Interest Rates Are PLUNGING, Here's What You Must Know](https://www.youtube.com/watch?v=IpZ_HYxaU_8) (Eurodollar University)
 - 2026-06-18 — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=N7mX2NJ3nxQ) (Macro Voices)

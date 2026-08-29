@@ -1,38 +1,46 @@
-# 李聲揚
+# 陳坤耀
 
-**solo author/host (1x)**
+**interview guest (1x)**
 
-> 李聲揚 is a Hong Kong–based finance writer and commentator known for promoting value-investing ideas to a Chinese-speaking audience. He writes columns for Hong Kong financial media and has authored books in Chinese on stock-picking and value investing, drawing on Benjamin Graham– and Warren Buffett–style principles applied to Hong Kong and Chinese markets. He is also active as a speaker and podcast commentator on Hong Kong equities and personal investing.
+> 陳坤耀 (Edward K. Y. Chen) is a veteran Hong Kong economist and academic administrator, best known as President of Lingnan University from 1995 to 2007, where he led the institution's development into a full liberal-arts university. Before that he was Professor of Economics at the University of Hong Kong, where he also held senior posts including dean, and was associated with its Centre of Asian Studies. His research and commentary focus on Hong Kong's economy, the Asia-Pacific newly industrialized economies, technology transfer, and economic development. He has served on many Hong Kong government advisory and public bodies, including as Chairman of the Consumer Council, and is a frequent commentator and columnist on economic and public affairs in the Hong Kong media.
 
 _Bio LLM-generated from public knowledge + this DB's context — verify before relying on it. Everything below the bio is strictly DB-derived._
 
-李聲揚 is a Hong Kong–based finance writer and commentator who has made his name carrying value-investing orthodoxy — the Benjamin Graham–Warren Buffett lineage — into Chinese for an audience picking through Hong Kong and mainland equities. He writes columns for Hong Kong financial media, has authored Chinese-language books on stock-picking and value investing, and works the speaker and podcast circuit on Hong Kong stocks and personal investing. He is, in short, an educator-commentator rather than a public fund manager, and his authority rests on the written argument rather than a published NAV.
+陳坤耀 (Edward K. Y. Chen) belongs to the older generation of Hong Kong economists who moved easily between the seminar room and the public square. He was Professor of Economics at the University of Hong Kong, where he held senior posts including dean and was associated with its Centre of Asian Studies, before serving as President of Lingnan University from 1995 to 2007 — the stretch in which he led the institution's development into a full liberal-arts university. His scholarly ground is the Hong Kong economy, the Asia-Pacific newly industrialized economies, technology transfer and economic development, and that same ground doubles as his beat as a public commentator and columnist, backed by long service on government advisory bodies including a stint as Chairman of the Consumer Council.
 
-The one dated stance captured in this corpus tells you exactly where he plants his flag. Writing in HKEJ on 26 June 2026 in a piece titled 宏觀交易過五關 AI落場都輸錢 — macro trading must clear five hurdles, and even AI loses money once it takes the field — he argued that "事實上，即使能未卜先知，了解局勢走向，對投資近乎是零幫助，甚至是催命符": even flawless foreknowledge of where events are headed would be of almost zero help to investing, and could even be a death warrant ([宏觀交易過五關 AI落場都輸錢](https://www1.hkej.com/dailynews/investment/article/4440220/%E5%AE%8F%E8%A7%82%E4%BA%A4%E6%98%93%E9%81%8E%E4%BA%94%E9%97%9C+AI%E8%90%BD%E5%A0%B4%E9%83%BD%E8%BC%B8%E9%8C%A2)). Logged as neutral, the call is nonetheless pointed. The familiar Buffett line is that macro forecasting is hard; Li's version goes further — that even a *correct* macro read could hurt you. That is a deliberately sharpened take, and it lands in the middle of a live debate now that AI-driven macro trading is being marketed as the fix for human forecasting failure. His answer, in that piece, is that the machine fails at the same game.
+In this corpus he appears exactly once, as an interview guest of columnist 高天佑, and the single recorded stance — dated 16 June 2026 — is bearish on China and Hong Kong equities. The bearishness is structural, not a market-timing call. Comparing Hong Kong with Singapore, South Korea and Taiwan, he argued that "our R&D investment is very small, and the foundation relatively weak," and that despite the government's recent catch-up efforts, R&D still amounts to only about 1.1% to 1.2% of GDP — "還需要加一把勁," as he put it, still needing an extra push. The remarks came in a piece framed around whether the Northern Metropolis can borrow the "Hefei model" of state-led industry building ([北都可借鑑「合肥模式」](https://www1.hkej.com/dailynews/finnews/article/4431990/%E5%8C%97%E9%83%BD%E5%8F%AF%E5%80%9F%E9%91%98%E3%80%8C%E5%90%88%E8%82%A5%E6%A8%A1%E5%BC%8F%E3%80%8D)).
 
-On movement over time, the honest answer is that there is nothing to chart: the timeline holds a single entry, zero bullish and zero bearish calls, one neutral. What it does show is thematic consistency — a mid-2026 broadside against macro timing that sits squarely within the Graham-Buffett stock-picking worldview he has spent his columns and books promoting. Whether that posture bends when Hong Kong markets force the issue, this corpus does not yet say.
+One datapoint makes no timeline, so nothing here should be read as a shift in his views — the record simply doesn't reach back far enough. What the lone entry does show is his characteristic angle of attack: not valuations or flows, but the real economy beneath the market. His skepticism targets the innovation base that Hong Kong's current policy ambitions — the Northern Metropolis, the technology push — implicitly rest on, and he is blunt that the numbers don't yet support the story. That is the shape of his contribution to the debate; whether the bearishness proves warranted is a question the corpus, at one appearance, cannot yet answer.
 
 ## At a glance
 
-- **Appearances**: 1 (2026-06-26 → 2026-06-26)
-- **Shows**: 李聲揚
-- **Extracted calls**: 0 predictions, 3 market views
+- **Appearances**: 1 (2026-06-16 → 2026-06-16)
+- **Shows**: 高天佑
+- **Extracted calls**: 0 predictions, 1 market views
 - **Topics with opinions**: 1
-- **Stance split**: 0 bullish / 0 bearish / 1 neutral
+- **Stance split**: 0 bullish / 1 bearish / 0 neutral
 
 ## Appearances
 
 | Date | Show | Role | Item |
 |---|---|---|---|
-| 2026-06-26 | 李聲揚 | solo | [宏觀交易過五關 AI落場都輸錢](https://www1.hkej.com/dailynews/investment/article/4440220/%E5%AE%8F%E8%A7%80%E4%BA%A4%E6%98%93%E9%81%8E%E4%BA%94%E9%97%9C+AI%E8%90%BD%E5%A0%B4%E9%83%BD%E8%BC%B8%E9%8C%A2) |
+| 2026-06-16 | 高天佑 | guest | [北都可借鑑「合肥模式」](https://www1.hkej.com/dailynews/finnews/article/4431990/%E5%8C%97%E9%83%BD%E5%8F%AF%E5%80%9F%E9%91%91%E3%80%8C%E5%90%88%E8%82%A5%E6%A8%A1%E5%BC%8F%E3%80%8D) |
 
 ## Opinions by topic, over time
 
 _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ marks a detected change of mind._
 
-### [Broad Market & Macro Indices](../Themes/macro-indices.md) — now **neutral** (1 call(s))
+### [China & Hong Kong Equities](../Themes/china-hk-equities.md) — now **bearish** (1 call(s))
 
-- `2026-06-26` → neutral — 事實上，即使能未卜先知，了解局勢走向，對投資近乎是零幫助，甚至是催命符。
+- `2026-06-16` ↓ bearish — 與新加坡、南韓、台灣等地方比較，我們的R&D（研究開發）投放很少，基礎比較薄弱。這幾年政府在追趕，但是R&D仍僅佔GDP 1.1%至1.2%，還需要加一把勁。
+
+## Where others disagree
+
+Topics where this person's current stance conflicts with another person's:
+
+- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [梁天卓](../People/person-006.md), [Steve](../People/steve.md), [Patrick Boyle](../People/patrick-boyle.md), [Erik Townsend](../People/erik-townsend.md), [Shawn Hackett](../People/shawn-hackett.md), [Eurodollar University guest Jeff](../People/eurodollar-university-guest-jeff.md)
+
+_Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 
 ---
 _Page reflects DB state at generation time. Regenerate via `uv run python scripts/build_llm_wiki.py`._

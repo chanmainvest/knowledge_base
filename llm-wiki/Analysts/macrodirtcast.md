@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 9
-- **Items with predictions**: 8
-- **Predictions**: 57
-- **Market views**: 46
+- **Extracted items**: 10
+- **Items with predictions**: 9
+- **Predictions**: 66
+- **Market views**: 64
 
 ## People on this channel
 
@@ -23,16 +23,16 @@ _No URL / bio in DB channel metadata._
 
 **Most-called tickers:**
 
+- [GC=F](../Tickers/GC=F.md) (10)
 - [SpaceX](../Tickers/spacex.md) (9)
-- [GC=F](../Tickers/GC=F.md) (8)
+- [BTC-USD](../Tickers/BTC-USD.md) (4)
 - [CL=F](../Tickers/CL=F.md) (4)
+- [DX-Y.NYB](../Tickers/DX-Y.NYB.md) (3)
 - [^GSPC](../Tickers/^GSPC.md) (3)
+- [NVDA](../Tickers/NVDA.md) (2)
 - [SI=F](../Tickers/SI=F.md) (2)
 - [SMH](../Tickers/SMH.md) (2)
-- [BTC-USD](../Tickers/BTC-USD.md) (2)
-- [DX-Y.NYB](../Tickers/DX-Y.NYB.md) (2)
 - [^TNX](../Tickers/^TNX.md) (2)
-- `SPACEX` (1)
 
 ## Stance distribution (predictions)
 
@@ -40,7 +40,7 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 16 |
 | Bearish | 14 |
-| Neutral / watch | 27 |
+| Neutral / watch | 36 |
 
 ## Market-view direction
 
@@ -53,26 +53,27 @@ _No URL / bio in DB channel metadata._
 
 ## Recent notable calls
 
-- [^GSPC](../Tickers/^GSPC.md): [Eric Balchunas on Stocks, Gold, ETFs & AI](https://www.youtube.com/watch?v=S1u5RTxsLmA) — 2026-08-07, Eric Balchunas (citing the host's new book): "even if it doesn't go down 30%, stocks could go down like 15% for like 15 months. That still be pretty painful and that might not be at the threshold where the government would like care."
-- `(no ticker)`: [Eric Balchunas on Stocks, Gold, ETFs & AI](https://www.youtube.com/watch?v=S1u5RTxsLmA) — 2026-08-07, [Eric Balchunas](../People/eric-balchunas.md): "And when there is a crisis, usually it's short-lived. And if they sold out during a dip in the past 20 years, they've been burned."
-- `(no ticker)`: [Eric Balchunas on Stocks, Gold, ETFs & AI](https://www.youtube.com/watch?v=S1u5RTxsLmA) — 2026-08-07, [Eric Balchunas](../People/eric-balchunas.md): "the Trump accounts coming are going to put the other 40% or 30%, they're going to try to get those people into stock. So, we're going to be at maybe 80 90% of all Americans."
-- `(no ticker)`: [Eric Balchunas on Stocks, Gold, ETFs & AI](https://www.youtube.com/watch?v=S1u5RTxsLmA) — 2026-08-07, [Eric Balchunas](../People/eric-balchunas.md): "the bigger thesis of my note was I think the government will end up owning equity ETFs... in China and Japan they already do it regularly. It's like no big deal there. I think that's what's going to happen."
-- [SI=F](../Tickers/SI=F.md): [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "200 is on the table and possibly even more than that"
-- [SI=F](../Tickers/SI=F.md): [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "In silver, we get to 200"
-- [GC=F](../Tickers/GC=F.md): [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "I think gold's going to 10,000"
-- [GC=F](../Tickers/GC=F.md): [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk) — 2026-08-01, The Macro Dirt Podcast: "My first target is 8,000"
+- [NVDA](../Tickers/NVDA.md): [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host: "I'm hoping that like a uh a little bit of a disappointment in Nvidia might get us there. So we'll see what happens."
+- [NVDA](../Tickers/NVDA.md): [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "I think Nvidia earnings are going to be a non-event. I do. Yeah, I think it's going to be I mean as close to unch as you can be within a couple of percent."
+- [XLE](../Tickers/XLE.md): [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "I think any dips down to 60 are going to be bought by institutions just given the way that's trading versus the oil market."
+- [GC=F](../Tickers/GC=F.md): [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "if it trades below 4500, I don't like it. It's got to hold 4500."
+- [GC=F](../Tickers/GC=F.md): [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "So that's the kind of move that I think that we could be in for with gold."
+- [DX-Y.NYB](../Tickers/DX-Y.NYB.md): [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "dollar looks like it's setting up for a bounce here. It does. I am flat here."
+- [BTC-USD](../Tickers/BTC-USD.md): [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "There's room up to yet next resistance level at 100K. That's the last peak before it collapsed. So, I would make a sale there if I was long."
+- [BTC-USD](../Tickers/BTC-USD.md): [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "I think it probably goes to 100 in the short term. I do."
 
 ## Recent market views
 
-- _? — ?_: [A Technical Tour with Frank Cappelleri @cappthesis](https://www.youtube.com/watch?v=emHaEtcrAuY) — 2026-07-16, The Macro Dirt Podcast: "This could easily be another, you know, sentiment wash out in the inflation zone"
-- _? — ?_: [A Technical Tour with Frank Cappelleri @cappthesis](https://www.youtube.com/watch?v=emHaEtcrAuY) — 2026-07-16, The Macro Dirt Podcast: "can't think of an instance where the broad market goes down while financials are rallying tough"
-- _? — ?_: [A Technical Tour with Frank Cappelleri @cappthesis](https://www.youtube.com/watch?v=emHaEtcrAuY) — 2026-07-16, The Macro Dirt Podcast: "I'm a bear. I'm bearish"
-- _? — ?_: [A Technical Tour with Frank Cappelleri @cappthesis](https://www.youtube.com/watch?v=emHaEtcrAuY) — 2026-07-16, The Macro Dirt Podcast: "I do think rates are going lower"
-- _? — ?_: [SpaceX, AI and Interest Rates are TOO HIGH](https://www.youtube.com/watch?v=0JS8MCvpqoE) — 2026-07-02, The Macro Dirt Podcast: "The vast majority of the behavior that you actually see in the stock market is at minimum equity funded"
-- _? — ?_: [SpaceX, AI and Interest Rates are TOO HIGH](https://www.youtube.com/watch?v=0JS8MCvpqoE) — 2026-07-02, The Macro Dirt Podcast: "rates are far too high"
+- _? — ?_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "The evidence is building that there is a supply deficit story that's very bullish in copper."
+- _? — ?_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "However, I also have a tough time being short because the fundamentals are really, really good. You know, with, you know, with all this AI stuff, we're going to need a shitload of copper over the next 10 years."
+- _? — ?_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "For the first time in a long time, maybe ever, it's acting like a real dollar debasement hedge. I mean, it rallied on the Bessant repurchase news, the YCC news."
+- _? — ?_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "gold is back to functioning at like the debasement trade is working again. So don't be afraid to buy this thing and and see it go up further because if this mode comes back where the debasement trade works look at Bitco…"
+- _? — ?_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "I mean I have no reason to be bearish gold. I have a million reasons to be bullish gold here."
+- _? — ?_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "to me that's why the gold breakout right now is the most important move on the board."
 
 ## Source items (extracted)
 
+- 2026-08-27 — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ)
 - 2026-08-07 — [Eric Balchunas on Stocks, Gold, ETFs & AI](https://www.youtube.com/watch?v=S1u5RTxsLmA)
 - 2026-08-01 — [Tarek Saab on Gold, Silver & America's Next ETF](https://www.youtube.com/watch?v=Z__R2asKZVk)
 - 2026-07-30 — [The FOMC Shuffle](https://www.youtube.com/watch?v=Ok6Fw0saoZY)

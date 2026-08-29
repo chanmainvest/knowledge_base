@@ -1,16 +1,16 @@
 # HG=F — Copper
 
-**22 extracted prediction(s)** across 7 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 20 neutral).
+**26 extracted prediction(s)** across 7 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 24 neutral).
 
 ## The debate
 
-The honest way to describe the copper debate in this corpus is that there isn't one — at least not a real fight. The tally reads 2 bullish, 0 bearish, and 20 neutral, which means the story isn't bulls versus bears so much as a small handful of committed bulls versus a large crowd that hasn't weighed in at all. Nobody in the record turned bearish, and nobody changed their mind in either direction across the summer of 2026; the calls all stack in the same direction, differing only in conviction and specificity.
+The striking thing about the copper debate in this record is how lopsided it is: two bullish calls, zero bearish ones, and a large block of twenty-four neutral voices who mostly declined to commit. The bull case, as laid out, is structural rather than cyclical. It starts with Ian Harris, who argued on June 18, 2026 that "copper is no longer just trading like Dr. Copper," but instead against "a structural deficit that is anticipated and an insatiable demand" ([Ian Harris](../People/ian-harris.md)). George Noble followed days later, on June 23, with a one-word direction — "Higher" — pointing straight at supply-demand math and dismissing the prevailing doom narrative ([George Noble](../People/george-noble.md)).
 
-The timeline starts with [George Noble](../People/george-noble.md), who on June 23 answered the price question with a flat "Higher," pointing to the supply-demand numbers and invoking the Doomberg framing — the argument that the doom case misses the physical deficit. By early August the tone had shifted from directional to descriptive: on the August 8 show, host Daryl observed that copper "hasn't had the same type of move that gold and silver has had" and arguably saw less speculation, a point [Patrick Karim](../People/patrick-karim.md) confirmed while noting copper "remains in a cleaner long-term uptrend." That exchange is the closest thing to skepticism on the page — not bearish, just a remark that copper has been the laggard in the metals complex. Five days later, [Ian Harris](../People/ian-harris.md) was bullish but cagey about it, arguing that big players won't say it too loud "because the prices go up on everything," implying quiet accumulation is already underway and that open cheerleading would erode the entry.
+Through August, the bull case only got more developed. Harris returned on August 13 with a subtler observation: that the players accumulating copper are deliberately quiet about it — "they know if they say it too loud, the prices go up on everything" ([Ian Harris](../People/ian-harris.md)) — which reframes the rally as stealth positioning rather than crowd-chasing. Unnamed speakers on August 26 filled in the thesis itself: copper at all-time highs, aluminum following, mine supply that takes "up to 10, 15 years" from discovery to production, and a two-decade shift from a fossil-fuel economy to an electrified one underpinning demand. Nomi Prins put the simplest stake in the ground on August 23: "Copper to $7" ([Nomi Prins](../People/nomi-prins.md)), a clean price target where others offered a narrative.
 
-The most concrete number in the record came from [Nomi Prins](../People/nomi-prins.md) on August 23: "Copper To $7." Her stance wasn't tagged in the data, but a $7 target is functionally a bullish call, and it stands alone as the only explicit price level anyone put on the table — notably, the digest offers no reasoning attached to it. The structural bull case was laid out by unnamed speakers on August 26, who cited copper at "all-time high prices," the 10-to-15-year lead time to bring a new mine from discovery to production, and the two-decade shift from a fossil-fuel economy toward electrification — the classic slow-supply, secular-demand argument for why the move has legs.
+The closest thing to a counterweight comes not from bears but from a relative-value argument. On August 8, host Daryl noted that copper "hasn't had the same type of move that gold and silver has had," suggesting there was "arguably less speculation" in it — a framing confirmed by Patrick Karim, who allowed that copper "remains in a cleaner long-term uptrend" ([Patrick Karim](../People/patrick-karim.md)). That's the actual fault line here: not bull versus bear, but whether copper is a lagging catch-up trade still validating its uptrend, or a structural repricing already deep into its move. Notably, even the cautious voices in that exchange stop short of skepticism — the hedge is about speculation, not direction.
 
-Read as a whole, the shape of the debate is a one-sided drumbeat: a structural supply-demand thesis (Noble, the August 26 speakers), a behavioral accumulation thesis (Harris), and a chart-plus-target camp (Karim, Prins). The only counterweight on record is Daryl's observation that copper lagged gold and silver — which cuts both ways, reading either as confirmation copper isn't the speculative favorite or as evidence the big move hasn't happened yet. With twenty of twenty-two recorded stances neutral, this page is thin, and readers should treat the bullish consensus label with some caution: it reflects the enthusiasm of a few speakers rather than a crowded, tested debate.
+What's missing is as telling as what's there. Nobody in the record argues the bear side — no demand-destruction case, no recession hedge, no "the deficit is priced in" rebuttal. Harris's evolution between June and August is the only movement worth noting, and it runs toward conviction, from deficit thesis to observing quiet accumulation. Readers should also know that two of the most detailed bullish quotes (the August 26 remarks) are unattributed in this digest, so the strongest supply-side arguments currently lack a named champion. On this evidence, copper is a consensus-bullish name where dissent simply hasn't been recorded — which is a coverage gap, not proof the bear case doesn't exist.
 
 ## Themes
 
@@ -22,7 +22,7 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 |---|---:|
 | Bullish | 2 |
 | Bearish | 0 |
-| Neutral / watch | 20 |
+| Neutral / watch | 24 |
 
 ## Voices on this ticker
 
@@ -56,6 +56,10 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 - **David Lin** — [How High Can Gold Go? Why A ‘Major Debt Crisis’ Reckoning Is Inevitable \| Ryan …](https://www.youtube.com/watch?v=NBToObvXTmI) — 2026-07-03, David Lin: "It's not just gold. It's It's you're seeing it in copper. You're seeing it in in uh silver. You're seeing it in many of these hard assets that are difficult to come by."
 - **Resource Talks** — [$4.6B Copper Project in BC, But Can the Capex Be Funded? \| Surge Copper CEO Int…](https://www.youtube.com/watch?v=CvML35iIl2k) — 2026-06-29, Resource Talks: "there's going to be equilibrium prices are maybe a lot higher than where where we are"
 - **George Noble** (action=`buy`, dir=`up`, tf=`unspecified`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "Higher. I mean, you look at all the numbers, you know, doomberg and everything, all the rest and the supply demand higher."
+- **David Lin** — [The Next Asset To 3x Is Driven By Insane Supply Shock \| Ian Harris](https://www.youtube.com/watch?v=K1EYafiD8BM) — 2026-06-18, David Lin: "The Next Asset To 3x Is Driven By Insane Supply Shock"
+- **David Lin** — [The Next Asset To 3x Is Driven By Insane Supply Shock \| Ian Harris](https://www.youtube.com/watch?v=K1EYafiD8BM) — 2026-06-18, David Lin: "the fact that copper is at above 650 right now a pound um what is that telling you about the future prospects of uh economic growth"
+- **David Lin** — [The Next Asset To 3x Is Driven By Insane Supply Shock \| Ian Harris](https://www.youtube.com/watch?v=K1EYafiD8BM) — 2026-06-18, David Lin: "The Next Asset To 3x Is Driven By Insane Supply Shock"
+- **Ian Harris** (dir=`up / bullish`) — [The Next Asset To 3x Is Driven By Insane Supply Shock \| Ian Harris](https://www.youtube.com/watch?v=K1EYafiD8BM) — 2026-06-18, [Ian Harris](../People/ian-harris.md): "copper is no longer just trading like Dr. Copper. Uh it's trading to a structural deficit that is anticipated and an insatiable demand that won't care about price"
 
 ## Analysts covering this ticker
 
@@ -71,12 +75,12 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
-- 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
 - 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
@@ -93,6 +97,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 - 2026-07-03 — [How High Can Gold Go? Why A ‘Major Debt Crisis’ Reckoning Is Inevitable \| Ryan King](https://www.youtube.com/watch?v=NBToObvXTmI) (David Lin)
 - 2026-06-29 — [$4.6B Copper Project in BC, But Can the Capex Be Funded? \| Surge Copper CEO Interview](https://www.youtube.com/watch?v=CvML35iIl2k) (Resource Talks)
 - 2026-06-23 — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) (The Macro Dirt Podcast)
+- 2026-06-18 — [The Next Asset To 3x Is Driven By Insane Supply Shock \| Ian Harris](https://www.youtube.com/watch?v=K1EYafiD8BM) (David Lin)
 
 ---
 _Page reflects DB state at generation time. Regenerate via `uv run python scripts/build_llm_wiki.py`._

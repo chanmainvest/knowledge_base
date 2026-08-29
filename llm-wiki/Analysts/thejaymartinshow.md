@@ -6,18 +6,23 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 6
-- **Items with predictions**: 3
-- **Predictions**: 16
-- **Market views**: 9
+- **Extracted items**: 7
+- **Items with predictions**: 4
+- **Predictions**: 24
+- **Market views**: 22
 
 **Most-called tickers:**
 
-- [GC=F](../Tickers/GC=F.md) (4)
+- [GC=F](../Tickers/GC=F.md) (5)
 - [^GSPC](../Tickers/^GSPC.md) (2)
 - [JPY=X](../Tickers/JPY=X.md) (2)
 - [SI=F](../Tickers/SI=F.md) (2)
 - [^TYX](../Tickers/^TYX.md) (1)
+- `USDTRY=X` (1)
+- `EEM` (1)
+- [CL=F](../Tickers/CL=F.md) (1)
+- [^TNX](../Tickers/^TNX.md) (1)
+- [DX-Y.NYB](../Tickers/DX-Y.NYB.md) (1)
 
 ## Stance distribution (predictions)
 
@@ -25,7 +30,7 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 0 |
 | Bearish | 0 |
-| Neutral / watch | 16 |
+| Neutral / watch | 24 |
 
 ## Recent notable calls
 
@@ -40,12 +45,12 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "He explains why a nearly free Chinese AI model is now attacking the growth that holds the whole thing up"
-- _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "the one number that signals when the machine starts to break"
+- _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "why Washington's proposed ban could make it worse"
 - _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "The machine that broke the economy in 2008 has been rebuilt — and this time it's made of AI."
 - _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "Jay breaks down the $2 trillion in promised future payments that Microsoft, Oracle, Google and Amazon are counting as guaranteed revenue, why those promises come from companies that lose billions every year"
 - _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "how the same structure powered the housing bubble — which actually died in 2006, while prices were still at record highs"
-- _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "why Washington's proposed ban could make it worse"
+- _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "He explains why a nearly free Chinese AI model is now attacking the growth that holds the whole thing up"
+- _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "the one number that signals when the machine starts to break"
 
 ## Source items (extracted)
 
@@ -55,6 +60,7 @@ _No URL / bio in DB channel metadata._
 - 2026-07-18 — [July 24th: The Day China Reveals Gold’s Real Price](https://www.youtube.com/watch?v=hHNDgjan15c)
 - 2026-07-11 — [The Hidden Machine Keeping the Dollar Alive Is Breaking](https://www.youtube.com/watch?v=V3uGNl3qreE)
 - 2026-06-27 — [The Dollar’s Replacement Won’t Be China](https://www.youtube.com/watch?v=jGG-hgqOV0U)
+- 2026-06-20 — [Turkey Just Sold Its Gold — Here's Why That Should Scare You](https://www.youtube.com/watch?v=pncMEKuR-g8)
 
 ---
 _Page reflects DB state at generation time._

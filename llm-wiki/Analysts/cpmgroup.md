@@ -6,18 +6,17 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 13
+- **Extracted items**: 14
 - **Items with predictions**: 6
 - **Predictions**: 43
-- **Market views**: 41
+- **Market views**: 50
 
 ## People on this channel
 
 (hosts, guests and solo authors — each person's appearances across all shows are merged on their own People page)
 
 - [Jeffrey Christian](../People/jeffrey-christian.md) — 3 appearance(s) as guest/solo
-- [CPM Group analyst](../People/cpm-group-analyst.md) — 1 appearance(s) as guest
-- [CPM Group speaker](../People/cpm-group-speaker.md) — 1 appearance(s) as guest
+- [CPM Group analyst](../People/cpm-group-analyst.md) — 2 appearance(s) as guest
 - [Jeffrey Kushin](../People/jeffrey-kushin.md) — 1 appearance(s) as guest
 
 **Most-called tickers:**
@@ -59,12 +58,12 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "Jeff explains why financial markets interpreted the inflation report through the lens of Federal Reserve interest rates."
-- _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "He also discusses why the relationship between rates and precious metals prices is not as simple as many investors assume."
 - _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "Jeff explains why the 1999 central bank gold agreement did not cause that price surge."
-- _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "He then revisits the dramatic 1999 gold rally, providing details and explaining why that is not what is happening this year."
 - _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "He then discusses why political conflict, weaker economic conditions, persistent inflation, and the U.S. election could support stronger gold and silver investment demand during the final four months of 2026."
 - _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "In this presentation, Jeffrey Christian of CPM Group provides a precious metals update following an extremely volatile morning in gold, silver, platinum, and palladium. Gold fell as low as $3,990 before rebounding after…"
+- _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "Jeff explains why financial markets interpreted the inflation report through the lens of Federal Reserve interest rates."
+- _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "He also discusses why the relationship between rates and precious metals prices is not as simple as many investors assume."
+- _? — ?_: [Gold Tests $4,000 as Silver Falls Below $58: This Is What Happens Next](https://www.youtube.com/watch?v=o-FOwKtBoTA) — 2026-07-14, CPM Group: "He then revisits the dramatic 1999 gold rally, providing details and explaining why that is not what is happening this year."
 
 ## Source items (extracted)
 
@@ -78,6 +77,7 @@ _No URL / bio in DB channel metadata._
 - 2026-07-10 — [Gold And Silver ALERT: Prices Under Pressure](https://www.youtube.com/watch?v=8b3o8gWKdeQ)
 - 2026-07-07 — [Gold And Silver Market Update: The Real Reason Investors Are Selling](https://www.youtube.com/watch?v=VwM4Z2yXxD0)
 - 2026-06-30 — [Gold And Silver Market Update: Why Interest Rate Changes May Mislead Investors](https://www.youtube.com/watch?v=-6Zt6_Rj4EQ)
+- 2026-06-26 — [The Real Reason Gold and Silver Prices Are Dropping: How Low Can They Go?](https://www.youtube.com/watch?v=YWeAUtiILYM)
 - 2026-06-23 — [Gold And Silver Price WARNING: New Risks Are Building Fast!](https://www.youtube.com/watch?v=O-RRUlGQb6o)
 - 2026-06-19 — [Why Gold and Silver Prices Are Falling: Is Now The Time To Buy?](https://www.youtube.com/watch?v=z1btQrMgRwo)
 - 2026-06-16 — [Gold And Silver Market Update: How Low Before Buyers Return](https://www.youtube.com/watch?v=W1jdQOS8Lu8)

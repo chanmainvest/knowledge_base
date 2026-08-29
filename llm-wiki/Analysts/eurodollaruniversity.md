@@ -6,19 +6,18 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 52
+- **Extracted items**: 53
 - **Items with predictions**: 17
 - **Predictions**: 75
-- **Market views**: 176
+- **Market views**: 182
 
 ## People on this channel
 
 (hosts, guests and solo authors — each person's appearances across all shows are merged on their own People page)
 
 - [Jeff Snider](../People/jeff-snider.md) — 9 appearance(s) as host
-- [Jeff](../People/jeff.md) — 2 appearance(s) as guest
+- [Eurodollar University guest Jeff](../People/eurodollar-university-guest-jeff.md) — 2 appearance(s) as guest
 - [Steve](../People/steve.md) — 2 appearance(s) as guest
-- [Jeff (Jeoff)](../People/jeff-jeoff.md) — 1 appearance(s) as guest
 - [Jim Zelter](../People/jim-zelter.md) — 1 appearance(s) as guest
 - [Steve Van Metre](../People/steve-van-metre.md) — 1 appearance(s) as guest
 
@@ -60,14 +59,14 @@ _No URL / bio in DB channel metadata._
 - [^TNX](../Tickers/^TNX.md): [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) — 2026-08-24, Eurodollar University: "using the 10-year term premium estimates that the Federal Reserve Bank of New York has calculated, they have remained relatively low and broadly flat over the past several years"
 - [^TYX](../Tickers/^TYX.md): [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) — 2026-08-24, Eurodollar University: "If any of that changes, we will know about it. Long-term yields will break higher relative to the front. Term premiums and inflation compensation and yield spreads will rise and do so unambiguously and persistently."
 - [^TYX](../Tickers/^TYX.md): [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) — 2026-08-24, Eurodollar University: "Long-term yields are elevated relative to the post208 era, but they have not broken decisively away from levels first reached in 2023 or really 2022 for that matter."
-- `(no ticker)`: [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) — 2026-08-24, [Ray Dalio (per Bloomberg article headline linked in description)](../People/ray-dalio-per-bloomberg-article-headline-linked-in-description.md): "dalio-says-sell-bonds-buy-gold-bitcoin-as-debt-crisis-looms"
-- `(no ticker)`: [Walmart Just Confirmed The WORST-CASE Scenario For The Economy](https://www.youtube.com/watch?v=oCRNtu3s-oU) — 2026-08-23, [Jeff](../People/jeff.md): "not only is the level of employment dropped by over 900,000, the level of full-time jobs has fallen as well"
+- `(no ticker)`: [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) — 2026-08-24, Ray Dalio (per Bloomberg article headline linked in description): "dalio-says-sell-bonds-buy-gold-bitcoin-as-debt-crisis-looms"
+- `(no ticker)`: [Walmart Just Confirmed The WORST-CASE Scenario For The Economy](https://www.youtube.com/watch?v=oCRNtu3s-oU) — 2026-08-23, Jeff: "not only is the level of employment dropped by over 900,000, the level of full-time jobs has fallen as well"
 - `(no ticker)`: [Walmart Just Confirmed The WORST-CASE Scenario For The Economy](https://www.youtube.com/watch?v=oCRNtu3s-oU) — 2026-08-23, [Steve](../People/steve.md): "There's absolutely no sign that pump prices are going to be coming down anytime soon."
 
 ## Recent market views
 
-- _? — ?_: [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) — 2026-08-24, [Ray Dalio (as summarized by Eurodollar University)](../People/ray-dalio-as-summarized-by-eurodollar-university.md): "The government knows UST demand is becoming a problem, so the argument goes, and it is quietly trying to control the bond market with buybacks before the situation gets out of control."
-- _? — ?_: [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) — 2026-08-24, [Ray Dalio (as summarized by Eurodollar University)](../People/ray-dalio-as-summarized-by-eurodollar-university.md): "Ray Dalio says the United States is approaching a debt crisis, or maybe is already in one."
+- _? — ?_: [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) — 2026-08-24, Ray Dalio (as summarized by Eurodollar University): "The government knows UST demand is becoming a problem, so the argument goes, and it is quietly trying to control the bond market with buybacks before the situation gets out of control."
+- _? — ?_: [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) — 2026-08-24, Ray Dalio (as summarized by Eurodollar University): "Ray Dalio says the United States is approaching a debt crisis, or maybe is already in one."
 - _? — ?_: [Nvidia’s Hidden Debt Risk Could Crash the ENTIRE AI Bubble](https://www.youtube.com/watch?v=O450x8yyZ-k) — 2026-08-20, Eurodollar University: "Again, bubbles really are expectations are up here and expectations about everything, the payoff in the technology and how it's put together and the roadmap to try to get there. And then reality comes in and expectation…"
 - _? — ?_: [Nvidia’s Hidden Debt Risk Could Crash the ENTIRE AI Bubble](https://www.youtube.com/watch?v=O450x8yyZ-k) — 2026-08-20, Eurodollar University: "this is not about private credit in the same way that the 2008 crisis wasn't really about subprime mortgages. Subprime mortgages were just where the questions started to be asked."
 - _? — ?_: [Nvidia’s Hidden Debt Risk Could Crash the ENTIRE AI Bubble](https://www.youtube.com/watch?v=O450x8yyZ-k) — 2026-08-20, Eurodollar University: "AI is going to be a worldchanging technology. It's going to be a huge success for somebody or a bunch of somebody's."
@@ -100,7 +99,7 @@ _No URL / bio in DB channel metadata._
 - 2026-07-22 — [Europe’s 20-Year Economic Collapse Is Finally Impossible to Hide](https://www.youtube.com/watch?v=WhNvNwxV_qA)
 - 2026-07-21 — [BREAKING: The Private Credit Crisis Just Reached Amazon](https://www.youtube.com/watch?v=lSLkb3BB_0M)
 - 2026-07-19 — [The Oil Market and Yield Curve Just Did Something Really Strange](https://www.youtube.com/watch?v=Rl_wTYKfiyg)
-_…and 27 more._
+_…and 28 more._
 
 ---
 _Page reflects DB state at generation time._

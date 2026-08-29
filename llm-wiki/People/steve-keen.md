@@ -1,10 +1,12 @@
-# Steve Keen (經濟學家，由作者引用)
+# Steve Keen
 
 **Role:** Economist
 
-Steve Keen is an Australian economist who built his reputation by attacking the mainstream from the outside: he is best known as the author of *Debunking Economics*, a sustained critique of neoclassical orthodoxy, and as a debt-focused thinker working in the tradition of Hyman Minsky and Irving Fisher. His central argument — that private debt accumulation, not equilibrium or rational expectations, drives booms and busts — put him among the small group of economists widely credited with flagging the conditions that produced the 2008 financial crisis. He has also argued for unconventional remedies, most famously some form of "modern debt jubilee," using money creation to relieve household debt directly rather than through bank channels.
+Steve Keen is an economist best known as one of the loudest institutional critics of neoclassical economics — a self-styled heretic whose work draws more on Hyman Minsky and Irving Fisher's debt-deflation tradition than on the equilibrium models he made his name attacking. His general reputation, built over decades of public writing and books like *Debunking Economics*, rests on the argument that private debt accumulation, not exotic financial products alone, is the engine of financial crises — a position that put him among the heterodox economists widely credited with warning about the 2008 crash before it happened. That is the broad-strokes portrait, and it comes from public knowledge rather than the sourced record here.
 
-That is the widely-known portrait. What this corpus cannot supply is a track record of his own calls: the digest records no dated stances, no asset-class positions, and no topic timelines for Keen — a stance mix of zero across the board. He appears here purely as a cited authority, meaning writers in this corpus borrow his debt-deflation framework rather than quoting forecasts from him. It's worth saying plainly rather than dressing up: there is no evidence in this material of his views shifting over time, and any claim about whether he has "turned" on anything would need primary sources this digest doesn't contain.
+Beyond that, the honest answer is that this page is running on fumes. The digest behind it contains no dated calls, no stances on any asset or policy, and no timeline of positions — nothing, in other words, on the questions a reader of an investment research corpus actually cares about: what did he recommend, when did he say it, and did he change his mind? The stance tally reads zero across bullish, bearish and neutral, which is a coverage gap, not a profile of a man famous for taking strident positions.
+
+So treat this as a stub. Keen is clearly a figure worth tracking in a corpus like this — his debt-first framing makes him a recurring contrarian reference point in macro debates — but until the timeline data is filled in, any specific claim about when he turned on this asset or endorsed that policy would be invented, and this page won't do that.
 
 ## At a glance
 

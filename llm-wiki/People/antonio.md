@@ -1,22 +1,29 @@
 # Antonio
 
+**interview guest (2x)**
+
 _No finance-industry bio established (LLM bio unavailable or not a finance professional); the page below is DB-derived only._
 
-Antonio appears in this corpus as a junior-mining markets commentator, and almost everything on record comes from a single snapshot: an August 22, 2026 episode of a weekly roundup format, "6 Junior Mining Stocks That Spiked This Week & 6 That Crashed" [6 Junior Mining Stocks That Spiked This Week & 6 That Crash…](https://www.youtube.com/watch?v=USmJExN-MEg). All six captured stances are neutral, which says as much about the format as about the man — the weekly spike-and-crash recap is inherently descriptive work, a trader's tape-reading exercise rather than a thesis vehicle. There is no documented bullish or bearish call anywhere in the digest, and no role or affiliation listed, so the honest opening is that this is a portrait sketched from one week of tape.
+Antonio is a recurring interview guest on *Resource Talks* — two appearances on the record — but everything captured here comes from a single episode dated August 22, 2026, "6 Junior Mining Stocks That Spiked This Week & 6 That Crash…" ([6 Junior Mining Stocks That Spiked This Week & 6 That Crash…](https://www.youtube.com/watch?v=USmJExN-MEg)). That's the entire evidentiary base for this page, and it's worth stating plainly up front: one broadcast, six logged stances, all of them neutral. Whatever he said on his other visit isn't reflected in the material below, so any read on him as a thinker has to be drawn from this one snapshot rather than a track record.
 
-What that week shows is a commentator fluent in the metals complex. He opened with the macro tape — a third straight week of gains for gold and silver, gold up 5.2% to 4,600 and silver up 6.6% to 69, with silver "keeps outp"acing gold — and framed it through Lyn Alden's "nothing stops this train" line on money printing and a rising money supply [6 Junior Mining Stocks That Spiked This Week & 6 That Crash…](https://www.youtube.com/watch?v=USmJExN-MEg). He then translated the metals move into the junior-miner proxies: GDXG, the gold juniors ETF, up 11% on the week, with the silver juniors ETF SILG up alongside it [6 Junior Mining Stocks That Spiked This Week & 6 That Crash…](https://www.youtube.com/watch?v=USmJExN-MEg). The Alden reference is the only ideological tell in the record — a monetary-debasement framing — but Antonio stops well short of turning it into a call.
+What the episode shows is a commentator who works by numbers and mechanics rather than verdicts. He opens on the metals tape — a third straight week of gains for gold and silver, gold up 5.2% on the week to 4,600, silver up 6.6% at 69 and continuing to outpace ([6 Junior Mining Stocks That Spiked This Week & 6 That Crash…](https://www.youtube.com/watch?v=USmJExN-MEg)) — then pivots to the leveraged end of the trade, where the gold junior miners ETF (GDXG) jumped 11% on the week and the silver juniors ETF (SILG) rose as well ([6 Junior Mining Stocks That Spiked This Week & 6 That Crash…](https://www.youtube.com/watch?v=USmJExN-MEg)). The macro frame he reaches for is Lyn Alden's "nothing stops this train" line on money printing and an increasing money supply ([6 Junior Mining Stocks That Spiked This Week & 6 That Crash…](https://www.youtube.com/watch?v=USmJExN-MEg)). From there he goes stock by stock: one volatile name, he noted, would "probably keep coming back in the list" given its swings ([6 Junior Mining Stocks That Spiked This Week & 6 That Crash…](https://www.youtube.com/watch?v=USmJExN-MEg)); on PRCG he dissects a $6 million raise by asking who is actually taking the paper — Argonaut Securities and clients getting up to $4 million of it ([6 Junior Mining Stocks That Spiked This Week & 6 That Crash…](https://www.youtube.com/watch?v=USmJExN-MEg)); and on TMCR he poses the question of how much selling pressure could build while all of this happens before the Msabi project is even commissioned ([6 Junior Mining Stocks That Spiked This Week & 6 That Crash…](https://www.youtube.com/watch?v=USmJExN-MEg)).
 
-The more distinctive feature is his attention to placement mechanics and supply overhangs at the single-stock level. On B.V he noted he'd expected it to "keep coming back in the list given how volatile it was" [6 Junior Mining Stocks That Spiked This Week & 6 That Crash…](https://www.youtube.com/watch?v=USmJExN-MEg). On PRCG he dug into who was taking a $6 million raise — Argonaut Securities and clients getting up to $4 million of it, a detail most retail-facing recaps skip [6 Junior Mining Stocks That Spiked This Week & 6 That Crash…](https://www.youtube.com/watch?v=USmJExN-MEg). And on TMCR he posed the right overhang question: how much selling pressure an imminent raise could create ahead of the Msabi project being commissioned [6 Junior Mining Stocks That Spiked This Week & 6 That Crash…](https://www.youtube.com/watch?v=USmJExN-MEg). That's diligence-flavored commentary — who's funding the company, and what dilution does to the chart.
-
-As for how his views have moved over time: the corpus can't say. Every data point is from the same date, so there is no trajectory to chart — no prior gold call to compare against the August strength, no stance reversal to narrate. The verdict the data supports is modest but not empty: Antonio is a working junior-mining commentator with a debasement-leaning macro lens and a genuine interest in financing structure, captured here in neutral, recap mode. Anyone wanting to know whether he turns bullish or bearish will need coverage beyond this single week.
+The stance ledger — zero bullish, zero bearish, six neutral — is the most telling thing here. Junior-mining commentary tends to run hot, and a guest who spends a week when gold junior ETFs jump 11% cataloguing placement structures and pre-commissioning overhangs, without stamping a buy on anything, is a specific kind of voice: a describer of flows and float rather than a promoter of the move. Whether that neutrality is a permanent posture or just this week's weather can't be settled from this digest — the timeline contains a single date, so no drift in his views is visible, only a consistent method on display.
 
 ## At a glance
 
-- **Appearances**: 0
-- **Shows**: 
+- **Appearances**: 2 (2026-06-26 → 2026-08-27)
+- **Shows**: Resource Talks
 - **Extracted calls**: 3 predictions, 6 market views
 - **Topics with opinions**: 4
 - **Stance split**: 0 bullish / 0 bearish / 6 neutral
+
+## Appearances
+
+| Date | Show | Role | Item |
+|---|---|---|---|
+| 2026-08-27 | Resource Talks | guest | [New Gold Discovery Between Two Major Mines, But Is It Conti…](https://www.youtube.com/watch?v=kI8I2U2jUds) |
+| 2026-06-26 | Resource Talks | guest | [15,000m Drill Program in BC, But Can the Grades Get Better?…](https://www.youtube.com/watch?v=BgR0bNaPWlE) |
 
 ## Opinions by topic, over time
 

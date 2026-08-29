@@ -62,7 +62,6 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 Topics where this person's current stance conflicts with another person's:
 
 - [Precious Metals (Gold, Silver, Platinum, Palladium)](../Themes/precious-metals.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md), [Val Zlatev](../People/val-zlatev.md), [Brent Johnson](../People/brent-johnson.md)
-- [GC=F](../Tickers/GC=F.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md)
 - [SI=F](../Tickers/SI=F.md) — opposite: [Jeffrey Christian](../People/jeffrey-christian.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._

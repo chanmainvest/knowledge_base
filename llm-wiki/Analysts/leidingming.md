@@ -15,19 +15,19 @@
 
 | Direction | Count |
 |---|---:|
-| bearish | 2 |
 | bullish | 2 |
-| mixed | 1 |
+| bearish | 2 |
 | neutral | 1 |
+| mixed | 1 |
 
 ## Recent market views
 
+- _? — ?_: [中美非零和博弈 勿陷二囚困局](https://www.master-insight.com/article/49796) — 2026-08-27, 雷鼎鳴: "中美兩個大國互鬥非常危險，美國為所謂「捍衞台灣」而跟中國大打出手，更是找死的最愚蠢方法。"
 - _? — ?_: [中美非零和博弈 勿陷二囚困局](https://www.master-insight.com/article/49796) — 2026-08-27, 雷鼎鳴: "薩克斯一直對世界大局逐步往核戰的方向移動甚具戒心。"
 - _? — ?_: [中美非零和博弈 勿陷二囚困局](https://www.master-insight.com/article/49796) — 2026-08-27, 雷鼎鳴: "薩克斯作為經濟學家，當然明白中美貿易對雙方都有好處，中美博弈並非零和遊戲，可以雙贏，只要看看加州矽谷從中國賺到多少錢便可知雙贏完全可能。"
 - _? — ?_: [中美非零和博弈 勿陷二囚困局](https://www.master-insight.com/article/49796) — 2026-08-27, 雷鼎鳴: "我基本上同意薩克斯觀點，中美雙方博弈可共贏，不是零和。"
 - _? — ?_: [中美非零和博弈 勿陷二囚困局](https://www.master-insight.com/article/49796) — 2026-08-27, 雷鼎鳴: "抱此策略，危機死局可免。"
-- _? — ?_: [中美非零和博弈 勿陷二囚困局](https://www.master-insight.com/article/49796) — 2026-08-27, 雷鼎鳴: "中美兩個大國互鬥非常危險，美國為所謂「捍衞台灣」而跟中國大打出手，更是找死的最愚蠢方法。"
-- _geopolitical/macro — bearish_: [拆解伊強弱底牌 對美博弈佔上風](https://www.master-insight.com/article/48968) — 2026-06-25, 作者: "再加上以色列根本不想停戰，中東離開真正的和平仍很遙遠。"
+- _commodities — bullish_: [拆解伊強弱底牌 對美博弈佔上風](https://www.master-insight.com/article/48968) — 2026-06-25, 作者: "第3，美國今年及兩年後都要選舉，伊朗一把油價推高，便可威脅美國的政客拿不到選票，這是對美國很大的震懾。"
 
 ## Source items (extracted)
 

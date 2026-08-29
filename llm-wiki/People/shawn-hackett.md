@@ -43,7 +43,7 @@ _Oldest → newest within each topic. Arrows show each call's stance; ⚠️ mar
 Topics where this person's current stance conflicts with another person's:
 
 - [Agriculture & Softs](../Themes/agriculture-food.md) — opposite: [Patrick Ceresna](../People/patrick-ceresna.md), [Brent Johnson](../People/brent-johnson.md)
-- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [高天佑](../People/person-015.md), [aminvest](../People/aminvest.md), [何啟聰](../People/person-002.md), [Jeff Snider](../People/jeff-snider.md), [Joseph](../People/joseph.md), [陳坤耀](../People/person-014.md)
+- [China & Hong Kong Equities](../Themes/china-hk-equities.md) — opposite: [高天佑](../People/person-010.md), [何啟聰](../People/person-001.md), [Jeff Snider](../People/jeff-snider.md), [Joseph Wang](../People/joseph-wang.md), [陳坤耀](../People/person-009.md), [劉強東](../People/person-002.md)
 
 _Full both-sides breakdown: [Syntheses/Disagreements](../Syntheses/Disagreements.md)._
 

@@ -4,11 +4,11 @@
 
 ## The debate
 
-The identified debate around Goldman Sachs in this corpus is thin, and what little exists is a valuation argument rather than a business argument. On June 17, 2026, [aminvest](../People/aminvest.md) was lukewarm-positive on the franchise itself — "Goldman Sachs (GS)我也覺得不俗," roughly "I think GS is pretty decent" — but declined to chase it, saying the share price was too elevated to get in ("股價偏高，較難入手"). Six days later, [George Noble](../People/george-noble.md) was blunter: asked about "Goldman Sachs at $1,100 a share. Is that a stock you're picking," the recorded answer was "No, not interested."
+The debate around Goldman Sachs in this corpus is barely a debate at all — it's a shared shrug. Nobody here is bearish on the franchise; they're bearish on the price tag. When George Noble was asked directly on June 23, 2026 whether Goldman at $1,100 a share was a pick for him, his answer was flat: "not interested" [George Noble](../People/george-noble.md). That's the lone outright negative call, and notably it wasn't an argument about the business — it was a pass on the entry point.
 
-That is really the shape of the debate: nobody with a name attached is making a bear case on Goldman's business — the reluctance is about price. Both June calls cluster around the same idea of a decent firm at an expensive level. The corpus formally labels consensus bearish (zero bullish, one bearish, two neutral), but "bearish" oversells what's actually here; this reads closer to "no buyers at these levels" than to a conviction short thesis.
+Six days earlier, aminvest had landed in almost exactly the same place from the other direction: GS "也不俗" — not bad at all — but the stock price is on the high side and hard to get in (June 17, 2026). Read together, that's the whole shape of the argument within a single week in June: quality conceded, valuation contested. There's no bull making the growth or capital-returns case to counterbalance; the conversation is entirely about whether $1,100 is a price worth paying for a business everyone already agrees is good. That's a narrow debate, and an awkward one for anyone looking for a genuine bull-bear split.
 
-The bull side exists only as an orphan. On August 13, 2026, an unattributed voice in the digest offered "他们将获得其中7%的份额... 他们会大赚一笔" — "they'll get a 7% share of it... they'll make a killing" — which sounds constructive on its face, but with no named speaker, no stance recorded, and no context for what the 7% refers to, it can't responsibly be counted as a bull call. And there is no mind-changing to report: each speaker in this set appears exactly once, so the timeline is flat — aminvest's price caution in mid-June, Noble's pass a week later, and an unnamed favorable fragment in August. The honest summary is that coverage is sparse, the named voices are price-skeptics rather than thesis bears, and the lone bullish note carries no signature.
+The only bullish-sounding note comes late and anonymously: an August 13, 2026 remark — "they'll get 7% of it... they'll make a killing" — but the digest doesn't attribute it to a named speaker or specify what the 7% refers to, so it can't be meaningfully weighed against the rest, and it doesn't move the tally (0 bullish / 1 bearish / 2 neutral). There's also no mind-change arc to trace: nobody flipped, nobody doubled down, nobody hedged out over the period covered. Coverage this thin — three calls, one of them unattributed — means the honest summary is less a verdict than a standoff: the one named skeptic won't touch it at $1,100, the neutral likes it but won't chase, and the lone bullish whisper is too vague to build on.
 
 ## Themes
 
@@ -25,13 +25,13 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 ## Voices on this ticker
 
 - [George Noble](../People/george-noble.md)
-- [aminvest](../People/aminvest.md)
+- aminvest
 
 ## Notable calls
 
 - **David Lin** — [Massive Money Printing Alert: Next Asset To 'Vertical Moonshot' \| Clem Chambers](https://www.youtube.com/watch?v=qEWYbiwT1tk) — 2026-08-13, David Lin: "他们将获得其中7%的份额... 他们会大赚一笔"
 - **George Noble** (action=`avoid`, dir=`unspecified`, tf=`unspecified`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "Goldman Sachs at $1,100 a share. Is that a stock you're picking or No, not interested."
-- **aminvest** (action=`watch`, dir=`unspecified`, tf=`unspecified`) — [美股市況短評 (20260617)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161328901) — 2026-06-17, [aminvest](../People/aminvest.md): "Goldman Sachs (GS)我也覺得不俗。只是股價偏高，較難入手。"
+- **aminvest** (action=`watch`, dir=`unspecified`, tf=`unspecified`) — [美股市況短評 (20260617)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-161328901) — 2026-06-17, aminvest: "Goldman Sachs (GS)我也覺得不俗。只是股價偏高，較難入手。"
 
 ## Analysts covering this ticker
 
@@ -43,12 +43,12 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
-- 2026-06-25 _bearish_ [aminvest](../People/aminvest.md): "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
 - 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 

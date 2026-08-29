@@ -1,16 +1,16 @@
 # JPY=X — USD/JPY exchange rate
 
-**37 extracted prediction(s)** across 12 channel(s). Consensus: **bullish** (1 bullish / 0 bearish / 36 neutral).
+**40 extracted prediction(s)** across 13 channel(s). Consensus: **bullish** (1 bullish / 0 bearish / 39 neutral).
 
 ## The debate
 
-The yen debate in this corpus is less a bull-versus-bear fight than a contest between a handful of committed yen bears and a large crowd waiting for a catalyst. The tally says it all: one bullish call on USD/JPY, zero bearish, and 36 neutrals. The bulls have momentum on their side — by August 22, one speaker put the pair "probably at 158 159 now" and argued it was "once again likely headed back to where we were before they started," a reference to Japanese intervention at the end of July that, in his words, "didn't hold up the yen for very long." His bottom line was blunt: "I personally think the yen is going to continue to weaken."
+The debate over USD/JPY is less a clean bull-versus-bear fight than a question of regimes: does the yen's slide resume from here, or has the mid-2026 stretch of broad dollar weakness genuinely turned the pair? [Patrick Ceresna](../People/patrick-ceresna.md) set the baseline on June 18, noting the pair was "quietly crawling above that level" and "looking like the yen may have a whole new leg down" — a fairly plain yen-weak call. By August 13 he had turned the whole thing into a timed experiment, arguing it wouldn't take more than a week or two to find out whether the dollar had meaningfully reversed or whether the yen-weakness trend would reassert itself. The MacroVoices host framed the opposing case on exactly the same conditional terms that day: if the US dollar is going to continue to weaken, the yen should rally and the dollar should break down against it.
 
-The most fully developed bull case comes from [Weston Nakamura](../People/weston-nakamura.md), who laid out a two-tier view on August 16. Near term, he sees "dollar yen 155" and the 150 handle as "kind of a floor" — downside limited. But the long-term picture is where he stakes his claim: dollar-yen 200 "sounds like a crazy figure, but it is only 40 handles away," he argued, pointing to the pair's history of "40 yen increments" of upside. Asked whether intervention could successfully cap the pair for the long term, he said "I would lean towards the latter" — that it won't, and the ceiling stays off.
+The conviction in the record sits almost entirely with the yen bears. [Weston Nakamura](../People/weston-nakamura.md), writing on August 16, saw a short-term floor around 150 to 155 on the pair but was openly skeptical that intervention could "successfully cap dollar yen for the long term," and leaned toward dollar-yen 200 as the more likely longer-term outcome — a figure he conceded "sounds like a crazy" one but noted is only 40 handles away, given the pair's history of 40-yen upside increments. An unnamed speaker was even more direct in late August: with the pair "probably at 158, 159" on August 22, he thought it was once again headed back toward pre-intervention levels and personally expected the yen to continue to weaken. He also flagged that the Treasury had intervened once at the end of July and it "didn't hold up the yen for very long." What makes his stance interesting is that it survives his own bearish-for-dollar datapoint: on August 24 he put the odds of a Bank of Japan rate hike at 88 to 90 percent for the September meeting, which falls a day or two after the Fed's. A near-certain BoJ hike, in other words, isn't scaring the yen-weak camp — either because they doubt the BoJ follows through, or because they doubt it matters.
 
-The bear side, such as it is, is entirely conditional. The MacroVoices host framed the test on August 13: "If the US dollar is going to continue to weaken, we should see the yen once again rally here." [Patrick Ceresna](../People/patrick-ceresna.md) agreed the question would resolve fast — "it won't take more than a week or two to find out whether or not the US dollar has meaningfully reversed." A week later, [Patrick (MacroVoices Trading Desk)](../People/patrick-macrovoices-trading-desk.md) elevated it to the watch item: whether "a resumption in US dollar weakness and yen strength" marks "a meaningful new trend move." Notably, nobody on this side has actually pulled the trigger — the yen-strength thesis remains an if, not a position.
+The yen-bull side, by contrast, exists almost entirely as a conditional scenario and a watch item rather than an outright call. The MacroVoices trading desk put it as a question on August 20 — will we see a resumption of US dollar weakness and yen strength marking a meaningful new trend move? "This is certainly the thing to watch." And the timeline arguably answered Ceresna's two-week test in the yen bears' favor: within days of his August 13 framing, the unnamed speaker had the pair at 158–159 and drifting back toward pre-intervention levels, which is roughly the "no meaningful reversal" outcome Ceresna described.
 
-The timeline shows one genuine mind-change and one stubborn holdout. Ceresna was still yen-bearish on June 18, observing the pair "quietly crawling above that level" and warning "the yen may have a whole new leg down"; by August 13 he had gone fully agnostic, deferring to the dollar's next move. Meanwhile, the anonymous speaker's late-August sequence is the most striking: he puts the odds of a Bank of Japan rate hike at the September meeting — which falls "a day or two after ours" — at "88 to 90%," yet still expects the yen to weaken anyway. That's the real fault line in this debate: one camp believes a near-certain BoJ hike and fresh intervention can't stop the slide toward Nakamura's 200, while the other camp has a clear falsification test — dollar weakness — and is simply waiting to see if it fires.
+Worth noting how thin the field actually is: the tracked consensus reads one bullish USD/JPY call against zero bearish ones and thirty-nine neutral stances, so the label "bullish consensus" overstates things — conviction is concentrated in a couple of voices while most analysts sit on their hands. Nobody in this record changed sides; the closest thing to a shift is Ceresna himself, who moved from June's directional "new leg down" call to mid-August agnosticism about whether the dollar had reversed. The hinges going forward are the ones the speakers named themselves: the BoJ's September decision and whether the dollar-weakness regime resumes — because on this evidence, the yen-weak thesis doesn't need the BoJ to stay on hold to work.
 
 ## Themes
 
@@ -22,12 +22,12 @@ The timeline shows one genuine mind-change and one stubborn holdout. Ceresna was
 |---|---:|
 | Bullish | 1 |
 | Bearish | 0 |
-| Neutral / watch | 36 |
+| Neutral / watch | 39 |
 
 ## Voices on this ticker
 
 - MacroVoices host
-- [Patrick (MacroVoices Trading Desk)](../People/patrick-macrovoices-trading-desk.md)
+- Patrick (MacroVoices Trading Desk)
 - [Patrick Ceresna](../People/patrick-ceresna.md)
 - [Weston Nakamura](../People/weston-nakamura.md)
 
@@ -37,7 +37,7 @@ The timeline shows one genuine mind-change and one stubborn holdout. Ceresna was
 - **David Lin** — [‘We’re In A Financial Crisis’: Treasury Readies $1 Trillion Warchest \| Danny Mo…](https://www.youtube.com/watch?v=EfKxbRuLZG0) — 2026-08-24, David Lin: "the odds for Bank of Japan to raise rates there, which again their meetings are a day or two after ours in September is 88 to 90%"
 - **George Gammon** (dir=`yen depreciation / USDJPY rising back toward prior levels`) — [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE) — 2026-08-22, George Gammon: "We're probably at 158 159 now. But you can see we're once again likely headed back to where we were before they started, which is right around 163 164."
 - **The Julia La Roche Show** (dir=`yen weaker (USD/JPY higher)`) — [Chris Whalen Answers Your Questions on the Fed, Rates & the Next Bailout](https://www.youtube.com/watch?v=BCgHELtTnog) — 2026-08-22, The Julia La Roche Show: "I personally think the yen is going to continue to weaken."
-- **Patrick (MacroVoices Trading Desk)** (dir=`watch: potential dollar weakness / yen strength`) — [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.youtube.com/watch?v=IRHWmEc1QAE) — 2026-08-20, [Patrick (MacroVoices Trading Desk)](../People/patrick-macrovoices-trading-desk.md): "will we see a resumption in US dollar weakness and yen strength marking a meaningful new trend move? This is uh certainly the thing to watch"
+- **Patrick (MacroVoices Trading Desk)** (dir=`watch: potential dollar weakness / yen strength`) — [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.youtube.com/watch?v=IRHWmEc1QAE) — 2026-08-20, Patrick (MacroVoices Trading Desk): "will we see a resumption in US dollar weakness and yen strength marking a meaningful new trend move? This is uh certainly the thing to watch"
 - **Real Vision** — [The Real Story Behind the Yen Intervention \| Weston Nakamura & Ash Bennington](https://www.youtube.com/watch?v=XFNk96CabCg) — 2026-08-16, Real Vision: "left unattended, you know, dollar yen would have already hit 200 if not for these kind of yen intervention uh caps at 152 and 160 and all that. That would have already happened anyway."
 - **Real Vision** — [The Real Story Behind the Yen Intervention \| Weston Nakamura & Ash Bennington](https://www.youtube.com/watch?v=XFNk96CabCg) — 2026-08-16, Real Vision: "should they fail, or should they abandon it all together, this joint cooperation, this FEMA program, all of that kind of stuff, then dollar yen could, you know, blast higher"
 - **Real Vision** — [The Real Story Behind the Yen Intervention \| Weston Nakamura & Ash Bennington](https://www.youtube.com/watch?v=XFNk96CabCg) — 2026-08-16, Real Vision: "I would think that over the long term, you're going to look, you're going to see dollar yen 200 instead of this being the top of, you know, USD/JPY or the floor for the yen going forward for the last for the next decade."
@@ -69,12 +69,16 @@ The timeline shows one genuine mind-change and one stubborn holdout. Ceresna was
 - **Dr Ng Ming Tak, Victor** — [樓市十一個月升11%❗️北京封資金仲升唔升❓為何銀行怕嘅唔係樓價跌❓｜4 Jul2026](https://www.youtube.com/watch?v=U5k3PlRuzM0) — 2026-07-04, Dr Ng Ming Tak, Victor: "隨時日 162 呀抽到去150都得㗎咁嗰陣時就一抽就係呢整理呢接近10個呢先至打爆你嗰啲誒"
 - **Dr Ng Ming Tak, Victor** (dir=`USD/JPY down (yen strengthens)`, tf=`any time (H2 2026)`) — [《上》下半年股市花落誰家⋯還看全球資金流向❓上半年AI做咗「發電機」❗️｜30 Jun 2026](https://www.youtube.com/watch?v=sHdkTkhzWDw) — 2026-06-30, Dr Ng Ming Tak, Victor: "Because now to a 161162 such stupid move, a central bank, once the Bank of Japan reaches these positions, even with the central bank of the United States. Fold the frame, so that means that the day ऊन this may be drawn…"
 - **Eurodollar University** (dir=`further yen weakness / USD-JPY to revisit or surpass lows over time despite intervention`) — [BREAKING: Japan Just Lost Control of Its Currency](https://www.youtube.com/watch?v=21KrmQp4FWQ) — 2026-06-29, Eurodollar University: "Japan draws a line, the market backs away, the pressure builds again, the yen returns to the same level or even surpasses it, then officials, here we are once all all over again, issue yet another warning. Rinse and rep…"
+- **George Gammon** (dir=`yen down / USDJPY up`) — [A $100 Trillion Currency Crisis Just Started (You Won't Believe This)](https://www.youtube.com/watch?v=kGK6CyiNj3g) — 2026-06-25, George Gammon: "The yen keeps going to 160, and the Ministry of Finance, or the BOJ, has to come in and defend the currency. This is not a good sign."
+- **Forward Guidance** — [A New Era Is Beginning In Markets \| Weekly Roundup](https://www.youtube.com/watch?v=kBdZAegipLM) — 2026-06-19, Forward Guidance: "now oil's rolling over, they're they're huge importer of like commodities and if you have this like deflationary impulse, they don't need to hike as much, which means you know, more more capital should come in and it sh…"
+- **Dr Ng Ming Tak, Victor** (tf=`event-driven`) — [歐洲已加息、日本亦會加、點解估計聯儲局穩定不變❓隱潛危機：全球萬億Carry Trade準備拆倉❓｜18 Jun2026](https://www.youtube.com/watch?v=HYyOHdTj5Jk) — 2026-06-18, Dr Ng Ming Tak, Victor: "日本都將佢率呢就由75上條1個percent"
 - **Patrick Ceresna** (action=`watch`, dir=`up`, tf=`short term`) — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=N7mX2NJ3nxQ) — 2026-06-18, [Patrick Ceresna](../People/patrick-ceresna.md): "here we are quietly crawling above that level. Uh looking like the yen may have a whole new leg down."
 
 ## Analysts covering this ticker
 
 - [Joseph Wang](../Analysts/fedguy12.md) (`@Fedguy12`)
 - [Figuring Out Money](../Analysts/figuringoutmoney.md) (`@FiguringOutMoney`)
+- [Forward Guidance](../Analysts/forwardguidancebw.md) (`@ForwardGuidanceBW`)
 - [George Gammon](../Analysts/georgegammon.md) (`@GeorgeGammon`)
 - [Dr Ng Ming Tak, Victor](../Analysts/latp.md) (`@LATP`)
 - [Patrick Boyle](../Analysts/pboyle.md) (`@PBoyle`)
@@ -110,6 +114,9 @@ The timeline shows one genuine mind-change and one stubborn holdout. Ceresna was
 - 2026-07-04 — [樓市十一個月升11%❗️北京封資金仲升唔升❓為何銀行怕嘅唔係樓價跌❓｜4 Jul2026](https://www.youtube.com/watch?v=U5k3PlRuzM0) (Dr Ng Ming Tak, Victor)
 - 2026-06-30 — [《上》下半年股市花落誰家⋯還看全球資金流向❓上半年AI做咗「發電機」❗️｜30 Jun 2026](https://www.youtube.com/watch?v=sHdkTkhzWDw) (Dr Ng Ming Tak, Victor)
 - 2026-06-29 — [BREAKING: Japan Just Lost Control of Its Currency](https://www.youtube.com/watch?v=21KrmQp4FWQ) (Eurodollar University)
+- 2026-06-25 — [A $100 Trillion Currency Crisis Just Started (You Won't Believe This)](https://www.youtube.com/watch?v=kGK6CyiNj3g) (George Gammon)
+- 2026-06-19 — [A New Era Is Beginning In Markets \| Weekly Roundup](https://www.youtube.com/watch?v=kBdZAegipLM) (Forward Guidance)
+- 2026-06-18 — [歐洲已加息、日本亦會加、點解估計聯儲局穩定不變❓隱潛危機：全球萬億Carry Trade準備拆倉❓｜18 Jun2026](https://www.youtube.com/watch?v=HYyOHdTj5Jk) (Dr Ng Ming Tak, Victor)
 - 2026-06-18 — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.youtube.com/watch?v=N7mX2NJ3nxQ) (Macro Voices)
 
 ---

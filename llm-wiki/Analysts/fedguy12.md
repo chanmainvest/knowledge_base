@@ -15,8 +15,7 @@ _No URL / bio in DB channel metadata._
 
 (hosts, guests and solo authors — each person's appearances across all shows are merged on their own People page)
 
-- [Joseph](../People/joseph.md) — 2 appearance(s) as guest/solo
-- [Joseph Wang](../People/joseph-wang.md) — 1 appearance(s) as guest
+- [Joseph Wang](../People/joseph-wang.md) — 2 appearance(s) as guest/solo
 
 **Most-called tickers:**
 
@@ -61,12 +60,12 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "In any case the long bond yield keeps going up and up and up and at 5.3% it it is historically high. It's its heights it's been since before the 2008 financial crisis."
-- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "First and foremost, of course, is that this is a global movement driven by the war in Iran driving up energy prices. So everywhere in the world the long bond yields are rising uh mostly because energy prices are rising."
-- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "Kevin's last performance at his FOMC meeting was very concerning because he suggested that you know maybe he's not going to target PCE. Maybe he's going to target something else that he doesn't want to tell you about."
-- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "you can say that for example the hyperscalers are issuing a lot of debt crowding out treasuries or you can say that the equity market is doing so well that 5% long bond yields are just not enough."
-- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "Besson was actually pretty candid about this at in an interview he gave with CNBC where he called this a treasury twist."
+- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "when mortgage rates were too high, you had director PY of the FHFA just, you know, command Fanny May and Freddy Mack to go out and uh buy $200 billion in mortgage bonds uh to try to lower interest rates."
+- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "the improvement was you know it lasted for some weeks but ultimately temporary. So this definitely buys time definitely very impactful. uh but unless we have some resolution there on the Iran war, I think that's it's go…"
+- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "So this is relying on the belief, the theory that for the long bond, supply and demand matter more than the expected path of Fed policy, which of course I I think that's pretty commonly accepted."
 - _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "So at the end of the day, this so far has not been successful, but really I I wouldn't sweat it because they really do have the firepower to make this work."
+- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "Besson was actually pretty candid about this at in an interview he gave with CNBC where he called this a treasury twist."
+- _? — ?_: [Markets Weekly August 22, 2026](https://www.youtube.com/watch?v=KYirz5POgZg) — 2026-08-22, Joseph Wang: "you can say that for example the hyperscalers are issuing a lot of debt crowding out treasuries or you can say that the equity market is doing so well that 5% long bond yields are just not enough."
 
 ## Source items (extracted)
 
