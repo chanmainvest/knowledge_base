@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["summary", "speakers", "market_views", "predictions", "entities",
+               "is_marketing", "media_mentions"],
+  "properties": {
+    "summary": {"type": "string"},
+    "speakers": {"type": "array", "items": {"type": "string"}},
+    "is_marketing": {
+      "type": "boolean",
+      "description": "True only if THIS TEXT is predominantly promotional material (ad, sponsor segment, trailer, subscription/course/event pitch) with little or no substantive market analysis."
+    },
+    "market_views": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["speaker", "asset_class", "direction", "horizon",
+                     "rationale", "quote"],
+        "properties": {
+          "speaker": {"type": "string"},
+          "asset_class": {"type": "string"},
+          "region": {"type": "string"},
+          "direction": {"type": "string",
+                        "enum": ["bullish", "bearish", "neutral", "mixed"]},
+          "horizon": {"type": "string",
+                      "enum": ["short", "medium", "long", "unspecified"]},
+          "confidence": {"type": "number"},
+          "rationale": {"type": "string"},
+          "quote": {"type": "string"}
+        }
+      }
+    },
+    "predictions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["speaker", "ticker", "asset_name", "action",
+                     "direction", "timeframe", "quote"],
+        "properties": {
+          "speaker": {"type": "string"},
+          "ticker": {"type": "string"},
+          "asset_name": {"type": "string"},
+          "action": {"type": "string",
+                     "enum": ["buy", "sell", "short", "hold", "watch",
+                              "long", "cover", "avoid", "none"]},
+          "direction": {"type": "string",
+                        "enum": ["up", "down", "flat", "unspecified"]},
+          "target_price": {"type": ["number", "null"]},
+          "stop_price": {"type": ["number", "null"]},
+          "timeframe": {"type": "string"},
+          "quote": {"type": "string"}
+        }
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "name"],
+        "properties": {
+          "kind": {"type": "string",
+                   "enum": ["person", "company", "country", "theme"]},
+          "name": {"type": "string"},
+          "ticker": {"type": "string"}
+        }
+      }
+    },
+    "media_mentions": {
+      "type": "array",
+      "description": "Investment/finance-related books, movies/documentaries, or academic papers that the text mentions, discusses, or recommends.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "title"],
+        "properties": {
+          "kind": {"type": "string", "enum": ["book", "movie", "paper"]},
+          "title": {"type": "string", "description": "Exact title as spoken/written."},
+          "creators": {"type": "string", "description": "Author(s) / director / researchers, if named."},
+          "year": {"type": ["integer", "null"]},
+          "speaker": {"type": "string", "description": "Who mentioned or recommended it."},
+          "quote": {"type": "string", "description": "The sentence where it is mentioned."}
+        }
+      }
+    }
+  }
+}

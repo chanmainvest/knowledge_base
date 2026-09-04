@@ -6,34 +6,44 @@
 
 This wiki is generated directly from the `knowledge_base` Postgres database: every quote, target price, and stance below is pulled from an LLM extraction of a real scraped item (YouTube transcript, HKEJ/Master Insight column, Substack/Patreon post, or blog). Each claim cites its source item by title, date, channel, and external URL.
 
+## State of the debate
+
+This corpus is a wide net with a small mesh: 932 items extracted out of 32,682 in the underlying feed — under 3% — yet that slice already yields 2,744 predictions and 3,243 market views from 162 people across 283 tickers. The honest caveat up front is that these rankings describe what the extraction captured, not everything these commentators said, and call counts measure attention rather than direction. With that said, the shape of the debate is unmistakable: this is a corpus obsessed with the monetary system itself.
+
+Gold is the loudest instrument in the room. Gold futures (GC=F) drew 232 calls — roughly 50% more than the S&P 500's 156 and double crude oil's 114 — and paired with silver at 48 calls, the precious-metals theme towers over everything else. The people driving that volume fit the pattern: Patrick Ceresna leads the corpus with 115 calls, followed by eurodollar-system critic Jeff Snider at 72, Darius Dale at 63, and dollar-milkshake theorist Brent Johnson at 60, with veteran bear Komal Sri-Kumar close behind at 57 (his name appears in transcripts as "Sree Kumar," so searches may need both spellings). The dollar index (56 calls) and the yen (40) round out a cluster that maps almost perfectly onto the debasement-versus-strong-dollar axis — the central argument of this commentariat, even though the digest's counts alone can't tell you who's currently winning it.
+
+The second tier tells you the debate is not purely monetary. Crude at 114 calls keeps energy firmly in the top three, while bitcoin at 94 calls confirms that crypto — and specifically stablecoins, per the theme list — is now a mainstream macro talking point rather than a niche. The 10-year yield (68 calls) anchors a rates-and-credit cluster that runs through an unusually deep set of themes: bonds, private credit and BDCs, and China property. Notably, AI & semiconductors appears as a full theme alongside electrification, power, uranium, and robotics, but the digest provides no per-asset call count for it — so the apparent centrality of the AI capex debate can't be quantified from these numbers, only flagged.
+
+The roster itself reveals a skew worth knowing before you read further. A single-company voice — the Surge Copper CEO, at 66 calls — ranks fourth in the entire corpus, which strongly suggests the source programming over-samples resource-sector interviews. Combined with the gold dominance, that makes this a hard-asset-heavy feed; equity-bullish and growth-oriented voices like David Woo (44 calls) are present but carry less volume. The sharpest conviction beats, by sheer repetition, are Ceresna's macro calls and the gold/dollar complex generally. What the data cannot show — and this summary will not pretend otherwise — is whether that concentration reflects correctness or merely fashion.
+
 ## Database at a glance
 
 | | |
 |---|---|
-| Total items ingested | **32,490** |
-| Items extracted (LLM) | **855** (of 32,490; 31,595 pending) |
-| Predictions extracted | **2,678** |
-| Market views extracted | **2,984** |
-| Distinct tickers with calls | **276** |
-| People with pages | **156** |
+| Total items ingested | **32,682** |
+| Items extracted (LLM) | **932** (of 32,682; 31,694 pending) |
+| Predictions extracted | **2,744** |
+| Market views extracted | **3,243** |
+| Distinct tickers with calls | **283** |
+| People with pages | **162** |
 | Channels (analysts) | **79** |
-| Published-date range | **2004-05-06 → 2026-08-28** |
+| Published-date range | **2004-05-06 → 2026-08-29** |
 
 ### Sources (by item volume)
 
 | Source | Kind | Items | Extracted |
 |---|---|---:|---:|
-| YouTube (`youtube`) | youtube | 20,400 | 611 |
+| YouTube (`youtube`) | youtube | 20,412 | 630 |
 | Hong Kong Economic Journal (`hkej`) | newspaper | 3,184 | 70 |
 | Master Insight (`master-insight`) | newspaper | 2,811 | 45 |
-| Patreon (`patreon`) | membership | 2,379 | 74 |
-| Blogs (`blog`) | blog | 1,694 | 25 |
+| Patreon (`patreon`) | membership | 2,380 | 75 |
+| Blogs (`blog`) | blog | 1,873 | 73 |
 | Yahoo Finance Hong Kong (`yahoohk`) | newspaper | 1,407 | 0 |
-| BusinessFocus (`businessfocus`) | newspaper | 321 | 0 |
-| Substack (`substack`) | membership | 294 | 30 |
+| BusinessFocus (`businessfocus`) | newspaper | 321 | 8 |
+| Substack (`substack`) | membership | 294 | 31 |
 
 ### Languages represented
-`en` (18,758), `zh-Hant-HK` (4,539), `en-US` (3,838), `zh-Hant` (3,190), `yue` (1,123), `zh-TW` (580), `vi` (261), `th` (114)
+`en` (18,768), `zh-Hant-HK` (4,539), `en-US` (3,838), `zh-Hant` (3,190), `yue` (1,126), `zh-TW` (759), `vi` (261), `th` (114)
 
 ## How to read this wiki
 
@@ -48,7 +58,7 @@ This wiki is generated directly from the `knowledge_base` Postgres database: eve
 
 ## ⚠️ Important caveats — read before drawing conclusions
 
-1. **Extraction coverage is very thin.** Only **855** of **32,490** ingested items have been LLM-extracted so far (2.63%). Everything below reflects that small slice — it is **not** a representative sample of the full corpus. Treat consensus counts as directional, not authoritative.
+1. **Extraction coverage is very thin.** Only **932** of **32,682** ingested items have been LLM-extracted so far (2.85%). Everything below reflects that small slice — it is **not** a representative sample of the full corpus. Treat consensus counts as directional, not authoritative.
 2. **No scores yet.** Predictions in this DB carry `score` fields, but none have been evaluated against market prices (`n_scored=0`). There is no track record / hit-rate data to report — only stated calls.
 3. **People bios are LLM-written** (from public knowledge + this DB's context) and can be wrong. Stances/timelines, by contrast, are strictly DB-derived from extracted quotes.
 4. **Channel metadata is sparse.** Most channels have no bio/url in the DB; analyst pages say so rather than invent.
@@ -61,11 +71,11 @@ This wiki is generated directly from the `knowledge_base` Postgres database: eve
 - [Patrick Ceresna](People/patrick-ceresna.md) — 6 appearance(s), 115 extracted call(s)
 - [何啟聰](People/person-001.md) — 4 appearance(s), 24 extracted call(s)
 - [梁天卓](People/person-006.md) — 4 appearance(s), 2 extracted call(s)
-- [Tickers/GC=F](Tickers/GC=F.md) — 228 analyst mentions
-- [Tickers/^GSPC](Tickers/^GSPC.md) — 155 analyst mentions
+- [Tickers/GC=F](Tickers/GC=F.md) — 232 analyst mentions
+- [Tickers/^GSPC](Tickers/^GSPC.md) — 156 analyst mentions
 - [Tickers/CL=F](Tickers/CL=F.md) — 114 analyst mentions
-- [Tickers/BTC-USD](Tickers/BTC-USD.md) — 93 analyst mentions
-- [Tickers/^TNX](Tickers/^TNX.md) — 66 analyst mentions
+- [Tickers/BTC-USD](Tickers/BTC-USD.md) — 94 analyst mentions
+- [Tickers/^TNX](Tickers/^TNX.md) — 68 analyst mentions
 
 ## Recent weeks
 
@@ -77,15 +87,15 @@ This wiki is generated directly from the `knowledge_base` Postgres database: eve
 
 ## Recently extracted items
 
+- 2026-08-29 — 美加8,723億貿易攤牌❗️美國點解只先用5%貨品（200億）作先頭部隊❓加拿大頂得住嗎❓｜29 Aug2026 (Dr Ng Ming Tak, Victor, `youtube`)
+- 2026-08-29 — Nvidia Might Not Survive This... (George Gammon, `youtube`)
+- 2026-08-29 — 交叉驗證⋯曾國衛下台極有別情⋯涉「諜報系統、港中、海關利益鏈」❓｜3 Feb2026《淺見回顧》 (Dr Ng Ming Tak, Victor, `youtube`)
+- 2026-08-28 — 美股市況短評 (20260828) (AM Invest, `patreon`)
 - 2026-08-28 — 「以AI 系統看清市場真實規律」實體講座 – 報名連結 (AM Invest, `patreon`)
-- 2026-08-28 — 獅城如天堂 卻也須「谷B」 (高天佑, `hkej`)
-- 2026-08-28 — 供保單6年投入二佰萬賺咗160萬 ⋯點解都有陷阱 ⁉️｜1 Aug 2026《淺見回顧》 (Dr Ng Ming Tak, Victor, `youtube`)
-- 2026-08-28 — 反貪腐怎蛻變為黑產業鏈⁉️香港銀行壞帳率響起中國金融風險❗️ 「下水道經濟」救中國⁉️ ｜28 Jul2026《淺見回顧》 (Dr Ng Ming Tak, Victor, `youtube`)
+- 2026-08-28 — Canada-US Trade Deal Falls Apart (The Plain Bagel, `youtube`)
+- 2026-08-28 — Understand 98% of the Eurodollar System in 18 Minutes (Eurodollar University, `youtube`)
+- 2026-08-28 — Market Bubble Trigger: 'Immediate Recession' Once This Happens Says Big Short's Steve Eis… (David Lin, `youtube`)
 - 2026-08-28 — 準退休亂世點保本❓三大最壞情境、海外帳戶、第二居住地有冇必要⁉️｜Jan2026《淺見回顧》 (Dr Ng Ming Tak, Victor, `youtube`)
-- 2026-08-28 — 港應推行「特朗普賬戶」 (李聲揚, `hkej`)
-- 2026-08-27 — 倉位快將再破頂，但不宜過急進攻 (AM Invest, `patreon`)
-- 2026-08-27 — 美股市況短評 (20260827) (AM Invest, `patreon`)
-- 2026-08-27 — 中美非零和博弈 勿陷二囚困局 (雷鼎鳴, `master-insight`)
-- 2026-08-27 — AI資本的理性與亢奮 (胡孟青, `master-insight`)
-- 2026-08-27 — 美債突破40萬億＝鎖死華府❓打伊朗仲有幾多選項｜點解美國仍然唔會爆煲❓｜29 Aug2026 (Dr Ng Ming Tak, Victor, `youtube`)
-- 2026-08-27 — 買樓要問阿爺 短炒不如長揸 (高天佑, `hkej`)
+- 2026-08-28 — Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Exploration CEO I… (Resource Talks, `youtube`)
+- 2026-08-28 — 反貪腐怎蛻變為黑產業鏈⁉️香港銀行壞帳率響起中國金融風險❗️ 「下水道經濟」救中國⁉️ ｜28 Jul2026《淺見回顧》 (Dr Ng Ming Tak, Victor, `youtube`)
+- 2026-08-28 — 獅城如天堂 卻也須「谷B」 (高天佑, `hkej`)

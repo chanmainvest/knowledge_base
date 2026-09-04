@@ -1,18 +1,16 @@
 # NVDA — Nvidia
 
-**28 extracted prediction(s)** across 9 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 26 neutral).
+**32 extracted prediction(s)** across 9 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 30 neutral).
 
 ## The debate
 
-On paper the scoreboard reads bullish — two bullish calls, zero bearish, twenty-six neutral — but the number that matters is the twenty-six. Through the August 2026 run-up to earnings, almost nobody in this record wanted to stake out a direction on the stock; the live debate was not whether Nvidia would beat, but whether beating still meant anything. That split runs through every pre-print conversation.
+There is a peculiar shape to the Nvidia debate in this corpus: on paper it reads 2 bullish, 0 bearish, 30 neutral, and the substance matches. Nobody here argues Nvidia misses the quarter. The argument is entirely about the reaction function — whether another beat-and-raise means anything after the stock has faded four consecutive prints — and that reframing is what lets famous shorts coexist peacefully with a bullish consensus.
 
-The reaction-skeptics had the specifics. Patrick on the MacroVoices trading desk conceded on August 20 that "on balance of probabilities, they're probably going to beat and have a solid guidance" — his stated worry was "the way traders respond" [Patrick](../People/patrick.md). An unnamed analyst made essentially the same bet with a shrug on August 24: "they'll beat the number. They'll guide up. I get that" — before noting the stock has traded down after each of the last four reports. By earnings week the fence-sitting was explicit: [JD](../People/jd.md) called the quarter "a non-event… as close to unch as you can be" [JD](../People/jd.md), while the host of that discussion went further, admitting he was "hoping that… a little bit of a disappointment in Nvidia might get us there" — a tell that for part of this crowd, a hot print is the bearish scenario.
+The clearest mind-change belongs to the Monetary Matters host. On June 20, asked for the name he was most excited about, his answer was Nvidia. By August 27, the same host is hoping "a little bit of a disappointment in Nvidia" might "get us there" — from most-excited to rooting for a stumble in a little over two months, which tells you how hard the macro framing shifted over the summer. The skeptics, meanwhile, never attack the stock directly. Ed Zitron's case is a countdown: Nvidia has "two, three more earnings calls" in which guidance needs to make the markets "rock hard" every three months before the AI trade breaks [Ed Zitron](../People/ed-zitron.md). Around August 24, unattributed Cantonese-language commentary circulated the Cisco analogy — today's Nvidia as the Cisco that took twenty-odd years to reclaim its high — alongside a critique of a large pooled fund commitment as Hong Kong-style pre-selling. And Jim Chanos, the most famous short-seller in the file, offers what is normally a bull's talking point: "Nvidia's at like 15 times on 2027 EPS" [Jim Chanos](../People/jim-chanos.md). His actual framing is the tell — "you want to be long with the chips produce, not where the chips reside" [Jim Chanos](../People/jim-chanos.md) — meaning you can own the chipmaker while doubting the capex spiral of everyone buying the chips. When the bear case concedes the multiple and relocates downstream to the hyperscalers, the bears-on-NVDA column stays empty by construction.
 
-June had sounded different. The Monetary Matters host named Nvidia "the name that I'm most excited about right now," and the most interesting valuation defense came, oddly, from [Jim Chanos](../People/jim-chanos.md) — a man who has built a career shorting market enthusiasms. His June 20 framing was double-edged: at "like 15 times on 2027 EPS" the stock is no bubble relic, and his client joke — "you want to be long with the chips produce[d], not where the chips reside" — flips the usual AI-skeptic trade: own the supplier of the silicon, avoid the customers burning capital to house it [Jim Chanos](../People/jim-chanos.md).
+The pre-earnings cluster is where everyone agreed. Patrick put it on August 20: on balance of probabilities Nvidia beats and guides solidly, "but it's going to be the way traders respond" that matters [Patrick](../People/patrick.md). An unnamed long went further on August 24 — "They'll beat the number. They'll guide up. I get that. But it's traded down the last four quarters" — correctly flagging that the market had stopped paying for good prints. JD expected the whole thing to be a non-event, "as close to unch as you can be" [JD](../People/jd.md). Note that even the corpus's "bullish_on_earnings" tag from August 24 describes the print, not the stock; the hedged quality of the bullishness is the pattern.
 
-The outright bear arguments never attack the multiple; they attack the quality of demand. [Ed Zitron](../People/ed-zitron.md) framed it as a treadmill on June 21: Nvidia has "two, three more earnings calls" of grace if guidance doesn't make markets "rock hard" every three months [Ed Zitron](../People/ed-zitron.md). An unnamed skeptic on August 20 went after the financing plumbing — a default "triggers all of these collateral clauses," the equipment gets seized, and Nvidia is left standing beside its own residual value. On August 24 a Cantonese-language commentator reached for two analogies at once: buyers of Cisco at the 2000 top waited more than two decades to reclaim the high, and the pooled-fund structures assembling around Nvidia alongside several prominent funds — apparently on the order of $100 billion — amounted to Hong Kong-style "樓花" pre-sale financing, booking tomorrow's demand today.
-
-Nobody in this record outright flips sides — there is no documented bull-to-bear conversion or the reverse, though if the August host and the June Monetary Matters host are the same chair, the drift from "most excited about" to rooting for a stumble is the closest thing to a mind-change available. What actually moves is the room's center of gravity: from a June debate about valuation (15x 2027) to an August debate about plumbing (collateral clauses, pre-sale financing). The tension worth flagging is that with zero outright bearish ratings, most of the bear-flavored language sits in the mouths of people simultaneously expecting a beat-and-raise. The consensus here is bullish on the quarter and, at best, agnostic on the stock.
+The post-earnings resolution came on August 28 from that same unnamed long: "I am still long Nvidia and several other tech stocks. I'm less long cuz I've gotten nervous, but um I am not short." That is the consensus in miniature — survived, but diluted. The bulls on the company are agnostics on the stock; the bears are really bears on the buyers; and the whole debate hangs on whether the post-earnings fade is noise or Zitron's countdown quietly ticking toward two remaining calls.
 
 ## Themes
 
@@ -24,7 +22,7 @@ Nobody in this record outright flips sides — there is no documented bull-to-be
 |---|---:|
 | Bullish | 2 |
 | Bearish | 0 |
-| Neutral / watch | 26 |
+| Neutral / watch | 30 |
 
 ## Voices on this ticker
 
@@ -38,6 +36,7 @@ Nobody in this record outright flips sides — there is no documented bull-to-be
 
 ## Notable calls
 
+- **David Lin** (dir=`cautiously bullish (long, reduced)`) — [Market Bubble Trigger: 'Immediate Recession' Once This Happens Says Big Short's…](https://www.youtube.com/watch?v=03mCPnemm6M) — 2026-08-28, David Lin: "I am still long Nvidia and several other tech stocks. I'm less long cuz I've gotten nervous, but um I am not short."
 - **Host** — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host: "I'm hoping that like a uh a little bit of a disappointment in Nvidia might get us there. So we'll see what happens."
 - **JD** — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "I think Nvidia earnings are going to be a non-event. I do. Yeah, I think it's going to be I mean as close to unch as you can be within a couple of percent."
 - **David Lin** (dir=`bullish_on_earnings`, tf=`near-term (earnings Wednesday)`) — [‘We’re In A Financial Crisis’: Treasury Readies $1 Trillion Warchest \| Danny Mo…](https://www.youtube.com/watch?v=EfKxbRuLZG0) — 2026-08-24, David Lin: "Nvidia reports Wednesday. Um, they'll beat the number. They'll guide up. I get that. But it's traded down the last four quarters and they've beaten, right? And that's just expectations running up into I'm not going to t…"
@@ -66,6 +65,9 @@ Nobody in this record outright flips sides — there is no documented bull-to-be
 - **Host (Monetary Matters)** (action=`buy`, dir=`up`, tf=`unspecified`) — [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alp…](https://www.youtube.com/watch?v=NlIsoPhQePs) — 2026-06-20, Host (Monetary Matters): "if you had to ask me the name that I'm most excited about right now, I would say Nvidia."
 - **Jim Chanos** (action=`none`, dir=`unspecified`, tf=`2027 earnings`) — [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alp…](https://www.youtube.com/watch?v=NlIsoPhQePs) — 2026-06-20, [Jim Chanos](../People/jim-chanos.md): "Nvidia's at like 15 times on 2027 EPS."
 - **Jim Chanos** (action=`buy`, dir=`up`, tf=`long-term`) — [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alp…](https://www.youtube.com/watch?v=NlIsoPhQePs) — 2026-06-20, [Jim Chanos](../People/jim-chanos.md): "I've joked with my clients that you want to be long with the chips produce, not where the chips reside. I think that that's probably still a valid investment thesis going forward."
+- **Dr Ng Ming Tak, Victor** — [NVDIA 為何唔擔心武統⋯押注台灣1500億美元⁉️點解AI命脈唔喺美國而喺台灣⁉️｜15Jun2026](https://www.youtube.com/watch?v=o0FnNOyWxR4) — 2026-06-15, Dr Ng Ming Tak, Victor: "如果今日冇咗臺灣嘅晶片產呢？就唔值呢美元㗎喇。如果冇咗台積電呢，黃ষ্ঠ中嘅A革命呢，可能即刻年至10年"
+- **Dr Ng Ming Tak, Victor** — [NVDIA 為何唔擔心武統⋯押注台灣1500億美元⁉️點解AI命脈唔喺美國而喺台灣⁉️｜15Jun2026](https://www.youtube.com/watch?v=o0FnNOyWxR4) — 2026-06-15, Dr Ng Ming Tak, Victor: "今日我哋見到NVIDIA呢已經變成一個AI基廠嘅設施公司㗎嘛...未來賣嘅佢唔係GPU,而係整到AI嘅生產系統咗，CU呀，網絡呀щи呀數據中心機械人自動駕駛呀同AIA呀"
+- **Dr Ng Ming Tak, Victor** — [NVDIA 為何唔擔心武統⋯押注台灣1500億美元⁉️點解AI命脈唔喺美國而喺台灣⁉️｜15Jun2026](https://www.youtube.com/watch?v=o0FnNOyWxR4) — 2026-06-15, Dr Ng Ming Tak, Victor: "未來每年呢。就向臺灣公面即達億美元嘅資本支出呢大臺灣總部嘅規"
 
 ## Analysts covering this ticker
 
@@ -84,16 +86,17 @@ Nobody in this record outright flips sides — there is no documented bull-to-be
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
 - 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
-- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bullish_ [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
+- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
 - 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
+- 2026-08-28 — [Market Bubble Trigger: 'Immediate Recession' Once This Happens Says Big Short's Steve Eis…](https://www.youtube.com/watch?v=03mCPnemm6M) (David Lin)
 - 2026-08-27 — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) (The Macro Dirt Podcast)
 - 2026-08-24 — [‘We’re In A Financial Crisis’: Treasury Readies $1 Trillion Warchest \| Danny Moses](https://www.youtube.com/watch?v=EfKxbRuLZG0) (David Lin)
 - 2026-08-24 — [AI有真收入，亦有真泡沫❗️幾時先知投資變「大白象」？｜1929與90年代科網狂潮給我們的警告｜24 Aug2026](https://www.youtube.com/watch?v=iqiTITzO8Ao) (Dr Ng Ming Tak, Victor)
@@ -112,6 +115,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 - 2026-06-26 — [It's Time To Get Serious About This Market.](https://www.youtube.com/watch?v=2poug85rvhA) (Figuring Out Money)
 - 2026-06-21 — [Ed Zitron: The AI Bubble is Bleeding Cash, Here Are The Receipts](https://www.youtube.com/watch?v=xFd8X7TI7Sc) (The Monetary Matters Network)
 - 2026-06-20 — [Accounting Mismatch in AI Profits \| Jim Chanos and Val Zlatev on Long/Short Alpha in AI &…](https://www.youtube.com/watch?v=NlIsoPhQePs) (The Monetary Matters Network)
+- 2026-06-15 — [NVDIA 為何唔擔心武統⋯押注台灣1500億美元⁉️點解AI命脈唔喺美國而喺台灣⁉️｜15Jun2026](https://www.youtube.com/watch?v=o0FnNOyWxR4) (Dr Ng Ming Tak, Victor)
 
 ---
 _Page reflects DB state at generation time. Regenerate via `uv run python scripts/build_llm_wiki.py`._

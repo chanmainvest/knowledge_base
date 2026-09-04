@@ -1,16 +1,16 @@
 # BTC-USD — Bitcoin
 
-**93 extracted prediction(s)** across 13 channel(s). Consensus: **bearish** (1 bullish / 2 bearish / 90 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
+**94 extracted prediction(s)** across 13 channel(s). Consensus: **bearish** (1 bullish / 2 bearish / 91 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
 ## The debate
 
-The Bitcoin debate in this corpus is stranger than its "bearish" label suggests: the tracked tally is one bullish, two bearish and ninety neutral, meaning the official consensus rests on a wall of shrug with a thin bearish edge. The people actually willing to call it are fighting a narrow but sharp war into late August 2026 — roughly: does the rebound carry through 100K, or is there, as one recurring unnamed voice puts it, "at least one more scare in Q4" still coming?
+On paper the consensus reads bearish — one bullish call, two bearish — but the more honest number is the 91 neutral entries, because the late-August 2026 conversation around Bitcoin isn't really a directional fight at all. It's a fight about what kind of trade Bitcoin currently is. The dominant frame is the debasement trade: one frequently quoted guest said on August 27 he was "still extremely comfortable" in his debasement positions across gold and Bitcoin after what he called "a good week," while declining a day later to make any forecast at all ("I have literally no idea... I just don't like to predict markets"). The show's host sharpened it into a heads-I-win argument — "if yields blow out... debasement's going to go up. If yields go down, debasement's going to go up" — and separately noted that speculators may simply "take my ball and play on a different court," with debasement and metals as the destination.
 
-The bull case is really a debasement trade argument. The same unnamed voice who warns of a Q4 scare opened the week of August 27 "still extremely comfortable" in gold-and-Bitcoin debasement trades after "a good week," and an unnamed host framed the trade as nearly unfalsifiable: if yields blow out, debasement goes up; if yields fall, debasement goes up anyway. On the pure price side, [JD](../People/jd.md) was blunt the same day — "I think it probably goes to 100 in the short term. I do." — and David Lin, citing Kalshi odds on August 25, noted traders gave just a 22% chance of Bitcoin hitting 50 before 100, with spot sitting right at the midpoint between those levels, which he read as "rather bullish." Even the Macro Dirt host, the friendliest voice on the tape, is a tactical bull at best: there's room to the next resistance at 100K, "the last peak before it collapsed," but they'd "make a sale there if I was long." Note what that means — the optimistic end of this debate is already telling longs where to exit.
+The guest's sharpest comments came on August 25, and they cut against the bullish consensus mechanics rather than the asset itself. He was openly skeptical of the mechanical macro-to-BTC syllogisms — "the ISM is going up, therefore Bitcoin will go up. Or lagged money supply is going up, therefore Bitcoin will go up" — and he pushed back hard on the mid-cycle claim "that the four-year cycle was dead," arguing "but it wasn't, right?" and pointing to the fact that Bitcoin "ended up selling off" afterward. The structural bear case, meanwhile, had been on the table since late June, when [Steve](../People/steve.md) warned that if "someone like MicroStrategy comes in and tries to sell it, it's going to plunge," and that in a selloff "nobody's going to gate you" — a flows-and-reflexivity argument, not a valuation one.
 
-The bear case comes from two directions. [Andrew Kang](../People/andrew-kang.md) made the rotation argument on August 20: total AI market cap is going to be "at least 10, 20, 30x larger than Bitcoin," a polite way of saying the marginal speculator's capital and attention now live elsewhere. Earlier, on June 27, [Steve](../People/steve.md) was bearish on structure — a MicroStrategy selling program would send the price plunging, and because nobody gates redemptions in Bitcoin, it's the first place selling shows up when liquidity turns and investors start asking why crypto is going down. The unnamed host's line about speculators "taking my ball" to debasement and metals captures the same rotation anxiety from the other side.
+The near-term debate is a numbers game that everyone seems to agree on how to exit. David Lin, citing Kalshi market odds on August 25, noted traders were pricing only a 22% chance of Bitcoin hitting 50 before 100 — "rather bullish," in his words, with the price sitting right at the midpoint. On August 27, [JD](../People/jd.md) delivered the digest's lone clean bull call: "I think it probably goes to 100 in the short term. I do." Yet even the Macro Dirt host, granting room up to that same 100K level — "the last peak before it collapsed" — said plainly, "I would make a sale there if I was long." That's the odd shape of this "bullishness": 100K has become a shared exit, not a floor. [Ben Cowen](../People/ben-cowen.md) split the difference the same way on August 25, telling listeners to "prepare yourself ideally for a bull run" while warning that a rejection around $80–81k would leave "still a chance that we go lower."
 
-As for minds changing, the clearest arc belongs to that unnamed debasement voice, tracked as bearish-then-recovering: back when "the argument was that the four-year cycle was dead," they held the line — and Bitcoin "ended up selling off" anyway, vindicating the cycle framework — yet they remain pointedly allergic to the mechanical bull syllogisms ("ISM going up, therefore Bitcoin will go up… lagged money supply going up, therefore Bitcoin will go up"). [Ben Cowen](../People/ben-cowen.md) runs the same split on August 25, telling listeners to "just prepare yourself ideally for a bull run" while warning that a rejection around 80–81K leaves "still a chance that we go lower." That's the shape of it: the bulls and the recovering bears converge on 100K as the decision point, the loudest bull advice is to sell into it, and the ninety-strong neutral blob implies nobody with tracking coverage has much conviction either way.
+The most interesting challenge to Bitcoin isn't bearish — it's competitive. [Andrew Kang](../People/andrew-kang.md) argued on August 20 that total AI market cap will be "at least 10, 20, 30x larger than Bitcoin," a framing in which Bitcoin isn't even the main speculation anymore, just one drawer in the risk-seeking desk. Taken whole, the digest describes a market with almost no one willing to defend a strong directional thesis: the bear case is structural or process-based, the bull case comes capped at a round-number resistance, and the most-quoted voice explicitly refuses to predict while staying positioned. With only three tagged non-neutral calls out of ninety-four, the "bearish consensus" label here rests on a very thin sample — what's actually priced in is ambivalence.
 
 ## Themes
 
@@ -22,7 +22,7 @@ As for minds changing, the clearest arc belongs to that unnamed debasement voice
 |---|---:|
 | Bullish | 1 |
 | Bearish | 2 |
-| Neutral / watch | 90 |
+| Neutral / watch | 91 |
 
 ## Voices on this ticker
 
@@ -44,6 +44,7 @@ As for minds changing, the clearest arc belongs to that unnamed debasement voice
 
 ## Notable calls
 
+- **David Lin** — [Market Bubble Trigger: 'Immediate Recession' Once This Happens Says Big Short's…](https://www.youtube.com/watch?v=03mCPnemm6M) — 2026-08-28, David Lin: "I have no I have literally no idea. You know, I don't I just don't like to predict markets."
 - **Host (Macro Dirt)** — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "There's room up to yet next resistance level at 100K. That's the last peak before it collapsed. So, I would make a sale there if I was long."
 - **JD** — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "I think it probably goes to 100 in the short term. I do."
 - **Forward Guidance** — [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Forward Guidance: "I'm still extremely comfortable in my debasement trades of of gold and Bitcoin. It's it's been a good week for them"
@@ -159,16 +160,17 @@ As for minds changing, the clearest arc belongs to that unnamed debasement voice
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
 - 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
-- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bullish_ [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
+- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
 - 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
+- 2026-08-28 — [Market Bubble Trigger: 'Immediate Recession' Once This Happens Says Big Short's Steve Eis…](https://www.youtube.com/watch?v=03mCPnemm6M) (David Lin)
 - 2026-08-27 — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) (The Macro Dirt Podcast)
 - 2026-08-27 — [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Weekly Roundup](https://www.youtube.com/watch?v=aEG3hZZX45M) (Forward Guidance)
 - 2026-08-25 — [Why Is Bitcoin Suddenly Exploding? Will The Rally Continue? \| Ben Cowen](https://www.youtube.com/watch?v=gTn7-oSb_ic) (David Lin)

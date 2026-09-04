@@ -14,9 +14,10 @@ uv run kb youtube add-channel --handle BloorStreetCapital        # PowerShell-fr
 uv run kb youtube migrate-folders --dry-run                 # preview folder renames
 uv run kb youtube migrate-folders --ingest                  # rename + refresh md_path in DB
 uv run kb youtube scrape --limit 5
-uv run kb youtube scrape --limit 5 --transcribe             # + Whisper ASR for new no-subtitle videos (opt-in)
+uv run kb youtube scrape --limit 5 --transcribe             # + ASR for new no-subtitle videos (opt-in)
 uv run kb youtube transcribe --list                         # preview pending transcription candidates
 uv run kb youtube transcribe --channel latp --limit 1       # transcribe one channel's videos
+uv run kb youtube transcribe --engine whisper               # legacy faster-whisper instead of the qwen default
 uv run kb youtube transcribe --reset-stuck                  # clear stale 'transcribing' rows after a crash
 
 uv run kb hkej list-authors

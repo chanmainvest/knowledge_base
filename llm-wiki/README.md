@@ -22,15 +22,15 @@ llm-wiki/
   AGENTS.md           # agent notes (also generated — don't hand-edit)
   read-state.json     # item read-tracking (dual-written with the DB's
                       #   wiki_item_read table; survives losing the DB)
-  People/    (156 pages)   # one per person (guests, hosts,
+  People/    (162 pages)   # one per person (guests, hosts,
                         #   solo authors merged across shows) — opinions
                         #   per topic over time, flips flagged, LLM bios
   Weekly/    (12 pages)   # Sunday→Saturday weekly digests: what people
                         #   talked about, where they disagreed, who changed
                         #   their mind that week
-  Tickers/   (147 pages)   # one per ticker >= 2 mentions,
+  Tickers/   (150 pages)   # one per ticker >= 2 mentions,
                         #   incl. rates/bond-yield backdrop
-  Analysts/  (44 pages)   # one per channel with extracted items
+  Analysts/  (46 pages)   # one per channel with extracted items
   Themes/    (14 pages)   # cross-cutting theses (gold, AI-semis, …)
   Syntheses/ (3 pages)   # opinion shifts · disagreements · timeline
   Studies/   (1 pages)   # deep dives (e.g. how a channel
@@ -39,11 +39,11 @@ llm-wiki/
 
 ## Data snapshot at generation time
 
-- Generated: **2026-08-29 06:08 UTC**
-- Items in DB: **32,490** (extracted: **855**, pending: **31,595**)
-- Predictions: **2,678** · Market views: **2,984**
-- Distinct tickers with calls: **276** · People pages: **156**
-- Published-date range: **2004-05-06 → 2026-08-28**
+- Generated: **2026-08-30 09:37 UTC**
+- Items in DB: **32,682** (extracted: **932**, pending: **31,694**)
+- Predictions: **2,744** · Market views: **3,243**
+- Distinct tickers with calls: **283** · People pages: **162**
+- Published-date range: **2004-05-06 → 2026-08-29**
 
 ## Important caveats
 

@@ -261,7 +261,7 @@ stages (Ingest → Extract → recompute) run sequentially after all branches fi
 |   | · Substack         | loop `kb substack scrape <handle> --limit 10`   | UNSTABLE           |
 |   | · Patreon          | `kb patreon scrape-creator --limit 10`          | UNSTABLE           |
 | 2 | Ingest             | `kb ingest`                                     | FAILED             |
-| 3 | Extract            | `kb extract run --limit 200`                    | FAILED             |
+| 3 | Extract            | `kb extract run --limit 200 --model glm-5.3-flash` | FAILED      |
 | 4 | Progress recompute | `kb progress recompute`                         | FAILED             |
 
 Every scrape branch is wrapped in `catchError(buildResult: 'UNSTABLE')`, so a
@@ -292,12 +292,15 @@ schema change: `docker compose run --rm kb db migrate`).
   output, so adding an author (`kb hkej add-author <handle>`) is automatically
   picked up by the next nightly run — no Jenkinsfile edit needed. Same for
   Substack (`kb substack list-channels`).
-- **Extract provider.** `kb extract run` uses `LLM_PROVIDER` from `.env`. This
-  repo is configured for `zai` (Z.ai / Zhipu GLM) — set `ZAI_API_KEY` in `.env`
-  before the first run. Any of `openai`, `anthropic`, or `zai` works unattended;
-  **not** `github`, which shells out to a local `copilot` CLI not present in the
-  container. Override per-run with `kb extract run <n> --provider anthropic`.
-- **Whisper transcription is out of scope.** `scripts/transcribe_missing.py`
+- **Extract provider/model.** `kb extract run` uses `LLM_PROVIDER` from `.env`.
+  This repo is configured for `zai` (Z.ai / Zhipu GLM) — set `ZAI_API_KEY` in
+  `.env` before the first run. Any of `openai`, `anthropic`, or `zai` works
+  unattended; **not** `github`, which shells out to a local `copilot` CLI not
+  present in the container. The pipeline pins the model explicitly
+  (`--model glm-5.3-flash`) — the VM's `.env` is a hand-maintained copy that
+  can lag the host's `ZAI_MODEL`, and the flag is immune to that drift.
+  Override per-run with `kb extract run --limit <n> --provider anthropic`.
+- **Whisper transcription is out of scope.** `kb youtube transcribe`
   needs CUDA and runs on the GPU host; it is not part of the nightly pipeline.
 - **Why a Docker image, not installing tools in Jenkins.** Baking
   Python/uv/Playwright/yt-dlp into the Jenkins controller is fragile and

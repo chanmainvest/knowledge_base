@@ -13,8 +13,10 @@ from sqlalchemy import bindparam, text
 
 from ..config import ROOT, settings
 from ..db import engine
+from .media import router as media_router
 
 app = FastAPI(title="KB API", version="0.1.0")
+app.include_router(media_router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], allow_credentials=False,
@@ -28,6 +30,7 @@ def _list_filters(
     date_from: str | None,
     date_to: str | None,
     has_predictions: str | None = None,
+    marketing: str | None = None,
 ) -> tuple[list[str], dict[str, Any], list[str]]:
     """Build shared WHERE clauses/params for the item-list and search
     endpoints so both support multi-select sources/channels, a published_at
@@ -40,6 +43,11 @@ def _list_filters(
     the same way `_stance` does (action keywords, or direction free text
     containing bullish/bearish / up / down / higher / lower / positive /
     negative).
+
+    `marketing` filters on the v2-extraction whole-item flag
+    (`item.is_marketing`, NULL = not yet classified): 'hide' (the default at
+    the endpoints) drops flagged promo material, 'only' keeps just flagged
+    items, 'include' applies no filter. Callers pass None for no filtering.
 
     Returns (clauses, params, expanding_param_names). Callers must call
     `.bindparams(bindparam(name, expanding=True))` for each name in the third
@@ -87,6 +95,12 @@ def _list_filters(
             clauses.append(
                 f"NOT {exists_sql}" if has_predictions == "false" else exists_sql
             )
+    if marketing == "hide":
+        # NULL (v1-era / not yet classified) counts as not-marketing so the
+        # default view doesn't lose the backlog behind the flag.
+        clauses.append("COALESCE(i.is_marketing, false) = false")
+    elif marketing == "only":
+        clauses.append("i.is_marketing = true")
     return clauses, params, expanding
 
 
@@ -316,17 +330,23 @@ def search(q: str | None = Query(None),
                None, description="true/false = with/without extracted "
                                   "predictions; bull/bear = at least one "
                                   "bullish/bearish call"),
+           marketing: str = Query(
+               "hide", description="hide (default) = drop items the v2 "
+                                   "extraction flagged as marketing material; "
+                                   "include = no filter; only = just flagged "
+                                   "items"),
            limit: int = 25,
            offset: int = 0) -> dict[str, Any]:
     """Search items by keyword (optional) with multi-select source/channel
     filters, a published_at date range, a with/without-prediction-extraction
-    filter, and pagination. When `q` is omitted, results are just the latest
-    items matching the filters (browse mode), so the search page can show
-    recent posts by default."""
+    filter, and pagination. Promo material (is_marketing=true) is hidden by
+    default; pass marketing=include to see it. When `q` is omitted, results
+    are just the latest items matching the filters (browse mode), so the
+    search page can show recent posts by default."""
     limit = max(1, min(limit, MAX_PAGE_SIZE))
     offset = max(0, offset)
     clauses, params, expanding = _list_filters(
-        source, channel_id, date_from, date_to, has_predictions)
+        source, channel_id, date_from, date_to, has_predictions, marketing)
 
     has_q = bool(q and q.strip())
     if has_q:
@@ -407,6 +427,13 @@ def get_item(item_id: int, run_id: int | None = None) -> dict[str, Any]:
             FROM item_entity ie JOIN entity e ON e.id=ie.entity_id
             WHERE ie.item_id=:i ORDER BY ie.weight DESC, e.name
         """), {"i": item_id}).mappings()]
+        item["media_mentions"] = [dict(r) for r in conn.execute(text("""
+            SELECT w.id AS work_id, w.kind, w.title, w.creators, w.year,
+                   m.speaker, m.quote
+            FROM media_mention m JOIN media_work w ON w.id=m.media_work_id
+            WHERE m.item_id=:i AND m.extraction_run_id=:r
+            ORDER BY w.kind, w.title
+        """), {"i": item_id, "r": effective_run_id}).mappings()]
         item["related"] = [dict(r) for r in conn.execute(text("""
             SELECT i2.id, i2.title, i2.published_at, c.name AS channel_name,
                    l.similarity
@@ -443,14 +470,18 @@ def list_items(source: list[str] | None = Query(None),
                    None, description="true/false = with/without extracted "
                                       "predictions; bull/bear = at least one "
                                       "bullish/bearish call"),
+               marketing: str = Query(
+                   "hide", description="hide (default) = drop items flagged as "
+                                       "marketing material; include = no filter; "
+                                       "only = just flagged items"),
                limit: int = 50, offset: int = 0) -> dict[str, Any]:
     """Latest items (no keyword search), with the same multi-select
-    source/channel filters, date range, prediction-extraction filter, and
-    pagination as /api/search."""
+    source/channel filters, date range, prediction-extraction filter,
+    marketing filter (hidden by default), and pagination as /api/search."""
     limit = max(1, min(limit, MAX_PAGE_SIZE))
     offset = max(0, offset)
     clauses, params, expanding = _list_filters(
-        source, channel_id, date_from, date_to, has_predictions)
+        source, channel_id, date_from, date_to, has_predictions, marketing)
     where_sql = ("WHERE " + " AND ".join(clauses)) if clauses else ""
     count_sql = text(f"SELECT COUNT(*) FROM item i JOIN source s ON s.id=i.source_id {where_sql}")
     list_sql = text(f"""

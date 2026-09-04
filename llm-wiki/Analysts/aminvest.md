@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 73
+- **Extracted items**: 74
 - **Items with predictions**: 26
 - **Predictions**: 59
 - **Market views**: 70
@@ -53,15 +53,16 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "對於美股，我不會再看得太淡"
+- _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "倉位快將再破頂，但不宜過急進攻"
 - _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "美股市況仍然相當混亂"
 - _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "早前強勢的金融股開始轉弱。與此同時，科技股則轉趨強勢。"
+- _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "對於美股，我不會再看得太淡"
 - _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "市況其實並不算太差。但市場資金明顯未算十分充裕。如果市場資金非常充足，股票理應可以同步上升。"
 - _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "我認為美股目前只是偏好，而非全面轉強"
-- _? — ?_: [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400) — 2026-08-27, AM Invest: "倉位快將再破頂，但不宜過急進攻"
 
 ## Source items (extracted)
 
+- 2026-08-28 — [美股市況短評 (20260828)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167927458)
 - 2026-08-28 — [「以AI 系統看清市場真實規律」實體講座 – 報名連結](https://www.patreon.com/aminvest/posts/yi-ai-xi-tong-lu-167901402)
 - 2026-08-27 — [倉位快將再破頂，但不宜過急進攻](https://www.patreon.com/aminvest/posts/cang-wei-kuai-po-167864400)
 - 2026-08-27 — [美股市況短評 (20260827)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-167833682)
@@ -86,8 +87,7 @@ _No URL / bio in DB channel metadata._
 - 2026-08-10 — [美股市況短評 (20260810)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-166260420)
 - 2026-08-07 — [美股市況短評 (20260807)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-166024025)
 - 2026-08-06 — [美股市況短評 (20260806)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-165928091)
-- 2026-08-05 — [美股市況短評 (20260805)](https://www.patreon.com/aminvest/posts/mei-gu-shi-kuang-165833351)
-_…and 48 more._
+_…and 49 more._
 
 ---
 _Page reflects DB state at generation time._

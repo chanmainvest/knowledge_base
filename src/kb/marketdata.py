@@ -43,7 +43,7 @@ def needed_tickers() -> dict[str, date]:
             WHERE p.ticker IS NOT NULL AND p.ticker <> ''
               AND p.made_at IS NOT NULL
             GROUP BY p.ticker
-        """), {"margin": timedelta(days=DAYS_BEFORE_FIRST_CALL)}).all()
+        """), {"margin": DAYS_BEFORE_FIRST_CALL}).all()
     return {t: d for t, d in rows if d}
 
 

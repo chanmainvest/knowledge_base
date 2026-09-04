@@ -1,16 +1,16 @@
 # ^TYX — 30-year US Treasury yield
 
-**25 extracted prediction(s)** across 11 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 23 neutral).
+**26 extracted prediction(s)** across 11 channel(s). Consensus: **bullish** (2 bullish / 0 bearish / 24 neutral).
 
 ## The debate
 
-The 30-year Treasury yield spent late August 2026 as a market arguing about a single number: roughly 5.30%. On August 20, [Patrick](../People/patrick.md) laid out the live question better than anyone — bonds had "reversed off of yields that were near around 530" on the 30-year, and the task now was to find out whether that level is a genuine "ceiling candidate" for the yield or just a pause before the next leg up. Nearly everything else in the record either argues yields should go higher still, makes a lone case for lower, or — in 23 of 25 tracked calls — sits firmly on the fence.
+The entire August 2026 debate over the 30-year Treasury yield revolves around one number: roughly 5.3%. On August 20, [Patrick](../People/patrick.md) flagged that "bonds reversed off of yields that were near around 530 on the 30-year Treasury yield," explicitly framing that level as a ceiling candidate — the open question being whether the reversal holds. It mostly did, though unconvincingly. Unnamed commentary noted on August 25 that even after "what he did" — an apparent intervention in the bond market — the 30-year was "still hanging right up there," before yielding modest ground: by August 28 the same tracking showed the yield had touched 5.3% but pulled back to "closer to 5.2%, 10 basis points lower" after the intervention. Ten basis points is not a trend; it is a truce.
 
-The yield-hawks are the more articulate camp, though none of them is unconditionally loud. [Milton Berg](../People/milton-berg.md) set the tone earliest, on August 12, going bearish bonds and marvelling at the 30-year trading at levels he pegged at "decades" highs. [Rick Rule](../People/rick-rule.md) followed on August 26 with a conditional call for higher yields: if free markets actually set rates, a riskless counterparty would command roughly "150 basis points over the real yield" — implying current yields undershoot where an unfettered market would clear them. Between those two, an unnamed commentator supplied the analytical spine of the bull-yield case on August 24: long-term yields are elevated versus the post-2008 era but have not "broken decisively away" from levels first reached in 2023, and the tell would be long yields breaking higher *relative to the front end*, driven by term premiums and inflation compensation. That same voice flagged the swing variable a day earlier — cutting long-end issuance sizes would both "send a strong signal" and "mechanically have less supply," which is to say both camps are really watching the Treasury's funding choices.
+The case for lower yields rests on the view that the intervention itself is disinflationary rather than inflationary. Jeff argued on August 23 that the policy move under discussion was "not going to be inflationary" and "not going to lead to higher interest rates. It's going to lead to the exact opposite." The structural middle ground came on August 24, when unnamed speakers observed that long-term yields are elevated relative to the post-2008 era but have "not broken decisively away from levels first reached in 2023" — and, crucially, made their call conditional: watch term premiums and inflation compensation, because "if any of that changes... long-term yields will break higher relative to the front." That conditionality is the honest center of this debate: nobody claims a clean break in either direction, only a set of tripwires.
 
-Against that stands Jeff, alone, on August 23: "It's not going to be inflationary. It's not going to lead to higher interest rates. It's going to lead to the exact opposite." No one else in the record takes the lower-yields side, which makes his the most contrarian position on the page rather than the consensus safe harbor it might appear.
+The yield-higher camp is smaller but sharper. [Milton Berg](../People/milton-berg.md) was bearish bonds as of August 12, pointing to "the 30-year bond at the highest levels in... decades." [Rick Rule](../People/rick-rule.md) made the most explicitly conditional call of the group on August 26: if free markets set rates, a riskless counterparty would demand roughly 150 basis points over the real yield — the implication being that current yields only look adequate because something other than the market is setting them.
 
-The consensus tag — 2 bullish, 0 bearish, 23 neutral — deserves unpacking, because on a yield asset "bullish" means betting rates go *higher*. Even so, the striking fact is the emptiness of the middle: almost nobody is willing to commit. As of August 25, one speaker conceded that "even now," after the latest news, the 30-year was "still hanging right up there" — unresolved by design. No one in the two-week window changed their mind: Berg's bond bearishness, Rule's conditional-up, Jeff's lower-rates case, and Patrick's ceiling test were all still standing as of August 26, with the 5.30% question explicitly open.
+What is striking is how little committed conviction surrounds all of this. The recorded tally runs 2 bullish against 0 bearish with 24 neutral — an overwhelming majority unwilling to pick a side. The debate, in other words, is not bulls versus bears so much as intervention versus term premium: one camp reads the reversal off 5.3% and the 10-basis-point easing as proof the ceiling holds, while Berg's "highest levels in decades" and Rule's free-market arithmetic suggest that if the intervention's grip slips, the long end breaks higher relative to the front — and the coverage here is thin enough that nobody has yet been forced to reconcile the two.
 
 ## Themes
 
@@ -22,7 +22,7 @@ The consensus tag — 2 bullish, 0 bearish, 23 neutral — deserves unpacking, b
 |---|---:|
 | Bullish | 2 |
 | Bearish | 0 |
-| Neutral / watch | 23 |
+| Neutral / watch | 24 |
 
 ## Voices on this ticker
 
@@ -34,6 +34,7 @@ The consensus tag — 2 bullish, 0 bearish, 23 neutral — deserves unpacking, b
 
 ## Notable calls
 
+- **David Lin** (dir=`slightly lower from recent high after intervention`) — [Fed Sparks Market Bloodbath: Rate Hikes Coming Back? \| Collin Martin](https://www.youtube.com/watch?v=CcecLrxrhF0) — 2026-08-28, David Lin: "We saw that with a 30-year, you know, it touched 5.3%, it's closer to 5.2%, 10 basis points lower."
 - **Rick Rule** (dir=`up (conditional: if free markets set rates)`) — [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g) — 2026-08-26, [Rick Rule](../People/rick-rule.md): "It is believed that a riskless counterparty would in a market demand would receive 150 basis points over the real yield. If you assume that the underlying inflation rate is 8%. That would suggest a the 30-year Treasury…"
 - **The Julia La Roche Show** — [Ted Oakley: Gold Still Cheap at $4,600, Energy Move Could Be Bigger, & 3 Signs …](https://www.youtube.com/watch?v=V5LzrcmhffA) — 2026-08-25, The Julia La Roche Show: "even now, you look at it after what what he did, and it's come right back when you know, the 30-year still is still hanging right up there high, so uh it's it's yet to be seen whether they can make it happen."
 - **Eurodollar University** — [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) — 2026-08-24, Eurodollar University: "If any of that changes, we will know about it. Long-term yields will break higher relative to the front. Term premiums and inflation compensation and yield spreads will rise and do so unambiguously and persistently."
@@ -77,6 +78,7 @@ The consensus tag — 2 bullish, 0 bearish, 23 neutral — deserves unpacking, b
 
 ## Source items
 
+- 2026-08-28 — [Fed Sparks Market Bloodbath: Rate Hikes Coming Back? \| Collin Martin](https://www.youtube.com/watch?v=CcecLrxrhF0) (David Lin)
 - 2026-08-26 — [Why Rick Rule Is Buying Gold Now: Monetary Shock Incoming](https://www.youtube.com/watch?v=lYQw_7Myw2g) (David Lin)
 - 2026-08-25 — [Ted Oakley: Gold Still Cheap at $4,600, Energy Move Could Be Bigger, & 3 Signs of a Stock…](https://www.youtube.com/watch?v=V5LzrcmhffA) (The Julia La Roche Show)
 - 2026-08-24 — [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) (Eurodollar University)

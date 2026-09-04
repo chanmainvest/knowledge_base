@@ -129,9 +129,15 @@ class Settings(BaseSettings):
     # Data layout
     data_dir: str = "data"  # relative to repo root, or an absolute path
 
-    # Whisper / ASR transcription (faster-whisper + large-v3 on GPU).
-    # Disabled by default — enable per run with `kb youtube scrape --transcribe`
-    # or use the dedicated `kb youtube transcribe` command.
+    # ASR transcription for YouTube items without captions. Two engines:
+    #   qwen    — Qwen3-ASR (default): verbatim Cantonese output, best CER on
+    #             Dr Ng audio (2026-08-30 benchmark); long audio is chunked
+    #             because full-context decode collapses past ~12 min on 8 GB.
+    #   whisper — faster-whisper large-v3 (legacy): 6-7.7x realtime on any
+    #             length, but rewrites colloquial Cantonese into 書面語.
+    # Still disabled by default — enable per run with
+    # `kb youtube scrape --transcribe` or use `kb youtube transcribe`.
+    transcribe_engine: str = "qwen"        # qwen | whisper
     whisper_enabled: bool = False
     whisper_model: str = "large-v3"        # faster-whisper model size
     whisper_device: str = "cuda"           # cuda | cpu
@@ -142,6 +148,16 @@ class Settings(BaseSettings):
     # Transient audio download dir. Relative paths resolve against DATA_DIR,
     # matching the data/raw/<source>/ layout; absolute paths are used as-is.
     whisper_tmp_dir: str = "raw/youtube/tmp"
+    # Qwen3-ASR engine. Audio is decoded to 16 kHz mono and transcribed in
+    # chunks — full-context attention on longer audio spills the KV-cache out
+    # of an 8 GB card (WDDM shared-memory path) and slows to a crawl.
+    qwen_model: str = "Qwen/Qwen3-ASR-1.7B"
+    qwen_device: str = "cuda:0"            # torch device_map value
+    qwen_chunk_sec: int = 480              # chunk length (8 min ≈ 2x realtime on RTX 3060 Ti)
+    qwen_max_new_tokens: int = 8192        # per chunk; ~4 chars/sec of speech
+    # HF cache for Qwen weights. Empty = leave HF_HOME alone. Point at a
+    # local cache to avoid re-downloading ~4.7 GB of bf16 weights.
+    qwen_hf_home: str = ""
 
     # API
     api_host: str = "127.0.0.1"

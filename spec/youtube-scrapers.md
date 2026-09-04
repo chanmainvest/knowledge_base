@@ -136,19 +136,38 @@ YouTube backfill script.
   the next run. `next()` also calls `_reap()` to skip any tunnel whose ssh has
   exited, so a dead connection is never handed to yt-dlp (the cause of its
   `4 bytes missing` SOCKS5 EOFError).
-- **Whisper ASR transcription (`src/kb/transcribe.py`, opt-in).** YouTube
+- **ASR transcription (`src/kb/transcribe.py`, opt-in).** YouTube
   videos where no subtitle/transcript could be fetched
   (`has_transcript=false`) can be transcribed locally with
-  `kb youtube transcribe` using faster-whisper + large-v3 on GPU (RTX
-  3060 Ti). The pipeline is **disabled by default**: it only runs via the
+  `kb youtube transcribe` on GPU (RTX 3060 Ti). Two engines, picked by
+  `TRANSCRIBE_ENGINE` (or `--engine` per run):
+  - **qwen (default, since 2026-08-30)** — Qwen3-ASR-1.7B via the
+    `qwen-asr` package. Won the Dr Ng benchmark (CER 61% vs whisper 72%
+    against captions; verbatim colloquial Cantonese vs whisper's 書面語
+    normalisation; no hallucination). Audio is ffmpeg-decoded to 16 kHz
+    mono WAV and transcribed in `QWEN_CHUNK_SEC` chunks (default 480 s):
+    full-context decode collapses past ~12 min on the 8 GB card
+    (KV-cache spills to WDDM shared memory → hours per clip), while
+    chunks hold ~2x realtime. Needs the CUDA torch build — on Windows
+    plain `uv pip install torch` is CPU-only; force
+    `--index-url https://download.pytorch.org/whl/cu126` and verify
+    `torch.cuda.is_available()`. `QWEN_HF_HOME` can point at a local HF
+    cache to skip the ~4.7 GB weight download. Chunk languages vote; the
+    winner is mapped to whisper-style codes ("Cantonese" → `yue`).
+  - **whisper (legacy)** — faster-whisper large-v3, 6-7.7x realtime at
+    any length, but rewrites colloquial Cantonese into 書面語 (and once
+    hallucinated a full-sentence opener on Dr Ng audio).
+  The pipeline is **disabled by default**: it only runs via the
   dedicated command, or after `kb youtube scrape --transcribe` (which
   transcribes only the videos that scrape just fetched; `--no-transcribe`
   or unset `WHISPER_ENABLED` keeps scrape transcript-free). It runs **one
   video at a time** (sequential — no parallel GPU load) and downloads audio
   to `data/raw/youtube/tmp/` (`WHISPER_TMP_DIR`, resolved against
   `DATA_DIR` to match the `data/raw/<source>/` layout; gitignored, deleted
-  after each item). Language is auto-detected by Whisper (Cantonese → `yue`,
-  English → `en`, etc.) when `WHISPER_LANGUAGE` is empty. The full lifecycle
+  after each item; the qwen engine's decoded `.16k.wav` lives there too and
+  is deleted with the source file). Language is auto-detected when
+  `WHISPER_LANGUAGE` is empty (Cantonese → `yue`, English → `en`, etc.).
+  The full lifecycle
   is tracked in `item.transcription_status`: `NULL` → `pending` →
   `audio_downloaded` → `transcribing` → `done` (or `failed` with
   `transcription_error`). On success, `has_transcript` is flipped to `true`,

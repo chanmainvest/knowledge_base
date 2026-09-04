@@ -69,11 +69,11 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
+- _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "Energy as Diversifier"
+- _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "the critical data behind the AI build-out, including H200 GPU availability and the potential impact of major lab IPOs like Anthropic on the broader software sector"
 - _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "the mispriced odds of a September rate hike, and the hidden political pressures driving the committee's choices"
 - _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "as the market enters a historically weak seasonal window between August 15th and October 15th"
 - _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "why macro risks are suddenly taking control of the stock market"
-- _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "Energy as Diversifier"
-- _? — ?_: [The Underappreciated Macro Risks That Could Derail the Bull Market \| Warren Pies](https://www.youtube.com/watch?v=LcJTSTmnjsc) — 2026-08-25, [Warren Pies](../People/warren-pies.md): "the critical data behind the AI build-out, including H200 GPU availability and the potential impact of major lab IPOs like Anthropic on the broader software sector"
 - _? — ?_: [Is Private Equity Broken? High Yield Harry on Wall Street’s New Reality](https://www.youtube.com/watch?v=YOnxRmI6CV8) — 2026-08-24, The Monetary Matters Network: "And it kind of used to be like you could work at like in corporate banking or um like you know a nonIB type of role and work your way into private credit. I think that's a little harder than it used to be."
 
 ## Source items (extracted)

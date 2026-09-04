@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 64
-- **Items with predictions**: 48
-- **Predictions**: 432
-- **Market views**: 374
+- **Extracted items**: 66
+- **Items with predictions**: 50
+- **Predictions**: 444
+- **Market views**: 395
 
 ## People on this channel
 
@@ -39,10 +39,10 @@ _No URL / bio in DB channel metadata._
 - [SVM](../Tickers/SVM.md) (11)
 - [SURG.V](../Tickers/SURG.V.md) (10)
 - [GC=F](../Tickers/GC=F.md) (8)
+- [WREXF](../Tickers/WREXF.md) (7)
 - [HG=F](../Tickers/HG=F.md) (6)
 - [DC](../Tickers/DC.md) (6)
 - [GLAD.V](../Tickers/GLAD.V.md) (5)
-- [DCGL](../Tickers/DCGL.md) (4)
 
 ## Stance distribution (predictions)
 
@@ -50,30 +50,31 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 2 |
 | Bearish | 0 |
-| Neutral / watch | 430 |
+| Neutral / watch | 442 |
 
 ## Recent notable calls
 
-- [RDS.V](../Tickers/RDS.V.md): [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Matt (Radisson CEO): "what we've said is we'll we'll endeavor to do resource updates on a step-by-step basis through this program. We've done one already last March likely another one by the end of the year. Another one kind of mid 27 perhap…"
-- [RDS.V](../Tickers/RDS.V.md): [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Matt (Radisson CEO): "you're going to see there a lot of results in the pipeline as I said earlier and you're going to see a lot of lot of drilling related news flow I think from Radison."
-- [RDS.V](../Tickers/RDS.V.md): [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Resource Talks: "we've scheduled and budgeted all the way through the middle 27. You know, maybe it'll go longer, right? We'll see at some stage some stage we've got to stop and say, "Okay, well, now we know how big the project's going…"
-- [RDS.V](../Tickers/RDS.V.md): [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Resource Talks: "I think at our current market cap, um, which is a bump it up at 600 million now Canadian, we've got a lot of wood still to chop in achieving the full value for this project."
-- [RDS.V](../Tickers/RDS.V.md): [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Resource Talks: "you apply those types of valuations to what might be 3 4 million ounces of O'Brien um you're getting you're getting numbers which are in excess of our current market cap."
-- [RDS.V](../Tickers/RDS.V.md): [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Resource Talks: "Just go for it with big stepouts and try and get a sense of how big the project's going to be. is it could be 1 2 3 4 or more million ounces."
-- `AEM`: [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Resource Talks: "it's probably too early to go down, you know, that that path... let's see how the relationship develops thereafter, right? Um too early I think for me to um for me to speculate which would be on what on what it leads to."
-- [RDS.V](../Tickers/RDS.V.md): [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Resource Talks: "that's going to tell us the the size of the project and the the underground ramp is going to give us a lot of really important d-risking information on continuity and mineralization ground conditions. You know, how much…"
+- `(no ticker)`: [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, Resource Talks: "to the northeast of Gravel Creek, we've identified a new zone called Badger that looks exactly like Gravel Creek at the surface and it's got all the volcanics preserved. It's got over a gram per ton at surface, over 50…"
+- `(no ticker)`: [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, Resource Talks: "you'll see some metallurgical work coming out of Gravel Creek that we'll be talking about. You'll see drill results coming out of Doby George cuz those remember the drill results are for hydrarology and metallurgy but t…"
+- `(no ticker)`: [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, Resource Talks: "We need to go big and that's our strategy for Gravel Creek next year. Three drills in Gravel Creek."
+- `(no ticker)`: [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, Resource Talks: "in June of this year, we announced that we started a feasibility study in the power supply that should be done at the end of October."
+- [WREXF](../Tickers/WREXF.md): [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, Resource Talks: "So we still have four years of drilling we can do at Gravel Creek under our exploration plan with the Forest Service."
+- [WREXF](../Tickers/WREXF.md): [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, Resource Talks: "and we've talked to a couple people that buy cons like Glen Core and Ora and they've looked at our con and said that's that's a very high quality con that would be sought after."
+- [WREXF](../Tickers/WREXF.md): [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, Resource Talks: "The key to remember at Gravel Creek as well is that it's a million ounces gold equivalent. So, let's let's keep it gold and silver. So, roughly 800,000 ounces gold, 15 million ounces of silver"
+- [WREXF](../Tickers/WREXF.md): [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, Resource Talks: "We did two drill programs, one in 2023 and one in 2024 in Gravel Creek. And with those two drill programs, we added a quarter million ounces."
 
 ## Recent market views
 
-- _? — ?_: [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Antonio (Resource Talks host): "these companies are typically in the pre-revenue stage, which means they rely on the public markets for the financing of their operations, which often results in shareholder dilution. They raise money by issuing new sha…"
-- _? — ?_: [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Antonio (Resource Talks host): "as a general rule of thumb, you'd be better off understanding that all company communications, albeit this interview or their website, their presentation, their news releases even, and of course their social media and e…"
-- _? — ?_: [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Antonio (Resource Talks host): "nobody out there has any special predicting abilities. The CEOs don't possess any superior knowledge and they cannot know about what's going to go up, what's going to go down, or what's going to go in circles. And none…"
-- _? — ?_: [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Antonio (Resource Talks host): "Mining is a risky business. Losing money is the norm and should be the expectation as mineral exploration, development and extraction is an extremely risky industry where the performance of individual companies typicall…"
-- _? — ?_: [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Antonio (host): "I think the market read it as you did so as positive went up and and most of the reactions that I saw online were positive as well."
-- _? — ?_: [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| R…](https://www.youtube.com/watch?v=bY40DOJPvxk) — 2026-08-26, Matt (Radisson CEO): "This this is not that. This is a Nikico ego. um and um uh you know this the the safest hands for the equity of our business and and a warrant that we could possibly imagine. Um they're they're you know that that that wa…"
+- _? — ?_: [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, Resource Talks: "Unfortunately, at least in my understanding, nobody out there has any special predicting abilities."
+- _? — ?_: [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, Host: "intended only for those who know and understand the risks of junior mining, of which there are many"
+- _? — ?_: [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, [Darcy (CEO, Western Exploration)](../People/darcy-ceo-western-exploration.md): "in the junior market sometimes you're not the driver of your own destiny"
+- _? — ?_: [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, Resource Talks: "you never can say ever. You never know if we're going to 1700, but the the probabilities are low that we're going back to, 1700."
+- _? — ?_: [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, Resource Talks: "that's what takes the longest amount of time right now is to permit a project. So let's start it now. We can grow it later."
+- _? — ?_: [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Explora…](https://www.youtube.com/watch?v=H5-1IM0qzB8) — 2026-08-28, Resource Talks: "in 90 mid9s you remember there was this exodus out of Nevada. A lot of geologists a lot of companies left Nevada went to Chile went to Argentina."
 
 ## Source items (extracted)
 
+- 2026-08-28 — [Heap-Leach Gold in Nevada, But Can They Build it on Schedule? \| Western Exploration CEO I…](https://www.youtube.com/watch?v=H5-1IM0qzB8)
 - 2026-08-27 — [New Gold Discovery Between Two Major Mines, But Is It Continuous? \| Tower Resources CEO I…](https://www.youtube.com/watch?v=kI8I2U2jUds)
 - 2026-08-26 — [Agnico Invests $57M in Quebec Gold Project, But Is It Enough to De-Risk it? \| Radisson CE…](https://www.youtube.com/watch?v=bY40DOJPvxk)
 - 2026-08-25 — [Building a Silver Mine in Mexico, But Can Costs Stay Under Control? \| GoGold Resources CE…](https://www.youtube.com/watch?v=CJYFy1WEDSE)
@@ -88,18 +89,17 @@ _No URL / bio in DB channel metadata._
 - 2026-08-18 — [New Copper-Gold Discovery in Australia, But Is There Enough Tonnage? \| Great Plains CEO I…](https://www.youtube.com/watch?v=lXeJq-yjICU)
 - 2026-08-17 — [80 Projects and 17 Royalties, But Can They Really Monetize Them? \| Strategic Metals CEO I…](https://www.youtube.com/watch?v=M0eDetccI5M)
 - 2026-08-12 — [3M Ounces of Gold in DR Congo, But is it Really Economic? \| Avanti Gold CEO Interview](https://www.youtube.com/watch?v=j_t-RAAdzA8)
-- 2026-08-10 — [Copper-Gold Target in BC, But Will the New Targeting Deliver This Time? \| Torr Metals CEO…](https://www.youtube.com/watch?v=IZoqBYO-SWw)
 - 2026-08-10 — [5 Lithium Projects in Africa, But Will Any of Them Reach Scale? \| Lithium Africa CEO Inte…](https://www.youtube.com/watch?v=5C_SxrMqMzA)
-- 2026-08-07 — [High-Grade Gold Project in Ontario, But Can They Actually Build It? \| Galleon Gold CEO In…](https://www.youtube.com/watch?v=9N4rzN0f9uo)
+- 2026-08-10 — [Copper-Gold Target in BC, But Will the New Targeting Deliver This Time? \| Torr Metals CEO…](https://www.youtube.com/watch?v=IZoqBYO-SWw)
 - 2026-08-07 — [Gold Project Next to a Major Mine, But Is the Geology Really the Same? \| Galactic Gold CE…](https://www.youtube.com/watch?v=D8YzCqyL6CI)
+- 2026-08-07 — [High-Grade Gold Project in Ontario, But Can They Actually Build It? \| Galleon Gold CEO In…](https://www.youtube.com/watch?v=9N4rzN0f9uo)
 - 2026-08-06 — [3 Gold Discoveries in Suriname, But Are They Big Enough to Matter? \| Miata Metals CEO Int…](https://www.youtube.com/watch?v=4G6ewfKJTNI)
 - 2026-08-05 — [Multiple Porphyries in Kazakhstan, But Can They Prove Continuity? \| Arras Minerals Interv…](https://www.youtube.com/watch?v=ec9hWlIZKJE)
 - 2026-08-04 — [Gold Project With Historic Ounces in Peru, But Can it Be Economic Today? \| Xali Gold CEO …](https://www.youtube.com/watch?v=o1YQKoVuCfw)
 - 2026-08-01 — [The 12 Junior Mining Stocks That Moved This Week (And Why)](https://www.youtube.com/watch?v=19z7zQDVOU8)
 - 2026-07-31 — [High-Grade Silver in Nevada, But Why Did So Many Others Leave? \| ICG Silver & Gold CEO In…](https://www.youtube.com/watch?v=zMarAgSPVO0)
 - 2026-07-30 — [Large Oxide Gold Deposit in the USA, But Can They Really Build a Mine? \| Dakota Gold Inte…](https://www.youtube.com/watch?v=8upClaqiJ_I)
-- 2026-07-28 — [3 Copper-Gold Targets in BC, But Can They Deliver a Discovery? \| Prospect Ridge CEO Inter…](https://www.youtube.com/watch?v=tbRyZYaJh5M)
-_…and 39 more._
+_…and 41 more._
 
 ---
 _Page reflects DB state at generation time._

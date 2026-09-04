@@ -29,12 +29,12 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
+- _? — ?_: [Uranium Market Minute – Episode 215: Tradable Uranium Seasonality](https://www.youtube.com/watch?v=t6KT7YbaQlA) — 2026-06-26, Uranium Insider: "The surplus disposal market sitting right now at 8575 a pound. The long-term price is sitting at 94 a pound blended between UXC and trade tech."
 - _? — ?_: [Uranium Market Minute – Episode 215: Tradable Uranium Seasonality](https://www.youtube.com/watch?v=t6KT7YbaQlA) — 2026-06-26, Uranium Insider: "the long-term contracting market, the seasonal opportunities that this long-term uranium bull market represent and offer, and specifically the average returns from the summer dip that we often get rallying into the Q1 Q…"
 - _? — ?_: [Uranium Market Minute – Episode 215: Tradable Uranium Seasonality](https://www.youtube.com/watch?v=t6KT7YbaQlA) — 2026-06-26, Uranium Insider: "The uptrend is intact and it will continue."
 - _? — ?_: [Uranium Market Minute – Episode 215: Tradable Uranium Seasonality](https://www.youtube.com/watch?v=t6KT7YbaQlA) — 2026-06-26, Uranium Insider: "Underneath it all, there's a ton of uncovered demand going forward. In fact, it's north of a billion pounds going out to 2040 that has not been secured in long-term contracting and will have to be covered and the supply…"
 - _? — ?_: [Uranium Market Minute – Episode 215: Tradable Uranium Seasonality](https://www.youtube.com/watch?v=t6KT7YbaQlA) — 2026-06-26, Uranium Insider: "So based on that alone, the price is going to continue to rise."
 - _? — ?_: [Uranium Market Minute – Episode 215: Tradable Uranium Seasonality](https://www.youtube.com/watch?v=t6KT7YbaQlA) — 2026-06-26, Uranium Insider: "The only retracement that we've seen in the long-term price has been a dollar or two, no more than 3% retracement. Whereas, we've seen the spot price run to over $100 in early 2024 and then pull all the way back to 62 $…"
-- _? — ?_: [Uranium Market Minute – Episode 215: Tradable Uranium Seasonality](https://www.youtube.com/watch?v=t6KT7YbaQlA) — 2026-06-26, Uranium Insider: "to allow for the spot price movement to become an overarching narrative for the investment thesis is an error"
 
 ## Source items (extracted)
 

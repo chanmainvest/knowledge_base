@@ -66,6 +66,20 @@ The LLM must return one JSON object matching a fixed schema
   (`up|down|flat|unspecified`), `target_price`, `stop_price`, `timeframe`
   (free-text, e.g. "3 months"), `quote`.
 - `entities[]` — `kind` (`person|company|country|theme`), `name`, `ticker`.
+- `is_marketing` (boolean, **v2**) — is this chunk predominantly promotional
+  material (ad / sponsor segment / trailer / subscription pitch) with little
+  or no substantive analysis? A normal piece that merely contains a short
+  sponsor read is **not** marketing. Chunk votes are majority-voted onto
+  `item.is_marketing` at promote time; NULL = unclassified (v1-era runs).
+- `media_mentions[]` (**v2**) — finance-related books / movies / papers
+  mentioned, discussed or recommended: `kind`
+  (`book|movie|paper`), `title`, `creators` (authors/director/researchers),
+  `year`, `speaker` (who mentioned it), `quote` (the sentence). Persisted
+  into `media_work` (deduped on `(kind, title_norm)`) + `media_mention`
+  (per extraction run, with attribution) — see migrations/014. glm-flash
+  sometimes renames `kind` to `type` or returns `creators` as a list
+  (the zai endpoint doesn't strictly enforce the json_schema); `_persist()`
+  normalizes both before validating.
 
 Chunk results are naively concatenated (`aggregate[k].extend(...)`) — there
 is no de-duplication across chunks, and only chunk 0's `summary` survives.
@@ -103,6 +117,15 @@ Because `kb extract run` only picks `extraction_status='pending'` items, A/B
 testing the *same* items under a new version is done with
 `kb extract compare` (never promotes to primary) or by flipping chosen items
 back to `'pending'`.
+
+**Single-flight:** `run()` holds a session-scoped Postgres advisory lock
+(`pg_try_advisory_lock(7261001)`) for the whole batch, so a local run and the
+Jenkins nightly can't extract concurrently — the second batch to arrive exits
+immediately with `extracted 0`. This matters because two batches pick the same
+newest-first pending ids and would upsert the *same* `extraction_run` row,
+interleaving their `_persist()` deletes/inserts. The lock lives on a dedicated
+NullPool connection: closing it drops the session, which releases the lock
+even if the batch crashes.
 
 Caveat for schema changes: `_persist()` copies the aggregated output into
 the fixed `view_market`/`prediction`/`item_speaker`/`item_entity` tables.
@@ -372,7 +395,8 @@ extraction_run(
   id, item_id, provider, model, prompt_version,
   status,        -- running | done | error
   error, summary, raw_response JSONB,
-  started_at, finished_at, duration_ms
+  started_at, finished_at, duration_ms,
+  prompt_tokens, cached_tokens, completion_tokens   -- since 2026-09-02
 )
 UNIQUE (item_id, provider, model, prompt_version)
 ```
@@ -385,6 +409,26 @@ exploratory `kb extract compare` — creates or updates one of these rows.
 one overwriting another (re-running the *same* provider/model/prompt_version
 combo is still idempotent: `_persist()` deletes/re-inserts only that run's
 rows).
+
+#### Token usage and reference cost
+
+`chat_json()` returns `(parsed, usage)`; `extract_item()` sums the per-chunk
+usage across a whole item and `_finish_run()` stores the totals as
+`prompt_tokens` / `cached_tokens` / `completion_tokens` (columns added
+2026-09-02, migration 015). `cached_tokens` is the provider-reported subset
+of `prompt_tokens` served from cache — subset, not additive. Columns are NULL
+for runs that predate capture or whose provider reports nothing (the
+github/copilot CLI path has no machine-readable usage).
+
+`kb extract cost` aggregates the usage per provider/model/prompt_version and
+prices it with `src/kb/pricing.py`, which fetches OpenRouter's public model
+catalogue (`https://openrouter.ai/api/v1/models`, unauthenticated, cached
+in-process for an hour) and maps provider codes onto OpenRouter ids
+(`zai` → `z-ai/<model>`, etc.). Cost = uncached input × prompt price +
+cached tokens × cache-read price (plain input price when unpublished) +
+output × completion price. These are **reference** numbers, not actual
+billing: the GLM Coding Plan is subscription quota, while OpenRouter runs
+are genuinely billed per token.
 
 `item.primary_extraction_run_id` points at the run considered canonical for
 that item — the one the frontend, `/api/items/<id>`, and the per-channel
@@ -462,6 +506,16 @@ GET /api/items/<id>              # ?run_id=<n> to view a specific (non-primary)
                                   # in Part 1) — one entry with quotes[] and a
                                   # conflict flag, not flat rows.
 GET /api/items/<id>/runs         # every extraction_run for an item, with is_primary
+GET /api/media                   # books/movies/papers ranked by mention count
+                                  # (canonical runs only), with the speakers who
+                                  # cited each work; ?kind=book|movie|paper,
+                                  # ?work_id=<n> drills into every mention.
+GET /api/search /api/items       # both hide items the v2 extraction flagged as
+                                  # marketing (is_marketing=true) by default;
+                                  # ?marketing=include shows everything,
+                                  # ?marketing=only keeps just the promo items.
+                                  # NULL (v1-era/unclassified) counts as
+                                  # not-marketing, so nothing vanishes.
 GET /api/models/leaderboard      # provider/model accuracy, overall + per channel
 ```
 

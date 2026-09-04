@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "README"
             }
+          },
+          {
+            "id": "a93b50b4815557a2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "doc/llm-extraction.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "llm-extraction"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -41,7 +56,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -183,20 +200,36 @@
       "bases:Create new base": false
     }
   },
-  "active": "22f107b40199e1e5",
+  "active": "a93b50b4815557a2",
   "lastOpenFiles": [
-    "scripts/llm_wiki_prose.json",
-    "AGENTS.md.tmp.50944.19fc654e866a",
-    "scripts/build_llm_wiki.py.tmp.50944.dcae857d0d00",
-    "scripts/build_llm_wiki.py.tmp.50944.61803a67f697",
-    "scripts/build_llm_wiki.py.tmp.50944.996bdeee8a41",
-    "scripts/build_llm_wiki.py.tmp.50944.40228ce641f9",
-    "scripts/build_llm_wiki.py.tmp.50944.d1cc7bef8c6f",
-    "scripts/build_llm_wiki.py.tmp.50944.f682ec0c4a75",
-    "scripts/build_llm_wiki.py.tmp.50944.0dec91528291",
-    "scripts/build_llm_wiki.py.tmp.50944.d363e561767d",
-    "scripts/build_llm_wiki.py.tmp.50944.2f118c6b0e00",
+    "README.md",
+    "frontend/src/pages/Search.tsx.tmp.102472.da2c10f434cf",
+    "frontend/src/pages/Search.tsx.tmp.102472.1e4c1464e34f",
+    "frontend/src/pages/Search.tsx.tmp.102472.033ce64407b9",
+    "frontend/src/api.ts.tmp.102472.04f131b11a90",
+    "src/kb/extract.py.tmp.102472.ed8b3ae1331d",
+    "src/kb/extract.py.tmp.102472.31a51b2e15ee",
+    "src/kb/prompts/extraction/v2/system.md.tmp.102472.74eaa266f51f",
+    "src/kb/extract.py.tmp.102472.3df602e23009",
+    "src/kb/extract.py.tmp.102472.80b2bd02ba09",
+    "src/kb/api/__pycache__/media.cpython-314.pyc",
+    "src/kb/prompts/extraction/v2/system.md",
+    "AGENTS.md",
+    "CONTRIBUTING.md",
+    "spec/blog-scrapers.md",
+    "report/extract-progress.md",
+    "doc/scrape-util-scripts.md",
+    "doc/llm-extraction.md",
+    "doc/jenkins-pipeline.md",
+    "doc/frontend-human-usage.md",
+    "doc/database-architecture.md",
+    "doc/cli-ai-database.md",
     "llm-wiki/AGENTS.md",
+    "llm-wiki/Studies/cpm-group-recycling.md",
+    "data/patreon/aminvest/2022/2022-10-29-收市又是停於黃金比率線.md",
+    "llm-wiki/README.md",
+    "llm-wiki/Tickers/DRAM.md",
+    "llm-wiki/Analysts/aminvest.md",
     "llm-wiki/Syntheses/Timeline.md",
     "llm-wiki/Syntheses/Opinion-Shifts.md",
     "llm-wiki/Syntheses/Disagreements.md",
@@ -204,20 +237,6 @@
     "llm-wiki/Analysts/fedguy12.md",
     "llm-wiki/People/shawn-hackett.md",
     "llm-wiki/People/raoul-pal.md",
-    "llm-wiki/People/person-008.md",
-    "llm-wiki/People/person-006.md",
-    "llm-wiki/People/person-004.md",
-    "llm-wiki/People/person-003.md",
-    "llm-wiki/People/person-002.md",
-    "llm-wiki/People/person-001.md",
-    "llm-wiki/People/jeff-jeoff.md",
-    "llm-wiki/People/jeff.md",
-    "llm-wiki/People/jd.md",
-    "llm-wiki/People/jeff-snider.md",
-    "llm-wiki/Themes/oil-energy.md",
-    "llm-wiki/People/brent-johnson.md",
-    "llm-wiki/People/aminvest.md",
-    "llm-wiki/Tickers/ZZZZ-stale.md",
-    "llm-wiki/MY-NOTES.md"
+    "llm-wiki/People/person-008.md"
   ]
 }

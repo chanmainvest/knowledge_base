@@ -1,12 +1,22 @@
-"""Whisper ASR transcription for YouTube items without subtitles.
+"""ASR transcription for YouTube items without subtitles.
 
 For YouTube items where no subtitle/transcript could be fetched
 (``has_transcript=false``), this module:
 
 1. Downloads the audio track (m4a) via yt-dlp to a transient audio dir under
-   ``data/raw/youtube/tmp/`` (same ``data/raw/<source>/`` layout as the other
-   raw artefacts; gitignored, deleted after each item).
-2. Runs faster-whisper on GPU (one video at a time — no parallel GPU load).
+   ``data/raw/youtube/tmp/`` (same ``data/raw/<source>/`` layout as the
+   other raw artefacts; gitignored, deleted after each item).
+2. Runs ASR on GPU one video at a time (no parallel GPU load). Two engines,
+   selected by ``TRANSCRIBE_ENGINE`` (or ``kb youtube transcribe --engine``):
+
+   - **qwen** (default): Qwen3-ASR via the ``qwen-asr`` package. Verbatim
+     Cantonese output — best fidelity on Dr Ng audio (2026-08-30 benchmark:
+     CER 61% vs whisper 72% against captions, no hallucination, correct
+     code-switching). Audio is decoded to 16 kHz mono WAV via ffmpeg and
+     transcribed in ``QWEN_CHUNK_SEC`` chunks: full-context decode collapses
+     past ~12 min on an 8 GB card (KV-cache spills to WDDM shared memory).
+   - **whisper** (legacy): faster-whisper large-v3. Fast on any length
+     (6-7.7x realtime) but normalises colloquial Cantonese into 書面語.
 3. Writes the generated transcript into the existing ``.md`` file (replacing
    the ``_(no transcript available)_`` placeholder) and re-ingests to update
    the DB.
@@ -19,8 +29,11 @@ is set in ``.env``), and the dedicated command is ``kb youtube transcribe``.
 
 Usage::
 
-    # Transcribe all pending (one at a time)
+    # Transcribe all pending (one at a time, qwen engine)
     kb youtube transcribe
+
+    # Force the legacy whisper engine for one run
+    kb youtube transcribe --engine whisper
 
     # Test with one Cantonese video from latp channel
     kb youtube transcribe --channel latp --limit 1
@@ -333,6 +346,113 @@ def transcribe_audio(model, audio_path: Path) -> tuple[str, str]:
 
 
 # ---------------------------------------------------------------------------
+# Qwen3-ASR transcription (default engine)
+# ---------------------------------------------------------------------------
+
+# Qwen reports a human language name ("Cantonese"); the KB stores ISO-ish
+# codes like whisper's ('yue', 'en', 'zh').
+_QWEN_LANG_CODES = {
+    "cantonese": "yue",
+    "chinese": "zh",
+    "english": "en",
+    "japanese": "ja",
+    "korean": "ko",
+}
+
+
+def load_qwen_model(model: str | None = None, device: str | None = None):
+    """Load the Qwen3-ASR model once. Returns the model instance.
+
+    Args override the ``QWEN_*`` settings for this run. ``QWEN_HF_HOME`` is
+    applied to ``HF_HOME`` before the hub import so an existing local weight
+    cache is reused (must happen before qwen_asr/transformers load).
+    """
+    import os
+
+    s = settings()
+    if s.qwen_hf_home and "HF_HOME" not in os.environ:
+        os.environ["HF_HOME"] = s.qwen_hf_home
+    try:
+        import torch
+        from qwen_asr import Qwen3ASRModel
+    except ImportError as exc:
+        raise RuntimeError(
+            "qwen engine needs the qwen-asr package (+ CUDA torch): "
+            "uv add qwen-asr && uv pip install torch "
+            "--index-url https://download.pytorch.org/whl/cu126"
+        ) from exc
+    model_id = model or s.qwen_model
+    device_map = device or s.qwen_device
+    print("Loading Qwen3-ASR model '{}' on device_map='{}'...".format(
+        model_id, device_map))
+    t0 = time.time()
+    m = Qwen3ASRModel.from_pretrained(
+        model_id, dtype=torch.bfloat16, device_map=device_map,
+        max_new_tokens=s.qwen_max_new_tokens)
+    print("Model loaded in {:.1f}s".format(time.time() - t0))
+    return m
+
+
+def _decode_wav16k(audio_path: Path, dest_dir: Path) -> Path:
+    """Decode any downloaded audio container to 16 kHz mono WAV (numpy-ready).
+
+    libsndfile can't read m4a, and yt-dlp may hand us webm/opus, so ffmpeg
+    does the decode. Chunking happens on the decoded PCM.
+    """
+    ffmpeg = shutil.which("ffmpeg")
+    if not ffmpeg:
+        raise RuntimeError(
+            "ffmpeg not found on PATH — required by the qwen engine to decode "
+            "audio into 16 kHz WAV")
+    wav = dest_dir / (audio_path.stem + ".16k.wav")
+    cp = subprocess.run(
+        [ffmpeg, "-y", "-loglevel", "error", "-i", str(audio_path),
+         "-ar", "16000", "-ac", "1", "-f", "wav", str(wav)],
+        capture_output=True, text=True, encoding="utf-8", errors="replace")
+    if cp.returncode != 0 or not wav.exists():
+        raise RuntimeError(
+            "ffmpeg 16k decode failed: {}".format((cp.stderr or "")[-300:]))
+    return wav
+
+
+def transcribe_audio_qwen(model, audio_path: Path, tmp_dir: Path) -> tuple[str, str]:
+    """Transcribe via Qwen3-ASR in fixed-length chunks.
+
+    Long audio is split into ``QWEN_CHUNK_SEC`` slices of 16 kHz PCM: the
+    model's attention is quadratic in audio length and the KV-cache of a
+    25-min clip overflows an 8 GB card (2026-08-30 benchmark), while 8-min
+    chunks hold ~2x realtime. Chunk texts are joined and shaped through the
+    same paragraph assembler as the other engines. Returns
+    (transcript_text, iso_language_code).
+    """
+    import soundfile as sf
+
+    s = settings()
+    wav = _decode_wav16k(audio_path, tmp_dir)
+    try:
+        chunk_samples = max(60, s.qwen_chunk_sec) * 16000
+        texts: list[str] = []
+        langs = []
+        for chunk in sf.blocks(str(wav), blocksize=chunk_samples, dtype="float32"):
+            if chunk.size < 16000:  # <1s trailing blip
+                continue
+            r = model.transcribe(audio=(chunk, 16000), language=None)[0]
+            t = (r.text or "").strip()
+            if t:
+                texts.append(t)
+                langs.append((getattr(r, "language", "") or "").lower())
+        if not texts:
+            return "", "und"
+        # Dominant chunk language, mapped to the ISO-ish codes whisper uses.
+        raw = max(set(langs), key=langs.count)
+        lang = _QWEN_LANG_CODES.get(raw, raw or "und")
+        from .scrapers.youtube import _assemble_paragraphs
+        return _assemble_paragraphs([" ".join(texts)]), lang
+    finally:
+        _safe_delete(wav)
+
+
+# ---------------------------------------------------------------------------
 # Markdown update
 # ---------------------------------------------------------------------------
 
@@ -379,6 +499,7 @@ def transcribe_all(
     model,
     tmp_dir: Path,
     dry_run: bool = False,
+    engine: str = "whisper",
 ) -> tuple[int, int, dict[str, int]]:
     """Process each candidate sequentially. Returns (done, failed, lang_counts)."""
     done = 0
@@ -427,12 +548,19 @@ def transcribe_all(
         update_status(row["id"], "audio_downloaded")
 
         # --- Step 2: Transcribe ---
-        print("  transcribing...", end=" ", flush=True)
+        print("  transcribing [{}]...".format(engine), end=" ", flush=True)
         t0 = time.time()
         try:
-            transcript, lang = transcribe_audio(model, audio_path)
+            if engine == "qwen":
+                transcript, lang = transcribe_audio_qwen(model, audio_path, tmp_dir)
+            else:
+                transcript, lang = transcribe_audio(model, audio_path)
         except Exception as exc:  # noqa: BLE001
-            print("✗ error: {}".format(exc))
+            hint = ""
+            if "out of memory" in str(exc).lower():
+                hint = (" (VRAM exhausted — try a smaller QWEN_CHUNK_SEC, free "
+                        "GPU memory, or --engine whisper)")
+            print("✗ error: {}{}".format(exc, hint))
             failed += 1
             update_status(row["id"], "failed", error=str(exc))
             # Clean up audio regardless.
@@ -489,12 +617,14 @@ def run_transcribe(
     model: str | None = None,
     device: str | None = None,
     external_ids: list[str] | None = None,
+    engine: str | None = None,
 ) -> tuple[int, int, int]:
     """Run the transcription pipeline over pending candidates.
 
     Returns ``(total, done, failed)``. Used by ``kb youtube transcribe`` and
     by ``kb youtube scrape --transcribe`` (which passes ``external_ids`` to
-    restrict the pass to the videos it just fetched).
+    restrict the pass to the videos it just fetched). ``engine`` overrides
+    ``TRANSCRIBE_ENGINE`` for this run (qwen | whisper).
     """
     candidates = gather_candidates(limit, channel, retry_failed,
                                    external_ids=external_ids)
@@ -509,7 +639,11 @@ def run_transcribe(
             print("No items pending transcription.")
         return 0, 0, 0
 
-    print("Transcribing {} YouTube video(s) with faster-whisper...".format(total))
+    eng = (engine or settings().transcribe_engine or "whisper").lower()
+    if eng not in ("qwen", "whisper"):
+        raise ValueError("unknown transcribe engine {!r} (qwen | whisper)".format(eng))
+
+    print("Transcribing {} YouTube video(s) with the {} engine...".format(total, eng))
     print("(one at a time — GPU runs sequentially)")
     if dry_run:
         print("(DRY RUN — no downloads/transcription)")
@@ -524,11 +658,14 @@ def run_transcribe(
     print("Audio temp dir: {}".format(tmp_dir))
 
     # Load the model once.
-    whisper_model = load_model(model=model, device=device)
+    if eng == "qwen":
+        asr_model = load_qwen_model(model=model, device=device)
+    else:
+        asr_model = load_model(model=model, device=device)
 
     # Run the pipeline.
-    done, failed, lang_counts = transcribe_all(candidates, whisper_model,
-                                               tmp_dir, dry_run)
+    done, failed, lang_counts = transcribe_all(candidates, asr_model,
+                                               tmp_dir, dry_run, engine=eng)
 
     print("\n" + "=" * 60)
     print("Done: {} transcribed, {} failed (of {} total)".format(done, failed, total))

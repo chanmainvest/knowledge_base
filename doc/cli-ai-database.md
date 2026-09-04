@@ -107,6 +107,16 @@ extraction attempt is recorded in `extraction_run`, and the same item can be
 extracted by multiple providers without one overwriting another; see
 `doc/llm-extraction.md` for the full pipeline and how to compare providers.
 
+Each run also records the provider-reported token usage (`prompt_tokens`,
+`cached_tokens`, `completion_tokens` on `extraction_run`; NULL on runs from
+before 2026-09-02 or from the copilot CLI, which reports no usage). To see
+totals and an estimated USD cost per provider/model (priced from OpenRouter's
+public reference prices — a yardstick, not actual billing):
+
+```pwsh
+uv run kb extract cost
+```
+
 ```pwsh
 # override the default provider/model for this run
 uv run kb extract run --limit 50 --provider anthropic --model claude-sonnet-4-5

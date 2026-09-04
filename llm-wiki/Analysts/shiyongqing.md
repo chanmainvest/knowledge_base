@@ -23,8 +23,8 @@
 
 | Direction | Count |
 |---|---:|
-| bullish | 1 |
 | bearish | 1 |
+| bullish | 1 |
 
 ## Recent notable calls
 
@@ -36,8 +36,8 @@
 ## Recent market views
 
 - _? — ?_: [精挑個股不如均價買入指數ETF](https://www.master-insight.com/article/49431) — 2026-07-28, 施永青
-- _e-commerce/retail sector — bullish_: [京東來港開實體店 零售業大變天](https://www.master-insight.com/article/48918) — 2026-06-23, 作者(未具名，am730專欄作家): "京東願意投入這麼多的資源（350億元），不似是單為了香港的生意，更大可能是為了接觸中國內地以外的消費市場，所以需要先在香港打破切口，取得經驗後，然後進軍國際市場。"
 - _retail sector — bearish_: [京東來港開實體店 零售業大變天](https://www.master-insight.com/article/48918) — 2026-06-23, 作者(未具名，am730專欄作家): "本港其他家電零售商相信都已聞風喪膽，不知應如何去面對這次降維襲擊。"
+- _e-commerce/retail sector — bullish_: [京東來港開實體店 零售業大變天](https://www.master-insight.com/article/48918) — 2026-06-23, 作者(未具名，am730專欄作家): "京東願意投入這麼多的資源（350億元），不似是單為了香港的生意，更大可能是為了接觸中國內地以外的消費市場，所以需要先在香港打破切口，取得經驗後，然後進軍國際市場。"
 
 ## Source items (extracted)
 

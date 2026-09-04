@@ -154,6 +154,7 @@ uv run kb substack scrape <handle> --limit 3
 
 # extract structure
 uv run kb extract run --limit 50
+uv run kb extract cost                     # token usage + OpenRouter-reference cost
 
 # market data + scoring: fetch daily prices for every predicted ticker into
 # the asset_price store (bulk yfinance, incremental), score calls against it,

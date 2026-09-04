@@ -39,25 +39,25 @@ _No URL / bio in DB channel metadata._
 
 | Direction | Count |
 |---|---:|
-| liquidity tightening | 1 |
-| secularly higher rate volatility | 1 |
-| volatility higher (general/rate volatility), even as VIX was smashed near-term | 1 |
-| context: market pricing two hikes by mid-2027 | 1 |
-| no hike at year-end | 1 |
-| sees disinflation coming; skeptical of hikes | 1 |
-| hawkishness has peaked; policy to turn less hawkish | 1 |
 | bearish on forward guidance as a policy tool | 1 |
-| near-term vol crushed; seasonal low-vol period; systematic funds still levered long | 1 |
-| context: stocks at all-time highs | 1 |
-| hawkish dots were committee members, not Warsh; market re-pricing hike odds lower | 1 |
-| inflation swaps back to pre-war levels | 1 |
-| conditions better than people realize after the war ends | 1 |
-| real-world inflation running cooler than government data | 1 |
-| housing CPI components rolling over (disinflationary) | 1 |
-| Fed communication had been suppressing volatility for 15 years | 1 |
-| potential end of systematic asset-management bubble in a new regime | 1 |
-| risk of reverse carry trade if dollar keeps strengthening | 1 |
+| hawkishness has peaked; policy to turn less hawkish | 1 |
+| sees disinflation coming; skeptical of hikes | 1 |
+| no hike at year-end | 1 |
+| context: market pricing two hikes by mid-2027 | 1 |
+| volatility higher (general/rate volatility), even as VIX was smashed near-term | 1 |
+| secularly higher rate volatility | 1 |
+| liquidity tightening | 1 |
 | watching for credit spread breakout as key macro catalyst | 1 |
+| risk of reverse carry trade if dollar keeps strengthening | 1 |
+| potential end of systematic asset-management bubble in a new regime | 1 |
+| Fed communication had been suppressing volatility for 15 years | 1 |
+| housing CPI components rolling over (disinflationary) | 1 |
+| real-world inflation running cooler than government data | 1 |
+| conditions better than people realize after the war ends | 1 |
+| inflation swaps back to pre-war levels | 1 |
+| hawkish dots were committee members, not Warsh; market re-pricing hike odds lower | 1 |
+| context: stocks at all-time highs | 1 |
+| near-term vol crushed; seasonal low-vol period; systematic funds still levered long | 1 |
 
 ## Recent notable calls
 
@@ -72,12 +72,12 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
+- _? — ?_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "Bond vol is now in the gutter as a result of these actions. So, you take you take that big risk factor off the table."
+- _? — ?_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "oil volatility is at near its lows year-to-date. That's taking that risk sort of off the table."
+- _? — ?_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "But, he's not going to hike rates. He's he's not he's not going to hike rates. The Fed is not going to do that."
+- _? — ?_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "when you zoom out, like, it's pretty it's pretty bullish con- conditions for inflation to stay sticky and you know trades that have been kind of running on the back to continue working because it just doesn't end this w…"
+- _? — ?_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "I don't see massive broad market risks over the next week or two or three and I can get into why when we talk about Jackson Hole uh on on Friday."
 - _? — ?_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "But by no means is is Druckenmiller is this this solved. Like the deficit's still is what it is, it's growing, interest expense is rising. Inflationary pressures are not going away and they're not going to go away when…"
-- _? — ?_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "Like you don't get a you don't calm a multi-trillion dollar bond market with uh with just some words. But that said, it can work in the short term."
-- _? — ?_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "Bessen is he's he's ready to do the fight against the bond vigilantes, and he does not want to see that 10-year above five."
-- _? — ?_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "like otherwise like the they're debasing fiat and they're telling you what they're going to do. And I'll reevaluate as we get close to midterms because then the incentives change and they actually probably will want to…"
-- _? — ?_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "in early and mid-August, you know, three plus months out out of midterms, they're intervening. Why in the world in the next one week, two weeks, four weeks would they all of a sudden say, "Oh, we're going to decide now…"
-- _? — ?_: [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Quinn (co-host): "So, I think it's a nothing burger, to be honest. Like I I I'm not really worried about it at all."
 
 ## Source items (extracted)
 

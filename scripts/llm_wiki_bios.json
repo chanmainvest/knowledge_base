@@ -1797,5 +1797,54 @@
   "bio": "",
   "provider": "zai",
   "model": "glm-5.3-flash"
+ },
+ "Collin Martin": {
+  "sells_research": false,
+  "role": "Managing Director and Fixed Income Strategist",
+  "bio": "Collin Martin is a CFA charterholder and fixed income strategist at the Schwab Center for Financial Research, where he analyzes bond markets including U.S. Treasuries, corporate bonds, and municipal bonds. He regularly provides commentary on interest-rate trends, credit conditions, Treasury yields, and government and corporate debt issuance, and is a frequent guest on financial media programs and podcasts.",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Darcy (CEO, Western Exploration)": {
+  "sells_research": false,
+  "role": "Chief Executive Officer",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Jimmy Connor / Joseph de la Plante": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "Joseph de la Plante": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "王小姐 (student testimonial)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "綠角 (author)": {
+  "sells_research": false,
+  "role": "personal-finance blogger, author, and investing educator",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
+ },
+ "黃先生 (student testimonial)": {
+  "sells_research": false,
+  "role": "",
+  "bio": "",
+  "provider": "zai",
+  "model": "glm-5.3-flash"
  }
 }

@@ -20,7 +20,8 @@ import re
 import time
 from typing import Any
 
-from sqlalchemy import text
+from sqlalchemy import create_engine, func, select, text
+from sqlalchemy.pool import NullPool
 
 from . import llm
 from . import prompts
@@ -133,17 +134,28 @@ def extract_item(item_id: int, provider: str | None = None, model: str | None = 
     run_id = _start_run(item_id, provider, model, prompt_version)
     started = time.monotonic()
     aggregate = {"summary": "", "speakers": [], "market_views": [],
-                 "predictions": [], "entities": []}
+                 "predictions": [], "entities": [],
+                 "is_marketing": [], "media_mentions": [],
+                 "prompt_tokens": 0, "cached_tokens": 0, "completion_tokens": 0}
     try:
         for i, chunk in enumerate(_chunks(row["content"])):
             prompt = (f"TITLE: {row['title']}\nDATE: {row['published_at']}\n"
                       f"LANGUAGE: {row['language']}\n\nTEXT:\n{chunk}")
-            out = chat_json(pair.system, prompt, pair.schema,
-                            provider=provider, model=model)
+            out, usage = chat_json(pair.system, prompt, pair.schema,
+                                   provider=provider, model=model)
+            if usage:
+                for k in ("prompt_tokens", "cached_tokens", "completion_tokens"):
+                    aggregate[k] += int(usage.get(k) or 0)
             if i == 0:
                 aggregate["summary"] = out.get("summary", "")
-            for k in ("speakers", "market_views", "predictions", "entities"):
+            for k in ("speakers", "market_views", "predictions", "entities",
+                      "media_mentions"):
                 aggregate[k].extend(out.get(k, []) or [])
+            # Whole-item flag: collect per-chunk votes; the item-level value
+            # is decided by majority at promote time (a long video with one
+            # sponsor-read chunk stays false).
+            if isinstance(out.get("is_marketing"), bool):
+                aggregate["is_marketing"].append(out["is_marketing"])
     except Exception as exc:  # noqa: BLE001
         duration_ms = int((time.monotonic() - started) * 1000)
         err = str(exc)[:2000]
@@ -166,7 +178,10 @@ def extract_item(item_id: int, provider: str | None = None, model: str | None = 
 
     duration_ms = int((time.monotonic() - started) * 1000)
     _finish_run(run_id, status="done", summary=aggregate.get("summary", ""),
-                raw_response=aggregate, duration_ms=duration_ms)
+                raw_response=aggregate, duration_ms=duration_ms,
+                prompt_tokens=aggregate["prompt_tokens"],
+                cached_tokens=aggregate["cached_tokens"],
+                completion_tokens=aggregate["completion_tokens"])
     _persist(run_id, item_id, row, aggregate)
     if make_primary:
         _promote_primary(item_id, run_id, aggregate)
@@ -222,7 +237,8 @@ def _run_stats(item_id: int, provider: str, model: str,
                prompt_version: str) -> dict[str, Any]:
     with engine().connect() as conn:
         row = conn.execute(text("""
-            SELECT id, status, error, summary, duration_ms
+            SELECT id, status, error, summary, duration_ms,
+                   prompt_tokens, cached_tokens, completion_tokens
             FROM extraction_run
             WHERE item_id=:i AND provider=:p AND model=:m AND prompt_version=:v
             ORDER BY id DESC LIMIT 1
@@ -249,25 +265,50 @@ def _start_run(item_id: int, provider: str, model: str, prompt_version: str) -> 
 
 def _finish_run(run_id: int, status: str, summary: str | None = None,
                  raw_response: dict[str, Any] | None = None, error: str | None = None,
-                 duration_ms: int | None = None) -> None:
+                 duration_ms: int | None = None, prompt_tokens: int | None = None,
+                 cached_tokens: int | None = None,
+                 completion_tokens: int | None = None) -> None:
     with engine().begin() as conn:
         conn.execute(text("""
             UPDATE extraction_run
             SET status=:st, summary=:sm, raw_response=CAST(:rr AS jsonb), error=:er,
-                finished_at=now(), duration_ms=:d
+                finished_at=now(), duration_ms=:d,
+                prompt_tokens=:pt, cached_tokens=:ct, completion_tokens=:ot
             WHERE id=:r
         """), {"st": status, "sm": (summary or "")[:8000] if summary is not None else None,
                "rr": json.dumps(raw_response, ensure_ascii=False) if raw_response is not None else None,
-               "er": error, "d": duration_ms, "r": run_id})
+               "er": error, "d": duration_ms, "r": run_id,
+               "pt": prompt_tokens, "ct": cached_tokens, "ot": completion_tokens})
 
 
 def _promote_primary(item_id: int, run_id: int, agg: dict[str, Any]) -> None:
+    # Majority vote across chunk flags; no votes (v1-era schema) leaves the
+    # item unclassified (NULL) rather than guessing false.
+    flags = [f for f in (agg.get("is_marketing") or []) if isinstance(f, bool)]
+    is_marketing = (sum(flags) * 2 > len(flags)) if flags else None
     with engine().begin() as conn:
         conn.execute(text("""
             UPDATE item SET summary=:s, extraction_status='done', extraction_error=NULL,
-                            primary_extraction_run_id=:r
+                            primary_extraction_run_id=:r,
+                            is_marketing=CAST(:mk AS boolean)
             WHERE id=:i
-        """), {"s": agg.get("summary", "")[:8000], "i": item_id, "r": run_id})
+        """), {"s": agg.get("summary", "")[:8000], "i": item_id, "r": run_id,
+               "mk": is_marketing})
+
+
+def _norm_title(title: str) -> str:
+    """Canonical dedup key for a media work: drop parenthetical
+    subtitle/translation suffixes BEFORE punctuation stripping ("The Big
+    Short (華爾街大沽空)" -> "big short"), then lowercase, remove leading
+    articles/punctuation, collapse whitespace — so localized/variant titles
+    meet in one media_work row."""
+    raw = re.split(r"\s*[(（【\[]", title.strip(), maxsplit=1)[0]
+    if not raw:
+        raw = title
+    t = re.sub(r"[^\w\s]", " ", raw.lower())
+    t = re.sub(r"\s+", " ", t).strip()
+    t = re.sub(r"^(the|a|an) ", "", t)
+    return t
 
 
 def _persist(run_id: int, item_id: int, item_row, agg: dict) -> None:
@@ -275,8 +316,15 @@ def _persist(run_id: int, item_id: int, item_row, agg: dict) -> None:
         # Scoped to this run only, so re-running the same (item, provider,
         # model, prompt_version) combo is idempotent without touching rows
         # from other providers/models extracted for the same item.
-        conn.execute(text("DELETE FROM view_market WHERE extraction_run_id=:r"), {"r": run_id})
-        conn.execute(text("DELETE FROM prediction  WHERE extraction_run_id=:r"), {"r": run_id})
+        conn.execute(text("""
+            DELETE FROM view_market WHERE extraction_run_id=:r
+        """), {"r": run_id})
+        conn.execute(text("""
+            DELETE FROM prediction WHERE extraction_run_id=:r
+        """), {"r": run_id})
+        conn.execute(text("""
+            DELETE FROM media_mention WHERE extraction_run_id=:r
+        """), {"r": run_id})
         for v in agg.get("market_views", []):
             # Free/smaller models occasionally emit a bare string instead of an
             # object in the array; skip malformed entries rather than aborting
@@ -330,6 +378,43 @@ def _persist(run_id: int, item_id: int, item_row, agg: dict) -> None:
               INSERT INTO item_entity(item_id,entity_id,weight) VALUES (:i,:e,1.0)
               ON CONFLICT DO NOTHING
             """), {"i": item_id, "e": ent_id})
+        for m in agg.get("media_mentions", []):
+            if not isinstance(m, dict):
+                continue
+            # glm-flash does not strictly honour the json_schema: it has been
+            # seen renaming `kind` to `type` and emitting `creators` as a
+            # list — normalize both before the enum guard drops the mention.
+            kind = m.get("kind") or m.get("type")
+            title = (m.get("title") or "").strip().strip("《》\"'“”‘’").strip()
+            if kind not in ("book", "movie", "paper") or not title:
+                continue
+            creators = m.get("creators")
+            if isinstance(creators, list):
+                creators = ", ".join(str(c) for c in creators if c)
+            norm = _norm_title(title)
+            if not norm:
+                continue
+            # Upsert the canonical work: first-seen title/creators/year win,
+            # later mentions only fill fields that are still empty.
+            work_id = conn.execute(text("""
+              INSERT INTO media_work(kind, title, title_norm, creators, year)
+              VALUES (:k,:t,:n,:c,:y)
+              ON CONFLICT (kind, title_norm) DO UPDATE SET
+                    creators=COALESCE(NULLIF(media_work.creators,''), EXCLUDED.creators),
+                    year=COALESCE(media_work.year, EXCLUDED.year)
+              RETURNING id
+            """), {"k": kind, "t": title[:500], "n": norm,
+                   "c": (creators or "").strip() or None,
+                   "y": m.get("year") if isinstance(m.get("year"), int) else None}
+            ).scalar_one()
+            conn.execute(text("""
+              INSERT INTO media_mention(media_work_id, item_id, extraction_run_id,
+                                        speaker, quote)
+              VALUES (:w,:i,:r,:sp,:qu)
+              ON CONFLICT (extraction_run_id, media_work_id) DO NOTHING
+            """), {"w": work_id, "i": item_id, "r": run_id,
+                   "sp": (m.get("speaker") or "").strip() or None,
+                   "qu": (m.get("quote") or "").strip() or None})
 
 
 def embed_chunks(item_id: int, max_chars: int = 1800) -> int:
@@ -355,34 +440,53 @@ def embed_chunks(item_id: int, max_chars: int = 1800) -> int:
 def run(limit: int = 50, provider: str | None = None, model: str | None = None,
         prompt_version: str | None = None) -> int:
     n = 0
-    with engine().connect() as conn:
-        ids = [r[0] for r in conn.execute(text(
-            "SELECT id FROM item WHERE extraction_status='pending' "
-            "ORDER BY published_at DESC NULLS LAST LIMIT :l"), {"l": limit})]
-    for iid in ids:
-        try:
-            res = extract_item(iid, provider=provider, model=model,
-                               prompt_version=prompt_version)
-            if res:
-                try:
-                    embed_chunks(iid)
-                except Exception as exc:
-                    log.warning("embed failed for %s: %s", iid, exc)
-                n += 1
-        except Exception as exc:  # noqa: BLE001
-            log.exception("extract failed for %s: %s", iid, exc)
-            with engine().begin() as conn:
-                conn.execute(text("UPDATE item SET extraction_status='error', "
-                                  "extraction_error=:e WHERE id=:i"),
-                             {"e": str(exc)[:500], "i": iid})
-    log.info("extracted %d items", n)
-    # Reconcile per-source progress counters from the item table as a safety
-    # net against any increment drift during the batch. Cheap (one query per
-    # source) and authoritative.
+    # Single-flight guard: a local batch overlapping the Jenkins nightly would
+    # otherwise upsert the same (item, provider, model, prompt_version)
+    # extraction_run row and interleave the two batches' _persist
+    # deletes/inserts, corrupting the predictions for any item both were
+    # processing. The advisory lock is session-scoped and held on a dedicated
+    # NullPool connection — closing it drops the session, which is what
+    # releases the lock (also covers a crashed batch).
+    lock_engine = create_engine(engine().url, poolclass=NullPool)
+    lock_conn = lock_engine.connect()
+    if not lock_conn.execute(
+            select(func.pg_try_advisory_lock(7261001))).scalar_one():
+        lock_conn.close()
+        lock_engine.dispose()
+        log.warning("another extraction batch is already running; exiting")
+        return 0
     try:
-        from . import progress
-        progress.recompute()
-    except Exception:  # noqa: BLE001
-        log.debug("progress.recompute after batch failed", exc_info=True)
+        with engine().connect() as conn:
+            ids = [r[0] for r in conn.execute(text(
+                "SELECT id FROM item WHERE extraction_status='pending' "
+                "ORDER BY published_at DESC NULLS LAST LIMIT :l"), {"l": limit})]
+        for iid in ids:
+            try:
+                res = extract_item(iid, provider=provider, model=model,
+                                   prompt_version=prompt_version)
+                if res:
+                    try:
+                        embed_chunks(iid)
+                    except Exception as exc:
+                        log.warning("embed failed for %s: %s", iid, exc)
+                    n += 1
+            except Exception as exc:  # noqa: BLE001
+                log.exception("extract failed for %s: %s", iid, exc)
+                with engine().begin() as conn:
+                    conn.execute(text("UPDATE item SET extraction_status='error', "
+                                      "extraction_error=:e WHERE id=:i"),
+                                 {"e": str(exc)[:500], "i": iid})
+        log.info("extracted %d items", n)
+        # Reconcile per-source progress counters from the item table as a safety
+        # net against any increment drift during the batch. Cheap (one query per
+        # source) and authoritative.
+        try:
+            from . import progress
+            progress.recompute()
+        except Exception:  # noqa: BLE001
+            log.debug("progress.recompute after batch failed", exc_info=True)
+    finally:
+        lock_conn.close()
+        lock_engine.dispose()
     return n
 

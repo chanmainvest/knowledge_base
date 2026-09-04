@@ -50,3 +50,40 @@ Read this when touching `src/kb/llm.py`, `src/kb/extract.py`,
   card per ticker (with an amber **conflict** badge and a price sparkline
   from the market store) and makes each quote clickable to jump to and
   highlight it in the article body.
+- **Single-flight batches.** `extract.run()` takes a session-scoped
+  `pg_try_advisory_lock(7261001)` on a dedicated NullPool connection before
+  picking pending items; a second concurrent batch (local run vs the Jenkins
+  nightly's `kb extract run --limit 200`) exits with 0 instead of
+  interleaving `_persist()` writes into the same `extraction_run` row.
+  Closing the connection releases the lock, so a crashed batch never wedges
+  the queue.
+- **Token usage + reference cost (2026-09-02).** `chat_json()` returns
+  `(parsed, usage)`; `extract_item()` sums per-chunk usage and `_finish_run()`
+  persists `prompt_tokens`/`cached_tokens`/`completion_tokens` on
+  `extraction_run` (NULL = pre-capture runs, or the copilot CLI which reports
+  no usage). `cached_tokens` is a subset of `prompt_tokens`. `kb extract cost`
+  aggregates and prices it via `kb.pricing` (OpenRouter public catalogue,
+  `zai` → `z-ai/<model>` id mapping; reference prices, not actual billing).
+  The single-flight advisory lock (below) is why you can't `run` while the
+  nightly holds the lock — use `compare` for ad-hoc testing, it skips the
+  lock.
+- **v2 additions: marketing flag + media mentions (2026-08-30).** The v2
+  prompt/schema adds two targets on top of v1: `is_marketing` (per-chunk
+  boolean — is this text predominantly promotional? sponsor reads inside an
+  otherwise substantive piece do NOT count) and `media_mentions[]`
+  (finance-related books/movies/papers with `kind`/`title`/`creators`/
+  `year`/`speaker`/`quote`). Persistence: chunk flags are majority-voted in
+  `_promote_primary()` onto `item.is_marketing` (NULL = unclassified, i.e.
+  v1-era); mentions upsert a canonical `media_work` row (deduped on
+  `(kind, title_norm)` — `_norm_title()` strips parenthetical localized
+  suffixes like "The Big Short (華爾街大沽空)" and leading articles) plus one
+  `media_mention` row per run (`speaker` + `quote` attribution; re-runs
+  idempotent, scoped to the run). glm-flash does NOT strictly honour the
+  json_schema — `_persist` normalizes the seen-in-the-wild drifts (`kind`
+  → `type`, `creators` as list) before the enum guard. Serving: `/api/media`
+  (in `src/kb/api/media.py`, Core expressions because the security hook
+  rejects new raw-`text()` SELECTs) ranks works by mention count with
+  speaker attribution and drills down per work; item detail gains
+  `media_mentions`; `/api/search` + `/api/items` hide `is_marketing=true`
+  items by default (`?marketing=include|only` to override — NULL counts as
+  not-marketing so the v1 backlog stays visible).

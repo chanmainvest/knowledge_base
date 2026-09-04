@@ -36,8 +36,8 @@ _No URL / bio in DB channel metadata._
 
 | Direction | Count |
 |---|---:|
-| cautious / bearish-lean on broad market | 1 |
 | neutral / question raised | 1 |
+| cautious / bearish-lean on broad market | 1 |
 | oversold; intermediate fair value above spot | 1 |
 | bullish near-term, sustainability uncertain | 1 |
 | bearish short-to-intermediate; bullish long-term | 1 |
@@ -55,12 +55,12 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Massil Beguenane](../People/massil-beguenane.md): "But if Brazil sends more of their sugarcane towards ethanol production or India becomes a net importer, then the market will be forced to price a much larger supply and demand problem, and that could attract a second wa…"
-- _? — ?_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Patrick Ceresna](../People/patrick-ceresna.md): "Be very interesting to see that after a very challenging three-month correction in the uranium space, whether or not we've turned the corner and are starting the new bull trend."
-- _? — ?_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Massil Beguenane](../People/massil-beguenane.md): "But the price recovery has happened without large funds aggressively chasing it. It does support a possible range bound story, but it also means there's so many on the sideline if oil continues to break higher."
-- _? — ?_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Patrick Ceresna](../People/patrick-ceresna.md): "Now, obviously, the administration is concerned about oil prices and wants to see stable oil going into the elections, but we clearly have a global marketplace that is incredibly tight."
-- _? — ?_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Patrick Ceresna](../People/patrick-ceresna.md): "There are a lot of bullish signs here, and the fact that the US dollar has broken down and the fact that there's interest rate intervention are all things that are bullish tailwinds, something that gold simply did not h…"
-- _? — ?_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Massil Beguenane](../People/massil-beguenane.md): "So really the key thing to know is that gold fell sharply, but the large funds never gave up their positions."
+- _? — ?_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Darius Dale](../People/darius-dale.md): "Every fourth turning since the 15th century has ended in total war. We'd be remiss to forecast that outcome, but we'd also be remiss to not understand that the distribution of probable economic policy and market outcome…"
+- _? — ?_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Darius Dale](../People/darius-dale.md): "my experience tells me that financial market manipulation tends not to be durable in terms of its i- intended impact. But I think we're early in the process of it not being durable."
+- _? — ?_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Darius Dale](../People/darius-dale.md): "there is a geo-geopolitically driven supply-demand imbalance in the Treasury bond market. And that, and more importantly, that because of these forces, these structural macro forces, that geopolitically driven supply-de…"
+- _? — ?_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Darius Dale](../People/darius-dale.md): "That disequilibrium is going to widen over time and force policy responses, force changes to Federal Reserve policy, force an erosion of Fed independence, force the Treasury to make concessions on net financing policy,…"
+- _? — ?_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Darius Dale](../People/darius-dale.md): "I think we're here, here in twenty twenty-six, over three years later I think everything we predicted is coming true, and not only is it coming true, it's coming true at an accelerating rate."
+- _? — ?_: [MacroVoices #546 Darius Dale: Darius Dale for POTUS 2028](https://www.macrovoices.com/1546-macrovoices-546-darius-dale-darius-dale-for-potus-2028) — 2026-08-20, [Darius Dale](../People/darius-dale.md): "risk assets tend to go up faster in Fourth Turnings with more volatility. But you tend, as a function of that partially, you tend to have declining Treasury bond prices. But ultimately the slope of the decline in Treasu…"
 
 ## Source items (extracted)
 
@@ -71,8 +71,8 @@ _No URL / bio in DB channel metadata._
 - 2026-07-16 — [MacroVoices #541 Dr. Anas Alhajji: Bab el-Mandeb: The Next Oil Chokepoint Nobody's Watchi…](https://www.macrovoices.com/1541-macrovoices-541-dr-anas-alhajji-bab-el-mandeb-the-next-oil-chokepoint-nobody-s-watching)
 - 2026-07-09 — [MacroVoices #540 Adam Parker: Beyond the AI Bubble: Diversifying Portfolios in an Earning…](https://www.macrovoices.com/1540-macrovoices-540-adam-parker-beyond-the-ai-bubble-diversifying-portfolios-in-an-earnings-driven-market)
 - 2026-07-02 — [MacroVoices #539 Rory Johnston: Hormuz Crisis, is it Really Over?](https://www.macrovoices.com/1539-macrovoices-539-rory-johnston-hormuz-crisis-is-it-really-over)
-- 2026-06-25 — [MacroVoices #538 Lyn Alden: Is The War Really Over and What’s Next For Markets?](https://www.macrovoices.com/1537-macrovoices-538-lyn-alden-is-the-war-really-over-and-what-s-next-for-markets)
 - 2026-06-25 — [Lyn Alden: Is The War Really Over and What’s Next For Markets?](https://www.macrovoices.com/podcast-transcripts/1538-lyn-alden-is-the-war-really-over-and-what-s-next-for-markets)
+- 2026-06-25 — [MacroVoices #538 Lyn Alden: Is The War Really Over and What’s Next For Markets?](https://www.macrovoices.com/1537-macrovoices-538-lyn-alden-is-the-war-really-over-and-what-s-next-for-markets)
 - 2026-06-18 — [MacroVoices #537 Brent Johnson: There’s No Turning Back](https://www.macrovoices.com/1535-macrovoices-537-brent-johnson-there-s-no-turning-back)
 - 2026-06-18 — [Brent Johnson: There’s No Turning Back](https://www.macrovoices.com/podcast-transcripts/1536-brent-johnson-there-s-no-turning-back)
 

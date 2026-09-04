@@ -148,8 +148,26 @@ def _openai_compatible_client(base_url: str, api_key: str):
     return _openai_clients[key]
 
 
+def _openai_usage(resp: Any) -> dict[str, int] | None:
+    """Pull {prompt_tokens, cached_tokens, completion_tokens} out of an
+    OpenAI-compatible response object. Returns None when the provider omits
+    usage entirely. ``cached_tokens`` is the provider-reported subset of
+    prompt_tokens served from cache (Zhipu/OpenAI report it inside
+    ``prompt_tokens_details``; providers that don't report it yield 0)."""
+    u = getattr(resp, "usage", None)
+    if u is None:
+        return None
+    details = getattr(u, "prompt_tokens_details", None)
+    return {
+        "prompt_tokens": getattr(u, "prompt_tokens", 0) or 0,
+        "cached_tokens": (getattr(details, "cached_tokens", 0) or 0) if details else 0,
+        "completion_tokens": getattr(u, "completion_tokens", 0) or 0,
+    }
+
+
 def _chat_json_openai_compatible(system: str, user: str, schema: dict[str, Any],
-                                  model: str, base_url: str, api_key: str) -> dict[str, Any]:
+                                  model: str, base_url: str, api_key: str,
+                                  ) -> tuple[dict[str, Any], dict[str, int] | None]:
     client = _openai_compatible_client(base_url, api_key)
     resp = client.chat.completions.create(
         model=model,
@@ -163,15 +181,16 @@ def _chat_json_openai_compatible(system: str, user: str, schema: dict[str, Any],
         },
         temperature=0.1,
     )
+    usage = _openai_usage(resp)
     content = resp.choices[0].message.content or "{}"
     # Free OpenAI-compatible models (e.g. OpenRouter free tier) often wrap the
     # JSON in ```json ... ``` markdown fences despite `strict: True`, and may
     # prepend stray prose. _extract_json_object tolerates both; falls back to a
     # raw json.loads for models that return clean JSON (cheapest path).
     try:
-        return json.loads(content)
+        return json.loads(content), usage
     except json.JSONDecodeError:
-        return _extract_json_object(content)
+        return _extract_json_object(content), usage
 
 
 def _embed_openai_compatible(texts: list[str], model: str, base_url: str,
@@ -212,7 +231,8 @@ def _anthropic_sdk_client(api_key: str, base_url: str):
 
 
 def _chat_json_anthropic(system: str, user: str, schema: dict[str, Any], model: str,
-                          api_key: str, base_url: str, max_tokens: int = 8192) -> dict[str, Any]:
+                          api_key: str, base_url: str, max_tokens: int = 8192,
+                          ) -> tuple[dict[str, Any], dict[str, int] | None]:
     client = _anthropic_sdk_client(api_key, base_url)
     tool_name = "emit_structured_result"
     resp = client.messages.create(
@@ -228,9 +248,17 @@ def _chat_json_anthropic(system: str, user: str, schema: dict[str, Any], model: 
         tool_choice={"type": "tool", "name": tool_name},
         temperature=0.1,
     )
+    usage = None
+    u = getattr(resp, "usage", None)
+    if u is not None:
+        usage = {
+            "prompt_tokens": getattr(u, "input_tokens", 0) or 0,
+            "cached_tokens": getattr(u, "cache_read_input_tokens", 0) or 0,
+            "completion_tokens": getattr(u, "output_tokens", 0) or 0,
+        }
     for block in resp.content:
         if getattr(block, "type", None) == "tool_use" and block.name == tool_name:
-            return block.input
+            return block.input, usage
     raise LLMError("anthropic response did not include the expected tool_use block")
 
 
@@ -294,7 +322,8 @@ def _extract_json_object(raw: str) -> dict[str, Any]:
 
 
 def _chat_json_copilot_cli(system: str, user: str, schema: dict[str, Any], model: str,
-                            cli_path: str, timeout_sec: int) -> dict[str, Any]:
+                            cli_path: str, timeout_sec: int,
+                            ) -> tuple[dict[str, Any], dict[str, int] | None]:
     prompt = (
         f"{system}\n\n"
         "Respond with ONLY a single raw JSON object as your entire reply -- no "
@@ -340,7 +369,9 @@ def _chat_json_copilot_cli(system: str, user: str, schema: dict[str, Any], model
         raise LLMError(f"`copilot` CLI invocation failed: {exc}") from exc
     if proc.returncode != 0:
         raise LLMError(f"`copilot` CLI exited {proc.returncode}: {proc.stderr.strip()[:500]}")
-    return _extract_json_object(proc.stdout)
+    # The CLI prints no machine-readable usage stats, so the token columns
+    # stay NULL for github-provider runs.
+    return _extract_json_object(proc.stdout), None
 
 
 
@@ -395,11 +426,16 @@ def chat_text(system: str, user: str,
        wait=_retry_after_or_exponential,
        retry=retry_if_not_exception_type(ValueError))
 def chat_json(system: str, user: str, schema: dict[str, Any],
-              provider: str | None = None, model: str | None = None) -> dict[str, Any]:
-    """Call an LLM with a JSON schema; return the parsed structured dict.
+              provider: str | None = None, model: str | None = None,
+              ) -> tuple[dict[str, Any], dict[str, int] | None]:
+    """Call an LLM with a JSON schema; return ``(parsed, usage)``.
 
     ``provider`` defaults to ``settings().llm_provider``; ``model`` defaults to
-    that provider's configured model (see ``default_model``).
+    that provider's configured model (see ``default_model``). ``usage`` is
+    ``{"prompt_tokens", "cached_tokens", "completion_tokens"}`` as reported by
+    the provider for this call, or None when the provider can't report it
+    (github/copilot CLI) or omits it; ``cached_tokens`` is the reported
+    subset of prompt_tokens served from cache.
     """
     s = settings()
     provider = provider or s.llm_provider

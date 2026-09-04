@@ -158,6 +158,10 @@ export function ItemPage() {
           {item.published_at
             ? <> · {item.published_at.slice(0, 10)}</>
             : <> · undated</>}
+          {item.is_marketing === true &&
+            <span className="ml-2 px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-600 dark:text-amber-400 normal-case">
+              promo material
+            </span>}
         </div>
         <h1 className="text-2xl font-semibold mb-2">{item.title}</h1>
         <div className="flex gap-3 items-center">
@@ -293,6 +297,28 @@ export function ItemPage() {
                 </span>
               ))}
             </div>
+          </Section>
+        )}
+
+        {(item.media_mentions?.length ?? 0) > 0 && (
+          <Section title="Books · Movies · Papers">
+            <ul className="space-y-2">
+              {item.media_mentions.map(m => (
+                <li key={m.work_id} className="text-sm">
+                  <span className={"text-[10px] uppercase px-1.5 py-0.5 rounded mr-1.5 " +
+                    (m.kind === "book"
+                      ? "bg-accent/15 text-accent"
+                      : "bg-panel border border-border text-mute")}>
+                    {m.kind}
+                  </span>
+                  <span className="font-medium">{m.title}</span>
+                  {m.year ? <span className="text-mute"> ({m.year})</span> : null}
+                  {m.creators && <div className="text-xs text-mute">{m.creators}</div>}
+                  {m.speaker &&
+                    <div className="text-xs text-mute mt-0.5">mentioned by {m.speaker}</div>}
+                </li>
+              ))}
+            </ul>
           </Section>
         )}
 

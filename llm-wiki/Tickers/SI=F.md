@@ -1,16 +1,16 @@
 # SI=F — Silver
 
-**47 extracted prediction(s)** across 12 channel(s). Consensus: **bullish** (7 bullish / 3 bearish / 37 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
+**48 extracted prediction(s)** across 12 channel(s). Consensus: **bullish** (7 bullish / 3 bearish / 38 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
 ## The debate
 
-Silver's consensus ledger reads bullish — 7 bulls against 3 bears, with a sprawling 37-name neutral bloc — but the June tape made the bulls earn it. The month opened constructively: on June 16 [Jeffrey Kushin](../People/jeffrey-kushin.md) laid out the case for "a consolidation between $60 and $90... and then higher prices in the final four months of this year," and two days later [Ian Harris](../People/ian-harris.md) added a rotation argument — the rip starts in gold, moves to silver, then copper — positioning silver as the next leg of the trade. Then the metal did what silver does. [Brent Johnson](../People/brent-johnson.md) was marvelling on June 26 that it had dropped 15% in two or three days, while [Jeffrey Christian](../People/jeffrey-christian.md) — who warned on June 19 that "the potential of a spike below 60 is very high at least for the next two and a half months" — spent June 23 explaining why silver was testing support near the low $60s and noting that "there are people with 54 and $50 targets" circulating.
+Silver's June 2026 drawdown set the terms of the whole debate. The metal broke hard — Brent Johnson, surveying the damage on June 26, marveled that silver was down roughly 15% in two or three days ([../People/brent-johnson.md](../People/brent-johnson.md)). Jeffrey Christian spent that week arguing the downside wasn't finished: on June 19 he said the potential of a spike below $60 was "very high at least for the next two and a half months," with silver possibly moving sideways before prices strengthen later ([../People/jeffrey-christian.md](../People/jeffrey-christian.md)). By June 23 he had silver testing support in the low $60s and noted there were people carrying $54 and $50 targets ([../People/jeffrey-christian.md](../People/jeffrey-christian.md)). Jeffrey Kushin, four days earlier, had drawn the same map with a friendlier lens — consolidation between $60 and $90, "and then higher prices in the final four months of this year" ([../People/jeffrey-kushin.md](../People/jeffrey-kushin.md)). That's the quiet irony of the June record: the resident bear and the resident bull broadly agreed the second half improved; they fought only over how ugly the interim would be.
 
-What's striking about the mid-year debate is how much agreement sat underneath the disagreement. Christian, the digest's most explicit bear, still expected prices to strengthen "later" — just after a possible flush below $60. Kushin's $60–$90 band roughly brackets Christian's downside scenario. The fight was never really about direction; it was about whether you had to stomach a sub-$60 spike first before the year-end rally both camps anticipated.
+Against that, the rotation bulls made their case mid-June. Ian Harris, on June 18, read the tape as a rotation — "it starts in gold and then goes to silver and then goes to copper" — implying silver's stretch of outperformance was still ahead ([../People/ian-harris.md](../People/ian-harris.md)).
 
-By August the tape had stabilized, though nobody declared victory. On August 8, [Patrick Karim](../People/patrick-karim.md) — confirming host Daryl's read that "same thing with silver" — argued gold and silver were bouncing but had "not yet confirmed the larger breakouts many investors are waiting for." A week later, [John Miniotis](../People/john-miniotis.md) disclosed his shop's long-term anchors: $50 silver and $3,650 gold, "of course well below where we're sitting today" — a reminder that even the institutional models sit far under spot.
+By August the argument had shifted from damage control to how much higher silver can go, and the caution moved to the fundamentals. Patrick Karim, on August 8, was the notable wet blanket on momentum: gold and silver were bouncing but had "not yet confirmed the larger breakouts many investors are waiting for" ([../People/patrick-karim.md](../People/patrick-karim.md)). John Miniotis followed on August 14 with the number that should trouble bulls most: his long-term assumptions sat at $50 for silver and $3,650 for gold — "well below where we're sitting today" ([../People/john-miniotis.md](../People/john-miniotis.md)). That is a polite way of saying spot prices had outrun the model.
 
-Then late August produced the loudest bull print of the cycle: "$8,000 Gold & $200 Silver Are Coming" on August 25, followed a day later by a fresh case that silver could still have room to run. Tellingly, the same late-August segment also carried the neatest bear argument in the file — that there's "always switching" away from a metal "when something becomes too high in price and it's not justified economically." That tension is the whole debate in miniature: a $200 target and a demand-destruction warning delivered in the same breath, while the 37-strong neutral bloc presumably waits for the breakout Karim says hasn't confirmed yet.
+The late-August commentary, much of it from unnamed contributors, captures the froth-versus-skepticism split in miniature. A "$200 Silver" headline ran August 25; a day later one contributor argued silver could still have room to run while another countered that switching always happens "when something becomes too high in price and it's not justified economically." The most recent word, August 28, was bullish — the view that global political and economic factors will drive "another wave of investor buying for gold and silver." The headline consensus — 7 bullish against 3 bearish and a large bloc of 38 neutral — matches that shape: a bullish tilt resting on a lot of analysts who haven't committed. Worth noting too is that nobody in this record cleanly changes their mind; Christian's bearish call was tactical and self-expiring, and the debate's center of gravity simply migrated from "how deep is the June break" in June to "$200 or switching?" by late August.
 
 ## Themes
 
@@ -22,7 +22,7 @@ Then late August produced the loudest bull print of the cycle: "$8,000 Gold & $2
 |---|---:|
 | Bullish | 7 |
 | Bearish | 3 |
-| Neutral / watch | 37 |
+| Neutral / watch | 38 |
 
 ## Voices on this ticker
 
@@ -36,6 +36,7 @@ Then late August produced the loudest bull print of the cycle: "$8,000 Gold & $2
 
 ## Notable calls
 
+- **CPM Group** (dir=`bullish`, tf=`Sep 2026 – into 2027`) — [Gold And Silver WARNING: Another Wave of Buying May Be Coming](https://www.youtube.com/watch?v=3DlDD-uWi6w) — 2026-08-28, CPM Group: "And our view is that those global political and economic factors will contribute to another wave of investor buying for gold and silver which will take gold and silver prices back higher over the last four months of thi…"
 - **The Monetary Matters Network** (dir=`bearish/neutral`) — [Gold, Silver, Copper, Oil — Why They're ALL Rallying Together \| Jim Wiederhold](https://www.youtube.com/watch?v=9PbTMpA8KD4) — 2026-08-26, The Monetary Matters Network: "there there's always switching that goes on when when something becomes too high in price and it it's not justified economically"
 - **The Monetary Matters Network** — [Gold, Silver, Copper, Oil — Why They're ALL Rallying Together \| Jim Wiederhold](https://www.youtube.com/watch?v=9PbTMpA8KD4) — 2026-08-26, The Monetary Matters Network: "makes the case for why silver could still have room to run"
 - **VRIC Media** — [Don Durrett: $8,000 Gold & $200 Silver Are Coming](https://www.youtube.com/watch?v=GpS3exTGU5o) — 2026-08-25, VRIC Media: "$200 Silver"
@@ -104,16 +105,17 @@ Then late August produced the loudest bull print of the cycle: "$8,000 Gold & $2
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
 - 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
-- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bullish_ [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
+- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
 - 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
+- 2026-08-28 — [Gold And Silver WARNING: Another Wave of Buying May Be Coming](https://www.youtube.com/watch?v=3DlDD-uWi6w) (CPM Group)
 - 2026-08-26 — [Gold, Silver, Copper, Oil — Why They're ALL Rallying Together \| Jim Wiederhold](https://www.youtube.com/watch?v=9PbTMpA8KD4) (The Monetary Matters Network)
 - 2026-08-25 — [Don Durrett: $8,000 Gold & $200 Silver Are Coming](https://www.youtube.com/watch?v=GpS3exTGU5o) (VRIC Media)
 - 2026-08-24 — [Treasury’s $1 Trillion Rescue: What’s Next For Stocks, Gold, Oil \| Todd Horwitz](https://www.youtube.com/watch?v=szfb2vqhLjo) (David Lin)

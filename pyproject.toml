@@ -50,6 +50,8 @@ dependencies = [
   "faster-whisper>=1.2.1",
   "nvidia-cublas-cu12>=12.9.2.10",
   "curl-cffi>=0.15.0",
+  "qwen-asr>=0.0.6",
+  "soundfile>=0.14.0",
 ]
 
 [project.optional-dependencies]
@@ -77,3 +79,14 @@ target-version = "py311"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
+
+# Torch must come from the CUDA 12.6 index — the default PyPI wheel is the
+# CPU-only build, which silently breaks the qwen transcribe engine at the
+# first `uv run`/`uv sync` after a manual reinstall.
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }

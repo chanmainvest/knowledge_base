@@ -38,10 +38,10 @@ _No URL / bio in DB channel metadata._
 ## Recent market views
 
 - _? — ?_: [Pitch Rick Ep #2 - CoTec Holdings Corp.](https://www.youtube.com/watch?v=i25DJxYcDGw) — 2026-08-19, Rick (host): "you may know that uh tailings projects uh both the old east agontaine now crown assets in South Africa uh and the amargo assets in Chile have been very good to me. So I'm [laughter] I'm predisposed to this business wher…"
-- _? — ?_: [Pitch Rick Ep #2 - CoTec Holdings Corp.](https://www.youtube.com/watch?v=i25DJxYcDGw) — 2026-08-19, Julian (CoTec CEO): "there are assets and the economics are more attractive than traditional mining but um they are at an at an early stage and so you would apply some discount to the NPV"
-- _? — ?_: [Pitch Rick Ep #2 - CoTec Holdings Corp.](https://www.youtube.com/watch?v=i25DJxYcDGw) — 2026-08-19, Julian (CoTec CEO): "I've been trying to raise the profile of pigine um in in Washington and for people to understand what not having pig iron could mean"
-- _? — ?_: [Pitch Rick Ep #2 - CoTec Holdings Corp.](https://www.youtube.com/watch?v=i25DJxYcDGw) — 2026-08-19, Julian (CoTec CEO): "one of the things I think we're going to be unlocking in the 21st century, are the economics of flexibility rather than what was done in the 20th century, which was the economics of scale"
 - _? — ?_: [Pitch Rick Ep #2 - CoTec Holdings Corp.](https://www.youtube.com/watch?v=i25DJxYcDGw) — 2026-08-19, Rick (host): "I I continue to go back to capital adequacy with regards to getting us to the point where the NPV starts to become real as opposed to ephemeral."
+- _? — ?_: [Pitch Rick Ep #2 - CoTec Holdings Corp.](https://www.youtube.com/watch?v=i25DJxYcDGw) — 2026-08-19, Julian (CoTec CEO): "one of the things I think we're going to be unlocking in the 21st century, are the economics of flexibility rather than what was done in the 20th century, which was the economics of scale"
+- _? — ?_: [Pitch Rick Ep #2 - CoTec Holdings Corp.](https://www.youtube.com/watch?v=i25DJxYcDGw) — 2026-08-19, Julian (CoTec CEO): "I've been trying to raise the profile of pigine um in in Washington and for people to understand what not having pig iron could mean"
+- _? — ?_: [Pitch Rick Ep #2 - CoTec Holdings Corp.](https://www.youtube.com/watch?v=i25DJxYcDGw) — 2026-08-19, Julian (CoTec CEO): "there are assets and the economics are more attractive than traditional mining but um they are at an at an early stage and so you would apply some discount to the NPV"
 - _? — ?_: [Keith Bodnarchuk, CEO of Cosa Resources \| Rule Symposium 2026: Rick Rule interv…](https://www.youtube.com/watch?v=rjPNicgdQEs) — 2026-06-30, Rule Investment Media: "Obviously Denison is one of the best development um stories in the entire uranium space"
 
 ## Source items (extracted)

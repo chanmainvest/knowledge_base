@@ -20,6 +20,8 @@ export function SearchPage() {
   const dateFrom = params.get("date_from") ?? "";
   const dateTo = params.get("date_to") ?? "";
   const hasPredictions = params.get("has_predictions") ?? "";
+  // "" = hide promo (the API default); "include" = show everything; "only" = promo only.
+  const marketing = params.get("marketing") ?? "";
   const page = Math.max(1, Number(params.get("page")) || 1);
   const pageSize = Math.max(1, Number(params.get("page_size")) || 25);
 
@@ -66,6 +68,7 @@ export function SearchPage() {
       date_from: dateFrom || undefined,
       date_to: dateTo || undefined,
       has_predictions: hasPredictions === "" ? undefined : hasPredictions,
+      marketing: marketing === "" ? undefined : marketing,
       limit: pageSize,
       offset: (page - 1) * pageSize,
     }).then(res => {
@@ -80,7 +83,7 @@ export function SearchPage() {
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submittedQ, selectedSources.join(","), selectedChannels.join(","),
-     dateFrom, dateTo, hasPredictions, page, pageSize]);
+     dateFrom, dateTo, hasPredictions, marketing, page, pageSize]);
 
   function update(mut: (p: URLSearchParams) => void) {
     const next = new URLSearchParams(params);
@@ -122,7 +125,7 @@ export function SearchPage() {
   function clearFilters() {
     setQInput("");
     update(p => {
-      ["q", "source", "channel_id", "date_from", "date_to", "has_predictions", "page"]
+      ["q", "source", "channel_id", "date_from", "date_to", "has_predictions", "marketing", "page"]
         .forEach(k => p.delete(k));
     });
   }
@@ -295,6 +298,18 @@ export function SearchPage() {
             <option value="false">Without predictions</option>
             <option value="bull">Bullish calls only</option>
             <option value="bear">Bearish calls only</option>
+          </select>
+        </section>
+
+        <section>
+          <h4 className="text-mute text-xs uppercase tracking-wide mb-2">Promo material</h4>
+          <select value={marketing}
+            onChange={e => updateFirstPage(
+              p => e.target.value ? p.set("marketing", e.target.value) : p.delete("marketing"))}
+            className="w-full bg-panel border border-border rounded px-2 py-1">
+            <option value="">Hide promo (default)</option>
+            <option value="include">Include promo</option>
+            <option value="only">Promo only</option>
           </select>
         </section>
 

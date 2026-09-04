@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 15
-- **Items with predictions**: 4
-- **Predictions**: 26
-- **Market views**: 37
+- **Extracted items**: 17
+- **Items with predictions**: 6
+- **Predictions**: 37
+- **Market views**: 48
 
 ## People on this channel
 
@@ -25,15 +25,15 @@ _No URL / bio in DB channel metadata._
 **Most-called tickers:**
 
 - [ABRA.V](../Tickers/ABRA.V.md) (8)
+- [ATX.V](../Tickers/ATX.V.md) (6)
 - [SRL.AX](../Tickers/SRL.AX.md) (3)
 - [SI=F](../Tickers/SI=F.md) (2)
 - [GC=F](../Tickers/GC=F.md) (2)
+- [EVRYF](../Tickers/EVRYF.md) (2)
 - `BAC` (1)
 - [EWY](../Tickers/EWY.md) (1)
 - [^TNX](../Tickers/^TNX.md) (1)
 - [CL=F](../Tickers/CL=F.md) (1)
-- `Nickel and cobalt markets` (1)
-- `Chinese scandium export restrictions` (1)
 
 ## Stance distribution (predictions)
 
@@ -41,7 +41,7 @@ _No URL / bio in DB channel metadata._
 |---|---:|
 | Bullish | 0 |
 | Bearish | 0 |
-| Neutral / watch | 26 |
+| Neutral / watch | 37 |
 
 ## Recent notable calls
 
@@ -56,12 +56,12 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "And so, with RIGGI, I'd say Argentina has again truly become genuinely sort of an investable mining jurisdiction again."
-- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "the study was done at a very conservative commodity prices. So we used $50 for silver long term, $3,650 for gold. So of course well below where we're sitting today."
-- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "Abra Silver, our key asset, Diablillos, this is one of the largest, fully permitted, uh, primary silver projects in the world."
-- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "we're the only developer in Argentina that has RIGGI approval in place. The other companies that have RIGGI approval already are all the majors."
 - _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "We have a very large-scale permitted, highly economic silver gold development project, very robust economics in a jurisdiction that's improved dramatically and we still have real expansion upside ahead of us."
-- _? — ?_: [Rainbow Rare Earths - CEO George Bennett](https://www.youtube.com/watch?v=RYdBKSiMD0w) — 2026-07-14, Jimmy Connor: "We believe we'll get a big rerating and we'll get massive improvement in liquidity in our share if we list in the US."
+- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "we're the only developer in Argentina that has RIGGI approval in place. The other companies that have RIGGI approval already are all the majors."
+- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "Abra Silver, our key asset, Diablillos, this is one of the largest, fully permitted, uh, primary silver projects in the world."
+- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "the study was done at a very conservative commodity prices. So we used $50 for silver long term, $3,650 for gold. So of course well below where we're sitting today."
+- _? — ?_: [Abra Silver Up 45% YTD - More To Come?  \| John Miniotis and Jimmy Connor](https://www.youtube.com/watch?v=9RbfUZb2Z2c) — 2026-08-14, [John Miniotis](../People/john-miniotis.md): "And so, with RIGGI, I'd say Argentina has again truly become genuinely sort of an investable mining jurisdiction again."
+- _? — ?_: [Rainbow Rare Earths - CEO George Bennett](https://www.youtube.com/watch?v=RYdBKSiMD0w) — 2026-07-14, Jimmy Connor: "the US government and the Brazilian government it's well uh it's well documented in the news recently that they are focusing on building a a re partnership to create Ruth supply into the US out of Brazil"
 
 ## Source items (extracted)
 
@@ -80,6 +80,8 @@ _No URL / bio in DB channel metadata._
 - 2026-06-19 — [Lumina Metals: Europe's Largest Copper-Silver District \| Jordan Pandoff and Jimmy Connor](https://www.youtube.com/watch?v=kpsH4AbmHig)
 - 2026-06-18 — [Highland Copper: U.S. Copper Production in 2029 \| Barry O’Shea and Jimmy Connor](https://www.youtube.com/watch?v=c5sfbCTcU3Q)
 - 2026-06-17 — [Faraday Copper: Copper in Arizona \| Paul Harbidge and Jimmy Connor](https://www.youtube.com/watch?v=btZ38rT4e6M)
+- 2026-06-16 — [Evolve Royalties Focused on Copper  \| Joseph de la Plante and Jimmy Connor](https://www.youtube.com/watch?v=2hbJtLSVyPg)
+- 2026-06-15 — [ATEX Resources: New Emerging Copper District in Chile \| Chris Beer and Jimmy Connor](https://www.youtube.com/watch?v=pgwsIYffdSM)
 
 ---
 _Page reflects DB state at generation time._

@@ -69,6 +69,22 @@ stop, timeframe, direction, quote, and scoring fields — also tagged with
 `entity` and `item_entity` store people, companies, countries, themes, and
 their links to items.
 
+`media_work` and `media_mention` (extraction v2, migrations/014) track the
+finance-related books / movies / papers that items mention. `media_work` is
+the canonical work registry, deduplicated on `(kind, title_norm)` where
+`title_norm` drops parenthetical localized suffixes and leading articles
+("The Big Short (華爾街大沽空)" and "The Big Short" are one row);
+`media_mention` links a work to an item per extraction run with the speaker
+and the quote — the "who recommended what" graph. `/api/media` ranks works
+by mention count with speaker attribution.
+
+`item.is_marketing` (extraction v2) is a whole-item boolean: true when the
+item is predominantly promotional material (ads, sponsor segments, trailers,
+pitches) with little substantive analysis — chunk votes are majority-voted
+at promote time. NULL means not yet classified by a v2 run (v1-era items);
+search/list endpoints treat NULL as not-marketing and hide `true` items by
+default (`?marketing=include|only` overrides).
+
 `item_link` stores similarity links between items.
 
 ## Pipeline Tracking

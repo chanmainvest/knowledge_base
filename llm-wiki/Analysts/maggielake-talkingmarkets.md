@@ -52,11 +52,11 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
+- _? — ?_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "There's potentially, you know, a a structural change in the demand for bonds"
 - _? — ?_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "there was an expectation in the macroeconomic community that interest rates and the economy and inflation would revert to the pre-COVID norm"
 - _? — ?_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "the most recent policy action out of the Treasury, which is basically just to support the long end in terms of liquidity purchases in the 10- and 30-year"
 - _? — ?_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "treasuries continue to stay under pressure because they are dynamically at odds with the ongoing pace of nominal GDP"
 - _? — ?_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "the bond market basically, like, over time tends to follow a pretty tight relationship with uh with nominal GDP"
-- _? — ?_: [The Fed Is Fighting the Wrong Inflation Problem with Aahan Menon \| For The Reco…](https://www.youtube.com/watch?v=0otcjnQU1-w) — 2026-08-27, Maggie Lake Talking Markets: "There's potentially, you know, a a structural change in the demand for bonds"
 - _? — ?_: [ERIK @YWR on S&P Earnings: “An Insanely Good” Picture \| For The Record](https://www.youtube.com/watch?v=wV4dksg_XjE) — 2026-08-20, Maggie Lake Talking Markets: "One way or the other, we're going to 10,000 on the S&P"
 
 ## Source items (extracted)

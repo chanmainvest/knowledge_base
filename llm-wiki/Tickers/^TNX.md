@@ -1,16 +1,16 @@
 # ^TNX — US 10-year Treasury yield
 
-**66 extracted prediction(s)** across 18 channel(s). Consensus: **mixed (conflict)** (5 bullish / 5 bearish / 56 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
+**68 extracted prediction(s)** across 18 channel(s). Consensus: **mixed (conflict)** (5 bullish / 5 bearish / 58 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
 ## The debate
 
-The 10-year Treasury yield is one of the genuinely split files in the corpus — the running tally reads mixed at 5 bullish, 5 bearish and 56 neutral — and the divide maps less onto bull-versus-bear than onto timeframe: near-term grind higher versus structural decline. The loudest number on the board belongs to [Michael Howell](../People/michael-howell.md), who argued on August 13, 2026 that it's "not impossible to see the 10-year bond testing 6% yields" "in the not too distant future." But even the yield bulls hedge. The guest on the August 27 episode agreed there are "decent short-term shorts to be had in bonds" and allowed a day earlier that yields "could certainly go to 5%" — while insisting he wasn't interested in pressing the trade, because the fiscal impulse isn't strong enough into the back half of the year to produce a 2022-style surge. Room toward 5%, in other words, but no conviction in a blow-off.
+The 10-year Treasury yield debate in this corpus is genuinely split — five calls bullish on yields, five bearish, and a massive bloc of 58 speakers sitting neutral — which tells you the vocal disagreement is concentrated in a handful of macro names while most of the room refuses to commit. The most concrete technical marker on the board came from Patrick Ceresna in mid-June, who argued that yields "near the 470 will be a key high" but was careful to add that "it doesn't make it an immediate opportunity to go long bonds" — a view he paired with the observation that, with the yield back under 4.5%, the market had still "not officially breaking into a new downtrend" ([Patrick Ceresna](../People/patrick-ceresna.md), June 18–19). In other words, even the bond-side optimist wouldn't pull the trigger.
 
-The bear case has both a tactical and a structural wing. The tactical version got its cleanest airing on June 23, when [JD](../People/jd.md) declared himself "definitely lower" on yields and was answered on the spot by [George Noble](../People/george-noble.md): "game on this is to JD. I'm higher." That exchange is the whole debate in miniature. The structural version came from [Darius Dale](../People/darius-dale.md) on August 20, who argued the 10-year *real* yield "tends to decline substantially during Fourth Turnings" given the elevated nominal growth environment — a framework call, not a chart call.
+The head-to-head came on June 23, when JD declared himself "definitely lower" on yields only to have George Noble answer in real time: "game on... I'm higher" ([JD](../People/jd.md); [George Noble](../People/george-noble.md)). Three days later Brent Johnson split the difference on horizon rather than direction — bonds "over the next 5 or 10 months they might" hold their value, but over "5 or 10 years they're probably not going to" ([Brent Johnson](../People/brent-johnson.md)). That term-structure framing quietly agrees with Noble's long-run bias while conceding JD's near-term case.
 
-Then there's [Patrick Ceresna](../People/patrick-ceresna.md), the file's reluctant bear. Across June 18–19 he repeatedly framed yields "near the 470" as "a key high," while noting that with yields under the 4.5 level the market was "still not officially breaking into a new downtrend in yields" — and, crucially, that the key high "doesn't make it an immediate opportunity to go long bonds." He is a top-caller who won't buy the top he's calling, which is why his stance sits closer to neutral than the "key high" language suggests.
+The bear case on bonds got its loudest expression from Michael Howell on August 13, who called it "not impossible" to see the 10-year "testing 6% yields... in the not too distant future" ([Michael Howell](../People/michael-howell.md)) — by far the most aggressive number anyone put on the tape. Darius Dale offered a structural counterframe a week later: the 10-year *real* yield "tends to decline substantially during Fourth Turnings" amid elevated nominal growth ([Darius Dale](../People/darius-dale.md)), an argument that stops short of a trade but cuts against the 6% scenario in real terms. An unnamed host even floated the intervention scenario — what happens if the issuer itself announces measures to suppress yields (August 27).
 
-The middle ground is [Brent Johnson](../People/brent-johnson.md), who split the difference by horizon on June 26: bonds over the next 5 to 10 months "might" hold their value, but over 5 to 10 years they're "probably not going to hold their value." And the wildcard nobody's calls fully price was floated by the unnamed host on August 27 — what happens if the "printer of the currency and or that the issue of the bonds" comes out pledging measures to support the market. The timeline itself tells a story: June produced positioning-level calls (Ceresna's key high, the JD–Noble split, Johnson's horizon trade), while August escalated to headline numbers — Howell's 6%, talk of 5% — with Dale supplying the structural counterweight. The majority, meanwhile, sits at 56 neutral, which says the loudest voices are getting airtime while the median participant declines to pick a side.
+The center of gravity, though, is the range-bound camp. An unnamed speaker on August 27–28 expected the 10-year to hold roughly in the 4.25–4.30% zone, agreed "there's some decent short-term shorts to be had in bonds" while declaring himself uninterested, and dismissed the 2022-style selloff thesis because "the fiscal impulse conditions aren't really there" — even while conceding rates "could go higher, which would hurt the housing market... it would hurt the economy." That hedged both ways is the honest summary of this debate: a rough consensus that yields churn sideways in the mid-4s near term, a confirmed key-high level nobody will trade against yet, and two tails — Howell's 6% and Dale's falling real yields — that remain live but unproven.
 
 ## Themes
 
@@ -22,7 +22,7 @@ The middle ground is [Brent Johnson](../People/brent-johnson.md), who split the 
 |---|---:|
 | Bullish | 5 |
 | Bearish | 5 |
-| Neutral / watch | 56 |
+| Neutral / watch | 58 |
 
 ## Voices on this ticker
 
@@ -37,6 +37,8 @@ The middle ground is [Brent Johnson](../People/brent-johnson.md), who split the 
 
 ## Notable calls
 
+- **David Lin** (dir=`range-bound / sideways`) — [Fed Sparks Market Bloodbath: Rate Hikes Coming Back? \| Collin Martin](https://www.youtube.com/watch?v=CcecLrxrhF0) — 2026-08-28, David Lin: "When we think about the 10-year Treasury, for example, we think it's probably going to hold uh in this four and a quarter to four and three/4er percent range. We're kind of at the high end of that range right now. Uh if…"
+- **David Lin** (dir=`could go higher`) — [Market Bubble Trigger: 'Immediate Recession' Once This Happens Says Big Short's…](https://www.youtube.com/watch?v=03mCPnemm6M) — 2026-08-28, David Lin: "rates could go higher, which would hurt the housing market. It would hurt the economy"
 - **Forward Guidance** — [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Forward Guidance: "I I probably agree with you that, you know, there's some decent short-term shorts to be had in bonds, but I'm just like not interested in that game."
 - **Forward Guidance** — [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Forward Guidance: "the fiscal impulse conditions aren't really there so much going into the back half of year to really get like a crazy, you know, 2022-style trending yield environment. So, I would kind of bet like be biased towards mean…"
 - **Speaker A (unnamed host)** — [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Speaker A (unnamed host): "if if the the printer of the currency and or that the issue of the bonds comes out and says like we're going to do all these things to suppress yields. Yields are going to fall"
@@ -128,6 +130,8 @@ The middle ground is [Brent Johnson](../People/brent-johnson.md), who split the 
 
 ## Source items
 
+- 2026-08-28 — [Fed Sparks Market Bloodbath: Rate Hikes Coming Back? \| Collin Martin](https://www.youtube.com/watch?v=CcecLrxrhF0) (David Lin)
+- 2026-08-28 — [Market Bubble Trigger: 'Immediate Recession' Once This Happens Says Big Short's Steve Eis…](https://www.youtube.com/watch?v=03mCPnemm6M) (David Lin)
 - 2026-08-27 — [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Weekly Roundup](https://www.youtube.com/watch?v=aEG3hZZX45M) (Forward Guidance)
 - 2026-08-24 — [‘We’re In A Financial Crisis’: Treasury Readies $1 Trillion Warchest \| Danny Moses](https://www.youtube.com/watch?v=EfKxbRuLZG0) (David Lin)
 - 2026-08-24 — [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) (Eurodollar University)

@@ -750,5 +750,21 @@
  "高盛 (由作者引用)": {
   "is_person": false,
   "canonical": null
+ },
+ "primary_analyst": {
+  "is_person": false,
+  "canonical": null
+ },
+ "王小姐": {
+  "is_person": true,
+  "canonical": "王小姐"
+ },
+ "綠角": {
+  "is_person": true,
+  "canonical": "綠角"
+ },
+ "黃先生": {
+  "is_person": true,
+  "canonical": "黃先生"
  }
 }

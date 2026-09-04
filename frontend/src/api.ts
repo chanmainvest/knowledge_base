@@ -29,6 +29,7 @@ export interface ListQuery {
   date_from?: string;
   date_to?: string;
   has_predictions?: string;
+  marketing?: string;  // 'include' = show promo material; 'only' = promo only; omit = hide (default)
   limit?: number;
   offset?: number;
 }
@@ -41,6 +42,7 @@ function listParams(q: ListQuery): URLSearchParams {
   if (q.date_from) p.set("date_from", q.date_from);
   if (q.date_to) p.set("date_to", q.date_to);
   if (q.has_predictions !== undefined) p.set("has_predictions", String(q.has_predictions));
+  if (q.marketing !== undefined) p.set("marketing", String(q.marketing));
   if (q.limit !== undefined) p.set("limit", String(q.limit));
   if (q.offset !== undefined) p.set("offset", String(q.offset));
   return p;
@@ -168,6 +170,10 @@ export interface Item {
   channel: string | null; channel_name: string | null;
   market_views: MarketView[]; predictions: ConsolidatedPrediction[];
   entities: { id: number; kind: string; name: string; ticker: string | null; weight: number }[];
+  media_mentions: { work_id: number; kind: string; title: string;
+                    creators: string | null; year: number | null;
+                    speaker: string | null; quote: string | null }[];
+  is_marketing: boolean | null;
   related: { id: number; title: string; published_at: string | null;
              channel_name: string | null; similarity: number }[];
 }

@@ -64,12 +64,12 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
+- _? — ?_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "If he hikes, he's going to piss off Trump. If he cuts, the curve is going to steepen and the long end is going to sell off, right?"
 - _? — ?_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "The evidence is building that there is a supply deficit story that's very bullish in copper."
 - _? — ?_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "However, I also have a tough time being short because the fundamentals are really, really good. You know, with, you know, with all this AI stuff, we're going to need a shitload of copper over the next 10 years."
 - _? — ?_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "For the first time in a long time, maybe ever, it's acting like a real dollar debasement hedge. I mean, it rallied on the Bessant repurchase news, the YCC news."
 - _? — ?_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "gold is back to functioning at like the debasement trade is working again. So don't be afraid to buy this thing and and see it go up further because if this mode comes back where the debasement trade works look at Bitco…"
 - _? — ?_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "I mean I have no reason to be bearish gold. I have a million reasons to be bullish gold here."
-- _? — ?_: [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "to me that's why the gold breakout right now is the most important move on the board."
 
 ## Source items (extracted)
 

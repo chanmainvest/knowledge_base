@@ -6,10 +6,10 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 53
+- **Extracted items**: 54
 - **Items with predictions**: 17
 - **Predictions**: 75
-- **Market views**: 182
+- **Market views**: 184
 
 ## People on this channel
 
@@ -65,15 +65,16 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
+- _? — ?_: [Understand 98% of the Eurodollar System in 18 Minutes](https://www.youtube.com/watch?v=uoKlKQtjyUk) — 2026-08-28, Eurodollar University
+- _? — ?_: [Understand 98% of the Eurodollar System in 18 Minutes](https://www.youtube.com/watch?v=uoKlKQtjyUk) — 2026-08-28, Eurodollar University
 - _? — ?_: [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) — 2026-08-24, Ray Dalio (as summarized by Eurodollar University): "The government knows UST demand is becoming a problem, so the argument goes, and it is quietly trying to control the bond market with buybacks before the situation gets out of control."
 - _? — ?_: [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI) — 2026-08-24, Ray Dalio (as summarized by Eurodollar University): "Ray Dalio says the United States is approaching a debt crisis, or maybe is already in one."
-- _? — ?_: [Nvidia’s Hidden Debt Risk Could Crash the ENTIRE AI Bubble](https://www.youtube.com/watch?v=O450x8yyZ-k) — 2026-08-20, Eurodollar University: "Again, bubbles really are expectations are up here and expectations about everything, the payoff in the technology and how it's put together and the roadmap to try to get there. And then reality comes in and expectation…"
-- _? — ?_: [Nvidia’s Hidden Debt Risk Could Crash the ENTIRE AI Bubble](https://www.youtube.com/watch?v=O450x8yyZ-k) — 2026-08-20, Eurodollar University: "this is not about private credit in the same way that the 2008 crisis wasn't really about subprime mortgages. Subprime mortgages were just where the questions started to be asked."
-- _? — ?_: [Nvidia’s Hidden Debt Risk Could Crash the ENTIRE AI Bubble](https://www.youtube.com/watch?v=O450x8yyZ-k) — 2026-08-20, Eurodollar University: "AI is going to be a worldchanging technology. It's going to be a huge success for somebody or a bunch of somebody's."
-- _? — ?_: [Nvidia’s Hidden Debt Risk Could Crash the ENTIRE AI Bubble](https://www.youtube.com/watch?v=O450x8yyZ-k) — 2026-08-20, Eurodollar University: "weak labor market, weekly incomes. We're reminded of this by Walmart this past week. Um, the the more the the the macroeconomy looks shaky in the United States around the rest of the world, the more shaky the lenders ar…"
+- _? — ?_: [Nvidia’s Hidden Debt Risk Could Crash the ENTIRE AI Bubble](https://www.youtube.com/watch?v=O450x8yyZ-k) — 2026-08-20, Eurodollar University: "You think the credit cycle is all about private credit and some of these funds, it's all about blue owls, but the truth is it's increasingly about gray swans."
+- _? — ?_: [Nvidia’s Hidden Debt Risk Could Crash the ENTIRE AI Bubble](https://www.youtube.com/watch?v=O450x8yyZ-k) — 2026-08-20, Eurodollar University: "the question about whether or not Nvidia is one of those gray swans, if not the biggest one. It might be the X factor in the entire thing, connecting everything together, because this is no longer just about private cre…"
 
 ## Source items (extracted)
 
+- 2026-08-28 — [Understand 98% of the Eurodollar System in 18 Minutes](https://www.youtube.com/watch?v=uoKlKQtjyUk)
 - 2026-08-26 — [The Mark Walter Scandal Could Expose Billions in Private Credit Losses](https://www.youtube.com/watch?v=y7K5dWPaUt4)
 - 2026-08-25 — [Grocery Stores Just Issued a Warning About the American Consumer](https://www.youtube.com/watch?v=sEaxJbSdM7M)
 - 2026-08-24 — [Ray Dalio Just Issued His Most Terrifying Debt Warning Yet.](https://www.youtube.com/watch?v=oshjZjc5FJI)
@@ -98,8 +99,7 @@ _No URL / bio in DB channel metadata._
 - 2026-07-23 — [Google Issues a Dire Warning About the “AI Boom”](https://www.youtube.com/watch?v=3JjkvLAvS9w)
 - 2026-07-22 — [Europe’s 20-Year Economic Collapse Is Finally Impossible to Hide](https://www.youtube.com/watch?v=WhNvNwxV_qA)
 - 2026-07-21 — [BREAKING: The Private Credit Crisis Just Reached Amazon](https://www.youtube.com/watch?v=lSLkb3BB_0M)
-- 2026-07-19 — [The Oil Market and Yield Curve Just Did Something Really Strange](https://www.youtube.com/watch?v=Rl_wTYKfiyg)
-_…and 28 more._
+_…and 29 more._
 
 ---
 _Page reflects DB state at generation time._

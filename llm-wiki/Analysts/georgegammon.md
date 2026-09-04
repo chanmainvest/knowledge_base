@@ -6,7 +6,7 @@ _No URL / bio in DB channel metadata._
 
 ## Coverage profile
 
-- **Extracted items**: 14
+- **Extracted items**: 15
 - **Items with predictions**: 5
 - **Predictions**: 22
 - **Market views**: 34
@@ -70,6 +70,7 @@ _No URL / bio in DB channel metadata._
 
 ## Source items (extracted)
 
+- 2026-08-29 — [Nvidia Might Not Survive This...](https://www.youtube.com/watch?v=nRVOLsrpapc)
 - 2026-08-27 — [The Entire House of Cards Is About To Fall (US Treasury Is Terrified)](https://www.youtube.com/watch?v=mXi5jB-kPJE)
 - 2026-08-22 — [BREAKING: They Just Admitted The Conspiracy Theories Are True](https://www.youtube.com/watch?v=enxD5EPAFCE)
 - 2026-08-21 — [WARNING: This Is When The Dollar Will Lose Reserve Currency Status](https://www.youtube.com/watch?v=IcDsLFqzN5k)

@@ -45,12 +45,12 @@ _No URL / bio in DB channel metadata._
 
 ## Recent market views
 
-- _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "why Washington's proposed ban could make it worse"
+- _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "how the same structure powered the housing bubble — which actually died in 2006, while prices were still at record highs"
 - _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "The machine that broke the economy in 2008 has been rebuilt — and this time it's made of AI."
 - _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "Jay breaks down the $2 trillion in promised future payments that Microsoft, Oracle, Google and Amazon are counting as guaranteed revenue, why those promises come from companies that lose billions every year"
-- _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "how the same structure powered the housing bubble — which actually died in 2006, while prices were still at record highs"
-- _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "He explains why a nearly free Chinese AI model is now attacking the growth that holds the whole thing up"
 - _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "the one number that signals when the machine starts to break"
+- _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "why Washington's proposed ban could make it worse"
+- _? — ?_: [2008 vs 2026: The Same Dominoes Are Falling](https://www.youtube.com/watch?v=Zgbzdk-eqJ0) — 2026-08-08, The Jay Martin Show: "He explains why a nearly free Chinese AI model is now attacking the growth that holds the whole thing up"
 
 ## Source items (extracted)
 

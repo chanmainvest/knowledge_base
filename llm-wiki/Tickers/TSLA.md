@@ -1,16 +1,16 @@
 # TSLA — Tesla
 
-**10 extracted prediction(s)** across 5 channel(s). Consensus: **bearish** (0 bullish / 1 bearish / 9 neutral).
+**11 extracted prediction(s)** across 6 channel(s). Consensus: **bearish** (0 bullish / 1 bearish / 10 neutral).
 
 ## The debate
 
-The striking thing about the Tesla record in this corpus is that there isn't much of a debate to referee. The consensus tag reads bearish, but that label flatters the conviction on offer: zero bullish calls, one outright bear, and nine neutrals. What you actually have is a stock everyone is watching and almost nobody is willing to take a stand on — which, for a name this storied, is itself a kind of verdict.
+The honest headline on Tesla's tracked calls is not that a bear brigade has formed — it's that nobody is willing to be a bull. The tally reads zero bullish, one bearish, ten neutral, which makes the "bearish consensus" label more of an absence-of-defense verdict than a coordinated short thesis. The lone outright bear on the page is [George Noble](../People/george-noble.md), who on June 23, 2026 lumped Tesla into a short list with an almost bored shrug: "I can short Oklahoma or I can short Tesla or I can short Fresh Pet." The line reads less like a valuation manifesto than a trader cycling through candidates — but Tesla making the cut alongside a state and a pet-food brand tells you where the easy skepticism sits.
 
-The neutral camp is essentially one voice tracking the chart. On July 22, the same contributor observed that Tesla is now "worth multiples of the entire old sort of internal combustion engine producers" — a statement of scale, not endorsement. By August 1 they were speculating about corporate structure rather than fundamentals, musing "I'm pretty sure he's going to merge Tesla into SpaceX." Then the tape took over: August 6's "Tesla tagged it and backed off ever so slightly," followed by August 11's note that the stock was "coiled up... above a rising 5-day moving average," with the caveat that *if* it wants to pop to the upside. That is chart-watching, not a thesis. Read together, though, the sequence sketches a story-stock: a valuation detached from the entire legacy auto industry, a future possibly tied up in Musk's other ventures, and a price action that could go either way.
+The substantive bear argument comes from [David Woo](../People/david-woo.md), who on June 15, 2026 went after the story that justifies the multiple: the robotaxi rollout. His read on the Texas trial was scathing — it "was literally like creating traffic incidents." That's the crux of the Tesla debate in miniature: the equity trades on autonomy arriving, and the bears' job is to point at real-world friction and ask what the multiple is pricing. Reinforcing that valuation pressure point, an unattributed voice in the corpus observed on July 22, 2026 that "Tesla's worth multiples of the entire old sort of internal combustion engine producers" — a gap that size is exactly the terrain where bears set up camp, even when the speaker himself doesn't declare a side.
 
-The actual bears are skeptics of the narrative rather than of the multiple. [George Noble](../People/george-noble.md) was down on the name as of June 23, but his framing — "I can short Oklahoma or I can short Tesla or I can short Fresh Pet" — is arguably the sharpest jab in the file: Tesla demoted from once-in-a-generation bet to just another name in a basket of shorts. [David Woo](../People/david-woo.md), writing June 15 with no formal stance assigned, went after the autonomy story directly, noting that Tesla's latest robotaxi trial in Texas "was literally like creating traffic incidents." That's the load-bearing bear argument: the robotaxi narrative underwriting the valuation is failing its real-world auditions.
+The most interesting drift in the record is how the chatter turned from fundamentals to structure to tape. The same unnamed commentator speculated on August 1, 2026 that "he's going to merge Tesla into SpaceX. That's kind of his mode" — corporate-structure speculation that cuts both ways, since a merger could be pitched as either value unlock or value transfer. By August 6 the tone was pure neutral technicals ("Tesla tagged it and backed off ever so slightly"), and by August 11 it had turned quietly constructive: price "coiled up" above a rising 5-day moving average, with an explicit openness to a pop to the upside. Notably, the freshest commentary on the page is the least bearish language anywhere in the corpus.
 
-On reversals, the record is empty — nobody in this window upgraded, downgraded, or changed their mind; the arc simply drifts from June skepticism to August technical neutrality. And the bull side? It isn't on the page. The closest thing to bullishness in the entire digest is the anonymous August 11 observation that the setup could resolve upward — a trader's hedge, not an argument. Whether that's a fair sample of the broader Tesla debate or just a thin slice of it, the digest doesn't say, and this page won't pretend otherwise.
+What's missing is as telling as what's there. Nobody in the record changed their mind — no documented flips, no capitulations, no conversions. And there is not a single tracked bull to argue the other side of Woo's traffic-incident quip or Noble's short list. So the live debate, as this corpus captures it, is really bears versus the sidelines: the skeptics have the autonomy narrative and the valuation gap to attack, the neutrals have a coil above a rising moving average, and the bull case exists only as an absence.
 
 ## Themes
 
@@ -22,7 +22,7 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 |---|---:|
 | Bullish | 0 |
 | Bearish | 1 |
-| Neutral / watch | 9 |
+| Neutral / watch | 10 |
 
 ## Voices on this ticker
 
@@ -38,6 +38,7 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 - **Figuring Out Money** — [The Floodgates Just Opened.](https://www.youtube.com/watch?v=Ldy0Fl5XNpg) — 2026-07-20, Figuring Out Money: "We have Tesla and also Intel, which is going to be a big one for the semiconductor space."
 - **David Lin** — [Biggest Bubble In History ‘Unwinding’ Now: 17x Worse Than 2000 Crash \| George N…](https://www.youtube.com/watch?v=_XC8leI9eCY) — 2026-07-20, David Lin
 - **Figuring Out Money** — [You've Seen This Before...](https://www.youtube.com/watch?v=OOLz2iSE-iY) — 2026-07-19, Figuring Out Money: "into Tesla and Alphabet earnings"
+- **龔成** — [【龔成專欄】美股七雄今年失色 散戶想入市 Tesla Amazon Apple誰最好？](https://businessfocus.io/article/359590/龔成專欄-美股七雄-蘋果) — 2026-07-17, 龔成: "雖然3隻都高質，但Apple（AAPL）最有穩中求勝效果。"
 - **Figuring Out Money** (dir=`bearish`, tf=`past week`) — [It's Time To Get Serious About This Market.](https://www.youtube.com/watch?v=2poug85rvhA) — 2026-06-26, Figuring Out Money: "Tesla closed pretty much spot on the lower weekly implied move."
 - **George Noble** (action=`short`, dir=`down`, tf=`unspecified`) — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) — 2026-06-23, [George Noble](../People/george-noble.md): "I can short Oklahoma or I can short Tesla or I can short Fresh Pet."
 - **David Woo** (action=`none`, dir=`unspecified`, tf=`unspecified`) — [Massive AI Crackdown Is Coming (It’s Simply Too Good) \| David Woo](https://www.youtube.com/watch?v=760Bpzc1cYM) — 2026-06-15, [David Woo](../People/david-woo.md): "Tesla's latest robo taxi went into whatever trial in Texas and it was it was literally like creating traffic incidents."
@@ -49,17 +50,18 @@ _Not bucketed into any theme (single-name / idiosyncratic)._
 - [The Monetary Matters Network](../Analysts/monetary-matters.md) (`@Monetary-Matters`)
 - [David Lin](../Analysts/thedavidlinreport.md) (`@TheDavidLinReport`)
 - [The Julia La Roche Show](../Analysts/thejulialarocheshow.md) (`@TheJuliaLaRocheShow`)
+- [龔成](../Analysts/shing.md) (`shing`)
 
 ## Rates & bond-yield backdrop
 
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
 - 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
-- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bullish_ [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
+- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
 - 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
@@ -72,6 +74,7 @@ _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 - 2026-07-20 — [The Floodgates Just Opened.](https://www.youtube.com/watch?v=Ldy0Fl5XNpg) (Figuring Out Money)
 - 2026-07-20 — [Biggest Bubble In History ‘Unwinding’ Now: 17x Worse Than 2000 Crash \| George Noble](https://www.youtube.com/watch?v=_XC8leI9eCY) (David Lin)
 - 2026-07-19 — [You've Seen This Before...](https://www.youtube.com/watch?v=OOLz2iSE-iY) (Figuring Out Money)
+- 2026-07-17 — [【龔成專欄】美股七雄今年失色 散戶想入市 Tesla Amazon Apple誰最好？](https://businessfocus.io/article/359590/龔成專欄-美股七雄-蘋果) (龔成)
 - 2026-06-26 — [It's Time To Get Serious About This Market.](https://www.youtube.com/watch?v=2poug85rvhA) (Figuring Out Money)
 - 2026-06-23 — [George Noble On Stocks, Gold, Oil, and AI @nobull-markettalkwithgeorg4907](https://www.youtube.com/watch?v=LDrOV4i0EU4) (The Macro Dirt Podcast)
 - 2026-06-15 — [Massive AI Crackdown Is Coming (It’s Simply Too Good) \| David Woo](https://www.youtube.com/watch?v=760Bpzc1cYM) (The Monetary Matters Network)

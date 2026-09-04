@@ -8,7 +8,7 @@ from pathlib import Path
 
 import typer
 from rich import print
-from sqlalchemy import text
+from sqlalchemy import column, func, select, table, text
 
 from . import extract as extract_mod
 from . import ingest as ingest_mod
@@ -468,15 +468,21 @@ def youtube_transcribe(
         help="Re-queue items stuck in 'transcribing'/'audio_downloaded' back "
              "to 'pending' and exit",
     ),
-    model: str = typer.Option(None, help="Override whisper model (default: from config)"),
-    device: str = typer.Option(None, help="Override device, e.g. cuda|cpu (default: from config)"),
+    model: str = typer.Option(None, help="Override ASR model (qwen: HF id, whisper: model size; default: from config)"),
+    device: str = typer.Option(None, help="Override device, e.g. cuda|cuda:0|cpu (default: from config)"),
+    engine: str = typer.Option(
+        None, "--engine",
+        help="ASR engine for this run: qwen | whisper "
+             "(default: TRANSCRIBE_ENGINE, currently qwen)",
+    ),
 ) -> None:
-    """Transcribe YouTube videos missing subtitles (faster-whisper, opt-in).
+    """Transcribe YouTube videos missing subtitles (opt-in, qwen engine).
 
     Covers items where no subtitle/transcript could be fetched
-    (`has_transcript=false`): downloads the audio track, runs Whisper on GPU
-    one video at a time, writes the transcript into the item's markdown and
-    re-ingests it.
+    (`has_transcript=false`): downloads the audio track, runs ASR on GPU one
+    video at a time — Qwen3-ASR (verbatim Cantonese, audio chunked at
+    QWEN_CHUNK_SEC) by default, faster-whisper via --engine whisper — writes
+    the transcript into the item's markdown and re-ingests it.
     """
     from . import transcribe as transcribe_mod
 
@@ -505,6 +511,7 @@ def youtube_transcribe(
         dry_run=dry_run,
         model=model,
         device=device,
+        engine=engine,
     )
 
 
@@ -682,10 +689,83 @@ def extract_runs(item_id: int) -> None:
         return
     for r in rows:
         marker = "[green]primary[/green]" if r.get("is_primary") else "       "
+        toks = ""
+        if r.get("prompt_tokens") is not None:
+            toks = (f" tok={r['prompt_tokens']}/{r.get('cached_tokens') or 0}"
+                    f"/{r.get('completion_tokens') or 0}")
         print(f"{marker} run={r['id']:<6} {r['provider']:<10} {(r['model'] or '(default)'):<28} "
               f"{(r.get('prompt_version') or '-'):<5} "
               f"status={r['status']:<7} views={r['n_market_views']} preds={r['n_predictions']} "
-              f"{r['duration_ms'] or '-'}ms")
+              f"{r['duration_ms'] or '-'}ms{toks}")
+
+
+@ext_app.command("cost")
+def extract_cost() -> None:
+    """Aggregate token usage per provider/model/prompt_version and estimate
+    USD cost from OpenRouter's public reference prices (a yardstick, not
+    actual billing — e.g. GLM Coding Plan usage is subscription quota).
+    Runs predating usage capture (or from the copilot CLI) show as no-usage."""
+    from . import pricing
+
+    er = table("extraction_run",
+               column("provider"), column("model"), column("prompt_version"),
+               column("status"), column("prompt_tokens"),
+               column("cached_tokens"), column("completion_tokens"))
+    with engine().connect() as conn:
+        rows = [dict(r) for r in conn.execute(
+            select(er.c.provider, er.c.model, er.c.prompt_version,
+                   func.count().label("runs"),
+                   func.count(er.c.prompt_tokens).label("with_usage"),
+                   func.sum(er.c.prompt_tokens).label("prompt"),
+                   func.sum(er.c.cached_tokens).label("cached"),
+                   func.sum(er.c.completion_tokens).label("completion"))
+            .where(er.c.status == "done")
+            .group_by(er.c.provider, er.c.model, er.c.prompt_version)
+        ).mappings().all()]
+    if not rows:
+        print("[yellow]no completed extraction runs yet[/yellow]")
+        return
+    try:
+        prices = pricing.load_prices()
+    except Exception as exc:  # noqa: BLE001 — network/API trouble: tokens still shown
+        print(f"[yellow]OpenRouter price list unavailable ({exc}) — tokens only[/yellow]")
+        prices = {}
+
+    print(f"{'provider':<10} {'model':<26} {'pv':<5} {'runs':>6} {'in':>13} "
+          f"{'cached':>13} {'out':>12} {'est. cost':>12}")
+    tot_in = tot_cached = tot_out = 0
+    tot_cost = 0.0
+    cost_known = True
+    for r in sorted(rows, key=lambda r: (r["provider"], r["model"], r["prompt_version"])):
+        price = pricing.lookup(prices, r["provider"], r["model"] or "")
+        cost = None
+        if price is not None and r["prompt"] is not None:
+            try:
+                cost = pricing.cost_usd(price, r["prompt"] or 0, r["cached"] or 0,
+                                        r["completion"] or 0)
+            except ValueError:
+                pass
+        no_usage = r["runs"] - r["with_usage"]
+        print(f"{r['provider']:<10} {(r['model'] or '(default)'):<26} "
+              f"{(r['prompt_version'] or '-'):<5} {r['runs']:>6} "
+              f"{r['prompt'] or 0:>13,} {r['cached'] or 0:>13,} "
+              f"{r['completion'] or 0:>12,} "
+              f"{('$' + f'{cost:,.4f}') if cost is not None else 'n/a':>12}"
+              f"{f'  (+{no_usage} no-usage)' if no_usage else ''}")
+        tot_in += r["prompt"] or 0
+        tot_cached += r["cached"] or 0
+        tot_out += r["completion"] or 0
+        if cost is not None:
+            tot_cost += cost
+        else:
+            cost_known = False
+    print(f"{'TOTAL':<10} {'':<26} {'':<5} "
+          f"{sum(r['runs'] for r in rows):>6} "
+          f"{tot_in:>13,} {tot_cached:>13,} {tot_out:>12,} "
+          f"{('$' + f'{tot_cost:,.4f}') if cost_known else 'partial':>12}")
+    print("[dim]cost = OpenRouter reference price (cached tokens at the "
+          "cache-read rate when published); runs without usage are counted "
+          "but excluded from the cost.[/dim]")
 
 
 @lb_app.command("rebuild")

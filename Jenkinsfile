@@ -332,16 +332,20 @@ exit 1
         }
 
         // -------------------------------------------------------------------------
-        // 3. LLM extraction — runs after all content is in. Provider/model come
-        //    from LLM_PROVIDER / LLM_MODEL in .env. Batch of 200 so a nightly
-        //    run makes real progress on the backlog. Hard-fails (red) on error,
-        //    since that usually means an LLM credential/config problem worth
-        //    noticing. Unstable scrapes above do NOT block this stage.
+        // 3. LLM extraction — runs after all content is in. Provider comes from
+        //    LLM_PROVIDER in .env; the model is pinned here to glm-5.3-flash
+        //    because the VM's .env is a hand-maintained copy that can lag the
+        //    host's (ZAI_MODEL) — the explicit --model flag is immune to that
+        //    drift and keeps the nightly on the fast/cheap variant. Batch of
+        //    200 so a nightly run makes real progress on the backlog.
+        //    Hard-fails (red) on error, since that usually means an LLM
+        //    credential/config problem worth noticing. Unstable scrapes above
+        //    do NOT block this stage.
         // -------------------------------------------------------------------------
 
         stage('Extract') {
             steps {
-                sh 'docker compose run --rm kb extract run --limit 200'
+                sh 'docker compose run --rm kb extract run --limit 200 --model glm-5.3-flash'
             }
         }
 

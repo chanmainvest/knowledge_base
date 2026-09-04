@@ -1177,8 +1177,8 @@ def curate_people(provider: str | None, model: str | None) -> None:
                     "\n".join(f"- {n} — {_person_context(n)}"
                               for n in batch))
             try:
-                out = chat_json(PEOPLE_SYSTEM, user, PEOPLE_SCHEMA,
-                                provider=provider, model=model)
+                out, _ = chat_json(PEOPLE_SYSTEM, user, PEOPLE_SCHEMA,
+                                   provider=provider, model=model)
             except Exception as exc:  # noqa: BLE001 — rate limit etc.
                 print(f"  people: batch {start // PEOPLE_BATCH} failed "
                       f"({type(exc).__name__}) — those labels stay "
@@ -1321,8 +1321,8 @@ def ensure_bios(no_llm: bool = False,
     for i, name in enumerate(todo, 1):
         person = PEOPLE[name]
         try:
-            out = chat_json(BIO_SYSTEM, _bio_context(person), BIO_SCHEMA,
-                            provider=provider, model=model)
+            out, _ = chat_json(BIO_SYSTEM, _bio_context(person), BIO_SCHEMA,
+                               provider=provider, model=model)
             # Some models answer with a list of bio objects (e.g. for a
             # multi-person name like "X and Y"); take the first object.
             if isinstance(out, list):
@@ -1389,7 +1389,11 @@ Rules:
 PROSE: dict[str, dict] = {}
 PROSE_PROVIDER: str | None = None
 PROSE_MODEL: str | None = None
-PROSE_FAILED = False   # after one hard failure, stop calling the LLM
+# Stop calling the LLM only after several *consecutive* hard failures (a
+# sustained outage). A single flaky key must not blank every later page —
+# one bad call once cost all 12 weekly digests + Home their narratives.
+PROSE_CONSEC_FAIL = 0
+PROSE_FAIL_LIMIT = 5
 PROSE_ENABLED = True   # flipped off by --no-prose
 
 
@@ -1437,14 +1441,14 @@ def _sanitize_links(text: str, path: Path) -> str:
 def llm_prose(key: str, instruction: str, digest: str, path: Path) -> str:
     """Narrative for one page section, cached by digest hash. Returns ''
     (page renders without prose) when disabled or the LLM is unavailable."""
-    global PROSE_FAILED
+    global PROSE_CONSEC_FAIL
     if not PROSE_ENABLED:
         return ""
     h = hashlib.sha256(digest.encode("utf-8")).hexdigest()[:16]
     cached = PROSE.get(key)
     if cached and cached.get("hash") == h:
         return _sanitize_links(cached.get("text", ""), path)
-    if PROSE_FAILED:
+    if PROSE_CONSEC_FAIL >= PROSE_FAIL_LIMIT:
         return ""
     from kb import llm
     from kb.llm import chat_text
@@ -1468,13 +1472,14 @@ def llm_prose(key: str, instruction: str, digest: str, path: Path) -> str:
                 time.sleep(60)
             else:
                 print(f"  prose: LLM unavailable for '{key}' "
-                      f"({type(exc).__name__}) — later pages render without "
-                      "prose")
-                PROSE_FAILED = True
+                      f"({type(exc).__name__}) — this page renders without "
+                      "prose; continuing with the next pages")
+                PROSE_CONSEC_FAIL += 1
                 return ""
     time.sleep(2)   # pacing: stay clear of the coding-plan rate limit
     if not text:
         return ""
+    PROSE_CONSEC_FAIL = 0   # success: reset the outage counter
     PROSE[key] = {"hash": h, "text": text}
     return _sanitize_links(text, path)
 
@@ -1611,7 +1616,7 @@ def _study_llm(provider: str, model: str):
     from kb.llm import chat_json
     return lambda sys, user, schema: chat_json(sys, user, schema,
                                                provider=provider,
-                                               model=model)
+                                               model=model)[0]
 
 
 def _item_link(it: dict) -> str:

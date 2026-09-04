@@ -238,6 +238,16 @@ CREATE INDEX IF NOT EXISTS extraction_run_provider_model_idx ON extraction_run(p
 ALTER TABLE item ADD COLUMN IF NOT EXISTS primary_extraction_run_id BIGINT
     REFERENCES extraction_run(id) ON DELETE SET NULL;
 
+-- LLM token usage per run, as reported by the provider at extraction time
+-- (2026-09-02). NULL = the run predates usage capture, or the provider can't
+-- report it (the github/copilot CLI). cached_tokens is the provider-reported
+-- subset of prompt_tokens served from cache (subset, not additive). Cost is
+-- not stored: it's derived at read time from OpenRouter reference prices
+-- (`kb extract cost`), so price updates never touch the data.
+ALTER TABLE extraction_run ADD COLUMN IF NOT EXISTS prompt_tokens INT;
+ALTER TABLE extraction_run ADD COLUMN IF NOT EXISTS cached_tokens INT;
+ALTER TABLE extraction_run ADD COLUMN IF NOT EXISTS completion_tokens INT;
+
 -- LLM-extracted structured records. Each row belongs to exactly one
 -- extraction_run so multiple providers/models can coexist per item.
 CREATE TABLE IF NOT EXISTS view_market (
@@ -679,3 +689,40 @@ CREATE TABLE IF NOT EXISTS wiki_item_read (
 );
 CREATE INDEX IF NOT EXISTS wiki_item_read_ext_idx
     ON wiki_item_read(source_code, external_id);
+
+
+-- --- Marketing classification + media-mention tracking (extraction v2) -----
+-- item.is_marketing: whole-item flag, majority vote across the chunks of the
+--   primary extraction run. NULL = not yet classified (v1-era or pending).
+ALTER TABLE item ADD COLUMN IF NOT EXISTS is_marketing BOOLEAN;
+CREATE INDEX IF NOT EXISTS item_is_marketing_idx
+    ON item (is_marketing) WHERE is_marketing = true;
+
+-- Canonical works (books / movies / papers) mentioned across the corpus,
+-- deduped by (kind, title_norm). creators/year are advisory, opportunistically
+-- filled from whichever mention supplied them.
+CREATE TABLE IF NOT EXISTS media_work (
+    id          BIGSERIAL PRIMARY KEY,
+    kind        TEXT NOT NULL CHECK (kind IN ('book','movie','paper')),
+    title       TEXT NOT NULL,
+    title_norm  TEXT NOT NULL,
+    creators    TEXT,
+    year        INT,
+    created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
+    UNIQUE (kind, title_norm)
+);
+
+-- One row per (extraction run, work): which item, which speaker mentioned it,
+-- and the quote. Counts/attribution ("who recommended what") come from here.
+CREATE TABLE IF NOT EXISTS media_mention (
+    id                 BIGSERIAL PRIMARY KEY,
+    media_work_id      BIGINT NOT NULL REFERENCES media_work(id) ON DELETE CASCADE,
+    item_id            INT NOT NULL REFERENCES item(id) ON DELETE CASCADE,
+    extraction_run_id  BIGINT NOT NULL REFERENCES extraction_run(id) ON DELETE CASCADE,
+    speaker            TEXT,
+    quote              TEXT,
+    created_at         TIMESTAMPTZ NOT NULL DEFAULT now(),
+    UNIQUE (extraction_run_id, media_work_id)
+);
+CREATE INDEX IF NOT EXISTS media_mention_item_idx  ON media_mention(item_id);
+CREATE INDEX IF NOT EXISTS media_mention_work_idx ON media_mention(media_work_id);

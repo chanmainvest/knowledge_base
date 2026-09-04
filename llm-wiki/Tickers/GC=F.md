@@ -1,18 +1,16 @@
 # GC=F — Gold
 
-**228 extracted prediction(s)** across 20 channel(s). Consensus: **bullish** (28 bullish / 7 bearish / 193 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
+**232 extracted prediction(s)** across 20 channel(s). Consensus: **bullish** (28 bullish / 7 bearish / 197 neutral). ⚠️ **Conflict flag**: analysts disagree on direction.
 
 ## The debate
 
-Gold's consensus tag — 28 bullish, 7 bearish, 193 neutral — is a bit misleading, because the actual debate on record isn't bulls versus bears so much as *how straight the line up goes*. June was the cautious stretch. [Patrick Ceresna](../People/patrick-ceresna.md) framed the technician's worry: a bounce running into a declining 50-day moving average near 4,400, and by June 25 the 4,000 handle as the key level — hold it and you get stabilization, lose it and things get uglier. [Jeffrey Christian](../People/jeffrey-christian.md) was the loudest bear in the log that month, warning prices would be tested at 4,100 and that a break could target 3,800 or even 3,500.
+Gold's debate in 2026 has an unusual shape: the consensus reads bullish (28 bullish calls against 7 bearish, with a huge 197 sitting neutral), but the actual bear case is almost purely a technical map rather than a fundamental argument. The low point came in June, when Jeffrey Christian flagged $4,100 as the line in the sand — prices were "subject to be tested again" there, and a break, likely on a short-term spike, carried targets of $3,800 or even $3,500 ([June 19](../People/jeffrey-christian.md)). Two days later he tightened it: a break below 4,100 implied a technical target around $3,800 ([June 23](../People/jeffrey-christian.md)). Patrick Ceresna spent the same stretch charting the downside, calling the 4,400 level a bounce ceiling capped by a declining 50-day moving average ([June 18](../People/patrick-ceresna.md)) and framing the 4,000 handle as the pivot — hold it and gold stabilizes, lose it and things get ugly ([June 25](../People/patrick-ceresna.md)).
 
-The clearest mind-change belongs to Christian himself. By August 25, Jeff Christian — the same shop, a notably sunnier tune — was still conceding a possible pullback in early September but expected gold to rise from there, pinned a 4,800-to-5,000 range by year-end ("could be a little higher"), and said the firm's roughly 4,450 annual average forecast would probably be revised up. That is a full reversal from June's 3,800/3,500 downside targets, and it matters because Christian was the most credentialed skeptic in the sample.
+By mid-August the register had changed entirely. Michael Howell argued the market was underpinned around $4,000, tied the whole story to Chinese buying cycling in and out of gold, and said a catalyst would make it "shoot up" ([August 13](../People/michael-howell.md)). Ceresna himself softened from mapping breakdowns to wondering aloud whether this was "the inflection point" for a new gold run ([August 13](../People/patrick-ceresna.md)). And at the maximalist end, Dave Collum had gold potentially worth $100,000 or $200,000 — and answered "infinity" when asked where it goes in twenty years, while keeping it a major portfolio weight ([August 13](../People/dave-collum.md)). The debasement-trade framing showed up too, with one guest in late August expressing continued comfort holding gold alongside Bitcoin after "a good week."
 
-The bull case, meanwhile, has hardened into a macro story about who's buying. [Michael Howell](../People/michael-howell.md) argued on August 13 that gold is "probably going up," underpinned around $4,000 an ounce, with the whole cycle in gold driven by Chinese buying — and that a catalyst would make the market "shoot up." [Nomi Prins](../People/nomi-prins.md) pushes the same central-bank thesis harder: the buying didn't stop at 5,500, or 4,500, or 3,500, and she sees 6,000 around the turn of the year, probably 8,000 next year. [Dave Collum](../People/dave-collum.md) occupies the tail of the distribution — gold "could be worth 100,000 but it could be worth 200,000," with a twenty-year answer of "infinity" and a permanent major role in his portfolio. At that point it's conviction, not analysis.
+The year-end targets are where the spread widens. Jeff Christian's late-August view allows for a pullback in early September but lands at $4,800–$5,000 by year-end, on an annual average forecast around $4,450 that he expects to revise upward ([August 25](../People/jeffrey-christian.md)) — a striking pivot from the man mapping $3,800 targets in June, though to be fair his June calls were tactical technicals while the August numbers are a house forecast. Nomi Prins goes further: the buying never stopped at $3,500 or $5,500 and won't stop at $4,500, putting gold at $6,000 around the turn of the year and "probably 8,000" next year ([August 23](../People/nomi-prins.md)).
 
-The middle ground is where the interesting hedging lives. [Patrick Karim](../People/patrick-karim.md) refuses to certify the move — on the monthly chart "there's no breakout," and the rally is "still a bounce," not the confirmed breakout metals investors want — yet he'll still sketch a path of sideways action, a doubling up, and a stretch toward 8,300, which is a strange way to be cautious. And one recurring commentator in the log (unnamed in the digest) embodies the practical bull's dilemma: still "extremely comfortable" in the gold-and-Bitcoin debasement trade as of August 27, but explicitly taking profits on gold and silver on August 25 to reposition on a dip, with a base case of spike-then-consolidation that could last "a few months to even a few years."
-
-Worth flagging one genuine factual dispute inside the bull camp: Prins says central bank buying never stopped, while the August 26 commentary insisted there was "definitely a pullback" initially, now reversing per the latest World Gold Council data. That disagreement — steady floor versus choppy floor — is really the live question, because almost nobody left in this sample is arguing gold goes down for long. The bears own the calendar; the bulls own the narrative.
+The holdouts are hedgers more than bears. Patrick Karim's August read is that there is "no breakout" on the monthly chart and the move is "still a bounce," even as he describes a weekly expansion off the 36-week moving average — and if it confirms, his scenario is sideways, then a doubling toward $8,300 ([August 8](../People/patrick-karim.md)). Meanwhile the neutral mass is well represented by the guest on August 28 who simply refused to predict ("I have literally no idea"), even as the same conversation relayed CPM Group's framing — gold ranging "relatively low" in the $3,800–$4,300 zone through August before another wave of investor buying for gold and silver. That's the honest state of the debate: a broad bull lean built on debasement and flow narratives, a thin technical bear case, and a lot of people unwilling to commit either way.
 
 ## Themes
 
@@ -24,11 +22,12 @@ Worth flagging one genuine factual dispute inside the bull camp: Prins says cent
 |---|---:|
 | Bullish | 28 |
 | Bearish | 7 |
-| Neutral / watch | 193 |
+| Neutral / watch | 197 |
 
 ## Voices on this ticker
 
 - [Brent Johnson](../People/brent-johnson.md)
+- [Daniel Lacalle](../People/daniel-lacalle.md)
 - Daryl (host), confirmed by Patrick Karim
 - [Dave Collum](../People/dave-collum.md)
 - [David Woo](../People/david-woo.md)
@@ -59,6 +58,10 @@ Worth flagging one genuine factual dispute inside the bull camp: Prins says cent
 
 ## Notable calls
 
+- **David Lin** — [Market Bubble Trigger: 'Immediate Recession' Once This Happens Says Big Short's…](https://www.youtube.com/watch?v=03mCPnemm6M) — 2026-08-28, David Lin: "I have literally no idea. You know, I don't I just don't like to predict markets."
+- **CPM Group** (dir=`neutral-then-bullish`, tf=`Aug–Sep 2026`) — [Gold And Silver WARNING: Another Wave of Buying May Be Coming](https://www.youtube.com/watch?v=3DlDD-uWi6w) — 2026-08-28, CPM Group: "CPM Group's view had been that it would continue to be relatively low in that 3,800 to4,200 $4,300 range through August and that we'd only see the price starting to rise about now about the time of Jackson Hole"
+- **CPM Group** (dir=`bullish`, tf=`Sep 2026 – into 2027`) — [Gold And Silver WARNING: Another Wave of Buying May Be Coming](https://www.youtube.com/watch?v=3DlDD-uWi6w) — 2026-08-28, CPM Group: "And our view is that those global political and economic factors will contribute to another wave of investor buying for gold and silver which will take gold and silver prices back higher over the last four months of thi…"
+- **Daniel Lacalle** (dir=`bullish (gold outperforms major fiat currencies)`) — [MacroVoices #547 Daniel Lacalle: The Future of Reserve Currency](https://www.youtube.com/watch?v=KwlbirZxPQc) — 2026-08-27, [Daniel Lacalle](../People/daniel-lacalle.md): "all of them are worsening relative to gold"
 - **JD** — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, [JD](../People/jd.md): "if it trades below 4500, I don't like it. It's got to hold 4500."
 - **Host (Macro Dirt)** — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) — 2026-08-27, Host (Macro Dirt): "So that's the kind of move that I think that we could be in for with gold."
 - **Forward Guidance** — [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Week…](https://www.youtube.com/watch?v=aEG3hZZX45M) — 2026-08-27, Forward Guidance: "I'm still extremely comfortable in my debasement trades of of gold and Bitcoin. It's it's been a good week for them and you know, I just yeah, I want to ride those those coattails."
@@ -316,16 +319,19 @@ Worth flagging one genuine factual dispute inside the bull camp: Prins says cent
 What the same extracted corpus says about rates / yields — context for the calls above (most recent first):
 
 - 2026-06-25 _bearish_ aminvest: "企業債務違約比率，已經開始惡化。"
-- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
-- 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "Let's say the market falls out of bed, which I think it should do. I actually want it to."
-- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "I think gold despite the new sheriff in town and higher rates and everyone's talking about, oh, he's going to be more doubbish, but he's for a smaller balance sheet, you know."
-- 2026-06-23 _bearish_ [JD](../People/jd.md): "I actually think this could be a false breakout in the dollar. I'm very bearish."
+- 2026-06-23 _bullish_ [Jeffrey Christian](../People/jeffrey-christian.md): "these risks may be negative for the broader economy but supportive for gold and silver over time"
+- 2026-06-23 _bearish_ [Jeffrey Christian](../People/jeffrey-christian.md): "he wanted the Fed to be less forthcoming with information, less transparent, more secretive"
+- 2026-06-23 _bearish_ [JD](../People/jd.md): "What I'm betting is that the correlation is going to turn negative. And I think what does that is a sharp decline in stocks like maybe even a crash."
 - 2026-06-23 _bearish_ [George Noble](../People/george-noble.md): "I think between the private capex and the government spending. You have a huge demand increase in demand for funds, increased spending. So, I think supply demand for bonds looks t…"
+- 2026-06-23 _mixed_ [George Noble](../People/george-noble.md): "Jarrett could be totally right on bonds... But unless the market falls out of bed, I don't think he's going to be right on bonds."
 
 _See also the [rates-bonds theme](../Themes/rates-bonds.md)._
 
 ## Source items
 
+- 2026-08-28 — [Market Bubble Trigger: 'Immediate Recession' Once This Happens Says Big Short's Steve Eis…](https://www.youtube.com/watch?v=03mCPnemm6M) (David Lin)
+- 2026-08-28 — [Gold And Silver WARNING: Another Wave of Buying May Be Coming](https://www.youtube.com/watch?v=3DlDD-uWi6w) (CPM Group)
+- 2026-08-27 — [MacroVoices #547 Daniel Lacalle: The Future of Reserve Currency](https://www.youtube.com/watch?v=KwlbirZxPQc) (Macro Voices)
 - 2026-08-27 — [Bond Market Calm](https://www.youtube.com/watch?v=o2bF4sPqBdQ) (The Macro Dirt Podcast)
 - 2026-08-27 — [Druck Calls Out Bessent & Will Jackson Hole Derail The Debasement Trade? \| Weekly Roundup](https://www.youtube.com/watch?v=aEG3hZZX45M) (Forward Guidance)
 - 2026-08-26 — [Gold, Silver, Copper, Oil — Why They're ALL Rallying Together \| Jim Wiederhold](https://www.youtube.com/watch?v=9PbTMpA8KD4) (The Monetary Matters Network)
