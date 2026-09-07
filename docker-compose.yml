@@ -28,10 +28,17 @@ services:
     image: ${HKEJ_DOCKER_IMAGE:-kb-camoufox:latest}
     container_name: ${HKEJ_DOCKER_CONTAINER:-kb_camoufox}
     restart: unless-stopped
+    # Default 64MiB /dev/shm is too small for Firefox and causes random crashes.
+    shm_size: "2gb"
+    # Lets Firefox create a user namespace for its content sandbox. Optional if
+    # MOZ_DISABLE_CONTENT_SANDBOX=1 is set (the image entrypoint always sets it).
+    security_opt:
+      - seccomp:unconfined
     environment:
       CAMOUFOX_NOVNC: ${HKEJ_DOCKER_NOVNC:-1}
       CAMOUFOX_WS_PATH: hkej
       CAMOUFOX_PORT: 9222
+      MOZ_DISABLE_CONTENT_SANDBOX: "1"
     ports:
       - "${HKEJ_CAMOUFOX_PORT:-9222}:9222"
       - "${HKEJ_DOCKER_NOVNC_PORT:-7900}:7900"

@@ -100,9 +100,11 @@ Extraction writes structured records into:
 - `entity`
 - `item_entity`
 
-The LLM client supports four providers — `openai` (or any OpenAI-compatible
-endpoint), `github` (shells out to the local `copilot` CLI), `anthropic`, and
-`zai` — selected via `LLM_PROVIDER` in `.env` or `--provider` per run. Every
+The LLM client supports five providers — `openai` (or any OpenAI-compatible
+endpoint), `github` (shells out to the local `copilot` CLI), `anthropic`,
+`zai`, and `openrouter` — selected via `LLM_PROVIDER` in `.env` or
+`--provider` per run. The default is `openrouter` /
+`minimax/minimax-m3:free`. Every
 extraction attempt is recorded in `extraction_run`, and the same item can be
 extracted by multiple providers without one overwriting another; see
 `doc/llm-extraction.md` for the full pipeline and how to compare providers.
@@ -115,6 +117,14 @@ public reference prices — a yardstick, not actual billing):
 
 ```pwsh
 uv run kb extract cost
+```
+
+To write the extracted records out as JSON files alongside the markdown
+(`data/<source>/<channel>/<year>/extracted_<md-stem>.json`) — idempotent,
+safe to run after every extract batch:
+
+```pwsh
+uv run kb extract export
 ```
 
 ```pwsh

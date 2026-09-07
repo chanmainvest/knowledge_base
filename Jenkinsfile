@@ -21,7 +21,7 @@
 // * Yahoo HK is removed — nothing left to download there.
 // * DB migrate is NOT part of the nightly run — the schema is created once
 //   from init.sql and only changes on a code update; run it manually then.
-// * Secrets (HKEJ_*, PATREON_*, ZAI_API_KEY, …) live in the repo's gitignored
+// * Secrets (HKEJ_*, PATREON_*, ZAI_API_KEY, OPENROUTER_API_KEY, …) live in the repo's gitignored
 //   .env, which the `kb` docker-compose service loads via `env_file:` and passes
 //   straight through to every `docker compose run`. To harden, bind them from
 //   the Jenkins Credentials store (see doc/jenkins-pipeline.md).
@@ -52,16 +52,17 @@ pipeline {
     options {
         timestamps()                 // prefix every log line with a timestamp
         buildDiscarder(logRotator(numToKeepStr: '14'))  // keep 2 weeks of runs
-        timeout(time: 10, unit: 'HOURS')  // extract (200 × ~2.3 min ≈ 7.7h) +
-                                          // scrape/ingest pushed 8h over, which
-                                          // killed Score/Progress recompute
-                                          // every night (builds #21/#22)
+        timeout(time: 10, unit: 'HOURS')  // extract (200 items; free-tier 429
+                                          // retries can be slow) + scrape/ingest.
+                                          // 8h used to kill Score/Progress
+                                          // recompute (builds #21/#22)
         disableConcurrentBuilds()    // never two nightly runs at once
     }
 
     // Secrets: the kb container's docker-compose `kb` service sets
     // `env_file: .env`, so HKEJ_USER/PASS, PATREON_*, MACROVOICES_*, ZAI_API_KEY,
-    // etc. are read from the repo's gitignored .env and passed straight through
+    // OPENROUTER_API_KEY, etc. are read from the repo's gitignored .env and passed
+    // straight through
     // to every `docker compose run`. No Jenkins-side secret config is required
     // for the job to run.
     //
@@ -332,12 +333,12 @@ exit 1
         }
 
         // -------------------------------------------------------------------------
-        // 3. LLM extraction — runs after all content is in. Provider comes from
-        //    LLM_PROVIDER in .env; the model is pinned here to glm-5.3-flash
-        //    because the VM's .env is a hand-maintained copy that can lag the
-        //    host's (ZAI_MODEL) — the explicit --model flag is immune to that
-        //    drift and keeps the nightly on the fast/cheap variant. Batch of
-        //    200 so a nightly run makes real progress on the backlog.
+        // 3. LLM extraction — runs after all content is in. Provider/model are
+        //    pinned here to OpenRouter MiniMax M3 free because the
+        //    VM's .env is a hand-maintained copy that can lag the host. The
+        //    flags are immune to that drift. Batch of 200 so a nightly run
+        //    makes real progress on the backlog. Free-tier 429s are ridden
+        //    out by LLM_MAX_RETRIES / LLM_RATE_LIMIT_PAUSE_SEC (see .env).
         //    Hard-fails (red) on error, since that usually means an LLM
         //    credential/config problem worth noticing. Unstable scrapes above
         //    do NOT block this stage.
@@ -345,7 +346,21 @@ exit 1
 
         stage('Extract') {
             steps {
-                sh 'docker compose run --rm kb extract run --limit 200 --model glm-5.3-flash'
+                sh 'docker compose run --rm kb extract run --limit 200 --provider openrouter --model minimax/minimax-m3:free'
+            }
+        }
+
+        // -------------------------------------------------------------------------
+        // 3b. Export extraction results to JSON files alongside the markdown
+        //     (data/<source>/<channel>/<year>/extracted_<md-stem>.json), so the
+        //     structured records are versioned in the data repo with the raw
+        //     content instead of living only in Postgres. Idempotent — files are
+        //     rewritten only when the item's primary extraction run changed.
+        // -------------------------------------------------------------------------
+
+        stage('Export') {
+            steps {
+                sh 'docker compose run --rm kb extract export'
             }
         }
 

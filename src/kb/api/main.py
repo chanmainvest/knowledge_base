@@ -788,7 +788,7 @@ def insights_home() -> dict[str, Any]:
 # --- Chat with an article -----------------------------------------------------
 #
 # Answers questions about one item's content using the configured default
-# LLM (glm-5.3-flash via the zai provider since 2026-08-27). Conversation
+# LLM (openrouter / minimax/minimax-m3:free since 2026-09-06). Conversation
 # history is supplied by the client; the server stays stateless.
 
 class ChatMessage(BaseModel):
@@ -873,14 +873,15 @@ def chat(req: ChatRequest) -> dict[str, Any]:
         reply = llm.chat_text(system, convo)
         used = f"{settings().llm_provider}/{llm.default_model(settings().llm_provider)}"
     except Exception:
-        # Primary (zai) failed — quota exhausted, 429s, outage — fall back to
-        # OpenRouter when configured. Always prefer the primary, so this only
-        # ever runs after the zai attempt actually raised.
+        # Primary failed (quota / 429 / outage) — try the other configured
+        # OpenAI-wire provider so chat still answers. When extract default is
+        # already openrouter, fall back to zai (and vice versa).
         s = settings()
-        if not s.openrouter_api_key:
+        backup = "zai" if s.llm_provider == "openrouter" else "openrouter"
+        if not llm.has_credentials(backup):
             raise
-        reply = llm.chat_text(system, convo, provider="openrouter")
-        used = f"openrouter/{s.openrouter_model} (backup)"
+        reply = llm.chat_text(system, convo, provider=backup)
+        used = f"{backup}/{llm.default_model(backup)} (backup)"
     return {"reply": reply, "model": used}
 
 

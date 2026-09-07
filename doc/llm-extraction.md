@@ -239,6 +239,27 @@ per-ticker coverage.
   of every scored call, with no adjustment for volume, benchmark, or the
   large fraction of calls that score exactly `0` (vague/neutral calls).
 
+#### JSON export alongside the markdown
+
+`kb extract export` (also a nightly stage right after Extract) writes one
+JSON file per extracted item next to its markdown file:
+`data/<source>/<channel>/<year>/extracted_<md-stem>.json`. The file holds the
+item's metadata, the primary run's provider/model/prompt-version/token
+totals, and the structured records (`market_views`, `predictions`,
+`entities`, `media_mentions`) — schema `kb-extract-export/v1`. This gives the
+data repo a versioned copy of the extraction output, so the structured data
+doesn't live only in Postgres.
+
+It is **idempotent**: a file is rewritten only when the item's primary
+extraction run has changed (the file records its `run_id`), so a nightly full
+pass touches only newly-extracted items. Items whose md file is missing on
+disk are skipped and counted in the log. Two quirks to know: the md *stem*
+(not the raw title) is used in the filename, keeping a 1:1 pairing; and the
+few item rows that share an md file (the macrovoices duplicate rows) get an
+`-<item_id>` suffix so neither overwrites the other. There is no GC —
+deleting an item in the DB leaves its JSON behind (the data/ tree is
+human-committed, so automated deletes could surprise).
+
 ### Why the current output is limited for a retail investor
 
 Even with correct chunking/scoring, the numbers as originally computed have
@@ -355,8 +376,8 @@ the most reliable reader** of a given source/channel — the
 ### Providers
 
 `src/kb/llm.py` dispatches `chat_json(system, user, schema, provider, model)`
-to one of four backends, selected by name (`llm.PROVIDERS = ("openai",
-"github", "anthropic", "zai")`):
+to one of five backends, selected by name (`llm.PROVIDERS = ("openai",
+"github", "anthropic", "zai", "openrouter")`):
 
 | provider    | how it's called | notes |
 |-------------|------------------|-------|
@@ -364,6 +385,7 @@ to one of four backends, selected by name (`llm.PROVIDERS = ("openai",
 | `github`    | shells out to the local **`copilot` CLI** in non-interactive mode: `copilot -p "<prompt>" --silent --allow-all-tools --available-tools= --no-ask-user --no-color [--model X]` | there is no public raw completions API for GitHub Copilot, so this drives the actual CLI binary; `--available-tools=` disables all tool use so it behaves like a plain chat call; output is parsed leniently (`_extract_json_object`) since the CLI has no native JSON-schema mode |
 | `anthropic` | Anthropic Python SDK, `messages.create(..., tools=[...], tool_choice={"type":"tool", "name": "emit_structured_result"})` | Anthropic has no native strict-JSON mode, so structured output is forced via a single required tool call whose `input_schema` is the extraction schema |
 | `zai`       | same OpenAI-wire code path as `openai`, pointed at `https://api.z.ai/api/paas/v4` | Z.ai (Zhipu GLM) speaks the OpenAI chat.completions format, so no separate client code is needed |
+| `openrouter` | same OpenAI-wire code path as `openai`, pointed at `https://openrouter.ai/api/v1` | default extract provider (`minimax/minimax-m3:free`); also `/api/chat` backup |
 
 `embed()` only supports `openai` and `zai` (both OpenAI-wire-compatible);
 calling it with `github`/`anthropic` raises immediately (`ValueError`, not
@@ -374,8 +396,9 @@ Each provider/model is configured independently in `.env` — see
 `LLM_API_KEY`, `LLM_MODEL`; `GITHUB_CLI_PATH`, `GITHUB_MODEL`,
 `GITHUB_CLI_TIMEOUT_SEC`; `ANTHROPIC_API_KEY`, `ANTHROPIC_BASE_URL`,
 `ANTHROPIC_MODEL`; `ZAI_API_KEY`, `ZAI_BASE_URL`, `ZAI_MODEL`,
-`ZAI_EMBEDDING_MODEL`). `LLM_PROVIDER` picks the default used by plain
-`kb extract run` (no `--provider` flag); the other three providers are
+`ZAI_EMBEDDING_MODEL`; `OPENROUTER_API_KEY`, `OPENROUTER_BASE_URL`,
+`OPENROUTER_MODEL`). `LLM_PROVIDER` picks the default used by plain
+`kb extract run` (no `--provider` flag); the other providers are
 available on demand via `--provider`/`kb extract compare` without changing
 the default.
 

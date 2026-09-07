@@ -41,7 +41,8 @@ def launch_server_clean(**kwargs) -> None:
     if process.stdin:
         process.stdin.write(base64.b64encode(data).decode())
         process.stdin.close()
-    process.wait()
+    rc = process.wait()
+    sys.exit(rc or 0)
 
 
 if __name__ == "__main__":

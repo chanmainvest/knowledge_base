@@ -58,7 +58,7 @@ def lookup(prices: dict[str, dict[str, float | None]],
            provider: str, model: str) -> dict[str, float | None] | None:
     """Map this repo's (provider, model) onto an OpenRouter id, if priced.
     Tries the bare model name first (covers openrouter-provider models whose
-    ids already carry the vendor prefix, e.g. 'poolside/laguna-s-2.1:free'),
+    ids already carry the vendor prefix, e.g. 'minimax/minimax-m3:free'),
     then the provider-prefixed form."""
     candidates = [model.lower()]
     prefix = _PROVIDER_PREFIX.get(provider)

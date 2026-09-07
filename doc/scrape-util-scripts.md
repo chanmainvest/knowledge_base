@@ -127,6 +127,9 @@ The container exposes:
 - `http://localhost:7900` — a noVNC web view of the browser. Open it when
   Cloudflare throws an interactive challenge or to log in manually. (Disable
   with `kb hkej docker up --no-vnc` or `HKEJ_DOCKER_NOVNC=0` for headless-auto.)
+  Docker Desktop blocks Firefox user namespaces; the image sets
+  `MOZ_DISABLE_CONTENT_SANDBOX=1` so the container does not restart-loop
+  with `cannot open display: :99`.
 
 Login is automatic by default: set `HKEJ_USER`/`HKEJ_PASS` in `.env` and the
 form is filled and submitted for you (`HKEJ_LOGIN_MODE=auto`, the default).

@@ -11,12 +11,13 @@ Read this when touching `src/kb/llm.py`, `src/kb/extract.py`,
   no separate API key, uses existing `copilot /login` auth), `anthropic`
   (Anthropic Messages API via forced tool-call JSON), `zai` (Z.ai/Zhipu
   GLM, OpenAI-wire-compatible), and `openrouter` (OpenAI-compatible;
-  configured as the chat endpoint's backup — `/api/chat` always tries the
-  primary provider first and only calls `openrouter` when that raises and
-  `OPENROUTER_API_KEY` is set; there is no free GLM tier on OpenRouter). `LLM_PROVIDER` in `.env` picks the default
-  (zai since 2026-08-14); the zai default model is `ZAI_MODEL` in `.env`
-  (config default `glm-5.3-flash` since 2026-08-27 — faster/cheaper than
-  `glm-5.3`, which is still available as an explicit `--model` override);
+  also the `/api/chat` backup when the primary chat provider raises and
+  `OPENROUTER_API_KEY` is set). `LLM_PROVIDER` in `.env` picks the extract
+  default (`openrouter` since 2026-09-06); the openrouter default model is
+  `OPENROUTER_MODEL` (`minimax/minimax-m3:free` — OpenRouter's free
+  MiniMax M3 endpoint). Free-tier 429s are ridden out by
+  `LLM_MAX_RETRIES` (24) / `LLM_RATE_LIMIT_PAUSE_SEC` (60s, floor 30s +
+  jitter). The zai default model remains `ZAI_MODEL` (`glm-5.3-flash`);
   override per call with `provider=`/`--provider`. Every extraction attempt
   is recorded in `extraction_run` (one row per item/provider/model/prompt
   version), so multiple providers can extract the same item without
@@ -67,6 +68,13 @@ Read this when touching `src/kb/llm.py`, `src/kb/extract.py`,
   The single-flight advisory lock (below) is why you can't `run` while the
   nightly holds the lock — use `compare` for ad-hoc testing, it skips the
   lock.
+- **JSON export (2026-09-06).** `extract.export_json()` / `kb extract
+  export` (nightly 'Export' stage) writes one
+  `extracted_<md-stem>.json` per done item next to its md file — item meta +
+  primary-run meta + all structured records. Idempotent on `run_id`; md-path
+  collisions (macrovoices dup rows) get an `-<item_id>` suffix; no GC.
+  Mimosa hook gotcha: the main query must be inlined into `conn.execute(...)`
+  — assigning the `text()` to a variable (even static) gets blocked.
 - **v2 additions: marketing flag + media mentions (2026-08-30).** The v2
   prompt/schema adds two targets on top of v1: `is_marketing` (per-chunk
   boolean — is this text predominantly promotional? sponsor reads inside an

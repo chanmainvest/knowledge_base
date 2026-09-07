@@ -41,6 +41,7 @@ Read this when touching `src/kb/marketdata.py`, `src/kb/leaderboard.py`,
 - **Chat widget.** The floating 💬 on item pages and the Insights tab chats
   about the page you're on via `POST /api/chat`, which takes either
   `item_id`, an llm-wiki `section`+`page`, or `home: true`, and answers via
-  the primary provider with an OpenRouter fallback (`OPENROUTER_API_KEY`;
-  response names the `model` used). Stateless; history supplied by the
+  the primary provider (`LLM_PROVIDER`) with a fallback to the other of
+  zai/openrouter (`OPENROUTER_API_KEY` / `ZAI_API_KEY`; response names the
+  `model` used). Stateless; history supplied by the
   client; content head-truncated at 80k chars.

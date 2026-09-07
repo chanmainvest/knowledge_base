@@ -14,7 +14,12 @@ Read this when touching `src/kb/scrapers/hkej.py`, `yahoohk.py`,
   `local` falls back to an on-host Camoufox kept warm by the daemon
   (`kb hkej browser start`). Docker mode bypasses the local daemon entirely
   (the container *is* the persistent browser). Build/run the container:
-  `docker compose build camoufox` then `kb hkej docker up`. The container's
+  `docker compose build camoufox` then `kb hkej docker up`. On Docker Desktop
+  the Firefox content sandbox cannot `clone()` a user namespace (`EPERM`);
+  without a workaround the browser dies with `cannot open display: :99` and
+  `restart: unless-stopped` loops the container. The image sets
+  `MOZ_DISABLE_CONTENT_SANDBOX=1`, and compose/`kb hkej docker up` also pass
+  `--shm-size 2g` plus `seccomp=unconfined`. The container's
   noVNC web UI (`http://localhost:7900`) lets a human solve interactive
   Cloudflare challenges / log in. Login is auto-filled from `HKEJ_USER`/
   `HKEJ_PASS` (`HKEJ_LOGIN_MODE=auto`, default); set `manual` to force a

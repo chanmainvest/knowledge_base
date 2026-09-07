@@ -614,7 +614,7 @@ def ingest_all() -> None:
 def extract_run(
     limit: int = 50,
     provider: str | None = typer.Option(
-        None, help="Override LLM_PROVIDER for this run (openai|github|anthropic|zai)"),
+        None, help="Override LLM_PROVIDER for this run (openai|github|anthropic|zai|openrouter)"),
     model: str | None = typer.Option(None, help="Override the provider's default model"),
     prompt_version: str | None = typer.Option(
         None, help="Prompt/schema version (dir under src/kb/prompts/extraction/); "
@@ -697,6 +697,21 @@ def extract_runs(item_id: int) -> None:
               f"{(r.get('prompt_version') or '-'):<5} "
               f"status={r['status']:<7} views={r['n_market_views']} preds={r['n_predictions']} "
               f"{r['duration_ms'] or '-'}ms{toks}")
+
+
+@ext_app.command("export")
+def extract_export(
+    limit: int = typer.Option(
+        0, help="Cap the number of items exported (0 = no cap). Mostly for testing."),
+    source: str = typer.Option(
+        "", help="Only export items from this source code (e.g. 'hkej')."),
+) -> None:
+    """Write one JSON file per extracted item next to its markdown file
+    (data/<source>/<channel>/<year>/extracted_<md-stem>.json). Idempotent:
+    files are rewritten only when the item's primary extraction run changed,
+    so it's safe to run nightly after the extract stage."""
+    n = extract_mod.export_json(limit=limit or None, source=source or None)
+    print(f"[green]exported[/green] {n}")
 
 
 @ext_app.command("cost")
@@ -1042,17 +1057,21 @@ def hkej_docker_up(
     if novnc:
         res = subprocess.run(
             ["docker", "run", "-d", "--name", container, "--restart", "unless-stopped",
+             "--shm-size", "2g", "--security-opt", "seccomp=unconfined",
              "-p", f"{ws_port}:9222", "-p", f"{novnc_port}:7900",
              "-e", "CAMOUFOX_NOVNC=1", "-e", "CAMOUFOX_WS_PATH=hkej",
-             "-e", "CAMOUFOX_PORT=9222", img],
+             "-e", "CAMOUFOX_PORT=9222", "-e", "MOZ_DISABLE_CONTENT_SANDBOX=1",
+             img],
             capture_output=True, text=True, shell=False,
         )
     else:
         res = subprocess.run(
             ["docker", "run", "-d", "--name", container, "--restart", "unless-stopped",
+             "--shm-size", "2g", "--security-opt", "seccomp=unconfined",
              "-p", f"{ws_port}:9222",
              "-e", "CAMOUFOX_NOVNC=0", "-e", "CAMOUFOX_WS_PATH=hkej",
-             "-e", "CAMOUFOX_PORT=9222", img],
+             "-e", "CAMOUFOX_PORT=9222", "-e", "MOZ_DISABLE_CONTENT_SANDBOX=1",
+             img],
             capture_output=True, text=True, shell=False,
         )
     if res.returncode != 0:

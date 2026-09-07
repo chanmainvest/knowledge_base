@@ -6,7 +6,8 @@ priming, job creation): `doc/jenkins-pipeline.md`.
 
 - **Nightly Jenkins pipeline (`Jenkinsfile`).** A declarative pipeline runs
   every source as its own stage at 03:00 daily, then a catch-up `kb ingest`,
-  `kb extract run`, and `kb progress recompute`. The Jenkins controller has no
+  `kb extract run --limit 200 --provider openrouter --model
+  minimax/minimax-m3:free`, and `kb progress recompute`. The Jenkins controller has no
   Python/uv/Playwright/yt-dlp, so each stage does
   `docker compose run --rm kb <cmd>` against the self-contained `kb` image
   (root `Dockerfile`, `kb` service in `docker-compose.yml`). The container

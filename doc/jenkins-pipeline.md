@@ -239,6 +239,12 @@ Six gotchas hit during setup / maintenance:
   what happened between 2026-08-08 and 2026-08-25: 17 days of silently green
   HKEJ stages). If the Cloudflare/login session also expired, solve it once
   via the noVNC UI at http://localhost:7900.
+  If the container is stuck in `Restarting`, check `docker logs kb_camoufox`
+  for `CanCreateUserNamespace() clone() failure: EPERM` / `cannot open
+  display: :99` — Firefox's sandbox cannot create a user namespace under
+  Docker Desktop. Recreate after pulling a build that sets
+  `MOZ_DISABLE_CONTENT_SANDBOX=1` (and `--shm-size 2g` /
+  `seccomp:unconfined` in compose).
 
 ---
 
@@ -261,7 +267,8 @@ stages (Ingest → Extract → recompute) run sequentially after all branches fi
 |   | · Substack         | loop `kb substack scrape <handle> --limit 10`   | UNSTABLE           |
 |   | · Patreon          | `kb patreon scrape-creator --limit 10`          | UNSTABLE           |
 | 2 | Ingest             | `kb ingest`                                     | FAILED             |
-| 3 | Extract            | `kb extract run --limit 200 --model glm-5.3-flash` | FAILED      |
+| 3 | Extract            | `kb extract run --limit 200 --provider openrouter --model minimax/minimax-m3:free` | FAILED |
+| 3b| Export             | `kb extract export`                             | FAILED             |
 | 4 | Progress recompute | `kb progress recompute`                         | FAILED             |
 
 Every scrape branch is wrapped in `catchError(buildResult: 'UNSTABLE')`, so a
@@ -293,13 +300,16 @@ schema change: `docker compose run --rm kb db migrate`).
   picked up by the next nightly run — no Jenkinsfile edit needed. Same for
   Substack (`kb substack list-channels`).
 - **Extract provider/model.** `kb extract run` uses `LLM_PROVIDER` from `.env`.
-  This repo is configured for `zai` (Z.ai / Zhipu GLM) — set `ZAI_API_KEY` in
-  `.env` before the first run. Any of `openai`, `anthropic`, or `zai` works
-  unattended; **not** `github`, which shells out to a local `copilot` CLI not
-  present in the container. The pipeline pins the model explicitly
-  (`--model glm-5.3-flash`) — the VM's `.env` is a hand-maintained copy that
-  can lag the host's `ZAI_MODEL`, and the flag is immune to that drift.
-  Override per-run with `kb extract run --limit <n> --provider anthropic`.
+  This repo is configured for `openrouter` (MiniMax M3 free) —
+  set `OPENROUTER_API_KEY` in `.env` before the first run. Any of `openai`,
+  `anthropic`, `zai`, or `openrouter` works unattended; **not** `github`,
+  which shells out to a local `copilot` CLI not present in the container.
+  The pipeline pins provider and model explicitly
+  (`--provider openrouter --model minimax/minimax-m3:free`) — the VM's
+  `.env` is a hand-maintained copy that can lag the host, and the flags are
+  immune to that drift. Free-tier 429s are ridden out by
+  `LLM_MAX_RETRIES=24` / `LLM_RATE_LIMIT_PAUSE_SEC=60` (floor 30s + jitter).
+  Override per-run with `kb extract run --limit <n> --provider zai`.
 - **Whisper transcription is out of scope.** `kb youtube transcribe`
   needs CUDA and runs on the GPU host; it is not part of the nightly pipeline.
 - **Why a Docker image, not installing tools in Jenkins.** Baking

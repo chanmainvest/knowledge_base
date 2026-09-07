@@ -1,6 +1,6 @@
 """Multi-provider LLM client + JSON-schema structured extraction.
 
-Supports four ways of turning (system, user, json_schema) into a parsed dict:
+Supports five ways of turning (system, user, json_schema) into a parsed dict:
 
 - ``openai``     — OpenAI (or any OpenAI-compatible endpoint via LLM_BASE_URL,
                     e.g. Azure OpenAI, local Ollama/llama.cpp).
@@ -14,6 +14,8 @@ Supports four ways of turning (system, user, json_schema) into a parsed dict:
                     Anthropic has no native "strict JSON schema" response mode.
 - ``zai``        — Z.ai (Zhipu GLM), which speaks the OpenAI wire format, so
                     it reuses the same client code path as ``openai``.
+- ``openrouter`` — OpenRouter, also OpenAI-wire; default extract provider
+                    (``minimax/minimax-m3:free``).
 
 Every provider exposes the same ``chat_json(system, user, schema, provider,
 model)`` signature so callers (see ``extract.py``) can run the exact same
@@ -61,8 +63,9 @@ def _retry_after_or_exponential(retry_state) -> float:
     when present; otherwise pause `llm_rate_limit_pause_sec`. For other
     transient errors fall back to exponential backoff (2..pause_sec). This lets
     batch extraction ride through the OpenRouter free-tier throttling instead
-    of failing the item after the default 4 quick retries.
+    of failing the item after a handful of quick retries.
     """
+    import random
     import time
 
     exc = retry_state.outcome.exception() if retry_state.outcome else None
@@ -94,6 +97,7 @@ def _retry_after_or_exponential(retry_state) -> float:
                     except (TypeError, ValueError, OverflowError):
                         retry_after = None
         wait = retry_after if retry_after is not None else pause
+        wait = max(wait, 30.0) * (1.0 + random.uniform(0.0, 0.35))
         log.warning("rate-limited (429); pausing %.1fs before retry #%d", wait, retry_state.attempt_number)
         return wait
 
@@ -447,6 +451,9 @@ def chat_json(system: str, user: str, schema: dict[str, Any],
         return _chat_json_openai_compatible(system, user, schema, model, s.llm_base_url, s.llm_api_key)
     if provider == "zai":
         return _chat_json_openai_compatible(system, user, schema, model, s.zai_base_url, s.zai_api_key)
+    if provider == "openrouter":
+        return _chat_json_openai_compatible(
+            system, user, schema, model, s.openrouter_base_url, s.openrouter_api_key)
     if provider == "anthropic":
         return _chat_json_anthropic(system, user, schema, model, s.anthropic_api_key, s.anthropic_base_url)
     if provider == "github":

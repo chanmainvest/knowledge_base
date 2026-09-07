@@ -18,6 +18,9 @@ from __future__ import annotations
 import json
 import re
 import time
+from collections import Counter
+from datetime import date, datetime
+from decimal import Decimal
 from typing import Any
 
 from sqlalchemy import create_engine, func, select, text
@@ -435,6 +438,138 @@ def embed_chunks(item_id: int, max_chars: int = 1800) -> int:
                          {"i": item_id, "idx": i, "t": t,
                           "e": "[" + ",".join(f"{x:.6f}" for x in v) + "]"})
     return len(chunks)
+
+
+def _jsonable(row: dict) -> dict:
+    """Copy a DB row dict with datetime/Decimal values made JSON-safe."""
+    out = {}
+    for k, v in row.items():
+        if isinstance(v, (datetime, date)):
+            out[k] = v.isoformat()
+        elif isinstance(v, Decimal):
+            out[k] = float(v)
+        else:
+            out[k] = v
+    return out
+
+
+def export_json(limit: int | None = None, source: str | None = None) -> int:
+    """Write one JSON file per extracted item, next to its markdown file.
+
+    Layout mirrors the markdown tree: ``data/<source>/<channel>/<year>/
+    extracted_<md-stem>.json`` (the md stem keeps a 1:1 pairing even when two
+    articles in a channel/year share a title). Idempotent: a file is
+    rewritten only when the item's primary extraction run has changed — the
+    file records its ``run_id``. Items whose md file is missing on disk are
+    skipped (counted separately in the log). Note there is no GC: deleting an
+    item in the DB leaves a stale JSON behind (the data/ tree is
+    human-committed, so automated deletes could surprise).
+    """
+    from .config import ROOT
+
+    # Static SQL (no dynamic filters); inlined into execute() rather than
+    # bound to a variable. Source filtering and the limit are applied in
+    # Python below — the row set is "every done item with an md path", small
+    # relative to the corpus.
+    with engine().connect() as conn:
+        rows = conn.execute(text("""
+            SELECT i.id, i.external_id, i.title, i.url, i.published_at, i.language,
+                   i.duration_sec, i.md_path, i.summary, i.is_marketing,
+                   s.code AS source_code, c.name AS channel_name,
+                   er.id AS run_id, er.provider, er.model, er.prompt_version,
+                   er.finished_at, er.duration_ms,
+                   er.prompt_tokens, er.cached_tokens, er.completion_tokens
+            FROM item i
+            JOIN extraction_run er ON er.id = i.primary_extraction_run_id
+            JOIN source s ON s.id = i.source_id
+            JOIN channel c ON c.id = i.channel_id
+            WHERE i.extraction_status = 'done'
+              AND i.md_path IS NOT NULL
+            ORDER BY i.published_at DESC NULLS LAST
+        """)).mappings().all()
+    if source:
+        rows = [r for r in rows if r["source_code"] == source]
+    # A few source quirks (macrovoices) have two item rows sharing one md
+    # file; disambiguate those exports with the item id so neither silently
+    # overwrites the other.
+    path_counts = Counter(
+        str((ROOT / r["md_path"]).with_name(f"extracted_{(ROOT / r['md_path']).stem}.json"))
+        for r in rows)
+    if limit:
+        rows = rows[:limit]
+
+    written = skipped = missing = 0
+    for r in rows:
+        md_path = ROOT / r["md_path"]
+        if not md_path.exists():
+            missing += 1
+            continue
+        out_path = md_path.with_name(f"extracted_{md_path.stem}.json")
+        if path_counts[str(out_path)] > 1:
+            out_path = md_path.with_name(f"extracted_{md_path.stem}-{r['id']}.json")
+        if out_path.exists():
+            try:
+                with open(out_path, encoding="utf-8") as f:
+                    prev = json.load(f)
+                if prev.get("extraction", {}).get("run_id") == r["run_id"]:
+                    skipped += 1
+                    continue
+            except (OSError, ValueError):
+                pass  # unreadable/corrupt — rewrite it
+        with engine().connect() as conn:
+            views = [_jsonable(v) for v in conn.execute(text("""
+                SELECT speaker, asset_class, region, direction, horizon,
+                       confidence, rationale, quote
+                FROM view_market WHERE extraction_run_id = :r
+            """), {"r": r["run_id"]}).mappings().all()]
+            preds = [_jsonable(p) for p in conn.execute(text("""
+                SELECT speaker, ticker, asset_name, action, direction,
+                       target_price, stop_price, timeframe, quote, made_at
+                FROM prediction WHERE extraction_run_id = :r
+            """), {"r": r["run_id"]}).mappings().all()]
+            ents = [_jsonable(e) for e in conn.execute(text("""
+                SELECT e.kind, e.name, e.ticker
+                FROM item_entity ie JOIN entity e ON e.id = ie.entity_id
+                WHERE ie.item_id = :i
+            """), {"i": r["id"]}).mappings().all()]
+            mentions = [_jsonable(m) for m in conn.execute(text("""
+                SELECT w.kind, w.title, w.creators, w.year,
+                       mm.speaker, mm.quote
+                FROM media_mention mm JOIN media_work w ON w.id = mm.media_work_id
+                WHERE mm.extraction_run_id = :r
+            """), {"r": r["run_id"]}).mappings().all()]
+        doc = {
+            "schema": "kb-extract-export/v1",
+            "item": {
+                "id": r["id"], "source": r["source_code"],
+                "channel": r["channel_name"], "external_id": r["external_id"],
+                "title": r["title"], "url": r["url"],
+                "published_at": r["published_at"].isoformat() if r["published_at"] else None,
+                "language": r["language"], "duration_sec": r["duration_sec"],
+                "md_path": r["md_path"],
+            },
+            "extraction": {
+                "run_id": r["run_id"], "provider": r["provider"],
+                "model": r["model"], "prompt_version": r["prompt_version"],
+                "extracted_at": r["finished_at"].isoformat() if r["finished_at"] else None,
+                "duration_ms": r["duration_ms"],
+                "prompt_tokens": r["prompt_tokens"],
+                "cached_tokens": r["cached_tokens"],
+                "completion_tokens": r["completion_tokens"],
+                "is_marketing": r["is_marketing"],
+                "summary": r["summary"],
+            },
+            "market_views": views,
+            "predictions": preds,
+            "entities": ents,
+            "media_mentions": mentions,
+        }
+        out_path.write_text(json.dumps(doc, ensure_ascii=False, indent=1),
+                            encoding="utf-8")
+        written += 1
+    log.info("export: %d written, %d up-to-date, %d md-missing (of %d done items)",
+             written, skipped, missing, len(rows))
+    return written
 
 
 def run(limit: int = 50, provider: str | None = None, model: str | None = None,

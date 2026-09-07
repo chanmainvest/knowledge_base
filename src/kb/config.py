@@ -69,7 +69,7 @@ class Settings(BaseSettings):
     # LLM — which provider `kb extract run` uses by default, and which
     # provider embeddings use (embeddings need an OpenAI-wire-compatible
     # endpoint; only "openai" and "zai" support them today).
-    llm_provider: str = "zai"                # openai | github | anthropic | zai
+    llm_provider: str = "openrouter"         # openai | github | anthropic | zai | openrouter
     llm_embedding_provider: str = "zai"      # openai | zai
 
     # ---- openai (also the default for any OpenAI-compatible endpoint you
@@ -97,21 +97,22 @@ class Settings(BaseSettings):
     zai_model: str = "glm-5.3-flash"
     zai_embedding_model: str = "embedding-3"
 
-    # ---- openrouter (backup chat LLM when the zai quota is exhausted) ----
-    # OpenRouter speaks the OpenAI wire format too. Note: there is no free
-    # GLM tier on OpenRouter — glm-5.3-flash is billed per token (cheap).
+    # ---- openrouter (OpenAI-compatible; also the /api/chat backup) ----
+    # Default extract model is the free MiniMax M3 endpoint.
+    # Free-tier RPM/daily caps 429 aggressively — see llm_max_retries below.
     openrouter_api_key: str = ""
     openrouter_base_url: str = "https://openrouter.ai/api/v1"
-    openrouter_model: str = "z-ai/glm-5.3-flash"
+    openrouter_model: str = "minimax/minimax-m3:free"
 
     # ---- LLM retry / rate-limit backoff ----
-    # Providers (esp. OpenRouter free tier) return HTTP 429 under sustained load.
+    # OpenRouter free models return HTTP 429 under sustained extract load.
     # chat_json()/embed() retry with a quiet period: honour the server's
-    # Retry-After header when present, otherwise pause llm_rate_limit_pause_sec
-    # for a 429 and use exponential backoff (2..llm_rate_limit_pause_sec) for
-    # other transient errors, up to llm_max_retries attempts.
-    llm_max_retries: int = 8
-    llm_rate_limit_pause_sec: int = 20
+    # Retry-After header when present (floor 30s + jitter), otherwise pause
+    # llm_rate_limit_pause_sec for a 429 and use exponential backoff
+    # (2..llm_rate_limit_pause_sec) for other transient errors, up to
+    # llm_max_retries attempts.
+    llm_max_retries: int = 24
+    llm_rate_limit_pause_sec: int = 60
 
     # ---- Extraction prompt/schema versioning ----
     # Pin the extraction prompt+schema version (directory name under

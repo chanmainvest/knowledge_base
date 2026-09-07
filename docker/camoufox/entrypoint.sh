@@ -15,10 +15,26 @@
 set -e
 
 export DISPLAY=:99
+# Firefox's content sandbox needs Linux user namespaces (clone CLONE_NEWUSER).
+# Docker Desktop (Windows/Mac) denies that by default → EPERM, then
+# "cannot open display: :99", then the process exits and `restart: unless-stopped`
+# loops the container. Disabling the content sandbox is the portable fix;
+# `security_opt: seccomp:unconfined` on the compose/docker-run side also works.
+export MOZ_DISABLE_CONTENT_SANDBOX=1
 
 # Virtual framebuffer — always on (humanize + page rendering need a display).
 Xvfb :99 -screen 0 1280x720x24 -nolisten tcp >/tmp/xvfb.log 2>&1 &
-sleep 1
+# Wait until the X socket exists; a fixed 1s sleep races on slow hosts.
+i=0
+while [ ! -e /tmp/.X11-unix/X99 ]; do
+    i=$((i + 1))
+    if [ "$i" -gt 50 ]; then
+        echo "Xvfb failed to start on :99; last log:" >&2
+        cat /tmp/xvfb.log >&2 || true
+        exit 1
+    fi
+    sleep 0.1
+done
 
 if [ "${CAMOUFOX_NOVNC:-1}" = "1" ]; then
     # Window manager (gives Cloudflare challenge widgets a sane root window).
