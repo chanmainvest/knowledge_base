@@ -9,9 +9,12 @@ from __future__ import annotations
 import asyncio
 import hashlib
 import json
+import os
 import random
 import re
+import ssl
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, AsyncIterator
 from urllib.parse import parse_qs, urlencode, urlparse
 
@@ -19,7 +22,7 @@ import httpx
 from markdownify import markdownify
 from sqlalchemy import text as sa_text
 
-from ..config import DATA_DIR, settings
+from ..config import DATA_DIR, ROOT, settings
 from ..io_md import slugify
 from ..logging_setup import get_logger
 from ..ratelimit import HostRateLimiter
@@ -38,6 +41,7 @@ _MIN_429_BACKOFF_SEC = 30.0
 _POST_FIELDS = [
     "title",
     "content",
+    "content_json_string",
     "published_at",
     "url",
     "patreon_url",
@@ -179,6 +183,63 @@ def _html_to_md(html: str) -> str:
     if not html:
         return ""
     return markdownify(html, heading_style="ATX").strip()
+
+
+def _json_content_to_md(raw: str) -> str:
+    """Convert Patreon's newer ProseMirror JSON body to readable markdown."""
+    if not raw:
+        return ""
+    try:
+        root = json.loads(raw)
+    except (TypeError, ValueError):
+        return ""
+    if not isinstance(root, dict):
+        return ""
+
+    def inline(node: dict) -> str:
+        kind = node.get("type")
+        if kind == "hardBreak":
+            return "\n"
+        if kind == "text":
+            value = node.get("text") or ""
+            for mark in node.get("marks") or []:
+                if not isinstance(mark, dict):
+                    continue
+                if mark.get("type") == "bold":
+                    value = f"**{value}**"
+                elif mark.get("type") == "italic":
+                    value = f"*{value}*"
+                elif mark.get("type") == "code":
+                    value = f"`{value}`"
+                elif mark.get("type") == "link":
+                    href = (mark.get("attrs") or {}).get("href")
+                    if href:
+                        value = f"[{value}]({href})"
+            return value
+        return "".join(inline(child) for child in node.get("content") or []
+                       if isinstance(child, dict))
+
+    def block(node: dict) -> str:
+        kind = node.get("type")
+        children = [child for child in node.get("content") or []
+                    if isinstance(child, dict)]
+        if kind in ("doc", "blockquote"):
+            parts = [block(child) for child in children]
+            body = "\n\n".join(part for part in parts if part)
+            return "\n".join(f"> {line}" for line in body.splitlines()) if kind == "blockquote" else body
+        if kind in ("bulletList", "orderedList"):
+            parts = [block(child) for child in children]
+            return "\n".join(f"{'-' if kind == 'bulletList' else f'{i}.'} {part}"
+                             for i, part in enumerate(parts, 1) if part)
+        if kind == "listItem":
+            parts = [block(child) for child in children]
+            return " ".join(part for part in parts if part)
+        if kind == "heading":
+            level = (node.get("attrs") or {}).get("level", 2)
+            return f"{'#' * max(1, min(int(level), 6))} {inline(node)}".strip()
+        return inline(node).strip()
+
+    return block(root).strip()
 
 
 def _load_session_id_from_file() -> str | None:
@@ -412,6 +473,17 @@ class PatreonScraper(BaseScraper):
         so all Patreon requests impersonate Chrome's TLS stack when
         curl_cffi is importable. Falls back to plain httpx otherwise.
         """
+        if os.name == "nt":
+            # Windows already passes Patreon's Cloudflare check. Use the OS
+            # certificate store: curl_cffi's bundled CA set can miss locally
+            # trusted issuers, while ssl.create_default_context() can abort
+            # when SSLKEYLOGFILE points at an inaccessible path.
+            context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+            context.load_default_certs()
+            return httpx.AsyncClient(
+                headers=self.headers, follow_redirects=True, timeout=60.0,
+                http2=True, verify=context, trust_env=False,
+            )
         try:
             from curl_cffi.requests import AsyncSession
         except ImportError:
@@ -916,10 +988,12 @@ class PatreonScraper(BaseScraper):
                             attrs.get("url") or attrs.get("patreon_url") or ""
                         )
                         content_html = attrs.get("content") or ""
-                        if not content_html.strip():
+                        content_json = attrs.get("content_json_string") or ""
+                        if not content_html.strip() and not _json_content_to_md(content_json):
                             await asyncio.sleep(_BETWEEN_POST_FETCH_SEC)
                             detail_attrs = await self._fetch_post_detail(client, post_id)
                             content_html = detail_attrs.get("content") or content_html
+                            content_json = detail_attrs.get("content_json_string") or content_json
                             if not post_url:
                                 post_url = _absolute_patreon_url(
                                     detail_attrs.get("url") or detail_attrs.get("patreon_url") or ""
@@ -928,7 +1002,7 @@ class PatreonScraper(BaseScraper):
                                 attrs["title"] = detail_attrs.get("title")
                             if not attrs.get("teaser_text"):
                                 attrs["teaser_text"] = detail_attrs.get("teaser_text")
-                        if not content_html.strip() and post_url:
+                        if not content_html.strip() and not _json_content_to_md(content_json) and post_url:
                             try:
                                 content_html = await self._fetch_post_page_content(post_url)
                             except Exception as exc:  # noqa: BLE001
@@ -946,6 +1020,7 @@ class PatreonScraper(BaseScraper):
                             "channel_name": display,
                             "campaign_id": campaign_id,
                             "content_html": content_html,
+                            "content_json_string": content_json,
                             "post_type": attrs.get("post_type"),
                             "is_paid": attrs.get("is_paid"),
                             "patreon_url": attrs.get("patreon_url"),
@@ -983,13 +1058,22 @@ class PatreonScraper(BaseScraper):
         published_at = d.get("published_at")
         content_html = d.get("content_html") or ""
         teaser = (d.get("teaser_text") or "").strip()
+        rich_text = _json_content_to_md(d.get("content_json_string") or "")
 
-        if not content_html and teaser:
+        if not content_html and rich_text:
+            body_content = rich_text
+            raw_html = None
+        elif not content_html and teaser:
             body_content = teaser
             raw_html = None
         else:
             body_content = _html_to_md(content_html)
             raw_html = content_html if content_html else None
+
+        if not body_content and d.get("post_type") == "text_only":
+            self.log.warning("text-only Patreon post %s has no readable body; retry later",
+                             d.get("external_id"))
+            return None
 
         pub_line = (
             published_at.date().isoformat()
@@ -1635,11 +1719,12 @@ class PatreonScraper(BaseScraper):
                 )
                 d["url"] = post_url or d.get("url") or ""
                 d["content_html"] = detail.get("content") or ""
+                d["content_json_string"] = detail.get("content_json_string") or ""
                 d["teaser_text"] = detail.get("teaser_text") or ""
                 d["post_type"] = detail.get("post_type")
                 d["is_paid"] = detail.get("is_paid")
                 d["patreon_url"] = detail.get("patreon_url") or d["url"]
-                if not d["content_html"].strip() and post_url:
+                if not d["content_html"].strip() and not _json_content_to_md(d["content_json_string"]) and post_url:
                     try:
                         d["content_html"] = await self._fetch_post_page_content(post_url)
                     except Exception as exc:  # noqa: BLE001
@@ -1697,6 +1782,66 @@ class PatreonScraper(BaseScraper):
         stats["download"] = dl
         stats["years"] = self.catalog_year_counts(self._resolve_channel_id(vanity))
         return paths, stats
+
+    async def repair_empty_posts(self, vanity: str, limit: int = 0) -> dict[str, int]:
+        """Refetch saved placeholders after Patreon moved text to JSON.
+
+        Preserve each markdown file's front matter, re-ingest its new body,
+        and queue the item for fresh LLM extraction. Posts without readable
+        text remain untouched.
+        """
+        from ..db import engine as db_engine
+        from ..ingest import ingest_file
+        from ..io_md import load_md
+
+        self._ensure_session()
+        handle = normalize_vanity(vanity)
+        with db_engine().connect() as conn:
+            rows = conn.execute(sa_text("""
+                SELECT i.id, i.external_id, i.md_path
+                FROM item i JOIN channel c ON c.id=i.channel_id
+                JOIN source s ON s.id=i.source_id
+                WHERE s.code='patreon' AND c.handle=:h
+                  AND i.content LIKE '%_(no text content)_%'
+                ORDER BY i.published_at DESC NULLS LAST
+            """), {"h": handle}).mappings().all()
+        if limit > 0:
+            rows = rows[:limit]
+        stats = {"candidates": len(rows), "repaired": 0, "still_empty": 0, "failed": 0}
+        async with await self.http() as client:
+            for row in rows:
+                path = (ROOT / row["md_path"]).resolve()
+                if not path.is_relative_to(DATA_DIR.resolve()) or not path.is_file():
+                    self.log.warning("missing/unsafe Patreon markdown path for item %s", row["id"])
+                    stats["failed"] += 1
+                    continue
+                try:
+                    detail = await self._fetch_post_detail(client, row["external_id"])
+                    body = (_html_to_md(detail.get("content") or "")
+                            or _json_content_to_md(detail.get("content_json_string") or ""))
+                    if not body:
+                        stats["still_empty"] += 1
+                        continue
+                    doc = load_md(path)
+                    if "_(no text content)_" not in doc.body:
+                        stats["failed"] += 1
+                        continue
+                    doc.body = doc.body.replace("_(no text content)_", body, 1)
+                    doc.write(path)
+                    ingest_file(path)
+                    with db_engine().begin() as conn:
+                        conn.execute(sa_text("""
+                            UPDATE item SET extraction_status='pending', extraction_error=NULL,
+                                primary_extraction_run_id=NULL, summary=NULL,
+                                is_marketing=NULL, extracted_at=NULL
+                            WHERE id=:i
+                        """), {"i": row["id"]})
+                    stats["repaired"] += 1
+                except Exception as exc:  # noqa: BLE001
+                    self.log.exception("repair failed for Patreon post %s: %s",
+                                       row["external_id"], exc)
+                    stats["failed"] += 1
+        return stats
 
     def catalog_status(self, vanity: str) -> dict[str, Any]:
         """Summary of the catalog for a creator: totals + per-year breakdown."""

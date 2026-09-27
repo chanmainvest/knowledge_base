@@ -363,6 +363,41 @@ in the rough order of "most bang for the least new code."
 
 ## Part 3 — Multi-provider extraction with versioned storage
 
+### Jev typed classification
+
+TypeSafe Jev is a separate typed decision model, not an LLM provider capable
+of the freeform summary and prediction schema below. Configure `JEV_API_KEY`
+in `.env` and run:
+
+```sh
+uv run kb extract jev 133703
+uv run kb extract run --provider jev --limit 50
+```
+
+The first command prints the booleans and probabilities. The batch command
+selects items without a completed Jev run for the configured model and
+`jev-v1` question set, including items already extracted by an LLM. Jev
+classifies whether the post is marketing, an advertisement, or lacks
+substantive content; whether it mentions a book or movie; whether it discusses
+stocks, bonds, FX, commodities, crypto, or real estate; and whether stocks
+discussed belong to US, Hong Kong, mainland China, Japan, Europe, India,
+Taiwan, South Korea, or another market. These are independent yes/no
+questions, so a post can discuss several asset classes and stock markets.
+
+The response contains `decisions`, `probabilities`, and
+`chunk_probabilities` in `extraction_run.raw_response` (`provider='jev'`,
+`prompt_version='jev-v1'`). Read it through `kb extract runs <item_id>` for
+run metadata or `GET /api/items/{item_id}/runs` for the full response.
+For long posts, promotional flags use the mean chunk probability and mention
+flags use the highest chunk probability. Mention flags are true at 0.5 or
+above; promotional flags require a value above 0.5. Jev runs do not replace
+the primary extraction or populate the summary, views, predictions, or
+embeddings. The fields require an API key
+and early access to the requested model; `GET /v1/models` lists models
+available to that account.
+The Jev client verifies TLS against the OS trust store and connects directly
+instead of inheriting proxy and key-log environment settings.
+
 ### Why
 
 Any single LLM can misread a source (wrong ticker, invented direction, missed

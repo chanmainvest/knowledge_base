@@ -614,7 +614,7 @@ def ingest_all() -> None:
 def extract_run(
     limit: int = 50,
     provider: str | None = typer.Option(
-        None, help="Override LLM_PROVIDER for this run (openai|github|anthropic|zai|openrouter)"),
+        None, help="Extraction provider (openai|github|anthropic|zai|openrouter|jev)"),
     model: str | None = typer.Option(None, help="Override the provider's default model"),
     prompt_version: str | None = typer.Option(
         None, help="Prompt/schema version (dir under src/kb/prompts/extraction/); "
@@ -623,6 +623,17 @@ def extract_run(
     n = extract_mod.run(limit, provider=provider, model=model,
                         prompt_version=prompt_version)
     print(f"[green]extracted[/green] {n}")
+
+
+@ext_app.command("jev")
+def extract_jev(item_id: int, model: str | None = None) -> None:
+    """Classify one item with Jev; print decisions and probabilities."""
+    import json
+
+    result = extract_mod.extract_item(item_id, provider="jev", model=model)
+    if result is None:
+        raise typer.Exit(code=1)
+    print(json.dumps(result, ensure_ascii=False, indent=2))
 
 
 @ext_app.command("compare")
@@ -1627,6 +1638,18 @@ def patreon_check_session(
     print(f"[green]OK[/green] — logged in as {name}")
     if info.get("url"):
         print(f"  Profile: {info['url']}")
+
+
+@patreon_app.command("repair-empty")
+def patreon_repair_empty(
+    creator: str = typer.Argument("aminvest", help="Creator vanity slug"),
+    limit: int = typer.Option(0, help="Maximum placeholder posts to inspect (0 = all)"),
+) -> None:
+    """Refetch saved Patreon posts whose markdown has no text content."""
+    from .scrapers.patreon import PatreonScraper
+
+    stats = asyncio.run(PatreonScraper().repair_empty_posts(creator, limit=limit))
+    print(stats)
 
 
 @patreon_app.command("resolve")

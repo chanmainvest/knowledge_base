@@ -11,6 +11,7 @@ from kb.scrapers.patreon import (
     _absolute_patreon_url,
     _campaign_lookup_url,
     _html_to_md,
+    _json_content_to_md,
     _parse_dt,
     _posts_list_url,
     normalize_vanity,
@@ -64,6 +65,32 @@ def test_parse_dt() -> None:
 
 def test_html_to_md() -> None:
     assert _html_to_md("<p>Hello <strong>world</strong></p>") == "Hello **world**"
+
+
+def test_json_content_to_md() -> None:
+    raw = '{"type":"doc","content":[{"type":"paragraph","content":' \
+          '[{"type":"text","text":"MCD is below its moving averages."}]},' \
+          '{"type":"paragraph","content":[{"type":"text","text":"Avoid buying now."}]}]}'
+    assert _json_content_to_md(raw) == (
+        "MCD is below its moving averages.\n\nAvoid buying now."
+    )
+
+
+@pytest.mark.asyncio
+async def test_fetch_uses_json_body_when_legacy_content_is_empty() -> None:
+    sc = PatreonScraper()
+    item = await sc.fetch({
+        "external_id": "999", "url": "https://www.patreon.com/posts/example-999",
+        "title": "Example Post", "published_at": datetime(2024, 1, 15, tzinfo=timezone.utc),
+        "channel_handle": "macroalf", "channel_name": "Macro Alf",
+        "content_html": "", "content_json_string":
+            '{"type":"doc","content":[{"type":"paragraph","content":'
+            '[{"type":"text","text":"Market update."}]}]}',
+        "post_type": "text_only",
+    })
+    assert item is not None
+    assert "Market update." in item.body_md
+    assert "_(no text content)_" not in item.body_md
 
 
 @pytest.mark.asyncio

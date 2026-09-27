@@ -109,6 +109,12 @@ extraction attempt is recorded in `extraction_run`, and the same item can be
 extracted by multiple providers without one overwriting another; see
 `doc/llm-extraction.md` for the full pipeline and how to compare providers.
 
+TypeSafe Jev is available as a separate classification model via
+`kb extract jev <item_id>` or `kb extract run --provider jev --limit N`.
+It records typed labels and probabilities in `extraction_run.raw_response`
+without changing the item's primary LLM extraction. Set `JEV_API_KEY` in
+`.env`; see `doc/llm-extraction.md` for its classification fields.
+
 Each run also records the provider-reported token usage (`prompt_tokens`,
 `cached_tokens`, `completion_tokens` on `extraction_run`; NULL on runs from
 before 2026-09-02 or from the copilot CLI, which reports no usage). To see

@@ -208,6 +208,16 @@ exit 1
                     steps {
                         catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
                             sh '''
+                                # The camoufox browser container lives on the
+                                # host daemon (restart: unless-stopped) but this
+                                # stage owns its uptime: if it is stopped or was
+                                # wedged, bring it up before scraping. Idempotent
+                                # when already running. Failure here is NOT
+                                # fatal — the per-author loop below reports
+                                # UNSTABLE instead.
+                                if ! docker compose up -d camoufox; then
+                                    echo "WARN: could not start camoufox browser container — HKEJ scrapes will fail"
+                                fi
                                 # list-authors prints a table:
                                 #   Handle               Name                 Discovery
                                 #   --------------------------------------------------

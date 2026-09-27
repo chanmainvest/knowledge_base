@@ -17,6 +17,17 @@ Patreon browser daemon (`src/kb/scrapers/patreon_daemon.py`).
   `403 cf-mitigated: challenge` on every URL (the Windows build passes), so
   the Jenkins stage could never reach patreon.com without it. curl_cffi
   falls back to plain httpx when not importable.
+- On Windows, Patreon API calls use httpx with the OS certificate store and a
+  direct connection. This avoids the local Python 3.14 `SSLKEYLOGFILE` abort
+  and curl_cffi missing a locally trusted issuer; Linux keeps curl_cffi for
+  Cloudflare compatibility.
+- Patreon now returns many post bodies in `content_json_string` (ProseMirror
+  JSON) while `content` is empty, even for viewable `text_only` and
+  `image_file` posts. `patreon.py` requests both and converts the JSON's
+  paragraphs to markdown before attempting a rendered-page fallback. Empty
+  `text_only` posts remain pending for retry. `kb patreon repair-empty
+  <creator>` re-fetches prior `_(no text content)_` files, re-ingests those
+  with recovered text, and resets their primary extraction to pending.
 
 ## Substack notes
 

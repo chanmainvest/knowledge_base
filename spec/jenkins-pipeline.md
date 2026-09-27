@@ -26,10 +26,12 @@ priming, job creation): `doc/jenkins-pipeline.md`.
   UNSTABLE (session expired → re-prime interactively; per-source session
   details in `spec/newspaper-scrapers.md` and
   `spec/membership-scrapers.md`), while the core scrape/ingest/extract
-  stages stay red. The HKEJ stage needs the `kb_camoufox` browser container
-  already running on the host (`docker compose up -d camoufox` — the
-  pipeline does not start it; a missing container fails every author with
-  `ENETUNREACH` on `ws://host.docker.internal:9222/hkej`). Any
+  stages stay red. The HKEJ stage runs `docker compose up -d camoufox`
+  itself before scraping (idempotent when already up — it only pays off when
+  the container was stopped or wedged; since 2026-09-11 the container also
+  self-heals its restarts via a tmpfs `/tmp` + stale-lock cleanup in
+  `docker/camoufox/entrypoint.sh`, see `spec/newspaper-scrapers.md`). A
+  missing container used to fail every author with `ENETUNREACH` on
   `docker compose run` inside a `while read` loop in the Jenkinsfile must
   take `</dev/null` (otherwise it swallows the loop's stdin and only the
   first item ever runs), and per-item failures are tallied so the stage can

@@ -149,6 +149,7 @@ uv run kb master-insight add-author tangwenliang
 uv run kb scrape run businessfocus --limit 5
 uv run kb scrape run master-insight --limit 5
 uv run kb patreon scrape <creator> --limit 3
+uv run kb patreon repair-empty aminvest  # recover older blank posts after Patreon format changes
 uv run kb substack prime-session          # log in once, interactively (headed browser)
 uv run kb substack scrape <handle> --limit 3
 
@@ -191,6 +192,11 @@ split into `spec/*.md`, loaded on demand). Scraper details live in
 `doc/scrape-util-scripts.md`. For exactly how extraction turns Markdown into
 scored predictions, how to judge which channels are worth following, and how
 to run/compare multiple LLM providers, see `doc/llm-extraction.md`.
+
+For fast typed content classification with TypeSafe Jev, configure
+`JEV_API_KEY` and run `uv run kb extract jev <item_id>` or
+`uv run kb extract run --provider jev --limit 50`. See
+`doc/llm-extraction.md` for the fields and storage behavior.
 
 ## Nightly Jenkins pipeline
 

@@ -19,7 +19,16 @@ Read this when touching `src/kb/scrapers/hkej.py`, `yahoohk.py`,
   without a workaround the browser dies with `cannot open display: :99` and
   `restart: unless-stopped` loops the container. The image sets
   `MOZ_DISABLE_CONTENT_SANDBOX=1`, and compose/`kb hkej docker up` also pass
-  `--shm-size 2g` plus `seccomp=unconfined`. The container's
+  `--shm-size 2g` plus `seccomp=unconfined`. A second crash-loop class:
+  `/tmp` (Xvfb lock + socket, Playwright profiles) persists across container
+  restarts, so an unclean exit leaves `/tmp/.X99-lock` behind and Xvfb then
+  refuses to start forever ("Server is already active for display 99") while
+  the stale socket passes the entrypoint's wait loop. Fixed 2026-09-11:
+  compose mounts `/tmp` as tmpfs (fresh per restart) and the entrypoint
+  removes stale `/tmp/.X99-lock` + `/tmp/.X11-unix/X99` before starting
+  Xvfb. NB: the entrypoint is baked into the image — after editing it you
+  must `docker compose build camoufox` **and then** `docker compose up -d
+  camoufox` (plain `up` reuses the existing image). The container's
   noVNC web UI (`http://localhost:7900`) lets a human solve interactive
   Cloudflare challenges / log in. Login is auto-filled from `HKEJ_USER`/
   `HKEJ_PASS` (`HKEJ_LOGIN_MODE=auto`, default); set `manual` to force a

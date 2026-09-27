@@ -104,6 +104,11 @@ class Settings(BaseSettings):
     openrouter_base_url: str = "https://openrouter.ai/api/v1"
     openrouter_model: str = "minimax/minimax-m3:free"
 
+    # ---- TypeSafe Jev (typed classification decisions, no text generation) ----
+    jev_api_key: str = ""
+    jev_base_url: str = "https://api.typesafe.ai"
+    jev_model: str = "jev-latest"
+
     # ---- LLM retry / rate-limit backoff ----
     # OpenRouter free models return HTTP 429 under sustained extract load.
     # chat_json()/embed() retry with a quiet period: honour the server's

@@ -4,6 +4,20 @@ Read this when touching `src/kb/llm.py`, `src/kb/extract.py`,
 `src/kb/prompts.py`, `src/kb/prompts/extraction/`, or the
 `extraction_run`/`prediction` tables.
 
+- **Jev classification (2026-09).** `kb extract jev <item_id>` or
+  `kb extract run --provider jev --limit N` calls TypeSafe's
+  `POST /v1/systemone` with named `noul` questions. It uses
+  `JEV_API_KEY`, `JEV_MODEL` (default `jev-latest`), and `JEV_BASE_URL`.
+  The `jev-v1` question set lives in `src/kb/jev.py`. Its boolean decisions,
+  probabilities, and per-chunk probabilities are stored in
+  `extraction_run.raw_response` under provider `jev`; API
+  `/api/items/{id}/runs` exposes them. Jev does not generate summaries,
+  quotations, ticker predictions, or embeddings; a Jev run never becomes
+  the item's primary full extraction or changes its extraction status.
+  The Jev HTTP client uses OS certificate roots and a direct connection;
+  this avoids a Windows Python 3.14 abort caused by an inherited
+  `SSLKEYLOGFILE` and the local sandbox's blocked proxy.
+
 - LLM calls go through `kb.llm.chat_json(system, user, schema, provider,
   model)`, which supports five providers: `openai` (or any OpenAI-compatible
   endpoint via `LLM_BASE_URL`, e.g. Azure OpenAI, GitHub Models, Ollama),

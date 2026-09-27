@@ -115,6 +115,8 @@ def extract_item(item_id: int, provider: str | None = None, model: str | None = 
     """
     s = settings()
     provider = provider or s.llm_provider
+    if provider == "jev":
+        return _extract_jev(item_id, model=model)
     if provider not in llm.PROVIDERS:
         raise ValueError(f"unknown LLM provider {provider!r}; choose one of {llm.PROVIDERS}")
     model = model or llm.default_model(provider)
@@ -201,6 +203,35 @@ def extract_item(item_id: int, provider: str | None = None, model: str | None = 
     return aggregate
 
 
+def _extract_jev(item_id: int, model: str | None = None) -> dict | None:
+    """Record a Jev classification without replacing full LLM extraction."""
+    from . import jev
+
+    model = model or settings().jev_model
+    with engine().begin() as conn:
+        row = conn.execute(text("SELECT title, content FROM item WHERE id=:i"),
+                           {"i": item_id}).mappings().first()
+    if not row or not row["content"]:
+        return None
+    if not settings().jev_api_key:
+        log.warning("JEV_API_KEY missing; skipping item %s", item_id)
+        return None
+    run_id = _start_run(item_id, "jev", model, jev.VERSION)
+    started = time.monotonic()
+    try:
+        result, usage = jev.classify(f"TITLE: {row['title']}\n\n{row['content']}", model=model)
+        _finish_run(run_id, "done", raw_response=result,
+                    duration_ms=int((time.monotonic() - started) * 1000),
+                    prompt_tokens=usage["input_tokens"],
+                    completion_tokens=usage["output_tokens"])
+        return result
+    except Exception as exc:  # noqa: BLE001
+        log.exception("Jev error on item %s", item_id)
+        _finish_run(run_id, "error", error=str(exc)[:2000],
+                    duration_ms=int((time.monotonic() - started) * 1000))
+        return None
+
+
 def compare_item(item_id: int, combos: list[tuple[str, str | None]],
                   prompt_version: str | None = None) -> dict[str, dict[str, Any]]:
     """Extract the same item with several provider/model combos without
@@ -214,6 +245,12 @@ def compare_item(item_id: int, combos: list[tuple[str, str | None]],
     pair = prompts.load(prompt_version)
     out: dict[str, dict[str, Any]] = {}
     for p, m in combos:
+        if p == "jev":
+            from .jev import VERSION
+            m = m or settings().jev_model
+            extract_item(item_id, provider=p, model=m, make_primary=False)
+            out[f"{p}/{m}"] = _run_stats(item_id, p, m, VERSION)
+            continue
         m = m or llm.default_model(p)
         extract_item(item_id, provider=p, model=m, make_primary=False,
                      prompt_version=pair.version)
@@ -574,6 +611,7 @@ def export_json(limit: int | None = None, source: str | None = None) -> int:
 
 def run(limit: int = 50, provider: str | None = None, model: str | None = None,
         prompt_version: str | None = None) -> int:
+    provider = provider or settings().llm_provider
     n = 0
     # Single-flight guard: a local batch overlapping the Jenkins nightly would
     # otherwise upsert the same (item, provider, model, prompt_version)
@@ -592,34 +630,50 @@ def run(limit: int = 50, provider: str | None = None, model: str | None = None,
         return 0
     try:
         with engine().connect() as conn:
-            ids = [r[0] for r in conn.execute(text(
-                "SELECT id FROM item WHERE extraction_status='pending' "
-                "ORDER BY published_at DESC NULLS LAST LIMIT :l"), {"l": limit})]
+            if provider == "jev":
+                from .jev import VERSION
+                ids = [r[0] for r in conn.execute(text("""
+                    SELECT i.id FROM item i
+                    WHERE i.content IS NOT NULL AND i.content <> ''
+                      AND NOT EXISTS (
+                        SELECT 1 FROM extraction_run er
+                        WHERE er.item_id=i.id AND er.provider='jev'
+                          AND er.model=:m AND er.prompt_version=:v
+                          AND er.status='done')
+                    ORDER BY i.published_at DESC NULLS LAST LIMIT :l
+                """), {"m": model or settings().jev_model, "v": VERSION, "l": limit})]
+            else:
+                ids = [r[0] for r in conn.execute(text(
+                    "SELECT id FROM item WHERE extraction_status='pending' "
+                    "ORDER BY published_at DESC NULLS LAST LIMIT :l"), {"l": limit})]
         for iid in ids:
             try:
                 res = extract_item(iid, provider=provider, model=model,
                                    prompt_version=prompt_version)
                 if res:
-                    try:
-                        embed_chunks(iid)
-                    except Exception as exc:
-                        log.warning("embed failed for %s: %s", iid, exc)
+                    if provider != "jev":
+                        try:
+                            embed_chunks(iid)
+                        except Exception as exc:
+                            log.warning("embed failed for %s: %s", iid, exc)
                     n += 1
             except Exception as exc:  # noqa: BLE001
                 log.exception("extract failed for %s: %s", iid, exc)
-                with engine().begin() as conn:
-                    conn.execute(text("UPDATE item SET extraction_status='error', "
-                                      "extraction_error=:e WHERE id=:i"),
-                                 {"e": str(exc)[:500], "i": iid})
+                if provider != "jev":
+                    with engine().begin() as conn:
+                        conn.execute(text("UPDATE item SET extraction_status='error', "
+                                          "extraction_error=:e WHERE id=:i"),
+                                     {"e": str(exc)[:500], "i": iid})
         log.info("extracted %d items", n)
         # Reconcile per-source progress counters from the item table as a safety
         # net against any increment drift during the batch. Cheap (one query per
         # source) and authoritative.
-        try:
-            from . import progress
-            progress.recompute()
-        except Exception:  # noqa: BLE001
-            log.debug("progress.recompute after batch failed", exc_info=True)
+        if provider != "jev":
+            try:
+                from . import progress
+                progress.recompute()
+            except Exception:  # noqa: BLE001
+                log.debug("progress.recompute after batch failed", exc_info=True)
     finally:
         lock_conn.close()
         lock_engine.dispose()

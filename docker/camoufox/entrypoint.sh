@@ -23,6 +23,13 @@ export DISPLAY=:99
 export MOZ_DISABLE_CONTENT_SANDBOX=1
 
 # Virtual framebuffer — always on (humanize + page rendering need a display).
+# /tmp is writable-layer (or tmpfs) and persists across `restart: unless-stopped`
+# restarts: an unclean exit (docker kill, crash) leaves /tmp/.X99-lock and the
+# /tmp/.X11-unix/X99 socket behind, after which Xvfb refuses to start forever
+# ("Server is already active for display 99") while the stale socket passes the
+# wait loop below — a permanent crash loop. This container is the sole owner of
+# display :99 in its own mount namespace, so removing the leftovers is safe.
+rm -f /tmp/.X99-lock /tmp/.X11-unix/X99 /tmp/.X11-unix/X99-lock
 Xvfb :99 -screen 0 1280x720x24 -nolisten tcp >/tmp/xvfb.log 2>&1 &
 # Wait until the X socket exists; a fixed 1s sleep races on slow hosts.
 i=0

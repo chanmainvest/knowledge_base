@@ -299,6 +299,7 @@ For scheduled creator scraping, keep the browser daemon logged in and run:
 uv run kb patreon scrape-creator --limit 20
 uv run kb patreon scrape-creator <creator> --limit 20
 uv run kb patreon scrape-creator --no-download
+uv run kb patreon repair-empty aminvest
 ```
 
 The Patreon scraper keeps a DB crawl catalog for each creator, then downloads
@@ -307,8 +308,11 @@ Markdown files are skipped, and the catalog records downloaded/pending state.
 `list-creators` shows creators already in that scrape catalog; add `--all` to
 include registered creator rows that have not produced catalog entries yet.
 Post discovery uses Patreon's JSON API. Downloads first use the post-detail API;
-if Patreon returns an empty `content` field, the scraper renders the post page
-with Playwright and extracts visible rich text from `.patreon-post-content`.
+the scraper reads legacy HTML `content` or the newer ProseMirror
+`content_json_string`. If both are empty, it renders the post page with
+Playwright and extracts visible rich text from `.patreon-post-content`.
+`repair-empty` revisits previously saved placeholders, updates the markdown
+and database where text is available, and queues fresh LLM extraction.
 This matters for posts whose `post_type` is `image_file` but which still contain
 article text.
 

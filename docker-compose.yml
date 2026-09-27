@@ -34,6 +34,13 @@ services:
     # MOZ_DISABLE_CONTENT_SANDBOX=1 is set (the image entrypoint always sets it).
     security_opt:
       - seccomp:unconfined
+    # tmpfs /tmp: the writable layer persists across restarts, and Xvfb locks
+    # left there by an unclean exit wedge the container into a permanent crash
+    # loop (see entrypoint.sh). A fresh /tmp per restart makes every restart
+    # start clean; the entrypoint also removes stale locks for `docker run` /
+    # `docker restart` paths that bypass compose.
+    tmpfs:
+      - /tmp
     environment:
       CAMOUFOX_NOVNC: ${HKEJ_DOCKER_NOVNC:-1}
       CAMOUFOX_WS_PATH: hkej
